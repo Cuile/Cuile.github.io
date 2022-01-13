@@ -1,3 +1,3 @@
 .\hugo.exe --minify
-cp -Recurse -Force .\public\* ..\Cuile.github.io\ 
-rm -Recurse .\public 
+# cp .\public\* ..\Cuile.github.io\ -Recurse -Force 
+rm .\public -Recurse
