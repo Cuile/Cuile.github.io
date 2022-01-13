@@ -2,20 +2,20 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
-    <loc>http://blog.cuile.com/posts/docker-cli/</loc>
+    <loc>https://blog.cuile.com/posts/docker-cli/</loc>
     <lastmod>2022-01-13T17:52:31+08:00</lastmod>
   </url><url>
-    <loc>http://blog.cuile.com/posts/</loc>
+    <loc>https://blog.cuile.com/posts/</loc>
     <lastmod>2022-01-13T17:52:31+08:00</lastmod>
   </url><url>
-    <loc>http://blog.cuile.com/</loc>
+    <loc>https://blog.cuile.com/</loc>
     <lastmod>2022-01-13T17:52:31+08:00</lastmod>
   </url><url>
-    <loc>http://blog.cuile.com/posts/first/</loc>
+    <loc>https://blog.cuile.com/posts/first/</loc>
     <lastmod>2022-01-13T14:08:24+08:00</lastmod>
   </url><url>
-    <loc>http://blog.cuile.com/categories/</loc>
+    <loc>https://blog.cuile.com/categories/</loc>
   </url><url>
-    <loc>http://blog.cuile.com/tags/</loc>
+    <loc>https://blog.cuile.com/tags/</loc>
   </url>
 </urlset>
