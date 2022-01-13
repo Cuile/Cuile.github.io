@@ -1,0 +1,4 @@
+baseURL = 'http://blog.cuile.com/'
+languageCode = 'zh-CN'
+title = '瘦了就帅了'
+theme = 'clarity'
