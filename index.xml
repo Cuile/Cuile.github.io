@@ -2,31 +2,17 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>瘦了就帅了</title>
-    <link>https://blog.cuile.com/</link>
+    <link>http://blog.cuile.com/</link>
     <description>Recent content on 瘦了就帅了</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-CN</language>
-    <lastBuildDate>Thu, 13 Jan 2022 17:52:31 +0800</lastBuildDate><atom:link href="https://blog.cuile.com/index.xml" rel="self" type="application/rss+xml" />
-    <item>
-      <title>Docker CLI</title>
-      <link>https://blog.cuile.com/posts/docker-cli/</link>
-      <pubDate>Thu, 13 Jan 2022 17:52:31 +0800</pubDate>
-      
-      <guid>https://blog.cuile.com/posts/docker-cli/</guid>
-      <description>
-        
-          
-          
-        
-      </description>
-    </item>
-    
+    <lastBuildDate>Thu, 13 Jan 2022 14:08:24 +0800</lastBuildDate><atom:link href="http://blog.cuile.com/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>First</title>
-      <link>https://blog.cuile.com/posts/first/</link>
+      <link>http://blog.cuile.com/posts/first/</link>
       <pubDate>Thu, 13 Jan 2022 14:08:24 +0800</pubDate>
       
-      <guid>https://blog.cuile.com/posts/first/</guid>
+      <guid>http://blog.cuile.com/posts/first/</guid>
       <description>
         
           

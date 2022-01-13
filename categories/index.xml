@@ -2,9 +2,9 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Categories on 瘦了就帅了</title>
-    <link>https://blog.cuile.com/categories/</link>
+    <link>http://blog.cuile.com/categories/</link>
     <description>Recent content in Categories on 瘦了就帅了</description>
     <generator>Hugo -- gohugo.io</generator>
-    <language>zh-CN</language><atom:link href="https://blog.cuile.com/categories/index.xml" rel="self" type="application/rss+xml" />
+    <language>zh-CN</language><atom:link href="http://blog.cuile.com/categories/index.xml" rel="self" type="application/rss+xml" />
   </channel>
 </rss>
