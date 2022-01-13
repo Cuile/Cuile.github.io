@@ -24,12 +24,6 @@ jobs:
       - name: Build
         run: hugo --minify
         
-      # 创建CNAME，这个是原始配置中没有的
-      # - uses: "finnp/create-file-action@master"
-      #   env:
-      #     FILE_NAME: "./public/CNAME"
-      #     FILE_DATA: "blog.cuile.com"
-
       - name: Deploy
         uses: peaceiris/actions-gh-pages@v3
         with:
