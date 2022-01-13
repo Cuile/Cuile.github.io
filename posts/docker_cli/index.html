@@ -1,26 +1,24 @@
-<!doctype html><html lang=en data-figures class=home>
+<!doctype html><html lang=en data-figures class=page>
 <head>
-<meta name=generator content="Hugo 0.92.0">
-<title>瘦了就帅了</title>
+<title>Docker_CLI | 瘦了就帅了</title>
 <meta charset=utf-8>
 <meta name=viewport content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
 <meta http-equiv=x-ua-compatible content="IE=edge">
 <meta http-equiv=content-security-policy content="upgrade-insecure-requests">
 <meta property="og:locale" content="en">
-<meta property="og:type" content="website">
-<meta name=description content>
+<meta property="og:type" content="article">
+<meta name=description content="Docker使用命令 镜像列表 $ docker image ls -a # or $ docker images 容器列表 $ docker container ls -a # or $ docker ps 删除冗余镜像 $ docker system prune 创建桥接网络 $ docker network …">
 <meta name=twitter:card content="summary">
 <meta name=twitter:creator content>
-<meta name=twitter:title content="瘦了就帅了">
-<meta property="og:url" content="http://blog.cuile.com/">
-<meta property="og:title" content="瘦了就帅了">
-<meta property="og:description" content>
+<meta name=twitter:title content="Docker_CLI">
+<meta property="og:url" content="http://blog.cuile.com/posts/docker_cli/">
+<meta property="og:title" content="Docker_CLI">
+<meta property="og:description" content="Docker使用命令 镜像列表 $ docker image ls -a # or $ docker images 容器列表 $ docker container ls -a # or $ docker ps 删除冗余镜像 $ docker system prune 创建桥接网络 $ docker network …">
 <meta property="og:image" content="http://blog.cuile.com/">
 <link rel=apple-touch-icon sizes=180x180 href=http://blog.cuile.com/icons/apple-touch-icon.png>
 <link rel=icon type=image/png sizes=32x32 href=http://blog.cuile.com/icons/favicon-32x32.png>
 <link rel=manifest href=http://blog.cuile.com/icons/site.webmanifest>
-<link rel=canonical href=http://blog.cuile.com/>
-<link rel=alternate type=application/rss+xml href=http://blog.cuile.com/index.xml title=瘦了就帅了>
+<link rel=canonical href=http://blog.cuile.com/posts/docker_cli/>
 <link rel=preload href=http://blog.cuile.com/css/styles.01869c76e4757810d94ecbdccadba853d9d01d9416dfeb113df02e1479ff8b36e284e8bfeb3e8f353f2fdcdcbbdfcf27e558dbda96eb6341bfc304d55cd9e986.css integrity="sha512-AYacduR1eBDZTsvcytuoU9nQHZQW3+sRPfAuFHn/izbihOi/6z6PNT8v3Ny7388n5Vjb2pbrY0G/wwTVXNnphg==" as=style crossorigin=anonymous>
 <link rel=preload href=http://blog.cuile.com/js/bundle.min.84b005361841618b00dc9871eb83e5466b5d4b84f4888ac28fc99cb6e53c5a66063ac0b6d2d91dbf61fe8b35f5ee5e9c4d0a722b6eea6c8504061c617080244f.js as=script integrity="sha512-hLAFNhhBYYsA3Jhx64PlRmtdS4T0iIrCj8mctuU8WmYGOsC20tkdv2H+izX17l6cTQpyK27qbIUEBhxhcIAkTw==" crossorigin=anonymous>
 <link rel=stylesheet type=text/css href=http://blog.cuile.com/css/styles.01869c76e4757810d94ecbdccadba853d9d01d9416dfeb113df02e1479ff8b36e284e8bfeb3e8f353f2fdcdcbbdfcf27e558dbda96eb6341bfc304d55cd9e986.css integrity="sha512-AYacduR1eBDZTsvcytuoU9nQHZQW3+sRPfAuFHn/izbihOi/6z6PNT8v3Ny7388n5Vjb2pbrY0G/wwTVXNnphg==" crossorigin=anonymous>
@@ -43,13 +41,8 @@
 </header>
 <main>
 <div class="grid-inverse wrap content">
-<ul class=posts id=posts>
-<li class=post_item>
-<div class=excerpt>
-<div class=excerpt_header>
-<h3 class=post_link>
-<a href=http://blog.cuile.com/posts/docker_cli/ title=Docker_CLI>Docker_CLI</a>
-</h3>
+<article class=post_content>
+<h1 class=post_title>Docker_CLI</h1>
 <div class=post_meta>
 <span><svg class="icon"><use xlink:href="#calendar"/></svg></span>
 <span class=post_date>
@@ -69,63 +62,38 @@ Share on:
 </div>
 </span>
 </div>
+<div class=post_body><h1 id=docker使用命令>Docker使用命令</h1>
+<h2 id=镜像列表>镜像列表</h2>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash>$ docker image ls -a
+<span style=color:#75715e># or</span>
+$ docker images
+</code></pre></div><h2 id=容器列表>容器列表</h2>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash>$ docker container ls -a
+<span style=color:#75715e># or</span>
+$ docker ps
+</code></pre></div><h2 id=删除冗余镜像>删除冗余镜像</h2>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash>$ docker system prune
+</code></pre></div><h2 id=创建桥接网络>创建桥接网络</h2>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash>$ docker network create <span style=color:#f92672>[</span>name<span style=color:#f92672>]</span>
+</code></pre></div><h2 id=docker快捷命令>Docker快捷命令</h2>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash>$ echo <span style=color:#e6db74>&#34;alias d-ll=&#39;docker image ls -a; echo; docker container ls -a&#39;&#34;</span> &gt;&gt; ~/.bashrc <span style=color:#ae81ff>\
+</span><span style=color:#ae81ff></span>    <span style=color:#f92672>&amp;&amp;</span> echo <span style=color:#e6db74>&#34;alias d-ps=&#39;docker ps&#39;&#34;</span> &gt;&gt; ~/.bashrc <span style=color:#ae81ff>\
+</span><span style=color:#ae81ff></span>    <span style=color:#f92672>&amp;&amp;</span> echo <span style=color:#e6db74>&#34;alias d-clean=&#39;docker system prune -f&#39;&#34;</span> &gt;&gt; ~/.bashrc <span style=color:#ae81ff>\
+</span><span style=color:#ae81ff></span>    <span style=color:#f92672>&amp;&amp;</span> echo <span style=color:#e6db74>&#34;alias d-rm=&#39;_a(){ docker image rm </span>$1<span style=color:#e6db74>; echo; docker container rm </span>$1<span style=color:#e6db74>; }; _a&#39;&#34;</span> &gt;&gt; ~/.bashrc <span style=color:#ae81ff>\
+</span><span style=color:#ae81ff></span>    <span style=color:#f92672>&amp;&amp;</span> echo <span style=color:#e6db74>&#34;alias d-exec=&#39;_a(){ docker exec -it </span>$1<span style=color:#e6db74> /bin/bash; }; _a&#39;&#34;</span> &gt;&gt; ~/.bashrc <span style=color:#ae81ff>\
+</span><span style=color:#ae81ff></span>    <span style=color:#f92672>&amp;&amp;</span> echo <span style=color:#e6db74>&#34;alias d-stop=&#39;_a(){ docker container stop </span>$1<span style=color:#e6db74>; }; _a&#39;&#34;</span> &gt;&gt; ~/.bashrc <span style=color:#ae81ff>\
+</span><span style=color:#ae81ff></span>    <span style=color:#f92672>&amp;&amp;</span> echo <span style=color:#e6db74>&#34;alias d-kill=&#39;_a(){ docker container kill </span>$1<span style=color:#e6db74>; }; _a&#39;&#34;</span> &gt;&gt; ~/.bashrc
+    
+$ source ~/.bashrc
+</code></pre></div>
 </div>
-<div class=excerpt_footer>
-<div>
-<p class=pale>
-Docker使用命令 镜像列表 $ docker image ls -a # or $ docker images 容器列表 $ docker container ls -a # or $ docker ps 删除冗余镜像 $ docker system prune 创建桥接网络 $ docker network create [name] Docker快捷命令 $ echo "alias d-ll='docker image ls -a; echo; docker container ls -a'" >> ~/.bashrc \ && echo "alias …
-</p>
-<a href=http://blog.cuile.com/posts/docker_cli/ title="Read More" class="excerpt_more button">Read More</a>
+<div class=post_comments>
 </div>
-</div>
-</div>
-</li>
-<li class=post_item>
-<div class=excerpt>
-<div class=excerpt_header>
-<h3 class=post_link>
-<a href=http://blog.cuile.com/posts/first/ title=First>First</a>
-</h3>
-<div class=post_meta>
-<span><svg class="icon"><use xlink:href="#calendar"/></svg></span>
-<span class=post_date>
-Jan 13, 2022</span>
-<span class=post_time> · 1 min read</span>
-<span class=page_only>&nbsp;·
-<div class=post_share>
-Share on:
-<a href="https://twitter.com/intent/tweet?text=First&url=http%3a%2f%2fblog.cuile.com%2fposts%2ffirst%2f&tw_p=tweetbutton" class=twitter title="Share on Twitter" target=_blank rel=nofollow><svg class="icon"><use xlink:href="#twitter"/></svg>
-</a>
-<a href="https://www.facebook.com/sharer.php?u=http%3a%2f%2fblog.cuile.com%2fposts%2ffirst%2f&t=First" class=facebook title="Share on Facebook" target=_blank rel=nofollow><svg class="icon"><use xlink:href="#facebook"/></svg>
-</a>
-<a href=#linkedinshare id=linkedinshare class=linkedin title="Share on LinkedIn" rel=nofollow><svg class="icon"><use xlink:href="#linkedin"/></svg>
-</a>
-<a href=http://blog.cuile.com/posts/first/ title="Copy Link" class="link link_yank"><svg class="icon"><use xlink:href="#copy"/></svg>
-</a>
-</div>
-</span>
-</div>
-</div>
-<div class=excerpt_footer>
-<div>
-<p class=pale>
-第一个测试内容
-</p>
-<a href=http://blog.cuile.com/posts/first/ title="Read More" class="excerpt_more button">Read More</a>
-</div>
-</div>
-</div>
-</li>
-<li>
-</li>
-</ul>
+</article>
 <aside class=sidebar>
 <section class=sidebar_inner>
 <h2 class=mt-4>Recent Posts</h2>
 <ul class=flex-column>
-<li>
-<a href=http://blog.cuile.com/posts/docker_cli/ class=nav-link title=Docker_CLI>Docker_CLI</a>
-</li>
 <li>
 <a href=http://blog.cuile.com/posts/first/ class=nav-link title=First>First</a>
 </li>
