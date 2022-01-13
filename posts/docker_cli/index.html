@@ -1,19 +1,19 @@
 <!doctype html><html lang=en data-figures class=page>
 <head>
-<title>Docker_CLI | 瘦了就帅了</title>
+<title>Docker使用命令 | 瘦了就帅了</title>
 <meta charset=utf-8>
 <meta name=viewport content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
 <meta http-equiv=x-ua-compatible content="IE=edge">
 <meta http-equiv=content-security-policy content="upgrade-insecure-requests">
 <meta property="og:locale" content="en">
 <meta property="og:type" content="article">
-<meta name=description content="Docker使用命令 镜像列表 $ docker image ls -a # or $ docker images 容器列表 $ docker container ls -a # or $ docker ps 删除冗余镜像 $ docker system prune 创建桥接网络 $ docker network …">
+<meta name=description content="镜像列表 $ docker image ls -a # or $ docker images 容器列表 $ docker container ls -a # or $ docker ps 删除冗余镜像 $ docker system prune 创建桥接网络 $ docker network create [name] …">
 <meta name=twitter:card content="summary">
 <meta name=twitter:creator content>
-<meta name=twitter:title content="Docker_CLI">
+<meta name=twitter:title content="Docker使用命令">
 <meta property="og:url" content="http://blog.cuile.com/posts/docker_cli/">
-<meta property="og:title" content="Docker_CLI">
-<meta property="og:description" content="Docker使用命令 镜像列表 $ docker image ls -a # or $ docker images 容器列表 $ docker container ls -a # or $ docker ps 删除冗余镜像 $ docker system prune 创建桥接网络 $ docker network …">
+<meta property="og:title" content="Docker使用命令">
+<meta property="og:description" content="镜像列表 $ docker image ls -a # or $ docker images 容器列表 $ docker container ls -a # or $ docker ps 删除冗余镜像 $ docker system prune 创建桥接网络 $ docker network create [name] …">
 <meta property="og:image" content="http://blog.cuile.com/">
 <link rel=apple-touch-icon sizes=180x180 href=http://blog.cuile.com/icons/apple-touch-icon.png>
 <link rel=icon type=image/png sizes=32x32 href=http://blog.cuile.com/icons/favicon-32x32.png>
@@ -42,7 +42,7 @@
 <main>
 <div class="grid-inverse wrap content">
 <article class=post_content>
-<h1 class=post_title>Docker_CLI</h1>
+<h1 class=post_title>Docker使用命令</h1>
 <div class=post_meta>
 <span><svg class="icon"><use xlink:href="#calendar"/></svg></span>
 <span class=post_date>
@@ -51,9 +51,9 @@ Jan 13, 2022</span>
 <span class=page_only>&nbsp;·
 <div class=post_share>
 Share on:
-<a href="https://twitter.com/intent/tweet?text=Docker_CLI&url=http%3a%2f%2fblog.cuile.com%2fposts%2fdocker_cli%2f&tw_p=tweetbutton" class=twitter title="Share on Twitter" target=_blank rel=nofollow><svg class="icon"><use xlink:href="#twitter"/></svg>
+<a href="https://twitter.com/intent/tweet?text=Docker%e4%bd%bf%e7%94%a8%e5%91%bd%e4%bb%a4&url=http%3a%2f%2fblog.cuile.com%2fposts%2fdocker_cli%2f&tw_p=tweetbutton" class=twitter title="Share on Twitter" target=_blank rel=nofollow><svg class="icon"><use xlink:href="#twitter"/></svg>
 </a>
-<a href="https://www.facebook.com/sharer.php?u=http%3a%2f%2fblog.cuile.com%2fposts%2fdocker_cli%2f&t=Docker_CLI" class=facebook title="Share on Facebook" target=_blank rel=nofollow><svg class="icon"><use xlink:href="#facebook"/></svg>
+<a href="https://www.facebook.com/sharer.php?u=http%3a%2f%2fblog.cuile.com%2fposts%2fdocker_cli%2f&t=Docker%e4%bd%bf%e7%94%a8%e5%91%bd%e4%bb%a4" class=facebook title="Share on Facebook" target=_blank rel=nofollow><svg class="icon"><use xlink:href="#facebook"/></svg>
 </a>
 <a href=#linkedinshare id=linkedinshare class=linkedin title="Share on LinkedIn" rel=nofollow><svg class="icon"><use xlink:href="#linkedin"/></svg>
 </a>
@@ -62,8 +62,7 @@ Share on:
 </div>
 </span>
 </div>
-<div class=post_body><h1 id=docker使用命令>Docker使用命令</h1>
-<h2 id=镜像列表>镜像列表</h2>
+<div class=post_body><h2 id=镜像列表>镜像列表</h2>
 <div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash>$ docker image ls -a
 <span style=color:#75715e># or</span>
 $ docker images
