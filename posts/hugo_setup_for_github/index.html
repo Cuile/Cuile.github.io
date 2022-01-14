@@ -81,7 +81,7 @@ Share on:
 <h3 id=1-网页正常部署后访问时页面却无法正常显示部局完全是乱的>1. 网页正常部署后，访问时页面却无法正常显示，部局完全是乱的。</h3>
 <p>这可能是https请求报"block:mixed-content"错误导致的，是浏览器不允许在https页面里嵌入http的请求，现在高版本的浏览器为了用户体验，都不会弹窗报错，只会在控制台上打印一条错误信息。</p>
 <p>解决这个问题，可以从以下2点入手：</p>
-<p>1.1. 在"theme//layouts/partials/head.html"文件内，添加代码</p>
+<p>1.1. 在"theme/&lt;YouThemeName>/layouts/partials/head.html"文件内，添加代码</p>
 <div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-html data-lang=html>&lt;<span style=color:#f92672>meta</span> <span style=color:#a6e22e>http-equiv</span><span style=color:#f92672>=</span><span style=color:#e6db74>&#34;Content-Security-Policy&#34;</span> <span style=color:#a6e22e>content</span><span style=color:#f92672>=</span><span style=color:#e6db74>&#34;upgrade-insecure-requests&#34;</span>&gt;
 </code></pre></div><p><strong>参考文档</strong></p>
 <ul>
