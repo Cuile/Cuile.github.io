@@ -2,6 +2,7 @@
 title: "Docker使用命令"
 date: 2022-01-13T22:20:52+08:00
 # draft: true
+tags: ["Docker","Shell"]
 ---
 
 ## 镜像列表
