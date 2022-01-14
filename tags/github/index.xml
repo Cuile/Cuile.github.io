@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Github on 瘦了就帅了</title><link>https://blog.cuile.com/tags/github/</link><description>Recent content in Github on 瘦了就帅了</description><generator>Hugo -- gohugo.io</generator><language>zh-CN</language><lastBuildDate>Fri, 14 Jan 2022 17:15:06 +0800</lastBuildDate><atom:link href="https://blog.cuile.com/tags/github/index.xml" rel="self" type="application/rss+xml"/><item><title>Github使用Hugo生成Blog</title><link>https://blog.cuile.com/posts/hugo_setup_for_github/</link><pubDate>Fri, 14 Jan 2022 17:15:06 +0800</pubDate><guid>https://blog.cuile.com/posts/hugo_setup_for_github/</guid><description>
+设置流程 不过多说明了，网上教程非常多，可以找来看。
+参考文档
+使用 Github Actions 自动发布 hugo 站点 Hugo的基本安装｜网站生成｜托管至Github Pages 各种坑位 1. 网页正常部署后，访问时页面却无法正常显示，部局完全是乱的。 这可能是https请求报&amp;quot;block:mixed-content&amp;quot;错误导致的，是浏览器不允许在https页面里嵌入http的请求，现在高版本的浏览器为了用户体验，都不会弹窗报错，只会在控制台上打印一条错误信息。
+解决这个问题，可以从以下2点入手：
+1.1. 在&amp;quot;theme//layouts/partials/head.html&amp;quot;文件内，添加代码
+&amp;lt;meta http-equiv=&amp;#34;Content-Security-Policy&amp;#34; content=&amp;#34;upgrade-insecure-requests&amp;#34;&amp;gt; 参考文档
+https请求报错block:mixed-content问题的解决办法 1.2. 确保config.toml文件内，&amp;ldquo;baseUrl&amp;quot;的值与实际地址一致。
+2. config.toml 里的 theme 值，要与主题文档夹名一致，不然可能会导致主题无法应用的问题。 3. Github Actions 设置里的 gh-pages.yml 写法要注意 &amp;ldquo;Setup Hugo&amp;quot;项目里，标准版本与扩展版本的参数写法不一样。
+# 使用扩展版本 - name: Setup Hugo uses: peaceiris/actions-hugo@v2 with: hugo-version: &amp;#39;0.91.2&amp;#39; extended: true # 使用标准版本 - name: Setup Hugo uses: peaceiris/actions-hugo@v2 with: hugo-version: &amp;#39;latest&amp;#39; 参考文档
+GitHub Actions for Hugo</description></item></channel></rss>
