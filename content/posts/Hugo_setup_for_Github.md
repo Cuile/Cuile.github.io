@@ -21,7 +21,7 @@ tags: ["Hugo","Github","Blog"]
 
 解决这个问题，可以从以下2点入手：
 
-1.1. 在"theme/<YouThemeName>/layouts/partials/head.html"文件内，添加代码
+1.1. 在"theme/\<YouThemeName\>/layouts/partials/head.html"文件内，添加代码
 ```html
 <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
 ```
