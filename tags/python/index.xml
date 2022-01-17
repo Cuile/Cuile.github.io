@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Python on 瘦了就帅了</title><link>https://blog.cuile.com/tags/python/</link><description>Recent content in Python on 瘦了就帅了</description><generator>Hugo -- gohugo.io</generator><language>zh-CN</language><lastBuildDate>Fri, 11 May 2018 14:49:57 +0800</lastBuildDate><atom:link href="https://blog.cuile.com/tags/python/index.xml" rel="self" type="application/rss+xml"/><item><title>在pypi上发布自己的Python库</title><link>https://blog.cuile.com/posts/release_pypi_package/</link><pubDate>Fri, 11 May 2018 14:49:57 +0800</pubDate><guid>https://blog.cuile.com/posts/release_pypi_package/</guid><description>
+Python 的 pypi.python.org 站点终于要退休了，而新的接任者 pypi.org 无论从美观、风格上都让人大大的喜欢，终于在审美一这项上及格了。
+而且新的 pypi.org 能够正确的渲染 Markdown 格式的描述，实在是让人欣慰，终于可以和 Github 同步了，不用在麻烦的转换一次了。
+下面就来聊聊，如何正确的把库发布到 pypi.org 上：
+1. 注册 pypi.org 账号 嗯，这是正确的废话！
+2. 编写 setup.py setup.py 的内容比较重要，但其它的细节不谈，主要聊聊 long_description 部分，这部分是对库能力的详细描述。
+如果说 keywords 和 description 能提高别人搜索到项目的概率的话，那 long_description 就在很大程度上决定别人对你对项目有没有进一步的想法了。
+在针对 long_description 的网上介绍中，对具体使用方法明确写出的是少之又少，所以我今天就特别举例说明一下。
+2.1 setup.py #!/usr/bin/env python # coding: utf-8 from setuptools import setup setup( name=&amp;#39;sequence2hash&amp;#39;, version=&amp;#39;1.1.2&amp;#39;, keywords=&amp;#39;tuple dict list sequence hash key/value&amp;#39;, packages=[&amp;#39;sequence2hash&amp;#39;], url=&amp;#39;https://github.com/Cuile/sequence2hash&amp;#39;, description=&amp;#39;This tool converts a valid value in a sequence to a hash and contains a path to a valid value in the key field&amp;#39;, long_description_content_type=&amp;#39;text/markdown&amp;#39;, long_description=open(&amp;#39;README.</description></item></channel></rss>

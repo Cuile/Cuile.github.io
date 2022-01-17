@@ -1,25 +1,28 @@
-<!doctype html><html lang=en data-figures>
+<!doctype html><html lang=en data-figures class=page>
 <head>
-<title>Shell | 瘦了就帅了</title>
+<title>在pypi上发布自己的Python库 | 瘦了就帅了</title>
 <meta charset=utf-8>
 <meta name=viewport content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
 <meta http-equiv=x-ua-compatible content="IE=edge">
 <meta http-equiv=content-security-policy content="upgrade-insecure-requests">
 <meta property="og:locale" content="en">
 <meta property="og:type" content="article">
-<meta name=description content>
+<meta name=description content="Python 的 pypi.python.org 站点终于要退休了，而新的接任者 pypi.org 无论从美观、风格上都让人大大的喜欢，终于在审美一这项上及格了。
+而且新的 pypi.org 能够正确的渲染 Markdown 格式的描述，实在是让人欣慰，终于可以和 Github 同步了，不用在麻烦的转换一次了。
+下面就 …">
 <meta name=twitter:card content="summary">
 <meta name=twitter:creator content>
-<meta name=twitter:title content="Shell">
-<meta property="og:url" content="https://blog.cuile.com/tags/shell/">
-<meta property="og:title" content="Shell">
-<meta property="og:description" content>
+<meta name=twitter:title content="在pypi上发布自己的Python库">
+<meta property="og:url" content="https://blog.cuile.com/posts/release_pypi_package/">
+<meta property="og:title" content="在pypi上发布自己的Python库">
+<meta property="og:description" content="Python 的 pypi.python.org 站点终于要退休了，而新的接任者 pypi.org 无论从美观、风格上都让人大大的喜欢，终于在审美一这项上及格了。
+而且新的 pypi.org 能够正确的渲染 Markdown 格式的描述，实在是让人欣慰，终于可以和 Github 同步了，不用在麻烦的转换一次了。
+下面就 …">
 <meta property="og:image" content="https://blog.cuile.com/">
 <link rel=apple-touch-icon sizes=180x180 href=https://blog.cuile.com/icons/apple-touch-icon.png>
 <link rel=icon type=image/png sizes=32x32 href=https://blog.cuile.com/icons/favicon-32x32.png>
 <link rel=manifest href=https://blog.cuile.com/icons/site.webmanifest>
-<link rel=canonical href=https://blog.cuile.com/tags/shell/>
-<link rel=alternate type=application/rss+xml href=https://blog.cuile.com/tags/shell/index.xml title=瘦了就帅了>
+<link rel=canonical href=https://blog.cuile.com/posts/release_pypi_package/>
 <link rel=preload href=https://blog.cuile.com/css/styles.01869c76e4757810d94ecbdccadba853d9d01d9416dfeb113df02e1479ff8b36e284e8bfeb3e8f353f2fdcdcbbdfcf27e558dbda96eb6341bfc304d55cd9e986.css integrity="sha512-AYacduR1eBDZTsvcytuoU9nQHZQW3+sRPfAuFHn/izbihOi/6z6PNT8v3Ny7388n5Vjb2pbrY0G/wwTVXNnphg==" as=style crossorigin=anonymous>
 <link rel=preload href=https://blog.cuile.com/js/bundle.min.84b005361841618b00dc9871eb83e5466b5d4b84f4888ac28fc99cb6e53c5a66063ac0b6d2d91dbf61fe8b35f5ee5e9c4d0a722b6eea6c8504061c617080244f.js as=script integrity="sha512-hLAFNhhBYYsA3Jhx64PlRmtdS4T0iIrCj8mctuU8WmYGOsC20tkdv2H+izX17l6cTQpyK27qbIUEBhxhcIAkTw==" crossorigin=anonymous>
 <link rel=stylesheet type=text/css href=https://blog.cuile.com/css/styles.01869c76e4757810d94ecbdccadba853d9d01d9416dfeb113df02e1479ff8b36e284e8bfeb3e8f353f2fdcdcbbdfcf27e558dbda96eb6341bfc304d55cd9e986.css integrity="sha512-AYacduR1eBDZTsvcytuoU9nQHZQW3+sRPfAuFHn/izbihOi/6z6PNT8v3Ny7388n5Vjb2pbrY0G/wwTVXNnphg==" crossorigin=anonymous>
@@ -42,49 +45,85 @@
 </header>
 <main>
 <div class="grid-inverse wrap content">
-<ul class=posts id=posts>
-<li class=post_item>
-<div class=excerpt>
-<div class=excerpt_header>
-<h3 class=post_link>
-<a href=https://blog.cuile.com/posts/docker_cli/ title=Docker使用命令>Docker使用命令</a>
-</h3>
+<article class=post_content>
+<h1 class=post_title>在pypi上发布自己的Python库</h1>
 <div class=post_meta>
 <span><svg class="icon"><use xlink:href="#calendar"/></svg></span>
 <span class=post_date>
-Jan 13, 2022</span>
-<span class=post_time> · 1 min read</span><span>&nbsp;· <a href=https://blog.cuile.com/tags/docker title=Docker class="post_tag button button_translucent">Docker
-</a><a href=https://blog.cuile.com/tags/shell title=Shell class="post_tag button button_translucent">Shell
+May 11, 2018</span>
+<span class=post_time> · 1 min read</span><span>&nbsp;· <a href=https://blog.cuile.com/tags/python title=Python class="post_tag button button_translucent">Python
+</a><a href=https://blog.cuile.com/tags/pypi title=PyPi class="post_tag button button_translucent">PyPi
 </a>
 </span>
 <span class=page_only>&nbsp;·
 <div class=post_share>
 Share on:
-<a href="https://twitter.com/intent/tweet?text=Docker%e4%bd%bf%e7%94%a8%e5%91%bd%e4%bb%a4&url=https%3a%2f%2fblog.cuile.com%2fposts%2fdocker_cli%2f&tw_p=tweetbutton" class=twitter title="Share on Twitter" target=_blank rel=nofollow><svg class="icon"><use xlink:href="#twitter"/></svg>
+<a href="https://twitter.com/intent/tweet?text=%e5%9c%a8pypi%e4%b8%8a%e5%8f%91%e5%b8%83%e8%87%aa%e5%b7%b1%e7%9a%84Python%e5%ba%93&url=https%3a%2f%2fblog.cuile.com%2fposts%2frelease_pypi_package%2f&tw_p=tweetbutton" class=twitter title="Share on Twitter" target=_blank rel=nofollow><svg class="icon"><use xlink:href="#twitter"/></svg>
 </a>
-<a href="https://www.facebook.com/sharer.php?u=https%3a%2f%2fblog.cuile.com%2fposts%2fdocker_cli%2f&t=Docker%e4%bd%bf%e7%94%a8%e5%91%bd%e4%bb%a4" class=facebook title="Share on Facebook" target=_blank rel=nofollow><svg class="icon"><use xlink:href="#facebook"/></svg>
+<a href="https://www.facebook.com/sharer.php?u=https%3a%2f%2fblog.cuile.com%2fposts%2frelease_pypi_package%2f&t=%e5%9c%a8pypi%e4%b8%8a%e5%8f%91%e5%b8%83%e8%87%aa%e5%b7%b1%e7%9a%84Python%e5%ba%93" class=facebook title="Share on Facebook" target=_blank rel=nofollow><svg class="icon"><use xlink:href="#facebook"/></svg>
 </a>
 <a href=#linkedinshare id=linkedinshare class=linkedin title="Share on LinkedIn" rel=nofollow><svg class="icon"><use xlink:href="#linkedin"/></svg>
 </a>
-<a href=https://blog.cuile.com/posts/docker_cli/ title="Copy Link" class="link link_yank"><svg class="icon"><use xlink:href="#copy"/></svg>
+<a href=https://blog.cuile.com/posts/release_pypi_package/ title="Copy Link" class="link link_yank"><svg class="icon"><use xlink:href="#copy"/></svg>
 </a>
 </div>
 </span>
 </div>
+<div class=post_body><p>Python 的 pypi.python.org 站点终于要退休了，而新的接任者 pypi.org 无论从美观、风格上都让人大大的喜欢，终于在审美一这项上及格了。</p>
+<p>而且新的 pypi.org 能够正确的渲染 Markdown 格式的描述，实在是让人欣慰，终于可以和 Github 同步了，不用在麻烦的转换一次了。</p>
+<p>下面就来聊聊，如何正确的把库发布到 pypi.org 上：</p>
+<h2 id=1-注册-pypiorg-账号>1. 注册 pypi.org 账号</h2>
+<p>嗯，这是正确的废话！</p>
+<h2 id=2-编写-setuppy>2. 编写 setup.py</h2>
+<p>setup.py 的内容比较重要，但其它的细节不谈，主要聊聊 long_description 部分，这部分是对库能力的详细描述。</p>
+<blockquote>
+<p>如果说 keywords 和 description 能提高别人搜索到项目的概率的话，那 long_description 就在很大程度上决定别人对你对项目有没有进一步的想法了。</p>
+</blockquote>
+<p>在针对 long_description 的网上介绍中，对具体使用方法明确写出的是少之又少，所以我今天就特别举例说明一下。</p>
+<h3 id=21-setuppy>2.1 setup.py</h3>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-python data-lang=python><span style=color:#75715e>#!/usr/bin/env python</span>
+<span style=color:#75715e># coding: utf-8</span>
+
+<span style=color:#f92672>from</span> setuptools <span style=color:#f92672>import</span> setup
+
+setup(
+name<span style=color:#f92672>=</span><span style=color:#e6db74>&#39;sequence2hash&#39;</span>,
+version<span style=color:#f92672>=</span><span style=color:#e6db74>&#39;1.1.2&#39;</span>,
+keywords<span style=color:#f92672>=</span><span style=color:#e6db74>&#39;tuple dict list sequence hash key/value&#39;</span>,
+packages<span style=color:#f92672>=</span>[<span style=color:#e6db74>&#39;sequence2hash&#39;</span>],
+
+url<span style=color:#f92672>=</span><span style=color:#e6db74>&#39;https://github.com/Cuile/sequence2hash&#39;</span>,
+description<span style=color:#f92672>=</span><span style=color:#e6db74>&#39;This tool converts a valid value in a sequence to a hash and contains a path to a valid value in the key field&#39;</span>,
+long_description_content_type<span style=color:#f92672>=</span><span style=color:#e6db74>&#39;text/markdown&#39;</span>,
+long_description<span style=color:#f92672>=</span>open(<span style=color:#e6db74>&#39;README.md&#39;</span>, encoding<span style=color:#f92672>=</span><span style=color:#e6db74>&#39;utf8&#39;</span>)<span style=color:#f92672>.</span>read(),
+
+author<span style=color:#f92672>=</span><span style=color:#e6db74>&#39;cuile&#39;</span>,
+author_email<span style=color:#f92672>=</span><span style=color:#e6db74>&#39;i@cuile.com&#39;</span>
+)
+</code></pre></div><h3 id=22-读取-readmemd-文件>2.2 读取 readme.md 文件</h3>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-python data-lang=python>long_description<span style=color:#f92672>=</span>open(<span style=color:#e6db74>&#39;README.md&#39;</span>, encoding<span style=color:#f92672>=</span><span style=color:#e6db74>&#39;utf8&#39;</span>)<span style=color:#f92672>.</span>read()
+</code></pre></div><p>这句代码是较少明确说明的，可以不引用 io 库，而直接使用 open 函数读取文件内容，由于 pypi.org 支持 Markdown ，所以可以和 Github 使用同一份 README.md 文件。</p>
+<h3 id=23-设置内容类型>2.3 设置内容类型</h3>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-python data-lang=python>long_description_content_type<span style=color:#f92672>=</span><span style=color:#e6db74>&#39;text/markdown&#39;</span>
+
+</code></pre></div><p>这句很重要，标明元数据字段中 long_description 的格式，支持 text/plain, text/x-rst, text/markdown 。</p>
+<blockquote>
+<p>A content type can be specified with the long_description_content_type argument, which can be one of text/plain, text/x-rst, or text/markdown, corresponding to no formatting, reStructuredText (reST), and the Github-flavored Markdown dialect of Markdown respectively.</p>
+</blockquote>
+<h2 id=3-打包上传>3. 打包上传</h2>
+<p>先升级一下必要的打包工具，setuptools>= 38.6.0 才能使用新的元数据生成发布包， twine> = 1.11.0 才能将元数据正确发送到 PyPI 。</p>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash>$ pip install -U setuptools twine
+
+<span style=color:#75715e># 打包</span>
+$ python setup.py sdist
+
+<span style=color:#75715e># 上传</span>
+$ twine upload dist/*
+</code></pre></div><p><em>twine 会依次上传 dist 文件夹下的所有内容，但 pypi.org 对已上传过的文件和版本是不允许再次上传的，所以每次更新内容时除了 version 字段递增外，还要在打包前删除 dist 文件夹，由打包命令重新生成，以防文件夹内有老版本的包，导致上传失败。</em></p>
 </div>
-<div class=excerpt_footer>
-<div>
-<p class=pale>
-镜像列表 $ docker image ls -a # or $ docker images 容器列表 $ docker container ls -a # or $ docker ps 删除冗余镜像 $ docker system prune 创建桥接网络 $ docker network create [name] Docker快捷命令 $ echo "alias d-ll='docker image ls -a; echo; docker container ls -a'" >> ~/.bashrc \ && echo "alias …
-</p>
-<a href=https://blog.cuile.com/posts/docker_cli/ title="Read More" class="excerpt_more button">Read More</a>
+<div class=post_comments>
 </div>
-</div>
-</div>
-</li>
-<li>
-</li>
-</ul>
+</article>
 <aside class=sidebar>
 <section class=sidebar_inner>
 <h2 class=mt-4>Recent Posts</h2>
@@ -100,9 +139,6 @@ Share on:
 </li>
 <li>
 <a href=https://blog.cuile.com/posts/docker_cli/ class=nav-link title=Docker使用命令>Docker使用命令</a>
-</li>
-<li>
-<a href=https://blog.cuile.com/posts/release_pypi_package/ class=nav-link title=在pypi上发布自己的Python库>在pypi上发布自己的Python库</a>
 </li>
 </ul>
 <div>
