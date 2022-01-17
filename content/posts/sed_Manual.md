@@ -50,11 +50,16 @@ sed -i 's/can not read content from the url//' merge.log
 
 ## 去重复
 ```bash
-awk '!x[$0]++' merge.log
-sort -n merge.log | uniq
+$ awk '!x[$0]++' merge.log
+$ sort -n merge.log | uniq
 ```
 
 ## 删除空行
 ```bash
-sed -i '/^\s*$/d' merge1.log
+$ sed -i '/^\s*$/d' merge1.log
+```
+
+```bash
+# 修改Ubuntu源地址
+$ sudo sed -i 's/\(archive\|security\).ubuntu/mirrors.aliyun/' /etc/apt/sources.list
 ```
