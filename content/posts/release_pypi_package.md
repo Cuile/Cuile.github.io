@@ -81,3 +81,12 @@ $ twine upload dist/*
 ```
 
 _twine 会依次上传 dist 文件夹下的所有内容，但 pypi.org 对已上传过的文件和版本是不允许再次上传的，所以每次更新内容时除了 version 字段递增外，还要在打包前删除 dist 文件夹，由打包命令重新生成，以防文件夹内有老版本的包，导致上传失败。_
+
+## 参考
+- [如何将自己的程序发布到 PyPI](https://zhuanlan.zhihu.com/p/26159930)
+- [PyPI 终于支持 Markdown 了](https://zhuanlan.zhihu.com/p/34853707)
+- [打包 python package 到 pypi](http://litaotao.github.io/submit-push-package-to-pypi)
+- [在Pypi上发布自己的Python包](https://www.jianshu.com/p/e9ec8666decc)
+- [Packaging and distributing projects](https://packaging.python.org/tutorials/distributing-packages/#description)
+- [EMOJI CHEAT SHEET](https://www.webpagefx.com/tools/emoji-cheat-sheet/)
+- [GitHub上README写法暨GFM语法解读](https://blog.csdn.net/guodongxiaren/article/details/23690801)
