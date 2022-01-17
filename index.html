@@ -94,7 +94,7 @@ Share on:
 <span><svg class="icon"><use xlink:href="#calendar"/></svg></span>
 <span class=post_date>
 Jan 17, 2022</span>
-<span class=post_time> · 1 min read</span><span>&nbsp;· <a href=https://blog.cuile.com/tags/linux title=Linux class="post_tag button button_translucent">Linux
+<span class=post_time> · 2 min read</span><span>&nbsp;· <a href=https://blog.cuile.com/tags/linux title=Linux class="post_tag button button_translucent">Linux
 </a><a href=https://blog.cuile.com/tags/centos7 title=Centos7 class="post_tag button button_translucent">Centos7
 </a>
 </span>
@@ -117,8 +117,7 @@ Share on:
 <div>
 <p class=pale>
 脚本基于Centos7
-SSH连接不自动断开 $ sed -i 's|^#\(ClientAliveInterval\) 0$|\1 60|g' /etc/ssh/sshd_config $ sed -i 's|^#\(ClientAliveCountMax\) 3$|\1 5|g' /etc/ssh/sshd_config $ systemctl restart sshd 设置主机名 hostnamectl 参考 https://blog.csdn.net/tantexian/article/details/45958275
-$ _hostname_=XXXX $ hostnamectl …
+系统进程操作 查看CPU和内存使用情况 # 定位高CPU占用 $ ps H -eo user,pid,ppid,tid,time,%cpu,cmd --sort=%cpu # 可视化显示CPU的使用状况的工具 $ yum install -y htop $ htop 磁盘操作 查询并筛选 磁盘空间 统计 排序 # 修改硬盘挂载目录 # 卸载硬盘 $ umount -v /mnt/raid1-2disk-500G # 修改挂载目录 $ mv /mnt/raid1-2disk-500G /mnt/raid1-250G-2disk # 修改/etc/fstab文件里的挂载目录 $ nano …
 </p>
 <a href=https://blog.cuile.com/posts/linux_cli/ title="Read More" class="excerpt_more button">Read More</a>
 </div>
