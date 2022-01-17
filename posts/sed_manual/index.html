@@ -92,10 +92,12 @@ sed -i <span style=color:#e6db74>&#39;s/time:.*,\(is_china_mobile\)/\1/&#39;</sp
 <div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash>sed -i <span style=color:#e6db74>&#39;s/error for the url//&#39;</span> merge.log
 sed -i <span style=color:#e6db74>&#39;s/can not read content from the url//&#39;</span> merge.log
 </code></pre></div><h2 id=去重复>去重复</h2>
-<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash>awk <span style=color:#e6db74>&#39;!x[$0]++&#39;</span> merge.log
-sort -n merge.log | uniq
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash>$ awk <span style=color:#e6db74>&#39;!x[$0]++&#39;</span> merge.log
+$ sort -n merge.log | uniq
 </code></pre></div><h2 id=删除空行>删除空行</h2>
-<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash>sed -i <span style=color:#e6db74>&#39;/^\s*$/d&#39;</span> merge1.log
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash>$ sed -i <span style=color:#e6db74>&#39;/^\s*$/d&#39;</span> merge1.log
+</code></pre></div><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash><span style=color:#75715e># 修改Ubuntu源地址</span>
+$ sudo sed -i <span style=color:#e6db74>&#39;s/\(archive\|security\).ubuntu/mirrors.aliyun/&#39;</span> /etc/apt/sources.list
 </code></pre></div>
 </div>
 <div class=post_comments>
