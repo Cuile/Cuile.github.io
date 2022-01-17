@@ -2,7 +2,7 @@
 title: "Linux系统命令"
 date: 2022-01-17T11:07:07+08:00
 # draft: true
-tags: ["Linux","Centos7"]
+tags: ["Linux","Centos7","bash"]
 ---
 
 **`脚本基于Centos7`**
