@@ -4,3 +4,5 @@ title = '瘦了就帅了'
 theme = 'clarity'
 [taxonomies]
     tag = 'tags'
+[params]
+    codeLineNumbers = true
