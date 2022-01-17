@@ -10,11 +10,11 @@ tags: ["Linux","nmcli","Centos7"]
 ## 查看接口设备信息
 ```bash
 # 简单接口状态
-nmcli dev status
+$ nmcli dev status
 # 详细的接口信息
-nmcli dev show
+$ nmcli dev show
 # 接口的详细信息
-nmcli dev show interface-name
+$ nmcli dev show interface-name
 ```
 
 ## 查看连接(connection)的信息
