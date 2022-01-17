@@ -1,28 +1,26 @@
 <!doctype html><html lang=en data-figures class=page>
 <head>
-<title>Github使用Hugo生成Blog | 瘦了就帅了</title>
+<title>Linux系统命令 | 瘦了就帅了</title>
 <meta charset=utf-8>
 <meta name=viewport content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
 <meta http-equiv=x-ua-compatible content="IE=edge">
 <meta http-equiv=content-security-policy content="upgrade-insecure-requests">
 <meta property="og:locale" content="en">
 <meta property="og:type" content="article">
-<meta name=description content="设置流程 不过多说明了，网上教程非常多，可以找来看。
-参考文档
- 使用 Github Actions 自动发布 hugo 站点 Hugo的基本安装｜网站生成｜托管至Github Pages  各种坑位 1. 网页正常部署后，访问时页面却无法正常显示，部局完全是乱的。 这可能是https请求 …">
+<meta name=description content="脚本基于Centos7
+SSH连接不自动断开 $ sed -i 's|^#\(ClientAliveInterval\) 0$|\1 60|g' /etc/ssh/sshd_config $ sed -i 's|^#\(ClientAliveCountMax\) 3$|\1 5|g' …">
 <meta name=twitter:card content="summary">
 <meta name=twitter:creator content>
-<meta name=twitter:title content="Github使用Hugo生成Blog">
-<meta property="og:url" content="https://blog.cuile.com/posts/hugo_setup_for_github/">
-<meta property="og:title" content="Github使用Hugo生成Blog">
-<meta property="og:description" content="设置流程 不过多说明了，网上教程非常多，可以找来看。
-参考文档
- 使用 Github Actions 自动发布 hugo 站点 Hugo的基本安装｜网站生成｜托管至Github Pages  各种坑位 1. 网页正常部署后，访问时页面却无法正常显示，部局完全是乱的。 这可能是https请求 …">
+<meta name=twitter:title content="Linux系统命令">
+<meta property="og:url" content="https://blog.cuile.com/posts/linux_cli/">
+<meta property="og:title" content="Linux系统命令">
+<meta property="og:description" content="脚本基于Centos7
+SSH连接不自动断开 $ sed -i 's|^#\(ClientAliveInterval\) 0$|\1 60|g' /etc/ssh/sshd_config $ sed -i 's|^#\(ClientAliveCountMax\) 3$|\1 5|g' …">
 <meta property="og:image" content="https://blog.cuile.com/">
 <link rel=apple-touch-icon sizes=180x180 href=https://blog.cuile.com/icons/apple-touch-icon.png>
 <link rel=icon type=image/png sizes=32x32 href=https://blog.cuile.com/icons/favicon-32x32.png>
 <link rel=manifest href=https://blog.cuile.com/icons/site.webmanifest>
-<link rel=canonical href=https://blog.cuile.com/posts/hugo_setup_for_github/>
+<link rel=canonical href=https://blog.cuile.com/posts/linux_cli/>
 <link rel=preload href=https://blog.cuile.com/css/styles.01869c76e4757810d94ecbdccadba853d9d01d9416dfeb113df02e1479ff8b36e284e8bfeb3e8f353f2fdcdcbbdfcf27e558dbda96eb6341bfc304d55cd9e986.css integrity="sha512-AYacduR1eBDZTsvcytuoU9nQHZQW3+sRPfAuFHn/izbihOi/6z6PNT8v3Ny7388n5Vjb2pbrY0G/wwTVXNnphg==" as=style crossorigin=anonymous>
 <link rel=preload href=https://blog.cuile.com/js/bundle.min.84b005361841618b00dc9871eb83e5466b5d4b84f4888ac28fc99cb6e53c5a66063ac0b6d2d91dbf61fe8b35f5ee5e9c4d0a722b6eea6c8504061c617080244f.js as=script integrity="sha512-hLAFNhhBYYsA3Jhx64PlRmtdS4T0iIrCj8mctuU8WmYGOsC20tkdv2H+izX17l6cTQpyK27qbIUEBhxhcIAkTw==" crossorigin=anonymous>
 <link rel=stylesheet type=text/css href=https://blog.cuile.com/css/styles.01869c76e4757810d94ecbdccadba853d9d01d9416dfeb113df02e1479ff8b36e284e8bfeb3e8f353f2fdcdcbbdfcf27e558dbda96eb6341bfc304d55cd9e986.css integrity="sha512-AYacduR1eBDZTsvcytuoU9nQHZQW3+sRPfAuFHn/izbihOi/6z6PNT8v3Ny7388n5Vjb2pbrY0G/wwTVXNnphg==" crossorigin=anonymous>
@@ -46,66 +44,95 @@
 <main>
 <div class="grid-inverse wrap content">
 <article class=post_content>
-<h1 class=post_title>Github使用Hugo生成Blog</h1>
+<h1 class=post_title>Linux系统命令</h1>
 <div class=post_meta>
 <span><svg class="icon"><use xlink:href="#calendar"/></svg></span>
 <span class=post_date>
-Jan 14, 2022</span>
-<span class=post_time> · 1 min read</span><span>&nbsp;· <a href=https://blog.cuile.com/tags/hugo title=Hugo class="post_tag button button_translucent">Hugo
-</a><a href=https://blog.cuile.com/tags/github title=Github class="post_tag button button_translucent">Github
-</a><a href=https://blog.cuile.com/tags/blog title=Blog class="post_tag button button_translucent">Blog
+Jan 17, 2022</span>
+<span class=post_time> · 1 min read</span><span>&nbsp;· <a href=https://blog.cuile.com/tags/linux title=Linux class="post_tag button button_translucent">Linux
+</a><a href=https://blog.cuile.com/tags/centos7 title=Centos7 class="post_tag button button_translucent">Centos7
 </a>
 </span>
 <span class=page_only>&nbsp;·
 <div class=post_share>
 Share on:
-<a href="https://twitter.com/intent/tweet?text=Github%e4%bd%bf%e7%94%a8Hugo%e7%94%9f%e6%88%90Blog&url=https%3a%2f%2fblog.cuile.com%2fposts%2fhugo_setup_for_github%2f&tw_p=tweetbutton" class=twitter title="Share on Twitter" target=_blank rel=nofollow><svg class="icon"><use xlink:href="#twitter"/></svg>
+<a href="https://twitter.com/intent/tweet?text=Linux%e7%b3%bb%e7%bb%9f%e5%91%bd%e4%bb%a4&url=https%3a%2f%2fblog.cuile.com%2fposts%2flinux_cli%2f&tw_p=tweetbutton" class=twitter title="Share on Twitter" target=_blank rel=nofollow><svg class="icon"><use xlink:href="#twitter"/></svg>
 </a>
-<a href="https://www.facebook.com/sharer.php?u=https%3a%2f%2fblog.cuile.com%2fposts%2fhugo_setup_for_github%2f&t=Github%e4%bd%bf%e7%94%a8Hugo%e7%94%9f%e6%88%90Blog" class=facebook title="Share on Facebook" target=_blank rel=nofollow><svg class="icon"><use xlink:href="#facebook"/></svg>
+<a href="https://www.facebook.com/sharer.php?u=https%3a%2f%2fblog.cuile.com%2fposts%2flinux_cli%2f&t=Linux%e7%b3%bb%e7%bb%9f%e5%91%bd%e4%bb%a4" class=facebook title="Share on Facebook" target=_blank rel=nofollow><svg class="icon"><use xlink:href="#facebook"/></svg>
 </a>
 <a href=#linkedinshare id=linkedinshare class=linkedin title="Share on LinkedIn" rel=nofollow><svg class="icon"><use xlink:href="#linkedin"/></svg>
 </a>
-<a href=https://blog.cuile.com/posts/hugo_setup_for_github/ title="Copy Link" class="link link_yank"><svg class="icon"><use xlink:href="#copy"/></svg>
+<a href=https://blog.cuile.com/posts/linux_cli/ title="Copy Link" class="link link_yank"><svg class="icon"><use xlink:href="#copy"/></svg>
 </a>
 </div>
 </span>
 </div>
-<div class=post_body><h2 id=设置流程>设置流程</h2>
-<p>不过多说明了，网上教程非常多，可以找来看。</p>
-<p><strong>参考文档</strong></p>
-<ul>
-<li><a href=https://h1z3y3.me/posts/hugo-auto-deploy-github-with-actions/>使用 Github Actions 自动发布 hugo 站点</a></li>
-<li><a href=https://zhuanlan.zhihu.com/p/350977057>Hugo的基本安装｜网站生成｜托管至Github Pages</a></li>
-</ul>
-<h2 id=各种坑位>各种坑位</h2>
-<h3 id=1-网页正常部署后访问时页面却无法正常显示部局完全是乱的>1. 网页正常部署后，访问时页面却无法正常显示，部局完全是乱的。</h3>
-<p>这可能是https请求报"block:mixed-content"错误导致的，是浏览器不允许在https页面里嵌入http的请求，现在高版本的浏览器为了用户体验，都不会弹窗报错，只会在控制台上打印一条错误信息。</p>
-<p>解决这个问题，可以从以下2点入手：</p>
-<p>1.1. 在"theme/&lt;YouThemeName>/layouts/partials/head.html"文件内，添加代码</p>
-<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-html data-lang=html>&lt;<span style=color:#f92672>meta</span> <span style=color:#a6e22e>http-equiv</span><span style=color:#f92672>=</span><span style=color:#e6db74>&#34;Content-Security-Policy&#34;</span> <span style=color:#a6e22e>content</span><span style=color:#f92672>=</span><span style=color:#e6db74>&#34;upgrade-insecure-requests&#34;</span>&gt;
-</code></pre></div><p><strong>参考文档</strong></p>
-<ul>
-<li><a href=https://blog.csdn.net/qq_39390545/article/details/105550949>https请求报错block:mixed-content问题的解决办法</a></li>
-</ul>
-<p>1.2. 确保config.toml文件内，&ldquo;baseUrl"的值与实际地址一致。</p>
-<h3 id=2-configtoml-里的-theme-值要与主题文档夹名一致不然可能会导致主题无法应用的问题>2. config.toml 里的 theme 值，要与主题文档夹名一致，不然可能会导致主题无法应用的问题。</h3>
-<h3 id=3-github-actions-设置里的-gh-pagesyml-写法要注意>3. Github Actions 设置里的 gh-pages.yml 写法要注意</h3>
-<p>&ldquo;Setup Hugo"项目里，标准版本与扩展版本的参数写法不一样。</p>
-<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-yml data-lang=yml><span style=color:#75715e># 使用扩展版本</span>
-- <span style=color:#f92672>name</span>: <span style=color:#ae81ff>Setup Hugo</span>
-  <span style=color:#f92672>uses</span>: <span style=color:#ae81ff>peaceiris/actions-hugo@v2</span>
-  <span style=color:#f92672>with</span>:
-    <span style=color:#f92672>hugo-version</span>: <span style=color:#e6db74>&#39;0.91.2&#39;</span>
-    <span style=color:#f92672>extended</span>: <span style=color:#66d9ef>true</span>
-</code></pre></div><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-yml data-lang=yml><span style=color:#75715e># 使用标准版本</span>
-- <span style=color:#f92672>name</span>: <span style=color:#ae81ff>Setup Hugo</span>
-  <span style=color:#f92672>uses</span>: <span style=color:#ae81ff>peaceiris/actions-hugo@v2</span>
-  <span style=color:#f92672>with</span>:
-    <span style=color:#f92672>hugo-version</span>: <span style=color:#e6db74>&#39;latest&#39;</span>
-</code></pre></div><p><strong>参考文档</strong></p>
-<ul>
-<li><a href=https://github.com/peaceiris/actions-hugo#options>GitHub Actions for Hugo</a></li>
-</ul>
+<div class=post_body><p><strong><code>脚本基于Centos7</code></strong></p>
+<h2 id=ssh连接不自动断开>SSH连接不自动断开</h2>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash>$ sed -i <span style=color:#e6db74>&#39;s|^#\(ClientAliveInterval\) 0$|\1 60|g&#39;</span> /etc/ssh/sshd_config
+$ sed -i <span style=color:#e6db74>&#39;s|^#\(ClientAliveCountMax\) 3$|\1 5|g&#39;</span> /etc/ssh/sshd_config
+$ systemctl restart sshd
+</code></pre></div><h2 id=设置主机名>设置主机名</h2>
+<p>hostnamectl 参考 <a href=https://blog.csdn.net/tantexian/article/details/45958275>https://blog.csdn.net/tantexian/article/details/45958275</a></p>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash>$ _hostname_<span style=color:#f92672>=</span>XXXX
+$ hostnamectl --static set-hostname <span style=color:#e6db74>${</span>_hostname_<span style=color:#e6db74>}</span>
+$ hostnamectl --transient set-hostname <span style=color:#e6db74>${</span>_hostname_<span style=color:#e6db74>}</span>
+$ hostnamectl --pretty set-hostname <span style=color:#e6db74>${</span>_hostname_<span style=color:#e6db74>}</span>
+</code></pre></div><p>重新进入SSH</p>
+<h2 id=修改命令提示符>修改命令提示符</h2>
+<p>命令提示符设置参考 <a href=https://www.linuxidc.com/Linux/2017-10/147438.htm>https://www.linuxidc.com/Linux/2017-10/147438.htm</a></p>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash>$ echo <span style=color:#e6db74>&#39;export PS1=&#34;[\A \u@\H \w]\\$ &#34;&#39;</span> &gt;&gt; /etc/bashrc
+<span style=color:#75715e># 让配置生效</span>
+$ source /etc/bashrc
+</code></pre></div><h2 id=修改服务器时区>修改服务器时区</h2>
+<p>timedatectl 参考 <a href=https://www.jianshu.com/p/5e8e22bf135d>https://www.jianshu.com/p/5e8e22bf135d</a></p>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash>$ timedatectl set-timezone Asia/Shanghai
+</code></pre></div><h2 id=查看系统版本>查看系统版本</h2>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash>$ lsb_release -a
+$ cat /etc/redhat-release
+$ cat /etc/issue
+</code></pre></div><h2 id=修改密码>修改密码</h2>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash>$ passwd &lt;user_name&gt;
+</code></pre></div><h2 id=cpu高占用定位方法>CPU高占用定位方法</h2>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash>$ ps H -eo user,pid,ppid,tid,time,%cpu,cmd --sort<span style=color:#f92672>=</span>%cpu
+</code></pre></div><h2 id=可视化显示cpu的使用状况的工具>可视化显示CPU的使用状况的工具</h2>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash>$ yum install -y htop
+
+$ htop
+</code></pre></div><h2 id=etchosts>/etc/hosts</h2>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash><span style=color:#75715e># sed 参考 http://man.linuxde.net/sed</span>
+        <span style=color:#75715e>#  https://www.cnblogs.com/ggjucheng/archive/2013/01/13/2856901.html</span>
+$ sed ......
+</code></pre></div><h2 id=修改硬盘挂载目录>修改硬盘挂载目录</h2>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash><span style=color:#75715e># 卸载硬盘</span>
+$ umount -v /mnt/raid1-2disk-500G
+<span style=color:#75715e># 修改挂载目录</span>
+$ mv /mnt/raid1-2disk-500G /mnt/raid1-250G-2disk
+<span style=color:#75715e># 修改/etc/fstab文件里的挂载目录</span>
+$ nano /etc/fstab
+<span style=color:#75715e># 重装挂载</span>
+$ mount -av /dev/md127 /mnt/raid1-250G-2disk
+</code></pre></div><h2 id=systemctl命令>systemctl命令</h2>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash>systemctl list-units            <span style=color:#75715e>##列出当前系统服务的状态</span>
+systemctl list-unit-files       <span style=color:#75715e>##列出服务的开机状态</span>
+systemctl status sshd           <span style=color:#75715e>##查看指定服务的状态</span>
+systemctl stop sshd             <span style=color:#75715e>##关闭指定服务</span>
+systemctl start sshd            <span style=color:#75715e>##开启指定服务</span>
+systemctl restart sshd          <span style=color:#75715e>##从新启动服务</span>
+systemctl enable sshd           <span style=color:#75715e>##设定指定服务开机开启</span>
+systemctl disable sshd          <span style=color:#75715e>##设定指定服务开机关闭</span>
+systemctl reload sshd           <span style=color:#75715e>##使指定服务从新加载配置</span>
+systemctl list-dependencies sshd    <span style=color:#75715e>##查看指定服务的倚赖关系</span>
+systemctl mask  sshd            <span style=color:#75715e>##冻结指定服务</span>
+systemctl unmask sshd           <span style=color:#75715e>##启用服务</span>
+systemctl set-default multi-user.target <span style=color:#75715e>##开机不开启图形</span>
+systemctl set-default graphical.target  <span style=color:#75715e>##开机启动图形</span>
+</code></pre></div><h2 id=查看端口占用>查看端口占用</h2>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash><span style=color:#75715e># 查看所有端口占用情况</span>
+$ netstat -tlunp
+<span style=color:#75715e># 查看指定端口占用情况</span>
+$ netstat -tlunp | grep &lt;port&gt;
+</code></pre></div>
 </div>
 <div class=post_comments>
 </div>
@@ -115,7 +142,7 @@ Share on:
 <h2 class=mt-4>Recent Posts</h2>
 <ul class=flex-column>
 <li>
-<a href=https://blog.cuile.com/posts/linux_cli/ class=nav-link title=Linux系统命令>Linux系统命令</a>
+<a href=https://blog.cuile.com/posts/hugo_setup_for_github/ class=nav-link title=Github使用Hugo生成Blog>Github使用Hugo生成Blog</a>
 </li>
 <li>
 <a href=https://blog.cuile.com/posts/docker_cli/ class=nav-link title=Docker使用命令>Docker使用命令</a>
