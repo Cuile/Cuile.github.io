@@ -1,25 +1,24 @@
-<!doctype html><html lang=en data-figures>
+<!doctype html><html lang=en data-figures class=page>
 <head>
-<title>Hugo | 瘦了就帅了</title>
+<title>urllib.parse.urlencode 使用详解 | 瘦了就帅了</title>
 <meta charset=utf-8>
 <meta name=viewport content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
 <meta http-equiv=x-ua-compatible content="IE=edge">
 <meta http-equiv=content-security-policy content="upgrade-insecure-requests">
 <meta property="og:locale" content="en">
 <meta property="og:type" content="article">
-<meta name=description content>
+<meta name=description content="urllib.parse.urlencode(query, doseq=False, safe='', encoding=None, errors=None, quote_via=quote_plus) urllib.parse.urlencode 将对象或两元素序列转换为百分比编码的ASCII文本字符串，字符串是 …">
 <meta name=twitter:card content="summary">
 <meta name=twitter:creator content>
-<meta name=twitter:title content="Hugo">
-<meta property="og:url" content="https://blog.cuile.com/tags/hugo/">
-<meta property="og:title" content="Hugo">
-<meta property="og:description" content>
+<meta name=twitter:title content="urllib.parse.urlencode 使用详解">
+<meta property="og:url" content="https://blog.cuile.com/posts/urllib.parse.urlencode_manual/">
+<meta property="og:title" content="urllib.parse.urlencode 使用详解">
+<meta property="og:description" content="urllib.parse.urlencode(query, doseq=False, safe='', encoding=None, errors=None, quote_via=quote_plus) urllib.parse.urlencode 将对象或两元素序列转换为百分比编码的ASCII文本字符串，字符串是 …">
 <meta property="og:image" content="https://blog.cuile.com/">
 <link rel=apple-touch-icon sizes=180x180 href=https://blog.cuile.com/icons/apple-touch-icon.png>
 <link rel=icon type=image/png sizes=32x32 href=https://blog.cuile.com/icons/favicon-32x32.png>
 <link rel=manifest href=https://blog.cuile.com/icons/site.webmanifest>
-<link rel=canonical href=https://blog.cuile.com/tags/hugo/>
-<link rel=alternate type=application/rss+xml href=https://blog.cuile.com/tags/hugo/index.xml title=瘦了就帅了>
+<link rel=canonical href=https://blog.cuile.com/posts/urllib.parse.urlencode_manual/>
 <link rel=preload href=https://blog.cuile.com/css/styles.01869c76e4757810d94ecbdccadba853d9d01d9416dfeb113df02e1479ff8b36e284e8bfeb3e8f353f2fdcdcbbdfcf27e558dbda96eb6341bfc304d55cd9e986.css integrity="sha512-AYacduR1eBDZTsvcytuoU9nQHZQW3+sRPfAuFHn/izbihOi/6z6PNT8v3Ny7388n5Vjb2pbrY0G/wwTVXNnphg==" as=style crossorigin=anonymous>
 <link rel=preload href=https://blog.cuile.com/js/bundle.min.84b005361841618b00dc9871eb83e5466b5d4b84f4888ac28fc99cb6e53c5a66063ac0b6d2d91dbf61fe8b35f5ee5e9c4d0a722b6eea6c8504061c617080244f.js as=script integrity="sha512-hLAFNhhBYYsA3Jhx64PlRmtdS4T0iIrCj8mctuU8WmYGOsC20tkdv2H+izX17l6cTQpyK27qbIUEBhxhcIAkTw==" crossorigin=anonymous>
 <link rel=stylesheet type=text/css href=https://blog.cuile.com/css/styles.01869c76e4757810d94ecbdccadba853d9d01d9416dfeb113df02e1479ff8b36e284e8bfeb3e8f353f2fdcdcbbdfcf27e558dbda96eb6341bfc304d55cd9e986.css integrity="sha512-AYacduR1eBDZTsvcytuoU9nQHZQW3+sRPfAuFHn/izbihOi/6z6PNT8v3Ny7388n5Vjb2pbrY0G/wwTVXNnphg==" crossorigin=anonymous>
@@ -42,61 +41,84 @@
 </header>
 <main>
 <div class="grid-inverse wrap content">
-<ul class=posts id=posts>
-<li class=post_item>
-<div class=excerpt>
-<div class=excerpt_header>
-<h3 class=post_link>
-<a href=https://blog.cuile.com/posts/hugo_setup_for_github/ title=Github使用Hugo生成Blog>Github使用Hugo生成Blog</a>
-</h3>
+<article class=post_content>
+<h1 class=post_title>urllib.parse.urlencode 使用详解</h1>
 <div class=post_meta>
 <span><svg class="icon"><use xlink:href="#calendar"/></svg></span>
 <span class=post_date>
-Jan 14, 2022</span>
-<span class=post_time> · 1 min read</span><span>&nbsp;· <a href=https://blog.cuile.com/tags/hugo title=Hugo class="post_tag button button_translucent">Hugo
-</a><a href=https://blog.cuile.com/tags/github title=Github class="post_tag button button_translucent">Github
-</a><a href=https://blog.cuile.com/tags/blog title=Blog class="post_tag button button_translucent">Blog
+Jan 17, 2022</span>
+<span class=post_time> · 1 min read</span><span>&nbsp;· <a href=https://blog.cuile.com/tags/python title=Python class="post_tag button button_translucent">Python
+</a><a href=https://blog.cuile.com/tags/http title=http class="post_tag button button_translucent">http
 </a>
 </span>
 <span class=page_only>&nbsp;·
 <div class=post_share>
 Share on:
-<a href="https://twitter.com/intent/tweet?text=Github%e4%bd%bf%e7%94%a8Hugo%e7%94%9f%e6%88%90Blog&url=https%3a%2f%2fblog.cuile.com%2fposts%2fhugo_setup_for_github%2f&tw_p=tweetbutton" class=twitter title="Share on Twitter" target=_blank rel=nofollow><svg class="icon"><use xlink:href="#twitter"/></svg>
+<a href="https://twitter.com/intent/tweet?text=urllib.parse.urlencode%20%e4%bd%bf%e7%94%a8%e8%af%a6%e8%a7%a3&url=https%3a%2f%2fblog.cuile.com%2fposts%2furllib.parse.urlencode_manual%2f&tw_p=tweetbutton" class=twitter title="Share on Twitter" target=_blank rel=nofollow><svg class="icon"><use xlink:href="#twitter"/></svg>
 </a>
-<a href="https://www.facebook.com/sharer.php?u=https%3a%2f%2fblog.cuile.com%2fposts%2fhugo_setup_for_github%2f&t=Github%e4%bd%bf%e7%94%a8Hugo%e7%94%9f%e6%88%90Blog" class=facebook title="Share on Facebook" target=_blank rel=nofollow><svg class="icon"><use xlink:href="#facebook"/></svg>
+<a href="https://www.facebook.com/sharer.php?u=https%3a%2f%2fblog.cuile.com%2fposts%2furllib.parse.urlencode_manual%2f&t=urllib.parse.urlencode%20%e4%bd%bf%e7%94%a8%e8%af%a6%e8%a7%a3" class=facebook title="Share on Facebook" target=_blank rel=nofollow><svg class="icon"><use xlink:href="#facebook"/></svg>
 </a>
 <a href=#linkedinshare id=linkedinshare class=linkedin title="Share on LinkedIn" rel=nofollow><svg class="icon"><use xlink:href="#linkedin"/></svg>
 </a>
-<a href=https://blog.cuile.com/posts/hugo_setup_for_github/ title="Copy Link" class="link link_yank"><svg class="icon"><use xlink:href="#copy"/></svg>
+<a href=https://blog.cuile.com/posts/urllib.parse.urlencode_manual/ title="Copy Link" class="link link_yank"><svg class="icon"><use xlink:href="#copy"/></svg>
 </a>
 </div>
 </span>
 </div>
-</div>
-<div class=excerpt_footer>
-<div>
-<p class=pale>
-设置流程 不过多说明了，网上教程非常多，可以找来看。
-参考文档
-使用 Github Actions 自动发布 hugo 站点 Hugo的基本安装｜网站生成｜托管至Github Pages 各种坑位 1. 网页正常部署后，访问时页面却无法正常显示，部局完全是乱的。 这可能是https请求报"block:mixed-content"错误导致的，是浏览器不允许在https页面里嵌入http的请求，现在高版本的浏览器为了用户体验，都不会弹窗报错，只会在控制台上打印一条错误信息。
-解决这个问题，可以从以下2点入手：
-1.1. …
-</p>
-<a href=https://blog.cuile.com/posts/hugo_setup_for_github/ title="Read More" class="excerpt_more button">Read More</a>
-</div>
-</div>
-</div>
-</li>
-<li>
-</li>
+<div class=post_body><blockquote>
+<p>urllib.parse.urlencode(query, doseq=False, safe='', encoding=None, errors=None, quote_via=quote_plus)
+urllib.parse.urlencode 将对象或两元素序列转换为百分比编码的ASCII文本字符串，字符串是由'&&lsquo;字符分隔的一系列 key=value 对，其中 key 和 value 都使用 quote_via 函数引用。</p>
+</blockquote>
+<h2 id=get-请求>GET 请求</h2>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-python data-lang=python><span style=color:#f92672>import</span> urllib
+params <span style=color:#f92672>=</span> urllib<span style=color:#f92672>.</span>parse<span style=color:#f92672>.</span>urlencode({<span style=color:#e6db74>&#39;spam&#39;</span>: <span style=color:#ae81ff>1</span>, <span style=color:#e6db74>&#39;eggs&#39;</span>: <span style=color:#ae81ff>2</span>, <span style=color:#e6db74>&#39;bacon&#39;</span>: <span style=color:#ae81ff>0</span>})
+url <span style=color:#f92672>=</span> <span style=color:#e6db74>&#34;http://www.musi-cal.com/cgi-bin/query?</span><span style=color:#e6db74>%s</span><span style=color:#e6db74>&#34;</span> <span style=color:#f92672>%</span> params
+<span style=color:#66d9ef>with</span> urllib<span style=color:#f92672>.</span>request<span style=color:#f92672>.</span>urlopen(url) <span style=color:#66d9ef>as</span> f:
+    print(f<span style=color:#f92672>.</span>read()<span style=color:#f92672>.</span>decode(<span style=color:#e6db74>&#39;utf-8&#39;</span>))
+</code></pre></div><h2 id=post-请求>POST 请求</h2>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-python data-lang=python><span style=color:#f92672>import</span> urllib.request
+<span style=color:#f92672>import</span> urllib.parse
+data <span style=color:#f92672>=</span> urllib<span style=color:#f92672>.</span>parse<span style=color:#f92672>.</span>urlencode({<span style=color:#e6db74>&#39;spam&#39;</span>: <span style=color:#ae81ff>1</span>, <span style=color:#e6db74>&#39;eggs&#39;</span>: <span style=color:#ae81ff>2</span>, <span style=color:#e6db74>&#39;bacon&#39;</span>: <span style=color:#ae81ff>0</span>})
+data <span style=color:#f92672>=</span> data<span style=color:#f92672>.</span>encode(<span style=color:#e6db74>&#39;ascii&#39;</span>)
+<span style=color:#66d9ef>with</span> urllib<span style=color:#f92672>.</span>request<span style=color:#f92672>.</span>urlopen(<span style=color:#e6db74>&#34;http://requestb.in/xrbl82xr&#34;</span>, data) <span style=color:#66d9ef>as</span> f:
+    print(f<span style=color:#f92672>.</span>read()<span style=color:#f92672>.</span>decode(<span style=color:#e6db74>&#39;utf-8&#39;</span>))
+</code></pre></div><blockquote>
+<p>如果结果字符串要用作具有 urlopen() 函数的POST操作的 data，则它应该被编码为字节，否则将导致 TypeError。</p>
+</blockquote>
+<p>默认情况下 urlencode 函数使用 quote_plus() 函数进行编码，也可以选用 quote() 函数进行编码，两者最大的不同在于对特定字符的处理。</p>
+<blockquote>
+<p>urllib.parse.quote_plus(string, safe='&rsquo;, encoding=None, errors=None)
+默认情况下使用 quote_plus() 函数，它将空格被编码为 &lsquo;+&rsquo; 字符，而“/”字符被编码为 %2F，它遵循GET请求（application/x-www-form-urlencoded）的标准。
+urllib.parse.quote(string, safe='/', encoding=None, errors=None)
+可以作为备用的函数是 quote()，它将空格编码为 %20，字母，数字和 &lsquo;_.-&lsquo;字符不被编码，而“/”字符被默认为安全字符不被编码。</p>
+</blockquote>
+<p>编码时会对所有字符进行编码处理，这会导致一些情况下编码后的参数不能被正确的识别，所以在使用时可根据编码的需求，指定一个编码函数。</p>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-python data-lang=python>urllib<span style=color:#f92672>.</span>parse<span style=color:#f92672>.</span>urlencode({<span style=color:#e6db74>&#39;spam&#39;</span>: <span style=color:#ae81ff>1</span>, <span style=color:#e6db74>&#39;eggs&#39;</span>: <span style=color:#ae81ff>2</span>, <span style=color:#e6db74>&#39;bacon&#39;</span>: <span style=color:#ae81ff>0</span>}, quote_via<span style=color:#f92672>=</span>urllib<span style=color:#f92672>.</span>parse<span style=color:#f92672>.</span>quote)
+</code></pre></div><p>但即使指定函数，还会有一些特殊情况，需要保留一些特定的字符不被编码。
+比如，我们想得到下面的参数</p>
+<pre tabindex=0><code class=language-url data-lang=url>constraints[colors][0]=blue&amp;amp;constraints[colors][1]=%E7%99%BD%20%E8%89%B2&amp;amp;constraints[colors][2]=red&amp;amp;order=newest
+</code></pre><p>但无论使用 quote_plus() 或 quote()，“[” 和 “]” 字符一定会被编码。</p>
+<blockquote>
+<p>要最大限度地控制编码的内容，请使用 quote() 并指定 safe 的值。</p>
+</blockquote>
+<p>遇到这种情况，就需要根据手册的说明，指定 safe 的值来保证某字符不会被编码。</p>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-python data-lang=python>urllib<span style=color:#f92672>.</span>parse<span style=color:#f92672>.</span>urlencode(data, safe<span style=color:#f92672>=</span><span style=color:#e6db74>&#39;/[]&#39;</span>, quote_via<span style=color:#f92672>=</span>urllib<span style=color:#f92672>.</span>parse<span style=color:#f92672>.</span>quote)
+</code></pre></div><blockquote>
+<p>safe，encoding 和 errors 参数被传递到 quote_via (encoding 和 errors 参数仅当查询元素是 str 时被传递)。</p>
+</blockquote>
+<h2 id=参考>参考</h2>
+<ul>
+<li><a href=https://www.rddoc.com/doc/Python/3.6.0/zh/library/urllib.parse/#urllib.parse.urlencode>urllib.parse.urlencode 手册</a></li>
+<li><a href=https://www.rddoc.com/doc/Python/3.6.0/zh/library/urllib.parse/#urllib.parse.quote>urllib.parse.quote 手册</a></li>
 </ul>
+</div>
+<div class=post_comments>
+</div>
+</article>
 <aside class=sidebar>
 <section class=sidebar_inner>
 <h2 class=mt-4>Recent Posts</h2>
 <ul class=flex-column>
-<li>
-<a href=https://blog.cuile.com/posts/urllib.parse.urlencode_manual/ class=nav-link title="urllib.parse.urlencode 使用详解">urllib.parse.urlencode 使用详解</a>
-</li>
 <li>
 <a href=https://blog.cuile.com/posts/nmcli_manual/ class=nav-link title="使用 nmcli 配置网络">使用 nmcli 配置网络</a>
 </li>

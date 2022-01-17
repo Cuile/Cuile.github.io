@@ -120,6 +120,16 @@ $ python setup.py sdist
 <span style=color:#75715e># 上传</span>
 $ twine upload dist/*
 </code></pre></div><p><em>twine 会依次上传 dist 文件夹下的所有内容，但 pypi.org 对已上传过的文件和版本是不允许再次上传的，所以每次更新内容时除了 version 字段递增外，还要在打包前删除 dist 文件夹，由打包命令重新生成，以防文件夹内有老版本的包，导致上传失败。</em></p>
+<h2 id=参考>参考</h2>
+<ul>
+<li><a href=https://zhuanlan.zhihu.com/p/26159930>如何将自己的程序发布到 PyPI</a></li>
+<li><a href=https://zhuanlan.zhihu.com/p/34853707>PyPI 终于支持 Markdown 了</a></li>
+<li><a href=http://litaotao.github.io/submit-push-package-to-pypi>打包 python package 到 pypi</a></li>
+<li><a href=https://www.jianshu.com/p/e9ec8666decc>在Pypi上发布自己的Python包</a></li>
+<li><a href=https://packaging.python.org/tutorials/distributing-packages/#description>Packaging and distributing projects</a></li>
+<li><a href=https://www.webpagefx.com/tools/emoji-cheat-sheet/>EMOJI CHEAT SHEET</a></li>
+<li><a href=https://blog.csdn.net/guodongxiaren/article/details/23690801>GitHub上README写法暨GFM语法解读</a></li>
+</ul>
 </div>
 <div class=post_comments>
 </div>
@@ -128,6 +138,9 @@ $ twine upload dist/*
 <section class=sidebar_inner>
 <h2 class=mt-4>Recent Posts</h2>
 <ul class=flex-column>
+<li>
+<a href=https://blog.cuile.com/posts/urllib.parse.urlencode_manual/ class=nav-link title="urllib.parse.urlencode 使用详解">urllib.parse.urlencode 使用详解</a>
+</li>
 <li>
 <a href=https://blog.cuile.com/posts/nmcli_manual/ class=nav-link title="使用 nmcli 配置网络">使用 nmcli 配置网络</a>
 </li>
@@ -155,6 +168,10 @@ LINUX
 CENTOS7
 <span class=button_tally>2</span>
 </a>
+<a href=https://blog.cuile.com/tags/python/ class="post_tag button button_translucent" title=python>
+PYTHON
+<span class=button_tally>2</span>
+</a>
 <a href=https://blog.cuile.com/tags/bash/ class="post_tag button button_translucent" title=bash>
 BASH
 <span class=button_tally>1</span>
@@ -171,6 +188,10 @@ DOCKER
 GITHUB
 <span class=button_tally>1</span>
 </a>
+<a href=https://blog.cuile.com/tags/http/ class="post_tag button button_translucent" title=http>
+HTTP
+<span class=button_tally>1</span>
+</a>
 <a href=https://blog.cuile.com/tags/hugo/ class="post_tag button button_translucent" title=hugo>
 HUGO
 <span class=button_tally>1</span>
@@ -181,10 +202,6 @@ NMCLI
 </a>
 <a href=https://blog.cuile.com/tags/pypi/ class="post_tag button button_translucent" title=pypi>
 PYPI
-<span class=button_tally>1</span>
-</a>
-<a href=https://blog.cuile.com/tags/python/ class="post_tag button button_translucent" title=python>
-PYTHON
 <span class=button_tally>1</span>
 </a>
 <a href=https://blog.cuile.com/tags/sed/ class="post_tag button button_translucent" title=sed>
