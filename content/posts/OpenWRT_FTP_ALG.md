@@ -2,7 +2,7 @@
 title: "启用 FTP ALG 功能"
 date: 2022-02-07T10:08:02+08:00
 # draft: true
-tags:["OpenWRT","FTP","ALG"]
+tags: ["OpenWRT","FTP","ALG"]
 ---
 
 ## 1. 安装软件包
