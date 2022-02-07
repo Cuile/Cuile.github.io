@@ -1,5 +1,5 @@
 ---
-title: "启用 FTP ALG 功能"
+title: "OpenWRT 启用 ALG 功能"
 date: 2022-02-07T10:08:02+08:00
 # draft: true
 tags: ["OpenWRT","FTP","ALG"]
