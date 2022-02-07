@@ -5,8 +5,6 @@ date: 2022-02-07T10:08:02+08:00
 tags:["OpenWRT","FTP","ALG"]
 ---
 
-
-
 ## 1. 安装软件包
 ```bash
 # opkg install kmod-nf-nathelper-extra
