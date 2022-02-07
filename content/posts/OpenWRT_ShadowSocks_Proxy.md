@@ -11,9 +11,9 @@ tags: ["OpenWRT","ShadowSocks","v2ray","proxy"]
 
 - 硬件环境：Windows 10 Hyper-V虚拟机，单核处理器，256M内存
 - 固件版本：OpenWrt 19.07.6 r11278-8055e38794 / LuCI openwrt-19.07 branch git-21.101.59933-c56d9f2
-- shadowsocks-libev：3.3.5 (https://github.com/shadowsocks/openwrt-shadowsocks/releases)
+- [shadowsocks-libev：3.3.5](https://github.com/shadowsocks/openwrt-shadowsocks/releases)
 - luci-app-shadowsocks：2.0.2
-- v2ray-plugin：4.37.3-20210413 (https://github.com/honwen/openwrt-v2ray-plugin/releases)
+- [v2ray-plugin：4.37.3-20210413](https://github.com/honwen/openwrt-v2ray-plugin/releases)
 - ChinaDNS：1.3.3
 - luci-app-chinadns：1.6.2
 - https-dns-proxy：2021-01-17-5
