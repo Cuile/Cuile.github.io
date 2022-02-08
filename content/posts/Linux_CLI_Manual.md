@@ -2,10 +2,13 @@
 title: "Linux系统命令"
 date: 2022-01-17T11:07:07+08:00
 # draft: true
-tags: ["Linux","Centos7","bash"]
+tags: 
+- Linux
+- Centos 7
+- bash
 ---
 
-**`脚本基于Centos7`**
+**`脚本基于Centos 7`**
 
 ## 系统进程操作
 
