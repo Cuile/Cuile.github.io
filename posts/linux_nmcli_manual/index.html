@@ -1,25 +1,26 @@
-<!doctype html><html lang=en data-figures>
+<!doctype html><html lang=en data-figures class=page>
 <head>
-<title>Centos7 | 瘦了就帅了</title>
+<title>使用 nmcli 配置网络 | 瘦了就帅了</title>
 <meta charset=utf-8>
 <meta name=viewport content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
 <meta http-equiv=x-ua-compatible content="IE=edge">
 <meta http-equiv=content-security-policy content="upgrade-insecure-requests">
 <meta property="og:locale" content="en">
 <meta property="og:type" content="article">
-<meta name=description content>
+<meta name=description content="脚本基于Centos 7
+查看接口设备信息 # 简单接口状态 $ nmcli dev status # 详细的接口信息 $ nmcli dev show # 接口的详细信息 $ nmcli dev show interface-name 查看连接(connection)的信息 # 简单信息 $ nmcli con …">
 <meta name=twitter:card content="summary">
 <meta name=twitter:creator content>
-<meta name=twitter:title content="Centos7">
-<meta property="og:url" content="https://blog.cuile.com/tags/centos7/">
-<meta property="og:title" content="Centos7">
-<meta property="og:description" content>
+<meta name=twitter:title content="使用 nmcli 配置网络">
+<meta property="og:url" content="https://blog.cuile.com/posts/linux_nmcli_manual/">
+<meta property="og:title" content="使用 nmcli 配置网络">
+<meta property="og:description" content="脚本基于Centos 7
+查看接口设备信息 # 简单接口状态 $ nmcli dev status # 详细的接口信息 $ nmcli dev show # 接口的详细信息 $ nmcli dev show interface-name 查看连接(connection)的信息 # 简单信息 $ nmcli con …">
 <meta property="og:image" content="https://blog.cuile.com/">
 <link rel=apple-touch-icon sizes=180x180 href=https://blog.cuile.com/icons/apple-touch-icon.png>
 <link rel=icon type=image/png sizes=32x32 href=https://blog.cuile.com/icons/favicon-32x32.png>
 <link rel=manifest href=https://blog.cuile.com/icons/site.webmanifest>
-<link rel=canonical href=https://blog.cuile.com/tags/centos7/>
-<link rel=alternate type=application/rss+xml href=https://blog.cuile.com/tags/centos7/index.xml title=瘦了就帅了>
+<link rel=canonical href=https://blog.cuile.com/posts/linux_nmcli_manual/>
 <link rel=stylesheet href=//cdnjs.cloudflare.com/ajax/libs/highlight.js/11.4.0/styles/default.min.css>
 <script src=//cdnjs.cloudflare.com/ajax/libs/highlight.js/11.4.0/highlight.min.js></script>
 <link rel=preload href=https://blog.cuile.com/css/styles.01869c76e4757810d94ecbdccadba853d9d01d9416dfeb113df02e1479ff8b36e284e8bfeb3e8f353f2fdcdcbbdfcf27e558dbda96eb6341bfc304d55cd9e986.css integrity="sha512-AYacduR1eBDZTsvcytuoU9nQHZQW3+sRPfAuFHn/izbihOi/6z6PNT8v3Ny7388n5Vjb2pbrY0G/wwTVXNnphg==" as=style crossorigin=anonymous>
@@ -44,55 +45,66 @@
 </header>
 <main>
 <div class="grid-inverse wrap content">
-<ul class=posts id=posts>
-<li class=post_item>
-<div class=excerpt>
-<div class=excerpt_header>
-<h3 class=post_link>
-<a href=https://blog.cuile.com/posts/nmcli_manual/ title="使用 nmcli 配置网络">使用 nmcli 配置网络</a>
-</h3>
+<article class=post_content>
+<h1 class=post_title>使用 nmcli 配置网络</h1>
 <div class=post_meta>
 <span><svg class="icon"><use xlink:href="#calendar"/></svg></span>
 <span class=post_date>
 Jan 17, 2022</span>
 <span class=post_time> · 1 min read</span><span>&nbsp;· <a href=https://blog.cuile.com/tags/linux title=Linux class="post_tag button button_translucent">Linux
 </a><a href=https://blog.cuile.com/tags/nmcli title=nmcli class="post_tag button button_translucent">nmcli
-</a><a href=https://blog.cuile.com/tags/centos7 title=Centos7 class="post_tag button button_translucent">Centos7
+</a><a href=https://blog.cuile.com/tags/centos-7 title="Centos 7" class="post_tag button button_translucent">Centos 7
 </a>
 </span>
 <span class=page_only>&nbsp;·
 <div class=post_share>
 Share on:
-<a href="https://twitter.com/intent/tweet?text=%e4%bd%bf%e7%94%a8%20nmcli%20%e9%85%8d%e7%bd%ae%e7%bd%91%e7%bb%9c&url=https%3a%2f%2fblog.cuile.com%2fposts%2fnmcli_manual%2f&tw_p=tweetbutton" class=twitter title="Share on Twitter" target=_blank rel=nofollow><svg class="icon"><use xlink:href="#twitter"/></svg>
+<a href="https://twitter.com/intent/tweet?text=%e4%bd%bf%e7%94%a8%20nmcli%20%e9%85%8d%e7%bd%ae%e7%bd%91%e7%bb%9c&url=https%3a%2f%2fblog.cuile.com%2fposts%2flinux_nmcli_manual%2f&tw_p=tweetbutton" class=twitter title="Share on Twitter" target=_blank rel=nofollow><svg class="icon"><use xlink:href="#twitter"/></svg>
 </a>
-<a href="https://www.facebook.com/sharer.php?u=https%3a%2f%2fblog.cuile.com%2fposts%2fnmcli_manual%2f&t=%e4%bd%bf%e7%94%a8%20nmcli%20%e9%85%8d%e7%bd%ae%e7%bd%91%e7%bb%9c" class=facebook title="Share on Facebook" target=_blank rel=nofollow><svg class="icon"><use xlink:href="#facebook"/></svg>
+<a href="https://www.facebook.com/sharer.php?u=https%3a%2f%2fblog.cuile.com%2fposts%2flinux_nmcli_manual%2f&t=%e4%bd%bf%e7%94%a8%20nmcli%20%e9%85%8d%e7%bd%ae%e7%bd%91%e7%bb%9c" class=facebook title="Share on Facebook" target=_blank rel=nofollow><svg class="icon"><use xlink:href="#facebook"/></svg>
 </a>
 <a href=#linkedinshare id=linkedinshare class=linkedin title="Share on LinkedIn" rel=nofollow><svg class="icon"><use xlink:href="#linkedin"/></svg>
 </a>
-<a href=https://blog.cuile.com/posts/nmcli_manual/ title="Copy Link" class="link link_yank"><svg class="icon"><use xlink:href="#copy"/></svg>
+<a href=https://blog.cuile.com/posts/linux_nmcli_manual/ title="Copy Link" class="link link_yank"><svg class="icon"><use xlink:href="#copy"/></svg>
 </a>
 </div>
 </span>
 </div>
-</div>
-<div class=excerpt_footer>
-<div>
-<p class=pale>
-脚本基于Centos7
-查看接口设备信息 # 简单接口状态 $ nmcli dev status # 详细的接口信息 $ nmcli dev show # 接口的详细信息 $ nmcli dev show interface-name 查看连接(connection)的信息 # 简单信息 $ nmcli con show # 详细的连接信息 $ nmcli con show # 某个连接的详细信息 $ nmcli con show con-name 创建连接 $ nmcli con add type ethernet con-name static-vm100 ifname eth0 ipv4 192.168.100.100/24 …
-</p>
-<a href=https://blog.cuile.com/posts/nmcli_manual/ title="Read More" class="excerpt_more button">Read More</a>
-</div>
-</div>
-</div>
-</li>
-<li>
-</li>
+<div class=post_body><p><strong><code>脚本基于Centos 7</code></strong></p>
+<h2 id=查看接口设备信息>查看接口设备信息</h2>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash><span style=color:#75715e># 简单接口状态</span>
+$ nmcli dev status
+<span style=color:#75715e># 详细的接口信息</span>
+$ nmcli dev show
+<span style=color:#75715e># 接口的详细信息</span>
+$ nmcli dev show interface-name
+</code></pre></div><h2 id=查看连接connection的信息>查看连接(connection)的信息</h2>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash><span style=color:#75715e># 简单信息</span>
+$ nmcli con show
+<span style=color:#75715e># 详细的连接信息</span>
+$ nmcli con show
+<span style=color:#75715e># 某个连接的详细信息</span>
+$ nmcli con show con-name
+</code></pre></div><h2 id=创建连接>创建连接</h2>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash>$ nmcli con add type ethernet con-name static-vm100 ifname eth0 ipv4 192.168.100.100/24 gw4 192.168.100.1
+</code></pre></div><h2 id=激活连接>激活连接</h2>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash>$ nmcli con up static-vm100
+</code></pre></div><h2 id=参考链接>参考链接</h2>
+<ul>
+<li><a href=https://access.redhat.com/documentation/zh-cn/red_hat_enterprise_linux/7/html/networking_guide/sec-using_the_networkmanager_command_line_tool_nmcli>https://access.redhat.com/documentation/zh-cn/red_hat_enterprise_linux/7/html/networking_guide/sec-using_the_networkmanager_command_line_tool_nmcli</a></li>
+<li><a href=https://www.jianshu.com/p/5d5560e9e26a>https://www.jianshu.com/p/5d5560e9e26a</a></li>
 </ul>
+</div>
+<div class=post_comments>
+</div>
+</article>
 <aside class=sidebar>
 <section class=sidebar_inner>
 <h2 class=mt-4>Recent Posts</h2>
 <ul class=flex-column>
+<li>
+<a href=https://blog.cuile.com/posts/linux/linux_kernel_update/ class=nav-link title=Linux系统内核升级>Linux系统内核升级</a>
+</li>
 <li>
 <a href=https://blog.cuile.com/posts/linux_iptables_manual/ class=nav-link title="iptables 命令">iptables 命令</a>
 </li>
@@ -114,24 +126,21 @@ Share on:
 <li>
 <a href=https://blog.cuile.com/posts/mysql_manual/ class=nav-link title="MySQL 数据操作">MySQL 数据操作</a>
 </li>
-<li>
-<a href=https://blog.cuile.com/posts/urllib.parse.urlencode_manual/ class=nav-link title="urllib.parse.urlencode 使用详解">urllib.parse.urlencode 使用详解</a>
-</li>
 </ul>
 <div>
 <h2 class="mt-4 taxonomy" id=tags-section>Tags</h2>
 <nav class=tags_nav>
 <a href=https://blog.cuile.com/tags/linux/ class="post_tag button button_translucent" title=linux>
 LINUX
+<span class=button_tally>5</span>
+</a>
+<a href=https://blog.cuile.com/tags/centos-7/ class="post_tag button button_translucent" title=centos-7>
+CENTOS-7
 <span class=button_tally>4</span>
 </a>
 <a href=https://blog.cuile.com/tags/openwrt/ class="post_tag button button_translucent" title=openwrt>
 OPENWRT
 <span class=button_tally>4</span>
-</a>
-<a href=https://blog.cuile.com/tags/centos-7/ class="post_tag button button_translucent" title=centos-7>
-CENTOS-7
-<span class=button_tally>2</span>
 </a>
 <a href=https://blog.cuile.com/tags/python/ class="post_tag button button_translucent" title=python>
 PYTHON
@@ -147,10 +156,6 @@ BASH
 </a>
 <a href=https://blog.cuile.com/tags/blog/ class="post_tag button button_translucent" title=blog>
 BLOG
-<span class=button_tally>1</span>
-</a>
-<a href=https://blog.cuile.com/tags/centos7/ class="post_tag button button_translucent" title=centos7>
-CENTOS7
 <span class=button_tally>1</span>
 </a>
 <a href=https://blog.cuile.com/tags/dns/ class="post_tag button button_translucent" title=dns>
@@ -183,6 +188,10 @@ HUGO
 </a>
 <a href=https://blog.cuile.com/tags/iptables/ class="post_tag button button_translucent" title=iptables>
 IPTABLES
+<span class=button_tally>1</span>
+</a>
+<a href=https://blog.cuile.com/tags/kernel/ class="post_tag button button_translucent" title=kernel>
+KERNEL
 <span class=button_tally>1</span>
 </a>
 <a href=https://blog.cuile.com/tags/mysql/ class="post_tag button button_translucent" title=mysql>
