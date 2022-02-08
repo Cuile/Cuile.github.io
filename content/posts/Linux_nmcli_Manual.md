@@ -2,10 +2,13 @@
 title: "使用 nmcli 配置网络"
 date: 2022-01-17T15:17:58+08:00
 # draft: true
-tags: ["Linux","nmcli","Centos7"]
+tags:
+- Linux
+- nmcli
+- Centos 7
 ---
 
-**`脚本基于Centos7`**
+**`脚本基于Centos 7`**
 
 ## 查看接口设备信息
 ```bash
