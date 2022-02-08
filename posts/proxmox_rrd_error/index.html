@@ -1,25 +1,26 @@
-<!doctype html><html lang=en data-figures>
+<!doctype html><html lang=en data-figures class=page>
 <head>
-<title>NAT | 瘦了就帅了</title>
+<title>修复 Proxmox RRD 错误 | 瘦了就帅了</title>
 <meta charset=utf-8>
 <meta name=viewport content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
 <meta http-equiv=x-ua-compatible content="IE=edge">
 <meta http-equiv=content-security-policy content="upgrade-insecure-requests">
 <meta property="og:locale" content="en">
 <meta property="og:type" content="article">
-<meta name=description content>
+<meta name=description content="Proxmox系统安装后，日志报错
+rrdcached[4513]: handle_request_update: Could not read RRD file. pmxcfs[4527]: [status] notice: RRDC update error …">
 <meta name=twitter:card content="summary">
 <meta name=twitter:creator content>
-<meta name=twitter:title content="NAT">
-<meta property="og:url" content="https://blog.cuile.com/tags/nat/">
-<meta property="og:title" content="NAT">
-<meta property="og:description" content>
+<meta name=twitter:title content="修复 Proxmox RRD 错误">
+<meta property="og:url" content="https://blog.cuile.com/posts/proxmox_rrd_error/">
+<meta property="og:title" content="修复 Proxmox RRD 错误">
+<meta property="og:description" content="Proxmox系统安装后，日志报错
+rrdcached[4513]: handle_request_update: Could not read RRD file. pmxcfs[4527]: [status] notice: RRDC update error …">
 <meta property="og:image" content="https://blog.cuile.com/">
 <link rel=apple-touch-icon sizes=180x180 href=https://blog.cuile.com/icons/apple-touch-icon.png>
 <link rel=icon type=image/png sizes=32x32 href=https://blog.cuile.com/icons/favicon-32x32.png>
 <link rel=manifest href=https://blog.cuile.com/icons/site.webmanifest>
-<link rel=canonical href=https://blog.cuile.com/tags/nat/>
-<link rel=alternate type=application/rss+xml href=https://blog.cuile.com/tags/nat/index.xml title=瘦了就帅了>
+<link rel=canonical href=https://blog.cuile.com/posts/proxmox_rrd_error/>
 <link rel=stylesheet href=//cdnjs.cloudflare.com/ajax/libs/highlight.js/11.4.0/styles/default.min.css>
 <script src=//cdnjs.cloudflare.com/ajax/libs/highlight.js/11.4.0/highlight.min.js></script>
 <link rel=preload href=https://blog.cuile.com/css/styles.01869c76e4757810d94ecbdccadba853d9d01d9416dfeb113df02e1479ff8b36e284e8bfeb3e8f353f2fdcdcbbdfcf27e558dbda96eb6341bfc304d55cd9e986.css integrity="sha512-AYacduR1eBDZTsvcytuoU9nQHZQW3+sRPfAuFHn/izbihOi/6z6PNT8v3Ny7388n5Vjb2pbrY0G/wwTVXNnphg==" as=style crossorigin=anonymous>
@@ -44,61 +45,48 @@
 </header>
 <main>
 <div class="grid-inverse wrap content">
-<ul class=posts id=posts>
-<li class=post_item>
-<div class=excerpt>
-<div class=excerpt_header>
-<h3 class=post_link>
-<a href=https://blog.cuile.com/posts/proxmox_nat/ title="Proxmox 配置 NAT 网络">Proxmox 配置 NAT 网络</a>
-</h3>
+<article class=post_content>
+<h1 class=post_title>修复 Proxmox RRD 错误</h1>
 <div class=post_meta>
 <span><svg class="icon"><use xlink:href="#calendar"/></svg></span>
 <span class=post_date>
-Feb 7, 2022</span>
-<span class=post_time> · 2 min read</span><span>&nbsp;· <a href=https://blog.cuile.com/tags/proxmox title=Proxmox class="post_tag button button_translucent">Proxmox
-</a><a href=https://blog.cuile.com/tags/nat title=NAT class="post_tag button button_translucent">NAT
+Feb 8, 2022</span>
+<span class=post_time> · 1 min read</span><span>&nbsp;· <a href=https://blog.cuile.com/tags/proxmox title=Proxmox class="post_tag button button_translucent">Proxmox
 </a>
 </span>
 <span class=page_only>&nbsp;·
 <div class=post_share>
 Share on:
-<a href="https://twitter.com/intent/tweet?text=Proxmox%20%e9%85%8d%e7%bd%ae%20NAT%20%e7%bd%91%e7%bb%9c&url=https%3a%2f%2fblog.cuile.com%2fposts%2fproxmox_nat%2f&tw_p=tweetbutton" class=twitter title="Share on Twitter" target=_blank rel=nofollow><svg class="icon"><use xlink:href="#twitter"/></svg>
+<a href="https://twitter.com/intent/tweet?text=%e4%bf%ae%e5%a4%8d%20Proxmox%20RRD%20%e9%94%99%e8%af%af&url=https%3a%2f%2fblog.cuile.com%2fposts%2fproxmox_rrd_error%2f&tw_p=tweetbutton" class=twitter title="Share on Twitter" target=_blank rel=nofollow><svg class="icon"><use xlink:href="#twitter"/></svg>
 </a>
-<a href="https://www.facebook.com/sharer.php?u=https%3a%2f%2fblog.cuile.com%2fposts%2fproxmox_nat%2f&t=Proxmox%20%e9%85%8d%e7%bd%ae%20NAT%20%e7%bd%91%e7%bb%9c" class=facebook title="Share on Facebook" target=_blank rel=nofollow><svg class="icon"><use xlink:href="#facebook"/></svg>
+<a href="https://www.facebook.com/sharer.php?u=https%3a%2f%2fblog.cuile.com%2fposts%2fproxmox_rrd_error%2f&t=%e4%bf%ae%e5%a4%8d%20Proxmox%20RRD%20%e9%94%99%e8%af%af" class=facebook title="Share on Facebook" target=_blank rel=nofollow><svg class="icon"><use xlink:href="#facebook"/></svg>
 </a>
 <a href=#linkedinshare id=linkedinshare class=linkedin title="Share on LinkedIn" rel=nofollow><svg class="icon"><use xlink:href="#linkedin"/></svg>
 </a>
-<a href=https://blog.cuile.com/posts/proxmox_nat/ title="Copy Link" class="link link_yank"><svg class="icon"><use xlink:href="#copy"/></svg>
+<a href=https://blog.cuile.com/posts/proxmox_rrd_error/ title="Copy Link" class="link link_yank"><svg class="icon"><use xlink:href="#copy"/></svg>
 </a>
 </div>
 </span>
 </div>
-</div>
-<div class=excerpt_footer>
-<div>
-<p class=pale>
-1. 升级系统软件包 $ apt-get update $ apt-get dist-upgrade 2. 安装 ifupdown2 使用 ifupdown2 网络管理软件包，还可以实时重新加载网络配置，而无需重新启动。
-$ apt install ifupdown2 3. 配置物理网卡 使用 PVE 的 WEB 管理界面，设置物理网卡的配置。
-注意：一定要分配一个静态的IP地址，否则无法正常登录 PVE
-节点 > 系统 > 网络：
-address：192.168.10.66/24 gateway：192.168.10.1 保存后应用配置
-4. 配置虚拟网卡 4.1 修改虚拟网卡配置 使用 PVE 提供管理界面进行配 …
-</p>
-<a href=https://blog.cuile.com/posts/proxmox_nat/ title="Read More" class="excerpt_more button">Read More</a>
-</div>
-</div>
-</div>
-</li>
-<li>
-</li>
+<div class=post_body><p>Proxmox系统安装后，日志报错</p>
+<pre tabindex=0><code class=language-log data-lang=log>rrdcached[4513]: handle_request_update: Could not read RRD file.
+pmxcfs[4527]: [status] notice: RRDC update error /var/lib/rrdcached/db/pve2-vm/85235: -1
+pmxcfs[4527]: [status] notice: RRD update error /var/lib/rrdcached/db/pve2-vm/85235: mmaping file '/var/lib/rrdcached/db/pve2-vm/85235': Invalid argument
+</code></pre><p>修复命令</p>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash>$ rm -r /var/lib/rrdcached/db
+$ systemctl restart rrdcached.service
+</code></pre></div><h2 id=参考文档>参考文档</h2>
+<ul>
+<li><a href=https://forum.proxmox.com/threads/strange-rrd-error.102139/post-441801>Strange RRD error</a></li>
 </ul>
+</div>
+<div class=post_comments>
+</div>
+</article>
 <aside class=sidebar>
 <section class=sidebar_inner>
 <h2 class=mt-4>Recent Posts</h2>
 <ul class=flex-column>
-<li>
-<a href=https://blog.cuile.com/posts/proxmox_rrd_error/ class=nav-link title="修复 Proxmox RRD 错误">修复 Proxmox RRD 错误</a>
-</li>
 <li>
 <a href=https://blog.cuile.com/posts/ffmpeg_manual/ class=nav-link title=FFmpeg脚本>FFmpeg脚本</a>
 </li>
@@ -119,6 +107,9 @@ address：192.168.10.66/24 gateway：192.168.10.1 保存后应用配置
 </li>
 <li>
 <a href=https://blog.cuile.com/posts/openwrt/openwrt_shadowsocks_proxy/ class=nav-link title="OpenWRT 配置透明代理">OpenWRT 配置透明代理</a>
+</li>
+<li>
+<a href=https://blog.cuile.com/posts/openwrt/openwrt_dns/ class=nav-link title="OpenWRT DNS设置">OpenWRT DNS设置</a>
 </li>
 </ul>
 <div>
