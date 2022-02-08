@@ -1,26 +1,30 @@
 <!doctype html><html lang=en data-figures class=page>
 <head>
-<title>Linux系统命令 | 瘦了就帅了</title>
+<title>编译x86_64版本的OpenWrt | 瘦了就帅了</title>
 <meta charset=utf-8>
 <meta name=viewport content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
 <meta http-equiv=x-ua-compatible content="IE=edge">
 <meta http-equiv=content-security-policy content="upgrade-insecure-requests">
 <meta property="og:locale" content="en">
 <meta property="og:type" content="article">
-<meta name=description content="脚本基于Centos7
-系统进程操作  查看CPU和内存使用情况  # 定位高CPU占用 $ ps H -eo user,pid,ppid,tid,time,%cpu,cmd --sort=%cpu # 可视化显示CPU的使用状况的工具 $ yum install -y htop $ htop 磁盘操作  查询并筛选  …">
+<meta name=description content="1、准备环境 建议使用纯linux系统进行编译，如 Ubuntu 20.04 LTS，这样环境比较简单，兼容问题也少。
+ 用WSL环境编译，可参考
+ 使用 Windows 子系统 ( WSL ) 编译 OpenWrt   为提高编译的成功率，采用国内大神Lean的版本。
+官方版本因编译过程中，下载、兼容等等太多问题，建 …">
 <meta name=twitter:card content="summary">
 <meta name=twitter:creator content>
-<meta name=twitter:title content="Linux系统命令">
-<meta property="og:url" content="https://blog.cuile.com/posts/linux_cli/">
-<meta property="og:title" content="Linux系统命令">
-<meta property="og:description" content="脚本基于Centos7
-系统进程操作  查看CPU和内存使用情况  # 定位高CPU占用 $ ps H -eo user,pid,ppid,tid,time,%cpu,cmd --sort=%cpu # 可视化显示CPU的使用状况的工具 $ yum install -y htop $ htop 磁盘操作  查询并筛选  …">
+<meta name=twitter:title content="编译x86_64版本的OpenWrt">
+<meta property="og:url" content="https://blog.cuile.com/posts/openwrt_make/">
+<meta property="og:title" content="编译x86_64版本的OpenWrt">
+<meta property="og:description" content="1、准备环境 建议使用纯linux系统进行编译，如 Ubuntu 20.04 LTS，这样环境比较简单，兼容问题也少。
+ 用WSL环境编译，可参考
+ 使用 Windows 子系统 ( WSL ) 编译 OpenWrt   为提高编译的成功率，采用国内大神Lean的版本。
+官方版本因编译过程中，下载、兼容等等太多问题，建 …">
 <meta property="og:image" content="https://blog.cuile.com/">
 <link rel=apple-touch-icon sizes=180x180 href=https://blog.cuile.com/icons/apple-touch-icon.png>
 <link rel=icon type=image/png sizes=32x32 href=https://blog.cuile.com/icons/favicon-32x32.png>
 <link rel=manifest href=https://blog.cuile.com/icons/site.webmanifest>
-<link rel=canonical href=https://blog.cuile.com/posts/linux_cli/>
+<link rel=canonical href=https://blog.cuile.com/posts/openwrt_make/>
 <link rel=stylesheet href=//cdnjs.cloudflare.com/ajax/libs/highlight.js/11.4.0/styles/default.min.css>
 <script src=//cdnjs.cloudflare.com/ajax/libs/highlight.js/11.4.0/highlight.min.js></script>
 <link rel=preload href=https://blog.cuile.com/css/styles.01869c76e4757810d94ecbdccadba853d9d01d9416dfeb113df02e1479ff8b36e284e8bfeb3e8f353f2fdcdcbbdfcf27e558dbda96eb6341bfc304d55cd9e986.css integrity="sha512-AYacduR1eBDZTsvcytuoU9nQHZQW3+sRPfAuFHn/izbihOi/6z6PNT8v3Ny7388n5Vjb2pbrY0G/wwTVXNnphg==" as=style crossorigin=anonymous>
@@ -46,114 +50,83 @@
 <main>
 <div class="grid-inverse wrap content">
 <article class=post_content>
-<h1 class=post_title>Linux系统命令</h1>
+<h1 class=post_title>编译x86_64版本的OpenWrt</h1>
 <div class=post_meta>
 <span><svg class="icon"><use xlink:href="#calendar"/></svg></span>
 <span class=post_date>
-Jan 17, 2022</span>
-<span class=post_time> · 2 min read</span><span>&nbsp;· <a href=https://blog.cuile.com/tags/linux title=Linux class="post_tag button button_translucent">Linux
-</a><a href=https://blog.cuile.com/tags/centos7 title=Centos7 class="post_tag button button_translucent">Centos7
-</a><a href=https://blog.cuile.com/tags/bash title=bash class="post_tag button button_translucent">bash
+Feb 8, 2022</span>
+<span class=post_time> · 1 min read</span><span>&nbsp;· <a href=https://blog.cuile.com/tags/openwrt title=OpenWRT class="post_tag button button_translucent">OpenWRT
+</a><a href=https://blog.cuile.com/tags/ title class="post_tag button button_translucent">
 </a>
 </span>
 <span class=page_only>&nbsp;·
 <div class=post_share>
 Share on:
-<a href="https://twitter.com/intent/tweet?text=Linux%e7%b3%bb%e7%bb%9f%e5%91%bd%e4%bb%a4&url=https%3a%2f%2fblog.cuile.com%2fposts%2flinux_cli%2f&tw_p=tweetbutton" class=twitter title="Share on Twitter" target=_blank rel=nofollow><svg class="icon"><use xlink:href="#twitter"/></svg>
+<a href="https://twitter.com/intent/tweet?text=%e7%bc%96%e8%af%91x86_64%e7%89%88%e6%9c%ac%e7%9a%84OpenWrt&url=https%3a%2f%2fblog.cuile.com%2fposts%2fopenwrt_make%2f&tw_p=tweetbutton" class=twitter title="Share on Twitter" target=_blank rel=nofollow><svg class="icon"><use xlink:href="#twitter"/></svg>
 </a>
-<a href="https://www.facebook.com/sharer.php?u=https%3a%2f%2fblog.cuile.com%2fposts%2flinux_cli%2f&t=Linux%e7%b3%bb%e7%bb%9f%e5%91%bd%e4%bb%a4" class=facebook title="Share on Facebook" target=_blank rel=nofollow><svg class="icon"><use xlink:href="#facebook"/></svg>
+<a href="https://www.facebook.com/sharer.php?u=https%3a%2f%2fblog.cuile.com%2fposts%2fopenwrt_make%2f&t=%e7%bc%96%e8%af%91x86_64%e7%89%88%e6%9c%ac%e7%9a%84OpenWrt" class=facebook title="Share on Facebook" target=_blank rel=nofollow><svg class="icon"><use xlink:href="#facebook"/></svg>
 </a>
 <a href=#linkedinshare id=linkedinshare class=linkedin title="Share on LinkedIn" rel=nofollow><svg class="icon"><use xlink:href="#linkedin"/></svg>
 </a>
-<a href=https://blog.cuile.com/posts/linux_cli/ title="Copy Link" class="link link_yank"><svg class="icon"><use xlink:href="#copy"/></svg>
+<a href=https://blog.cuile.com/posts/openwrt_make/ title="Copy Link" class="link link_yank"><svg class="icon"><use xlink:href="#copy"/></svg>
 </a>
 </div>
 </span>
 </div>
-<div class=post_body><p><strong><code>脚本基于Centos7</code></strong></p>
-<h2 id=系统进程操作>系统进程操作</h2>
+<div class=post_body><h2 id=1准备环境>1、准备环境</h2>
+<p>建议使用纯linux系统进行编译，如 Ubuntu 20.04 LTS，这样环境比较简单，兼容问题也少。</p>
+<blockquote>
+<p>用WSL环境编译，可参考</p>
 <ul>
-<li><a href=https://www.cnblogs.com/xd502djj/archive/2011/03/01/1968041.html>查看CPU和内存使用情况</a></li>
+<li><a href=https://p3terx.com/archives/compiling-openwrt-with-wsl.html>使用 Windows 子系统 ( WSL ) 编译 OpenWrt</a></li>
 </ul>
-<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash><span style=color:#75715e># 定位高CPU占用</span>
-$ ps H -eo user,pid,ppid,tid,time,%cpu,cmd --sort<span style=color:#f92672>=</span>%cpu
-<span style=color:#75715e># 可视化显示CPU的使用状况的工具</span>
-$ yum install -y htop
-$ htop
-</code></pre></div><h2 id=磁盘操作>磁盘操作</h2>
+</blockquote>
+<p>为提高编译的成功率，采用国内大神Lean的版本。</p>
+<p>官方版本因编译过程中，下载、兼容等等太多问题，建议不要使用。</p>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash>sudo apt-get update
+sudo apt-get -y install build-essential asciidoc binutils bzip2 gawk gettext git libncurses5-dev libz-dev patch python3 python2.7 unzip zlib1g-dev lib32gcc1 libc6-dev-i386 subversion flex uglifyjs git-core gcc-multilib p7zip p7zip-full msmtp libssl-dev texinfo libglib2.0-dev xmlto qemu-utils upx libelf-dev autoconf automake libtool autopoint device-tree-compiler g++-multilib antlr3 gperf wget curl swig rsync
+</code></pre></div><h2 id=2下载代码>2、下载代码</h2>
+<p>国内用户请准备好梯子</p>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash>git clone https://github.com/coolsnowwolf/lede
+cd lede
+./scripts/feeds update -a
+./scripts/feeds install -a
+</code></pre></div><h2 id=3配置组件>3、配置组件</h2>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash>make menuconfig
+</code></pre></div><blockquote>
+<p>Hyper-V平台配置，可参考</p>
 <ul>
-<li><a href=https://blog.csdn.net/u013030100/article/details/79564378>查询并筛选 磁盘空间 统计 排序</a></li>
+<li><a href=https://soha.moe/post/make-openwrt-fits-hyperv.html>让OpenWRT完美适应Hyper-V</a></li>
 </ul>
-<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash><span style=color:#75715e># 修改硬盘挂载目录</span>
-<span style=color:#75715e># 卸载硬盘</span>
-$ umount -v /mnt/raid1-2disk-500G
-<span style=color:#75715e># 修改挂载目录</span>
-$ mv /mnt/raid1-2disk-500G /mnt/raid1-250G-2disk
-<span style=color:#75715e># 修改/etc/fstab文件里的挂载目录</span>
-$ nano /etc/fstab
-<span style=color:#75715e># 重装挂载</span>
-$ mount -av /dev/md127 /mnt/raid1-250G-2disk
-</code></pre></div><h2 id=网络端口操作>网络端口操作</h2>
-<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash><span style=color:#75715e># 查看端口占用</span>
-<span style=color:#75715e># 查看所有端口占用情况</span>
-$ netstat -tlunp
-<span style=color:#75715e># 查看指定端口占用情况</span>
-$ netstat -tlunp | grep &lt;port&gt;
-</code></pre></div><h2 id=文件操作>文件操作</h2>
+</blockquote>
+<h2 id=4开始编译>4、开始编译</h2>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash>make -j8 download V<span style=color:#f92672>=</span>sc
+make -j1 V<span style=color:#f92672>=</span>sc
+</code></pre></div><p>编译过程中下载库很难一次成功，如果编译报错，可多尝试几次，每次都可以补全几个文件</p>
+<blockquote>
+<p>详细的命令说明，可参考</p>
 <ul>
-<li><a href=https://blog.csdn.net/kangaroo_07/article/details/43733891>文件截取</a></li>
+<li><a href=https://p3terx.com/archives/openwrt-compilation-steps-and-commands.html>OpenWrt 编译步骤与命令详解教程</a></li>
+<li><a href=https://openwrt.club/1.html>如何编译一个属于自己的OpenWrt固件</a></li>
 </ul>
-<h2 id=系统设置操作>系统设置操作</h2>
-<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash><span style=color:#75715e># systemctl命令</span>
-systemctl list-units            <span style=color:#75715e>##列出当前系统服务的状态</span>
-systemctl list-unit-files       <span style=color:#75715e>##列出服务的开机状态</span>
-systemctl status sshd           <span style=color:#75715e>##查看指定服务的状态</span>
-systemctl stop sshd             <span style=color:#75715e>##关闭指定服务</span>
-systemctl start sshd            <span style=color:#75715e>##开启指定服务</span>
-systemctl restart sshd          <span style=color:#75715e>##从新启动服务</span>
-systemctl enable sshd           <span style=color:#75715e>##设定指定服务开机开启</span>
-systemctl disable sshd          <span style=color:#75715e>##设定指定服务开机关闭</span>
-systemctl reload sshd           <span style=color:#75715e>##使指定服务从新加载配置</span>
-systemctl list-dependencies sshd    <span style=color:#75715e>##查看指定服务的倚赖关系</span>
-systemctl mask  sshd            <span style=color:#75715e>##冻结指定服务</span>
-systemctl unmask sshd           <span style=color:#75715e>##启用服务</span>
-systemctl set-default multi-user.target <span style=color:#75715e>##开机不开启图形</span>
-systemctl set-default graphical.target  <span style=color:#75715e>##开机启动图形</span>
-</code></pre></div><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash><span style=color:#75715e># /etc/hosts</span>
-<span style=color:#75715e># sed 参考 http://man.linuxde.net/sed</span>
-        <span style=color:#75715e>#  https://www.cnblogs.com/ggjucheng/archive/2013/01/13/2856901.html</span>
-$ sed ......
-</code></pre></div><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash><span style=color:#75715e># SSH连接不自动断开</span>
-$ sed -i <span style=color:#e6db74>&#39;s|^#\(ClientAliveInterval\) 0$|\1 60|g&#39;</span> /etc/ssh/sshd_config
-$ sed -i <span style=color:#e6db74>&#39;s|^#\(ClientAliveCountMax\) 3$|\1 5|g&#39;</span> /etc/ssh/sshd_config
-$ systemctl restart sshd
-</code></pre></div><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash><span style=color:#75715e># 设置主机名</span>
-$ _hostname_<span style=color:#f92672>=</span>XXXX
-$ hostnamectl --static set-hostname <span style=color:#e6db74>${</span>_hostname_<span style=color:#e6db74>}</span>
-$ hostnamectl --transient set-hostname <span style=color:#e6db74>${</span>_hostname_<span style=color:#e6db74>}</span>
-$ hostnamectl --pretty set-hostname <span style=color:#e6db74>${</span>_hostname_<span style=color:#e6db74>}</span>
-</code></pre></div><ul>
-<li><a href=https://blog.csdn.net/tantexian/article/details/45958275>hostnamectl 参考</a></li>
+</blockquote>
+<p>编译完成无报错的情况下，最终文件在</p>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash>cd ./bin/targets/x86/64/
+</code></pre></div><h2 id=5转成vhdx格式>5、转成vhdx格式</h2>
+<p>vhdx格式，可以方便的在Hyper-V虚拟机中使用</p>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash>qemu-img convert something.vmdk -O vhdx something.vhdx
+</code></pre></div><blockquote>
+<p>如何使用，可参考</p>
+<ul>
+<li><a href=https://blog.skk.moe/post/hyper-v-win10-lede/>在 Windows 10 上使用 Hyper-V 安装 LEDE 软路由</a></li>
 </ul>
-<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash><span style=color:#75715e># 修改命令提示符</span>
-$ echo <span style=color:#e6db74>&#39;export PS1=&#34;[\A \u@\H \w]\\$ &#34;&#39;</span> &gt;&gt; /etc/bashrc
-<span style=color:#75715e># 让配置生效</span>
-$ source /etc/bashrc
-</code></pre></div><ul>
-<li><a href=https://www.linuxidc.com/Linux/2017-10/147438.htm>命令提示符设置参考</a></li>
+</blockquote>
+<h2 id=参考文档>参考文档</h2>
+<ul>
+<li><a href=https://github.com/coolsnowwolf/lede>Lean Github</a></li>
+<li><a href=https://openwrt.org/>openwrt.org</a></li>
+<li><a href=https://openwrt.org/docs/guide-developer/quickstart-build-images>Quickstart build images</a></li>
 </ul>
-<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash><span style=color:#75715e># 修改服务器时区</span>
-$ timedatectl set-timezone Asia/Shanghai
-</code></pre></div><ul>
-<li><a href=https://www.jianshu.com/p/5e8e22bf135d>timedatectl 参考</a></li>
-</ul>
-<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash><span style=color:#75715e># 查看系统版本</span>
-$ lsb_release -a
-$ cat /etc/redhat-release
-$ cat /etc/issue
-</code></pre></div><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash><span style=color:#75715e># 修改密码</span>
-$ passwd &lt;user_name&gt;
-</code></pre></div>
 </div>
 <div class=post_comments>
 </div>
@@ -162,9 +135,6 @@ $ passwd &lt;user_name&gt;
 <section class=sidebar_inner>
 <h2 class=mt-4>Recent Posts</h2>
 <ul class=flex-column>
-<li>
-<a href=https://blog.cuile.com/posts/openwrt_make/ class=nav-link title=编译x86_64版本的OpenWrt>编译x86_64版本的OpenWrt</a>
-</li>
 <li>
 <a href=https://blog.cuile.com/posts/proxmox_nat/ class=nav-link title="Proxmox 配置 NAT 网络">Proxmox 配置 NAT 网络</a>
 </li>
@@ -185,6 +155,9 @@ $ passwd &lt;user_name&gt;
 </li>
 <li>
 <a href=https://blog.cuile.com/posts/nmcli_manual/ class=nav-link title="使用 nmcli 配置网络">使用 nmcli 配置网络</a>
+</li>
+<li>
+<a href=https://blog.cuile.com/posts/sed_manual/ class=nav-link title="使用 sed 命令操作文本文件">使用 sed 命令操作文本文件</a>
 </li>
 </ul>
 <div>
