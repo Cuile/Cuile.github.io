@@ -2,7 +2,10 @@
 title: "使用 sed 命令操作文本文件"
 date: 2022-01-17T11:18:47+08:00
 # draft: true
-tags: ["Linux","sed"]
+tags: 
+- Linux
+- sed
+- Ubuntu
 ---
 
 **`脚本基于Ubuntu 20.04`**
