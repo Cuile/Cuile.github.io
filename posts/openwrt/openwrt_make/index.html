@@ -1,26 +1,30 @@
 <!doctype html><html lang=en data-figures class=page>
 <head>
-<title>使用 sed 命令操作文本文件 | 瘦了就帅了</title>
+<title>编译x86_64版本的OpenWrt | 瘦了就帅了</title>
 <meta charset=utf-8>
 <meta name=viewport content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
 <meta http-equiv=x-ua-compatible content="IE=edge">
 <meta http-equiv=content-security-policy content="upgrade-insecure-requests">
 <meta property="og:locale" content="en">
 <meta property="og:type" content="article">
-<meta name=description content="脚本基于Ubuntu 20.04
-合并文件 cat info.log error.log > merge.log.bak cp merge.log.bak merge.log 删除冗余信息 sed -i …">
+<meta name=description content="1、准备环境 建议使用纯linux系统进行编译，如 Ubuntu 20.04 LTS，这样环境比较简单，兼容问题也少。
+ 用WSL环境编译，可参考
+ 使用 Windows 子系统 ( WSL ) 编译 OpenWrt   为提高编译的成功率，采用国内大神Lean的版本。
+官方版本因编译过程中，下载、兼容等等太多问题，建 …">
 <meta name=twitter:card content="summary">
 <meta name=twitter:creator content>
-<meta name=twitter:title content="使用 sed 命令操作文本文件">
-<meta property="og:url" content="https://blog.cuile.com/posts/linux_sed_manual/">
-<meta property="og:title" content="使用 sed 命令操作文本文件">
-<meta property="og:description" content="脚本基于Ubuntu 20.04
-合并文件 cat info.log error.log > merge.log.bak cp merge.log.bak merge.log 删除冗余信息 sed -i …">
+<meta name=twitter:title content="编译x86_64版本的OpenWrt">
+<meta property="og:url" content="https://blog.cuile.com/posts/openwrt/openwrt_make/">
+<meta property="og:title" content="编译x86_64版本的OpenWrt">
+<meta property="og:description" content="1、准备环境 建议使用纯linux系统进行编译，如 Ubuntu 20.04 LTS，这样环境比较简单，兼容问题也少。
+ 用WSL环境编译，可参考
+ 使用 Windows 子系统 ( WSL ) 编译 OpenWrt   为提高编译的成功率，采用国内大神Lean的版本。
+官方版本因编译过程中，下载、兼容等等太多问题，建 …">
 <meta property="og:image" content="https://blog.cuile.com/">
 <link rel=apple-touch-icon sizes=180x180 href=https://blog.cuile.com/icons/apple-touch-icon.png>
 <link rel=icon type=image/png sizes=32x32 href=https://blog.cuile.com/icons/favicon-32x32.png>
 <link rel=manifest href=https://blog.cuile.com/icons/site.webmanifest>
-<link rel=canonical href=https://blog.cuile.com/posts/linux_sed_manual/>
+<link rel=canonical href=https://blog.cuile.com/posts/openwrt/openwrt_make/>
 <link rel=stylesheet href=//cdnjs.cloudflare.com/ajax/libs/highlight.js/11.4.0/styles/default.min.css>
 <script src=//cdnjs.cloudflare.com/ajax/libs/highlight.js/11.4.0/highlight.min.js></script>
 <link rel=preload href=https://blog.cuile.com/css/styles.01869c76e4757810d94ecbdccadba853d9d01d9416dfeb113df02e1479ff8b36e284e8bfeb3e8f353f2fdcdcbbdfcf27e558dbda96eb6341bfc304d55cd9e986.css integrity="sha512-AYacduR1eBDZTsvcytuoU9nQHZQW3+sRPfAuFHn/izbihOi/6z6PNT8v3Ny7388n5Vjb2pbrY0G/wwTVXNnphg==" as=style crossorigin=anonymous>
@@ -46,62 +50,82 @@
 <main>
 <div class="grid-inverse wrap content">
 <article class=post_content>
-<h1 class=post_title>使用 sed 命令操作文本文件</h1>
+<h1 class=post_title>编译x86_64版本的OpenWrt</h1>
 <div class=post_meta>
 <span><svg class="icon"><use xlink:href="#calendar"/></svg></span>
 <span class=post_date>
-Jan 17, 2022</span>
-<span class=post_time> · 1 min read</span><span>&nbsp;· <a href=https://blog.cuile.com/tags/linux title=Linux class="post_tag button button_translucent">Linux
-</a><a href=https://blog.cuile.com/tags/sed title=sed class="post_tag button button_translucent">sed
-</a><a href=https://blog.cuile.com/tags/ubuntu title=Ubuntu class="post_tag button button_translucent">Ubuntu
+Feb 8, 2022</span>
+<span class=post_time> · 1 min read</span><span>&nbsp;· <a href=https://blog.cuile.com/tags/openwrt title=OpenWRT class="post_tag button button_translucent">OpenWRT
 </a>
 </span>
 <span class=page_only>&nbsp;·
 <div class=post_share>
 Share on:
-<a href="https://twitter.com/intent/tweet?text=%e4%bd%bf%e7%94%a8%20sed%20%e5%91%bd%e4%bb%a4%e6%93%8d%e4%bd%9c%e6%96%87%e6%9c%ac%e6%96%87%e4%bb%b6&url=https%3a%2f%2fblog.cuile.com%2fposts%2flinux_sed_manual%2f&tw_p=tweetbutton" class=twitter title="Share on Twitter" target=_blank rel=nofollow><svg class="icon"><use xlink:href="#twitter"/></svg>
+<a href="https://twitter.com/intent/tweet?text=%e7%bc%96%e8%af%91x86_64%e7%89%88%e6%9c%ac%e7%9a%84OpenWrt&url=https%3a%2f%2fblog.cuile.com%2fposts%2fopenwrt%2fopenwrt_make%2f&tw_p=tweetbutton" class=twitter title="Share on Twitter" target=_blank rel=nofollow><svg class="icon"><use xlink:href="#twitter"/></svg>
 </a>
-<a href="https://www.facebook.com/sharer.php?u=https%3a%2f%2fblog.cuile.com%2fposts%2flinux_sed_manual%2f&t=%e4%bd%bf%e7%94%a8%20sed%20%e5%91%bd%e4%bb%a4%e6%93%8d%e4%bd%9c%e6%96%87%e6%9c%ac%e6%96%87%e4%bb%b6" class=facebook title="Share on Facebook" target=_blank rel=nofollow><svg class="icon"><use xlink:href="#facebook"/></svg>
+<a href="https://www.facebook.com/sharer.php?u=https%3a%2f%2fblog.cuile.com%2fposts%2fopenwrt%2fopenwrt_make%2f&t=%e7%bc%96%e8%af%91x86_64%e7%89%88%e6%9c%ac%e7%9a%84OpenWrt" class=facebook title="Share on Facebook" target=_blank rel=nofollow><svg class="icon"><use xlink:href="#facebook"/></svg>
 </a>
 <a href=#linkedinshare id=linkedinshare class=linkedin title="Share on LinkedIn" rel=nofollow><svg class="icon"><use xlink:href="#linkedin"/></svg>
 </a>
-<a href=https://blog.cuile.com/posts/linux_sed_manual/ title="Copy Link" class="link link_yank"><svg class="icon"><use xlink:href="#copy"/></svg>
+<a href=https://blog.cuile.com/posts/openwrt/openwrt_make/ title="Copy Link" class="link link_yank"><svg class="icon"><use xlink:href="#copy"/></svg>
 </a>
 </div>
 </span>
 </div>
-<div class=post_body><p><strong><code>脚本基于Ubuntu 20.04</code></strong></p>
-<h2 id=合并文件>合并文件</h2>
-<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash>cat info.log error.log &gt; merge.log.bak
-cp merge.log.bak merge.log
-</code></pre></div><h2 id=删除冗余信息>删除冗余信息</h2>
-<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash>sed -i <span style=color:#e6db74>&#39;s/.*a2p_replyclient_log.*[infoerror].[0-9].log.gz://&#39;</span> merge.log <span style=color:#ae81ff>\
-</span><span style=color:#ae81ff></span><span style=color:#f92672>&amp;&amp;</span> sed -i <span style=color:#e6db74>&#39;s/org.springframework.amqp.rabbit.RabbitListenerEndpointContainer.* - //&#39;</span> merge.log <span style=color:#ae81ff>\
-</span><span style=color:#ae81ff></span><span style=color:#f92672>&amp;&amp;</span> sed -i <span style=color:#e6db74>&#39;/.*send 1 time for the url is .*/d&#39;</span> merge.log <span style=color:#ae81ff>\
-</span><span style=color:#ae81ff></span><span style=color:#f92672>&amp;&amp;</span> sed -i <span style=color:#e6db74>&#39;/.*redis key:[0-9]*,value:.*/d&#39;</span> merge.log
-
-sed -i <span style=color:#e6db74>&#39;/&gt;&gt;&gt;&gt;.* retry:2/d&#39;</span> 2021.8.log
-sed -i <span style=color:#e6db74>&#39;s/the content of the url:.*receiveStatusReportResultChinaMobile.shtml //&#39;</span> 2021.8.log
-</code></pre></div><h2 id=统计>统计</h2>
-<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash>sed -n <span style=color:#e6db74>&#39;/ status:DELIVRD,/p&#39;</span> result.log | wc -l
-sed -n <span style=color:#e6db74>&#39;/&#34;originalStatus&#34;:&#34;DELIVRD&#34;/p&#39;</span> merge.log | wc -l
-</code></pre></div><h2 id=删除毫秒>删除毫秒</h2>
-<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash>sed -i <span style=color:#e6db74>&#39;s/\.[0-9]\{0,3\}\( \[\)/\1/&#39;</span> merge.log
-</code></pre></div><h2 id=删除时间>删除时间</h2>
-<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash>sed -i <span style=color:#e6db74>&#39;s/.*\(\[INFO\]\)/\1/&#39;</span> 2021.8.log
-sed -i <span style=color:#e6db74>&#39;s/.*\(\[ERROR\]\)/\1/&#39;</span> 2021.8.log
-sed -i <span style=color:#e6db74>&#39;s/time:.*,\(is_china_mobile\)/\1/&#39;</span> 2021.8.log
-</code></pre></div><h2 id=删除冗余字符>删除冗余字符</h2>
-<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash>sed -i <span style=color:#e6db74>&#39;s/error for the url//&#39;</span> merge.log
-sed -i <span style=color:#e6db74>&#39;s/can not read content from the url//&#39;</span> merge.log
-</code></pre></div><h2 id=去重复>去重复</h2>
-<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash>$ awk <span style=color:#e6db74>&#39;!x[$0]++&#39;</span> merge.log
-$ sort -n merge.log | uniq
-</code></pre></div><h2 id=删除空行>删除空行</h2>
-<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash>$ sed -i <span style=color:#e6db74>&#39;/^\s*$/d&#39;</span> merge1.log
-</code></pre></div><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash><span style=color:#75715e># 修改Ubuntu源地址</span>
-$ sudo sed -i <span style=color:#e6db74>&#39;s/\(archive\|security\).ubuntu/mirrors.aliyun/&#39;</span> /etc/apt/sources.list
-</code></pre></div>
+<div class=post_body><h2 id=1准备环境>1、准备环境</h2>
+<p>建议使用纯linux系统进行编译，如 Ubuntu 20.04 LTS，这样环境比较简单，兼容问题也少。</p>
+<blockquote>
+<p>用WSL环境编译，可参考</p>
+<ul>
+<li><a href=https://p3terx.com/archives/compiling-openwrt-with-wsl.html>使用 Windows 子系统 ( WSL ) 编译 OpenWrt</a></li>
+</ul>
+</blockquote>
+<p>为提高编译的成功率，采用国内大神Lean的版本。</p>
+<p>官方版本因编译过程中，下载、兼容等等太多问题，建议不要使用。</p>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash>sudo apt-get update
+sudo apt-get -y install build-essential asciidoc binutils bzip2 gawk gettext git libncurses5-dev libz-dev patch python3 python2.7 unzip zlib1g-dev lib32gcc1 libc6-dev-i386 subversion flex uglifyjs git-core gcc-multilib p7zip p7zip-full msmtp libssl-dev texinfo libglib2.0-dev xmlto qemu-utils upx libelf-dev autoconf automake libtool autopoint device-tree-compiler g++-multilib antlr3 gperf wget curl swig rsync
+</code></pre></div><h2 id=2下载代码>2、下载代码</h2>
+<p>国内用户请准备好梯子</p>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash>git clone https://github.com/coolsnowwolf/lede
+cd lede
+./scripts/feeds update -a
+./scripts/feeds install -a
+</code></pre></div><h2 id=3配置组件>3、配置组件</h2>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash>make menuconfig
+</code></pre></div><blockquote>
+<p>Hyper-V平台配置，可参考</p>
+<ul>
+<li><a href=https://soha.moe/post/make-openwrt-fits-hyperv.html>让OpenWRT完美适应Hyper-V</a></li>
+</ul>
+</blockquote>
+<h2 id=4开始编译>4、开始编译</h2>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash>make -j8 download V<span style=color:#f92672>=</span>sc
+make -j1 V<span style=color:#f92672>=</span>sc
+</code></pre></div><p>编译过程中下载库很难一次成功，如果编译报错，可多尝试几次，每次都可以补全几个文件</p>
+<blockquote>
+<p>详细的命令说明，可参考</p>
+<ul>
+<li><a href=https://p3terx.com/archives/openwrt-compilation-steps-and-commands.html>OpenWrt 编译步骤与命令详解教程</a></li>
+<li><a href=https://openwrt.club/1.html>如何编译一个属于自己的OpenWrt固件</a></li>
+</ul>
+</blockquote>
+<p>编译完成无报错的情况下，最终文件在</p>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash>cd ./bin/targets/x86/64/
+</code></pre></div><h2 id=5转成vhdx格式>5、转成vhdx格式</h2>
+<p>vhdx格式，可以方便的在Hyper-V虚拟机中使用</p>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash>qemu-img convert something.vmdk -O vhdx something.vhdx
+</code></pre></div><blockquote>
+<p>如何使用，可参考</p>
+<ul>
+<li><a href=https://blog.skk.moe/post/hyper-v-win10-lede/>在 Windows 10 上使用 Hyper-V 安装 LEDE 软路由</a></li>
+</ul>
+</blockquote>
+<h2 id=参考文档>参考文档</h2>
+<ul>
+<li><a href=https://github.com/coolsnowwolf/lede>Lean Github</a></li>
+<li><a href=https://openwrt.org/>openwrt.org</a></li>
+<li><a href=https://openwrt.org/docs/guide-developer/quickstart-build-images>Quickstart build images</a></li>
+</ul>
 </div>
 <div class=post_comments>
 </div>
@@ -114,25 +138,25 @@ $ sudo sed -i <span style=color:#e6db74>&#39;s/\(archive\|security\).ubuntu/mirr
 <a href=https://blog.cuile.com/posts/linux/linux_kernel_update/ class=nav-link title=Linux系统内核升级>Linux系统内核升级</a>
 </li>
 <li>
-<a href=https://blog.cuile.com/posts/linux_iptables_manual/ class=nav-link title="iptables 命令">iptables 命令</a>
-</li>
-<li>
-<a href=https://blog.cuile.com/posts/openwrt_make/ class=nav-link title=编译x86_64版本的OpenWrt>编译x86_64版本的OpenWrt</a>
+<a href=https://blog.cuile.com/posts/linux/linux_iptables_manual/ class=nav-link title="iptables 命令">iptables 命令</a>
 </li>
 <li>
 <a href=https://blog.cuile.com/posts/proxmox_nat/ class=nav-link title="Proxmox 配置 NAT 网络">Proxmox 配置 NAT 网络</a>
 </li>
 <li>
-<a href=https://blog.cuile.com/posts/openwrt_shadowsocks_proxy/ class=nav-link title="OpenWRT 配置透明代理">OpenWRT 配置透明代理</a>
+<a href=https://blog.cuile.com/posts/openwrt/openwrt_shadowsocks_proxy/ class=nav-link title="OpenWRT 配置透明代理">OpenWRT 配置透明代理</a>
 </li>
 <li>
-<a href=https://blog.cuile.com/posts/openwrt_dns/ class=nav-link title="OpenWRT DNS设置">OpenWRT DNS设置</a>
+<a href=https://blog.cuile.com/posts/openwrt/openwrt_dns/ class=nav-link title="OpenWRT DNS设置">OpenWRT DNS设置</a>
 </li>
 <li>
-<a href=https://blog.cuile.com/posts/openwrt_ftp_alg/ class=nav-link title="OpenWRT 启用 ALG 功能">OpenWRT 启用 ALG 功能</a>
+<a href=https://blog.cuile.com/posts/openwrt/openwrt_ftp_alg/ class=nav-link title="OpenWRT 启用 ALG 功能">OpenWRT 启用 ALG 功能</a>
 </li>
 <li>
 <a href=https://blog.cuile.com/posts/mysql_manual/ class=nav-link title="MySQL 数据操作">MySQL 数据操作</a>
+</li>
+<li>
+<a href=https://blog.cuile.com/posts/urllib.parse.urlencode_manual/ class=nav-link title="urllib.parse.urlencode 使用详解">urllib.parse.urlencode 使用详解</a>
 </li>
 </ul>
 <div>
