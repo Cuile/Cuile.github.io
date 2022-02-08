@@ -1,0 +1,69 @@
+---
+title: "Linux 版本库管理"
+date: 2022-02-08T10:28:50+08:00
+# draft: true
+tags:
+- Linux
+- repo
+- Centos 7
+---
+
+**`脚本基于Centos 7`**
+
+## 查看已安装软件
+
+```bash
+$ yum list installed
+```
+
+## 升级所有包同时也升级软件和系统内核
+
+```bash
+$ yum -y update
+```
+
+## 只升级所有包，不升级软件和系统内核
+
+```bash
+$ yum -y upgrade
+```
+
+## 更换阿里云软件安装源
+
+```bash
+# 备份原镜像文件，以免出错后可以恢复。
+$ mv /etc/yum.repos.d/CentOS-Base.repo /etc/yum.repos.d/CentOS-Base.repo.back
+
+# 下载新的CentOS-Base.repo 到/etc/yum.repos.d/
+$ wget -O /etc/yum.repos.d/CentOS-Base.repo http://mirrors.aliyun.com/repo/Centos-7.repo
+
+# 运行yum makecache生成缓存
+$ yum clean all
+$ yum makecache
+```
+
+## 查看源是否生效
+
+```bash
+$ yum repolist
+```
+
+## 查询仓库
+
+```bash
+# 显示所有启动的仓库
+$ yum repolist enabled
+# 显示所有禁用的仓库
+$ yum repolist disabled
+# 显示所有仓库
+$ yum repolist all
+```
+
+## 修改仓库
+
+最常用的修改操作就是启动和停用, 可以使用以下命令实现:
+
+```bash
+$ yum-config-manager --enable repository…
+$ yum-config-manager --disable repository…
+```
