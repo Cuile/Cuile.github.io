@@ -131,6 +131,5 @@ For more examples and ideas, visit:
 $ yum -y install docker-compose-plugin
 
 $ docker compose version
-
 Docker Compose version v2.5.0
 ```
