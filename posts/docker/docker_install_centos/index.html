@@ -1,25 +1,26 @@
-<!doctype html><html lang=en data-figures>
+<!doctype html><html lang=en data-figures class=page>
 <head>
-<title>FFmpeg | 瘦了就帅了</title>
+<title>Docker_install_CentOS | 瘦了就帅了</title>
 <meta charset=utf-8>
 <meta name=viewport content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
 <meta http-equiv=x-ua-compatible content="IE=edge">
 <meta http-equiv=content-security-policy content="upgrade-insecure-requests">
 <meta property="og:locale" content="en">
 <meta property="og:type" content="article">
-<meta name=description content>
+<meta name=description content="CentOS 7 安装 Docker 其实网上相关的文章已经非常多了，所以这篇文章的作用只是记录和明确一条确定可行的操作路径，为以后的操作节省时间，毕竟像我一样大部分人都不是专业的系统管理员，能够快速解决问题就可以了，并不想做过多的专业研究与探索。
+本操作手册是官方手册与网上手册的结合版本，集两家之所长，亲自操作可用。 …">
 <meta name=twitter:card content="summary">
 <meta name=twitter:creator content>
-<meta name=twitter:title content="FFmpeg">
-<meta property="og:url" content="https://blog.cuile.com/tags/ffmpeg/">
-<meta property="og:title" content="FFmpeg">
-<meta property="og:description" content>
+<meta name=twitter:title content="Docker_install_CentOS">
+<meta property="og:url" content="https://blog.cuile.com/posts/docker/docker_install_centos/">
+<meta property="og:title" content="Docker_install_CentOS">
+<meta property="og:description" content="CentOS 7 安装 Docker 其实网上相关的文章已经非常多了，所以这篇文章的作用只是记录和明确一条确定可行的操作路径，为以后的操作节省时间，毕竟像我一样大部分人都不是专业的系统管理员，能够快速解决问题就可以了，并不想做过多的专业研究与探索。
+本操作手册是官方手册与网上手册的结合版本，集两家之所长，亲自操作可用。 …">
 <meta property="og:image" content="https://blog.cuile.com/">
 <link rel=apple-touch-icon sizes=180x180 href=https://blog.cuile.com/icons/apple-touch-icon.png>
 <link rel=icon type=image/png sizes=32x32 href=https://blog.cuile.com/icons/favicon-32x32.png>
 <link rel=manifest href=https://blog.cuile.com/icons/site.webmanifest>
-<link rel=canonical href=https://blog.cuile.com/tags/ffmpeg/>
-<link rel=alternate type=application/rss+xml href=https://blog.cuile.com/tags/ffmpeg/index.xml title=瘦了就帅了>
+<link rel=canonical href=https://blog.cuile.com/posts/docker/docker_install_centos/>
 <link rel=stylesheet href=//cdnjs.cloudflare.com/ajax/libs/highlight.js/11.4.0/styles/default.min.css>
 <script src=//cdnjs.cloudflare.com/ajax/libs/highlight.js/11.4.0/highlight.min.js></script>
 <link rel=preload href=https://blog.cuile.com/css/styles.01869c76e4757810d94ecbdccadba853d9d01d9416dfeb113df02e1479ff8b36e284e8bfeb3e8f353f2fdcdcbbdfcf27e558dbda96eb6341bfc304d55cd9e986.css integrity="sha512-AYacduR1eBDZTsvcytuoU9nQHZQW3+sRPfAuFHn/izbihOi/6z6PNT8v3Ny7388n5Vjb2pbrY0G/wwTVXNnphg==" as=style crossorigin=anonymous>
@@ -44,57 +45,142 @@
 </header>
 <main>
 <div class="grid-inverse wrap content">
-<ul class=posts id=posts>
-<li class=post_item>
-<div class=excerpt>
-<div class=excerpt_header>
-<h3 class=post_link>
-<a href=https://blog.cuile.com/posts/ffmpeg_manual/ title=FFmpeg脚本>FFmpeg脚本</a>
-</h3>
+<article class=post_content>
+<h1 class=post_title>Docker_install_CentOS</h1>
 <div class=post_meta>
 <span><svg class="icon"><use xlink:href="#calendar"/></svg></span>
 <span class=post_date>
-Feb 8, 2022</span>
-<span class=post_time> · 2 min read</span><span>&nbsp;· <a href=https://blog.cuile.com/tags/ffmpeg title=FFmpeg class="post_tag button button_translucent">FFmpeg
-</a><a href=https://blog.cuile.com/tags/windwos-10 title="Windwos 10" class="post_tag button button_translucent">Windwos 10
+May 6, 2022</span>
+<span class=post_time> · 2 min read</span><span>&nbsp;· <a href=https://blog.cuile.com/tags/docker title=Docker class="post_tag button button_translucent">Docker
+</a><a href=https://blog.cuile.com/tags/centos-7 title="CentOS 7" class="post_tag button button_translucent">CentOS 7
 </a>
 </span>
 <span class=page_only>&nbsp;·
 <div class=post_share>
 Share on:
-<a href="https://twitter.com/intent/tweet?text=FFmpeg%e8%84%9a%e6%9c%ac&url=https%3a%2f%2fblog.cuile.com%2fposts%2fffmpeg_manual%2f&tw_p=tweetbutton" class=twitter title="Share on Twitter" target=_blank rel=nofollow><svg class="icon"><use xlink:href="#twitter"/></svg>
+<a href="https://twitter.com/intent/tweet?text=Docker_install_CentOS&url=https%3a%2f%2fblog.cuile.com%2fposts%2fdocker%2fdocker_install_centos%2f&tw_p=tweetbutton" class=twitter title="Share on Twitter" target=_blank rel=nofollow><svg class="icon"><use xlink:href="#twitter"/></svg>
 </a>
-<a href="https://www.facebook.com/sharer.php?u=https%3a%2f%2fblog.cuile.com%2fposts%2fffmpeg_manual%2f&t=FFmpeg%e8%84%9a%e6%9c%ac" class=facebook title="Share on Facebook" target=_blank rel=nofollow><svg class="icon"><use xlink:href="#facebook"/></svg>
+<a href="https://www.facebook.com/sharer.php?u=https%3a%2f%2fblog.cuile.com%2fposts%2fdocker%2fdocker_install_centos%2f&t=Docker_install_CentOS" class=facebook title="Share on Facebook" target=_blank rel=nofollow><svg class="icon"><use xlink:href="#facebook"/></svg>
 </a>
 <a href=#linkedinshare id=linkedinshare class=linkedin title="Share on LinkedIn" rel=nofollow><svg class="icon"><use xlink:href="#linkedin"/></svg>
 </a>
-<a href=https://blog.cuile.com/posts/ffmpeg_manual/ title="Copy Link" class="link link_yank"><svg class="icon"><use xlink:href="#copy"/></svg>
+<a href=https://blog.cuile.com/posts/docker/docker_install_centos/ title="Copy Link" class="link link_yank"><svg class="icon"><use xlink:href="#copy"/></svg>
 </a>
 </div>
 </span>
 </div>
-</div>
-<div class=excerpt_footer>
-<div>
-<p class=pale>
-脚本基于Windows10系统设计
-查看软件版本 D:\ffmpeg\bin>ver Microsoft Windows [版本 10.0.18362.356] D:\ffmpeg\bin>ffmpeg.exe -version ffmpeg version N-94600-g661a9b274b Copyright (c) 2000-2019 the FFmpeg developers built with gcc 9.1.1 (GCC) 20190807 configuration: --enable-gpl --enable-version3 --enable-sdl2 --enable-fontconfig …
-</p>
-<a href=https://blog.cuile.com/posts/ffmpeg_manual/ title="Read More" class="excerpt_more button">Read More</a>
-</div>
-</div>
-</div>
-</li>
-<li>
-</li>
+<div class=post_body><h1 id=centos-7-安装-docker>CentOS 7 安装 Docker</h1>
+<p>其实网上相关的文章已经非常多了，所以这篇文章的作用只是记录和明确一条确定可行的操作路径，为以后的操作节省时间，毕竟像我一样大部分人都不是专业的系统管理员，能够快速解决问题就可以了，并不想做过多的专业研究与探索。</p>
+<p>本操作手册是官方手册与网上手册的结合版本，集两家之所长，亲自操作可用。</p>
+<h2 id=1系统准备>1.系统准备</h2>
+<ul>
+<li>查看系统版本</li>
 </ul>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash>$ cat /etc/redhat-release
+&gt; CentOS Linux release 7.6.1810 <span style=color:#f92672>(</span>Core<span style=color:#f92672>)</span> // CentOs <span style=color:#ae81ff>7</span> 以上版本
+</code></pre></div><ul>
+<li>查看系统内核版本</li>
+</ul>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash>$ uname -r
+&gt; 4.10.4-1.el7.elrepo.x86_64 // 内核版本要&gt;3.10
+</code></pre></div><h2 id=2卸载旧版本>2.卸载旧版本</h2>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash>$ yum remove docker <span style=color:#ae81ff>\
+</span><span style=color:#ae81ff></span>            docker-client <span style=color:#ae81ff>\
+</span><span style=color:#ae81ff></span>            docker-client-latest <span style=color:#ae81ff>\
+</span><span style=color:#ae81ff></span>            docker-common <span style=color:#ae81ff>\
+</span><span style=color:#ae81ff></span>            docker-latest <span style=color:#ae81ff>\
+</span><span style=color:#ae81ff></span>            docker-latest-logrotate <span style=color:#ae81ff>\
+</span><span style=color:#ae81ff></span>            docker-logrotate <span style=color:#ae81ff>\
+</span><span style=color:#ae81ff></span>            docker-selinux <span style=color:#ae81ff>\
+</span><span style=color:#ae81ff></span>            docker-engine-selinux <span style=color:#ae81ff>\
+</span><span style=color:#ae81ff></span>            docker-engine
+</code></pre></div><h2 id=3安装依赖包>3.安装依赖包</h2>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash>$ yum install -y yum-utils <span style=color:#ae81ff>\
+</span><span style=color:#ae81ff></span>                device-mapper-persistent-data <span style=color:#ae81ff>\
+</span><span style=color:#ae81ff></span>                lvm2
+</code></pre></div><h2 id=4添加yum软件源>4.添加yum软件源</h2>
+<p>如果系统已切换到阿里云镜像源地址，可跳过此步。
+阿里云镜像自带docker源</p>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash>$ yum-config-manager <span style=color:#ae81ff>\
+</span><span style=color:#ae81ff></span>    --add-repo <span style=color:#ae81ff>\
+</span><span style=color:#ae81ff></span>    https://mirrors.ustc.edu.cn/docker-ce/linux/centos/docker-ce.repo
+
+<span style=color:#75715e># 使用官方源</span>
+$ yum-config-manager <span style=color:#ae81ff>\
+</span><span style=color:#ae81ff></span>    --add-repo <span style=color:#ae81ff>\
+</span><span style=color:#ae81ff></span>    https://download.docker.com/linux/centos/docker-ce.repo
+
+$ yum makecache fast
+<span style=color:#75715e># CentOS 8 使用timer替换fast</span>
+$ yum makecache timer
+</code></pre></div><h2 id=5安装docker>5.安装Docker</h2>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash>$ yum install docker-ce docker-ce-cli containerd.io
+
+<span style=color:#75715e># 如果在CentOS 8 系统上，会提示containerd.io版本过低</span>
+Error:
+ Problem: package docker-ce-3:19.03.6-3.el7.x86_64 requires containerd.io &gt;<span style=color:#f92672>=</span> 1.2.2-3, but none of the providers can be installeddnf install
+
+<span style=color:#75715e># 需要独立安装containerd.io</span>
+$ yum install https://download.docker.com/linux/centos/7/x86_64/stable/Packages/containerd.io-1.2.6-3.3.el7.x86_64.rpm
+$ yum install docker-ce docker-ce-cli
+</code></pre></div><h2 id=6启动docker服务>6.启动Docker服务</h2>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash><span style=color:#75715e># 设为开机启动</span>
+$ systemctl enable docker.service
+<span style=color:#75715e># 启动服务</span>
+$ systemctl start docker.service
+</code></pre></div><h2 id=7测试安装结果>7.测试安装结果</h2>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash>$ docker run hello-world
+
+Unable to find image <span style=color:#e6db74>&#39;hello-world:latest&#39;</span> locally
+latest: Pulling from library/hello-world
+1b930d010525: Pull complete
+Digest: sha256:6540fc08ee6e6b7b63468dc3317e3303aae178cb8a45ed3123180328bcc1d20f
+Status: Downloaded newer image <span style=color:#66d9ef>for</span> hello-world:latest
+
+Hello from Docker!
+This message shows that your installation appears to be working correctly.
+
+To generate this message, Docker took the following steps:
+ 1. The Docker client contacted the Docker daemon.
+ 2. The Docker daemon pulled the <span style=color:#e6db74>&#34;hello-world&#34;</span> image from the Docker Hub.
+    <span style=color:#f92672>(</span>amd64<span style=color:#f92672>)</span>
+ 3. The Docker daemon created a new container from that image which runs the
+    executable that produces the output you are currently reading.
+ 4. The Docker daemon streamed that output to the Docker client, which sent it
+    to your terminal.
+
+To try something more ambitious, you can run an Ubuntu container with:
+ $ docker run -it ubuntu bash
+
+Share images, automate workflows, and more with a free Docker ID:
+ https://hub.docker.com/
+
+For more examples and ideas, visit:
+ https://docs.docker.com/get-started/
+</code></pre></div><p>若能正常输出以上信息，则说明安装成功。</p>
+<h1 id=centos-7-安装-docker-compose>CentOS 7 安装 docker-compose</h1>
+<p>其实网上相关的文章已经非常多了，所以这篇文章的作用只是记录和明确一条确定可行的操作路径，为以后的操作节省时间，毕竟像我一样大部分人都不是专业的系统管理员，能够快速解决问题就可以了，并不想做过多的专业研究与探索。</p>
+<p>本操作手册是官方手册与网上手册的结合版本，集两家之所长，亲自操作可用。</p>
+<h2 id=1安装企业版linux附加包epel>1.安装企业版linux附加包（epel)</h2>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash>$ yum install -y epel-release
+</code></pre></div><h2 id=2安装docker-compose>2.安装docker-compose</h2>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash>$ python3 -m pip install docker-compose
+<span style=color:#75715e># 因为python版本的问题，推荐使用标准模式来使用pip命令，以保证pip版本与python版本相对应</span>
+<span style=color:#75715e># 可在安装前，先确认一下python的版本</span>
+<span style=color:#75715e># python -V</span>
+</code></pre></div><h2 id=3测试安装结果>3.测试安装结果</h2>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash>$ docker-compose --version
+docker-compose version 1.27.4, build unknown
+<span style=color:#75715e># 因为是用pip安装的，所以没有build信息</span>
+</code></pre></div><p>若能正常输出以上信息，则说明安装成功。</p>
+</div>
+<div class=post_comments>
+</div>
+</article>
 <aside class=sidebar>
 <section class=sidebar_inner>
 <h2 class=mt-4>Recent Posts</h2>
 <ul class=flex-column>
-<li>
-<a href=https://blog.cuile.com/posts/docker/docker_install_centos/ class=nav-link title=Docker_install_CentOS>Docker_install_CentOS</a>
-</li>
 <li>
 <a href=https://blog.cuile.com/posts/proxmox/proxmox_rrd_error/ class=nav-link title="修复 Proxmox RRD 错误">修复 Proxmox RRD 错误</a>
 </li>
@@ -115,6 +201,9 @@ Share on:
 </li>
 <li>
 <a href=https://blog.cuile.com/posts/proxmox/proxmox_nat/ class=nav-link title="Proxmox 配置 NAT 网络">Proxmox 配置 NAT 网络</a>
+</li>
+<li>
+<a href=https://blog.cuile.com/posts/openwrt/openwrt_shadowsocks_proxy/ class=nav-link title="OpenWRT 配置透明代理">OpenWRT 配置透明代理</a>
 </li>
 </ul>
 <div>

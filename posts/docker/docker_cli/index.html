@@ -11,14 +11,14 @@
 <meta name=twitter:card content="summary">
 <meta name=twitter:creator content>
 <meta name=twitter:title content="Docker使用命令">
-<meta property="og:url" content="https://blog.cuile.com/posts/docker_cli/">
+<meta property="og:url" content="https://blog.cuile.com/posts/docker/docker_cli/">
 <meta property="og:title" content="Docker使用命令">
 <meta property="og:description" content="镜像列表 $ docker image ls -a # or $ docker images 容器列表 $ docker container ls -a # or $ docker ps 删除冗余镜像 $ docker system prune 创建桥接网络 $ docker network create [name] …">
 <meta property="og:image" content="https://blog.cuile.com/">
 <link rel=apple-touch-icon sizes=180x180 href=https://blog.cuile.com/icons/apple-touch-icon.png>
 <link rel=icon type=image/png sizes=32x32 href=https://blog.cuile.com/icons/favicon-32x32.png>
 <link rel=manifest href=https://blog.cuile.com/icons/site.webmanifest>
-<link rel=canonical href=https://blog.cuile.com/posts/docker_cli/>
+<link rel=canonical href=https://blog.cuile.com/posts/docker/docker_cli/>
 <link rel=stylesheet href=//cdnjs.cloudflare.com/ajax/libs/highlight.js/11.4.0/styles/default.min.css>
 <script src=//cdnjs.cloudflare.com/ajax/libs/highlight.js/11.4.0/highlight.min.js></script>
 <link rel=preload href=https://blog.cuile.com/css/styles.01869c76e4757810d94ecbdccadba853d9d01d9416dfeb113df02e1479ff8b36e284e8bfeb3e8f353f2fdcdcbbdfcf27e558dbda96eb6341bfc304d55cd9e986.css integrity="sha512-AYacduR1eBDZTsvcytuoU9nQHZQW3+sRPfAuFHn/izbihOi/6z6PNT8v3Ny7388n5Vjb2pbrY0G/wwTVXNnphg==" as=style crossorigin=anonymous>
@@ -56,13 +56,13 @@ Jan 13, 2022</span>
 <span class=page_only>&nbsp;·
 <div class=post_share>
 Share on:
-<a href="https://twitter.com/intent/tweet?text=Docker%e4%bd%bf%e7%94%a8%e5%91%bd%e4%bb%a4&url=https%3a%2f%2fblog.cuile.com%2fposts%2fdocker_cli%2f&tw_p=tweetbutton" class=twitter title="Share on Twitter" target=_blank rel=nofollow><svg class="icon"><use xlink:href="#twitter"/></svg>
+<a href="https://twitter.com/intent/tweet?text=Docker%e4%bd%bf%e7%94%a8%e5%91%bd%e4%bb%a4&url=https%3a%2f%2fblog.cuile.com%2fposts%2fdocker%2fdocker_cli%2f&tw_p=tweetbutton" class=twitter title="Share on Twitter" target=_blank rel=nofollow><svg class="icon"><use xlink:href="#twitter"/></svg>
 </a>
-<a href="https://www.facebook.com/sharer.php?u=https%3a%2f%2fblog.cuile.com%2fposts%2fdocker_cli%2f&t=Docker%e4%bd%bf%e7%94%a8%e5%91%bd%e4%bb%a4" class=facebook title="Share on Facebook" target=_blank rel=nofollow><svg class="icon"><use xlink:href="#facebook"/></svg>
+<a href="https://www.facebook.com/sharer.php?u=https%3a%2f%2fblog.cuile.com%2fposts%2fdocker%2fdocker_cli%2f&t=Docker%e4%bd%bf%e7%94%a8%e5%91%bd%e4%bb%a4" class=facebook title="Share on Facebook" target=_blank rel=nofollow><svg class="icon"><use xlink:href="#facebook"/></svg>
 </a>
 <a href=#linkedinshare id=linkedinshare class=linkedin title="Share on LinkedIn" rel=nofollow><svg class="icon"><use xlink:href="#linkedin"/></svg>
 </a>
-<a href=https://blog.cuile.com/posts/docker_cli/ title="Copy Link" class="link link_yank"><svg class="icon"><use xlink:href="#copy"/></svg>
+<a href=https://blog.cuile.com/posts/docker/docker_cli/ title="Copy Link" class="link link_yank"><svg class="icon"><use xlink:href="#copy"/></svg>
 </a>
 </div>
 </span>
@@ -99,6 +99,9 @@ $ source ~/.bashrc
 <h2 class=mt-4>Recent Posts</h2>
 <ul class=flex-column>
 <li>
+<a href=https://blog.cuile.com/posts/docker/docker_install_centos/ class=nav-link title=Docker_install_CentOS>Docker_install_CentOS</a>
+</li>
+<li>
 <a href=https://blog.cuile.com/posts/proxmox/proxmox_rrd_error/ class=nav-link title="修复 Proxmox RRD 错误">修复 Proxmox RRD 错误</a>
 </li>
 <li>
@@ -119,24 +122,25 @@ $ source ~/.bashrc
 <li>
 <a href=https://blog.cuile.com/posts/proxmox/proxmox_nat/ class=nav-link title="Proxmox 配置 NAT 网络">Proxmox 配置 NAT 网络</a>
 </li>
-<li>
-<a href=https://blog.cuile.com/posts/openwrt/openwrt_shadowsocks_proxy/ class=nav-link title="OpenWRT 配置透明代理">OpenWRT 配置透明代理</a>
-</li>
 </ul>
 <div>
 <h2 class="mt-4 taxonomy" id=tags-section>Tags</h2>
 <nav class=tags_nav>
+<a href=https://blog.cuile.com/tags/centos-7/ class="post_tag button button_translucent" title=centos-7>
+CENTOS-7
+<span class=button_tally>6</span>
+</a>
 <a href=https://blog.cuile.com/tags/linux/ class="post_tag button button_translucent" title=linux>
 LINUX
 <span class=button_tally>6</span>
 </a>
-<a href=https://blog.cuile.com/tags/centos-7/ class="post_tag button button_translucent" title=centos-7>
-CENTOS-7
-<span class=button_tally>5</span>
-</a>
 <a href=https://blog.cuile.com/tags/openwrt/ class="post_tag button button_translucent" title=openwrt>
 OPENWRT
 <span class=button_tally>4</span>
+</a>
+<a href=https://blog.cuile.com/tags/docker/ class="post_tag button button_translucent" title=docker>
+DOCKER
+<span class=button_tally>2</span>
 </a>
 <a href=https://blog.cuile.com/tags/proxmox/ class="post_tag button button_translucent" title=proxmox>
 PROXMOX
@@ -160,10 +164,6 @@ BLOG
 </a>
 <a href=https://blog.cuile.com/tags/dns/ class="post_tag button button_translucent" title=dns>
 DNS
-<span class=button_tally>1</span>
-</a>
-<a href=https://blog.cuile.com/tags/docker/ class="post_tag button button_translucent" title=docker>
-DOCKER
 <span class=button_tally>1</span>
 </a>
 <a href=https://blog.cuile.com/tags/ffmpeg/ class="post_tag button button_translucent" title=ffmpeg>

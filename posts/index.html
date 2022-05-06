@@ -49,6 +49,47 @@
 <div class=excerpt>
 <div class=excerpt_header>
 <h3 class=post_link>
+<a href=https://blog.cuile.com/posts/docker/docker_install_centos/ title=Docker_install_CentOS>Docker_install_CentOS</a>
+</h3>
+<div class=post_meta>
+<span><svg class="icon"><use xlink:href="#calendar"/></svg></span>
+<span class=post_date>
+May 6, 2022</span>
+<span class=post_time> · 2 min read</span><span>&nbsp;· <a href=https://blog.cuile.com/tags/docker title=Docker class="post_tag button button_translucent">Docker
+</a><a href=https://blog.cuile.com/tags/centos-7 title="CentOS 7" class="post_tag button button_translucent">CentOS 7
+</a>
+</span>
+<span class=page_only>&nbsp;·
+<div class=post_share>
+Share on:
+<a href="https://twitter.com/intent/tweet?text=Docker_install_CentOS&url=https%3a%2f%2fblog.cuile.com%2fposts%2fdocker%2fdocker_install_centos%2f&tw_p=tweetbutton" class=twitter title="Share on Twitter" target=_blank rel=nofollow><svg class="icon"><use xlink:href="#twitter"/></svg>
+</a>
+<a href="https://www.facebook.com/sharer.php?u=https%3a%2f%2fblog.cuile.com%2fposts%2fdocker%2fdocker_install_centos%2f&t=Docker_install_CentOS" class=facebook title="Share on Facebook" target=_blank rel=nofollow><svg class="icon"><use xlink:href="#facebook"/></svg>
+</a>
+<a href=#linkedinshare id=linkedinshare class=linkedin title="Share on LinkedIn" rel=nofollow><svg class="icon"><use xlink:href="#linkedin"/></svg>
+</a>
+<a href=https://blog.cuile.com/posts/docker/docker_install_centos/ title="Copy Link" class="link link_yank"><svg class="icon"><use xlink:href="#copy"/></svg>
+</a>
+</div>
+</span>
+</div>
+</div>
+<div class=excerpt_footer>
+<div>
+<p class=pale>
+CentOS 7 安装 Docker 其实网上相关的文章已经非常多了，所以这篇文章的作用只是记录和明确一条确定可行的操作路径，为以后的操作节省时间，毕竟像我一样大部分人都不是专业的系统管理员，能够快速解决问题就可以了，并不想做过多的专业研究与探索。
+本操作手册是官方手册与网上手册的结合版本，集两家之所长，亲自操作可用。
+1.系统准备 查看系统版本 $ cat /etc/redhat-release > CentOS Linux release 7.6.1810 (Core) // CentOs 7 以上版本 查看系统内核版本 $ uname -r > 4.10.4-1.el7.elrepo.x86_64 // 内 …
+</p>
+<a href=https://blog.cuile.com/posts/docker/docker_install_centos/ title="Read More" class="excerpt_more button">Read More</a>
+</div>
+</div>
+</div>
+</li>
+<li class=post_item>
+<div class=excerpt>
+<div class=excerpt_header>
+<h3 class=post_link>
 <a href=https://blog.cuile.com/posts/proxmox/proxmox_rrd_error/ title="修复 Proxmox RRD 错误">修复 Proxmox RRD 错误</a>
 </h3>
 <div class=post_meta>
@@ -418,49 +459,6 @@ Share on:
 </div>
 </div>
 </li>
-<li class=post_item>
-<div class=excerpt>
-<div class=excerpt_header>
-<h3 class=post_link>
-<a href=https://blog.cuile.com/posts/openwrt/openwrt_ftp_alg/ title="OpenWRT 启用 ALG 功能">OpenWRT 启用 ALG 功能</a>
-</h3>
-<div class=post_meta>
-<span><svg class="icon"><use xlink:href="#calendar"/></svg></span>
-<span class=post_date>
-Feb 7, 2022</span>
-<span class=post_time> · 1 min read</span><span>&nbsp;· <a href=https://blog.cuile.com/tags/openwrt title=OpenWRT class="post_tag button button_translucent">OpenWRT
-</a><a href=https://blog.cuile.com/tags/ftp title=FTP class="post_tag button button_translucent">FTP
-</a><a href=https://blog.cuile.com/tags/alg title=ALG class="post_tag button button_translucent">ALG
-</a>
-</span>
-<span class=page_only>&nbsp;·
-<div class=post_share>
-Share on:
-<a href="https://twitter.com/intent/tweet?text=OpenWRT%20%e5%90%af%e7%94%a8%20ALG%20%e5%8a%9f%e8%83%bd&url=https%3a%2f%2fblog.cuile.com%2fposts%2fopenwrt%2fopenwrt_ftp_alg%2f&tw_p=tweetbutton" class=twitter title="Share on Twitter" target=_blank rel=nofollow><svg class="icon"><use xlink:href="#twitter"/></svg>
-</a>
-<a href="https://www.facebook.com/sharer.php?u=https%3a%2f%2fblog.cuile.com%2fposts%2fopenwrt%2fopenwrt_ftp_alg%2f&t=OpenWRT%20%e5%90%af%e7%94%a8%20ALG%20%e5%8a%9f%e8%83%bd" class=facebook title="Share on Facebook" target=_blank rel=nofollow><svg class="icon"><use xlink:href="#facebook"/></svg>
-</a>
-<a href=#linkedinshare id=linkedinshare class=linkedin title="Share on LinkedIn" rel=nofollow><svg class="icon"><use xlink:href="#linkedin"/></svg>
-</a>
-<a href=https://blog.cuile.com/posts/openwrt/openwrt_ftp_alg/ title="Copy Link" class="link link_yank"><svg class="icon"><use xlink:href="#copy"/></svg>
-</a>
-</div>
-</span>
-</div>
-</div>
-<div class=excerpt_footer>
-<div>
-<p class=pale>
-1. 安装软件包 # opkg install kmod-nf-nathelper-extra # opkg install kmod-nf-ipvs-ftp 2. 添加配置 # nano /etc/sysctl.d/11-nf-conntrack.conf 增加"net.netfilter.nf_conntrack_helper=1"
-在使用FTP的主动模式时，要注意关闭网关上的ALG功能（如Windows ALG服务），同时使用可能引起失败
-参考文档
-原版OpenWRT启用FTP ALG功能 防火墙设置了NAT ALG功能导致FTP数据连接故障
-</p>
-<a href=https://blog.cuile.com/posts/openwrt/openwrt_ftp_alg/ title="Read More" class="excerpt_more button">Read More</a>
-</div>
-</div>
-</div>
-</li>
 <li>
 <ul class="pagination pagination-default">
 <li class="page-item disabled">
@@ -489,6 +487,9 @@ Share on:
 <h2 class=mt-4>Recent Posts</h2>
 <ul class=flex-column>
 <li>
+<a href=https://blog.cuile.com/posts/docker/docker_install_centos/ class=nav-link title=Docker_install_CentOS>Docker_install_CentOS</a>
+</li>
+<li>
 <a href=https://blog.cuile.com/posts/proxmox/proxmox_rrd_error/ class=nav-link title="修复 Proxmox RRD 错误">修复 Proxmox RRD 错误</a>
 </li>
 <li>
@@ -509,24 +510,25 @@ Share on:
 <li>
 <a href=https://blog.cuile.com/posts/proxmox/proxmox_nat/ class=nav-link title="Proxmox 配置 NAT 网络">Proxmox 配置 NAT 网络</a>
 </li>
-<li>
-<a href=https://blog.cuile.com/posts/openwrt/openwrt_shadowsocks_proxy/ class=nav-link title="OpenWRT 配置透明代理">OpenWRT 配置透明代理</a>
-</li>
 </ul>
 <div>
 <h2 class="mt-4 taxonomy" id=tags-section>Tags</h2>
 <nav class=tags_nav>
+<a href=https://blog.cuile.com/tags/centos-7/ class="post_tag button button_translucent" title=centos-7>
+CENTOS-7
+<span class=button_tally>6</span>
+</a>
 <a href=https://blog.cuile.com/tags/linux/ class="post_tag button button_translucent" title=linux>
 LINUX
 <span class=button_tally>6</span>
 </a>
-<a href=https://blog.cuile.com/tags/centos-7/ class="post_tag button button_translucent" title=centos-7>
-CENTOS-7
-<span class=button_tally>5</span>
-</a>
 <a href=https://blog.cuile.com/tags/openwrt/ class="post_tag button button_translucent" title=openwrt>
 OPENWRT
 <span class=button_tally>4</span>
+</a>
+<a href=https://blog.cuile.com/tags/docker/ class="post_tag button button_translucent" title=docker>
+DOCKER
+<span class=button_tally>2</span>
 </a>
 <a href=https://blog.cuile.com/tags/proxmox/ class="post_tag button button_translucent" title=proxmox>
 PROXMOX
@@ -550,10 +552,6 @@ BLOG
 </a>
 <a href=https://blog.cuile.com/tags/dns/ class="post_tag button button_translucent" title=dns>
 DNS
-<span class=button_tally>1</span>
-</a>
-<a href=https://blog.cuile.com/tags/docker/ class="post_tag button button_translucent" title=docker>
-DOCKER
 <span class=button_tally>1</span>
 </a>
 <a href=https://blog.cuile.com/tags/ffmpeg/ class="post_tag button button_translucent" title=ffmpeg>
