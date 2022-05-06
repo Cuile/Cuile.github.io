@@ -55,8 +55,11 @@ $ ln -s /usr/local/python3.9.12/bin/pip3 /usr/bin/pip3
 ## 6、测试
 
 ```bash
-$ python3
-$ pip3
+$ python3 -V
+Python 3.9.12
+
+$ pip3 -V
+pip 22.0.4 from /usr/local/python3.9.12/lib/python3.9/site-packages/pip (python 3.9)
 ```
 
 ## 7、pip升级、换源
