@@ -137,6 +137,9 @@ $ yum install -y epel-release
 
 ## 2.安装docker-compose
 ```bash
+# 升级pip包管理器版本
+$ python3 -m pip install --upgrade pip
+# 安装 docker-compose
 $ python3 -m pip install docker-compose
 # 因为python版本的问题，推荐使用标准模式来使用pip命令，以保证pip版本与python版本相对应
 # 可在安装前，先确认一下python的版本
