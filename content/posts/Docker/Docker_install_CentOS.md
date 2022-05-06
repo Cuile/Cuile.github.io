@@ -125,33 +125,15 @@ For more examples and ideas, visit:
 
 若能正常输出以上信息，则说明安装成功。
 
-# CentOS 7 安装 docker-compose
+## 8.安装 docker-compose
 其实网上相关的文章已经非常多了，所以这篇文章的作用只是记录和明确一条确定可行的操作路径，为以后的操作节省时间，毕竟像我一样大部分人都不是专业的系统管理员，能够快速解决问题就可以了，并不想做过多的专业研究与探索。
 
 本操作手册是官方手册与网上手册的结合版本，集两家之所长，亲自操作可用。
 
-## 1.安装企业版linux附加包（epel)
 ```bash
-$ yum install -y epel-release
+$ yum -y install docker-compose-plugin
+
+$ docker compose version
+
+Docker Compose version v2.5.0
 ```
-
-## 2.安装docker-compose
-```bash
-# 升级pip包管理器版本
-$ python3 -m pip install --upgrade pip
-# 安装 docker-compose
-$ python3 -m pip install docker-compose
-# 因为python版本的问题，推荐使用标准模式来使用pip命令，以保证pip版本与python版本相对应
-# 可在安装前，先确认一下python的版本
-# python -V
-```
-
-## 3.测试安装结果
-
-```bash
-$ docker-compose --version
-docker-compose version 1.27.4, build unknown
-# 因为是用pip安装的，所以没有build信息
-```
-
-若能正常输出以上信息，则说明安装成功。
