@@ -50,10 +50,9 @@ $ yum install -y yum-utils \
 
 ## 4.添加yum软件源
 
-如果系统已切换到阿里云镜像源地址，可跳过此步。
-阿里云镜像自带docker源
-
 ```bash
+# 如果系统已切换到阿里云镜像源地址，可跳过此步。
+# 阿里云镜像自带docker源
 $ yum-config-manager \
     --add-repo \
     https://mirrors.ustc.edu.cn/docker-ce/linux/centos/docker-ce.repo
@@ -65,7 +64,7 @@ $ yum-config-manager \
 
 $ yum makecache fast
 # CentOS 8 使用timer替换fast
-$ yum makecache timer
+# $ yum makecache timer
 ```
 
 ## 5.安装Docker
@@ -74,10 +73,10 @@ $ yum makecache timer
 $ yum install docker-ce docker-ce-cli containerd.io
 
 # 如果在CentOS 8 系统上，会提示containerd.io版本过低
+# 需要独立安装containerd.io
 Error:
  Problem: package docker-ce-3:19.03.6-3.el7.x86_64 requires containerd.io >= 1.2.2-3, but none of the providers can be installeddnf install
 
-# 需要独立安装containerd.io
 $ yum install https://download.docker.com/linux/centos/7/x86_64/stable/Packages/containerd.io-1.2.6-3.3.el7.x86_64.rpm
 $ yum install docker-ce docker-ce-cli
 ```
