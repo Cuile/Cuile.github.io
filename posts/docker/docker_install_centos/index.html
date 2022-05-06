@@ -100,9 +100,9 @@ Share on:
 </span><span style=color:#ae81ff></span>                device-mapper-persistent-data <span style=color:#ae81ff>\
 </span><span style=color:#ae81ff></span>                lvm2
 </code></pre></div><h2 id=4添加yum软件源>4.添加yum软件源</h2>
-<p>如果系统已切换到阿里云镜像源地址，可跳过此步。
-阿里云镜像自带docker源</p>
-<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash>$ yum-config-manager <span style=color:#ae81ff>\
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash><span style=color:#75715e># 如果系统已切换到阿里云镜像源地址，可跳过此步。</span>
+<span style=color:#75715e># 阿里云镜像自带docker源</span>
+$ yum-config-manager <span style=color:#ae81ff>\
 </span><span style=color:#ae81ff></span>    --add-repo <span style=color:#ae81ff>\
 </span><span style=color:#ae81ff></span>    https://mirrors.ustc.edu.cn/docker-ce/linux/centos/docker-ce.repo
 
@@ -113,15 +113,15 @@ $ yum-config-manager <span style=color:#ae81ff>\
 
 $ yum makecache fast
 <span style=color:#75715e># CentOS 8 使用timer替换fast</span>
-$ yum makecache timer
+<span style=color:#75715e># $ yum makecache timer</span>
 </code></pre></div><h2 id=5安装docker>5.安装Docker</h2>
 <div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash>$ yum install docker-ce docker-ce-cli containerd.io
 
 <span style=color:#75715e># 如果在CentOS 8 系统上，会提示containerd.io版本过低</span>
+<span style=color:#75715e># 需要独立安装containerd.io</span>
 Error:
  Problem: package docker-ce-3:19.03.6-3.el7.x86_64 requires containerd.io &gt;<span style=color:#f92672>=</span> 1.2.2-3, but none of the providers can be installeddnf install
 
-<span style=color:#75715e># 需要独立安装containerd.io</span>
 $ yum install https://download.docker.com/linux/centos/7/x86_64/stable/Packages/containerd.io-1.2.6-3.3.el7.x86_64.rpm
 $ yum install docker-ce docker-ce-cli
 </code></pre></div><h2 id=6启动docker服务>6.启动Docker服务</h2>
