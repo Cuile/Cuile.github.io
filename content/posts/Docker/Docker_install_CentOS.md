@@ -1,11 +1,9 @@
 ---
-title: "Docker_install_CentOS"
+title: "CentOS 7 安装 Docker"
 date: 2022-05-06T11:05:23+08:00
 # draft: true
 tags: ["Docker","CentOS 7"]
 ---
-
-# CentOS 7 安装 Docker
 
 其实网上相关的文章已经非常多了，所以这篇文章的作用只是记录和明确一条确定可行的操作路径，为以后的操作节省时间，毕竟像我一样大部分人都不是专业的系统管理员，能够快速解决问题就可以了，并不想做过多的专业研究与探索。
 
