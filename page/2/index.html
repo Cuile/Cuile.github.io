@@ -50,6 +50,92 @@
 <div class=excerpt>
 <div class=excerpt_header>
 <h3 class=post_link>
+<a href=https://blog.cuile.com/posts/openwrt/openwrt_make/ title=编译x86_64版本的OpenWrt>编译x86_64版本的OpenWrt</a>
+</h3>
+<div class=post_meta>
+<span><svg class="icon"><use xlink:href="#calendar"/></svg></span>
+<span class=post_date>
+Feb 8, 2022</span>
+<span class=post_time> · 1 min read</span><span>&nbsp;· <a href=https://blog.cuile.com/tags/openwrt title=OpenWRT class="post_tag button button_translucent">OpenWRT
+</a>
+</span>
+<span class=page_only>&nbsp;·
+<div class=post_share>
+Share on:
+<a href="https://twitter.com/intent/tweet?text=%e7%bc%96%e8%af%91x86_64%e7%89%88%e6%9c%ac%e7%9a%84OpenWrt&url=https%3a%2f%2fblog.cuile.com%2fposts%2fopenwrt%2fopenwrt_make%2f&tw_p=tweetbutton" class=twitter title="Share on Twitter" target=_blank rel=nofollow><svg class="icon"><use xlink:href="#twitter"/></svg>
+</a>
+<a href="https://www.facebook.com/sharer.php?u=https%3a%2f%2fblog.cuile.com%2fposts%2fopenwrt%2fopenwrt_make%2f&t=%e7%bc%96%e8%af%91x86_64%e7%89%88%e6%9c%ac%e7%9a%84OpenWrt" class=facebook title="Share on Facebook" target=_blank rel=nofollow><svg class="icon"><use xlink:href="#facebook"/></svg>
+</a>
+<a href=#linkedinshare id=linkedinshare class=linkedin title="Share on LinkedIn" rel=nofollow><svg class="icon"><use xlink:href="#linkedin"/></svg>
+</a>
+<a href=https://blog.cuile.com/posts/openwrt/openwrt_make/ title="Copy Link" class="link link_yank"><svg class="icon"><use xlink:href="#copy"/></svg>
+</a>
+</div>
+</span>
+</div>
+</div>
+<div class=excerpt_footer>
+<div>
+<p class=pale>
+1、准备环境 建议使用纯linux系统进行编译，如 Ubuntu 20.04 LTS，这样环境比较简单，兼容问题也少。
+用WSL环境编译，可参考
+使用 Windows 子系统 ( WSL ) 编译 OpenWrt 为提高编译的成功率，采用国内大神Lean的版本。
+官方版本因编译过程中，下载、兼容等等太多问题，建议不要使用。
+sudo apt-get update sudo apt-get -y install build-essential asciidoc binutils bzip2 gawk gettext git libncurses5-dev libz-dev patch python3 python2.7 …
+</p>
+<a href=https://blog.cuile.com/posts/openwrt/openwrt_make/ title="Read More" class="excerpt_more button">Read More</a>
+</div>
+</div>
+</div>
+</li>
+<li class=post_item>
+<div class=excerpt>
+<div class=excerpt_header>
+<h3 class=post_link>
+<a href=https://blog.cuile.com/posts/proxmox/proxmox_nat/ title="Proxmox 配置 NAT 网络">Proxmox 配置 NAT 网络</a>
+</h3>
+<div class=post_meta>
+<span><svg class="icon"><use xlink:href="#calendar"/></svg></span>
+<span class=post_date>
+Feb 7, 2022</span>
+<span class=post_time> · 2 min read</span><span>&nbsp;· <a href=https://blog.cuile.com/tags/proxmox title=Proxmox class="post_tag button button_translucent">Proxmox
+</a><a href=https://blog.cuile.com/tags/nat title=NAT class="post_tag button button_translucent">NAT
+</a>
+</span>
+<span class=page_only>&nbsp;·
+<div class=post_share>
+Share on:
+<a href="https://twitter.com/intent/tweet?text=Proxmox%20%e9%85%8d%e7%bd%ae%20NAT%20%e7%bd%91%e7%bb%9c&url=https%3a%2f%2fblog.cuile.com%2fposts%2fproxmox%2fproxmox_nat%2f&tw_p=tweetbutton" class=twitter title="Share on Twitter" target=_blank rel=nofollow><svg class="icon"><use xlink:href="#twitter"/></svg>
+</a>
+<a href="https://www.facebook.com/sharer.php?u=https%3a%2f%2fblog.cuile.com%2fposts%2fproxmox%2fproxmox_nat%2f&t=Proxmox%20%e9%85%8d%e7%bd%ae%20NAT%20%e7%bd%91%e7%bb%9c" class=facebook title="Share on Facebook" target=_blank rel=nofollow><svg class="icon"><use xlink:href="#facebook"/></svg>
+</a>
+<a href=#linkedinshare id=linkedinshare class=linkedin title="Share on LinkedIn" rel=nofollow><svg class="icon"><use xlink:href="#linkedin"/></svg>
+</a>
+<a href=https://blog.cuile.com/posts/proxmox/proxmox_nat/ title="Copy Link" class="link link_yank"><svg class="icon"><use xlink:href="#copy"/></svg>
+</a>
+</div>
+</span>
+</div>
+</div>
+<div class=excerpt_footer>
+<div>
+<p class=pale>
+1. 升级系统软件包 $ apt-get update $ apt-get dist-upgrade 2. 安装 ifupdown2 使用 ifupdown2 网络管理软件包，还可以实时重新加载网络配置，而无需重新启动。
+$ apt install ifupdown2 3. 配置物理网卡 使用 PVE 的 WEB 管理界面，设置物理网卡的配置。
+注意：一定要分配一个静态的IP地址，否则无法正常登录 PVE
+节点 > 系统 > 网络：
+address：192.168.10.66/24 gateway：192.168.10.1 保存后应用配置
+4. 配置虚拟网卡 4.1 修改虚拟网卡配置 使用 PVE 提供管理界面进行配 …
+</p>
+<a href=https://blog.cuile.com/posts/proxmox/proxmox_nat/ title="Read More" class="excerpt_more button">Read More</a>
+</div>
+</div>
+</div>
+</li>
+<li class=post_item>
+<div class=excerpt>
+<div class=excerpt_header>
+<h3 class=post_link>
 <a href=https://blog.cuile.com/posts/openwrt/openwrt_shadowsocks_proxy/ title="OpenWRT 配置透明代理">OpenWRT 配置透明代理</a>
 </h3>
 <div class=post_meta>
@@ -375,89 +461,6 @@ Share on:
 </div>
 </div>
 </li>
-<li class=post_item>
-<div class=excerpt>
-<div class=excerpt_header>
-<h3 class=post_link>
-<a href=https://blog.cuile.com/posts/hugo_setup_for_github/ title=Github使用Hugo生成Blog>Github使用Hugo生成Blog</a>
-</h3>
-<div class=post_meta>
-<span><svg class="icon"><use xlink:href="#calendar"/></svg></span>
-<span class=post_date>
-Jan 14, 2022</span>
-<span class=post_time> · 1 min read</span><span>&nbsp;· <a href=https://blog.cuile.com/tags/hugo title=Hugo class="post_tag button button_translucent">Hugo
-</a><a href=https://blog.cuile.com/tags/github title=Github class="post_tag button button_translucent">Github
-</a><a href=https://blog.cuile.com/tags/blog title=Blog class="post_tag button button_translucent">Blog
-</a>
-</span>
-<span class=page_only>&nbsp;·
-<div class=post_share>
-Share on:
-<a href="https://twitter.com/intent/tweet?text=Github%e4%bd%bf%e7%94%a8Hugo%e7%94%9f%e6%88%90Blog&url=https%3a%2f%2fblog.cuile.com%2fposts%2fhugo_setup_for_github%2f&tw_p=tweetbutton" class=twitter title="Share on Twitter" target=_blank rel=nofollow><svg class="icon"><use xlink:href="#twitter"/></svg>
-</a>
-<a href="https://www.facebook.com/sharer.php?u=https%3a%2f%2fblog.cuile.com%2fposts%2fhugo_setup_for_github%2f&t=Github%e4%bd%bf%e7%94%a8Hugo%e7%94%9f%e6%88%90Blog" class=facebook title="Share on Facebook" target=_blank rel=nofollow><svg class="icon"><use xlink:href="#facebook"/></svg>
-</a>
-<a href=#linkedinshare id=linkedinshare class=linkedin title="Share on LinkedIn" rel=nofollow><svg class="icon"><use xlink:href="#linkedin"/></svg>
-</a>
-<a href=https://blog.cuile.com/posts/hugo_setup_for_github/ title="Copy Link" class="link link_yank"><svg class="icon"><use xlink:href="#copy"/></svg>
-</a>
-</div>
-</span>
-</div>
-</div>
-<div class=excerpt_footer>
-<div>
-<p class=pale>
-设置流程 不过多说明了，网上教程非常多，可以找来看。
-参考文档
-使用 Github Actions 自动发布 hugo 站点 Hugo的基本安装｜网站生成｜托管至Github Pages 各种坑位 1. 网页正常部署后，访问时页面却无法正常显示，部局完全是乱的。 这可能是https请求报"block:mixed-content"错误导致的，是浏览器不允许在https页面里嵌入http的请求，现在高版本的浏览器为了用户体验，都不会弹窗报错，只会在控制台上打印一条错误信息。
-解决这个问题，可以从以下2点入手：
-1.1. …
-</p>
-<a href=https://blog.cuile.com/posts/hugo_setup_for_github/ title="Read More" class="excerpt_more button">Read More</a>
-</div>
-</div>
-</div>
-</li>
-<li class=post_item>
-<div class=excerpt>
-<div class=excerpt_header>
-<h3 class=post_link>
-<a href=https://blog.cuile.com/posts/docker/docker_cli/ title=Docker使用命令>Docker使用命令</a>
-</h3>
-<div class=post_meta>
-<span><svg class="icon"><use xlink:href="#calendar"/></svg></span>
-<span class=post_date>
-Jan 13, 2022</span>
-<span class=post_time> · 1 min read</span><span>&nbsp;· <a href=https://blog.cuile.com/tags/docker title=Docker class="post_tag button button_translucent">Docker
-</a><a href=https://blog.cuile.com/tags/shell title=Shell class="post_tag button button_translucent">Shell
-</a>
-</span>
-<span class=page_only>&nbsp;·
-<div class=post_share>
-Share on:
-<a href="https://twitter.com/intent/tweet?text=Docker%e4%bd%bf%e7%94%a8%e5%91%bd%e4%bb%a4&url=https%3a%2f%2fblog.cuile.com%2fposts%2fdocker%2fdocker_cli%2f&tw_p=tweetbutton" class=twitter title="Share on Twitter" target=_blank rel=nofollow><svg class="icon"><use xlink:href="#twitter"/></svg>
-</a>
-<a href="https://www.facebook.com/sharer.php?u=https%3a%2f%2fblog.cuile.com%2fposts%2fdocker%2fdocker_cli%2f&t=Docker%e4%bd%bf%e7%94%a8%e5%91%bd%e4%bb%a4" class=facebook title="Share on Facebook" target=_blank rel=nofollow><svg class="icon"><use xlink:href="#facebook"/></svg>
-</a>
-<a href=#linkedinshare id=linkedinshare class=linkedin title="Share on LinkedIn" rel=nofollow><svg class="icon"><use xlink:href="#linkedin"/></svg>
-</a>
-<a href=https://blog.cuile.com/posts/docker/docker_cli/ title="Copy Link" class="link link_yank"><svg class="icon"><use xlink:href="#copy"/></svg>
-</a>
-</div>
-</span>
-</div>
-</div>
-<div class=excerpt_footer>
-<div>
-<p class=pale>
-镜像列表 $ docker image ls -a # or $ docker images 容器列表 $ docker container ls -a # or $ docker ps 删除冗余镜像 $ docker system prune 创建桥接网络 $ docker network create [name] Docker快捷命令 $ echo "alias d-ll='docker image ls -a; echo; docker container ls -a'" >> ~/.bashrc \ && echo "alias …
-</p>
-<a href=https://blog.cuile.com/posts/docker/docker_cli/ title="Read More" class="excerpt_more button">Read More</a>
-</div>
-</div>
-</div>
-</li>
 <li>
 <ul class="pagination pagination-default">
 <li class=page-item>
@@ -489,6 +492,12 @@ Share on:
 <h2 class=mt-4>Recent Posts</h2>
 <ul class=flex-column>
 <li>
+<a href=https://blog.cuile.com/posts/life_tips/tips2/ class=nav-link title=Tips2>Tips2</a>
+</li>
+<li>
+<a href=https://blog.cuile.com/posts/life_tips/tips1/ class=nav-link title=七态为品>七态为品</a>
+</li>
+<li>
 <a href=https://blog.cuile.com/posts/django/django_development_introduction/ class=nav-link title="Django 开发简介">Django 开发简介</a>
 </li>
 <li>
@@ -505,12 +514,6 @@ Share on:
 </li>
 <li>
 <a href=https://blog.cuile.com/posts/linux/linux_repo_manual/ class=nav-link title="Linux 版本库管理">Linux 版本库管理</a>
-</li>
-<li>
-<a href=https://blog.cuile.com/posts/linux/linux_kernel_update/ class=nav-link title=Linux系统内核升级>Linux系统内核升级</a>
-</li>
-<li>
-<a href=https://blog.cuile.com/posts/linux/linux_iptables_manual/ class=nav-link title="iptables 命令">iptables 命令</a>
 </li>
 </ul>
 <div>
@@ -535,6 +538,10 @@ DOCKER
 <a href=https://blog.cuile.com/tags/python/ class="post_tag button button_translucent" title=python>
 PYTHON
 <span class=button_tally>3</span>
+</a>
+<a href=https://blog.cuile.com/tags/life-tips/ class="post_tag button button_translucent" title=life-tips>
+LIFE-TIPS
+<span class=button_tally>2</span>
 </a>
 <a href=https://blog.cuile.com/tags/proxmox/ class="post_tag button button_translucent" title=proxmox>
 PROXMOX
