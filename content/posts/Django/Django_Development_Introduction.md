@@ -5,6 +5,7 @@ date: 2022-05-10T16:30:13+08:00
 tags:
 - Django
 - Docker
+- Python
 ---
 
 ## 开发环境
