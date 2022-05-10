@@ -49,6 +49,49 @@
 <div class=excerpt>
 <div class=excerpt_header>
 <h3 class=post_link>
+<a href=https://blog.cuile.com/posts/linux/linux_iptables_manual/ title="iptables 命令">iptables 命令</a>
+</h3>
+<div class=post_meta>
+<span><svg class="icon"><use xlink:href="#calendar"/></svg></span>
+<span class=post_date>
+Feb 8, 2022</span>
+<span class=post_time> · 2 min read</span><span>&nbsp;· <a href=https://blog.cuile.com/tags/linux title=Linux class="post_tag button button_translucent">Linux
+</a><a href=https://blog.cuile.com/tags/centos-7 title="CentOS 7" class="post_tag button button_translucent">CentOS 7
+</a><a href=https://blog.cuile.com/tags/iptables title=iptables class="post_tag button button_translucent">iptables
+</a><a href=https://blog.cuile.com/tags/firewall title=Firewall class="post_tag button button_translucent">Firewall
+</a>
+</span>
+<span class=page_only>&nbsp;·
+<div class=post_share>
+Share on:
+<a href="https://twitter.com/intent/tweet?text=iptables%20%e5%91%bd%e4%bb%a4&url=https%3a%2f%2fblog.cuile.com%2fposts%2flinux%2flinux_iptables_manual%2f&tw_p=tweetbutton" class=twitter title="Share on Twitter" target=_blank rel=nofollow><svg class="icon"><use xlink:href="#twitter"/></svg>
+</a>
+<a href="https://www.facebook.com/sharer.php?u=https%3a%2f%2fblog.cuile.com%2fposts%2flinux%2flinux_iptables_manual%2f&t=iptables%20%e5%91%bd%e4%bb%a4" class=facebook title="Share on Facebook" target=_blank rel=nofollow><svg class="icon"><use xlink:href="#facebook"/></svg>
+</a>
+<a href=#linkedinshare id=linkedinshare class=linkedin title="Share on LinkedIn" rel=nofollow><svg class="icon"><use xlink:href="#linkedin"/></svg>
+</a>
+<a href=https://blog.cuile.com/posts/linux/linux_iptables_manual/ title="Copy Link" class="link link_yank"><svg class="icon"><use xlink:href="#copy"/></svg>
+</a>
+</div>
+</span>
+</div>
+</div>
+<div class=excerpt_footer>
+<div>
+<p class=pale>
+脚本基于Centos 7
+注意：CentOS 7默认的防火墙不是iptables,而是firewalld
+停止firewalld服务 #停止firewalld服务 $ systemctl stop firewalld #禁用firewalld服务 $ systemctl mask firewalld 安装 iptables #先检查是否安装了iptables $ service iptables status #安装iptables $ yum install -y iptables #升级iptables $ yum update iptables #安装iptables-services $ yum install …
+</p>
+<a href=https://blog.cuile.com/posts/linux/linux_iptables_manual/ title="Read More" class="excerpt_more button">Read More</a>
+</div>
+</div>
+</div>
+</li>
+<li class=post_item>
+<div class=excerpt>
+<div class=excerpt_header>
+<h3 class=post_link>
 <a href=https://blog.cuile.com/posts/openwrt/openwrt_make/ title=编译x86_64版本的OpenWrt>编译x86_64版本的OpenWrt</a>
 </h3>
 <div class=post_meta>
@@ -419,47 +462,6 @@ Share on:
 </div>
 </div>
 </li>
-<li class=post_item>
-<div class=excerpt>
-<div class=excerpt_header>
-<h3 class=post_link>
-<a href=https://blog.cuile.com/posts/linux/linux_cli_manual/ title=Linux系统命令>Linux系统命令</a>
-</h3>
-<div class=post_meta>
-<span><svg class="icon"><use xlink:href="#calendar"/></svg></span>
-<span class=post_date>
-Jan 17, 2022</span>
-<span class=post_time> · 2 min read</span><span>&nbsp;· <a href=https://blog.cuile.com/tags/linux title=Linux class="post_tag button button_translucent">Linux
-</a><a href=https://blog.cuile.com/tags/centos-7 title="Centos 7" class="post_tag button button_translucent">Centos 7
-</a><a href=https://blog.cuile.com/tags/bash title=bash class="post_tag button button_translucent">bash
-</a>
-</span>
-<span class=page_only>&nbsp;·
-<div class=post_share>
-Share on:
-<a href="https://twitter.com/intent/tweet?text=Linux%e7%b3%bb%e7%bb%9f%e5%91%bd%e4%bb%a4&url=https%3a%2f%2fblog.cuile.com%2fposts%2flinux%2flinux_cli_manual%2f&tw_p=tweetbutton" class=twitter title="Share on Twitter" target=_blank rel=nofollow><svg class="icon"><use xlink:href="#twitter"/></svg>
-</a>
-<a href="https://www.facebook.com/sharer.php?u=https%3a%2f%2fblog.cuile.com%2fposts%2flinux%2flinux_cli_manual%2f&t=Linux%e7%b3%bb%e7%bb%9f%e5%91%bd%e4%bb%a4" class=facebook title="Share on Facebook" target=_blank rel=nofollow><svg class="icon"><use xlink:href="#facebook"/></svg>
-</a>
-<a href=#linkedinshare id=linkedinshare class=linkedin title="Share on LinkedIn" rel=nofollow><svg class="icon"><use xlink:href="#linkedin"/></svg>
-</a>
-<a href=https://blog.cuile.com/posts/linux/linux_cli_manual/ title="Copy Link" class="link link_yank"><svg class="icon"><use xlink:href="#copy"/></svg>
-</a>
-</div>
-</span>
-</div>
-</div>
-<div class=excerpt_footer>
-<div>
-<p class=pale>
-脚本基于Centos 7
-系统进程操作 查看CPU和内存使用情况 # 定位高CPU占用 $ ps H -eo user,pid,ppid,tid,time,%cpu,cmd --sort=%cpu # 可视化显示CPU的使用状况的工具 $ yum install -y htop $ htop 磁盘操作 查询并筛选 磁盘空间 统计 排序 # 修改硬盘挂载目录 # 卸载硬盘 $ umount -v /mnt/raid1-2disk-500G # 修改挂载目录 $ mv /mnt/raid1-2disk-500G /mnt/raid1-250G-2disk # 修改/etc/fstab文件里的挂载目录 $ nano …
-</p>
-<a href=https://blog.cuile.com/posts/linux/linux_cli_manual/ title="Read More" class="excerpt_more button">Read More</a>
-</div>
-</div>
-</div>
-</li>
 <li>
 <ul class="pagination pagination-default">
 <li class=page-item>
@@ -491,6 +493,9 @@ Share on:
 <h2 class=mt-4>Recent Posts</h2>
 <ul class=flex-column>
 <li>
+<a href=https://blog.cuile.com/posts/life_tips/tips3/ class=nav-link title=能力的评价>能力的评价</a>
+</li>
+<li>
 <a href=https://blog.cuile.com/posts/life_tips/tips2/ class=nav-link title=小差别>小差别</a>
 </li>
 <li>
@@ -510,9 +515,6 @@ Share on:
 </li>
 <li>
 <a href=https://blog.cuile.com/posts/ffmpeg_manual/ class=nav-link title=FFmpeg脚本>FFmpeg脚本</a>
-</li>
-<li>
-<a href=https://blog.cuile.com/posts/linux/linux_repo_manual/ class=nav-link title="Linux 版本库管理">Linux 版本库管理</a>
 </li>
 </ul>
 <div>
@@ -534,13 +536,13 @@ OPENWRT
 DOCKER
 <span class=button_tally>3</span>
 </a>
+<a href=https://blog.cuile.com/tags/life-tips/ class="post_tag button button_translucent" title=life-tips>
+LIFE-TIPS
+<span class=button_tally>3</span>
+</a>
 <a href=https://blog.cuile.com/tags/python/ class="post_tag button button_translucent" title=python>
 PYTHON
 <span class=button_tally>3</span>
-</a>
-<a href=https://blog.cuile.com/tags/life-tips/ class="post_tag button button_translucent" title=life-tips>
-LIFE-TIPS
-<span class=button_tally>2</span>
 </a>
 <a href=https://blog.cuile.com/tags/proxmox/ class="post_tag button button_translucent" title=proxmox>
 PROXMOX
