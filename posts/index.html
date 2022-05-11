@@ -49,6 +49,49 @@
 <div class=excerpt>
 <div class=excerpt_header>
 <h3 class=post_link>
+<a href=https://blog.cuile.com/posts/docker/docker_install_snap/ title="使用 Snap 安装 Docker">使用 Snap 安装 Docker</a>
+</h3>
+<div class=post_meta>
+<span><svg class="icon"><use xlink:href="#calendar"/></svg></span>
+<span class=post_date>
+May 11, 2022</span>
+<span class=post_time> · 1 min read</span><span>&nbsp;· <a href=https://blog.cuile.com/tags/snap title=Snap class="post_tag button button_translucent">Snap
+</a><a href=https://blog.cuile.com/tags/docker title=Docker class="post_tag button button_translucent">Docker
+</a>
+</span>
+<span class=page_only>&nbsp;·
+<div class=post_share>
+Share on:
+<a href="https://twitter.com/intent/tweet?text=%e4%bd%bf%e7%94%a8%20Snap%20%e5%ae%89%e8%a3%85%20Docker&url=https%3a%2f%2fblog.cuile.com%2fposts%2fdocker%2fdocker_install_snap%2f&tw_p=tweetbutton" class=twitter title="Share on Twitter" target=_blank rel=nofollow><svg class="icon"><use xlink:href="#twitter"/></svg>
+</a>
+<a href="https://www.facebook.com/sharer.php?u=https%3a%2f%2fblog.cuile.com%2fposts%2fdocker%2fdocker_install_snap%2f&t=%e4%bd%bf%e7%94%a8%20Snap%20%e5%ae%89%e8%a3%85%20Docker" class=facebook title="Share on Facebook" target=_blank rel=nofollow><svg class="icon"><use xlink:href="#facebook"/></svg>
+</a>
+<a href=#linkedinshare id=linkedinshare class=linkedin title="Share on LinkedIn" rel=nofollow><svg class="icon"><use xlink:href="#linkedin"/></svg>
+</a>
+<a href=https://blog.cuile.com/posts/docker/docker_install_snap/ title="Copy Link" class="link link_yank"><svg class="icon"><use xlink:href="#copy"/></svg>
+</a>
+</div>
+</span>
+</div>
+</div>
+<div class=excerpt_footer>
+<div>
+<p class=pale>
+尝试使用 Ubuntu 的 Snap 后，发现真的非常方便。
+看过Snap的介绍以后，发现Snap的沙盒理念非常先进，在存储基本不成问题背景下，会系统环境的影响更小。
+而且docker-compose命令也会一起安装，更是方便。
+1.安装 $ sudo snap install docker 2.设置 # 设置开机启动 $ sudo snap start docker --enable # 确认服务状态 $ sudo snap services docker # 查看服务详情 $ service snap.docker.dockerd status 使用sudo安装后要注意以后调用时，都要使用sudo命令前缀。
+3.其它 # 安装目 …
+</p>
+<a href=https://blog.cuile.com/posts/docker/docker_install_snap/ title="Read More" class="excerpt_more button">Read More</a>
+</div>
+</div>
+</div>
+</li>
+<li class=post_item>
+<div class=excerpt>
+<div class=excerpt_header>
+<h3 class=post_link>
 <a href=https://blog.cuile.com/posts/life_tips/tips3/ title=能力的评价>能力的评价</a>
 </h3>
 <div class=post_meta>
@@ -403,49 +446,6 @@ Share on:
 </div>
 </div>
 </li>
-<li class=post_item>
-<div class=excerpt>
-<div class=excerpt_header>
-<h3 class=post_link>
-<a href=https://blog.cuile.com/posts/linux/linux_kernel_update/ title=Linux系统内核升级>Linux系统内核升级</a>
-</h3>
-<div class=post_meta>
-<span><svg class="icon"><use xlink:href="#calendar"/></svg></span>
-<span class=post_date>
-Feb 8, 2022</span>
-<span class=post_time> · 1 min read</span><span>&nbsp;· <a href=https://blog.cuile.com/tags/linux title=Linux class="post_tag button button_translucent">Linux
-</a><a href=https://blog.cuile.com/tags/centos-7 title="CentOS 7" class="post_tag button button_translucent">CentOS 7
-</a><a href=https://blog.cuile.com/tags/kernel title=kernel class="post_tag button button_translucent">kernel
-</a>
-</span>
-<span class=page_only>&nbsp;·
-<div class=post_share>
-Share on:
-<a href="https://twitter.com/intent/tweet?text=Linux%e7%b3%bb%e7%bb%9f%e5%86%85%e6%a0%b8%e5%8d%87%e7%ba%a7&url=https%3a%2f%2fblog.cuile.com%2fposts%2flinux%2flinux_kernel_update%2f&tw_p=tweetbutton" class=twitter title="Share on Twitter" target=_blank rel=nofollow><svg class="icon"><use xlink:href="#twitter"/></svg>
-</a>
-<a href="https://www.facebook.com/sharer.php?u=https%3a%2f%2fblog.cuile.com%2fposts%2flinux%2flinux_kernel_update%2f&t=Linux%e7%b3%bb%e7%bb%9f%e5%86%85%e6%a0%b8%e5%8d%87%e7%ba%a7" class=facebook title="Share on Facebook" target=_blank rel=nofollow><svg class="icon"><use xlink:href="#facebook"/></svg>
-</a>
-<a href=#linkedinshare id=linkedinshare class=linkedin title="Share on LinkedIn" rel=nofollow><svg class="icon"><use xlink:href="#linkedin"/></svg>
-</a>
-<a href=https://blog.cuile.com/posts/linux/linux_kernel_update/ title="Copy Link" class="link link_yank"><svg class="icon"><use xlink:href="#copy"/></svg>
-</a>
-</div>
-</span>
-</div>
-</div>
-<div class=excerpt_footer>
-<div>
-<p class=pale>
-脚本基于Centos 7
-1、查看系统内核版本 $ uname -r 3.10.0-514.26.2.el7.x86_64 $ cat /etc/redhat-release CentOS Linux release 7.6.1810 (Core) 2、升级内核 导入elrepo的key，然后安装elrepo的yum源
-$ rpm -import https://www.elrepo.org/RPM-GPG-KEY-elrepo.org $ rpm -Uvh http://www.elrepo.org/elrepo-release-7.0-2.el7.elrepo.noarch.rpm 查看可用的内核相关包
-$ yum …
-</p>
-<a href=https://blog.cuile.com/posts/linux/linux_kernel_update/ title="Read More" class="excerpt_more button">Read More</a>
-</div>
-</div>
-</div>
-</li>
 <li>
 <ul class="pagination pagination-default">
 <li class="page-item disabled">
@@ -477,6 +477,9 @@ $ yum …
 <h2 class=mt-4>Recent Posts</h2>
 <ul class=flex-column>
 <li>
+<a href=https://blog.cuile.com/posts/docker/docker_install_snap/ class=nav-link title="使用 Snap 安装 Docker">使用 Snap 安装 Docker</a>
+</li>
+<li>
 <a href=https://blog.cuile.com/posts/life_tips/tips3/ class=nav-link title=能力的评价>能力的评价</a>
 </li>
 <li>
@@ -497,9 +500,6 @@ $ yum …
 <li>
 <a href=https://blog.cuile.com/posts/proxmox/proxmox_rrd_error/ class=nav-link title="修复 Proxmox RRD 错误">修复 Proxmox RRD 错误</a>
 </li>
-<li>
-<a href=https://blog.cuile.com/posts/ffmpeg_manual/ class=nav-link title=FFmpeg脚本>FFmpeg脚本</a>
-</li>
 </ul>
 <div>
 <h2 class="mt-4 taxonomy" id=tags-section>Tags</h2>
@@ -512,13 +512,13 @@ CENTOS-7
 LINUX
 <span class=button_tally>6</span>
 </a>
+<a href=https://blog.cuile.com/tags/docker/ class="post_tag button button_translucent" title=docker>
+DOCKER
+<span class=button_tally>4</span>
+</a>
 <a href=https://blog.cuile.com/tags/openwrt/ class="post_tag button button_translucent" title=openwrt>
 OPENWRT
 <span class=button_tally>4</span>
-</a>
-<a href=https://blog.cuile.com/tags/docker/ class="post_tag button button_translucent" title=docker>
-DOCKER
-<span class=button_tally>3</span>
 </a>
 <a href=https://blog.cuile.com/tags/life-tips/ class="post_tag button button_translucent" title=life-tips>
 LIFE-TIPS
@@ -626,6 +626,10 @@ SHADOWSOCKS
 </a>
 <a href=https://blog.cuile.com/tags/shell/ class="post_tag button button_translucent" title=shell>
 SHELL
+<span class=button_tally>1</span>
+</a>
+<a href=https://blog.cuile.com/tags/snap/ class="post_tag button button_translucent" title=snap>
+SNAP
 <span class=button_tally>1</span>
 </a>
 <a href=https://blog.cuile.com/tags/ubuntu/ class="post_tag button button_translucent" title=ubuntu>

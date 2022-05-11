@@ -1,25 +1,30 @@
-<!doctype html><html lang=en data-figures>
+<!doctype html><html lang=en data-figures class=page>
 <head>
-<title>repo | 瘦了就帅了</title>
+<title>使用 Snap 安装 Docker | 瘦了就帅了</title>
 <meta charset=utf-8>
 <meta name=viewport content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
 <meta http-equiv=x-ua-compatible content="IE=edge">
 <meta http-equiv=content-security-policy content="upgrade-insecure-requests">
 <meta property="og:locale" content="en">
 <meta property="og:type" content="article">
-<meta name=description content>
+<meta name=description content="尝试使用 Ubuntu 的 Snap 后，发现真的非常方便。
+看过Snap的介绍以后，发现Snap的沙盒理念非常先进，在存储基本不成问题背景下，会系统环境的影响更小。
+而且docker-compose命令也会一起安装，更是方便。
+1.安装 $ sudo snap install docker 2.设置 # …">
 <meta name=twitter:card content="summary">
 <meta name=twitter:creator content>
-<meta name=twitter:title content="repo">
-<meta property="og:url" content="https://blog.cuile.com/tags/repo/">
-<meta property="og:title" content="repo">
-<meta property="og:description" content>
+<meta name=twitter:title content="使用 Snap 安装 Docker">
+<meta property="og:url" content="https://blog.cuile.com/posts/docker/docker_install_snap/">
+<meta property="og:title" content="使用 Snap 安装 Docker">
+<meta property="og:description" content="尝试使用 Ubuntu 的 Snap 后，发现真的非常方便。
+看过Snap的介绍以后，发现Snap的沙盒理念非常先进，在存储基本不成问题背景下，会系统环境的影响更小。
+而且docker-compose命令也会一起安装，更是方便。
+1.安装 $ sudo snap install docker 2.设置 # …">
 <meta property="og:image" content="https://blog.cuile.com/">
 <link rel=apple-touch-icon sizes=180x180 href=https://blog.cuile.com/icons/apple-touch-icon.png>
 <link rel=icon type=image/png sizes=32x32 href=https://blog.cuile.com/icons/favicon-32x32.png>
 <link rel=manifest href=https://blog.cuile.com/icons/site.webmanifest>
-<link rel=canonical href=https://blog.cuile.com/tags/repo/>
-<link rel=alternate type=application/rss+xml href=https://blog.cuile.com/tags/repo/index.xml title=瘦了就帅了>
+<link rel=canonical href=https://blog.cuile.com/posts/docker/docker_install_snap/>
 <link rel=stylesheet href=//cdnjs.cloudflare.com/ajax/libs/highlight.js/11.4.0/styles/default.min.css>
 <script src=//cdnjs.cloudflare.com/ajax/libs/highlight.js/11.4.0/highlight.min.js></script>
 <link rel=preload href=https://blog.cuile.com/css/styles.01869c76e4757810d94ecbdccadba853d9d01d9416dfeb113df02e1479ff8b36e284e8bfeb3e8f353f2fdcdcbbdfcf27e558dbda96eb6341bfc304d55cd9e986.css integrity="sha512-AYacduR1eBDZTsvcytuoU9nQHZQW3+sRPfAuFHn/izbihOi/6z6PNT8v3Ny7388n5Vjb2pbrY0G/wwTVXNnphg==" as=style crossorigin=anonymous>
@@ -44,58 +49,63 @@
 </header>
 <main>
 <div class="grid-inverse wrap content">
-<ul class=posts id=posts>
-<li class=post_item>
-<div class=excerpt>
-<div class=excerpt_header>
-<h3 class=post_link>
-<a href=https://blog.cuile.com/posts/linux/linux_repo_manual/ title="Linux 版本库管理">Linux 版本库管理</a>
-</h3>
+<article class=post_content>
+<h1 class=post_title>使用 Snap 安装 Docker</h1>
 <div class=post_meta>
 <span><svg class="icon"><use xlink:href="#calendar"/></svg></span>
 <span class=post_date>
-Feb 8, 2022</span>
-<span class=post_time> · 1 min read</span><span>&nbsp;· <a href=https://blog.cuile.com/tags/linux title=Linux class="post_tag button button_translucent">Linux
-</a><a href=https://blog.cuile.com/tags/repo title=repo class="post_tag button button_translucent">repo
-</a><a href=https://blog.cuile.com/tags/centos-7 title="Centos 7" class="post_tag button button_translucent">Centos 7
+May 11, 2022</span>
+<span class=post_time> · 1 min read</span><span>&nbsp;· <a href=https://blog.cuile.com/tags/snap title=Snap class="post_tag button button_translucent">Snap
+</a><a href=https://blog.cuile.com/tags/docker title=Docker class="post_tag button button_translucent">Docker
 </a>
 </span>
 <span class=page_only>&nbsp;·
 <div class=post_share>
 Share on:
-<a href="https://twitter.com/intent/tweet?text=Linux%20%e7%89%88%e6%9c%ac%e5%ba%93%e7%ae%a1%e7%90%86&url=https%3a%2f%2fblog.cuile.com%2fposts%2flinux%2flinux_repo_manual%2f&tw_p=tweetbutton" class=twitter title="Share on Twitter" target=_blank rel=nofollow><svg class="icon"><use xlink:href="#twitter"/></svg>
+<a href="https://twitter.com/intent/tweet?text=%e4%bd%bf%e7%94%a8%20Snap%20%e5%ae%89%e8%a3%85%20Docker&url=https%3a%2f%2fblog.cuile.com%2fposts%2fdocker%2fdocker_install_snap%2f&tw_p=tweetbutton" class=twitter title="Share on Twitter" target=_blank rel=nofollow><svg class="icon"><use xlink:href="#twitter"/></svg>
 </a>
-<a href="https://www.facebook.com/sharer.php?u=https%3a%2f%2fblog.cuile.com%2fposts%2flinux%2flinux_repo_manual%2f&t=Linux%20%e7%89%88%e6%9c%ac%e5%ba%93%e7%ae%a1%e7%90%86" class=facebook title="Share on Facebook" target=_blank rel=nofollow><svg class="icon"><use xlink:href="#facebook"/></svg>
+<a href="https://www.facebook.com/sharer.php?u=https%3a%2f%2fblog.cuile.com%2fposts%2fdocker%2fdocker_install_snap%2f&t=%e4%bd%bf%e7%94%a8%20Snap%20%e5%ae%89%e8%a3%85%20Docker" class=facebook title="Share on Facebook" target=_blank rel=nofollow><svg class="icon"><use xlink:href="#facebook"/></svg>
 </a>
 <a href=#linkedinshare id=linkedinshare class=linkedin title="Share on LinkedIn" rel=nofollow><svg class="icon"><use xlink:href="#linkedin"/></svg>
 </a>
-<a href=https://blog.cuile.com/posts/linux/linux_repo_manual/ title="Copy Link" class="link link_yank"><svg class="icon"><use xlink:href="#copy"/></svg>
+<a href=https://blog.cuile.com/posts/docker/docker_install_snap/ title="Copy Link" class="link link_yank"><svg class="icon"><use xlink:href="#copy"/></svg>
 </a>
 </div>
 </span>
 </div>
+<div class=post_body><p>尝试使用 Ubuntu 的 Snap 后，发现真的非常方便。</p>
+<p>看过Snap的介绍以后，发现Snap的沙盒理念非常先进，在存储基本不成问题背景下，会系统环境的影响更小。</p>
+<p>而且docker-compose命令也会一起安装，更是方便。</p>
+<h2 id=1安装>1.安装</h2>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash>$ sudo snap install docker
+</code></pre></div><h2 id=2设置>2.设置</h2>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash><span style=color:#75715e># 设置开机启动</span>
+$ sudo snap start docker --enable
+<span style=color:#75715e># 确认服务状态</span>
+$ sudo snap services docker
+<span style=color:#75715e># 查看服务详情</span>
+$ service snap.docker.dockerd status
+</code></pre></div><p>使用sudo安装后要注意以后调用时，都要使用sudo命令前缀。</p>
+<h2 id=3其它>3.其它</h2>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash><span style=color:#75715e># 安装目录</span>
+/snap/docker/current         
+<span style=color:#75715e># 服务启动配置文件</span>
+/etc/systemd/system/snap.docker.dockerd.service
+<span style=color:#75715e># 配套 AppArmor 配置文件</span>
+/var/lib/snapd/apparmor/profiles/snap.docker.docker
+/var/lib/snapd/apparmor/profiles/snap.docker.dockerd
+<span style=color:#75715e># 默认 Unix Socket 文件路径</span>
+unix:///var/snap/docker/current/run/docker/libcontainerd/docker-containerd.sock
+</code></pre></div><h2 id=4参考文献>4.参考文献</h2>
+<p><a href=https://www.moha.online/en/node/111#Snap%E5%AE%89%E8%A3%85>Docker 安装指南</a></p>
 </div>
-<div class=excerpt_footer>
-<div>
-<p class=pale>
-脚本基于Centos 7
-查看已安装软件 $ yum list installed 升级所有包同时也升级软件和系统内核 $ yum -y update 只升级所有包，不升级软件和系统内核 $ yum -y upgrade 更换阿里云软件安装源 # 备份原镜像文件，以免出错后可以恢复。 $ mv /etc/yum.repos.d/CentOS-Base.repo /etc/yum.repos.d/CentOS-Base.repo.back # 下载新的CentOS-Base.repo 到/etc/yum.repos.d/ $ wget -O /etc/yum.repos.d/CentOS-Base.repo …
-</p>
-<a href=https://blog.cuile.com/posts/linux/linux_repo_manual/ title="Read More" class="excerpt_more button">Read More</a>
+<div class=post_comments>
 </div>
-</div>
-</div>
-</li>
-<li>
-</li>
-</ul>
+</article>
 <aside class=sidebar>
 <section class=sidebar_inner>
 <h2 class=mt-4>Recent Posts</h2>
 <ul class=flex-column>
-<li>
-<a href=https://blog.cuile.com/posts/docker/docker_install_snap/ class=nav-link title="使用 Snap 安装 Docker">使用 Snap 安装 Docker</a>
-</li>
 <li>
 <a href=https://blog.cuile.com/posts/life_tips/tips3/ class=nav-link title=能力的评价>能力的评价</a>
 </li>
@@ -116,6 +126,9 @@ Share on:
 </li>
 <li>
 <a href=https://blog.cuile.com/posts/proxmox/proxmox_rrd_error/ class=nav-link title="修复 Proxmox RRD 错误">修复 Proxmox RRD 错误</a>
+</li>
+<li>
+<a href=https://blog.cuile.com/posts/ffmpeg_manual/ class=nav-link title=FFmpeg脚本>FFmpeg脚本</a>
 </li>
 </ul>
 <div>
