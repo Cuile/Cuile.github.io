@@ -10,6 +10,7 @@ tags: ["Hugo","Github","Blog"]
 不过多说明了，网上教程非常多，可以找来看。
 
 **参考文档**
+
 - [使用 Github Actions 自动发布 hugo 站点](https://h1z3y3.me/posts/hugo-auto-deploy-github-with-actions/)
 - [Hugo的基本安装｜网站生成｜托管至Github Pages](https://zhuanlan.zhihu.com/p/350977057)
 
@@ -22,10 +23,13 @@ tags: ["Hugo","Github","Blog"]
 解决这个问题，可以从以下2点入手：
 
 1.1. 在"theme/\<YouThemeName\>/layouts/partials/head.html"文件内，添加代码
+
 ```html
 <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
 ```
-**参考文档**
+
+** 参考文档 **
+
 - [https请求报错block:mixed-content问题的解决办法](https://blog.csdn.net/qq_39390545/article/details/105550949)
 
 1.2. 确保config.toml文件内，"baseUrl"的值与实际地址一致。
@@ -35,6 +39,7 @@ tags: ["Hugo","Github","Blog"]
 ### 3. Github Actions 设置里的 gh-pages.yml 写法要注意
 
 "Setup Hugo"项目里，标准版本与扩展版本的参数写法不一样。
+
 ```yml
 # 使用扩展版本
 - name: Setup Hugo
@@ -43,6 +48,7 @@ tags: ["Hugo","Github","Blog"]
     hugo-version: '0.91.2'
     extended: true
 ```
+
 ```yml
 # 使用标准版本
 - name: Setup Hugo
@@ -50,6 +56,7 @@ tags: ["Hugo","Github","Blog"]
   with:
     hugo-version: 'latest'
 ```
-**参考文档**
-- [GitHub Actions for Hugo](https://github.com/peaceiris/actions-hugo#options)
 
+**参考文档**
+
+- [GitHub Actions for Hugo](https://github.com/peaceiris/actions-hugo#options)
