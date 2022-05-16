@@ -100,6 +100,23 @@ $ git clone https://xxxx@bitbucket.org/xxxx/xxxx.git
 master
 <span style=color:#75715e># 输出到当前目录</span>
 ./
+</code></pre></div><h2 id=删除本地文件后从远端重新拉取最新版本>删除本地文件后，从远端重新拉取最新版本</h2>
+<p>git提示： up-to-date. 但未从远端得到文件</p>
+<ol>
+<li>查看本地分支是否发生变化</li>
+</ol>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash>$ git branch -a
+</code></pre></div><ol start=2>
+<li>如本地库处于另一个分支中，需将本地分支熏置回原分支</li>
+</ol>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash>$ git checkout *****
+$ git reset --hard
+</code></pre></div><ol start=3>
+<li>如本地分支没有变化，则强行 pull 覆盖本地文件</li>
+</ol>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash>$ git fetch --all
+$ git reset --hard origin/*****
+$ git pull
 </code></pre></div>
 </div>
 <div class=post_comments>
