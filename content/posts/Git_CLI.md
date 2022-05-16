@@ -59,3 +59,27 @@ master
 # 输出到当前目录
 ./
 ```
+
+## 删除本地文件后，从远端重新拉取最新版本
+
+git提示： up-to-date. 但未从远端得到文件
+
+1. 查看本地分支是否发生变化
+```bash
+$ git branch -a
+```
+
+2. 如本地库处于另一个分支中，需将本地分支熏置回原分支
+
+```bash
+$ git checkout *****
+$ git reset --hard
+```
+
+3. 如本地分支没有变化，则强行 pull 覆盖本地文件
+
+```bash
+$ git fetch --all
+$ git reset --hard origin/*****
+$ git pull
+```
