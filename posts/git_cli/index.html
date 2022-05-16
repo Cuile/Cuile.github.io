@@ -7,13 +7,15 @@
 <meta http-equiv=content-security-policy content="upgrade-insecure-requests">
 <meta property="og:locale" content="en">
 <meta property="og:type" content="article">
-<meta name=description content="拉取代码 $ git pull 切换分支 $ git branch -a $ git checkout <branch name> 打标签 # 查看现有的标签 $ git tag # 给最新的提交打标签 $ git tag 1.0 # 推送所有标签 $ git push --tags 克隆项目 # 使 …">
+<meta name=description content="拉取 $ git pull 删除本地文件后，从远端重新拉取最新版本 git提示： up-to-date. 但未从远端得到文件
+ 查看本地分支是否发生变化  $ git branch -a 如本地库处于另一个分支中，需将本地分支熏置回原分支  $ git checkout ***** $ git reset --hard …">
 <meta name=twitter:card content="summary">
 <meta name=twitter:creator content>
 <meta name=twitter:title content="Git 命令行">
 <meta property="og:url" content="https://blog.cuile.com/posts/git_cli/">
 <meta property="og:title" content="Git 命令行">
-<meta property="og:description" content="拉取代码 $ git pull 切换分支 $ git branch -a $ git checkout <branch name> 打标签 # 查看现有的标签 $ git tag # 给最新的提交打标签 $ git tag 1.0 # 推送所有标签 $ git push --tags 克隆项目 # 使 …">
+<meta property="og:description" content="拉取 $ git pull 删除本地文件后，从远端重新拉取最新版本 git提示： up-to-date. 但未从远端得到文件
+ 查看本地分支是否发生变化  $ git branch -a 如本地库处于另一个分支中，需将本地分支熏置回原分支  $ git checkout ***** $ git reset --hard …">
 <meta property="og:image" content="https://blog.cuile.com/">
 <link rel=apple-touch-icon sizes=180x180 href=https://blog.cuile.com/icons/apple-touch-icon.png>
 <link rel=icon type=image/png sizes=32x32 href=https://blog.cuile.com/icons/favicon-32x32.png>
@@ -66,43 +68,9 @@ Share on:
 </div>
 </span>
 </div>
-<div class=post_body><h2 id=拉取代码>拉取代码</h2>
+<div class=post_body><h2 id=拉取>拉取</h2>
 <div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash>$ git pull
-</code></pre></div><h2 id=切换分支>切换分支</h2>
-<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash>$ git branch -a
-$ git checkout &lt;branch name&gt;
-</code></pre></div><h2 id=打标签>打标签</h2>
-<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash><span style=color:#75715e># 查看现有的标签</span>
-$ git tag
-
-<span style=color:#75715e># 给最新的提交打标签</span>
-$ git tag 1.0
-
-<span style=color:#75715e># 推送所有标签</span>
-$ git push --tags
-</code></pre></div><h2 id=克隆项目>克隆项目</h2>
-<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash><span style=color:#75715e># 使用ssh需要设置publickey比较麻烦</span>
-$ git clone https://xxxx@bitbucket.org/xxxx/xxxx.git
-<span style=color:#75715e># 克隆指定分支，到指定目录</span>
-$ git clone -b ***** &lt;repo&gt; &lt;path&gt;
-</code></pre></div><h2 id=导出项目>导出项目</h2>
-<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash>$ git archive --format zip -0 <span style=color:#ae81ff>\
-</span><span style=color:#ae81ff></span>                --output output.zip <span style=color:#ae81ff>\
-</span><span style=color:#ae81ff></span>                --remote git@github.com:Cuile/NMP.git <span style=color:#ae81ff>\
-</span><span style=color:#ae81ff></span>                master <span style=color:#ae81ff>\
-</span><span style=color:#ae81ff></span>                ./
-
-<span style=color:#75715e># 使用zip格式，不压缩</span>
---format zip -0
-<span style=color:#75715e># 输出的文件名</span>
---output output.zip
-<span style=color:#75715e># 远程项目地址</span>
---remote git@github.com:Cuile/NMP.git
-<span style=color:#75715e># 分支名</span>
-master
-<span style=color:#75715e># 输出到当前目录</span>
-./
-</code></pre></div><h2 id=删除本地文件后从远端重新拉取最新版本>删除本地文件后，从远端重新拉取最新版本</h2>
+</code></pre></div><h3 id=删除本地文件后从远端重新拉取最新版本>删除本地文件后，从远端重新拉取最新版本</h3>
 <p>git提示： up-to-date. 但未从远端得到文件</p>
 <ol>
 <li>查看本地分支是否发生变化</li>
@@ -119,6 +87,50 @@ $ git reset --hard
 <div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash>$ git fetch --all
 $ git reset --hard origin/*****
 $ git pull
+</code></pre></div><h2 id=分支>分支</h2>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash>$ git branch -a
+</code></pre></div><h3 id=切换分支>切换分支</h3>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash>$ git checkout &lt;branch&gt;
+</code></pre></div><h3 id=拉取远程分支>拉取远程分支</h3>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash>$ git fetch origin &lt;branch&gt;
+$ git checkout -b &lt;branch&gt; origin/&lt;branch&gt;
+$ git pull origin &lt;branch&gt;
+</code></pre></div><h3 id=更新远程分支列表>更新远程分支列表</h3>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash><span style=color:#75715e># 如果你的 remote branch 不是在 origin 下，把 origin 换成你的名字</span>
+<span style=color:#75715e># --prune 删除远程已经删除的分支</span>
+$ git remote update origin --prune
+</code></pre></div><h2 id=标签>标签</h2>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash><span style=color:#75715e># 查看现有的标签</span>
+$ git tag
+
+<span style=color:#75715e># 给最新的提交打标签</span>
+$ git tag 1.0
+
+<span style=color:#75715e># 推送所有标签</span>
+$ git push --tags
+</code></pre></div><h2 id=项目>项目</h2>
+<h3 id=克隆>克隆</h3>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash><span style=color:#75715e># 使用ssh需要设置publickey比较麻烦</span>
+$ git clone https://xxxx@bitbucket.org/xxxx/xxxx.git
+<span style=color:#75715e># 克隆指定分支，到指定目录</span>
+$ git clone -b &lt;branch&gt; &lt;repo&gt; &lt;path&gt;
+</code></pre></div><h3 id=导出>导出</h3>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash>$ git archive --format zip -0 <span style=color:#ae81ff>\
+</span><span style=color:#ae81ff></span>                --output output.zip <span style=color:#ae81ff>\
+</span><span style=color:#ae81ff></span>                --remote git@github.com:Cuile/NMP.git <span style=color:#ae81ff>\
+</span><span style=color:#ae81ff></span>                master <span style=color:#ae81ff>\
+</span><span style=color:#ae81ff></span>                ./
+
+<span style=color:#75715e># 使用zip格式，不压缩</span>
+--format zip -0
+<span style=color:#75715e># 输出的文件名</span>
+--output output.zip
+<span style=color:#75715e># 远程项目地址</span>
+--remote git@github.com:Cuile/NMP.git
+<span style=color:#75715e># 分支名</span>
+master
+<span style=color:#75715e># 输出到当前目录</span>
+./
 </code></pre></div>
 </div>
 <div class=post_comments>

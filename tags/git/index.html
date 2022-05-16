@@ -76,7 +76,8 @@ Share on:
 <div class=excerpt_footer>
 <div>
 <p class=pale>
-拉取代码 $ git pull 切换分支 $ git branch -a $ git checkout &lt;branch name> 打标签 # 查看现有的标签 $ git tag # 给最新的提交打标签 $ git tag 1.0 # 推送所有标签 $ git push --tags 克隆项目 # 使用ssh需要设置publickey比较麻烦 $ git clone https://xxxx@bitbucket.org/xxxx/xxxx.git # 克隆指定分支，到指定目录 $ git clone -b ***** &lt;repo> &lt;path> 导出项目 $ git archive …
+拉取 $ git pull 删除本地文件后，从远端重新拉取最新版本 git提示： up-to-date. 但未从远端得到文件
+查看本地分支是否发生变化 $ git branch -a 如本地库处于另一个分支中，需将本地分支熏置回原分支 $ git checkout ***** $ git reset --hard 如本地分支没有变化，则强行 pull 覆盖本地文件 $ git fetch --all $ git reset --hard origin/***** $ git pull 分支 $ git branch -a 切换分支 $ git checkout &lt;branch> 拉取远程分支 $ git …
 </p>
 <a href=https://blog.cuile.com/posts/git_cli/ title="Read More" class="excerpt_more button">Read More</a>
 </div>
