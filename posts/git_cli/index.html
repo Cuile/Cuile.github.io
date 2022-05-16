@@ -83,6 +83,8 @@ $ git push --tags
 </code></pre></div><h2 id=克隆项目>克隆项目</h2>
 <div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash><span style=color:#75715e># 使用ssh需要设置publickey比较麻烦</span>
 $ git clone https://xxxx@bitbucket.org/xxxx/xxxx.git
+<span style=color:#75715e># 克隆指定分支，到指定目录</span>
+$ git clone -b ***** &lt;repo&gt; &lt;path&gt;
 </code></pre></div><h2 id=导出项目>导出项目</h2>
 <div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash>$ git archive --format zip -0 <span style=color:#ae81ff>\
 </span><span style=color:#ae81ff></span>                --output output.zip <span style=color:#ae81ff>\
