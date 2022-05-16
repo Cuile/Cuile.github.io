@@ -37,6 +37,8 @@ $ git push --tags
 ```bash
 # 使用ssh需要设置publickey比较麻烦
 $ git clone https://xxxx@bitbucket.org/xxxx/xxxx.git
+# 克隆指定分支，到指定目录
+$ git clone -b ***** <repo> <path>
 ```
 
 ## 导出项目
