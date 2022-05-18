@@ -135,6 +135,9 @@ $ git config --global https.https://github.com.proxy http://[username:passwrod@]
 ```bash
 $ git config --global --get http.proxy
 $ git config --global --get https.proxy
+
+$ git config --global --get http.https://github.com.proxy
+$ git config --global --get https.https://github.com.proxy
 ```
 
 ### 取消代理：
@@ -142,4 +145,7 @@ $ git config --global --get https.proxy
 ```bash
 $ git config --global --unset http.proxy
 $ git config --global --unset https.proxy
+
+$ git config --global --unset http.https://github.com.proxy
+$ git config --global --unset https.https://github.com.proxy
 ```
