@@ -36,6 +36,8 @@ $ git reset --hard origin/*****
 $ git pull
 ```
 
+---
+
 ## 分支
 
 ```bash
@@ -64,6 +66,8 @@ $ git pull origin <branch>
 $ git remote update origin --prune
 ```
 
+---
+
 ## 标签
 
 ```bash
@@ -76,6 +80,8 @@ $ git tag 1.0
 # 推送所有标签
 $ git push --tags
 ```
+
+---
 
 ## 项目
 
@@ -109,3 +115,31 @@ master
 ./
 ```
 
+---
+
+## 代理
+
+### 设置代理：
+
+```bash
+$ git config --global http.proxy http://[username:passwrod@]<ip or URL>:port 
+$ git config --global https.proxy http://[username:passwrod@]<ip or URL>:port
+
+# 只代理github.com
+$ git config --global http.https://github.com.proxy http://[username:passwrod@]<ip or URL>:port
+$ git config --global https.https://github.com.proxy http://[username:passwrod@]<ip or URL>:port
+```
+
+### 查看代理：
+
+```bash
+$ git config --global --get http.proxy
+$ git config --global --get https.proxy
+```
+
+### 取消代理：
+
+```bash
+$ git config --global --unset http.proxy
+$ git config --global --unset https.proxy
+```
