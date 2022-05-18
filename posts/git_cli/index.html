@@ -51,7 +51,7 @@
 <span><svg class="icon"><use xlink:href="#calendar"/></svg></span>
 <span class=post_date>
 May 16, 2022</span>
-<span class=post_time> · 1 min read</span><span>&nbsp;· <a href=https://blog.cuile.com/tags/git title=git class="post_tag button button_translucent">git
+<span class=post_time> · 2 min read</span><span>&nbsp;· <a href=https://blog.cuile.com/tags/git title=git class="post_tag button button_translucent">git
 </a>
 </span>
 <span class=page_only>&nbsp;·
@@ -87,7 +87,8 @@ $ git reset --hard
 <div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash>$ git fetch --all
 $ git reset --hard origin/*****
 $ git pull
-</code></pre></div><h2 id=分支>分支</h2>
+</code></pre></div><hr>
+<h2 id=分支>分支</h2>
 <div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash>$ git branch -a
 </code></pre></div><h3 id=切换分支>切换分支</h3>
 <div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash>$ git checkout &lt;branch&gt;
@@ -99,7 +100,8 @@ $ git pull origin &lt;branch&gt;
 <div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash><span style=color:#75715e># 如果你的 remote branch 不是在 origin 下，把 origin 换成你的名字</span>
 <span style=color:#75715e># --prune 删除远程已经删除的分支</span>
 $ git remote update origin --prune
-</code></pre></div><h2 id=标签>标签</h2>
+</code></pre></div><hr>
+<h2 id=标签>标签</h2>
 <div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash><span style=color:#75715e># 查看现有的标签</span>
 $ git tag
 
@@ -108,7 +110,8 @@ $ git tag 1.0
 
 <span style=color:#75715e># 推送所有标签</span>
 $ git push --tags
-</code></pre></div><h2 id=项目>项目</h2>
+</code></pre></div><hr>
+<h2 id=项目>项目</h2>
 <h3 id=克隆>克隆</h3>
 <div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash><span style=color:#75715e># 使用ssh需要设置publickey比较麻烦</span>
 $ git clone https://xxxx@bitbucket.org/xxxx/xxxx.git
@@ -131,6 +134,21 @@ $ git clone -b &lt;branch&gt; &lt;repo&gt; &lt;path&gt;
 master
 <span style=color:#75715e># 输出到当前目录</span>
 ./
+</code></pre></div><hr>
+<h2 id=代理>代理</h2>
+<h3 id=设置代理>设置代理：</h3>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash>$ git config --global http.proxy http://<span style=color:#f92672>[</span>username:passwrod@<span style=color:#f92672>]</span>&lt;ip or URL&gt;:port 
+$ git config --global https.proxy http://<span style=color:#f92672>[</span>username:passwrod@<span style=color:#f92672>]</span>&lt;ip or URL&gt;:port
+
+<span style=color:#75715e># 只代理github.com</span>
+$ git config --global http.https://github.com.proxy http://<span style=color:#f92672>[</span>username:passwrod@<span style=color:#f92672>]</span>&lt;ip or URL&gt;:port
+$ git config --global https.https://github.com.proxy http://<span style=color:#f92672>[</span>username:passwrod@<span style=color:#f92672>]</span>&lt;ip or URL&gt;:port
+</code></pre></div><h3 id=查看代理>查看代理：</h3>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash>$ git config --global --get http.proxy
+$ git config --global --get https.proxy
+</code></pre></div><h3 id=取消代理>取消代理：</h3>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash>$ git config --global --unset http.proxy
+$ git config --global --unset https.proxy
 </code></pre></div>
 </div>
 <div class=post_comments>
