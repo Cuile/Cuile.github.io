@@ -50,6 +50,49 @@
 <div class=excerpt>
 <div class=excerpt_header>
 <h3 class=post_link>
+<a href=https://blog.cuile.com/posts/openwrt/openwrt_ftp_alg/ title="OpenWRT 启用 ALG 功能">OpenWRT 启用 ALG 功能</a>
+</h3>
+<div class=post_meta>
+<span><svg class="icon"><use xlink:href="#calendar"/></svg></span>
+<span class=post_date>
+Feb 7, 2022</span>
+<span class=post_time> · 1 min read</span><span>&nbsp;· <a href=https://blog.cuile.com/tags/openwrt title=OpenWRT class="post_tag button button_translucent">OpenWRT
+</a><a href=https://blog.cuile.com/tags/ftp title=FTP class="post_tag button button_translucent">FTP
+</a><a href=https://blog.cuile.com/tags/alg title=ALG class="post_tag button button_translucent">ALG
+</a>
+</span>
+<span class=page_only>&nbsp;·
+<div class=post_share>
+Share on:
+<a href="https://twitter.com/intent/tweet?text=OpenWRT%20%e5%90%af%e7%94%a8%20ALG%20%e5%8a%9f%e8%83%bd&url=https%3a%2f%2fblog.cuile.com%2fposts%2fopenwrt%2fopenwrt_ftp_alg%2f&tw_p=tweetbutton" class=twitter title="Share on Twitter" target=_blank rel=nofollow><svg class="icon"><use xlink:href="#twitter"/></svg>
+</a>
+<a href="https://www.facebook.com/sharer.php?u=https%3a%2f%2fblog.cuile.com%2fposts%2fopenwrt%2fopenwrt_ftp_alg%2f&t=OpenWRT%20%e5%90%af%e7%94%a8%20ALG%20%e5%8a%9f%e8%83%bd" class=facebook title="Share on Facebook" target=_blank rel=nofollow><svg class="icon"><use xlink:href="#facebook"/></svg>
+</a>
+<a href=#linkedinshare id=linkedinshare class=linkedin title="Share on LinkedIn" rel=nofollow><svg class="icon"><use xlink:href="#linkedin"/></svg>
+</a>
+<a href=https://blog.cuile.com/posts/openwrt/openwrt_ftp_alg/ title="Copy Link" class="link link_yank"><svg class="icon"><use xlink:href="#copy"/></svg>
+</a>
+</div>
+</span>
+</div>
+</div>
+<div class=excerpt_footer>
+<div>
+<p class=pale>
+1. 安装软件包 # opkg install kmod-nf-nathelper-extra # opkg install kmod-nf-ipvs-ftp 2. 添加配置 # nano /etc/sysctl.d/11-nf-conntrack.conf 增加"net.netfilter.nf_conntrack_helper=1"
+在使用FTP的主动模式时，要注意关闭网关上的ALG功能（如Windows ALG服务），同时使用可能引起失败
+参考文档
+原版OpenWRT启用FTP ALG功能 防火墙设置了NAT ALG功能导致FTP数据连接故障
+</p>
+<a href=https://blog.cuile.com/posts/openwrt/openwrt_ftp_alg/ title="Read More" class="excerpt_more button">Read More</a>
+</div>
+</div>
+</div>
+</li>
+<li class=post_item>
+<div class=excerpt>
+<div class=excerpt_header>
+<h3 class=post_link>
 <a href=https://blog.cuile.com/posts/mysql_manual/ title="MySQL 数据操作">MySQL 数据操作</a>
 </h3>
 <div class=post_meta>
@@ -409,6 +452,9 @@ Python 的 pypi.python.org 站点终于要退休了，而新的接任者 pypi.or
 <h2 class=mt-4>Recent Posts</h2>
 <ul class=flex-column>
 <li>
+<a href=https://blog.cuile.com/posts/ups/ups_install/ class=nav-link title="山克 UPS 安装手册">山克 UPS 安装手册</a>
+</li>
+<li>
 <a href=https://blog.cuile.com/posts/git_cli/ class=nav-link title="Git 命令行">Git 命令行</a>
 </li>
 <li>
@@ -429,9 +475,6 @@ Python 的 pypi.python.org 站点终于要退休了，而新的接任者 pypi.or
 <li>
 <a href=https://blog.cuile.com/posts/life_tips/tips1/ class=nav-link title=七态为品>七态为品</a>
 </li>
-<li>
-<a href=https://blog.cuile.com/posts/django/django_development_introduction/ class=nav-link title="Django 开发简介">Django 开发简介</a>
-</li>
 </ul>
 <div>
 <h2 class="mt-4 taxonomy" id=tags-section>Tags</h2>
@@ -442,7 +485,7 @@ CENTOS-7
 </a>
 <a href=https://blog.cuile.com/tags/linux/ class="post_tag button button_translucent" title=linux>
 LINUX
-<span class=button_tally>6</span>
+<span class=button_tally>7</span>
 </a>
 <a href=https://blog.cuile.com/tags/docker/ class="post_tag button button_translucent" title=docker>
 DOCKER
@@ -578,6 +621,10 @@ TIPS
 </a>
 <a href=https://blog.cuile.com/tags/ubuntu/ class="post_tag button button_translucent" title=ubuntu>
 UBUNTU
+<span class=button_tally>1</span>
+</a>
+<a href=https://blog.cuile.com/tags/ups/ class="post_tag button button_translucent" title=ups>
+UPS
 <span class=button_tally>1</span>
 </a>
 <a href=https://blog.cuile.com/tags/v2ray/ class="post_tag button button_translucent" title=v2ray>
