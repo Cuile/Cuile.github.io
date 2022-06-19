@@ -41,8 +41,15 @@ Enter system hostname (fully qualified form, e.g. 'foo.example.org') [localhost]
 # 设置网络
 ...
 Which one do you want to initialize? (or '?' or 'done') [eth0] eth0
+
 Ip address for eth0? (or 'dhcp', 'none', '?') [dhcp] dhcp
 Do you want to do any manual network configuration? (y/n) [n] n
+# or 手动输入IP地址
+Ip address for eth0? (or 'dhcp', 'none', '?') [dhcp] 192.168.10.16/24
+Gateway? (or 'none') [none] 192.168.10.10
+Do you want to do any manual network configuration? (y/n) [n] n
+DNS domain name? (e.g 'bar.com') 
+DNS nameserver(s)? 114.114.114.114
 
 # 设置密码
 ...
