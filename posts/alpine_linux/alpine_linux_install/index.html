@@ -1,28 +1,28 @@
 <!doctype html><html lang=en data-figures class=page>
 <head>
-<title>iptables 命令 | 瘦了就帅了</title>
+<title>Alpine Linux 3.16 安装 | 瘦了就帅了</title>
 <meta charset=utf-8>
 <meta name=viewport content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
 <meta http-equiv=x-ua-compatible content="IE=edge">
 <meta http-equiv=content-security-policy content="upgrade-insecure-requests">
 <meta property="og:locale" content="en">
 <meta property="og:type" content="article">
-<meta name=description content="脚本基于Centos 7
-注意：CentOS 7默认的防火墙不是iptables,而是firewalld
-停止firewalld服务 #停止firewalld服务 $ systemctl stop firewalld #禁用firewalld服务 $ systemctl mask firewalld …">
+<meta name=description content="1. 准备系统 Alpine 有许多版本，其中 VIRTUAL 是专门针对虚拟环境优化过的，所以主要使用这个版本来安装。
+https://www.alpinelinux.org/downloads/
+2. 登录 ... # 使用启动盘启动后，直接使用 root 登录系统 localhost login: root 3. …">
 <meta name=twitter:card content="summary">
 <meta name=twitter:creator content>
-<meta name=twitter:title content="iptables 命令">
-<meta property="og:url" content="https://blog.cuile.com/posts/linux/linux_iptables_manual/">
-<meta property="og:title" content="iptables 命令">
-<meta property="og:description" content="脚本基于Centos 7
-注意：CentOS 7默认的防火墙不是iptables,而是firewalld
-停止firewalld服务 #停止firewalld服务 $ systemctl stop firewalld #禁用firewalld服务 $ systemctl mask firewalld …">
+<meta name=twitter:title content="Alpine Linux 3.16 安装">
+<meta property="og:url" content="https://blog.cuile.com/posts/alpine_linux/alpine_linux_install/">
+<meta property="og:title" content="Alpine Linux 3.16 安装">
+<meta property="og:description" content="1. 准备系统 Alpine 有许多版本，其中 VIRTUAL 是专门针对虚拟环境优化过的，所以主要使用这个版本来安装。
+https://www.alpinelinux.org/downloads/
+2. 登录 ... # 使用启动盘启动后，直接使用 root 登录系统 localhost login: root 3. …">
 <meta property="og:image" content="https://blog.cuile.com/">
 <link rel=apple-touch-icon sizes=180x180 href=https://blog.cuile.com/icons/apple-touch-icon.png>
 <link rel=icon type=image/png sizes=32x32 href=https://blog.cuile.com/icons/favicon-32x32.png>
 <link rel=manifest href=https://blog.cuile.com/icons/site.webmanifest>
-<link rel=canonical href=https://blog.cuile.com/posts/linux/linux_iptables_manual/>
+<link rel=canonical href=https://blog.cuile.com/posts/alpine_linux/alpine_linux_install/>
 <link rel=stylesheet href=//cdnjs.cloudflare.com/ajax/libs/highlight.js/11.4.0/styles/default.min.css>
 <script src=//cdnjs.cloudflare.com/ajax/libs/highlight.js/11.4.0/highlight.min.js></script>
 <link rel=preload href=https://blog.cuile.com/css/styles.01869c76e4757810d94ecbdccadba853d9d01d9416dfeb113df02e1479ff8b36e284e8bfeb3e8f353f2fdcdcbbdfcf27e558dbda96eb6341bfc304d55cd9e986.css integrity="sha512-AYacduR1eBDZTsvcytuoU9nQHZQW3+sRPfAuFHn/izbihOi/6z6PNT8v3Ny7388n5Vjb2pbrY0G/wwTVXNnphg==" as=style crossorigin=anonymous>
@@ -48,130 +48,100 @@
 <main>
 <div class="grid-inverse wrap content">
 <article class=post_content>
-<h1 class=post_title>iptables 命令</h1>
+<h1 class=post_title>Alpine Linux 3.16 安装</h1>
 <div class=post_meta>
 <span><svg class="icon"><use xlink:href="#calendar"/></svg></span>
 <span class=post_date>
-Feb 8, 2022</span>
-<span class=post_time> · 2 min read</span><span>&nbsp;· <a href=https://blog.cuile.com/tags/linux title=Linux class="post_tag button button_translucent">Linux
-</a><a href=https://blog.cuile.com/tags/centos-7 title="CentOS 7" class="post_tag button button_translucent">CentOS 7
-</a><a href=https://blog.cuile.com/tags/iptables title=iptables class="post_tag button button_translucent">iptables
-</a><a href=https://blog.cuile.com/tags/firewall title=Firewall class="post_tag button button_translucent">Firewall
+Jun 19, 2022</span>
+<span class=post_time> · 2 min read</span><span>&nbsp;· <a href=https://blog.cuile.com/tags/alpine-linux title="Alpine Linux" class="post_tag button button_translucent">Alpine Linux
+</a><a href=https://blog.cuile.com/tags/linux title=Linux class="post_tag button button_translucent">Linux
 </a>
 </span>
 <span class=page_only>&nbsp;·
 <div class=post_share>
 Share on:
-<a href="https://twitter.com/intent/tweet?text=iptables%20%e5%91%bd%e4%bb%a4&url=https%3a%2f%2fblog.cuile.com%2fposts%2flinux%2flinux_iptables_manual%2f&tw_p=tweetbutton" class=twitter title="Share on Twitter" target=_blank rel=nofollow><svg class="icon"><use xlink:href="#twitter"/></svg>
+<a href="https://twitter.com/intent/tweet?text=Alpine%20Linux%203.16%20%e5%ae%89%e8%a3%85&url=https%3a%2f%2fblog.cuile.com%2fposts%2falpine_linux%2falpine_linux_install%2f&tw_p=tweetbutton" class=twitter title="Share on Twitter" target=_blank rel=nofollow><svg class="icon"><use xlink:href="#twitter"/></svg>
 </a>
-<a href="https://www.facebook.com/sharer.php?u=https%3a%2f%2fblog.cuile.com%2fposts%2flinux%2flinux_iptables_manual%2f&t=iptables%20%e5%91%bd%e4%bb%a4" class=facebook title="Share on Facebook" target=_blank rel=nofollow><svg class="icon"><use xlink:href="#facebook"/></svg>
+<a href="https://www.facebook.com/sharer.php?u=https%3a%2f%2fblog.cuile.com%2fposts%2falpine_linux%2falpine_linux_install%2f&t=Alpine%20Linux%203.16%20%e5%ae%89%e8%a3%85" class=facebook title="Share on Facebook" target=_blank rel=nofollow><svg class="icon"><use xlink:href="#facebook"/></svg>
 </a>
 <a href=#linkedinshare id=linkedinshare class=linkedin title="Share on LinkedIn" rel=nofollow><svg class="icon"><use xlink:href="#linkedin"/></svg>
 </a>
-<a href=https://blog.cuile.com/posts/linux/linux_iptables_manual/ title="Copy Link" class="link link_yank"><svg class="icon"><use xlink:href="#copy"/></svg>
+<a href=https://blog.cuile.com/posts/alpine_linux/alpine_linux_install/ title="Copy Link" class="link link_yank"><svg class="icon"><use xlink:href="#copy"/></svg>
 </a>
 </div>
 </span>
 </div>
-<div class=post_body><p><strong><code>脚本基于Centos 7</code></strong></p>
-<p><strong>注意：CentOS 7默认的防火墙不是iptables,而是firewalld</strong></p>
-<h2 id=停止firewalld服务>停止firewalld服务</h2>
-<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash><span style=color:#75715e>#停止firewalld服务</span>
-$ systemctl stop firewalld
-<span style=color:#75715e>#禁用firewalld服务</span>
-$ systemctl mask firewalld
-</code></pre></div><h2 id=安装-iptables>安装 iptables</h2>
-<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash><span style=color:#75715e>#先检查是否安装了iptables</span>
-$ service iptables status
-<span style=color:#75715e>#安装iptables</span>
-$ yum install -y iptables
-<span style=color:#75715e>#升级iptables</span>
-$ yum update iptables 
-<span style=color:#75715e>#安装iptables-services</span>
-$ yum install iptables-services
-</code></pre></div><h2 id=启动-iptables>启动 iptables</h2>
-<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash><span style=color:#75715e>#注册iptables服务，相当于以前的chkconfig iptables on</span>
-$ systemctl enable iptables.service
-<span style=color:#75715e>#开启服务</span>
-$ systemctl start iptables.service
-<span style=color:#75715e>#查看状态</span>
-$ systemctl status iptables.service
-</code></pre></div><h2 id=创建规则>创建规则</h2>
-<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash><span style=color:#75715e># 允许ping</span>
-$ iptables -A INPUT -p icmp -m icmp --icmp-type <span style=color:#ae81ff>8</span> -j ACCEPT
-<span style=color:#75715e># or</span>
-$ iptables -A INPUT -p icmp -j ACCEPT
+<div class=post_body><h2 id=1-准备系统>1. 准备系统</h2>
+<p>Alpine 有许多版本，其中 VIRTUAL 是专门针对虚拟环境优化过的，所以主要使用这个版本来安装。</p>
+<p><a href=https://www.alpinelinux.org/downloads/>https://www.alpinelinux.org/downloads/</a></p>
+<h2 id=2-登录>2. 登录</h2>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash>...
+<span style=color:#75715e># 使用启动盘启动后，直接使用 root 登录系统</span>
+localhost login: root
+</code></pre></div><h2 id=3-安装>3. 安装</h2>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash>...
+localhost:~# setup-alpine
 
-<span style=color:#75715e># 允许本地回环接口(即运行本机访问本机)</span>
-$ iptables -A INPUT -s 127.0.0.1 -d 127.0.0.1 -j ACCEPT
+<span style=color:#75715e># 选择键盘布局</span>
+<span style=color:#75715e># 这里两个都选 cn 或都不选</span>
+...
+Select keyboard layout: <span style=color:#f92672>[</span>none<span style=color:#f92672>]</span> cn
+...
+Select variant <span style=color:#f92672>(</span>or <span style=color:#e6db74>&#39;abort&#39;</span><span style=color:#f92672>)</span>: cn
 
-<span style=color:#75715e># 如果要添加内网ip信任（接受其所有TCP请求）</span>
-$ iptables -A INPUT -p tcp -s 45.96.174.68 -j ACCEPT
+<span style=color:#75715e># 设置主机名</span>
+...
+Enter system hostname <span style=color:#f92672>(</span>fully qualified form, e.g. <span style=color:#e6db74>&#39;foo.example.org&#39;</span><span style=color:#f92672>)</span> <span style=color:#f92672>[</span>localhost<span style=color:#f92672>]</span> home
 
-<span style=color:#75715e># 允许已建立的或相关连的通行</span>
-$ iptables -A INPUT -m state --state ESTABLISHED,RELATED -j ACCEPT
+<span style=color:#75715e># 设置网络</span>
+...
+Which one <span style=color:#66d9ef>do</span> you want to initialize? <span style=color:#f92672>(</span>or <span style=color:#e6db74>&#39;?&#39;</span> or <span style=color:#e6db74>&#39;done&#39;</span><span style=color:#f92672>)</span> <span style=color:#f92672>[</span>eth0<span style=color:#f92672>]</span> eth0
+Ip address <span style=color:#66d9ef>for</span> eth0? <span style=color:#f92672>(</span>or <span style=color:#e6db74>&#39;dhcp&#39;</span>, <span style=color:#e6db74>&#39;none&#39;</span>, <span style=color:#e6db74>&#39;?&#39;</span><span style=color:#f92672>)</span> <span style=color:#f92672>[</span>dhcp<span style=color:#f92672>]</span> dhcp
+Do you want to <span style=color:#66d9ef>do</span> any manual network configuration? <span style=color:#f92672>(</span>y/n<span style=color:#f92672>)</span> <span style=color:#f92672>[</span>n<span style=color:#f92672>]</span> n
 
-<span style=color:#75715e># 允许访问指定端口</span>
-$ iptables -A INPUT -p tcp -m tcp --dport <span style=color:#ae81ff>28124</span> -j ACCEPT
-$ iptables -A INPUT -p tcp -m tcp --dport <span style=color:#ae81ff>6443</span> -j ACCEPT
-<span style=color:#75715e># 允许访问连续端口</span>
-$ iptables -A INPUT -p tcp -m tcp --dport 21:25 -j ACCEPT
-<span style=color:#75715e># 允许访问不连续端口</span>
-$ iptables -A INPUT -p tcp -m multiport --dport 21:25,135:139 -j ACCEPT
+<span style=color:#75715e># 设置密码</span>
+...
+New password: 
+...
+Retype password:
 
-<span style=color:#75715e># 过滤所有非以上规则的请求</span>
-$ iptables -P INPUT DROP
-<span style=color:#75715e># 封停一个IP</span>
-$ iptables -I INPUT -s ***.***.***.*** -j DROP
+<span style=color:#75715e># 设置时区</span>
+<span style=color:#75715e># PRC 代理中国，也可以输入 Asia/，再输入 Shanghai</span>
+...
+Which timezone are you in? <span style=color:#f92672>(</span><span style=color:#e6db74>&#39;?&#39;</span> <span style=color:#66d9ef>for</span> list<span style=color:#f92672>)</span> <span style=color:#f92672>[</span>UTC<span style=color:#f92672>]</span> PRC
 
+<span style=color:#75715e># 设备代理</span>
+...
+HTTP/FTP proxy URL? <span style=color:#f92672>(</span>e.g. <span style=color:#e6db74>&#39;http://proxy:8080&#39;</span>, or <span style=color:#e6db74>&#39;none&#39;</span><span style=color:#f92672>)</span> <span style=color:#f92672>[</span>none<span style=color:#f92672>]</span> none
 
-<span style=color:#75715e>#允许所有本机向外的访问</span>
-$ iptables -P OUTPUT ACCEPT
+<span style=color:#75715e># 设置更新源</span>
+<span style=color:#75715e># f 是自动测试并选择最快的源，建议使用</span>
+...
+Enter mirror number <span style=color:#f92672>(</span>1-74<span style=color:#f92672>)</span> or URL to add <span style=color:#f92672>(</span>or r/f/e/done<span style=color:#f92672>)</span> <span style=color:#f92672>[</span>1<span style=color:#f92672>]</span> f
 
-<span style=color:#75715e># 禁止其他未允许的规则访问</span>
-$ iptables -P INPUT DROP      // 默认入站规则为拒绝
-$ iptables -P FORWARD DROP    // 默认转发规则为拒绝
-</code></pre></div><h2 id=删除规则>删除规则</h2>
-<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash>$ iptables -D INPUT <span style=color:#75715e>#rulenum#</span>
-<span style=color:#75715e># or 使用建立规则时条件，删除指定规则，这个方法比如适合代码使用</span>
-$ iptables -D INPUT -p tcp -m tcp --dport <span style=color:#ae81ff>6443</span> -j ACCEPT
-<span style=color:#75715e># 解封一个IP</span>
-$ iptables -D INPUT -s ***.***.***.*** -j DROP
-</code></pre></div><h2 id=重启防火墙>重启防火墙</h2>
-<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash>$ service iptables restart
-</code></pre></div><h2 id=保存规则>保存规则</h2>
-<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash>$ service iptables save
-</code></pre></div><h2 id=查看规则>查看规则</h2>
-<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash>$ iptables -L -n --line-numbers
-</code></pre></div><h2 id=重置规则>重置规则</h2>
-<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash><span style=color:#75715e># 使用这些命令刷新和重置 iptables 到默认状态</span>
+<span style=color:#75715e># </span>
+Setup a user? <span style=color:#f92672>(</span>enter a lower-case loginname, or <span style=color:#e6db74>&#39;no&#39;</span><span style=color:#f92672>)</span> <span style=color:#f92672>[</span>no<span style=color:#f92672>]</span> no
 
-<span style=color:#75715e># 清除已有iptables规则</span>
-$ iptables -F
+<span style=color:#75715e># 设置ssh服务</span>
+Which ssh server? <span style=color:#f92672>(</span><span style=color:#e6db74>&#39;openssh&#39;</span>, <span style=color:#e6db74>&#39;dropbear&#39;</span>, or <span style=color:#e6db74>&#39;none&#39;</span><span style=color:#f92672>)</span> <span style=color:#f92672>[</span>openssh<span style=color:#f92672>]</span> openssh
+<span style=color:#75715e># 这里一定要输入 yes </span>
+<span style=color:#75715e># 许多教程都说 Alpine 默认没有远程登录，都上手动修改，其实是可以在安装时就设备好的</span>
+Allow root ssh login? <span style=color:#f92672>(</span><span style=color:#e6db74>&#39;?&#39;</span> <span style=color:#66d9ef>for</span> help<span style=color:#f92672>)</span> <span style=color:#f92672>[</span>prohibit-password<span style=color:#f92672>]</span> yes
+Enter ssh key or URL <span style=color:#66d9ef>for</span> root <span style=color:#f92672>(</span>or <span style=color:#e6db74>&#39;none&#39;</span><span style=color:#f92672>)</span> <span style=color:#f92672>[</span>none<span style=color:#f92672>]</span> none
 
-$ iptables -X
+<span style=color:#75715e># 设置磁盘</span>
+...
+Which disk<span style=color:#f92672>(</span>s<span style=color:#f92672>)</span> would you like to use? <span style=color:#f92672>(</span>or <span style=color:#e6db74>&#39;?&#39;</span> <span style=color:#66d9ef>for</span> help or <span style=color:#e6db74>&#39;none&#39;</span><span style=color:#f92672>)</span> <span style=color:#f92672>[</span>none<span style=color:#f92672>]</span> sda
+...
+How would you like to use it? <span style=color:#f92672>(</span><span style=color:#e6db74>&#39;sys&#39;</span>, <span style=color:#e6db74>&#39;data&#39;</span>, <span style=color:#e6db74>&#39;crypt&#39;</span>, <span style=color:#e6db74>&#39;lvm&#39;</span> or <span style=color:#e6db74>&#39;?&#39;</span> <span style=color:#66d9ef>for</span> help<span style=color:#f92672>)</span> <span style=color:#f92672>[</span>?<span style=color:#f92672>]</span> sys
+...
+WARNING: Erase the aboue disk<span style=color:#f92672>(</span>s<span style=color:#f92672>)</span> and <span style=color:#66d9ef>continue</span>? <span style=color:#f92672>(</span>y/n<span style=color:#f92672>)</span> <span style=color:#f92672>[</span>n<span style=color:#f92672>]</span> y
+...
+Installation is complete. Please reboot.
+<span style=color:#75715e># 到这里安装全部完成</span>
 
-$ iptables -t nat -F
-
-$ iptables -t nat -X
-
-$ iptables -t mangle -F
-
-$ iptables -t mangle -X
-
-$ iptables -t raw -F
-
-$ iptables -t raw -X
-
-$ iptables -t security -F
-
-$ iptables -t security -X
-
-$ iptables -P INPUT ACCEPT
-
-$ iptables -P FORWARD ACCEPT
-
-$ iptables -P OUTPUT ACCEPT
+<span style=color:#75715e># 2.13 reboot命令重启电脑</span>
+home:~# reboot
 </code></pre></div>
 </div>
 <div class=post_comments>
@@ -209,12 +179,12 @@ $ iptables -P OUTPUT ACCEPT
 <div>
 <h2 class="mt-4 taxonomy" id=tags-section>Tags</h2>
 <nav class=tags_nav>
-<a href=https://blog.cuile.com/tags/centos-7/ class="post_tag button button_translucent" title=centos-7>
-CENTOS-7
-<span class=button_tally>7</span>
-</a>
 <a href=https://blog.cuile.com/tags/linux/ class="post_tag button button_translucent" title=linux>
 LINUX
+<span class=button_tally>8</span>
+</a>
+<a href=https://blog.cuile.com/tags/centos-7/ class="post_tag button button_translucent" title=centos-7>
+CENTOS-7
 <span class=button_tally>7</span>
 </a>
 <a href=https://blog.cuile.com/tags/docker/ class="post_tag button button_translucent" title=docker>
@@ -239,6 +209,10 @@ PROXMOX
 </a>
 <a href=https://blog.cuile.com/tags/alg/ class="post_tag button button_translucent" title=alg>
 ALG
+<span class=button_tally>1</span>
+</a>
+<a href=https://blog.cuile.com/tags/alpine-linux/ class="post_tag button button_translucent" title=alpine-linux>
+ALPINE-LINUX
 <span class=button_tally>1</span>
 </a>
 <a href=https://blog.cuile.com/tags/bash/ class="post_tag button button_translucent" title=bash>

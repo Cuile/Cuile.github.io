@@ -12,7 +12,7 @@
 <meta name=twitter:card content="summary">
 <meta name=twitter:creator content>
 <meta name=twitter:title content="使用 nmcli 配置网络">
-<meta property="og:url" content="https://blog.cuile.com/posts/linux/linux_nmcli_manual/">
+<meta property="og:url" content="https://blog.cuile.com/posts/centos/linux_nmcli_manual/">
 <meta property="og:title" content="使用 nmcli 配置网络">
 <meta property="og:description" content="脚本基于Centos 7
 查看接口设备信息 # 简单接口状态 $ nmcli dev status # 详细的接口信息 $ nmcli dev show # 接口的详细信息 $ nmcli dev show interface-name 查看连接(connection)的信息 # 简单信息 $ nmcli con …">
@@ -20,7 +20,7 @@
 <link rel=apple-touch-icon sizes=180x180 href=https://blog.cuile.com/icons/apple-touch-icon.png>
 <link rel=icon type=image/png sizes=32x32 href=https://blog.cuile.com/icons/favicon-32x32.png>
 <link rel=manifest href=https://blog.cuile.com/icons/site.webmanifest>
-<link rel=canonical href=https://blog.cuile.com/posts/linux/linux_nmcli_manual/>
+<link rel=canonical href=https://blog.cuile.com/posts/centos/linux_nmcli_manual/>
 <link rel=stylesheet href=//cdnjs.cloudflare.com/ajax/libs/highlight.js/11.4.0/styles/default.min.css>
 <script src=//cdnjs.cloudflare.com/ajax/libs/highlight.js/11.4.0/highlight.min.js></script>
 <link rel=preload href=https://blog.cuile.com/css/styles.01869c76e4757810d94ecbdccadba853d9d01d9416dfeb113df02e1479ff8b36e284e8bfeb3e8f353f2fdcdcbbdfcf27e558dbda96eb6341bfc304d55cd9e986.css integrity="sha512-AYacduR1eBDZTsvcytuoU9nQHZQW3+sRPfAuFHn/izbihOi/6z6PNT8v3Ny7388n5Vjb2pbrY0G/wwTVXNnphg==" as=style crossorigin=anonymous>
@@ -59,13 +59,13 @@ Jan 17, 2022</span>
 <span class=page_only>&nbsp;·
 <div class=post_share>
 Share on:
-<a href="https://twitter.com/intent/tweet?text=%e4%bd%bf%e7%94%a8%20nmcli%20%e9%85%8d%e7%bd%ae%e7%bd%91%e7%bb%9c&url=https%3a%2f%2fblog.cuile.com%2fposts%2flinux%2flinux_nmcli_manual%2f&tw_p=tweetbutton" class=twitter title="Share on Twitter" target=_blank rel=nofollow><svg class="icon"><use xlink:href="#twitter"/></svg>
+<a href="https://twitter.com/intent/tweet?text=%e4%bd%bf%e7%94%a8%20nmcli%20%e9%85%8d%e7%bd%ae%e7%bd%91%e7%bb%9c&url=https%3a%2f%2fblog.cuile.com%2fposts%2fcentos%2flinux_nmcli_manual%2f&tw_p=tweetbutton" class=twitter title="Share on Twitter" target=_blank rel=nofollow><svg class="icon"><use xlink:href="#twitter"/></svg>
 </a>
-<a href="https://www.facebook.com/sharer.php?u=https%3a%2f%2fblog.cuile.com%2fposts%2flinux%2flinux_nmcli_manual%2f&t=%e4%bd%bf%e7%94%a8%20nmcli%20%e9%85%8d%e7%bd%ae%e7%bd%91%e7%bb%9c" class=facebook title="Share on Facebook" target=_blank rel=nofollow><svg class="icon"><use xlink:href="#facebook"/></svg>
+<a href="https://www.facebook.com/sharer.php?u=https%3a%2f%2fblog.cuile.com%2fposts%2fcentos%2flinux_nmcli_manual%2f&t=%e4%bd%bf%e7%94%a8%20nmcli%20%e9%85%8d%e7%bd%ae%e7%bd%91%e7%bb%9c" class=facebook title="Share on Facebook" target=_blank rel=nofollow><svg class="icon"><use xlink:href="#facebook"/></svg>
 </a>
 <a href=#linkedinshare id=linkedinshare class=linkedin title="Share on LinkedIn" rel=nofollow><svg class="icon"><use xlink:href="#linkedin"/></svg>
 </a>
-<a href=https://blog.cuile.com/posts/linux/linux_nmcli_manual/ title="Copy Link" class="link link_yank"><svg class="icon"><use xlink:href="#copy"/></svg>
+<a href=https://blog.cuile.com/posts/centos/linux_nmcli_manual/ title="Copy Link" class="link link_yank"><svg class="icon"><use xlink:href="#copy"/></svg>
 </a>
 </div>
 </span>
@@ -103,6 +103,9 @@ $ nmcli con show con-name
 <h2 class=mt-4>Recent Posts</h2>
 <ul class=flex-column>
 <li>
+<a href=https://blog.cuile.com/posts/alpine_linux/alpine_linux_install/ class=nav-link title="Alpine Linux 3.16 安装">Alpine Linux 3.16 安装</a>
+</li>
+<li>
 <a href=https://blog.cuile.com/posts/ups/ups_install/ class=nav-link title="山克 UPS 安装手册">山克 UPS 安装手册</a>
 </li>
 <li>
@@ -123,19 +126,16 @@ $ nmcli con show con-name
 <li>
 <a href=https://blog.cuile.com/posts/life_tips/tips2/ class=nav-link title=小差别>小差别</a>
 </li>
-<li>
-<a href=https://blog.cuile.com/posts/life_tips/tips1/ class=nav-link title=七态为品>七态为品</a>
-</li>
 </ul>
 <div>
 <h2 class="mt-4 taxonomy" id=tags-section>Tags</h2>
 <nav class=tags_nav>
-<a href=https://blog.cuile.com/tags/centos-7/ class="post_tag button button_translucent" title=centos-7>
-CENTOS-7
-<span class=button_tally>7</span>
-</a>
 <a href=https://blog.cuile.com/tags/linux/ class="post_tag button button_translucent" title=linux>
 LINUX
+<span class=button_tally>8</span>
+</a>
+<a href=https://blog.cuile.com/tags/centos-7/ class="post_tag button button_translucent" title=centos-7>
+CENTOS-7
 <span class=button_tally>7</span>
 </a>
 <a href=https://blog.cuile.com/tags/docker/ class="post_tag button button_translucent" title=docker>
@@ -160,6 +160,10 @@ PROXMOX
 </a>
 <a href=https://blog.cuile.com/tags/alg/ class="post_tag button button_translucent" title=alg>
 ALG
+<span class=button_tally>1</span>
+</a>
+<a href=https://blog.cuile.com/tags/alpine-linux/ class="post_tag button button_translucent" title=alpine-linux>
+ALPINE-LINUX
 <span class=button_tally>1</span>
 </a>
 <a href=https://blog.cuile.com/tags/bash/ class="post_tag button button_translucent" title=bash>

@@ -1,6 +1,6 @@
 <!doctype html><html lang=en data-figures class=page>
 <head>
-<title>Linux系统内核升级 | 瘦了就帅了</title>
+<title>Linux系统命令 | 瘦了就帅了</title>
 <meta charset=utf-8>
 <meta name=viewport content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
 <meta http-equiv=x-ua-compatible content="IE=edge">
@@ -8,19 +8,19 @@
 <meta property="og:locale" content="en">
 <meta property="og:type" content="article">
 <meta name=description content="脚本基于Centos 7
-1、查看系统内核版本 $ uname -r 3.10.0-514.26.2.el7.x86_64 $ cat /etc/redhat-release CentOS Linux release 7.6.1810 (Core) 2、升级内核 导入elrepo的key，然后安装elrepo的yum …">
+系统进程操作  查看CPU和内存使用情况  # 定位高CPU占用 $ ps H -eo user,pid,ppid,tid,time,%cpu,cmd --sort=%cpu # 可视化显示CPU的使用状况的工具 $ yum install -y htop $ htop …">
 <meta name=twitter:card content="summary">
 <meta name=twitter:creator content>
-<meta name=twitter:title content="Linux系统内核升级">
-<meta property="og:url" content="https://blog.cuile.com/posts/linux/linux_kernel_update/">
-<meta property="og:title" content="Linux系统内核升级">
+<meta name=twitter:title content="Linux系统命令">
+<meta property="og:url" content="https://blog.cuile.com/posts/centos/linux_cli_manual/">
+<meta property="og:title" content="Linux系统命令">
 <meta property="og:description" content="脚本基于Centos 7
-1、查看系统内核版本 $ uname -r 3.10.0-514.26.2.el7.x86_64 $ cat /etc/redhat-release CentOS Linux release 7.6.1810 (Core) 2、升级内核 导入elrepo的key，然后安装elrepo的yum …">
+系统进程操作  查看CPU和内存使用情况  # 定位高CPU占用 $ ps H -eo user,pid,ppid,tid,time,%cpu,cmd --sort=%cpu # 可视化显示CPU的使用状况的工具 $ yum install -y htop $ htop …">
 <meta property="og:image" content="https://blog.cuile.com/">
 <link rel=apple-touch-icon sizes=180x180 href=https://blog.cuile.com/icons/apple-touch-icon.png>
 <link rel=icon type=image/png sizes=32x32 href=https://blog.cuile.com/icons/favicon-32x32.png>
 <link rel=manifest href=https://blog.cuile.com/icons/site.webmanifest>
-<link rel=canonical href=https://blog.cuile.com/posts/linux/linux_kernel_update/>
+<link rel=canonical href=https://blog.cuile.com/posts/centos/linux_cli_manual/>
 <link rel=stylesheet href=//cdnjs.cloudflare.com/ajax/libs/highlight.js/11.4.0/styles/default.min.css>
 <script src=//cdnjs.cloudflare.com/ajax/libs/highlight.js/11.4.0/highlight.min.js></script>
 <link rel=preload href=https://blog.cuile.com/css/styles.01869c76e4757810d94ecbdccadba853d9d01d9416dfeb113df02e1479ff8b36e284e8bfeb3e8f353f2fdcdcbbdfcf27e558dbda96eb6341bfc304d55cd9e986.css integrity="sha512-AYacduR1eBDZTsvcytuoU9nQHZQW3+sRPfAuFHn/izbihOi/6z6PNT8v3Ny7388n5Vjb2pbrY0G/wwTVXNnphg==" as=style crossorigin=anonymous>
@@ -46,65 +46,113 @@
 <main>
 <div class="grid-inverse wrap content">
 <article class=post_content>
-<h1 class=post_title>Linux系统内核升级</h1>
+<h1 class=post_title>Linux系统命令</h1>
 <div class=post_meta>
 <span><svg class="icon"><use xlink:href="#calendar"/></svg></span>
 <span class=post_date>
-Feb 8, 2022</span>
-<span class=post_time> · 1 min read</span><span>&nbsp;· <a href=https://blog.cuile.com/tags/linux title=Linux class="post_tag button button_translucent">Linux
-</a><a href=https://blog.cuile.com/tags/centos-7 title="CentOS 7" class="post_tag button button_translucent">CentOS 7
-</a><a href=https://blog.cuile.com/tags/kernel title=kernel class="post_tag button button_translucent">kernel
+Jan 17, 2022</span>
+<span class=post_time> · 2 min read</span><span>&nbsp;· <a href=https://blog.cuile.com/tags/linux title=Linux class="post_tag button button_translucent">Linux
+</a><a href=https://blog.cuile.com/tags/centos-7 title="Centos 7" class="post_tag button button_translucent">Centos 7
+</a><a href=https://blog.cuile.com/tags/bash title=bash class="post_tag button button_translucent">bash
 </a>
 </span>
 <span class=page_only>&nbsp;·
 <div class=post_share>
 Share on:
-<a href="https://twitter.com/intent/tweet?text=Linux%e7%b3%bb%e7%bb%9f%e5%86%85%e6%a0%b8%e5%8d%87%e7%ba%a7&url=https%3a%2f%2fblog.cuile.com%2fposts%2flinux%2flinux_kernel_update%2f&tw_p=tweetbutton" class=twitter title="Share on Twitter" target=_blank rel=nofollow><svg class="icon"><use xlink:href="#twitter"/></svg>
+<a href="https://twitter.com/intent/tweet?text=Linux%e7%b3%bb%e7%bb%9f%e5%91%bd%e4%bb%a4&url=https%3a%2f%2fblog.cuile.com%2fposts%2fcentos%2flinux_cli_manual%2f&tw_p=tweetbutton" class=twitter title="Share on Twitter" target=_blank rel=nofollow><svg class="icon"><use xlink:href="#twitter"/></svg>
 </a>
-<a href="https://www.facebook.com/sharer.php?u=https%3a%2f%2fblog.cuile.com%2fposts%2flinux%2flinux_kernel_update%2f&t=Linux%e7%b3%bb%e7%bb%9f%e5%86%85%e6%a0%b8%e5%8d%87%e7%ba%a7" class=facebook title="Share on Facebook" target=_blank rel=nofollow><svg class="icon"><use xlink:href="#facebook"/></svg>
+<a href="https://www.facebook.com/sharer.php?u=https%3a%2f%2fblog.cuile.com%2fposts%2fcentos%2flinux_cli_manual%2f&t=Linux%e7%b3%bb%e7%bb%9f%e5%91%bd%e4%bb%a4" class=facebook title="Share on Facebook" target=_blank rel=nofollow><svg class="icon"><use xlink:href="#facebook"/></svg>
 </a>
 <a href=#linkedinshare id=linkedinshare class=linkedin title="Share on LinkedIn" rel=nofollow><svg class="icon"><use xlink:href="#linkedin"/></svg>
 </a>
-<a href=https://blog.cuile.com/posts/linux/linux_kernel_update/ title="Copy Link" class="link link_yank"><svg class="icon"><use xlink:href="#copy"/></svg>
+<a href=https://blog.cuile.com/posts/centos/linux_cli_manual/ title="Copy Link" class="link link_yank"><svg class="icon"><use xlink:href="#copy"/></svg>
 </a>
 </div>
 </span>
 </div>
 <div class=post_body><p><strong><code>脚本基于Centos 7</code></strong></p>
-<h2 id=1查看系统内核版本>1、查看系统内核版本</h2>
-<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash>$ uname -r
-3.10.0-514.26.2.el7.x86_64
-$ cat /etc/redhat-release 
-CentOS Linux release 7.6.1810 <span style=color:#f92672>(</span>Core<span style=color:#f92672>)</span>
-</code></pre></div><h2 id=2升级内核>2、升级内核</h2>
-<p>导入elrepo的key，然后安装elrepo的yum源</p>
-<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash>$ rpm -import https://www.elrepo.org/RPM-GPG-KEY-elrepo.org
-$ rpm -Uvh http://www.elrepo.org/elrepo-release-7.0-2.el7.elrepo.noarch.rpm
-</code></pre></div><p>查看可用的内核相关包</p>
-<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash>$ yum --disablerepo<span style=color:#f92672>=</span><span style=color:#e6db74>&#34;*&#34;</span> --enablerepo<span style=color:#f92672>=</span><span style=color:#e6db74>&#34;elrepo-kernel&#34;</span> list available
-</code></pre></div><p>主分支ml(mainline)，稳定版(stable)，长期维护版lt(longterm)
-安装内核</p>
-<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash>$ yum -y --enablerepo<span style=color:#f92672>=</span>elrepo-kernel install kernel-ml.x86_64 kernel-ml-devel.x86_64
-</code></pre></div><h2 id=3修改grub>3、修改grub</h2>
-<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash>$ awk -F<span style=color:#ae81ff>\&#39;</span> <span style=color:#e6db74>&#39;$1==&#34;menuentry &#34; {print $2}&#39;</span> /etc/grub2.cfg
-CentOS Linux <span style=color:#f92672>(</span>5.2.11-1.el7.elrepo.x86_64<span style=color:#f92672>)</span> <span style=color:#ae81ff>7</span> <span style=color:#f92672>(</span>Core<span style=color:#f92672>)</span>
-CentOS Linux <span style=color:#f92672>(</span>3.10.0-957.27.2.el7.x86_64<span style=color:#f92672>)</span> <span style=color:#ae81ff>7</span> <span style=color:#f92672>(</span>Core<span style=color:#f92672>)</span>
-CentOS Linux <span style=color:#f92672>(</span>3.10.0-514.26.2.el7.x86_64<span style=color:#f92672>)</span> <span style=color:#ae81ff>7</span> <span style=color:#f92672>(</span>Core<span style=color:#f92672>)</span>
-CentOS Linux <span style=color:#f92672>(</span>3.10.0-514.el7.x86_64<span style=color:#f92672>)</span> <span style=color:#ae81ff>7</span> <span style=color:#f92672>(</span>Core<span style=color:#f92672>)</span>
-CentOS Linux <span style=color:#f92672>(</span>0-rescue-963c2c41b08343f7b063dddac6b2e486<span style=color:#f92672>)</span> <span style=color:#ae81ff>7</span> <span style=color:#f92672>(</span>Core<span style=color:#f92672>)</span>
-<span style=color:#75715e># 新内核（5.2.11）在0的位置上</span>
-
-$ vim /etc/default/grub
-<span style=color:#75715e>#将 GRUB_DEFAULT=saved 改为 GRUB_DEFAULT=0</span>
-
-<span style=color:#75715e># 重建内核配置</span>
-$ grub2-mkconfig -o /boot/grub2/grub.cfg
-</code></pre></div><h2 id=4重启系统>4、重启系统</h2>
-<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash>$ reboot
-
-<span style=color:#75715e>#查看内核版本</span>
-$ uname -r
-5.2.11-1.el7.elrepo.x86_64
+<h2 id=系统进程操作>系统进程操作</h2>
+<ul>
+<li><a href=https://www.cnblogs.com/xd502djj/archive/2011/03/01/1968041.html>查看CPU和内存使用情况</a></li>
+</ul>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash><span style=color:#75715e># 定位高CPU占用</span>
+$ ps H -eo user,pid,ppid,tid,time,%cpu,cmd --sort<span style=color:#f92672>=</span>%cpu
+<span style=color:#75715e># 可视化显示CPU的使用状况的工具</span>
+$ yum install -y htop
+$ htop
+</code></pre></div><h2 id=磁盘操作>磁盘操作</h2>
+<ul>
+<li><a href=https://blog.csdn.net/u013030100/article/details/79564378>查询并筛选 磁盘空间 统计 排序</a></li>
+</ul>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash><span style=color:#75715e># 修改硬盘挂载目录</span>
+<span style=color:#75715e># 卸载硬盘</span>
+$ umount -v /mnt/raid1-2disk-500G
+<span style=color:#75715e># 修改挂载目录</span>
+$ mv /mnt/raid1-2disk-500G /mnt/raid1-250G-2disk
+<span style=color:#75715e># 修改/etc/fstab文件里的挂载目录</span>
+$ nano /etc/fstab
+<span style=color:#75715e># 重装挂载</span>
+$ mount -av /dev/md127 /mnt/raid1-250G-2disk
+</code></pre></div><h2 id=网络端口操作>网络端口操作</h2>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash><span style=color:#75715e># 查看端口占用</span>
+<span style=color:#75715e># 查看所有端口占用情况</span>
+$ netstat -tlunp
+<span style=color:#75715e># 查看指定端口占用情况</span>
+$ netstat -tlunp | grep &lt;port&gt;
+</code></pre></div><h2 id=文件操作>文件操作</h2>
+<ul>
+<li><a href=https://blog.csdn.net/kangaroo_07/article/details/43733891>文件截取</a></li>
+</ul>
+<h2 id=系统设置操作>系统设置操作</h2>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash><span style=color:#75715e># systemctl命令</span>
+systemctl list-units            <span style=color:#75715e>##列出当前系统服务的状态</span>
+systemctl list-unit-files       <span style=color:#75715e>##列出服务的开机状态</span>
+systemctl status sshd           <span style=color:#75715e>##查看指定服务的状态</span>
+systemctl stop sshd             <span style=color:#75715e>##关闭指定服务</span>
+systemctl start sshd            <span style=color:#75715e>##开启指定服务</span>
+systemctl restart sshd          <span style=color:#75715e>##从新启动服务</span>
+systemctl enable sshd           <span style=color:#75715e>##设定指定服务开机开启</span>
+systemctl disable sshd          <span style=color:#75715e>##设定指定服务开机关闭</span>
+systemctl reload sshd           <span style=color:#75715e>##使指定服务从新加载配置</span>
+systemctl list-dependencies sshd    <span style=color:#75715e>##查看指定服务的倚赖关系</span>
+systemctl mask  sshd            <span style=color:#75715e>##冻结指定服务</span>
+systemctl unmask sshd           <span style=color:#75715e>##启用服务</span>
+systemctl set-default multi-user.target <span style=color:#75715e>##开机不开启图形</span>
+systemctl set-default graphical.target  <span style=color:#75715e>##开机启动图形</span>
+</code></pre></div><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash><span style=color:#75715e># /etc/hosts</span>
+<span style=color:#75715e># sed 参考 http://man.linuxde.net/sed</span>
+        <span style=color:#75715e>#  https://www.cnblogs.com/ggjucheng/archive/2013/01/13/2856901.html</span>
+$ sed ......
+</code></pre></div><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash><span style=color:#75715e># SSH连接不自动断开</span>
+$ sed -i <span style=color:#e6db74>&#39;s|^#\(ClientAliveInterval\) 0$|\1 60|g&#39;</span> /etc/ssh/sshd_config
+$ sed -i <span style=color:#e6db74>&#39;s|^#\(ClientAliveCountMax\) 3$|\1 5|g&#39;</span> /etc/ssh/sshd_config
+$ systemctl restart sshd
+</code></pre></div><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash><span style=color:#75715e># 设置主机名</span>
+$ _hostname_<span style=color:#f92672>=</span>XXXX
+$ hostnamectl --static set-hostname <span style=color:#e6db74>${</span>_hostname_<span style=color:#e6db74>}</span>
+$ hostnamectl --transient set-hostname <span style=color:#e6db74>${</span>_hostname_<span style=color:#e6db74>}</span>
+$ hostnamectl --pretty set-hostname <span style=color:#e6db74>${</span>_hostname_<span style=color:#e6db74>}</span>
+</code></pre></div><ul>
+<li><a href=https://blog.csdn.net/tantexian/article/details/45958275>hostnamectl 参考</a></li>
+</ul>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash><span style=color:#75715e># 修改命令提示符</span>
+$ echo <span style=color:#e6db74>&#39;export PS1=&#34;[\A \u@\H \w]\\$ &#34;&#39;</span> &gt;&gt; /etc/bashrc
+<span style=color:#75715e># 让配置生效</span>
+$ source /etc/bashrc
+</code></pre></div><ul>
+<li><a href=https://www.linuxidc.com/Linux/2017-10/147438.htm>命令提示符设置参考</a></li>
+</ul>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash><span style=color:#75715e># 修改服务器时区</span>
+$ timedatectl set-timezone Asia/Shanghai
+</code></pre></div><ul>
+<li><a href=https://www.jianshu.com/p/5e8e22bf135d>timedatectl 参考</a></li>
+</ul>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash><span style=color:#75715e># 查看系统版本</span>
+$ lsb_release -a
+$ cat /etc/redhat-release
+$ cat /etc/issue
+</code></pre></div><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash><span style=color:#75715e># 修改密码</span>
+$ passwd &lt;user_name&gt;
 </code></pre></div>
 </div>
 <div class=post_comments>
@@ -114,6 +162,9 @@ $ uname -r
 <section class=sidebar_inner>
 <h2 class=mt-4>Recent Posts</h2>
 <ul class=flex-column>
+<li>
+<a href=https://blog.cuile.com/posts/alpine_linux/alpine_linux_install/ class=nav-link title="Alpine Linux 3.16 安装">Alpine Linux 3.16 安装</a>
+</li>
 <li>
 <a href=https://blog.cuile.com/posts/ups/ups_install/ class=nav-link title="山克 UPS 安装手册">山克 UPS 安装手册</a>
 </li>
@@ -135,19 +186,16 @@ $ uname -r
 <li>
 <a href=https://blog.cuile.com/posts/life_tips/tips2/ class=nav-link title=小差别>小差别</a>
 </li>
-<li>
-<a href=https://blog.cuile.com/posts/life_tips/tips1/ class=nav-link title=七态为品>七态为品</a>
-</li>
 </ul>
 <div>
 <h2 class="mt-4 taxonomy" id=tags-section>Tags</h2>
 <nav class=tags_nav>
-<a href=https://blog.cuile.com/tags/centos-7/ class="post_tag button button_translucent" title=centos-7>
-CENTOS-7
-<span class=button_tally>7</span>
-</a>
 <a href=https://blog.cuile.com/tags/linux/ class="post_tag button button_translucent" title=linux>
 LINUX
+<span class=button_tally>8</span>
+</a>
+<a href=https://blog.cuile.com/tags/centos-7/ class="post_tag button button_translucent" title=centos-7>
+CENTOS-7
 <span class=button_tally>7</span>
 </a>
 <a href=https://blog.cuile.com/tags/docker/ class="post_tag button button_translucent" title=docker>
@@ -172,6 +220,10 @@ PROXMOX
 </a>
 <a href=https://blog.cuile.com/tags/alg/ class="post_tag button button_translucent" title=alg>
 ALG
+<span class=button_tally>1</span>
+</a>
+<a href=https://blog.cuile.com/tags/alpine-linux/ class="post_tag button button_translucent" title=alpine-linux>
+ALPINE-LINUX
 <span class=button_tally>1</span>
 </a>
 <a href=https://blog.cuile.com/tags/bash/ class="post_tag button button_translucent" title=bash>
