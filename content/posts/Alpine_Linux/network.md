@@ -10,7 +10,7 @@ tags:
 ## 网卡静态地址
 
 ```Bash
-/etc/network/interfaces
+~# nano /etc/network/interfaces
 ```
 
 ```conf
@@ -27,7 +27,7 @@ iface eth0 inet static
 ## DNS 地址
 
 ```Bash
-/etc/resolv.conf
+~# nano /etc/resolv.conf
 ```
 
 ```conf
@@ -37,5 +37,5 @@ nameserver 114.114.114.114
 ## 重启网络
 
 ```Bash
-$ service networking restart
+~# service networking restart
 ```
