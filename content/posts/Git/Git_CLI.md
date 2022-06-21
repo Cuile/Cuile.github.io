@@ -88,8 +88,9 @@ $ git push --tags
 ### 克隆
 
 ```bash
-# 使用ssh需要设置publickey比较麻烦
 $ git clone https://xxxx@bitbucket.org/xxxx/xxxx.git
+# or 
+$ git clone git@github.com:xxxxx/xxxxx.git
 # 克隆指定分支，到指定目录
 $ git clone -b <branch> <repo> <path>
 ```
@@ -119,7 +120,7 @@ master
 
 ## 代理
 
-### 设置代理：
+### 设置代理
 
 ```bash
 $ git config --global http.proxy http://[username:passwrod@]<ip or URL>:port 
@@ -130,7 +131,7 @@ $ git config --global http.https://github.com.proxy http://[username:passwrod@]<
 $ git config --global https.https://github.com.proxy http://[username:passwrod@]<ip or URL>:port
 ```
 
-### 查看代理：
+### 查看代理
 
 ```bash
 $ git config --global --get http.proxy
@@ -140,7 +141,7 @@ $ git config --global --get http.https://github.com.proxy
 $ git config --global --get https.https://github.com.proxy
 ```
 
-### 取消代理：
+### 取消代理
 
 ```bash
 $ git config --global --unset http.proxy
