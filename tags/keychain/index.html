@@ -1,26 +1,25 @@
-<!doctype html><html lang=en data-figures class=page>
+<!doctype html><html lang=en data-figures>
 <head>
-<title>Git 命令行 | 瘦了就帅了</title>
+<title>keychain | 瘦了就帅了</title>
 <meta charset=utf-8>
 <meta name=viewport content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
 <meta http-equiv=x-ua-compatible content="IE=edge">
 <meta http-equiv=content-security-policy content="upgrade-insecure-requests">
 <meta property="og:locale" content="en">
 <meta property="og:type" content="article">
-<meta name=description content="拉取 $ git pull 删除本地文件后，从远端重新拉取最新版本 git提示： up-to-date. 但未从远端得到文件
- 查看本地分支是否发生变化  $ git branch -a 如本地库处于另一个分支中，需将本地分支熏置回原分支  $ git checkout ***** $ git reset --hard …">
+<meta name=description content>
 <meta name=twitter:card content="summary">
 <meta name=twitter:creator content>
-<meta name=twitter:title content="Git 命令行">
-<meta property="og:url" content="https://blog.cuile.com/posts/git_cli/">
-<meta property="og:title" content="Git 命令行">
-<meta property="og:description" content="拉取 $ git pull 删除本地文件后，从远端重新拉取最新版本 git提示： up-to-date. 但未从远端得到文件
- 查看本地分支是否发生变化  $ git branch -a 如本地库处于另一个分支中，需将本地分支熏置回原分支  $ git checkout ***** $ git reset --hard …">
+<meta name=twitter:title content="keychain">
+<meta property="og:url" content="https://blog.cuile.com/tags/keychain/">
+<meta property="og:title" content="keychain">
+<meta property="og:description" content>
 <meta property="og:image" content="https://blog.cuile.com/">
 <link rel=apple-touch-icon sizes=180x180 href=https://blog.cuile.com/icons/apple-touch-icon.png>
 <link rel=icon type=image/png sizes=32x32 href=https://blog.cuile.com/icons/favicon-32x32.png>
 <link rel=manifest href=https://blog.cuile.com/icons/site.webmanifest>
-<link rel=canonical href=https://blog.cuile.com/posts/git_cli/>
+<link rel=canonical href=https://blog.cuile.com/tags/keychain/>
+<link rel=alternate type=application/rss+xml href=https://blog.cuile.com/tags/keychain/index.xml title=瘦了就帅了>
 <link rel=stylesheet href=//cdnjs.cloudflare.com/ajax/libs/highlight.js/11.4.0/styles/default.min.css>
 <script src=//cdnjs.cloudflare.com/ajax/libs/highlight.js/11.4.0/highlight.min.js></script>
 <link rel=preload href=https://blog.cuile.com/css/styles.01869c76e4757810d94ecbdccadba853d9d01d9416dfeb113df02e1479ff8b36e284e8bfeb3e8f353f2fdcdcbbdfcf27e558dbda96eb6341bfc304d55cd9e986.css integrity="sha512-AYacduR1eBDZTsvcytuoU9nQHZQW3+sRPfAuFHn/izbihOi/6z6PNT8v3Ny7388n5Vjb2pbrY0G/wwTVXNnphg==" as=style crossorigin=anonymous>
@@ -45,125 +44,57 @@
 </header>
 <main>
 <div class="grid-inverse wrap content">
-<article class=post_content>
-<h1 class=post_title>Git 命令行</h1>
+<ul class=posts id=posts>
+<li class=post_item>
+<div class=excerpt>
+<div class=excerpt_header>
+<h3 class=post_link>
+<a href=https://blog.cuile.com/posts/git/connect_with_ssh/ title="使用 SSH 连接 Github">使用 SSH 连接 Github</a>
+</h3>
 <div class=post_meta>
 <span><svg class="icon"><use xlink:href="#calendar"/></svg></span>
 <span class=post_date>
-May 16, 2022</span>
-<span class=post_time> · 2 min read</span><span>&nbsp;· <a href=https://blog.cuile.com/tags/git title=git class="post_tag button button_translucent">git
+Jun 21, 2022</span>
+<span class=post_time> · 1 min read</span><span>&nbsp;· <a href=https://blog.cuile.com/tags/git title=git class="post_tag button button_translucent">git
+</a><a href=https://blog.cuile.com/tags/ssh title=ssh class="post_tag button button_translucent">ssh
+</a><a href=https://blog.cuile.com/tags/keychain title=keychain class="post_tag button button_translucent">keychain
 </a>
 </span>
 <span class=page_only>&nbsp;·
 <div class=post_share>
 Share on:
-<a href="https://twitter.com/intent/tweet?text=Git%20%e5%91%bd%e4%bb%a4%e8%a1%8c&url=https%3a%2f%2fblog.cuile.com%2fposts%2fgit_cli%2f&tw_p=tweetbutton" class=twitter title="Share on Twitter" target=_blank rel=nofollow><svg class="icon"><use xlink:href="#twitter"/></svg>
+<a href="https://twitter.com/intent/tweet?text=%e4%bd%bf%e7%94%a8%20SSH%20%e8%bf%9e%e6%8e%a5%20Github&url=https%3a%2f%2fblog.cuile.com%2fposts%2fgit%2fconnect_with_ssh%2f&tw_p=tweetbutton" class=twitter title="Share on Twitter" target=_blank rel=nofollow><svg class="icon"><use xlink:href="#twitter"/></svg>
 </a>
-<a href="https://www.facebook.com/sharer.php?u=https%3a%2f%2fblog.cuile.com%2fposts%2fgit_cli%2f&t=Git%20%e5%91%bd%e4%bb%a4%e8%a1%8c" class=facebook title="Share on Facebook" target=_blank rel=nofollow><svg class="icon"><use xlink:href="#facebook"/></svg>
+<a href="https://www.facebook.com/sharer.php?u=https%3a%2f%2fblog.cuile.com%2fposts%2fgit%2fconnect_with_ssh%2f&t=%e4%bd%bf%e7%94%a8%20SSH%20%e8%bf%9e%e6%8e%a5%20Github" class=facebook title="Share on Facebook" target=_blank rel=nofollow><svg class="icon"><use xlink:href="#facebook"/></svg>
 </a>
 <a href=#linkedinshare id=linkedinshare class=linkedin title="Share on LinkedIn" rel=nofollow><svg class="icon"><use xlink:href="#linkedin"/></svg>
 </a>
-<a href=https://blog.cuile.com/posts/git_cli/ title="Copy Link" class="link link_yank"><svg class="icon"><use xlink:href="#copy"/></svg>
+<a href=https://blog.cuile.com/posts/git/connect_with_ssh/ title="Copy Link" class="link link_yank"><svg class="icon"><use xlink:href="#copy"/></svg>
 </a>
 </div>
 </span>
 </div>
-<div class=post_body><h2 id=拉取>拉取</h2>
-<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash>$ git pull
-</code></pre></div><h3 id=删除本地文件后从远端重新拉取最新版本>删除本地文件后，从远端重新拉取最新版本</h3>
-<p>git提示： up-to-date. 但未从远端得到文件</p>
-<ol>
-<li>查看本地分支是否发生变化</li>
-</ol>
-<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash>$ git branch -a
-</code></pre></div><ol start=2>
-<li>如本地库处于另一个分支中，需将本地分支熏置回原分支</li>
-</ol>
-<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash>$ git checkout *****
-$ git reset --hard
-</code></pre></div><ol start=3>
-<li>如本地分支没有变化，则强行 pull 覆盖本地文件</li>
-</ol>
-<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash>$ git fetch --all
-$ git reset --hard origin/*****
-$ git pull
-</code></pre></div><hr>
-<h2 id=分支>分支</h2>
-<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash>$ git branch -a
-</code></pre></div><h3 id=切换分支>切换分支</h3>
-<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash>$ git checkout &lt;branch&gt;
-</code></pre></div><h3 id=拉取远程分支>拉取远程分支</h3>
-<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash>$ git fetch origin &lt;branch&gt;
-$ git checkout -b &lt;branch&gt; origin/&lt;branch&gt;
-$ git pull origin &lt;branch&gt;
-</code></pre></div><h3 id=更新远程分支列表>更新远程分支列表</h3>
-<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash><span style=color:#75715e># 如果你的 remote branch 不是在 origin 下，把 origin 换成你的名字</span>
-<span style=color:#75715e># --prune 删除远程已经删除的分支</span>
-$ git remote update origin --prune
-</code></pre></div><hr>
-<h2 id=标签>标签</h2>
-<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash><span style=color:#75715e># 查看现有的标签</span>
-$ git tag
-
-<span style=color:#75715e># 给最新的提交打标签</span>
-$ git tag 1.0
-
-<span style=color:#75715e># 推送所有标签</span>
-$ git push --tags
-</code></pre></div><hr>
-<h2 id=项目>项目</h2>
-<h3 id=克隆>克隆</h3>
-<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash><span style=color:#75715e># 使用ssh需要设置publickey比较麻烦</span>
-$ git clone https://xxxx@bitbucket.org/xxxx/xxxx.git
-<span style=color:#75715e># 克隆指定分支，到指定目录</span>
-$ git clone -b &lt;branch&gt; &lt;repo&gt; &lt;path&gt;
-</code></pre></div><h3 id=导出>导出</h3>
-<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash>$ git archive --format zip -0 <span style=color:#ae81ff>\
-</span><span style=color:#ae81ff></span>                --output output.zip <span style=color:#ae81ff>\
-</span><span style=color:#ae81ff></span>                --remote git@github.com:Cuile/NMP.git <span style=color:#ae81ff>\
-</span><span style=color:#ae81ff></span>                master <span style=color:#ae81ff>\
-</span><span style=color:#ae81ff></span>                ./
-
-<span style=color:#75715e># 使用zip格式，不压缩</span>
---format zip -0
-<span style=color:#75715e># 输出的文件名</span>
---output output.zip
-<span style=color:#75715e># 远程项目地址</span>
---remote git@github.com:Cuile/NMP.git
-<span style=color:#75715e># 分支名</span>
-master
-<span style=color:#75715e># 输出到当前目录</span>
-./
-</code></pre></div><hr>
-<h2 id=代理>代理</h2>
-<h3 id=设置代理>设置代理：</h3>
-<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash>$ git config --global http.proxy http://<span style=color:#f92672>[</span>username:passwrod@<span style=color:#f92672>]</span>&lt;ip or URL&gt;:port 
-$ git config --global https.proxy http://<span style=color:#f92672>[</span>username:passwrod@<span style=color:#f92672>]</span>&lt;ip or URL&gt;:port
-
-<span style=color:#75715e># 只代理github.com</span>
-$ git config --global http.https://github.com.proxy http://<span style=color:#f92672>[</span>username:passwrod@<span style=color:#f92672>]</span>&lt;ip or URL&gt;:port
-$ git config --global https.https://github.com.proxy http://<span style=color:#f92672>[</span>username:passwrod@<span style=color:#f92672>]</span>&lt;ip or URL&gt;:port
-</code></pre></div><h3 id=查看代理>查看代理：</h3>
-<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash>$ git config --global --get http.proxy
-$ git config --global --get https.proxy
-
-$ git config --global --get http.https://github.com.proxy
-$ git config --global --get https.https://github.com.proxy
-</code></pre></div><h3 id=取消代理>取消代理：</h3>
-<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash>$ git config --global --unset http.proxy
-$ git config --global --unset https.proxy
-
-$ git config --global --unset http.https://github.com.proxy
-$ git config --global --unset https.https://github.com.proxy
-</code></pre></div>
 </div>
-<div class=post_comments>
+<div class=excerpt_footer>
+<div>
+<p class=pale>
+生成新的 SSH Key $ ssh-keygen -t rsa -b 4096 -C "your_email@example.com" ... Enter a file in which to save the key (/home/you/.ssh/algorithm): &lt;密钥文件名> Enter passphrase (empty for no passphrase): [输入密码] Enter same passphrase again: [再次输入密码] 将新的 SSH Key 添加到 Github 将公钥文件的内容COPY出来 $ cat …
+</p>
+<a href=https://blog.cuile.com/posts/git/connect_with_ssh/ title="Read More" class="excerpt_more button">Read More</a>
 </div>
-</article>
+</div>
+</div>
+</li>
+<li>
+</li>
+</ul>
 <aside class=sidebar>
 <section class=sidebar_inner>
 <h2 class=mt-4>Recent Posts</h2>
 <ul class=flex-column>
+<li>
+<a href=https://blog.cuile.com/posts/git/connect_with_ssh/ class=nav-link title="使用 SSH 连接 Github">使用 SSH 连接 Github</a>
+</li>
 <li>
 <a href=https://blog.cuile.com/posts/alpine_linux/docker/ class=nav-link title="Alpine Linux 安装 Docker">Alpine Linux 安装 Docker</a>
 </li>
@@ -177,16 +108,13 @@ $ git config --global --unset https.https://github.com.proxy
 <a href=https://blog.cuile.com/posts/ups/ups_install/ class=nav-link title="山克 UPS 安装手册">山克 UPS 安装手册</a>
 </li>
 <li>
+<a href=https://blog.cuile.com/posts/git/git_cli/ class=nav-link title="Git 命令行">Git 命令行</a>
+</li>
+<li>
 <a href=https://blog.cuile.com/posts/harmonyos_optimization/ class=nav-link title=鸿蒙系统优化>鸿蒙系统优化</a>
 </li>
 <li>
 <a href=https://blog.cuile.com/posts/wot_tips/ class=nav-link title=火炮使用手册>火炮使用手册</a>
-</li>
-<li>
-<a href=https://blog.cuile.com/posts/docker/docker_install_snap/ class=nav-link title="使用 Snap 安装 Docker">使用 Snap 安装 Docker</a>
-</li>
-<li>
-<a href=https://blog.cuile.com/posts/life_tips/tips3/ class=nav-link title=能力的评价>能力的评价</a>
 </li>
 </ul>
 <div>
@@ -219,6 +147,10 @@ LIFE-TIPS
 <a href=https://blog.cuile.com/tags/python/ class="post_tag button button_translucent" title=python>
 PYTHON
 <span class=button_tally>3</span>
+</a>
+<a href=https://blog.cuile.com/tags/git/ class="post_tag button button_translucent" title=git>
+GIT
+<span class=button_tally>2</span>
 </a>
 <a href=https://blog.cuile.com/tags/proxmox/ class="post_tag button button_translucent" title=proxmox>
 PROXMOX
@@ -256,10 +188,6 @@ FIREWALL
 FTP
 <span class=button_tally>1</span>
 </a>
-<a href=https://blog.cuile.com/tags/git/ class="post_tag button button_translucent" title=git>
-GIT
-<span class=button_tally>1</span>
-</a>
 <a href=https://blog.cuile.com/tags/github/ class="post_tag button button_translucent" title=github>
 GITHUB
 <span class=button_tally>1</span>
@@ -282,6 +210,10 @@ IPTABLES
 </a>
 <a href=https://blog.cuile.com/tags/kernel/ class="post_tag button button_translucent" title=kernel>
 KERNEL
+<span class=button_tally>1</span>
+</a>
+<a href=https://blog.cuile.com/tags/keychain/ class="post_tag button button_translucent" title=keychain>
+KEYCHAIN
 <span class=button_tally>1</span>
 </a>
 <a href=https://blog.cuile.com/tags/mysql/ class="post_tag button button_translucent" title=mysql>
@@ -334,6 +266,10 @@ SHELL
 </a>
 <a href=https://blog.cuile.com/tags/snap/ class="post_tag button button_translucent" title=snap>
 SNAP
+<span class=button_tally>1</span>
+</a>
+<a href=https://blog.cuile.com/tags/ssh/ class="post_tag button button_translucent" title=ssh>
+SSH
 <span class=button_tally>1</span>
 </a>
 <a href=https://blog.cuile.com/tags/tips/ class="post_tag button button_translucent" title=tips>
