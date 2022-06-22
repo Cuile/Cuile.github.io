@@ -68,3 +68,8 @@ provide shell access.
 ```bash
 eval `keychain --eval ~/.ssh/github.com.key`
 ```
+
+## 参考文档
+
+- [Generating a new SSH key and adding it to the ssh-agent](https://docs.github.com/cn/github-ae@latest/authentication/connecting-to-github-with-ssh/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent)
+- [Funtoo Keychain Project](https://www.funtoo.org/Funtoo:Keychain)
