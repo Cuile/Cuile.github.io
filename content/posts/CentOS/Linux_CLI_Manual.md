@@ -5,7 +5,7 @@ date: 2022-01-17T11:07:07+08:00
 tags: 
 - Linux
 - Centos 7
-- bash
+- CLI
 ---
 
 **`脚本基于Centos 7`**
@@ -37,6 +37,7 @@ $ nano /etc/fstab
 # 重装挂载
 $ mount -av /dev/md127 /mnt/raid1-250G-2disk
 ```
+
 ## 网络端口操作
 
 ```bash
@@ -46,14 +47,14 @@ $ netstat -tlunp
 # 查看指定端口占用情况
 $ netstat -tlunp | grep <port>
 ```
+
 ## 文件操作
 
 - [文件截取](https://blog.csdn.net/kangaroo_07/article/details/43733891)
 
-## 系统设置操作
+## systemctl命令
 
 ```bash
-# systemctl命令
 systemctl list-units            ##列出当前系统服务的状态
 systemctl list-unit-files       ##列出服务的开机状态
 systemctl status sshd           ##查看指定服务的状态
@@ -70,53 +71,45 @@ systemctl set-default multi-user.target ##开机不开启图形
 systemctl set-default graphical.target  ##开机启动图形
 ```
 
-```bash
-# /etc/hosts
-# sed 参考 http://man.linuxde.net/sed
-        #  https://www.cnblogs.com/ggjucheng/archive/2013/01/13/2856901.html
-$ sed ......
-```
+## 设置主机名
 
 ```bash
-# SSH连接不自动断开
-$ sed -i 's|^#\(ClientAliveInterval\) 0$|\1 60|g' /etc/ssh/sshd_config
-$ sed -i 's|^#\(ClientAliveCountMax\) 3$|\1 5|g' /etc/ssh/sshd_config
-$ systemctl restart sshd
-```
-
-```bash
-# 设置主机名
 $ _hostname_=XXXX
 $ hostnamectl --static set-hostname ${_hostname_}
 $ hostnamectl --transient set-hostname ${_hostname_}
 $ hostnamectl --pretty set-hostname ${_hostname_}
 ```
+
 - [hostnamectl 参考](https://blog.csdn.net/tantexian/article/details/45958275)
 
+## 修改命令提示符
+
 ```bash
-# 修改命令提示符
 $ echo 'export PS1="[\A \u@\H \w]\\$ "' >> /etc/bashrc
 # 让配置生效
 $ source /etc/bashrc
 ```
+
 - [命令提示符设置参考](https://www.linuxidc.com/Linux/2017-10/147438.htm)
 
-```bash
-# 修改服务器时区
-$ timedatectl set-timezone Asia/Shanghai
-```
-- [timedatectl 参考](https://www.jianshu.com/p/5e8e22bf135d)
+## 修改服务器时区
 
 ```bash
-# 查看系统版本
+$ timedatectl set-timezone Asia/Shanghai
+```
+
+- [timedatectl 参考](https://www.jianshu.com/p/5e8e22bf135d)
+
+## 查看系统版本
+
+```bash
 $ lsb_release -a
 $ cat /etc/redhat-release
 $ cat /etc/issue
 ```
 
+## 修改密码
+
 ```bash
-# 修改密码
 $ passwd <user_name>
 ```
-
-

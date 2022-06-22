@@ -1,11 +1,12 @@
 ---
-title: "使用 sed 命令操作文本文件"
+title: "使用 sed 命令操作"
 date: 2022-01-17T11:18:47+08:00
 # draft: true
 tags: 
 - Linux
 - sed
 - Ubuntu
+- CLI
 ---
 
 **`脚本基于Ubuntu 20.04`**
@@ -62,7 +63,21 @@ $ sort -n merge.log | uniq
 $ sed -i '/^\s*$/d' merge1.log
 ```
 
+## 修改Ubuntu源地址
 ```bash
-# 修改Ubuntu源地址
 $ sudo sed -i 's/\(archive\|security\).ubuntu/mirrors.aliyun/' /etc/apt/sources.list
+```
+
+## SSH连接不自动断开
+```bash
+$ sed -i 's|^#\(ClientAliveInterval\) 0$|\1 60|g' /etc/ssh/sshd_config
+$ sed -i 's|^#\(ClientAliveCountMax\) 3$|\1 5|g' /etc/ssh/sshd_config
+$ systemctl restart sshd
+```
+
+## /etc/hosts
+```bash
+# sed 参考 http://man.linuxde.net/sed
+        #  https://www.cnblogs.com/ggjucheng/archive/2013/01/13/2856901.html
+$ sed ......
 ```
