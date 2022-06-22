@@ -51,9 +51,9 @@
 <span><svg class="icon"><use xlink:href="#calendar"/></svg></span>
 <span class=post_date>
 Jan 17, 2022</span>
-<span class=post_time> · 2 min read</span><span>&nbsp;· <a href=https://blog.cuile.com/tags/linux title=Linux class="post_tag button button_translucent">Linux
+<span class=post_time> · 1 min read</span><span>&nbsp;· <a href=https://blog.cuile.com/tags/linux title=Linux class="post_tag button button_translucent">Linux
 </a><a href=https://blog.cuile.com/tags/centos-7 title="Centos 7" class="post_tag button button_translucent">Centos 7
-</a><a href=https://blog.cuile.com/tags/bash title=bash class="post_tag button button_translucent">bash
+</a><a href=https://blog.cuile.com/tags/cli title=CLI class="post_tag button button_translucent">CLI
 </a>
 </span>
 <span class=page_only>&nbsp;·
@@ -103,9 +103,8 @@ $ netstat -tlunp | grep &lt;port&gt;
 <ul>
 <li><a href=https://blog.csdn.net/kangaroo_07/article/details/43733891>文件截取</a></li>
 </ul>
-<h2 id=系统设置操作>系统设置操作</h2>
-<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash><span style=color:#75715e># systemctl命令</span>
-systemctl list-units            <span style=color:#75715e>##列出当前系统服务的状态</span>
+<h2 id=systemctl命令>systemctl命令</h2>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash>systemctl list-units            <span style=color:#75715e>##列出当前系统服务的状态</span>
 systemctl list-unit-files       <span style=color:#75715e>##列出服务的开机状态</span>
 systemctl status sshd           <span style=color:#75715e>##查看指定服务的状态</span>
 systemctl stop sshd             <span style=color:#75715e>##关闭指定服务</span>
@@ -119,40 +118,32 @@ systemctl mask  sshd            <span style=color:#75715e>##冻结指定服务</
 systemctl unmask sshd           <span style=color:#75715e>##启用服务</span>
 systemctl set-default multi-user.target <span style=color:#75715e>##开机不开启图形</span>
 systemctl set-default graphical.target  <span style=color:#75715e>##开机启动图形</span>
-</code></pre></div><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash><span style=color:#75715e># /etc/hosts</span>
-<span style=color:#75715e># sed 参考 http://man.linuxde.net/sed</span>
-        <span style=color:#75715e>#  https://www.cnblogs.com/ggjucheng/archive/2013/01/13/2856901.html</span>
-$ sed ......
-</code></pre></div><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash><span style=color:#75715e># SSH连接不自动断开</span>
-$ sed -i <span style=color:#e6db74>&#39;s|^#\(ClientAliveInterval\) 0$|\1 60|g&#39;</span> /etc/ssh/sshd_config
-$ sed -i <span style=color:#e6db74>&#39;s|^#\(ClientAliveCountMax\) 3$|\1 5|g&#39;</span> /etc/ssh/sshd_config
-$ systemctl restart sshd
-</code></pre></div><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash><span style=color:#75715e># 设置主机名</span>
-$ _hostname_<span style=color:#f92672>=</span>XXXX
+</code></pre></div><h2 id=设置主机名>设置主机名</h2>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash>$ _hostname_<span style=color:#f92672>=</span>XXXX
 $ hostnamectl --static set-hostname <span style=color:#e6db74>${</span>_hostname_<span style=color:#e6db74>}</span>
 $ hostnamectl --transient set-hostname <span style=color:#e6db74>${</span>_hostname_<span style=color:#e6db74>}</span>
 $ hostnamectl --pretty set-hostname <span style=color:#e6db74>${</span>_hostname_<span style=color:#e6db74>}</span>
 </code></pre></div><ul>
 <li><a href=https://blog.csdn.net/tantexian/article/details/45958275>hostnamectl 参考</a></li>
 </ul>
-<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash><span style=color:#75715e># 修改命令提示符</span>
-$ echo <span style=color:#e6db74>&#39;export PS1=&#34;[\A \u@\H \w]\\$ &#34;&#39;</span> &gt;&gt; /etc/bashrc
+<h2 id=修改命令提示符>修改命令提示符</h2>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash>$ echo <span style=color:#e6db74>&#39;export PS1=&#34;[\A \u@\H \w]\\$ &#34;&#39;</span> &gt;&gt; /etc/bashrc
 <span style=color:#75715e># 让配置生效</span>
 $ source /etc/bashrc
 </code></pre></div><ul>
 <li><a href=https://www.linuxidc.com/Linux/2017-10/147438.htm>命令提示符设置参考</a></li>
 </ul>
-<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash><span style=color:#75715e># 修改服务器时区</span>
-$ timedatectl set-timezone Asia/Shanghai
+<h2 id=修改服务器时区>修改服务器时区</h2>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash>$ timedatectl set-timezone Asia/Shanghai
 </code></pre></div><ul>
 <li><a href=https://www.jianshu.com/p/5e8e22bf135d>timedatectl 参考</a></li>
 </ul>
-<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash><span style=color:#75715e># 查看系统版本</span>
-$ lsb_release -a
+<h2 id=查看系统版本>查看系统版本</h2>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash>$ lsb_release -a
 $ cat /etc/redhat-release
 $ cat /etc/issue
-</code></pre></div><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash><span style=color:#75715e># 修改密码</span>
-$ passwd &lt;user_name&gt;
+</code></pre></div><h2 id=修改密码>修改密码</h2>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash>$ passwd &lt;user_name&gt;
 </code></pre></div>
 </div>
 <div class=post_comments>
@@ -218,6 +209,10 @@ LIFE-TIPS
 PYTHON
 <span class=button_tally>3</span>
 </a>
+<a href=https://blog.cuile.com/tags/cli/ class="post_tag button button_translucent" title=cli>
+CLI
+<span class=button_tally>2</span>
+</a>
 <a href=https://blog.cuile.com/tags/git/ class="post_tag button button_translucent" title=git>
 GIT
 <span class=button_tally>2</span>
@@ -228,10 +223,6 @@ PROXMOX
 </a>
 <a href=https://blog.cuile.com/tags/alg/ class="post_tag button button_translucent" title=alg>
 ALG
-<span class=button_tally>1</span>
-</a>
-<a href=https://blog.cuile.com/tags/bash/ class="post_tag button button_translucent" title=bash>
-BASH
 <span class=button_tally>1</span>
 </a>
 <a href=https://blog.cuile.com/tags/blog/ class="post_tag button button_translucent" title=blog>
