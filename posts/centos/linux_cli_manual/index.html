@@ -53,7 +53,7 @@
 </span>
 <span class=post_date>
 2022-01-17</span>
-<span class=post_time> · 阅读时长 2 分钟</span><span>&nbsp;· <a href=https://blog.cuile.com/tags/linux/ title=Linux class="post_tag button button_translucent">Linux
+<span class=post_time> · 阅读时长 1 分钟</span><span>&nbsp;· <a href=https://blog.cuile.com/tags/linux/ title=Linux class="post_tag button button_translucent">Linux
 </a><a href=https://blog.cuile.com/tags/centos-7/ title="Centos 7" class="post_tag button button_translucent">Centos 7
 </a><a href=https://blog.cuile.com/tags/cli/ title=CLI class="post_tag button button_translucent">CLI
 </a>
@@ -116,17 +116,9 @@
 <li><a href=https://blog.csdn.net/tantexian/article/details/45958275>hostnamectl 参考</a></li>
 </ul>
 <h2 id=修改命令提示符>修改命令提示符</h2>
-<div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=ln> 1</span><span class=c1># [HH:MM user@hostname path] 命令提示符</span>
-<span class=ln> 2</span>$ <span class=nb>echo</span> <span class=s1>&#39;export PS1=&#34;[\A \u@\H \w]\\$ &#34;&#39;</span> &gt;&gt; /etc/bashrc
-<span class=ln> 3</span><span class=c1># or </span>
-<span class=ln> 4</span><span class=c1># [yyyy-mm-dd HH:MM] path</span>
-<span class=ln> 5</span><span class=c1># [user@hostname] 命令提示符</span>
-<span class=ln> 6</span>$ <span class=nb>export</span> <span class=nv>PS1</span><span class=o>=</span><span class=s1>&#39;&#39;&#39;
-</span><span class=ln> 7</span><span class=s1>\[\e[36;40m\][\D{%Y-%m-%d} \A] \[\e[0m\] \[\e[35;40m\]\w\[\e[0m\]
-</span><span class=ln> 8</span><span class=s1>\[\e[33;40m\][\u@\H]\[\e[0m\]  \\$ &#39;&#39;&#39;</span>
-<span class=ln> 9</span>
-<span class=ln>10</span><span class=c1># 让配置生效</span>
-<span class=ln>11</span>$ <span class=nb>source</span> /etc/bashrc
+<div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=ln>1</span>$ <span class=nb>echo</span> <span class=s1>&#39;export PS1=&#34;[\A \u@\H \w]\\$ &#34;&#39;</span> &gt;&gt; /etc/bashrc
+<span class=ln>2</span><span class=c1># 让配置生效</span>
+<span class=ln>3</span>$ <span class=nb>source</span> /etc/bashrc
 </code></pre></div><ul>
 <li><a href=https://www.linuxidc.com/Linux/2017-10/147438.htm>命令提示符设置参考</a></li>
 </ul>
@@ -180,6 +172,28 @@
 <a href=https://blog.cuile.com/posts/wot_tips/ class=nav-link title=火炮使用手册>火炮使用手册</a>
 </li>
 </ul>
+<div>
+<h2 class="mt-4 taxonomy" id=categories-section>分类</h2>
+<nav class=tags_nav>
+<a href=https://blog.cuile.com/categories/%E7%B3%BB%E7%BB%9F%E9%85%8D%E7%BD%AE/ class="post_tag button button_translucent" title=系统配置>
+系统配置
+<span class=button_tally>2</span>
+</a>
+</nav>
+</div>
+<div>
+<h2 class="mt-4 taxonomy" id=series-section>专栏</h2>
+<nav class=tags_nav>
+<a href=https://blog.cuile.com/series/centos/ class="post_tag button button_translucent" title=centos>
+CENTOS
+<span class=button_tally>2</span>
+</a>
+<a href=https://blog.cuile.com/series/docker/ class="post_tag button button_translucent" title=docker>
+DOCKER
+<span class=button_tally>1</span>
+</a>
+</nav>
+</div>
 <div>
 <h2 class="mt-4 taxonomy" id=tags-section>标签</h2>
 <nav class=tags_nav>
