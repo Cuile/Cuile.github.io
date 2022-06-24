@@ -6,6 +6,10 @@ tags:
 - Linux
 - repo
 - Centos 7
+series:
+- CentOS
+categories:
+- 系统配置
 ---
 
 **`脚本基于Centos 7`**

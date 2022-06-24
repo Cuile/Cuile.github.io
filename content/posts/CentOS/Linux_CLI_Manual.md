@@ -85,15 +85,7 @@ $ hostnamectl --pretty set-hostname ${_hostname_}
 ## 修改命令提示符
 
 ```bash
-# [HH:MM user@hostname path] 命令提示符
 $ echo 'export PS1="[\A \u@\H \w]\\$ "' >> /etc/bashrc
-# or 
-# [yyyy-mm-dd HH:MM] path
-# [user@hostname] 命令提示符
-$ export PS1='''
-\[\e[36;40m\][\D{%Y-%m-%d} \A] \[\e[0m\] \[\e[35;40m\]\w\[\e[0m\]
-\[\e[33;40m\][\u@\H]\[\e[0m\]  \\$ '''
-
 # 让配置生效
 $ source /etc/bashrc
 ```
