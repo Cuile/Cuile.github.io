@@ -53,6 +53,156 @@
 <div class=excerpt>
 <div class=excerpt_header>
 <h3 class=post_link>
+<a href=https://blog.cuile.com/posts/git/connect_with_ssh/ title="使用 SSH 连接 Github">使用 SSH 连接 Github</a>
+</h3>
+<div class=post_meta>
+<span><svg class="icon"><title>calendar</title><use xlink:href="#calendar"/></svg>
+</span>
+<span class=post_date>
+2022-06-21</span>
+<span class=post_time> · 阅读时长 1 分钟</span><span>&nbsp;· <a href=https://blog.cuile.com/tags/ssh/ title=ssh class="post_tag button button_translucent">ssh
+</a><a href=https://blog.cuile.com/tags/keychain/ title=keychain class="post_tag button button_translucent">keychain
+</a>
+</span>
+</div>
+</div>
+<div class=excerpt_footer>
+<div class=pale>
+<p>生成新的 SSH Key 1$ ssh-keygen -t rsa -b 4096 -C "your_<a href=mailto:email@example.com>email@example.com</a>" 2... 3Enter a file in which to save the key (/home/you/.ssh/algorithm): &lt;密钥文件名> 4Enter passphrase (empty for no passphrase): [输入密码] 5Enter same passphrase again: [再次输入密码] 将新的 SSH Key 添加到</p>
+<br>
+<a href=https://blog.cuile.com/posts/git/connect_with_ssh/ title=阅读更多 class="excerpt_more button">阅读更多</a>
+</div>
+</div>
+</div>
+</li>
+<li class=post_item>
+<div class=excerpt>
+<div class=excerpt_header>
+<h3 class=post_link>
+<a href=https://blog.cuile.com/posts/alpine_linux/docker/ title="Alpine Linux 安装 Docker">Alpine Linux 安装 Docker</a>
+</h3>
+<div class=post_meta>
+<span><svg class="icon"><title>calendar</title><use xlink:href="#calendar"/></svg>
+</span>
+<span class=post_date>
+2022-06-19</span>
+<span class=post_time> · 阅读时长 1 分钟</span><span>&nbsp;· <a href=https://blog.cuile.com/tags/docker/ title=Docker class="post_tag button button_translucent">Docker
+</a>
+</span>
+</div>
+</div>
+<div class=excerpt_footer>
+<div class=pale>
+<p>在 Alpine 上安装 Docker 真是一件让人感觉非常愉快的事情，因为过程非常简单。 修改 apk 源 1~# nano /etc/apk/repositories 因为 docker 在社区的库里，所以要打开 community 的源。 1#/media/cdrom/apks 2http://mirrors.tuna.tsinghua.edu.cn/alpine/v3.16/main 3http://mirrors.tuna.tsinghua.edu.cn/alpine/v3.16/community 4#http://mirrors.tuna.tsinghua.edu.cn/alpine/edge/main …</p>
+<br>
+<a href=https://blog.cuile.com/posts/alpine_linux/docker/ title=阅读更多 class="excerpt_more button">阅读更多</a>
+</div>
+</div>
+</div>
+</li>
+<li class=post_item>
+<div class=excerpt>
+<div class=excerpt_header>
+<h3 class=post_link>
+<a href=https://blog.cuile.com/posts/alpine_linux/network/ title="Alpine Linux 网络设置">Alpine Linux 网络设置</a>
+</h3>
+<div class=post_meta>
+<span><svg class="icon"><title>calendar</title><use xlink:href="#calendar"/></svg>
+</span>
+<span class=post_date>
+2022-06-19</span>
+<span class=post_time> · 阅读时长 1 分钟</span><span>&nbsp;· <a href=https://blog.cuile.com/tags/network/ title=network class="post_tag button button_translucent">network
+</a>
+</span>
+</div>
+</div>
+<div class=excerpt_footer>
+<div class=pale>
+<p>网卡静态地址 1~# nano /etc/network/interfaces 1auto lo 2iface lo inet loopback 3 4auto eth0 5iface eth0 inet static 6 address 192.168.10.16/24 7 gateway 192.168.10.10 8 hostname alpine DNS 地址 1~# nano /etc/resolv.conf 1nameserver 114.114.114.114 重启网络 1~# service networking restart</p>
+<br>
+<a href=https://blog.cuile.com/posts/alpine_linux/network/ title=阅读更多 class="excerpt_more button">阅读更多</a>
+</div>
+</div>
+</div>
+</li>
+<li class=post_item>
+<div class=excerpt>
+<div class=excerpt_header>
+<h3 class=post_link>
+<a href=https://blog.cuile.com/posts/alpine_linux/alpine_linux_install/ title="Alpine Linux 3.16 安装">Alpine Linux 3.16 安装</a>
+</h3>
+<div class=post_meta>
+<span><svg class="icon"><title>calendar</title><use xlink:href="#calendar"/></svg>
+</span>
+<span class=post_date>
+2022-06-19</span>
+<span class=post_time> · 阅读时长 2 分钟</span>
+</div>
+</div>
+<div class=excerpt_footer>
+<div class=pale>
+<p><ol>
+<li>准备系统 Alpine 有许多版本，其中 VIRTUAL 是专门针对虚拟环境优化过的，所以主要使用这个版本来安装。 <a href=https://www.alpinelinux.org/downloads/>https://www.alpinelinux.org/downloads/</a> 2. 登录 1... 2# 使用启动盘启动后，直接使用 root 登录系统 3localhost login: root</li>
+</ol>
+</p>
+<br>
+<a href=https://blog.cuile.com/posts/alpine_linux/alpine_linux_install/ title=阅读更多 class="excerpt_more button">阅读更多</a>
+</div>
+</div>
+</div>
+</li>
+<li class=post_item>
+<div class=excerpt>
+<div class=excerpt_header>
+<h3 class=post_link>
+<a href=https://blog.cuile.com/posts/git/git_cli/ title="Git 命令行">Git 命令行</a>
+</h3>
+<div class=post_meta>
+<span><svg class="icon"><title>calendar</title><use xlink:href="#calendar"/></svg>
+</span>
+<span class=post_date>
+2022-05-16</span>
+<span class=post_time> · 阅读时长 1 分钟</span>
+</div>
+</div>
+<div class=excerpt_footer>
+<div class=pale>
+<p>拉取 1$ git pull 删除本地文件后，从远端重新拉取最新版本 git提示： up-to-date. 但未从远端得到文件 查看本地分支是否发生变化 1$ git branch -a 如本地库处于另一个分支中，需</p>
+<br>
+<a href=https://blog.cuile.com/posts/git/git_cli/ title=阅读更多 class="excerpt_more button">阅读更多</a>
+</div>
+</div>
+</div>
+</li>
+<li class=post_item>
+<div class=excerpt>
+<div class=excerpt_header>
+<h3 class=post_link>
+<a href=https://blog.cuile.com/posts/docker/docker_install_snap/ title="使用 Snap 安装 Docker">使用 Snap 安装 Docker</a>
+</h3>
+<div class=post_meta>
+<span><svg class="icon"><title>calendar</title><use xlink:href="#calendar"/></svg>
+</span>
+<span class=post_date>
+2022-05-11</span>
+<span class=post_time> · 阅读时长 1 分钟</span><span>&nbsp;· <a href=https://blog.cuile.com/tags/snap/ title=Snap class="post_tag button button_translucent">Snap
+</a>
+</span>
+</div>
+</div>
+<div class=excerpt_footer>
+<div class=pale>
+<p>尝试使用 Ubuntu 的 Snap 后，发现真的非常方便。 看过Snap的介绍以后，发现Snap的沙盒理念非常先进，在存储基本不成问题背景下，会系统环境的影响更小。</p>
+<br>
+<a href=https://blog.cuile.com/posts/docker/docker_install_snap/ title=阅读更多 class="excerpt_more button">阅读更多</a>
+</div>
+</div>
+</div>
+</li>
+<li class=post_item>
+<div class=excerpt>
+<div class=excerpt_header>
+<h3 class=post_link>
 <a href=https://blog.cuile.com/posts/docker/docker_install_centos/ title="CentOS 7 安装 Docker">CentOS 7 安装 Docker</a>
 </h3>
 <div class=post_meta>
@@ -60,8 +210,7 @@
 </span>
 <span class=post_date>
 2022-05-06</span>
-<span class=post_time> · 阅读时长 2 分钟</span><span>&nbsp;· <a href=https://blog.cuile.com/tags/docker/ title=Docker class="post_tag button button_translucent">Docker
-</a><a href=https://blog.cuile.com/tags/centos-7/ title="CentOS 7" class="post_tag button button_translucent">CentOS 7
+<span class=post_time> · 阅读时长 2 分钟</span><span>&nbsp;· <a href=https://blog.cuile.com/tags/centos-7/ title="CentOS 7" class="post_tag button button_translucent">CentOS 7
 </a>
 </span>
 </div>
@@ -71,6 +220,29 @@
 <p>其实网上相关的文章已经非常多了，所以这篇文章的作用只是记录和明确一条确定可行的操作路径，为以后的操作节省时间，毕竟像我一样大部分人都不是专业</p>
 <br>
 <a href=https://blog.cuile.com/posts/docker/docker_install_centos/ title=阅读更多 class="excerpt_more button">阅读更多</a>
+</div>
+</div>
+</div>
+</li>
+<li class=post_item>
+<div class=excerpt>
+<div class=excerpt_header>
+<h3 class=post_link>
+<a href=https://blog.cuile.com/posts/proxmox/proxmox_rrd_error/ title="修复 Proxmox RRD 错误">修复 Proxmox RRD 错误</a>
+</h3>
+<div class=post_meta>
+<span><svg class="icon"><title>calendar</title><use xlink:href="#calendar"/></svg>
+</span>
+<span class=post_date>
+2022-02-08</span>
+<span class=post_time> · 阅读时长 1 分钟</span>
+</div>
+</div>
+<div class=excerpt_footer>
+<div class=pale>
+<p>Proxmox系统安装后，日志报错 1rrdcached[4513]: handle_request_update: Could not read RRD file. 2pmxcfs[4527]: [status] notice: RRDC update error /var/lib/rrdcached/db/pve2-vm/85235: -1 3pmxcfs[4527]: [status] notice: RRD update error /var/lib/rrdcached/db/pve2-vm/85235: mmaping file '/var/lib/rrdcached/db/pve2-vm/85235': …</p>
+<br>
+<a href=https://blog.cuile.com/posts/proxmox/proxmox_rrd_error/ title=阅读更多 class="excerpt_more button">阅读更多</a>
 </div>
 </div>
 </div>
@@ -106,30 +278,50 @@
 <div class=excerpt>
 <div class=excerpt_header>
 <h3 class=post_link>
-<a href=https://blog.cuile.com/posts/centos/linux_cli_manual/ title=Linux系统命令>Linux系统命令</a>
+<a href=https://blog.cuile.com/posts/centos/linux_kernel_update/ title=Linux系统内核升级>Linux系统内核升级</a>
 </h3>
 <div class=post_meta>
 <span><svg class="icon"><title>calendar</title><use xlink:href="#calendar"/></svg>
 </span>
 <span class=post_date>
-2022-01-17</span>
-<span class=post_time> · 阅读时长 2 分钟</span><span>&nbsp;· <a href=https://blog.cuile.com/tags/linux/ title=Linux class="post_tag button button_translucent">Linux
-</a><a href=https://blog.cuile.com/tags/centos-7/ title="Centos 7" class="post_tag button button_translucent">Centos 7
-</a><a href=https://blog.cuile.com/tags/cli/ title=CLI class="post_tag button button_translucent">CLI
+2022-02-08</span>
+<span class=post_time> · 阅读时长 1 分钟</span><span>&nbsp;· <a href=https://blog.cuile.com/tags/linux/ title=Linux class="post_tag button button_translucent">Linux
+</a><a href=https://blog.cuile.com/tags/centos-7/ title="CentOS 7" class="post_tag button button_translucent">CentOS 7
+</a><a href=https://blog.cuile.com/tags/kernel/ title=kernel class="post_tag button button_translucent">kernel
 </a>
 </span>
 </div>
 </div>
 <div class=excerpt_footer>
 <div class=pale>
-<p>脚本基于Centos 7 系统进程操作 查看CPU和内存使用情况 1# 定位高CPU占用 2$ ps H -eo user,pid,ppid,tid,time,%cpu,cmd --sort=%cpu 3# 可视化显示CPU的使用状况的工具 4$ yum install -y htop 5$ htop 磁盘</p>
+<p>脚本基于Centos 7 1、查看系统内核版本 1$ uname -r 23.10.0-514.26.2.el7.x86_64 3$ cat /etc/redhat-release 4CentOS Linux release 7.6.1810 (Core) 2、升级内核 导入elrepo的key，然后安装elrepo的yum源 1$ rpm -import</p>
 <br>
-<a href=https://blog.cuile.com/posts/centos/linux_cli_manual/ title=阅读更多 class="excerpt_more button">阅读更多</a>
+<a href=https://blog.cuile.com/posts/centos/linux_kernel_update/ title=阅读更多 class="excerpt_more button">阅读更多</a>
 </div>
 </div>
 </div>
 </li>
 <li>
+<ul class="pagination pagination-default">
+<li class="page-item disabled">
+<a aria-disabled=true aria-label=First class=page-link role=button tabindex=-1><span aria-hidden=true>&#171;&#171;</span></a>
+</li>
+<li class="page-item disabled">
+<a aria-disabled=true aria-label=Previous class=page-link role=button tabindex=-1><span aria-hidden=true>&#171;</span></a>
+</li>
+<li class="page-item active">
+<a aria-current=page aria-label="Page 1" class=page-link role=button>1</a>
+</li>
+<li class=page-item>
+<a href=/categories/%E7%B3%BB%E7%BB%9F%E9%85%8D%E7%BD%AE/page/2/ aria-label="Page 2" class=page-link role=button>2</a>
+</li>
+<li class=page-item>
+<a href=/categories/%E7%B3%BB%E7%BB%9F%E9%85%8D%E7%BD%AE/page/2/ aria-label=Next class=page-link role=button><span aria-hidden=true>&#187;</span></a>
+</li>
+<li class=page-item>
+<a href=/categories/%E7%B3%BB%E7%BB%9F%E9%85%8D%E7%BD%AE/page/2/ aria-label=Last class=page-link role=button><span aria-hidden=true>&#187;&#187;</span></a>
+</li>
+</ul>
 </li>
 </ul>
 </div>
@@ -170,25 +362,77 @@
 <div>
 <h2 class="mt-4 taxonomy" id=categories-section>分类</h2>
 <nav class=tags_nav>
+<a href=https://blog.cuile.com/categories/%E7%B3%BB%E7%BB%9F%E9%85%8D%E7%BD%AE/ class="post_tag button button_translucent" title=系统配置>
+系统配置
+<span class=button_tally>19</span>
+</a>
 <a href=https://blog.cuile.com/categories/life-tips/ class="post_tag button button_translucent" title=life-tips>
 LIFE-TIPS
 <span class=button_tally>4</span>
 </a>
-<a href=https://blog.cuile.com/categories/%E7%B3%BB%E7%BB%9F%E9%85%8D%E7%BD%AE/ class="post_tag button button_translucent" title=系统配置>
-系统配置
-<span class=button_tally>3</span>
+<a href=https://blog.cuile.com/categories/%E7%BC%96%E7%A8%8B/ class="post_tag button button_translucent" title=编程>
+编程
+<span class=button_tally>4</span>
+</a>
+<a href=https://blog.cuile.com/categories/%E5%9D%A6%E5%85%8B%E4%B8%96%E7%95%8C/ class="post_tag button button_translucent" title=坦克世界>
+坦克世界
+<span class=button_tally>1</span>
+</a>
+<a href=https://blog.cuile.com/categories/%E7%BC%96%E8%AF%91/ class="post_tag button button_translucent" title=编译>
+编译
+<span class=button_tally>1</span>
 </a>
 </nav>
 </div>
 <div>
 <h2 class="mt-4 taxonomy" id=series-section>专栏</h2>
 <nav class=tags_nav>
+<a href=https://blog.cuile.com/series/cli/ class="post_tag button button_translucent" title=cli>
+CLI
+<span class=button_tally>8</span>
+</a>
+<a href=https://blog.cuile.com/series/docker/ class="post_tag button button_translucent" title=docker>
+DOCKER
+<span class=button_tally>4</span>
+</a>
+<a href=https://blog.cuile.com/series/openwrt/ class="post_tag button button_translucent" title=openwrt>
+OPENWRT
+<span class=button_tally>4</span>
+</a>
+<a href=https://blog.cuile.com/series/alpine-linux/ class="post_tag button button_translucent" title=alpine-linux>
+ALPINE-LINUX
+<span class=button_tally>3</span>
+</a>
 <a href=https://blog.cuile.com/series/centos/ class="post_tag button button_translucent" title=centos>
 CENTOS
 <span class=button_tally>3</span>
 </a>
-<a href=https://blog.cuile.com/series/docker/ class="post_tag button button_translucent" title=docker>
-DOCKER
+<a href=https://blog.cuile.com/series/python/ class="post_tag button button_translucent" title=python>
+PYTHON
+<span class=button_tally>3</span>
+</a>
+<a href=https://blog.cuile.com/series/git/ class="post_tag button button_translucent" title=git>
+GIT
+<span class=button_tally>2</span>
+</a>
+<a href=https://blog.cuile.com/series/proxmox/ class="post_tag button button_translucent" title=proxmox>
+PROXMOX
+<span class=button_tally>2</span>
+</a>
+<a href=https://blog.cuile.com/series/django/ class="post_tag button button_translucent" title=django>
+DJANGO
+<span class=button_tally>1</span>
+</a>
+<a href=https://blog.cuile.com/series/python3/ class="post_tag button button_translucent" title=python3>
+PYTHON3
+<span class=button_tally>1</span>
+</a>
+<a href=https://blog.cuile.com/series/shadowsocks/ class="post_tag button button_translucent" title=shadowsocks>
+SHADOWSOCKS
+<span class=button_tally>1</span>
+</a>
+<a href=https://blog.cuile.com/series/%E7%81%AB%E7%82%AE/ class="post_tag button button_translucent" title=火炮>
+火炮
 <span class=button_tally>1</span>
 </a>
 </nav>
@@ -196,41 +440,13 @@ DOCKER
 <div>
 <h2 class="mt-4 taxonomy" id=tags-section>标签</h2>
 <nav class=tags_nav>
-<a href=https://blog.cuile.com/tags/linux/ class="post_tag button button_translucent" title=linux>
-LINUX
-<span class=button_tally>8</span>
-</a>
 <a href=https://blog.cuile.com/tags/centos-7/ class="post_tag button button_translucent" title=centos-7>
 CENTOS-7
 <span class=button_tally>7</span>
 </a>
-<a href=https://blog.cuile.com/tags/docker/ class="post_tag button button_translucent" title=docker>
-DOCKER
-<span class=button_tally>5</span>
-</a>
-<a href=https://blog.cuile.com/tags/openwrt/ class="post_tag button button_translucent" title=openwrt>
-OPENWRT
-<span class=button_tally>4</span>
-</a>
-<a href=https://blog.cuile.com/tags/alpine-linux/ class="post_tag button button_translucent" title=alpine-linux>
-ALPINE-LINUX
-<span class=button_tally>3</span>
-</a>
-<a href=https://blog.cuile.com/tags/python/ class="post_tag button button_translucent" title=python>
-PYTHON
-<span class=button_tally>3</span>
-</a>
-<a href=https://blog.cuile.com/tags/cli/ class="post_tag button button_translucent" title=cli>
-CLI
-<span class=button_tally>2</span>
-</a>
-<a href=https://blog.cuile.com/tags/git/ class="post_tag button button_translucent" title=git>
-GIT
-<span class=button_tally>2</span>
-</a>
-<a href=https://blog.cuile.com/tags/proxmox/ class="post_tag button button_translucent" title=proxmox>
-PROXMOX
-<span class=button_tally>2</span>
+<a href=https://blog.cuile.com/tags/linux/ class="post_tag button button_translucent" title=linux>
+LINUX
+<span class=button_tally>7</span>
 </a>
 <a href=https://blog.cuile.com/tags/alg/ class="post_tag button button_translucent" title=alg>
 ALG
@@ -240,16 +456,44 @@ ALG
 BLOG
 <span class=button_tally>1</span>
 </a>
-<a href=https://blog.cuile.com/tags/django/ class="post_tag button button_translucent" title=django>
-DJANGO
-<span class=button_tally>1</span>
-</a>
 <a href=https://blog.cuile.com/tags/dns/ class="post_tag button button_translucent" title=dns>
 DNS
 <span class=button_tally>1</span>
 </a>
+<a href=https://blog.cuile.com/tags/docker/ class="post_tag button button_translucent" title=docker>
+DOCKER
+<span class=button_tally>1</span>
+</a>
 <a href=https://blog.cuile.com/tags/ffmpeg/ class="post_tag button button_translucent" title=ffmpeg>
 FFMPEG
+<span class=button_tally>1</span>
+</a>
+<a href=https://blog.cuile.com/tags/firewall/ class="post_tag button button_translucent" title=firewall>
+FIREWALL
+<span class=button_tally>1</span>
+</a>
+<a href=https://blog.cuile.com/tags/ftp/ class="post_tag button button_translucent" title=ftp>
+FTP
+<span class=button_tally>1</span>
+</a>
+<a href=https://blog.cuile.com/tags/github/ class="post_tag button button_translucent" title=github>
+GITHUB
+<span class=button_tally>1</span>
+</a>
+<a href=https://blog.cuile.com/tags/harmonyos/ class="post_tag button button_translucent" title=harmonyos>
+HARMONYOS
+<span class=button_tally>1</span>
+</a>
+<a href=https://blog.cuile.com/tags/http/ class="post_tag button button_translucent" title=http>
+HTTP
+<span class=button_tally>1</span>
+</a>
+<a href=https://blog.cuile.com/tags/hugo/ class="post_tag button button_translucent" title=hugo>
+HUGO
+<span class=button_tally>1</span>
+</a>
+<a href=https://blog.cuile.com/tags/iptables/ class="post_tag button button_translucent" title=iptables>
+IPTABLES
 <span class=button_tally>1</span>
 </a>
 <br>
@@ -258,27 +502,19 @@ FFMPEG
 <div class=tags_list>
 <a href=https://blog.cuile.com/tags/alg/ class="post_tag button button_translucent" data-position=1 title=alg>ALG<span class=button_tally>1</span>
 </a>
-<a href=https://blog.cuile.com/tags/alpine-linux/ class="post_tag button button_translucent" data-position=3 title=alpine-linux>ALPINE-LINUX<span class=button_tally>3</span>
-</a>
 <a href=https://blog.cuile.com/tags/blog/ class="post_tag button button_translucent" data-position=1 title=blog>BLOG<span class=button_tally>1</span>
 </a>
 <a href=https://blog.cuile.com/tags/centos-7/ class="post_tag button button_translucent" data-position=7 title=centos-7>CENTOS-7<span class=button_tally>7</span>
 </a>
-<a href=https://blog.cuile.com/tags/cli/ class="post_tag button button_translucent" data-position=2 title=cli>CLI<span class=button_tally>2</span>
-</a>
-<a href=https://blog.cuile.com/tags/django/ class="post_tag button button_translucent" data-position=1 title=django>DJANGO<span class=button_tally>1</span>
-</a>
 <a href=https://blog.cuile.com/tags/dns/ class="post_tag button button_translucent" data-position=1 title=dns>DNS<span class=button_tally>1</span>
 </a>
-<a href=https://blog.cuile.com/tags/docker/ class="post_tag button button_translucent" data-position=5 title=docker>DOCKER<span class=button_tally>5</span>
+<a href=https://blog.cuile.com/tags/docker/ class="post_tag button button_translucent" data-position=1 title=docker>DOCKER<span class=button_tally>1</span>
 </a>
 <a href=https://blog.cuile.com/tags/ffmpeg/ class="post_tag button button_translucent" data-position=1 title=ffmpeg>FFMPEG<span class=button_tally>1</span>
 </a>
 <a href=https://blog.cuile.com/tags/firewall/ class="post_tag button button_translucent" data-position=1 title=firewall>FIREWALL<span class=button_tally>1</span>
 </a>
 <a href=https://blog.cuile.com/tags/ftp/ class="post_tag button button_translucent" data-position=1 title=ftp>FTP<span class=button_tally>1</span>
-</a>
-<a href=https://blog.cuile.com/tags/git/ class="post_tag button button_translucent" data-position=2 title=git>GIT<span class=button_tally>2</span>
 </a>
 <a href=https://blog.cuile.com/tags/github/ class="post_tag button button_translucent" data-position=1 title=github>GITHUB<span class=button_tally>1</span>
 </a>
@@ -294,7 +530,9 @@ FFMPEG
 </a>
 <a href=https://blog.cuile.com/tags/keychain/ class="post_tag button button_translucent" data-position=1 title=keychain>KEYCHAIN<span class=button_tally>1</span>
 </a>
-<a href=https://blog.cuile.com/tags/linux/ class="post_tag button button_translucent" data-position=8 title=linux>LINUX<span class=button_tally>8</span>
+<a href=https://blog.cuile.com/tags/linux/ class="post_tag button button_translucent" data-position=7 title=linux>LINUX<span class=button_tally>7</span>
+</a>
+<a href=https://blog.cuile.com/tags/make/ class="post_tag button button_translucent" data-position=1 title=make>MAKE<span class=button_tally>1</span>
 </a>
 <a href=https://blog.cuile.com/tags/mysql/ class="post_tag button button_translucent" data-position=1 title=mysql>MYSQL<span class=button_tally>1</span>
 </a>
@@ -304,17 +542,11 @@ FFMPEG
 </a>
 <a href=https://blog.cuile.com/tags/nmcli/ class="post_tag button button_translucent" data-position=1 title=nmcli>NMCLI<span class=button_tally>1</span>
 </a>
-<a href=https://blog.cuile.com/tags/openwrt/ class="post_tag button button_translucent" data-position=4 title=openwrt>OPENWRT<span class=button_tally>4</span>
-</a>
 <a href=https://blog.cuile.com/tags/pip3/ class="post_tag button button_translucent" data-position=1 title=pip3>PIP3<span class=button_tally>1</span>
-</a>
-<a href=https://blog.cuile.com/tags/proxmox/ class="post_tag button button_translucent" data-position=2 title=proxmox>PROXMOX<span class=button_tally>2</span>
 </a>
 <a href=https://blog.cuile.com/tags/proxy/ class="post_tag button button_translucent" data-position=1 title=proxy>PROXY<span class=button_tally>1</span>
 </a>
 <a href=https://blog.cuile.com/tags/pypi/ class="post_tag button button_translucent" data-position=1 title=pypi>PYPI<span class=button_tally>1</span>
-</a>
-<a href=https://blog.cuile.com/tags/python/ class="post_tag button button_translucent" data-position=3 title=python>PYTHON<span class=button_tally>3</span>
 </a>
 <a href=https://blog.cuile.com/tags/python3/ class="post_tag button button_translucent" data-position=1 title=python3>PYTHON3<span class=button_tally>1</span>
 </a>
@@ -322,15 +554,9 @@ FFMPEG
 </a>
 <a href=https://blog.cuile.com/tags/sed/ class="post_tag button button_translucent" data-position=1 title=sed>SED<span class=button_tally>1</span>
 </a>
-<a href=https://blog.cuile.com/tags/shadowsocks/ class="post_tag button button_translucent" data-position=1 title=shadowsocks>SHADOWSOCKS<span class=button_tally>1</span>
-</a>
-<a href=https://blog.cuile.com/tags/shell/ class="post_tag button button_translucent" data-position=1 title=shell>SHELL<span class=button_tally>1</span>
-</a>
 <a href=https://blog.cuile.com/tags/snap/ class="post_tag button button_translucent" data-position=1 title=snap>SNAP<span class=button_tally>1</span>
 </a>
 <a href=https://blog.cuile.com/tags/ssh/ class="post_tag button button_translucent" data-position=1 title=ssh>SSH<span class=button_tally>1</span>
-</a>
-<a href=https://blog.cuile.com/tags/tips/ class="post_tag button button_translucent" data-position=1 title=tips>TIPS<span class=button_tally>1</span>
 </a>
 <a href=https://blog.cuile.com/tags/ubuntu/ class="post_tag button button_translucent" data-position=1 title=ubuntu>UBUNTU<span class=button_tally>1</span>
 </a>
@@ -340,7 +566,7 @@ FFMPEG
 </a>
 <a href=https://blog.cuile.com/tags/windwos-10/ class="post_tag button button_translucent" data-position=1 title=windwos-10>WINDWOS-10<span class=button_tally>1</span>
 </a>
-<a href=https://blog.cuile.com/tags/%E5%9D%A6%E5%85%8B%E4%B8%96%E7%95%8C/ class="post_tag button button_translucent" data-position=1 title=坦克世界>坦克世界<span class=button_tally>1</span>
+<a href=https://blog.cuile.com/tags/%E5%BF%83%E5%BE%97%E4%BD%93%E4%BC%9A/ class="post_tag button button_translucent" data-position=1 title=心得体会>心得体会<span class=button_tally>1</span>
 </a>
 <a href=https://blog.cuile.com/tags/%E7%B3%BB%E7%BB%9F%E4%BC%98%E5%8C%96/ class="post_tag button button_translucent" data-position=1 title=系统优化>系统优化<span class=button_tally>1</span>
 </a>
