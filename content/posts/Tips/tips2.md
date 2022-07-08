@@ -2,13 +2,11 @@
 title: "小差别"
 date: 2022-05-10T17:18:14+08:00
 # draft: true
-# 标签
 tags:
-# 专栏
 series:
-# 分类
+- work tips
 categories:
-- life tips
+- tips
 ---
 
 - 见微知著，是对事物发展规律的洞察。

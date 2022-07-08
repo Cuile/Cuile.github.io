@@ -2,13 +2,11 @@
 title: "七态为品"
 date: 2022-05-10T17:09:59+08:00
 # draft: true
-# 标签
 tags:
-# 专栏
 series:
-# 分类
-categories:
 - life tips
+categories:
+- tips
 ---
 
 - 交浅语深，动机不良。

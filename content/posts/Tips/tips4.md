@@ -2,14 +2,11 @@
 title: "对联"
 date: 2022-06-27T10:38:38+08:00
 # draft: true
-
-# 标签
 tags:
-# 专栏
 series:
-# 分类
-categories:
 - life tips
+categories:
+- tips
 ---
 
 仗义每多屠狗辈，负心多是读书人[<sup>1</sup>]

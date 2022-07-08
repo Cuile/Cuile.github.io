@@ -2,13 +2,11 @@
 title: "能力的评价"
 date: 2022-05-10T17:28:52+08:00
 # draft: true
-# 标签
 tags:
-# 专栏
 series:
-# 分类
+- work tips
 categories:
-- life tips
+- tips
 ---
 
 ### 1 能力是否特殊？
