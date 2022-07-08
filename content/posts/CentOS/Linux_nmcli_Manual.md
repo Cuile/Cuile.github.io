@@ -6,6 +6,10 @@ tags:
 - Linux
 - nmcli
 - Centos 7
+series:
+- CLI
+categories:
+- 系统配置
 ---
 
 **`脚本基于Centos 7`**

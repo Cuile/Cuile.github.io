@@ -7,6 +7,10 @@ tags:
 - CentOS 7
 - iptables
 - Firewall
+series:
+- CLI
+categories:
+- 系统配置
 ---
 
 **`脚本基于Centos 7`**

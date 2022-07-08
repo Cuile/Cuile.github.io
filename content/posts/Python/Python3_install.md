@@ -6,6 +6,11 @@ tags:
 - Python3
 - pip3
 - CentOS 7
+series:
+- Python3
+- CentOS
+categories:
+- 编程
 ---
 
 ## 1、卸载已安装的Python环境

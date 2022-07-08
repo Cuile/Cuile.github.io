@@ -5,9 +5,8 @@ date: 2022-01-17T11:07:07+08:00
 tags: 
 - Linux
 - Centos 7
-- CLI
 series:
-- CentOS
+- CLI
 categories:
 - 系统配置
 ---

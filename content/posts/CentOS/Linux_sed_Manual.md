@@ -6,7 +6,11 @@ tags:
 - Linux
 - sed
 - Ubuntu
+series:
 - CLI
+categories:
+- 系统配置
+
 ---
 
 **`脚本基于Ubuntu 20.04`**

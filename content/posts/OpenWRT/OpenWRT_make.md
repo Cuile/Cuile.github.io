@@ -3,7 +3,11 @@ title: "编译x86_64版本的OpenWrt"
 date: 2022-02-08T10:05:20+08:00
 # draft: true
 tags:
+- make
+series:
 - OpenWRT
+categories:
+- 编译
 ---
 
 ## 1、准备环境

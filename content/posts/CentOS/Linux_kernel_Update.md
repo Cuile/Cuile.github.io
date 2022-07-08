@@ -6,6 +6,10 @@ tags:
 - Linux
 - CentOS 7
 - kernel
+series:
+- CLI
+categories:
+- 系统配置
 ---
 
 **`脚本基于Centos 7`**

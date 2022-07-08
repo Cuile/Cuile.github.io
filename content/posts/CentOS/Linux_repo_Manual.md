@@ -8,6 +8,7 @@ tags:
 - Centos 7
 series:
 - CentOS
+- CLI
 categories:
 - 系统配置
 ---

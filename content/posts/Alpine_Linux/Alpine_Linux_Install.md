@@ -3,8 +3,10 @@ title: "Alpine Linux 3.16 安装"
 date: 2022-06-19T11:46:55+08:00
 # draft: true
 tags:
-- Alpine Linux
-- Linux
+series:
+- Alpine linux
+categories:
+- 系统配置
 ---
 
 ## 1. 准备系统

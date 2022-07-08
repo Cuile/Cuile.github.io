@@ -3,8 +3,11 @@ title: "Alpine Linux 网络设置"
 date: 2022-06-19T15:25:18+08:00
 # draft: true
 tags: 
-- Alpine linux
 - network
+series:
+- Alpine linux
+categories:
+- 系统配置
 ---
 
 ## 网卡静态地址

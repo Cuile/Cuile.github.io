@@ -3,9 +3,12 @@ title: "Django 开发简介"
 date: 2022-05-10T16:30:13+08:00
 # draft: true
 tags:
+series:
 - Django
 - Docker
 - Python
+categories:
+- 编程
 ---
 
 ## 1 开发环境

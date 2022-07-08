@@ -3,8 +3,11 @@ title: "Proxmox 配置 NAT 网络"
 date: 2022-02-07T14:07:32+08:00
 # draft: true
 tags:
-- Proxmox
 - NAT
+series:
+- Proxmox
+categories:
+- 系统配置
 ---
 
 ## 1. 升级系统软件包

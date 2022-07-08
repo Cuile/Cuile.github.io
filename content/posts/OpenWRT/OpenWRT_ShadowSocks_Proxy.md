@@ -2,7 +2,12 @@
 title: "OpenWRT 配置透明代理"
 date: 2022-02-07T13:37:19+08:00
 # draft: true
-tags: ["OpenWRT","ShadowSocks","v2ray","proxy"]
+tags: ["v2ray","proxy"]
+series:
+- OpenWRT
+- ShadowSocks
+categories:
+- 系统配置
 ---
 
 本文记录OpenWrt设置透明代理的步骤及原理。

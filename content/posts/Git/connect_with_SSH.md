@@ -3,9 +3,13 @@ title: "使用 SSH 连接 Github"
 date: 2022-06-21T19:20:04+08:00
 # draft: true
 tags:
-- git
 - ssh
 - keychain
+series:
+- git
+categories:
+- 系统配置
+
 ---
 
 ## 生成新的 SSH Key
