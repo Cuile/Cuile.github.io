@@ -3,8 +3,11 @@ title: "火炮使用手册"
 date: 2022-05-13T14:30:22+08:00
 # draft: true
 tags:
+- 心得体会
+series:
+- 火炮
+categories:
 - 坦克世界
-- tips
 ---
 
 1. 开局先找炮位，最好能把车头垫起来。

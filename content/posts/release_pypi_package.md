@@ -2,7 +2,11 @@
 title: "在pypi上发布自己的Python库"
 date: 2018-05-11T14:49:57+08:00
 # draft: true
-tags: ["Python","PyPi"]
+tags: ["PyPi"]
+series:
+- Python
+categories:
+- 编程
 ---
 
 Python 的 pypi.python.org 站点终于要退休了，而新的接任者 pypi.org 无论从美观、风格上都让人大大的喜欢，终于在审美一这项上及格了。

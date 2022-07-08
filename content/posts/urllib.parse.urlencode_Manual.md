@@ -2,7 +2,11 @@
 title: "urllib.parse.urlencode 使用详解"
 date: 2022-01-17T15:24:58+08:00
 # draft: true
-tags: ["Python","http"]
+tags: ["http"]
+series:
+- Python
+categories:
+- 编程
 ---
 
 > urllib.parse.urlencode(query, doseq=False, safe='', encoding=None, errors=None, quote_via=quote_plus)
