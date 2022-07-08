@@ -3,9 +3,10 @@ title: "鸿蒙系统优化"
 date: 2022-05-16T11:09:59+08:00
 # draft: true
 tags:
+series:
 - HarmonyOS
-- 系统优化
-- 鸿蒙
+categories:
+- 系统配置
 ---
 
 ## 保持后台进程运行
