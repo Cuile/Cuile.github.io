@@ -1,24 +1,24 @@
 <!doctype html><html lang=zh-cn data-figures class=page>
 <head>
-<title>Linux系统内核升级 | 瘦了就帅了</title>
+<title>如何不尬聊 | 瘦了就帅了</title>
 <meta charset=utf-8>
 <meta name=viewport content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
 <meta http-equiv=x-ua-compatible content="IE=edge">
 <meta property="og:locale" content="zh-cn">
 <meta property="og:type" content="article">
-<meta name=description content="脚本基于Centos 7 1、查看系统内核版本 1$ uname -r 23.10.0-514.26.2.el7.x86_64 3$ cat /etc/redhat-release 4CentOS Linux release 7.6.1810 (Core) 2、升级内核 导入elrepo的key，然后安装elrepo …">
+<meta name=description content="明拍马屁 - 先明夸 暗拍马屁 - 再谈一路走来的心得">
 <meta name=twitter:card content="summary">
 <meta name=twitter:creator content>
-<meta name=twitter:title content="Linux系统内核升级">
+<meta name=twitter:title content="如何不尬聊">
 <meta name=twitter:image content="https://blog.cuile.com/images/thumbnail.png">
-<meta property="og:url" content="https://blog.cuile.com/posts/centos/linux_kernel_update/">
-<meta property="og:title" content="Linux系统内核升级">
-<meta property="og:description" content="脚本基于Centos 7 1、查看系统内核版本 1$ uname -r 23.10.0-514.26.2.el7.x86_64 3$ cat /etc/redhat-release 4CentOS Linux release 7.6.1810 (Core) 2、升级内核 导入elrepo的key，然后安装elrepo …">
+<meta property="og:url" content="https://blog.cuile.com/posts/tips/tips6/">
+<meta property="og:title" content="如何不尬聊">
+<meta property="og:description" content="明拍马屁 - 先明夸 暗拍马屁 - 再谈一路走来的心得">
 <meta property="og:image" content="https://blog.cuile.com/images/thumbnail.png">
 <link rel=apple-touch-icon sizes=180x180 href=https://blog.cuile.com/icons/apple-touch-icon.png>
 <link rel=icon type=image/png sizes=32x32 href=https://blog.cuile.com/icons/favicon-32x32.png>
 <link rel=manifest href=https://blog.cuile.com/icons/site.webmanifest>
-<link rel=canonical href=https://blog.cuile.com/posts/centos/linux_kernel_update/>
+<link rel=canonical href=https://blog.cuile.com/posts/tips/tips6/>
 <link rel=preload href=https://blog.cuile.com/css/styles.367129801480fead578d7a356a98fcb3bce794981ff18cee55868d198d0d2bf1eb4feac97319d0871c6255183b9fd27a7059e4632c785951f4c4f6953559c4d0.css integrity="sha512-NnEpgBSA/q1XjXo1apj8s7znlJgf8YzuVYaNGY0NK/HrT+rJcxnQhxxiVRg7n9J6cFnkYyx4WVH0xPaVNVnE0A==" as=style crossorigin=anonymous>
 <link rel=preload href=https://blog.cuile.com/zh-cn/js/bundle.4e04b93422786398f3502d560bd5acb3d3f99b2e942c8c11e0fd926ab6ec3ccbd020d4294d58c0825ecb606ef221b34edc81586f1832489816a57ae8f0276615.js as=script integrity="sha512-TgS5NCJ4Y5jzUC1WC9Wss9P5my6ULIwR4P2SarbsPMvQINQpTVjAgl7LYG7yIbNO3IFYbxgySJgWpXro8CdmFQ==" crossorigin=anonymous>
 <link rel=stylesheet type=text/css href=https://blog.cuile.com/css/styles.367129801480fead578d7a356a98fcb3bce794981ff18cee55868d198d0d2bf1eb4feac97319d0871c6255183b9fd27a7059e4632c785951f4c4f6953559c4d0.css integrity="sha512-NnEpgBSA/q1XjXo1apj8s7znlJgf8YzuVYaNGY0NK/HrT+rJcxnQhxxiVRg7n9J6cFnkYyx4WVH0xPaVNVnE0A==" crossorigin=anonymous>
@@ -47,54 +47,18 @@
 <main>
 <div class="grid-inverse wrap content">
 <article class=post_content>
-<h1 class=post_title>Linux系统内核升级</h1>
+<h1 class=post_title>如何不尬聊</h1>
 <div class=post_meta>
 <span><svg class="icon"><title>calendar</title><use xlink:href="#calendar"/></svg>
 </span>
 <span class=post_date>
-2022-02-08</span>
-<span class=post_time> · 阅读时长 1 分钟</span><span>&nbsp;· <a href=https://blog.cuile.com/tags/linux/ title=Linux class="post_tag button button_translucent">Linux
-</a><a href=https://blog.cuile.com/tags/centos-7/ title="CentOS 7" class="post_tag button button_translucent">CentOS 7
-</a><a href=https://blog.cuile.com/tags/kernel/ title=kernel class="post_tag button button_translucent">kernel
-</a>
-</span>
+2022-07-13</span>
+<span class=post_time> · 阅读时长 1 分钟</span>
 </div>
-<div class=post_body><p><strong><code>脚本基于Centos 7</code></strong></p>
-<h2 id=1查看系统内核版本>1、查看系统内核版本</h2>
-<div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=ln>1</span>$ uname -r
-<span class=ln>2</span>3.10.0-514.26.2.el7.x86_64
-<span class=ln>3</span>$ cat /etc/redhat-release 
-<span class=ln>4</span>CentOS Linux release 7.6.1810 <span class=o>(</span>Core<span class=o>)</span>
-</code></pre></div><h2 id=2升级内核>2、升级内核</h2>
-<p>导入elrepo的key，然后安装elrepo的yum源</p>
-<div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=ln>1</span>$ rpm -import https://www.elrepo.org/RPM-GPG-KEY-elrepo.org
-<span class=ln>2</span>$ rpm -Uvh http://www.elrepo.org/elrepo-release-7.0-2.el7.elrepo.noarch.rpm
-</code></pre></div><p>查看可用的内核相关包</p>
-<div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=ln>1</span>$ yum --disablerepo<span class=o>=</span><span class=s2>&#34;*&#34;</span> --enablerepo<span class=o>=</span><span class=s2>&#34;elrepo-kernel&#34;</span> list available
-</code></pre></div><p>主分支ml(mainline)，稳定版(stable)，长期维护版lt(longterm)
-安装内核</p>
-<div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=ln>1</span>$ yum -y --enablerepo<span class=o>=</span>elrepo-kernel install kernel-ml.x86_64 kernel-ml-devel.x86_64
-</code></pre></div><h2 id=3修改grub>3、修改grub</h2>
-<div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=ln> 1</span>$ awk -F<span class=se>\&#39;</span> <span class=s1>&#39;$1==&#34;menuentry &#34; {print $2}&#39;</span> /etc/grub2.cfg
-<span class=ln> 2</span>CentOS Linux <span class=o>(</span>5.2.11-1.el7.elrepo.x86_64<span class=o>)</span> <span class=m>7</span> <span class=o>(</span>Core<span class=o>)</span>
-<span class=ln> 3</span>CentOS Linux <span class=o>(</span>3.10.0-957.27.2.el7.x86_64<span class=o>)</span> <span class=m>7</span> <span class=o>(</span>Core<span class=o>)</span>
-<span class=ln> 4</span>CentOS Linux <span class=o>(</span>3.10.0-514.26.2.el7.x86_64<span class=o>)</span> <span class=m>7</span> <span class=o>(</span>Core<span class=o>)</span>
-<span class=ln> 5</span>CentOS Linux <span class=o>(</span>3.10.0-514.el7.x86_64<span class=o>)</span> <span class=m>7</span> <span class=o>(</span>Core<span class=o>)</span>
-<span class=ln> 6</span>CentOS Linux <span class=o>(</span>0-rescue-963c2c41b08343f7b063dddac6b2e486<span class=o>)</span> <span class=m>7</span> <span class=o>(</span>Core<span class=o>)</span>
-<span class=ln> 7</span><span class=c1># 新内核（5.2.11）在0的位置上</span>
-<span class=ln> 8</span>
-<span class=ln> 9</span>$ vim /etc/default/grub
-<span class=ln>10</span><span class=c1>#将 GRUB_DEFAULT=saved 改为 GRUB_DEFAULT=0</span>
-<span class=ln>11</span>
-<span class=ln>12</span><span class=c1># 重建内核配置</span>
-<span class=ln>13</span>$ grub2-mkconfig -o /boot/grub2/grub.cfg
-</code></pre></div><h2 id=4重启系统>4、重启系统</h2>
-<div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=ln>1</span>$ reboot
-<span class=ln>2</span>
-<span class=ln>3</span><span class=c1>#查看内核版本</span>
-<span class=ln>4</span>$ uname -r
-<span class=ln>5</span>5.2.11-1.el7.elrepo.x86_64
-</code></pre></div>
+<div class=post_body><ul>
+<li>明拍马屁 - 先明夸</li>
+<li>暗拍马屁 - 再谈一路走来的心得</li>
+</ul>
 </div>
 <h2 class=post_related>相关专栏文章</h2>
 <ul>
@@ -113,9 +77,6 @@
 </ul>
 <h2 class=mt-4>最新文章</h2>
 <ul class=flex-column>
-<li>
-<a href=https://blog.cuile.com/posts/tips/tips6/ class=nav-link title=如何不尬聊>如何不尬聊</a>
-</li>
 <li>
 <a href=https://blog.cuile.com/posts/tips/tips5/ class=nav-link title=传统美德>传统美德</a>
 </li>
@@ -136,6 +97,9 @@
 </li>
 <li>
 <a href=https://blog.cuile.com/posts/ups/ups_install/ class=nav-link title="山克 UPS 安装手册">山克 UPS 安装手册</a>
+</li>
+<li>
+<a href=https://blog.cuile.com/posts/git/git_cli/ class=nav-link title="Git 命令行">Git 命令行</a>
 </li>
 </ul>
 <div>
