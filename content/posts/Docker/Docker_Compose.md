@@ -18,7 +18,7 @@ categories:
 ### 字符串方式
 
 ```yml
-    command: /bin/bash -c "cp /app/dtest/config.default.yml /app/config.yml &amp;&amp; python -u /app/dtest/tcc.py"
+    command: /bin/bash -c "cp /app/dtest/config.default.yml /app/config.yml && python -u /app/dtest/tcc.py"
     # 另一种方式
     command: /bin/bash -c " while true; do sleep 1; done"
 ```
