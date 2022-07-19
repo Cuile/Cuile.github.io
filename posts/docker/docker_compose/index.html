@@ -6,14 +6,14 @@
 <meta http-equiv=x-ua-compatible content="IE=edge">
 <meta property="og:locale" content="zh-cn">
 <meta property="og:type" content="article">
-<meta name=description content="command 指令 字符串方式 1command:/bin/bash -c &#34;cp /app/dtest/config.default.yml /app/config.yml &amp;amp;&amp;amp; python -u /app/dtest/tcc.py&#34;2# 另一种方 …">
+<meta name=description content="command 指令 字符串方式 1command:/bin/bash -c &#34;cp /app/dtest/config.default.yml /app/config.yml && python -u /app/dtest/tcc.py&#34;2# 另一种方 …">
 <meta name=twitter:card content="summary">
 <meta name=twitter:creator content>
 <meta name=twitter:title content="Docker_Compose命令">
 <meta name=twitter:image content="https://blog.cuile.com/images/thumbnail.png">
 <meta property="og:url" content="https://blog.cuile.com/posts/docker/docker_compose/">
 <meta property="og:title" content="Docker_Compose命令">
-<meta property="og:description" content="command 指令 字符串方式 1command:/bin/bash -c &#34;cp /app/dtest/config.default.yml /app/config.yml &amp;amp;&amp;amp; python -u /app/dtest/tcc.py&#34;2# 另一种方 …">
+<meta property="og:description" content="command 指令 字符串方式 1command:/bin/bash -c &#34;cp /app/dtest/config.default.yml /app/config.yml && python -u /app/dtest/tcc.py&#34;2# 另一种方 …">
 <meta property="og:image" content="https://blog.cuile.com/images/thumbnail.png">
 <link rel=apple-touch-icon sizes=180x180 href=https://blog.cuile.com/icons/apple-touch-icon.png>
 <link rel=icon type=image/png sizes=32x32 href=https://blog.cuile.com/icons/favicon-32x32.png>
@@ -59,7 +59,7 @@
 </div>
 <div class=post_body><h2 id=command-指令>command 指令</h2>
 <h3 id=字符串方式>字符串方式</h3>
-<div class=highlight><pre tabindex=0 class=chroma><code class=language-yml data-lang=yml><span class=ln>1</span><span class=w>    </span><span class=nt>command</span><span class=p>:</span><span class=w> </span><span class=l>/bin/bash -c &#34;cp /app/dtest/config.default.yml /app/config.yml &amp;amp;&amp;amp; python -u /app/dtest/tcc.py&#34;</span><span class=w>
+<div class=highlight><pre tabindex=0 class=chroma><code class=language-yml data-lang=yml><span class=ln>1</span><span class=w>    </span><span class=nt>command</span><span class=p>:</span><span class=w> </span><span class=l>/bin/bash -c &#34;cp /app/dtest/config.default.yml /app/config.yml &amp;&amp; python -u /app/dtest/tcc.py&#34;</span><span class=w>
 </span><span class=ln>2</span><span class=w>    </span><span class=c># 另一种方式</span><span class=w>
 </span><span class=ln>3</span><span class=w>    </span><span class=nt>command</span><span class=p>:</span><span class=w> </span><span class=l>/bin/bash -c &#34; while true; do sleep 1; done&#34;</span><span class=w>
 </span></code></pre></div><h3 id=配置文件方式>配置文件方式</h3>
