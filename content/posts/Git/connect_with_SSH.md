@@ -42,6 +42,8 @@ $ cat ~/.ssh/github.com.key.pub
 
 1. 安装keychain
 
+如果找不到软件，更换软件源 [Linux 版本库管理](../CentOS/Linux_repo_Manual.md)
+
 ```bash
 $ yum install -y keychain
 # or
