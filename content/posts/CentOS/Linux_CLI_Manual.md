@@ -88,17 +88,16 @@ $ hostnamectl --pretty set-hostname ${_hostname_}
 ## 修改命令提示符
 
 ```bash
+$ nano .bash_profile
+
 # [HH:MM user@hostname path] 命令提示符
-$ echo 'export PS1="[\A \u@\H \w]\\$ "' >> /etc/bashrc
+export PS1="[\A \u@\H \w]\\$ "
 
 # [yyyy-mm-dd HH:MM] path
 # [user@hostname] 命令提示符
-$ export PS1='''
+export PS1='''
 \[\e[36;40m\][\D{%Y-%m-%d} \A] \[\e[0m\] \[\e[35;40m\]\w\[\e[0m\]
 \[\e[33;40m\][\u@\H]\[\e[0m\]  \\$ '''
-
-# 让配置生效
-$ source /etc/bashrc
 ```
 
 - [命令提示符设置参考](https://www.linuxidc.com/Linux/2017-10/147438.htm)
