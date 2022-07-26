@@ -37,14 +37,16 @@ $ yum -y upgrade
 
 ```bash
 # 备份原镜像文件，以免出错后可以恢复。
-$ mv /etc/yum.repos.d/CentOS-Base.repo /etc/yum.repos.d/CentOS-Base.repo.back
+$ mv /etc/yum.repos.d/CentOS-Base.repo /etc/yum.repos.d/CentOS-Base.repo.backup \
+    && mv /etc/yum.repos.d/epel.repo /etc/yum.repos.d/epel.repo.backup \
+    && mv /etc/yum.repos.d/epel-testing.repo /etc/yum.repos.d/epel-testing.repo.backup
 
 # 下载新的CentOS-Base.repo 到/etc/yum.repos.d/
-$ wget -O /etc/yum.repos.d/CentOS-Base.repo http://mirrors.aliyun.com/repo/Centos-7.repo
+$ wget -O /etc/yum.repos.d/CentOS-Base.repo http://mirrors.aliyun.com/repo/Centos-7.repo \
+    && wget -O /etc/yum.repos.d/epel.repo http://mirrors.aliyun.com/repo/epel-7.repo
 
 # 运行yum makecache生成缓存
-$ yum clean all
-$ yum makecache
+$ yum clean all && yum makecache
 ```
 
 ## 查看源是否生效
@@ -72,3 +74,10 @@ $ yum repolist all
 $ yum-config-manager --enable repository…
 $ yum-config-manager --disable repository…
 ```
+
+##  参考文档
+
+- [查RPM](https://crpm.cn/) <sup>找不到包的时候，可以在这上面查查，非常有帮助</sup>
+- [阿里巴巴开源镜像站](https://developer.aliyun.com/mirror/)
+    - [centos](https://developer.aliyun.com/mirror/centos)
+    - [epel](https://developer.aliyun.com/mirror/epel)
