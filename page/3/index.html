@@ -196,7 +196,7 @@
 </div>
 <div class=excerpt_footer>
 <div class=pale>
-<p>脚本基于Centos 7 查看已安装软件 1$ yum list installed 升级所有包同时也升级软件和系统内核 1$ yum -y update 只升级所有包，不升级软件和系统内核 1$ yum -y upgrade 更换阿里云软</p>
+<p>脚本基于Centos 7 更换阿里云软件安装源 1# 备份原镜像文件，以免出错后可以恢复。 2$ mv /etc/yum.repos.d/CentOS-Base.repo /etc/yum.repos.d/CentOS-Base.repo.backup \ 3 && mv /etc/yum.repos.d/epel.repo /etc/yum.repos.d/epel.repo.backup \ 4 && mv /etc/yum.repos.d/epel-testing.repo /etc/yum.repos.d/epel-testing.repo.backup 5 6# 下载新的CentOS-B</p>
 <br>
 <a href=https://blog.cuile.com/posts/centos/linux_repo_manual/ title=阅读更多 class="excerpt_more button">阅读更多</a>
 </div>
