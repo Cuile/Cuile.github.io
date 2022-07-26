@@ -89,7 +89,9 @@ $ hostnamectl --pretty set-hostname ${_hostname_}
 
 ```bash
 $ nano .bash_profile
+```
 
+```bash
 # [HH:MM user@hostname path] 命令提示符
 export PS1="[\A \u@\H \w]\\$ "
 
