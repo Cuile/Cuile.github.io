@@ -6,14 +6,14 @@
 <meta http-equiv=x-ua-compatible content="IE=edge">
 <meta property="og:locale" content="zh-cn">
 <meta property="og:type" content="article">
-<meta name=description content="1 开发环境 开发环境还是建议使用 Docker 来搭建，方便快捷。 不过 Django 的官方镜像已经弃用了，官方建议新版本使用 Python 官方提供的镜像来构建。 1graph TD; 2 Docker-->Python 3.9.12-buster; 3 Python …">
+<meta name=description content="1 开发环境 开发环境还是建议使用 Docker 来搭建，方便快捷。 不过 Django 的官方镜像已经弃用了，官方建议新版本使用 Python 官方提供的镜像来构建。 1Docker 2 ┗ Python == 3.9.12-buster 3 ┗ Django ==">
 <meta name=twitter:card content="summary">
 <meta name=twitter:creator content>
 <meta name=twitter:title content="Django 开发简介">
 <meta name=twitter:image content="https://blog.cuile.com/images/thumbnail.png">
 <meta property="og:url" content="https://blog.cuile.com/posts/django/django_development_introduction/">
 <meta property="og:title" content="Django 开发简介">
-<meta property="og:description" content="1 开发环境 开发环境还是建议使用 Docker 来搭建，方便快捷。 不过 Django 的官方镜像已经弃用了，官方建议新版本使用 Python 官方提供的镜像来构建。 1graph TD; 2 Docker-->Python 3.9.12-buster; 3 Python …">
+<meta property="og:description" content="1 开发环境 开发环境还是建议使用 Docker 来搭建，方便快捷。 不过 Django 的官方镜像已经弃用了，官方建议新版本使用 Python 官方提供的镜像来构建。 1Docker 2 ┗ Python == 3.9.12-buster 3 ┗ Django ==">
 <meta property="og:image" content="https://blog.cuile.com/images/thumbnail.png">
 <link rel=apple-touch-icon sizes=180x180 href=https://blog.cuile.com/icons/apple-touch-icon.png>
 <link rel=icon type=image/png sizes=32x32 href=https://blog.cuile.com/icons/favicon-32x32.png>
@@ -58,11 +58,10 @@
 <div class=post_body><h2 id=1-开发环境>1 开发环境</h2>
 <p>开发环境还是建议使用 Docker 来搭建，方便快捷。
 不过 Django 的官方镜像已经弃用了，官方建议新版本使用 Python 官方提供的镜像来构建。</p>
-<div class=highlight><pre tabindex=0 class=chroma><code class=language-fallback data-lang=fallback><span class=ln>1</span>graph TD;
-<span class=ln>2</span>    Docker--&gt;Python 3.9.12-buster;
-<span class=ln>3</span>    Python 3.9.12-buster--&gt;Django 3.2.13 LTS;
-</code></pre></div><p>Django 的 LTS 版本是 3.2.13，Python 稳定版本镜像是 3.9.12-buster ，所以建议使用这两个版本来构建 Django 环境。</p>
-<h3 id=11-环境搭建>1.1 环境搭建</h3>
+<div class=highlight><pre tabindex=0 class=chroma><code class=language-fallback data-lang=fallback><span class=ln>1</span>Docker
+<span class=ln>2</span>  ┗ Python == 3.9.12-buster
+<span class=ln>3</span>      ┗ Django == 3.2.13 LTS
+</code></pre></div><h3 id=11-环境搭建>1.1 环境搭建</h3>
 <p>可以参考[https://github.com/Cuile/Docker-to-Python/tree/master/Django]，提供了 Dockerfil、yml 文件，还提供全套使用命令。</p>
 <h3 id=12-配置项>1.2 配置项</h3>
 <p>修改配置后，建议使用项目调试的方式启动，不要使用快捷命令，项目正常启动稳定运行后，再使用快捷命令。</p>
