@@ -16,13 +16,11 @@ categories:
 开发环境还是建议使用 Docker 来搭建，方便快捷。
 不过 Django 的官方镜像已经弃用了，官方建议新版本使用 Python 官方提供的镜像来构建。
 
-```mermaid
-graph TD;
-    Docker-->Python 3.9.12-buster;
-    Python 3.9.12-buster-->Django 3.2.13 LTS;
 ```
-  
-Django 的 LTS 版本是 3.2.13，Python 稳定版本镜像是 3.9.12-buster ，所以建议使用这两个版本来构建 Django 环境。
+Docker
+  ┗ Python == 3.9.12-buster
+      ┗ Django == 3.2.13 LTS
+```
 
 ### 1.1 环境搭建
 
