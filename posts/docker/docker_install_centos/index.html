@@ -121,7 +121,11 @@
 <div class=highlight><pre tabindex=0 class=chroma><code class=language-ini data-lang=ini><span class=ln>1</span><span class=na>{</span>
 <span class=ln>2</span>  <span class=na>&#34;registry-mirrors&#34;: [&#34;https://registry.docker-cn.com&#34;]</span>
 <span class=ln>3</span><span class=na>}</span>
-</code></pre></div><h2 id=8测试安装结果>8.测试安装结果</h2>
+</code></pre></div><p>其实使用中仓库镜像的速度并不理想，还是设置代理更加实用</p>
+<ul>
+<li><a href=https://cloud.tencent.com/developer/article/1806455>如何优雅的给 Docker 配置网络代理</a></li>
+</ul>
+<h2 id=8测试安装结果>8.测试安装结果</h2>
 <div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=ln> 1</span>$ docker run hello-world
 <span class=ln> 2</span>
 <span class=ln> 3</span>Unable to find image <span class=s1>&#39;hello-world:latest&#39;</span> locally
