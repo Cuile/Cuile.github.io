@@ -96,7 +96,21 @@ $ systemctl enable docker.service
 $ systemctl start docker.service
 ```
 
-## 7.测试安装结果
+## 7.配置仓库镜像
+
+```bash
+$ nano /etc/docker/daemon.json
+```
+
+添加官方仓库镜像地址
+
+```ini
+{
+  "registry-mirrors": "https://registry.docker-cn.com"
+}
+```
+
+## 8.测试安装结果
 
 ```bash
 $ docker run hello-world
@@ -131,7 +145,7 @@ For more examples and ideas, visit:
 
 若能正常输出以上信息，则说明安装成功。
 
-## 8.安装 docker-compose
+## 9.安装 docker-compose
 
 ```bash
 $ yum -y install docker-compose-plugin
