@@ -21,7 +21,7 @@ $ yum info python3
 $ whereis python3
 ```
  
-## 1、卸载已安装的Python环境
+## 2、卸载已安装的Python环境
 
 ```bash
 # 卸载已安装的程序
@@ -32,13 +32,13 @@ $ whereis python3|xargs rm -frv
 $ whereis python3
 ```
 
-## 2、yum安装依赖环境
+## 3、yum安装依赖环境
 
 ```bash
 $ yum -y install zlib-devel bzip2-devel openssl-devel ncurses-devel sqlite-devel readline-devel tk-devel gdbm-devel db4-devel libpcap-devel xz-devel
 ```
 
-## 3、官网下载Python3.9.12
+## 4、官网下载Python3.9.12
 
 ```bash
 $ yum -y install wget
@@ -46,7 +46,7 @@ $ yum -y install wget
 $ wget https://mirrors.huaweicloud.com/python/3.9.12/Python-3.9.12.tgz
 ```
 
-## 4、创建安装目录
+## 5、创建安装目录
 
 ```bash
 $ tar -zxvf Python-3.9.12.tgz -C ./
@@ -56,14 +56,14 @@ $ ./configure --prefix=/usr/local/python3.9.12
 $ make && make install
 ```
 
-## 5、创建软链接
+## 6、创建软链接
 
 ```bash
 $ ln -s /usr/local/python3.9.12/bin/python3 /usr/bin/python3
 $ ln -s /usr/local/python3.9.12/bin/pip3 /usr/bin/pip3
 ```
 
-## 6、测试
+## 7、测试
 
 ```bash
 $ python3 -V
@@ -73,7 +73,7 @@ $ pip3 -V
 pip 22.0.4 from /usr/local/python3.9.12/lib/python3.9/site-packages/pip (python 3.9)
 ```
 
-## 7、pip升级、换源
+## 8、pip升级、换源
 
 ```bash
 # pip升级
