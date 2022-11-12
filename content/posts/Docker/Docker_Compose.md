@@ -1,5 +1,5 @@
 ---
-title: "Docker_Compose命令"
+title: "Docker Compose 指令"
 date: 2022-07-19T11:31:21+08:00
 # draft: true
 
@@ -22,10 +22,17 @@ categories:
     # 另一种方式
     command: /bin/bash -c " while true; do sleep 1; done"
 ```
-
 ### 配置文件方式
 
 ......
 
+## tty 指令
+
+启动后停在cli，等待登录
+
+```yml
+    tty: true
+```
+
 ## 参考文档
-- [docker-compose command 执行多条指令](https://blog.csdn.net/whatday/article/details/108863389)
+- [docker compose command 执行多条指令](https://blog.csdn.net/whatday/article/details/108863389)
