@@ -6,14 +6,14 @@
 <meta http-equiv=x-ua-compatible content="IE=edge">
 <meta property="og:locale" content="zh-cn">
 <meta property="og:type" content="article">
-<meta name=description content="1、卸载已安装的Python环境 1# 查看已安装的信息 2$ yum info python3 3# 卸载已安装的程序 4$ yum erase python3 5# 删除所有残余文件 6$ whereis python3|xargs rm -frv 7查看现有的python 8$ whereis">
+<meta name=description content="1、查看已安装的Python 1# 查看已安装的信息 2$ yum info python3 3# 查看python安装位置 4$ whereis python3 1、卸载已安装的Python环境 1# 卸载已安装的程序 2$ yum">
 <meta name=twitter:card content="summary">
 <meta name=twitter:creator content>
 <meta name=twitter:title content="CentOS 7 安装 Python3.9.12">
 <meta name=twitter:image content="https://blog.cuile.com/images/thumbnail.png">
 <meta property="og:url" content="https://blog.cuile.com/posts/python/python3_install/">
 <meta property="og:title" content="CentOS 7 安装 Python3.9.12">
-<meta property="og:description" content="1、卸载已安装的Python环境 1# 查看已安装的信息 2$ yum info python3 3# 卸载已安装的程序 4$ yum erase python3 5# 删除所有残余文件 6$ whereis python3|xargs rm -frv 7查看现有的python 8$ whereis">
+<meta property="og:description" content="1、查看已安装的Python 1# 查看已安装的信息 2$ yum info python3 3# 查看python安装位置 4$ whereis python3 1、卸载已安装的Python环境 1# 卸载已安装的程序 2$ yum">
 <meta property="og:image" content="https://blog.cuile.com/images/thumbnail.png">
 <link rel=apple-touch-icon sizes=180x180 href=https://blog.cuile.com/icons/apple-touch-icon.png>
 <link rel=icon type=image/png sizes=32x32 href=https://blog.cuile.com/icons/favicon-32x32.png>
@@ -59,15 +59,18 @@
 </a>
 </span>
 </div>
-<div class=post_body><h2 id=1卸载已安装的python环境>1、卸载已安装的Python环境</h2>
+<div class=post_body><h2 id=1查看已安装的python>1、查看已安装的Python</h2>
 <div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=ln>1</span><span class=c1># 查看已安装的信息</span>
 <span class=ln>2</span>$ yum info python3
-<span class=ln>3</span><span class=c1># 卸载已安装的程序</span>
-<span class=ln>4</span>$ yum erase python3
-<span class=ln>5</span><span class=c1># 删除所有残余文件</span>
-<span class=ln>6</span>$ whereis python3<span class=p>|</span>xargs rm -frv
-<span class=ln>7</span>查看现有的python
-<span class=ln>8</span>$ whereis python
+<span class=ln>3</span><span class=c1># 查看python安装位置</span>
+<span class=ln>4</span>$ whereis python3
+</code></pre></div><h2 id=1卸载已安装的python环境>1、卸载已安装的Python环境</h2>
+<div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=ln>1</span><span class=c1># 卸载已安装的程序</span>
+<span class=ln>2</span>$ yum erase python3
+<span class=ln>3</span><span class=c1># 删除所有残余文件</span>
+<span class=ln>4</span>$ whereis python3<span class=p>|</span>xargs rm -frv
+<span class=ln>5</span><span class=c1># 查看现有的python</span>
+<span class=ln>6</span>$ whereis python3
 </code></pre></div><h2 id=2yum安装依赖环境>2、yum安装依赖环境</h2>
 <div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=ln>1</span>$ yum -y install zlib-devel bzip2-devel openssl-devel ncurses-devel sqlite-devel readline-devel tk-devel gdbm-devel db4-devel libpcap-devel xz-devel
 </code></pre></div><h2 id=3官网下载python3912>3、官网下载Python3.9.12</h2>
@@ -183,16 +186,16 @@ DOCKER
 OPENWRT
 <span class=button_tally>4</span>
 </a>
+<a href=https://blog.cuile.com/series/python/ class="post_tag button button_translucent" title=python>
+PYTHON
+<span class=button_tally>4</span>
+</a>
 <a href=https://blog.cuile.com/series/alpine-linux/ class="post_tag button button_translucent" title=alpine-linux>
 ALPINE-LINUX
 <span class=button_tally>3</span>
 </a>
 <a href=https://blog.cuile.com/series/centos/ class="post_tag button button_translucent" title=centos>
 CENTOS
-<span class=button_tally>3</span>
-</a>
-<a href=https://blog.cuile.com/series/python/ class="post_tag button button_translucent" title=python>
-PYTHON
 <span class=button_tally>3</span>
 </a>
 <a href=https://blog.cuile.com/series/git/ class="post_tag button button_translucent" title=git>
@@ -215,53 +218,14 @@ DJANGO
 HARMONYOS
 <span class=button_tally>1</span>
 </a>
-<a href=https://blog.cuile.com/series/python3/ class="post_tag button button_translucent" title=python3>
-PYTHON3
-<span class=button_tally>1</span>
-</a>
 <a href=https://blog.cuile.com/series/shadowsocks/ class="post_tag button button_translucent" title=shadowsocks>
 SHADOWSOCKS
 <span class=button_tally>1</span>
 </a>
-<br>
-<div class="post_tags_toggle button">所有专栏</div>
-<div class=post_tags>
-<div class=tags_list>
-<a href=https://blog.cuile.com/series/alpine-linux/ class="post_tag button button_translucent" data-position=3 title=alpine-linux>ALPINE-LINUX<span class=button_tally>3</span>
+<a href=https://blog.cuile.com/series/%E7%81%AB%E7%82%AE/ class="post_tag button button_translucent" title=火炮>
+火炮
+<span class=button_tally>1</span>
 </a>
-<a href=https://blog.cuile.com/series/centos/ class="post_tag button button_translucent" data-position=3 title=centos>CENTOS<span class=button_tally>3</span>
-</a>
-<a href=https://blog.cuile.com/series/cli/ class="post_tag button button_translucent" data-position=8 title=cli>CLI<span class=button_tally>8</span>
-</a>
-<a href=https://blog.cuile.com/series/django/ class="post_tag button button_translucent" data-position=1 title=django>DJANGO<span class=button_tally>1</span>
-</a>
-<a href=https://blog.cuile.com/series/docker/ class="post_tag button button_translucent" data-position=5 title=docker>DOCKER<span class=button_tally>5</span>
-</a>
-<a href=https://blog.cuile.com/series/git/ class="post_tag button button_translucent" data-position=2 title=git>GIT<span class=button_tally>2</span>
-</a>
-<a href=https://blog.cuile.com/series/harmonyos/ class="post_tag button button_translucent" data-position=1 title=harmonyos>HARMONYOS<span class=button_tally>1</span>
-</a>
-<a href=https://blog.cuile.com/series/life-tips/ class="post_tag button button_translucent" data-position=8 title=life-tips>LIFE-TIPS<span class=button_tally>8</span>
-</a>
-<a href=https://blog.cuile.com/series/openwrt/ class="post_tag button button_translucent" data-position=4 title=openwrt>OPENWRT<span class=button_tally>4</span>
-</a>
-<a href=https://blog.cuile.com/series/proxmox/ class="post_tag button button_translucent" data-position=2 title=proxmox>PROXMOX<span class=button_tally>2</span>
-</a>
-<a href=https://blog.cuile.com/series/python/ class="post_tag button button_translucent" data-position=3 title=python>PYTHON<span class=button_tally>3</span>
-</a>
-<a href=https://blog.cuile.com/series/python3/ class="post_tag button button_translucent" data-position=1 title=python3>PYTHON3<span class=button_tally>1</span>
-</a>
-<a href=https://blog.cuile.com/series/shadowsocks/ class="post_tag button button_translucent" data-position=1 title=shadowsocks>SHADOWSOCKS<span class=button_tally>1</span>
-</a>
-<a href=https://blog.cuile.com/series/work-tips/ class="post_tag button button_translucent" data-position=2 title=work-tips>WORK-TIPS<span class=button_tally>2</span>
-</a>
-<a href=https://blog.cuile.com/series/%E7%81%AB%E7%82%AE/ class="post_tag button button_translucent" data-position=1 title=火炮>火炮<span class=button_tally>1</span>
-</a>
-<div class=tags_sort><span title="sort alphabetically">[A~Z]</span><span title="sort by count">[0~9]</span>
-</div>
-<span class=tags_hide><svg class="icon"><use xlink:href="#closeme"/></svg></span>
-</div>
-</div>
 </nav>
 </div>
 <div>
