@@ -7,23 +7,29 @@ tags:
 - pip3
 - CentOS 7
 series:
-- Python3
+- Python
 - CentOS
 categories:
 - 编程
 ---
-
-## 1、卸载已安装的Python环境
+## 1、查看已安装的Python
 
 ```bash
 # 查看已安装的信息
 $ yum info python3
+# 查看python安装位置
+$ whereis python3
+```
+ 
+## 1、卸载已安装的Python环境
+
+```bash
 # 卸载已安装的程序
 $ yum erase python3
 # 删除所有残余文件
 $ whereis python3|xargs rm -frv
-查看现有的python
-$ whereis python
+# 查看现有的python
+$ whereis python3
 ```
 
 ## 2、yum安装依赖环境
