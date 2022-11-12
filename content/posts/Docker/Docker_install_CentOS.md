@@ -106,7 +106,7 @@ $ nano /etc/docker/daemon.json
 
 ```ini
 {
-  "registry-mirrors": "https://registry.docker-cn.com"
+  "registry-mirrors": ["https://registry.docker-cn.com"]
 }
 ```
 
