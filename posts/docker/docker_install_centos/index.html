@@ -119,7 +119,7 @@
 <div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=ln>1</span>$ nano /etc/docker/daemon.json
 </code></pre></div><p>添加官方仓库镜像地址</p>
 <div class=highlight><pre tabindex=0 class=chroma><code class=language-ini data-lang=ini><span class=ln>1</span><span class=na>{</span>
-<span class=ln>2</span>  <span class=na>&#34;registry-mirrors&#34;: &#34;https://registry.docker-cn.com&#34;</span>
+<span class=ln>2</span>  <span class=na>&#34;registry-mirrors&#34;: [&#34;https://registry.docker-cn.com&#34;]</span>
 <span class=ln>3</span><span class=na>}</span>
 </code></pre></div><h2 id=8测试安装结果>8.测试安装结果</h2>
 <div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=ln> 1</span>$ docker run hello-world
