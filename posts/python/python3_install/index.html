@@ -6,14 +6,14 @@
 <meta http-equiv=x-ua-compatible content="IE=edge">
 <meta property="og:locale" content="zh-cn">
 <meta property="og:type" content="article">
-<meta name=description content="1、查看已安装的Python 1# 查看已安装的信息 2$ yum info python3 3# 查看python安装位置 4$ whereis python3 1、卸载已安装的Python环境 1# 卸载已安装的程序 2$ yum">
+<meta name=description content="1、查看已安装的Python 1# 查看已安装的信息 2$ yum info python3 3# 查看python安装位置 4$ whereis python3 2、卸载已安装的Python环境 1# 卸载已安装的程序 2$ yum">
 <meta name=twitter:card content="summary">
 <meta name=twitter:creator content>
 <meta name=twitter:title content="CentOS 7 安装 Python3.9.12">
 <meta name=twitter:image content="https://blog.cuile.com/images/thumbnail.png">
 <meta property="og:url" content="https://blog.cuile.com/posts/python/python3_install/">
 <meta property="og:title" content="CentOS 7 安装 Python3.9.12">
-<meta property="og:description" content="1、查看已安装的Python 1# 查看已安装的信息 2$ yum info python3 3# 查看python安装位置 4$ whereis python3 1、卸载已安装的Python环境 1# 卸载已安装的程序 2$ yum">
+<meta property="og:description" content="1、查看已安装的Python 1# 查看已安装的信息 2$ yum info python3 3# 查看python安装位置 4$ whereis python3 2、卸载已安装的Python环境 1# 卸载已安装的程序 2$ yum">
 <meta property="og:image" content="https://blog.cuile.com/images/thumbnail.png">
 <link rel=apple-touch-icon sizes=180x180 href=https://blog.cuile.com/icons/apple-touch-icon.png>
 <link rel=icon type=image/png sizes=32x32 href=https://blog.cuile.com/icons/favicon-32x32.png>
@@ -64,35 +64,35 @@
 <span class=ln>2</span>$ yum info python3
 <span class=ln>3</span><span class=c1># 查看python安装位置</span>
 <span class=ln>4</span>$ whereis python3
-</code></pre></div><h2 id=1卸载已安装的python环境>1、卸载已安装的Python环境</h2>
+</code></pre></div><h2 id=2卸载已安装的python环境>2、卸载已安装的Python环境</h2>
 <div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=ln>1</span><span class=c1># 卸载已安装的程序</span>
 <span class=ln>2</span>$ yum erase python3
 <span class=ln>3</span><span class=c1># 删除所有残余文件</span>
 <span class=ln>4</span>$ whereis python3<span class=p>|</span>xargs rm -frv
 <span class=ln>5</span><span class=c1># 查看现有的python</span>
 <span class=ln>6</span>$ whereis python3
-</code></pre></div><h2 id=2yum安装依赖环境>2、yum安装依赖环境</h2>
+</code></pre></div><h2 id=3yum安装依赖环境>3、yum安装依赖环境</h2>
 <div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=ln>1</span>$ yum -y install zlib-devel bzip2-devel openssl-devel ncurses-devel sqlite-devel readline-devel tk-devel gdbm-devel db4-devel libpcap-devel xz-devel
-</code></pre></div><h2 id=3官网下载python3912>3、官网下载Python3.9.12</h2>
+</code></pre></div><h2 id=4官网下载python3912>4、官网下载Python3.9.12</h2>
 <div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=ln>1</span>$ yum -y install wget
 <span class=ln>2</span><span class=c1># 尽量使用国内镜像站点下载比较快</span>
 <span class=ln>3</span>$ wget https://mirrors.huaweicloud.com/python/3.9.12/Python-3.9.12.tgz
-</code></pre></div><h2 id=4创建安装目录>4、创建安装目录</h2>
+</code></pre></div><h2 id=5创建安装目录>5、创建安装目录</h2>
 <div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=ln>1</span>$ tar -zxvf Python-3.9.12.tgz -C ./
 <span class=ln>2</span>$ <span class=nb>cd</span>  Python-3.9.12
 <span class=ln>3</span>$ mkdir /usr/local/python3 
 <span class=ln>4</span>$ ./configure --prefix<span class=o>=</span>/usr/local/python3.9.12
 <span class=ln>5</span>$ make <span class=o>&amp;&amp;</span> make install
-</code></pre></div><h2 id=5创建软链接>5、创建软链接</h2>
+</code></pre></div><h2 id=6创建软链接>6、创建软链接</h2>
 <div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=ln>1</span>$ ln -s /usr/local/python3.9.12/bin/python3 /usr/bin/python3
 <span class=ln>2</span>$ ln -s /usr/local/python3.9.12/bin/pip3 /usr/bin/pip3
-</code></pre></div><h2 id=6测试>6、测试</h2>
+</code></pre></div><h2 id=7测试>7、测试</h2>
 <div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=ln>1</span>$ python3 -V
 <span class=ln>2</span>Python 3.9.12
 <span class=ln>3</span>
 <span class=ln>4</span>$ pip3 -V
 <span class=ln>5</span>pip 22.0.4 from /usr/local/python3.9.12/lib/python3.9/site-packages/pip <span class=o>(</span>python 3.9<span class=o>)</span>
-</code></pre></div><h2 id=7pip升级换源>7、pip升级、换源</h2>
+</code></pre></div><h2 id=8pip升级换源>8、pip升级、换源</h2>
 <div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=ln>1</span><span class=c1># pip升级</span>
 <span class=ln>2</span>$ python3 -m pip install --upgrade pip
 <span class=ln>3</span><span class=c1># pip换源</span>
