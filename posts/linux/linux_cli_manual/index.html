@@ -1,24 +1,24 @@
 <!doctype html><html lang=zh-cn data-figures class=page>
 <head>
-<title>使用 nmcli 配置网络 | 瘦了就帅了</title>
+<title>Linux系统命令 | 瘦了就帅了</title>
 <meta charset=utf-8>
 <meta name=viewport content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
 <meta http-equiv=x-ua-compatible content="IE=edge">
 <meta property="og:locale" content="zh-cn">
 <meta property="og:type" content="article">
-<meta name=description content="脚本基于Centos 7 查看接口设备信息 1# 简单接口状态 2$ nmcli dev status 3# 详细的接口信息 4$ nmcli dev show 5# 接口的详细信息 6$ nmcli dev show interface-name 查看连接(connection">
+<meta name=description content="脚本基于Centos 7 系统进程操作 查看CPU和内存使用情况 1# 定位高CPU占用 2$ ps H -eo user,pid,ppid,tid,time,%cpu,cmd --sort=%cpu 3# 可视化显示CPU的使用状况的工具 4$ yum install -y htop 5$ htop 磁盘">
 <meta name=twitter:card content="summary">
 <meta name=twitter:creator content>
-<meta name=twitter:title content="使用 nmcli 配置网络">
+<meta name=twitter:title content="Linux系统命令">
 <meta name=twitter:image content="https://blog.cuile.com/images/thumbnail.png">
-<meta property="og:url" content="https://blog.cuile.com/posts/centos/linux_nmcli_manual/">
-<meta property="og:title" content="使用 nmcli 配置网络">
-<meta property="og:description" content="脚本基于Centos 7 查看接口设备信息 1# 简单接口状态 2$ nmcli dev status 3# 详细的接口信息 4$ nmcli dev show 5# 接口的详细信息 6$ nmcli dev show interface-name 查看连接(connection">
+<meta property="og:url" content="https://blog.cuile.com/posts/linux/linux_cli_manual/">
+<meta property="og:title" content="Linux系统命令">
+<meta property="og:description" content="脚本基于Centos 7 系统进程操作 查看CPU和内存使用情况 1# 定位高CPU占用 2$ ps H -eo user,pid,ppid,tid,time,%cpu,cmd --sort=%cpu 3# 可视化显示CPU的使用状况的工具 4$ yum install -y htop 5$ htop 磁盘">
 <meta property="og:image" content="https://blog.cuile.com/images/thumbnail.png">
 <link rel=apple-touch-icon sizes=180x180 href=https://blog.cuile.com/icons/apple-touch-icon.png>
 <link rel=icon type=image/png sizes=32x32 href=https://blog.cuile.com/icons/favicon-32x32.png>
 <link rel=manifest href=https://blog.cuile.com/icons/site.webmanifest>
-<link rel=canonical href=https://blog.cuile.com/posts/centos/linux_nmcli_manual/>
+<link rel=canonical href=https://blog.cuile.com/posts/linux/linux_cli_manual/>
 <link rel=preload href=https://blog.cuile.com/css/styles.367129801480fead578d7a356a98fcb3bce794981ff18cee55868d198d0d2bf1eb4feac97319d0871c6255183b9fd27a7059e4632c785951f4c4f6953559c4d0.css integrity="sha512-NnEpgBSA/q1XjXo1apj8s7znlJgf8YzuVYaNGY0NK/HrT+rJcxnQhxxiVRg7n9J6cFnkYyx4WVH0xPaVNVnE0A==" as=style crossorigin=anonymous>
 <link rel=preload href=https://blog.cuile.com/zh-cn/js/bundle.4e04b93422786398f3502d560bd5acb3d3f99b2e942c8c11e0fd926ab6ec3ccbd020d4294d58c0825ecb606ef221b34edc81586f1832489816a57ae8f0276615.js as=script integrity="sha512-TgS5NCJ4Y5jzUC1WC9Wss9P5my6ULIwR4P2SarbsPMvQINQpTVjAgl7LYG7yIbNO3IFYbxgySJgWpXro8CdmFQ==" crossorigin=anonymous>
 <link rel=stylesheet type=text/css href=https://blog.cuile.com/css/styles.367129801480fead578d7a356a98fcb3bce794981ff18cee55868d198d0d2bf1eb4feac97319d0871c6255183b9fd27a7059e4632c785951f4c4f6953559c4d0.css integrity="sha512-NnEpgBSA/q1XjXo1apj8s7znlJgf8YzuVYaNGY0NK/HrT+rJcxnQhxxiVRg7n9J6cFnkYyx4WVH0xPaVNVnE0A==" crossorigin=anonymous>
@@ -47,40 +47,95 @@
 <main>
 <div class="grid-inverse wrap content">
 <article class=post_content>
-<h1 class=post_title>使用 nmcli 配置网络</h1>
+<h1 class=post_title>Linux系统命令</h1>
 <div class=post_meta>
 <span><svg class="icon"><title>calendar</title><use xlink:href="#calendar"/></svg>
 </span>
 <span class=post_date>
 2022-01-17</span>
-<span class=post_time> · 阅读时长 1 分钟</span><span>&nbsp;· <a href=https://blog.cuile.com/tags/nmcli/ title=nmcli class="post_tag button button_translucent">nmcli
-</a>
-</span>
+<span class=post_time> · 阅读时长 2 分钟</span>
 </div>
 <div class=post_body><p><strong><code>脚本基于Centos 7</code></strong></p>
-<h2 id=查看接口设备信息>查看接口设备信息</h2>
-<div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=ln>1</span><span class=c1># 简单接口状态</span>
-<span class=ln>2</span>$ nmcli dev status
-<span class=ln>3</span><span class=c1># 详细的接口信息</span>
-<span class=ln>4</span>$ nmcli dev show
-<span class=ln>5</span><span class=c1># 接口的详细信息</span>
-<span class=ln>6</span>$ nmcli dev show interface-name
-</code></pre></div><h2 id=查看连接connection的信息>查看连接(connection)的信息</h2>
-<div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=ln>1</span><span class=c1># 简单信息</span>
-<span class=ln>2</span>$ nmcli con show
-<span class=ln>3</span><span class=c1># 详细的连接信息</span>
-<span class=ln>4</span>$ nmcli con show
-<span class=ln>5</span><span class=c1># 某个连接的详细信息</span>
-<span class=ln>6</span>$ nmcli con show con-name
-</code></pre></div><h2 id=创建连接>创建连接</h2>
-<div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=ln>1</span>$ nmcli con add <span class=nb>type</span> ethernet con-name static-vm100 ifname eth0 ipv4 192.168.100.100/24 gw4 192.168.100.1
-</code></pre></div><h2 id=激活连接>激活连接</h2>
-<div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=ln>1</span>$ nmcli con up static-vm100
-</code></pre></div><h2 id=参考链接>参考链接</h2>
+<h2 id=系统进程操作>系统进程操作</h2>
 <ul>
-<li><a href=https://access.redhat.com/documentation/zh-cn/red_hat_enterprise_linux/7/html/networking_guide/sec-using_the_networkmanager_command_line_tool_nmcli>https://access.redhat.com/documentation/zh-cn/red_hat_enterprise_linux/7/html/networking_guide/sec-using_the_networkmanager_command_line_tool_nmcli</a></li>
-<li><a href=https://www.jianshu.com/p/5d5560e9e26a>https://www.jianshu.com/p/5d5560e9e26a</a></li>
+<li><a href=https://www.cnblogs.com/xd502djj/archive/2011/03/01/1968041.html>查看CPU和内存使用情况</a></li>
 </ul>
+<div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=ln>1</span><span class=c1># 定位高CPU占用</span>
+<span class=ln>2</span>$ ps H -eo user,pid,ppid,tid,time,%cpu,cmd --sort<span class=o>=</span>%cpu
+<span class=ln>3</span><span class=c1># 可视化显示CPU的使用状况的工具</span>
+<span class=ln>4</span>$ yum install -y htop
+<span class=ln>5</span>$ htop
+</code></pre></div><h2 id=磁盘操作>磁盘操作</h2>
+<ul>
+<li><a href=https://blog.csdn.net/u013030100/article/details/79564378>查询并筛选 磁盘空间 统计 排序</a></li>
+</ul>
+<div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=ln>1</span><span class=c1># 修改硬盘挂载目录</span>
+<span class=ln>2</span><span class=c1># 卸载硬盘</span>
+<span class=ln>3</span>$ umount -v /mnt/raid1-2disk-500G
+<span class=ln>4</span><span class=c1># 修改挂载目录</span>
+<span class=ln>5</span>$ mv /mnt/raid1-2disk-500G /mnt/raid1-250G-2disk
+<span class=ln>6</span><span class=c1># 修改/etc/fstab文件里的挂载目录</span>
+<span class=ln>7</span>$ nano /etc/fstab
+<span class=ln>8</span><span class=c1># 重装挂载</span>
+<span class=ln>9</span>$ mount -av /dev/md127 /mnt/raid1-250G-2disk
+</code></pre></div><h2 id=网络端口操作>网络端口操作</h2>
+<div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=ln>1</span><span class=c1># 查看端口占用</span>
+<span class=ln>2</span><span class=c1># 查看所有端口占用情况</span>
+<span class=ln>3</span>$ netstat -tlunp
+<span class=ln>4</span><span class=c1># 查看指定端口占用情况</span>
+<span class=ln>5</span>$ netstat -tlunp <span class=p>|</span> grep &lt;port&gt;
+</code></pre></div><h2 id=文件操作>文件操作</h2>
+<ul>
+<li><a href=https://blog.csdn.net/kangaroo_07/article/details/43733891>文件截取</a></li>
+</ul>
+<h2 id=systemctl命令>systemctl命令</h2>
+<div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=ln> 1</span>systemctl list-units            <span class=c1>##列出当前系统服务的状态</span>
+<span class=ln> 2</span>systemctl list-unit-files       <span class=c1>##列出服务的开机状态</span>
+<span class=ln> 3</span>systemctl status sshd           <span class=c1>##查看指定服务的状态</span>
+<span class=ln> 4</span>systemctl stop sshd             <span class=c1>##关闭指定服务</span>
+<span class=ln> 5</span>systemctl start sshd            <span class=c1>##开启指定服务</span>
+<span class=ln> 6</span>systemctl restart sshd          <span class=c1>##从新启动服务</span>
+<span class=ln> 7</span>systemctl <span class=nb>enable</span> sshd           <span class=c1>##设定指定服务开机开启</span>
+<span class=ln> 8</span>systemctl disable sshd          <span class=c1>##设定指定服务开机关闭</span>
+<span class=ln> 9</span>systemctl reload sshd           <span class=c1>##使指定服务从新加载配置</span>
+<span class=ln>10</span>systemctl list-dependencies sshd    <span class=c1>##查看指定服务的倚赖关系</span>
+<span class=ln>11</span>systemctl mask  sshd            <span class=c1>##冻结指定服务</span>
+<span class=ln>12</span>systemctl unmask sshd           <span class=c1>##启用服务</span>
+<span class=ln>13</span>systemctl set-default multi-user.target <span class=c1>##开机不开启图形</span>
+<span class=ln>14</span>systemctl set-default graphical.target  <span class=c1>##开机启动图形</span>
+</code></pre></div><h2 id=设置主机名>设置主机名</h2>
+<div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=ln>1</span>$ <span class=nv>_hostname_</span><span class=o>=</span>XXXX
+<span class=ln>2</span>$ hostnamectl --static set-hostname <span class=si>${</span><span class=nv>_hostname_</span><span class=si>}</span>
+<span class=ln>3</span>$ hostnamectl --transient set-hostname <span class=si>${</span><span class=nv>_hostname_</span><span class=si>}</span>
+<span class=ln>4</span>$ hostnamectl --pretty set-hostname <span class=si>${</span><span class=nv>_hostname_</span><span class=si>}</span>
+</code></pre></div><ul>
+<li><a href=https://blog.csdn.net/tantexian/article/details/45958275>hostnamectl 参考</a></li>
+</ul>
+<h2 id=修改命令提示符>修改命令提示符</h2>
+<div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=ln>1</span>$ nano .bash_profile
+</code></pre></div><div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=ln>1</span><span class=c1># [HH:MM user@hostname path] 命令提示符</span>
+<span class=ln>2</span><span class=nb>export</span> <span class=nv>PS1</span><span class=o>=</span><span class=s2>&#34;[\A \u@\H \w]\\</span>$<span class=s2> &#34;</span>
+<span class=ln>3</span>
+<span class=ln>4</span><span class=c1># [yyyy-mm-dd HH:MM] path</span>
+<span class=ln>5</span><span class=c1># [user@hostname] 命令提示符</span>
+<span class=ln>6</span><span class=nb>export</span> <span class=nv>PS1</span><span class=o>=</span><span class=s1>&#39;&#39;&#39;
+</span><span class=ln>7</span><span class=s1>\[\e[36;40m\][\D{%Y-%m-%d} \A] \[\e[0m\] \[\e[35;40m\]\w\[\e[0m\]
+</span><span class=ln>8</span><span class=s1>\[\e[33;40m\][\u@\H]\[\e[0m\]  \\$ &#39;&#39;&#39;</span>
+</code></pre></div><ul>
+<li><a href=https://www.linuxidc.com/Linux/2017-10/147438.htm>命令提示符设置参考</a></li>
+</ul>
+<h2 id=修改服务器时区>修改服务器时区</h2>
+<div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=ln>1</span>$ timedatectl set-timezone Asia/Shanghai
+</code></pre></div><ul>
+<li><a href=https://www.jianshu.com/p/5e8e22bf135d>timedatectl 参考</a></li>
+</ul>
+<h2 id=查看系统版本>查看系统版本</h2>
+<div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=ln>1</span>$ lsb_release -a
+<span class=ln>2</span>$ cat /etc/redhat-release
+<span class=ln>3</span>$ cat /etc/issue
+</code></pre></div><h2 id=修改密码>修改密码</h2>
+<div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=ln>1</span>$ passwd &lt;user_name&gt;
+</code></pre></div>
 </div>
 <h2 class=post_related>相关专栏文章</h2>
 <ul>
