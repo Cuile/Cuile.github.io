@@ -40,7 +40,7 @@ $ git pull
 # 查看本地项目状态
 $ git status -s
 # 添加文件 | 添加目录 | 添加所有内容
-$ git add [file] | [dir] | [.]
+$ git add < file | dir | . >
 # 提交变化
 $ git commit -m [message]
 # 推送到远程库
