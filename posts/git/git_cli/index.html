@@ -6,14 +6,14 @@
 <meta http-equiv=x-ua-compatible content="IE=edge">
 <meta property="og:locale" content="zh-cn">
 <meta property="og:type" content="article">
-<meta name=description content="拉取 1$ git pull 删除本地文件后，从远端重新拉取最新版本 git提示： up-to-date. 但未从远端得到文件 查看本地分支是否发生变化 1$ git branch -a 如本地库处于另一个分支中，需">
+<meta name=description content="1、拉取 1$ git pull 1.1、删除本地文件后，从远端重新拉取最新版本 git提示： up-to-date. 但未从远端得到文件 1# 1 查看本地分支是否发生变化 2$ git branch -a 3 4# 2 如本地">
 <meta name=twitter:card content="summary">
 <meta name=twitter:creator content>
 <meta name=twitter:title content="Git 命令行">
 <meta name=twitter:image content="https://blog.cuile.com/images/thumbnail.png">
 <meta property="og:url" content="https://blog.cuile.com/posts/git/git_cli/">
 <meta property="og:title" content="Git 命令行">
-<meta property="og:description" content="拉取 1$ git pull 删除本地文件后，从远端重新拉取最新版本 git提示： up-to-date. 但未从远端得到文件 查看本地分支是否发生变化 1$ git branch -a 如本地库处于另一个分支中，需">
+<meta property="og:description" content="1、拉取 1$ git pull 1.1、删除本地文件后，从远端重新拉取最新版本 git提示： up-to-date. 但未从远端得到文件 1# 1 查看本地分支是否发生变化 2$ git branch -a 3 4# 2 如本地">
 <meta property="og:image" content="https://blog.cuile.com/images/thumbnail.png">
 <link rel=apple-touch-icon sizes=180x180 href=https://blog.cuile.com/icons/apple-touch-icon.png>
 <link rel=icon type=image/png sizes=32x32 href=https://blog.cuile.com/icons/favicon-32x32.png>
@@ -53,32 +53,34 @@
 </span>
 <span class=post_date>
 2022-05-16</span>
-<span class=post_time> · 阅读时长 1 分钟</span>
+<span class=post_time> · 阅读时长 2 分钟</span>
 </div>
-<div class=post_body><h2 id=拉取>拉取</h2>
+<div class=post_body><h2 id=1拉取>1、拉取</h2>
 <div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=ln>1</span>$ git pull
-</code></pre></div><h3 id=删除本地文件后从远端重新拉取最新版本>删除本地文件后，从远端重新拉取最新版本</h3>
+</code></pre></div><h3 id=11删除本地文件后从远端重新拉取最新版本>1.1、删除本地文件后，从远端重新拉取最新版本</h3>
 <p>git提示： up-to-date. 但未从远端得到文件</p>
-<ol>
-<li>查看本地分支是否发生变化</li>
-</ol>
-<div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=ln>1</span>$ git branch -a
-</code></pre></div><ol start=2>
-<li>如本地库处于另一个分支中，需将本地分支熏置回原分支</li>
-</ol>
-<div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=ln>1</span>$ git checkout *****
-<span class=ln>2</span>$ git reset --hard
-</code></pre></div><ol start=3>
-<li>如本地分支没有变化，则强行 pull 覆盖本地文件</li>
-</ol>
-<div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=ln>1</span>$ git fetch --all
-<span class=ln>2</span>$ git reset --hard origin/*****
-<span class=ln>3</span>$ git pull
-</code></pre></div><hr>
-<h2 id=分支>分支</h2>
+<div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=ln> 1</span><span class=c1># 1 查看本地分支是否发生变化</span>
+<span class=ln> 2</span>$ git branch -a
+<span class=ln> 3</span>
+<span class=ln> 4</span><span class=c1># 2 如本地库处于另一个分支中，需将本地分支重置回原分支</span>
+<span class=ln> 5</span>$ git checkout &lt;branch name&gt;
+<span class=ln> 6</span>$ git reset --hard
+<span class=ln> 7</span>
+<span class=ln> 8</span><span class=c1># 3 如本地分支没有变化，则强行 pull 覆盖本地文件</span>
+<span class=ln> 9</span>$ git fetch --all
+<span class=ln>10</span>$ git reset --hard origin/&lt;branch name&gt;
+<span class=ln>11</span>$ git pull
+</code></pre></div><h2 id=2提交>2、提交</h2>
+<div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=ln>1</span><span class=c1># 查看本地项目状态</span>
+<span class=ln>2</span>$ git status -s
+<span class=ln>3</span><span class=c1># 添加文件 | 添加目录 | 添加所有内容</span>
+<span class=ln>4</span>$ git add <span class=o>[</span>file<span class=o>]</span> <span class=p>|</span> <span class=o>[</span>dir<span class=o>]</span> <span class=p>|</span> <span class=o>[</span>.<span class=o>]</span>
+<span class=ln>5</span><span class=c1># 提交变化</span>
+<span class=ln>6</span>$ git commit -m <span class=o>[</span>message<span class=o>]</span>
+</code></pre></div><h2 id=分支>分支</h2>
 <div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=ln>1</span>$ git branch -a
 </code></pre></div><h3 id=切换分支>切换分支</h3>
-<div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=ln>1</span>$ git checkout &lt;branch&gt;
+<div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=ln>1</span>$ git checkout &lt;branch name&gt;
 </code></pre></div><h3 id=拉取远程分支>拉取远程分支</h3>
 <div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=ln>1</span>$ git fetch origin &lt;branch&gt;
 <span class=ln>2</span>$ git checkout -b &lt;branch&gt; origin/&lt;branch&gt;
