@@ -10,37 +10,41 @@ categories:
 - 系统配置
 ---
 
-## 拉取
+## 1、拉取
 
 ```bash
 $ git pull
 ```
 
-### 删除本地文件后，从远端重新拉取最新版本
+### 1.1、删除本地文件后，从远端重新拉取最新版本
 
 git提示： up-to-date. 但未从远端得到文件
 
-1. 查看本地分支是否发生变化
 ```bash
+# 1 查看本地分支是否发生变化
 $ git branch -a
-```
 
-2. 如本地库处于另一个分支中，需将本地分支熏置回原分支
-
-```bash
-$ git checkout *****
+# 2 如本地库处于另一个分支中，需将本地分支重置回原分支
+$ git checkout <branch name>
 $ git reset --hard
-```
 
-3. 如本地分支没有变化，则强行 pull 覆盖本地文件
-
-```bash
+# 3 如本地分支没有变化，则强行 pull 覆盖本地文件
 $ git fetch --all
-$ git reset --hard origin/*****
+$ git reset --hard origin/<branch name>
 $ git pull
 ```
 
----
+## 2、提交
+
+```bash
+# 查看本地项目状态
+$ git status -s
+# 添加文件 | 添加目录 | 添加所有内容
+$ git add [file] | [dir] | [.]
+# 提交变化
+$ git commit -m [message]
+```
+
 
 ## 分支
 
@@ -51,7 +55,7 @@ $ git branch -a
 ### 切换分支
 
 ```bash
-$ git checkout <branch>
+$ git checkout <branch name>
 ```
 
 ### 拉取远程分支
