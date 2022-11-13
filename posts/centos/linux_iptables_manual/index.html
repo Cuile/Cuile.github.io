@@ -53,8 +53,7 @@
 </span>
 <span class=post_date>
 2022-02-08</span>
-<span class=post_time> · 阅读时长 2 分钟</span><span>&nbsp;· <a href=https://blog.cuile.com/tags/linux/ title=Linux class="post_tag button button_translucent">Linux
-</a><a href=https://blog.cuile.com/tags/centos-7/ title="CentOS 7" class="post_tag button button_translucent">CentOS 7
+<span class=post_time> · 阅读时长 2 分钟</span><span>&nbsp;· <a href=https://blog.cuile.com/tags/centos-7/ title="CentOS 7" class="post_tag button button_translucent">CentOS 7
 </a><a href=https://blog.cuile.com/tags/iptables/ title=iptables class="post_tag button button_translucent">iptables
 </a><a href=https://blog.cuile.com/tags/firewall/ title=Firewall class="post_tag button button_translucent">Firewall
 </a>
@@ -118,6 +117,12 @@
 <span class=ln>32</span><span class=c1># 禁止其他未允许的规则访问</span>
 <span class=ln>33</span>$ iptables -P INPUT DROP      // 默认入站规则为拒绝
 <span class=ln>34</span>$ iptables -P FORWARD DROP    // 默认转发规则为拒绝
+<span class=ln>35</span>
+<span class=ln>36</span><span class=c1># 转发数据包</span>
+<span class=ln>37</span><span class=c1># 将&lt;本地端口&gt;接收到的TCP数据包，直接转发到&lt;目标IP&gt;的&lt;目标端口&gt;</span>
+<span class=ln>38</span>$ iptables -t nat -A PREROUTING -p tcp --dport &lt;本地端口&gt; -j DNAT --to-destination &lt;目标IP&gt;:&lt;目标端口&gt;
+<span class=ln>39</span><span class=c1># 将&lt;目标IP&gt;的&lt;目标端口&gt;发来的TCP数据包，IP地址修改为&lt;本地IP&gt;后，原路转发回去</span>
+<span class=ln>40</span>$ iptables -t nat -A POSTROUTING -p tcp -d &lt;目标IP&gt; --dport &lt;目标端口&gt; -j SNAT --to &lt;本地IP&gt;
 </code></pre></div><h2 id=删除规则>删除规则</h2>
 <div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=ln>1</span>$ iptables -D INPUT <span class=c1>#rulenum#</span>
 <span class=ln>2</span><span class=c1># or 使用建立规则时条件，删除指定规则，这个方法比如适合代码使用</span>
@@ -279,14 +284,53 @@ DJANGO
 HARMONYOS
 <span class=button_tally>1</span>
 </a>
+<a href=https://blog.cuile.com/series/linux/ class="post_tag button button_translucent" title=linux>
+LINUX
+<span class=button_tally>1</span>
+</a>
 <a href=https://blog.cuile.com/series/shadowsocks/ class="post_tag button button_translucent" title=shadowsocks>
 SHADOWSOCKS
 <span class=button_tally>1</span>
 </a>
-<a href=https://blog.cuile.com/series/%E7%81%AB%E7%82%AE/ class="post_tag button button_translucent" title=火炮>
-火炮
-<span class=button_tally>1</span>
+<br>
+<div class="post_tags_toggle button">所有专栏</div>
+<div class=post_tags>
+<div class=tags_list>
+<a href=https://blog.cuile.com/series/alpine-linux/ class="post_tag button button_translucent" data-position=3 title=alpine-linux>ALPINE-LINUX<span class=button_tally>3</span>
 </a>
+<a href=https://blog.cuile.com/series/centos/ class="post_tag button button_translucent" data-position=3 title=centos>CENTOS<span class=button_tally>3</span>
+</a>
+<a href=https://blog.cuile.com/series/cli/ class="post_tag button button_translucent" data-position=8 title=cli>CLI<span class=button_tally>8</span>
+</a>
+<a href=https://blog.cuile.com/series/django/ class="post_tag button button_translucent" data-position=1 title=django>DJANGO<span class=button_tally>1</span>
+</a>
+<a href=https://blog.cuile.com/series/docker/ class="post_tag button button_translucent" data-position=5 title=docker>DOCKER<span class=button_tally>5</span>
+</a>
+<a href=https://blog.cuile.com/series/git/ class="post_tag button button_translucent" data-position=2 title=git>GIT<span class=button_tally>2</span>
+</a>
+<a href=https://blog.cuile.com/series/harmonyos/ class="post_tag button button_translucent" data-position=1 title=harmonyos>HARMONYOS<span class=button_tally>1</span>
+</a>
+<a href=https://blog.cuile.com/series/life-tips/ class="post_tag button button_translucent" data-position=8 title=life-tips>LIFE-TIPS<span class=button_tally>8</span>
+</a>
+<a href=https://blog.cuile.com/series/linux/ class="post_tag button button_translucent" data-position=1 title=linux>LINUX<span class=button_tally>1</span>
+</a>
+<a href=https://blog.cuile.com/series/openwrt/ class="post_tag button button_translucent" data-position=4 title=openwrt>OPENWRT<span class=button_tally>4</span>
+</a>
+<a href=https://blog.cuile.com/series/proxmox/ class="post_tag button button_translucent" data-position=2 title=proxmox>PROXMOX<span class=button_tally>2</span>
+</a>
+<a href=https://blog.cuile.com/series/python/ class="post_tag button button_translucent" data-position=4 title=python>PYTHON<span class=button_tally>4</span>
+</a>
+<a href=https://blog.cuile.com/series/shadowsocks/ class="post_tag button button_translucent" data-position=1 title=shadowsocks>SHADOWSOCKS<span class=button_tally>1</span>
+</a>
+<a href=https://blog.cuile.com/series/work-tips/ class="post_tag button button_translucent" data-position=2 title=work-tips>WORK-TIPS<span class=button_tally>2</span>
+</a>
+<a href=https://blog.cuile.com/series/%E7%81%AB%E7%82%AE/ class="post_tag button button_translucent" data-position=1 title=火炮>火炮<span class=button_tally>1</span>
+</a>
+<div class=tags_sort><span title="sort alphabetically">[A~Z]</span><span title="sort by count">[0~9]</span>
+</div>
+<span class=tags_hide><svg class="icon"><use xlink:href="#closeme"/></svg></span>
+</div>
+</div>
 </nav>
 </div>
 <div>
@@ -298,7 +342,7 @@ CENTOS-7
 </a>
 <a href=https://blog.cuile.com/tags/linux/ class="post_tag button button_translucent" title=linux>
 LINUX
-<span class=button_tally>7</span>
+<span class=button_tally>6</span>
 </a>
 <a href=https://blog.cuile.com/tags/alg/ class="post_tag button button_translucent" title=alg>
 ALG
@@ -382,7 +426,7 @@ IPTABLES
 </a>
 <a href=https://blog.cuile.com/tags/keychain/ class="post_tag button button_translucent" data-position=1 title=keychain>KEYCHAIN<span class=button_tally>1</span>
 </a>
-<a href=https://blog.cuile.com/tags/linux/ class="post_tag button button_translucent" data-position=7 title=linux>LINUX<span class=button_tally>7</span>
+<a href=https://blog.cuile.com/tags/linux/ class="post_tag button button_translucent" data-position=6 title=linux>LINUX<span class=button_tally>6</span>
 </a>
 <a href=https://blog.cuile.com/tags/make/ class="post_tag button button_translucent" data-position=1 title=make>MAKE<span class=button_tally>1</span>
 </a>

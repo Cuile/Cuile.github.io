@@ -1,24 +1,25 @@
-<!doctype html><html lang=zh-cn data-figures class=page>
+<!doctype html><html lang=zh-cn data-figures>
 <head>
-<title>CentOS 7 安装 Python3.9.12 | 瘦了就帅了</title>
+<title>Linux | 瘦了就帅了</title>
 <meta charset=utf-8>
 <meta name=viewport content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
 <meta http-equiv=x-ua-compatible content="IE=edge">
 <meta property="og:locale" content="zh-cn">
 <meta property="og:type" content="article">
-<meta name=description content="1、查看已安装的Python 1# 查看已安装的信息 2$ yum info python3 3# 查看python安装位置 4$ whereis python3 2、卸载已安装的Python环境 1# 卸载已安装的程序 2$ yum">
+<meta name=description content>
 <meta name=twitter:card content="summary">
 <meta name=twitter:creator content>
-<meta name=twitter:title content="CentOS 7 安装 Python3.9.12">
+<meta name=twitter:title content="Linux">
 <meta name=twitter:image content="https://blog.cuile.com/images/thumbnail.png">
-<meta property="og:url" content="https://blog.cuile.com/posts/python/python3_install/">
-<meta property="og:title" content="CentOS 7 安装 Python3.9.12">
-<meta property="og:description" content="1、查看已安装的Python 1# 查看已安装的信息 2$ yum info python3 3# 查看python安装位置 4$ whereis python3 2、卸载已安装的Python环境 1# 卸载已安装的程序 2$ yum">
+<meta property="og:url" content="https://blog.cuile.com/series/linux/">
+<meta property="og:title" content="Linux">
+<meta property="og:description" content>
 <meta property="og:image" content="https://blog.cuile.com/images/thumbnail.png">
 <link rel=apple-touch-icon sizes=180x180 href=https://blog.cuile.com/icons/apple-touch-icon.png>
 <link rel=icon type=image/png sizes=32x32 href=https://blog.cuile.com/icons/favicon-32x32.png>
 <link rel=manifest href=https://blog.cuile.com/icons/site.webmanifest>
-<link rel=canonical href=https://blog.cuile.com/posts/python/python3_install/>
+<link rel=canonical href=https://blog.cuile.com/series/linux/>
+<link rel=alternate type=application/rss+xml href=https://blog.cuile.com/series/linux/index.xml title=瘦了就帅了>
 <link rel=preload href=https://blog.cuile.com/css/styles.367129801480fead578d7a356a98fcb3bce794981ff18cee55868d198d0d2bf1eb4feac97319d0871c6255183b9fd27a7059e4632c785951f4c4f6953559c4d0.css integrity="sha512-NnEpgBSA/q1XjXo1apj8s7znlJgf8YzuVYaNGY0NK/HrT+rJcxnQhxxiVRg7n9J6cFnkYyx4WVH0xPaVNVnE0A==" as=style crossorigin=anonymous>
 <link rel=preload href=https://blog.cuile.com/zh-cn/js/bundle.4e04b93422786398f3502d560bd5acb3d3f99b2e942c8c11e0fd926ab6ec3ccbd020d4294d58c0825ecb606ef221b34edc81586f1832489816a57ae8f0276615.js as=script integrity="sha512-TgS5NCJ4Y5jzUC1WC9Wss9P5my6ULIwR4P2SarbsPMvQINQpTVjAgl7LYG7yIbNO3IFYbxgySJgWpXro8CdmFQ==" crossorigin=anonymous>
 <link rel=stylesheet type=text/css href=https://blog.cuile.com/css/styles.367129801480fead578d7a356a98fcb3bce794981ff18cee55868d198d0d2bf1eb4feac97319d0871c6255183b9fd27a7059e4632c785951f4c4f6953559c4d0.css integrity="sha512-NnEpgBSA/q1XjXo1apj8s7znlJgf8YzuVYaNGY0NK/HrT+rJcxnQhxxiVRg7n9J6cFnkYyx4WVH0xPaVNVnE0A==" crossorigin=anonymous>
@@ -46,66 +47,39 @@
 </header>
 <main>
 <div class="grid-inverse wrap content">
-<article class=post_content>
-<h1 class=post_title>CentOS 7 安装 Python3.9.12</h1>
+<div>
+<ul class=posts id=posts>
+<li class=post_item>
+<div class=excerpt>
+<div class=excerpt_header>
+<h3 class=post_link>
+<a href=https://blog.cuile.com/posts/centos/linux_iptables_manual/ title="iptables 命令">iptables 命令</a>
+</h3>
 <div class=post_meta>
 <span><svg class="icon"><title>calendar</title><use xlink:href="#calendar"/></svg>
 </span>
 <span class=post_date>
-2022-05-06</span>
-<span class=post_time> · 阅读时长 1 分钟</span><span>&nbsp;· <a href=https://blog.cuile.com/tags/python3/ title=Python3 class="post_tag button button_translucent">Python3
-</a><a href=https://blog.cuile.com/tags/pip3/ title=pip3 class="post_tag button button_translucent">pip3
-</a><a href=https://blog.cuile.com/tags/centos-7/ title="CentOS 7" class="post_tag button button_translucent">CentOS 7
+2022-02-08</span>
+<span class=post_time> · 阅读时长 2 分钟</span><span>&nbsp;· <a href=https://blog.cuile.com/tags/centos-7/ title="CentOS 7" class="post_tag button button_translucent">CentOS 7
+</a><a href=https://blog.cuile.com/tags/iptables/ title=iptables class="post_tag button button_translucent">iptables
+</a><a href=https://blog.cuile.com/tags/firewall/ title=Firewall class="post_tag button button_translucent">Firewall
 </a>
 </span>
 </div>
-<div class=post_body><h2 id=1查看已安装的python>1、查看已安装的Python</h2>
-<div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=ln>1</span><span class=c1># 查看已安装的信息</span>
-<span class=ln>2</span>$ yum info python3
-<span class=ln>3</span><span class=c1># 查看python安装位置</span>
-<span class=ln>4</span>$ whereis python3
-</code></pre></div><h2 id=2卸载已安装的python环境>2、卸载已安装的Python环境</h2>
-<div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=ln>1</span><span class=c1># 卸载已安装的程序</span>
-<span class=ln>2</span>$ yum erase python3
-<span class=ln>3</span><span class=c1># 删除所有残余文件</span>
-<span class=ln>4</span>$ whereis python3<span class=p>|</span>xargs rm -frv
-<span class=ln>5</span><span class=c1># 查看现有的python</span>
-<span class=ln>6</span>$ whereis python3
-</code></pre></div><h2 id=3yum安装依赖环境>3、yum安装依赖环境</h2>
-<div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=ln>1</span>$ yum -y install zlib-devel bzip2-devel openssl-devel ncurses-devel sqlite-devel readline-devel tk-devel gdbm-devel db4-devel libpcap-devel xz-devel
-</code></pre></div><h2 id=4官网下载python3912>4、官网下载Python3.9.12</h2>
-<div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=ln>1</span>$ yum -y install wget
-<span class=ln>2</span><span class=c1># 尽量使用国内镜像站点下载比较快</span>
-<span class=ln>3</span>$ wget https://mirrors.huaweicloud.com/python/3.9.12/Python-3.9.12.tgz
-</code></pre></div><h2 id=5创建安装目录>5、创建安装目录</h2>
-<div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=ln>1</span>$ tar -zxvf Python-3.9.12.tgz -C ./
-<span class=ln>2</span>$ <span class=nb>cd</span>  Python-3.9.12
-<span class=ln>3</span>$ mkdir /usr/local/python3 
-<span class=ln>4</span>$ ./configure --prefix<span class=o>=</span>/usr/local/python3.9.12
-<span class=ln>5</span>$ make <span class=o>&amp;&amp;</span> make install
-</code></pre></div><h2 id=6创建软链接>6、创建软链接</h2>
-<div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=ln>1</span>$ ln -s /usr/local/python3.9.12/bin/python3 /usr/bin/python3
-<span class=ln>2</span>$ ln -s /usr/local/python3.9.12/bin/pip3 /usr/bin/pip3
-</code></pre></div><h2 id=7测试>7、测试</h2>
-<div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=ln>1</span>$ python3 -V
-<span class=ln>2</span>Python 3.9.12
-<span class=ln>3</span>
-<span class=ln>4</span>$ pip3 -V
-<span class=ln>5</span>pip 22.0.4 from /usr/local/python3.9.12/lib/python3.9/site-packages/pip <span class=o>(</span>python 3.9<span class=o>)</span>
-</code></pre></div><h2 id=8pip升级换源>8、pip升级、换源</h2>
-<div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=ln>1</span><span class=c1># pip升级</span>
-<span class=ln>2</span>$ python3 -m pip install --upgrade pip
-<span class=ln>3</span><span class=c1># pip换源</span>
-<span class=ln>4</span><span class=c1># 推荐使用清华的源，因为使用https协议</span>
-<span class=ln>5</span>$ pip3 config <span class=nb>set</span> global.index-url https://pypi.tuna.tsinghua.edu.cn/simple
-</code></pre></div>
 </div>
-<h2 class=post_related>相关专栏文章</h2>
-<ul>
+<div class=excerpt_footer>
+<div class=pale>
+<p>脚本基于Centos 7 注意：CentOS 7默认的防火墙不是iptables,而是firewalld 停止firewalld服务 1#停止fire</p>
+<br>
+<a href=https://blog.cuile.com/posts/centos/linux_iptables_manual/ title=阅读更多 class="excerpt_more button">阅读更多</a>
+</div>
+</div>
+</div>
+</li>
+<li>
+</li>
 </ul>
-<div class=post_comments>
 </div>
-</article>
 <aside class=sidebar>
 <section class=sidebar_inner>
 <br>
@@ -113,8 +87,6 @@
 <div class=author_bio>
 产品里的技术、一眼看不出来的胖子
 </div>
-<ul>
-</ul>
 <h2 class=mt-4>最新文章</h2>
 <ul class=flex-column>
 <li>
