@@ -3,11 +3,11 @@ title: "iptables 命令"
 date: 2022-02-08T10:09:48+08:00
 # draft: true
 tags:
-- Linux
 - CentOS 7
 - iptables
 - Firewall
 series:
+- Linux
 - CLI
 categories:
 - 系统配置
@@ -87,6 +87,12 @@ $ iptables -P OUTPUT ACCEPT
 # 禁止其他未允许的规则访问
 $ iptables -P INPUT DROP      // 默认入站规则为拒绝
 $ iptables -P FORWARD DROP    // 默认转发规则为拒绝
+
+# 转发数据包
+# 将<本地端口>接收到的TCP数据包，直接转发到<目标IP>的<目标端口>
+$ iptables -t nat -A PREROUTING -p tcp --dport <本地端口> -j DNAT --to-destination <目标IP>:<目标端口>
+# 将<目标IP>的<目标端口>发来的TCP数据包，IP地址修改为<本地IP>后，原路转发回去
+$ iptables -t nat -A POSTROUTING -p tcp -d <目标IP> --dport <目标端口> -j SNAT --to <本地IP>
 ```
 
 ## 删除规则
