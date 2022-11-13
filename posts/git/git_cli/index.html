@@ -70,13 +70,17 @@
 <span class=ln> 9</span>$ git fetch --all
 <span class=ln>10</span>$ git reset --hard origin/&lt;branch name&gt;
 <span class=ln>11</span>$ git pull
-</code></pre></div><h2 id=2提交>2、提交</h2>
-<div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=ln>1</span><span class=c1># 查看本地项目状态</span>
-<span class=ln>2</span>$ git status -s
-<span class=ln>3</span><span class=c1># 添加文件 | 添加目录 | 添加所有内容</span>
-<span class=ln>4</span>$ git add <span class=o>[</span>file<span class=o>]</span> <span class=p>|</span> <span class=o>[</span>dir<span class=o>]</span> <span class=p>|</span> <span class=o>[</span>.<span class=o>]</span>
-<span class=ln>5</span><span class=c1># 提交变化</span>
-<span class=ln>6</span>$ git commit -m <span class=o>[</span>message<span class=o>]</span>
+</code></pre></div><h2 id=2推送>2、推送</h2>
+<div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=ln> 1</span><span class=c1># 查看本地项目状态</span>
+<span class=ln> 2</span>$ git status -s
+<span class=ln> 3</span><span class=c1># 添加文件 | 添加目录 | 添加所有内容</span>
+<span class=ln> 4</span>$ git add <span class=o>[</span>file<span class=o>]</span> <span class=p>|</span> <span class=o>[</span>dir<span class=o>]</span> <span class=p>|</span> <span class=o>[</span>.<span class=o>]</span>
+<span class=ln> 5</span><span class=c1># 提交变化</span>
+<span class=ln> 6</span>$ git commit -m <span class=o>[</span>message<span class=o>]</span>
+<span class=ln> 7</span><span class=c1># 推送到远程库</span>
+<span class=ln> 8</span>$ git push
+<span class=ln> 9</span><span class=c1># or</span>
+<span class=ln>10</span>$ git push &lt;远程主机名&gt; &lt;本地分支名&gt;:&lt;远程分支名&gt;
 </code></pre></div><h2 id=分支>分支</h2>
 <div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=ln>1</span>$ git branch -a
 </code></pre></div><h3 id=切换分支>切换分支</h3>
