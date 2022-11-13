@@ -53,6 +53,56 @@
 <div class=excerpt>
 <div class=excerpt_header>
 <h3 class=post_link>
+<a href=https://blog.cuile.com/posts/centos/linux_repo_manual/ title="Linux 版本库管理">Linux 版本库管理</a>
+</h3>
+<div class=post_meta>
+<span><svg class="icon"><title>calendar</title><use xlink:href="#calendar"/></svg>
+</span>
+<span class=post_date>
+2022-02-08</span>
+<span class=post_time> · 阅读时长 1 分钟</span><span>&nbsp;· <a href=https://blog.cuile.com/tags/repo/ title=repo class="post_tag button button_translucent">repo
+</a>
+</span>
+</div>
+</div>
+<div class=excerpt_footer>
+<div class=pale>
+<p>脚本基于Centos 7 更换阿里云软件安装源 1# 备份原镜像文件，以免出错后可以恢复。 2$ mv /etc/yum.repos.d/CentOS-Base.repo /etc/yum.repos.d/CentOS-Base.repo.backup \ 3 && mv /etc/yum.repos.d/epel.repo /etc/yum.repos.d/epel.repo.backup \ 4 && mv /etc/yum.repos.d/epel-testing.repo /etc/yum.repos.d/epel-testing.repo.backup 5 6# 下载新的CentOS-B</p>
+<br>
+<a href=https://blog.cuile.com/posts/centos/linux_repo_manual/ title=阅读更多 class="excerpt_more button">阅读更多</a>
+</div>
+</div>
+</div>
+</li>
+<li class=post_item>
+<div class=excerpt>
+<div class=excerpt_header>
+<h3 class=post_link>
+<a href=https://blog.cuile.com/posts/centos/linux_kernel_update/ title=Linux系统内核升级>Linux系统内核升级</a>
+</h3>
+<div class=post_meta>
+<span><svg class="icon"><title>calendar</title><use xlink:href="#calendar"/></svg>
+</span>
+<span class=post_date>
+2022-02-08</span>
+<span class=post_time> · 阅读时长 1 分钟</span><span>&nbsp;· <a href=https://blog.cuile.com/tags/kernel/ title=kernel class="post_tag button button_translucent">kernel
+</a>
+</span>
+</div>
+</div>
+<div class=excerpt_footer>
+<div class=pale>
+<p>脚本基于Centos 7 1、查看系统内核版本 1$ uname -r 23.10.0-514.26.2.el7.x86_64 3$ cat /etc/redhat-release 4CentOS Linux release 7.6.1810 (Core) 2、升级内核 导入elrepo的key，然后安装elrepo的yum源 1$ rpm -import</p>
+<br>
+<a href=https://blog.cuile.com/posts/centos/linux_kernel_update/ title=阅读更多 class="excerpt_more button">阅读更多</a>
+</div>
+</div>
+</div>
+</li>
+<li class=post_item>
+<div class=excerpt>
+<div class=excerpt_header>
+<h3 class=post_link>
 <a href=https://blog.cuile.com/posts/centos/linux_iptables_manual/ title="iptables 命令">iptables 命令</a>
 </h3>
 <div class=post_meta>
@@ -60,9 +110,7 @@
 </span>
 <span class=post_date>
 2022-02-08</span>
-<span class=post_time> · 阅读时长 2 分钟</span><span>&nbsp;· <a href=https://blog.cuile.com/tags/centos-7/ title="CentOS 7" class="post_tag button button_translucent">CentOS 7
-</a><a href=https://blog.cuile.com/tags/iptables/ title=iptables class="post_tag button button_translucent">iptables
-</a><a href=https://blog.cuile.com/tags/firewall/ title=Firewall class="post_tag button button_translucent">Firewall
+<span class=post_time> · 阅读时长 2 分钟</span><span>&nbsp;· <a href=https://blog.cuile.com/tags/iptables/ title=iptables class="post_tag button button_translucent">iptables
 </a>
 </span>
 </div>
@@ -72,6 +120,79 @@
 <p>脚本基于Centos 7 注意：CentOS 7默认的防火墙不是iptables,而是firewalld 停止firewalld服务 1#停止fire</p>
 <br>
 <a href=https://blog.cuile.com/posts/centos/linux_iptables_manual/ title=阅读更多 class="excerpt_more button">阅读更多</a>
+</div>
+</div>
+</div>
+</li>
+<li class=post_item>
+<div class=excerpt>
+<div class=excerpt_header>
+<h3 class=post_link>
+<a href=https://blog.cuile.com/posts/centos/linux_nmcli_manual/ title="使用 nmcli 配置网络">使用 nmcli 配置网络</a>
+</h3>
+<div class=post_meta>
+<span><svg class="icon"><title>calendar</title><use xlink:href="#calendar"/></svg>
+</span>
+<span class=post_date>
+2022-01-17</span>
+<span class=post_time> · 阅读时长 1 分钟</span><span>&nbsp;· <a href=https://blog.cuile.com/tags/nmcli/ title=nmcli class="post_tag button button_translucent">nmcli
+</a>
+</span>
+</div>
+</div>
+<div class=excerpt_footer>
+<div class=pale>
+<p>脚本基于Centos 7 查看接口设备信息 1# 简单接口状态 2$ nmcli dev status 3# 详细的接口信息 4$ nmcli dev show 5# 接口的详细信息 6$ nmcli dev show interface-name 查看连接(connection</p>
+<br>
+<a href=https://blog.cuile.com/posts/centos/linux_nmcli_manual/ title=阅读更多 class="excerpt_more button">阅读更多</a>
+</div>
+</div>
+</div>
+</li>
+<li class=post_item>
+<div class=excerpt>
+<div class=excerpt_header>
+<h3 class=post_link>
+<a href=https://blog.cuile.com/posts/centos/linux_sed_manual/ title="使用 sed 命令操作">使用 sed 命令操作</a>
+</h3>
+<div class=post_meta>
+<span><svg class="icon"><title>calendar</title><use xlink:href="#calendar"/></svg>
+</span>
+<span class=post_date>
+2022-01-17</span>
+<span class=post_time> · 阅读时长 1 分钟</span><span>&nbsp;· <a href=https://blog.cuile.com/tags/sed/ title=sed class="post_tag button button_translucent">sed
+</a>
+</span>
+</div>
+</div>
+<div class=excerpt_footer>
+<div class=pale>
+<p>脚本基于Ubuntu 20.04 合并文件 1cat info.log error.log > merge.log.bak 2cp merge.log.bak merge.log 删除冗余信息 1sed -i 's/.<em>a2p_replyclient_log.</em>[infoerror].[0-9].log.gz://' merge.log \ 2&& sed -i 's/org.springframework.amqp.rabbit.RabbitListenerEndpointContainer.* - //' merge.log \ 3&& sed -i …</p>
+<br>
+<a href=https://blog.cuile.com/posts/centos/linux_sed_manual/ title=阅读更多 class="excerpt_more button">阅读更多</a>
+</div>
+</div>
+</div>
+</li>
+<li class=post_item>
+<div class=excerpt>
+<div class=excerpt_header>
+<h3 class=post_link>
+<a href=https://blog.cuile.com/posts/centos/linux_cli_manual/ title=Linux系统命令>Linux系统命令</a>
+</h3>
+<div class=post_meta>
+<span><svg class="icon"><title>calendar</title><use xlink:href="#calendar"/></svg>
+</span>
+<span class=post_date>
+2022-01-17</span>
+<span class=post_time> · 阅读时长 2 分钟</span>
+</div>
+</div>
+<div class=excerpt_footer>
+<div class=pale>
+<p>脚本基于Centos 7 系统进程操作 查看CPU和内存使用情况 1# 定位高CPU占用 2$ ps H -eo user,pid,ppid,tid,time,%cpu,cmd --sort=%cpu 3# 可视化显示CPU的使用状况的工具 4$ yum install -y htop 5$ htop 磁盘</p>
+<br>
+<a href=https://blog.cuile.com/posts/centos/linux_cli_manual/ title=阅读更多 class="excerpt_more button">阅读更多</a>
 </div>
 </div>
 </div>
@@ -150,6 +271,10 @@ CLI
 LIFE-TIPS
 <span class=button_tally>8</span>
 </a>
+<a href=https://blog.cuile.com/series/linux/ class="post_tag button button_translucent" title=linux>
+LINUX
+<span class=button_tally>6</span>
+</a>
 <a href=https://blog.cuile.com/series/docker/ class="post_tag button button_translucent" title=docker>
 DOCKER
 <span class=button_tally>5</span>
@@ -186,16 +311,12 @@ WORK-TIPS
 DJANGO
 <span class=button_tally>1</span>
 </a>
+<a href=https://blog.cuile.com/series/firewall/ class="post_tag button button_translucent" title=firewall>
+FIREWALL
+<span class=button_tally>1</span>
+</a>
 <a href=https://blog.cuile.com/series/harmonyos/ class="post_tag button button_translucent" title=harmonyos>
 HARMONYOS
-<span class=button_tally>1</span>
-</a>
-<a href=https://blog.cuile.com/series/linux/ class="post_tag button button_translucent" title=linux>
-LINUX
-<span class=button_tally>1</span>
-</a>
-<a href=https://blog.cuile.com/series/shadowsocks/ class="post_tag button button_translucent" title=shadowsocks>
-SHADOWSOCKS
 <span class=button_tally>1</span>
 </a>
 <br>
@@ -212,13 +333,15 @@ SHADOWSOCKS
 </a>
 <a href=https://blog.cuile.com/series/docker/ class="post_tag button button_translucent" data-position=5 title=docker>DOCKER<span class=button_tally>5</span>
 </a>
+<a href=https://blog.cuile.com/series/firewall/ class="post_tag button button_translucent" data-position=1 title=firewall>FIREWALL<span class=button_tally>1</span>
+</a>
 <a href=https://blog.cuile.com/series/git/ class="post_tag button button_translucent" data-position=2 title=git>GIT<span class=button_tally>2</span>
 </a>
 <a href=https://blog.cuile.com/series/harmonyos/ class="post_tag button button_translucent" data-position=1 title=harmonyos>HARMONYOS<span class=button_tally>1</span>
 </a>
 <a href=https://blog.cuile.com/series/life-tips/ class="post_tag button button_translucent" data-position=8 title=life-tips>LIFE-TIPS<span class=button_tally>8</span>
 </a>
-<a href=https://blog.cuile.com/series/linux/ class="post_tag button button_translucent" data-position=1 title=linux>LINUX<span class=button_tally>1</span>
+<a href=https://blog.cuile.com/series/linux/ class="post_tag button button_translucent" data-position=6 title=linux>LINUX<span class=button_tally>6</span>
 </a>
 <a href=https://blog.cuile.com/series/openwrt/ class="post_tag button button_translucent" data-position=4 title=openwrt>OPENWRT<span class=button_tally>4</span>
 </a>
@@ -227,6 +350,8 @@ SHADOWSOCKS
 <a href=https://blog.cuile.com/series/python/ class="post_tag button button_translucent" data-position=4 title=python>PYTHON<span class=button_tally>4</span>
 </a>
 <a href=https://blog.cuile.com/series/shadowsocks/ class="post_tag button button_translucent" data-position=1 title=shadowsocks>SHADOWSOCKS<span class=button_tally>1</span>
+</a>
+<a href=https://blog.cuile.com/series/ubuntu/ class="post_tag button button_translucent" data-position=1 title=ubuntu>UBUNTU<span class=button_tally>1</span>
 </a>
 <a href=https://blog.cuile.com/series/work-tips/ class="post_tag button button_translucent" data-position=2 title=work-tips>WORK-TIPS<span class=button_tally>2</span>
 </a>
@@ -244,11 +369,7 @@ SHADOWSOCKS
 <nav class=tags_nav>
 <a href=https://blog.cuile.com/tags/centos-7/ class="post_tag button button_translucent" title=centos-7>
 CENTOS-7
-<span class=button_tally>7</span>
-</a>
-<a href=https://blog.cuile.com/tags/linux/ class="post_tag button button_translucent" title=linux>
-LINUX
-<span class=button_tally>6</span>
+<span class=button_tally>2</span>
 </a>
 <a href=https://blog.cuile.com/tags/alg/ class="post_tag button button_translucent" title=alg>
 ALG
@@ -274,10 +395,6 @@ DOCKER-COMPOSE
 FFMPEG
 <span class=button_tally>1</span>
 </a>
-<a href=https://blog.cuile.com/tags/firewall/ class="post_tag button button_translucent" title=firewall>
-FIREWALL
-<span class=button_tally>1</span>
-</a>
 <a href=https://blog.cuile.com/tags/ftp/ class="post_tag button button_translucent" title=ftp>
 FTP
 <span class=button_tally>1</span>
@@ -298,6 +415,14 @@ HUGO
 IPTABLES
 <span class=button_tally>1</span>
 </a>
+<a href=https://blog.cuile.com/tags/kernel/ class="post_tag button button_translucent" title=kernel>
+KERNEL
+<span class=button_tally>1</span>
+</a>
+<a href=https://blog.cuile.com/tags/keychain/ class="post_tag button button_translucent" title=keychain>
+KEYCHAIN
+<span class=button_tally>1</span>
+</a>
 <br>
 <div class="post_tags_toggle button">所有标签</div>
 <div class=post_tags>
@@ -306,7 +431,7 @@ IPTABLES
 </a>
 <a href=https://blog.cuile.com/tags/blog/ class="post_tag button button_translucent" data-position=1 title=blog>BLOG<span class=button_tally>1</span>
 </a>
-<a href=https://blog.cuile.com/tags/centos-7/ class="post_tag button button_translucent" data-position=7 title=centos-7>CENTOS-7<span class=button_tally>7</span>
+<a href=https://blog.cuile.com/tags/centos-7/ class="post_tag button button_translucent" data-position=2 title=centos-7>CENTOS-7<span class=button_tally>2</span>
 </a>
 <a href=https://blog.cuile.com/tags/dns/ class="post_tag button button_translucent" data-position=1 title=dns>DNS<span class=button_tally>1</span>
 </a>
@@ -315,8 +440,6 @@ IPTABLES
 <a href=https://blog.cuile.com/tags/docker-compose/ class="post_tag button button_translucent" data-position=1 title=docker-compose>DOCKER-COMPOSE<span class=button_tally>1</span>
 </a>
 <a href=https://blog.cuile.com/tags/ffmpeg/ class="post_tag button button_translucent" data-position=1 title=ffmpeg>FFMPEG<span class=button_tally>1</span>
-</a>
-<a href=https://blog.cuile.com/tags/firewall/ class="post_tag button button_translucent" data-position=1 title=firewall>FIREWALL<span class=button_tally>1</span>
 </a>
 <a href=https://blog.cuile.com/tags/ftp/ class="post_tag button button_translucent" data-position=1 title=ftp>FTP<span class=button_tally>1</span>
 </a>
@@ -332,7 +455,7 @@ IPTABLES
 </a>
 <a href=https://blog.cuile.com/tags/keychain/ class="post_tag button button_translucent" data-position=1 title=keychain>KEYCHAIN<span class=button_tally>1</span>
 </a>
-<a href=https://blog.cuile.com/tags/linux/ class="post_tag button button_translucent" data-position=6 title=linux>LINUX<span class=button_tally>6</span>
+<a href=https://blog.cuile.com/tags/linux/ class="post_tag button button_translucent" data-position=1 title=linux>LINUX<span class=button_tally>1</span>
 </a>
 <a href=https://blog.cuile.com/tags/make/ class="post_tag button button_translucent" data-position=1 title=make>MAKE<span class=button_tally>1</span>
 </a>
@@ -359,8 +482,6 @@ IPTABLES
 <a href=https://blog.cuile.com/tags/snap/ class="post_tag button button_translucent" data-position=1 title=snap>SNAP<span class=button_tally>1</span>
 </a>
 <a href=https://blog.cuile.com/tags/ssh/ class="post_tag button button_translucent" data-position=1 title=ssh>SSH<span class=button_tally>1</span>
-</a>
-<a href=https://blog.cuile.com/tags/ubuntu/ class="post_tag button button_translucent" data-position=1 title=ubuntu>UBUNTU<span class=button_tally>1</span>
 </a>
 <a href=https://blog.cuile.com/tags/ups/ class="post_tag button button_translucent" data-position=1 title=ups>UPS<span class=button_tally>1</span>
 </a>
