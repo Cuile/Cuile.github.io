@@ -3,10 +3,9 @@ title: "使用 nmcli 配置网络"
 date: 2022-01-17T15:17:58+08:00
 # draft: true
 tags:
-- Linux
 - nmcli
-- Centos 7
 series:
+- Linux
 - CLI
 categories:
 - 系统配置

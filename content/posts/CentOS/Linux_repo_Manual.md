@@ -3,10 +3,9 @@ title: "Linux 版本库管理"
 date: 2022-02-08T10:28:50+08:00
 # draft: true
 tags:
-- Linux
 - repo
-- Centos 7
 series:
+- Linux
 - CentOS
 - CLI
 categories:

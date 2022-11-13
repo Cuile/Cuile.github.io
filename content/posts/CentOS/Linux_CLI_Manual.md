@@ -3,9 +3,8 @@ title: "Linux系统命令"
 date: 2022-01-17T11:07:07+08:00
 # draft: true
 tags: 
-- Linux
-- Centos 7
 series:
+- Linux
 - CLI
 categories:
 - 系统配置
