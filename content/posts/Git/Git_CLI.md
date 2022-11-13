@@ -34,7 +34,7 @@ $ git reset --hard origin/<branch name>
 $ git pull
 ```
 
-## 2、提交
+## 2、推送
 
 ```bash
 # 查看本地项目状态
@@ -43,6 +43,10 @@ $ git status -s
 $ git add [file] | [dir] | [.]
 # 提交变化
 $ git commit -m [message]
+# 推送到远程库
+$ git push
+# or
+$ git push <远程主机名> <本地分支名>:<远程分支名>
 ```
 
 
