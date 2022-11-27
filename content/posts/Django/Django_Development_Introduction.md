@@ -31,16 +31,27 @@ Docker
 修改配置后，建议使用项目调试的方式启动，不要使用快捷命令，项目正常启动稳定运行后，再使用快捷命令。
 
 ```python
+# settings.py
+
 # 任意地址都可以访问 Django
 ALLOWED_HOSTS = ['*'] 
 
 # 这个与多语种有关，在项目初始阶段不要修改，后续添加了多语种支持再修改，否则会导致无法启动。
 # 具体参考(http://www.i18nguy.com/unicode/language-identifiers.html)，有个傻逼教程，上来就改成 zh-CN 果然导致项目无法正常启动。
-LANGUAGE_CODE = 'en-us'
+# 正确的简体中文代码如下：
+LANGUAGE_CODE = 'zh-Hans'
 
 # 时区，上海就代表北京时间，这个不能写错，写错就启动不了
 # 具体参考(https://en.wikipedia.org/wiki/List_of_tz_database_time_zones)，这里是标准的，有个傻逼教程非给写成 Asia/Beijing 导致怎么都起不来，太TMD的二逼了。
+# 正解的北京时间时区如下：
 TIME_ZONE = 'Asia/Shanghai'
+
+# 启动翻译，与上面的 LANGUAGE_CODE 设置相对应
+USE_I18N = True
+# 启动格式控制
+USE_L10N = True
+# 启动时区
+USE_TZ = True
 ```
 
 ## 2 常用命令
