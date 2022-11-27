@@ -20,13 +20,29 @@ categories:
 Docker
   ┗ Python == 3.9.12-buster
       ┗ Django == 3.2.13 LTS
+      ┗ django-simpleui==2022.11.30
 ```
-
-### 1.1 环境搭建
 
 可以参考[https://github.com/Cuile/Docker-to-Python/tree/master/Django]，提供了 Dockerfil、yml 文件，还提供全套使用命令。
 
-### 1.2 配置项
+
+## 2 创建项目
+
+```bash
+# 创建项目
+$ django-admin startproject xxx
+
+$ cd xxx
+
+# 生成项目
+$ python manage.py startapp websrc
+# 运行项目测试
+$ python manage.py runserver 0.0.0.0:80
+# 创建管理员
+$ python manage.py createsuperuser
+```
+
+### 2.1 配置项
 
 修改配置后，建议使用项目调试的方式启动，不要使用快捷命令，项目正常启动稳定运行后，再使用快捷命令。
 
@@ -35,6 +51,13 @@ Docker
 
 # 任意地址都可以访问 Django
 ALLOWED_HOSTS = ['*'] 
+
+# 添加 simpleui 模板，和创建的项目
+INSTALLED_APPS = [
+  'simpleui',
+  '......',
+  'websrc',
+]
 
 # 这个与多语种有关，在项目初始阶段不要修改，后续添加了多语种支持再修改，否则会导致无法启动。
 # 具体参考(http://www.i18nguy.com/unicode/language-identifiers.html)，有个傻逼教程，上来就改成 zh-CN 果然导致项目无法正常启动。
@@ -52,20 +75,4 @@ USE_I18N = True
 USE_L10N = True
 # 启动时区
 USE_TZ = True
-```
-
-## 2 常用命令
-
-```bash
-# 创建项目
-$ django-admin startproject xxx
-
-$ cd xxx
-
-# 生成项目
-$ python manage.py startapp websrc
-# 运行项目测试
-$ python manage.py runserver 0.0.0.0:80
-# 创建管理员
-$ python manage.py createsuperuser
 ```
