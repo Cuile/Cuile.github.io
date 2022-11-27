@@ -38,6 +38,8 @@ $ cd xxx
 $ python manage.py startapp websrc
 # 运行项目测试
 $ python manage.py runserver 0.0.0.0:80
+# 创建表
+$ python manage.py migrate
 # 创建管理员
 $ python manage.py createsuperuser
 ```
