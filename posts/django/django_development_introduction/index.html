@@ -73,8 +73,10 @@
 <span class=ln> 7</span>$ python manage.py startapp websrc
 <span class=ln> 8</span><span class=c1># 运行项目测试</span>
 <span class=ln> 9</span>$ python manage.py runserver 0.0.0.0:80
-<span class=ln>10</span><span class=c1># 创建管理员</span>
-<span class=ln>11</span>$ python manage.py createsuperuser
+<span class=ln>10</span><span class=c1># 创建表</span>
+<span class=ln>11</span>$ python manage.py migrate
+<span class=ln>12</span><span class=c1># 创建管理员</span>
+<span class=ln>13</span>$ python manage.py createsuperuser
 </code></pre></div><h3 id=21-配置项>2.1 配置项</h3>
 <p>修改配置后，建议使用项目调试的方式启动，不要使用快捷命令，项目正常启动稳定运行后，再使用快捷命令。</p>
 <div class=highlight><pre tabindex=0 class=chroma><code class=language-python data-lang=python><span class=ln> 1</span><span class=c1># settings.py</span>
