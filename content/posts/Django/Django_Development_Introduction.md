@@ -11,7 +11,7 @@ categories:
 - 编程
 ---
 
-## 1 开发环境
+## 1 准备环境
 
 开发环境还是建议使用 Docker 来搭建，方便快捷。
 不过 Django 的官方镜像已经弃用了，官方建议新版本使用 Python 官方提供的镜像来构建。
@@ -30,21 +30,14 @@ Docker
 
 ```bash
 # 创建项目
-$ django-admin startproject xxx
-
-$ cd xxx
+$ django-admin startproject mysite
+$ cd mysite
 
 # 生成项目
 $ python manage.py startapp websrc
 # 运行项目测试
 $ python manage.py runserver 0.0.0.0:80
-# 创建表
-$ python manage.py migrate
-# 创建管理员
-$ python manage.py createsuperuser
 ```
-
-### 2.1 配置项
 
 修改配置后，建议使用项目调试的方式启动，不要使用快捷命令，项目正常启动稳定运行后，再使用快捷命令。
 
@@ -57,8 +50,8 @@ ALLOWED_HOSTS = ['*']
 # 添加 simpleui 模板，和创建的项目
 INSTALLED_APPS = [
   'simpleui',
-  '......',
   'websrc',
+  '......',
 ]
 
 # 这个与多语种有关，在项目初始阶段不要修改，后续添加了多语种支持再修改，否则会导致无法启动。
@@ -77,4 +70,58 @@ USE_I18N = True
 USE_L10N = True
 # 启动时区
 USE_TZ = True
+```
+
+## 3 创建管理员账号
+
+```bash
+$ python manage.py createsuperuser
+Username: admin
+Email address: admin@example.com
+Password: **********
+Password (again): *********
+Superuser created successfully.
+```
+访问项目链接，比如"http://127.0.0.1:8000/admin/
+
+## 4 创建数据模型
+
+### 4.1 编辑 models.py 文件，改变模型。
+
+......
+
+### 4.2 为模型的改变生成迁移文件。
+
+```bash
+$ python manage.py makemigrations websrc
+Migrations for 'websrc':
+  polls/migrations/0001_initial.py
+    - Create model Question
+    - Create model Choice
+```
+可以查看生成的SQL语句
+```bash
+$ python manage.py sqlmigrate websrc 0001
+```
+
+### 4.3 应用数据库迁移
+
+```bash
+$ python manage.py migrate
+Operations to perform:
+  Apply all migrations: admin, auth, contenttypes, polls, sessions
+Running migrations:
+  Rendering model states... DONE
+  Applying websrc.0001_initial... OK
+```
+
+## 5 向管理页面加入数据模型
+
+```python
+# websrc/admin.py
+from django.contrib import admin
+
+from .models import Question
+
+admin.site.register(Question)
 ```
