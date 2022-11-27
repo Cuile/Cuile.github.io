@@ -6,14 +6,14 @@
 <meta http-equiv=x-ua-compatible content="IE=edge">
 <meta property="og:locale" content="zh-cn">
 <meta property="og:type" content="article">
-<meta name=description content="1 开发环境 开发环境还是建议使用 Docker 来搭建，方便快捷。 不过 Django 的官方镜像已经弃用了，官方建议新版本使用 Python 官方提供的镜像来构建。 1Docker 2 ┗ Python == 3.9.12-buster 3 ┗ Django ==">
+<meta name=description content="1 准备环境 开发环境还是建议使用 Docker 来搭建，方便快捷。 不过 Django 的官方镜像已经弃用了，官方建议新版本使用 Python 官方提供的镜像来构建。 1Docker 2 ┗ Python == 3.9.12-buster 3 ┗ Django ==">
 <meta name=twitter:card content="summary">
 <meta name=twitter:creator content>
 <meta name=twitter:title content="Django 开发简介">
 <meta name=twitter:image content="https://blog.cuile.com/images/thumbnail.png">
 <meta property="og:url" content="https://blog.cuile.com/posts/django/django_development_introduction/">
 <meta property="og:title" content="Django 开发简介">
-<meta property="og:description" content="1 开发环境 开发环境还是建议使用 Docker 来搭建，方便快捷。 不过 Django 的官方镜像已经弃用了，官方建议新版本使用 Python 官方提供的镜像来构建。 1Docker 2 ┗ Python == 3.9.12-buster 3 ┗ Django ==">
+<meta property="og:description" content="1 准备环境 开发环境还是建议使用 Docker 来搭建，方便快捷。 不过 Django 的官方镜像已经弃用了，官方建议新版本使用 Python 官方提供的镜像来构建。 1Docker 2 ┗ Python == 3.9.12-buster 3 ┗ Django ==">
 <meta property="og:image" content="https://blog.cuile.com/images/thumbnail.png">
 <link rel=apple-touch-icon sizes=180x180 href=https://blog.cuile.com/icons/apple-touch-icon.png>
 <link rel=icon type=image/png sizes=32x32 href=https://blog.cuile.com/icons/favicon-32x32.png>
@@ -55,7 +55,7 @@
 2022-05-10</span>
 <span class=post_time> · 阅读时长 2 分钟</span>
 </div>
-<div class=post_body><h2 id=1-开发环境>1 开发环境</h2>
+<div class=post_body><h2 id=1-准备环境>1 准备环境</h2>
 <p>开发环境还是建议使用 Docker 来搭建，方便快捷。
 不过 Django 的官方镜像已经弃用了，官方建议新版本使用 Python 官方提供的镜像来构建。</p>
 <div class=highlight><pre tabindex=0 class=chroma><code class=language-fallback data-lang=fallback><span class=ln>1</span>Docker
@@ -64,21 +64,15 @@
 <span class=ln>4</span>      ┗ django-simpleui==2022.11.30
 </code></pre></div><p>可以参考[https://github.com/Cuile/Docker-to-Python/tree/master/Django]，提供了 Dockerfil、yml 文件，还提供全套使用命令。</p>
 <h2 id=2-创建项目>2 创建项目</h2>
-<div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=ln> 1</span><span class=c1># 创建项目</span>
-<span class=ln> 2</span>$ django-admin startproject xxx
-<span class=ln> 3</span>
-<span class=ln> 4</span>$ <span class=nb>cd</span> xxx
-<span class=ln> 5</span>
-<span class=ln> 6</span><span class=c1># 生成项目</span>
-<span class=ln> 7</span>$ python manage.py startapp websrc
-<span class=ln> 8</span><span class=c1># 运行项目测试</span>
-<span class=ln> 9</span>$ python manage.py runserver 0.0.0.0:80
-<span class=ln>10</span><span class=c1># 创建表</span>
-<span class=ln>11</span>$ python manage.py migrate
-<span class=ln>12</span><span class=c1># 创建管理员</span>
-<span class=ln>13</span>$ python manage.py createsuperuser
-</code></pre></div><h3 id=21-配置项>2.1 配置项</h3>
-<p>修改配置后，建议使用项目调试的方式启动，不要使用快捷命令，项目正常启动稳定运行后，再使用快捷命令。</p>
+<div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=ln>1</span><span class=c1># 创建项目</span>
+<span class=ln>2</span>$ django-admin startproject mysite
+<span class=ln>3</span>$ <span class=nb>cd</span> mysite
+<span class=ln>4</span>
+<span class=ln>5</span><span class=c1># 生成项目</span>
+<span class=ln>6</span>$ python manage.py startapp websrc
+<span class=ln>7</span><span class=c1># 运行项目测试</span>
+<span class=ln>8</span>$ python manage.py runserver 0.0.0.0:80
+</code></pre></div><p>修改配置后，建议使用项目调试的方式启动，不要使用快捷命令，项目正常启动稳定运行后，再使用快捷命令。</p>
 <div class=highlight><pre tabindex=0 class=chroma><code class=language-python data-lang=python><span class=ln> 1</span><span class=c1># settings.py</span>
 <span class=ln> 2</span>
 <span class=ln> 3</span><span class=c1># 任意地址都可以访问 Django</span>
@@ -87,8 +81,8 @@
 <span class=ln> 6</span><span class=c1># 添加 simpleui 模板，和创建的项目</span>
 <span class=ln> 7</span><span class=n>INSTALLED_APPS</span> <span class=o>=</span> <span class=p>[</span>
 <span class=ln> 8</span>  <span class=s1>&#39;simpleui&#39;</span><span class=p>,</span>
-<span class=ln> 9</span>  <span class=s1>&#39;......&#39;</span><span class=p>,</span>
-<span class=ln>10</span>  <span class=s1>&#39;websrc&#39;</span><span class=p>,</span>
+<span class=ln> 9</span>  <span class=s1>&#39;websrc&#39;</span><span class=p>,</span>
+<span class=ln>10</span>  <span class=s1>&#39;......&#39;</span><span class=p>,</span>
 <span class=ln>11</span><span class=p>]</span>
 <span class=ln>12</span>
 <span class=ln>13</span><span class=c1># 这个与多语种有关，在项目初始阶段不要修改，后续添加了多语种支持再修改，否则会导致无法启动。</span>
@@ -107,6 +101,39 @@
 <span class=ln>26</span><span class=n>USE_L10N</span> <span class=o>=</span> <span class=kc>True</span>
 <span class=ln>27</span><span class=c1># 启动时区</span>
 <span class=ln>28</span><span class=n>USE_TZ</span> <span class=o>=</span> <span class=kc>True</span>
+</code></pre></div><h2 id=3-创建管理员账号>3 创建管理员账号</h2>
+<div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=ln>1</span>$ python manage.py createsuperuser
+<span class=ln>2</span>Username: admin
+<span class=ln>3</span>Email address: admin@example.com
+<span class=ln>4</span>Password: **********
+<span class=ln>5</span>Password <span class=o>(</span>again<span class=o>)</span>: *********
+<span class=ln>6</span>Superuser created successfully.
+</code></pre></div><p>访问项目链接，比如"http://127.0.0.1:8000/admin/</p>
+<h2 id=4-创建数据模型>4 创建数据模型</h2>
+<h3 id=41-编辑-modelspy-文件改变模型>4.1 编辑 models.py 文件，改变模型。</h3>
+<p>......</p>
+<h3 id=42-为模型的改变生成迁移文件>4.2 为模型的改变生成迁移文件。</h3>
+<div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=ln>1</span>$ python manage.py makemigrations websrc
+<span class=ln>2</span>Migrations <span class=k>for</span> <span class=s1>&#39;websrc&#39;</span>:
+<span class=ln>3</span>  polls/migrations/0001_initial.py
+<span class=ln>4</span>    - Create model Question
+<span class=ln>5</span>    - Create model Choice
+</code></pre></div><p>可以查看生成的SQL语句</p>
+<div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=ln>1</span>$ python manage.py sqlmigrate websrc <span class=m>0001</span>
+</code></pre></div><h3 id=43-应用数据库迁移>4.3 应用数据库迁移</h3>
+<div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=ln>1</span>$ python manage.py migrate
+<span class=ln>2</span>Operations to perform:
+<span class=ln>3</span>  Apply all migrations: admin, auth, contenttypes, polls, sessions
+<span class=ln>4</span>Running migrations:
+<span class=ln>5</span>  Rendering model states... DONE
+<span class=ln>6</span>  Applying websrc.0001_initial... OK
+</code></pre></div><h2 id=5-向管理页面加入数据模型>5 向管理页面加入数据模型</h2>
+<div class=highlight><pre tabindex=0 class=chroma><code class=language-python data-lang=python><span class=ln>1</span><span class=c1># websrc/admin.py</span>
+<span class=ln>2</span><span class=kn>from</span> <span class=nn>django.contrib</span> <span class=kn>import</span> <span class=n>admin</span>
+<span class=ln>3</span>
+<span class=ln>4</span><span class=kn>from</span> <span class=nn>.models</span> <span class=kn>import</span> <span class=n>Question</span>
+<span class=ln>5</span>
+<span class=ln>6</span><span class=n>admin</span><span class=o>.</span><span class=n>site</span><span class=o>.</span><span class=n>register</span><span class=p>(</span><span class=n>Question</span><span class=p>)</span>
 </code></pre></div>
 </div>
 <h2 class=post_related>相关专栏文章</h2>
