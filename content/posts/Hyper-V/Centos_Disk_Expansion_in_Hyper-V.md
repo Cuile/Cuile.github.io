@@ -301,3 +301,6 @@ sda               8:0    0   20G  0 disk
 └─sda4            8:4    0   10G  0 part 
   └─centos-root 253:0    0 17.8G  0 lvm  /
 ```
+
+## 参考文档
+- [Hyper-v下Centos实现扩容硬盘磁盘空间大小](https://www.jianshu.com/p/44c3f86b1d36)
