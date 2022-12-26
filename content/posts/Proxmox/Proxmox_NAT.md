@@ -4,8 +4,9 @@ date: 2022-02-07T14:07:32+08:00
 # draft: true
 tags:
 - NAT
-series:
 - Proxmox
+series:
+- 虚拟机
 categories:
 - 系统配置
 ---
