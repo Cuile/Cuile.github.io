@@ -53,9 +53,7 @@
 </span>
 <span class=post_date>
 2022-05-06</span>
-<span class=post_time> · 阅读时长 2 分钟</span><span>&nbsp;· <a href=https://blog.cuile.com/tags/centos-7/ title="CentOS 7" class="post_tag button button_translucent">CentOS 7
-</a>
-</span>
+<span class=post_time> · 阅读时长 2 分钟</span>
 </div>
 <div class=post_body><p>其实网上相关的文章已经非常多了，所以这篇文章的作用只是记录和明确一条确定可行的操作路径，为以后的操作节省时间，毕竟像我一样大部分人都不是专业的系统管理员，能够快速解决问题就可以了，并不想做过多的专业研究与探索。</p>
 <p>本操作手册是官方手册与网上手册的结合版本，集两家之所长，亲自操作可用。</p>
@@ -155,7 +153,8 @@
 <span class=ln>27</span>For more examples and ideas, visit:
 <span class=ln>28</span> https://docs.docker.com/get-started/
 </code></pre></div><p>若能正常输出以上信息，则说明安装成功。</p>
-<h2 id=9安装-docker-compose>9.安装 docker-compose</h2>
+<h2 id=9安装-docker-compose>9.安装 docker compose</h2>
+<p>官方推荐使用插件方式安装</p>
 <div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=ln>1</span>$ yum -y install docker-compose-plugin
 <span class=ln>2</span>
 <span class=ln>3</span>$ docker compose version
@@ -246,7 +245,7 @@ LINUX
 </a>
 <a href=https://blog.cuile.com/series/docker/ class="post_tag button button_translucent" title=docker>
 DOCKER
-<span class=button_tally>5</span>
+<span class=button_tally>6</span>
 </a>
 <a href=https://blog.cuile.com/series/centos/ class="post_tag button button_translucent" title=centos>
 CENTOS
@@ -300,7 +299,7 @@ DJANGO
 </a>
 <a href=https://blog.cuile.com/series/django/ class="post_tag button button_translucent" data-position=1 title=django>DJANGO<span class=button_tally>1</span>
 </a>
-<a href=https://blog.cuile.com/series/docker/ class="post_tag button button_translucent" data-position=5 title=docker>DOCKER<span class=button_tally>5</span>
+<a href=https://blog.cuile.com/series/docker/ class="post_tag button button_translucent" data-position=6 title=docker>DOCKER<span class=button_tally>6</span>
 </a>
 <a href=https://blog.cuile.com/series/firewall/ class="post_tag button button_translucent" data-position=1 title=firewall>FIREWALL<span class=button_tally>1</span>
 </a>
@@ -321,6 +320,8 @@ DJANGO
 <a href=https://blog.cuile.com/series/python/ class="post_tag button button_translucent" data-position=4 title=python>PYTHON<span class=button_tally>4</span>
 </a>
 <a href=https://blog.cuile.com/series/shadowsocks/ class="post_tag button button_translucent" data-position=1 title=shadowsocks>SHADOWSOCKS<span class=button_tally>1</span>
+</a>
+<a href=https://blog.cuile.com/series/snap/ class="post_tag button button_translucent" data-position=1 title=snap>SNAP<span class=button_tally>1</span>
 </a>
 <a href=https://blog.cuile.com/series/systemd/ class="post_tag button button_translucent" data-position=1 title=systemd>SYSTEMD<span class=button_tally>1</span>
 </a>
@@ -346,10 +347,6 @@ DJANGO
 CLI
 <span class=button_tally>3</span>
 </a>
-<a href=https://blog.cuile.com/tags/centos-7/ class="post_tag button button_translucent" title=centos-7>
-CENTOS-7
-<span class=button_tally>2</span>
-</a>
 <a href=https://blog.cuile.com/tags/network/ class="post_tag button button_translucent" title=network>
 NETWORK
 <span class=button_tally>2</span>
@@ -362,12 +359,12 @@ ALG
 BLOG
 <span class=button_tally>1</span>
 </a>
-<a href=https://blog.cuile.com/tags/dns/ class="post_tag button button_translucent" title=dns>
-DNS
+<a href=https://blog.cuile.com/tags/centos-7/ class="post_tag button button_translucent" title=centos-7>
+CENTOS-7
 <span class=button_tally>1</span>
 </a>
-<a href=https://blog.cuile.com/tags/docker/ class="post_tag button button_translucent" title=docker>
-DOCKER
+<a href=https://blog.cuile.com/tags/dns/ class="post_tag button button_translucent" title=dns>
+DNS
 <span class=button_tally>1</span>
 </a>
 <a href=https://blog.cuile.com/tags/docker-compose/ class="post_tag button button_translucent" title=docker-compose>
@@ -398,6 +395,10 @@ HUGO
 IPTABLES
 <span class=button_tally>1</span>
 </a>
+<a href=https://blog.cuile.com/tags/kernel/ class="post_tag button button_translucent" title=kernel>
+KERNEL
+<span class=button_tally>1</span>
+</a>
 <br>
 <div class="post_tags_toggle button">所有标签</div>
 <div class=post_tags>
@@ -406,13 +407,11 @@ IPTABLES
 </a>
 <a href=https://blog.cuile.com/tags/blog/ class="post_tag button button_translucent" data-position=1 title=blog>BLOG<span class=button_tally>1</span>
 </a>
-<a href=https://blog.cuile.com/tags/centos-7/ class="post_tag button button_translucent" data-position=2 title=centos-7>CENTOS-7<span class=button_tally>2</span>
+<a href=https://blog.cuile.com/tags/centos-7/ class="post_tag button button_translucent" data-position=1 title=centos-7>CENTOS-7<span class=button_tally>1</span>
 </a>
 <a href=https://blog.cuile.com/tags/cli/ class="post_tag button button_translucent" data-position=3 title=cli>CLI<span class=button_tally>3</span>
 </a>
 <a href=https://blog.cuile.com/tags/dns/ class="post_tag button button_translucent" data-position=1 title=dns>DNS<span class=button_tally>1</span>
-</a>
-<a href=https://blog.cuile.com/tags/docker/ class="post_tag button button_translucent" data-position=1 title=docker>DOCKER<span class=button_tally>1</span>
 </a>
 <a href=https://blog.cuile.com/tags/docker-compose/ class="post_tag button button_translucent" data-position=1 title=docker-compose>DOCKER-COMPOSE<span class=button_tally>1</span>
 </a>
@@ -455,8 +454,6 @@ IPTABLES
 <a href=https://blog.cuile.com/tags/repo/ class="post_tag button button_translucent" data-position=1 title=repo>REPO<span class=button_tally>1</span>
 </a>
 <a href=https://blog.cuile.com/tags/sed/ class="post_tag button button_translucent" data-position=1 title=sed>SED<span class=button_tally>1</span>
-</a>
-<a href=https://blog.cuile.com/tags/snap/ class="post_tag button button_translucent" data-position=1 title=snap>SNAP<span class=button_tally>1</span>
 </a>
 <a href=https://blog.cuile.com/tags/ssh/ class="post_tag button button_translucent" data-position=1 title=ssh>SSH<span class=button_tally>1</span>
 </a>
