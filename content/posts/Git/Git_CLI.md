@@ -35,12 +35,13 @@ $ git pull
 ```
 
 ## 2、推送
-
 ```bash
 # 查看本地项目状态
 $ git status -s
 # 添加文件 | 添加目录 | 添加所有内容
 $ git add < file | dir | . >
+# 删除 add 的文件
+$ git rm [-r] --cached <file | .>
 # 提交变化
 $ git commit -m [message]
 # 推送到远程库
@@ -49,8 +50,23 @@ $ git push
 $ git push <远程主机名> <本地分支名>:<远程分支名>
 ```
 
+### 2.1、推送新项目到github
 
-## 分支
+先在githubh上创建好项目
+
+```bash
+$ git init
+$ git add .
+$ git status -s
+$ git config --global user.name "Your Name"
+$ git config --global user.email you@example.com
+$ git commit --amend --reset-author
+$ git commit -m "first commit"
+$ git remote add origin git@github.com:Youname/repo_name.git
+$ git push -u origin master
+```
+
+## 3、分支
 
 ```bash
 $ git branch -a
@@ -80,7 +96,7 @@ $ git remote update origin --prune
 
 ---
 
-## 标签
+## 4、标签
 
 ```bash
 # 查看现有的标签
@@ -95,7 +111,7 @@ $ git push --tags
 
 ---
 
-## 项目
+## 5、项目
 
 ### 克隆
 
@@ -130,7 +146,7 @@ master
 
 ---
 
-## 代理
+## 6、代理
 
 ### 设置代理
 
