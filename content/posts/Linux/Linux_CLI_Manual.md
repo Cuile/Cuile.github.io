@@ -68,9 +68,7 @@ export PS1="[\A \u@\H \w]\\$ "
 
 # [yyyy-mm-dd HH:MM] path
 # [user@hostname] 命令提示符
-export PS1='''
-\[\e[36;40m\][\D{%Y-%m-%d} \A] \[\e[0m\] \[\e[35;40m\]\w\[\e[0m\]
-\[\e[33;40m\][\u@\H]\[\e[0m\]  \\$ '''
+export PS1='\[\e[36;40m\][\D{%Y-%m-%d} \A] \[\e[0m\] \[\e[35;40m\]\w\[\e[0m\]\n\[\e[33;40m\][\u@\H]\[\e[0m\]  \\$ '
 ```
 - [命令提示符设置参考](https://www.linuxidc.com/Linux/2017-10/147438.htm)
 
