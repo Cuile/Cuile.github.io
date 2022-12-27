@@ -3,7 +3,6 @@ title: "CentOS 7 安装 Docker"
 date: 2022-05-06T11:05:23+08:00
 # draft: true
 tags: 
-- CentOS 7
 series:
 - Docker
 - CentOS
@@ -148,8 +147,9 @@ For more examples and ideas, visit:
 
 若能正常输出以上信息，则说明安装成功。
 
-## 9.安装 docker-compose
+## 9.安装 docker compose
 
+官方推荐使用插件方式安装
 ```bash
 $ yum -y install docker-compose-plugin
 

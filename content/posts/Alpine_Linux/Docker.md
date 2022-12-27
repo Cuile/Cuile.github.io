@@ -3,8 +3,8 @@ title: "Alpine Linux 安装 Docker"
 date: 2022-06-19T16:08:06+08:00
 # draft: true
 tags:
-- Docker
 series:
+- Docker
 - Alpine linux
 categories:
 - 系统配置
@@ -38,14 +38,14 @@ http://mirrors.tuna.tsinghua.edu.cn/alpine/v3.16/community
 ## 安装 docker
 
 ```bash
-~# apk add docker
-...
-~# apk add docker-compose
+~# apk add docker docker-cli-compose
+# 这里要特别注意，docker compose 的包名在 Alpine 里是 docker-cli-compose，不是 docker-compose-plugin。
+# docker-compose 包是 compose 的独立安装包，官方已经不再支持这种安装方式。
 ...
 ~# docker -v
 Docker version 20.10.16, build aa7e414fdcb23a66e8fabbef0a560ef1769eace5
-~# docker-compose -v
-docker-compose version 1.29.2, build unknown
+~# docker compose version
+Docker Compose version v2.12.2
 ```
 
 ## 启动 docker

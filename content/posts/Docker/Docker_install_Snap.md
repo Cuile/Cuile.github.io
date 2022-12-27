@@ -3,8 +3,8 @@ title: "使用 Snap 安装 Docker"
 date: 2022-05-11T18:41:48+08:00
 # draft: true
 tags:
-- Snap
 series:
+- Snap
 - Docker
 categories:
 - 系统配置
