@@ -6,14 +6,14 @@
 <meta http-equiv=x-ua-compatible content="IE=edge">
 <meta property="og:locale" content="zh-cn">
 <meta property="og:type" content="article">
-<meta name=description content="脚本基于Centos 7 系统进程操作 查看CPU和内存使用情况 1# 定位高CPU占用 2$ ps H -eo user,pid,ppid,tid,time,%cpu,cmd --sort=%cpu 3# 可视化显示CPU的使用状况的工具 4$ yum install -y htop 5$ htop 磁盘">
+<meta name=description content="脚本基于Centos 7 系统进程操作 1# 定位高CPU占用 2$ ps H -eo user,pid,ppid,tid,time,%cpu,cmd --sort=%cpu 3# 可视化显示CPU的使用状况的工具 4$ yum install -y htop 5$ htop 6# 查看进程的启动目录 7$ ls -l …">
 <meta name=twitter:card content="summary">
 <meta name=twitter:creator content>
 <meta name=twitter:title content="Linux系统命令">
 <meta name=twitter:image content="https://blog.cuile.com/images/thumbnail.png">
 <meta property="og:url" content="https://blog.cuile.com/posts/linux/linux_cli_manual/">
 <meta property="og:title" content="Linux系统命令">
-<meta property="og:description" content="脚本基于Centos 7 系统进程操作 查看CPU和内存使用情况 1# 定位高CPU占用 2$ ps H -eo user,pid,ppid,tid,time,%cpu,cmd --sort=%cpu 3# 可视化显示CPU的使用状况的工具 4$ yum install -y htop 5$ htop 磁盘">
+<meta property="og:description" content="脚本基于Centos 7 系统进程操作 1# 定位高CPU占用 2$ ps H -eo user,pid,ppid,tid,time,%cpu,cmd --sort=%cpu 3# 可视化显示CPU的使用状况的工具 4$ yum install -y htop 5$ htop 6# 查看进程的启动目录 7$ ls -l …">
 <meta property="og:image" content="https://blog.cuile.com/images/thumbnail.png">
 <link rel=apple-touch-icon sizes=180x180 href=https://blog.cuile.com/icons/apple-touch-icon.png>
 <link rel=icon type=image/png sizes=32x32 href=https://blog.cuile.com/icons/favicon-32x32.png>
@@ -53,22 +53,25 @@
 </span>
 <span class=post_date>
 2022-01-17</span>
-<span class=post_time> · 阅读时长 2 分钟</span>
+<span class=post_time> · 阅读时长 1 分钟</span><span>&nbsp;· <a href=https://blog.cuile.com/tags/cli/ title=CLI class="post_tag button button_translucent">CLI
+</a>
+</span>
 </div>
 <div class=post_body><p><strong><code>脚本基于Centos 7</code></strong></p>
 <h2 id=系统进程操作>系统进程操作</h2>
-<ul>
-<li><a href=https://www.cnblogs.com/xd502djj/archive/2011/03/01/1968041.html>查看CPU和内存使用情况</a></li>
-</ul>
 <div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=ln>1</span><span class=c1># 定位高CPU占用</span>
 <span class=ln>2</span>$ ps H -eo user,pid,ppid,tid,time,%cpu,cmd --sort<span class=o>=</span>%cpu
 <span class=ln>3</span><span class=c1># 可视化显示CPU的使用状况的工具</span>
 <span class=ln>4</span>$ yum install -y htop
 <span class=ln>5</span>$ htop
-</code></pre></div><h2 id=磁盘操作>磁盘操作</h2>
+<span class=ln>6</span><span class=c1># 查看进程的启动目录</span>
+<span class=ln>7</span>$ ls -l /proc/&lt;PID&gt;/cwd
+</code></pre></div><p>参考文档</p>
 <ul>
-<li><a href=https://blog.csdn.net/u013030100/article/details/79564378>查询并筛选 磁盘空间 统计 排序</a></li>
+<li><a href=https://www.cnblogs.com/xd502djj/archive/2011/03/01/1968041.html>查看CPU和内存使用情况</a></li>
+<li><a href=https://blog.csdn.net/CHEndorid/article/details/105775330>查看运行进程的启动目录</a></li>
 </ul>
+<h2 id=磁盘操作>磁盘操作</h2>
 <div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=ln>1</span><span class=c1># 修改硬盘挂载目录</span>
 <span class=ln>2</span><span class=c1># 卸载硬盘</span>
 <span class=ln>3</span>$ umount -v /mnt/raid1-2disk-500G
@@ -78,7 +81,11 @@
 <span class=ln>7</span>$ nano /etc/fstab
 <span class=ln>8</span><span class=c1># 重装挂载</span>
 <span class=ln>9</span>$ mount -av /dev/md127 /mnt/raid1-250G-2disk
-</code></pre></div><h2 id=网络端口操作>网络端口操作</h2>
+</code></pre></div><p>参考文档</p>
+<ul>
+<li><a href=https://blog.csdn.net/u013030100/article/details/79564378>查询并筛选 磁盘空间 统计 排序</a></li>
+</ul>
+<h2 id=网络端口操作>网络端口操作</h2>
 <div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=ln>1</span><span class=c1># 查看端口占用</span>
 <span class=ln>2</span><span class=c1># 查看所有端口占用情况</span>
 <span class=ln>3</span>$ netstat -tlunp
@@ -87,29 +94,6 @@
 </code></pre></div><h2 id=文件操作>文件操作</h2>
 <ul>
 <li><a href=https://blog.csdn.net/kangaroo_07/article/details/43733891>文件截取</a></li>
-</ul>
-<h2 id=systemctl命令>systemctl命令</h2>
-<div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=ln> 1</span>systemctl list-units            <span class=c1>##列出当前系统服务的状态</span>
-<span class=ln> 2</span>systemctl list-unit-files       <span class=c1>##列出服务的开机状态</span>
-<span class=ln> 3</span>systemctl status sshd           <span class=c1>##查看指定服务的状态</span>
-<span class=ln> 4</span>systemctl stop sshd             <span class=c1>##关闭指定服务</span>
-<span class=ln> 5</span>systemctl start sshd            <span class=c1>##开启指定服务</span>
-<span class=ln> 6</span>systemctl restart sshd          <span class=c1>##从新启动服务</span>
-<span class=ln> 7</span>systemctl <span class=nb>enable</span> sshd           <span class=c1>##设定指定服务开机开启</span>
-<span class=ln> 8</span>systemctl disable sshd          <span class=c1>##设定指定服务开机关闭</span>
-<span class=ln> 9</span>systemctl reload sshd           <span class=c1>##使指定服务从新加载配置</span>
-<span class=ln>10</span>systemctl list-dependencies sshd    <span class=c1>##查看指定服务的倚赖关系</span>
-<span class=ln>11</span>systemctl mask  sshd            <span class=c1>##冻结指定服务</span>
-<span class=ln>12</span>systemctl unmask sshd           <span class=c1>##启用服务</span>
-<span class=ln>13</span>systemctl set-default multi-user.target <span class=c1>##开机不开启图形</span>
-<span class=ln>14</span>systemctl set-default graphical.target  <span class=c1>##开机启动图形</span>
-</code></pre></div><h2 id=设置主机名>设置主机名</h2>
-<div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=ln>1</span>$ <span class=nv>_hostname_</span><span class=o>=</span>XXXX
-<span class=ln>2</span>$ hostnamectl --static set-hostname <span class=si>${</span><span class=nv>_hostname_</span><span class=si>}</span>
-<span class=ln>3</span>$ hostnamectl --transient set-hostname <span class=si>${</span><span class=nv>_hostname_</span><span class=si>}</span>
-<span class=ln>4</span>$ hostnamectl --pretty set-hostname <span class=si>${</span><span class=nv>_hostname_</span><span class=si>}</span>
-</code></pre></div><ul>
-<li><a href=https://blog.csdn.net/tantexian/article/details/45958275>hostnamectl 参考</a></li>
 </ul>
 <h2 id=修改命令提示符>修改命令提示符</h2>
 <div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=ln>1</span>$ nano .bash_profile
@@ -123,11 +107,6 @@
 </span><span class=ln>8</span><span class=s1>\[\e[33;40m\][\u@\H]\[\e[0m\]  \\$ &#39;&#39;&#39;</span>
 </code></pre></div><ul>
 <li><a href=https://www.linuxidc.com/Linux/2017-10/147438.htm>命令提示符设置参考</a></li>
-</ul>
-<h2 id=修改服务器时区>修改服务器时区</h2>
-<div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=ln>1</span>$ timedatectl set-timezone Asia/Shanghai
-</code></pre></div><ul>
-<li><a href=https://www.jianshu.com/p/5e8e22bf135d>timedatectl 参考</a></li>
 </ul>
 <h2 id=查看系统版本>查看系统版本</h2>
 <div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=ln>1</span>$ lsb_release -a
@@ -155,6 +134,9 @@
 <h2 class=mt-4>最新文章</h2>
 <ul class=flex-column>
 <li>
+<a href=https://blog.cuile.com/posts/linux/linux_systemd/ class=nav-link title="Systemd 命令指南">Systemd 命令指南</a>
+</li>
+<li>
 <a href=https://blog.cuile.com/posts/proxmox/proxmox_cli/ class=nav-link title="Proxmox 命令行">Proxmox 命令行</a>
 </li>
 <li>
@@ -175,16 +157,13 @@
 <li>
 <a href=https://blog.cuile.com/posts/tips/tips10/ class=nav-link title=情人>情人</a>
 </li>
-<li>
-<a href=https://blog.cuile.com/posts/tips/tips9/ class=nav-link title=人生不能靠心情活着，而要靠心态去生活。>人生不能靠心情活着，而要靠心态去生活。</a>
-</li>
 </ul>
 <div>
 <h2 class="mt-4 taxonomy" id=categories-section>分类</h2>
 <nav class=tags_nav>
 <a href=https://blog.cuile.com/categories/%E7%B3%BB%E7%BB%9F%E9%85%8D%E7%BD%AE/ class="post_tag button button_translucent" title=系统配置>
 系统配置
-<span class=button_tally>25</span>
+<span class=button_tally>26</span>
 </a>
 <a href=https://blog.cuile.com/categories/tips/ class="post_tag button button_translucent" title=tips>
 TIPS
@@ -207,17 +186,17 @@ TIPS
 <div>
 <h2 class="mt-4 taxonomy" id=series-section>专栏</h2>
 <nav class=tags_nav>
-<a href=https://blog.cuile.com/series/cli/ class="post_tag button button_translucent" title=cli>
-CLI
-<span class=button_tally>8</span>
-</a>
 <a href=https://blog.cuile.com/series/life-tips/ class="post_tag button button_translucent" title=life-tips>
 LIFE-TIPS
 <span class=button_tally>8</span>
 </a>
+<a href=https://blog.cuile.com/series/cli/ class="post_tag button button_translucent" title=cli>
+CLI
+<span class=button_tally>7</span>
+</a>
 <a href=https://blog.cuile.com/series/linux/ class="post_tag button button_translucent" title=linux>
 LINUX
-<span class=button_tally>6</span>
+<span class=button_tally>7</span>
 </a>
 <a href=https://blog.cuile.com/series/docker/ class="post_tag button button_translucent" title=docker>
 DOCKER
@@ -271,7 +250,7 @@ DJANGO
 </a>
 <a href=https://blog.cuile.com/series/centos/ class="post_tag button button_translucent" data-position=4 title=centos>CENTOS<span class=button_tally>4</span>
 </a>
-<a href=https://blog.cuile.com/series/cli/ class="post_tag button button_translucent" data-position=8 title=cli>CLI<span class=button_tally>8</span>
+<a href=https://blog.cuile.com/series/cli/ class="post_tag button button_translucent" data-position=7 title=cli>CLI<span class=button_tally>7</span>
 </a>
 <a href=https://blog.cuile.com/series/django/ class="post_tag button button_translucent" data-position=1 title=django>DJANGO<span class=button_tally>1</span>
 </a>
@@ -287,7 +266,7 @@ DJANGO
 </a>
 <a href=https://blog.cuile.com/series/life-tips/ class="post_tag button button_translucent" data-position=8 title=life-tips>LIFE-TIPS<span class=button_tally>8</span>
 </a>
-<a href=https://blog.cuile.com/series/linux/ class="post_tag button button_translucent" data-position=6 title=linux>LINUX<span class=button_tally>6</span>
+<a href=https://blog.cuile.com/series/linux/ class="post_tag button button_translucent" data-position=7 title=linux>LINUX<span class=button_tally>7</span>
 </a>
 <a href=https://blog.cuile.com/series/openwrt/ class="post_tag button button_translucent" data-position=4 title=openwrt>OPENWRT<span class=button_tally>4</span>
 </a>
@@ -296,6 +275,8 @@ DJANGO
 <a href=https://blog.cuile.com/series/python/ class="post_tag button button_translucent" data-position=4 title=python>PYTHON<span class=button_tally>4</span>
 </a>
 <a href=https://blog.cuile.com/series/shadowsocks/ class="post_tag button button_translucent" data-position=1 title=shadowsocks>SHADOWSOCKS<span class=button_tally>1</span>
+</a>
+<a href=https://blog.cuile.com/series/systemd/ class="post_tag button button_translucent" data-position=1 title=systemd>SYSTEMD<span class=button_tally>1</span>
 </a>
 <a href=https://blog.cuile.com/series/ubuntu/ class="post_tag button button_translucent" data-position=2 title=ubuntu>UBUNTU<span class=button_tally>2</span>
 </a>
@@ -315,6 +296,10 @@ DJANGO
 <div>
 <h2 class="mt-4 taxonomy" id=tags-section>标签</h2>
 <nav class=tags_nav>
+<a href=https://blog.cuile.com/tags/cli/ class="post_tag button button_translucent" title=cli>
+CLI
+<span class=button_tally>3</span>
+</a>
 <a href=https://blog.cuile.com/tags/centos-7/ class="post_tag button button_translucent" title=centos-7>
 CENTOS-7
 <span class=button_tally>2</span>
@@ -329,10 +314,6 @@ ALG
 </a>
 <a href=https://blog.cuile.com/tags/blog/ class="post_tag button button_translucent" title=blog>
 BLOG
-<span class=button_tally>1</span>
-</a>
-<a href=https://blog.cuile.com/tags/cli/ class="post_tag button button_translucent" title=cli>
-CLI
 <span class=button_tally>1</span>
 </a>
 <a href=https://blog.cuile.com/tags/dns/ class="post_tag button button_translucent" title=dns>
@@ -381,7 +362,7 @@ IPTABLES
 </a>
 <a href=https://blog.cuile.com/tags/centos-7/ class="post_tag button button_translucent" data-position=2 title=centos-7>CENTOS-7<span class=button_tally>2</span>
 </a>
-<a href=https://blog.cuile.com/tags/cli/ class="post_tag button button_translucent" data-position=1 title=cli>CLI<span class=button_tally>1</span>
+<a href=https://blog.cuile.com/tags/cli/ class="post_tag button button_translucent" data-position=3 title=cli>CLI<span class=button_tally>3</span>
 </a>
 <a href=https://blog.cuile.com/tags/dns/ class="post_tag button button_translucent" data-position=1 title=dns>DNS<span class=button_tally>1</span>
 </a>
