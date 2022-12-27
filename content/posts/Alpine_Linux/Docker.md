@@ -3,9 +3,10 @@ title: "Alpine Linux 安装 Docker"
 date: 2022-06-19T16:08:06+08:00
 # draft: true
 tags:
+- Alpine linux
 series:
 - Docker
-- Alpine linux
+- linux
 categories:
 - 系统配置
 ---

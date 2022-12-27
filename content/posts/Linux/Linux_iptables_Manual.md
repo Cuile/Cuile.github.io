@@ -4,10 +4,10 @@ date: 2022-02-08T10:09:48+08:00
 # draft: true
 tags:
 - iptables
-series:
 - Firewall
-- Linux
 - CLI
+series:
+- Linux
 categories:
 - 系统配置
 ---
