@@ -1,25 +1,24 @@
-<!doctype html><html lang=zh-cn data-figures>
+<!doctype html><html lang=zh-cn data-figures class=page>
 <head>
-<title>Proxmox | 瘦了就帅了</title>
+<title>Proxmox 命令行 | 瘦了就帅了</title>
 <meta charset=utf-8>
 <meta name=viewport content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
 <meta http-equiv=x-ua-compatible content="IE=edge">
 <meta property="og:locale" content="zh-cn">
 <meta property="og:type" content="article">
-<meta name=description content>
+<meta name=description content="强制删除虚拟机 1$ rm -f /etc/pve/nodes/*/*/<vm_id>.conf 参考文档 修復Proxmox VE：無法刪除虛擬機器">
 <meta name=twitter:card content="summary">
 <meta name=twitter:creator content>
-<meta name=twitter:title content="Proxmox">
+<meta name=twitter:title content="Proxmox 命令行">
 <meta name=twitter:image content="https://blog.cuile.com/images/thumbnail.png">
-<meta property="og:url" content="https://blog.cuile.com/tags/proxmox/">
-<meta property="og:title" content="Proxmox">
-<meta property="og:description" content>
+<meta property="og:url" content="https://blog.cuile.com/posts/proxmox/proxmox_cli/">
+<meta property="og:title" content="Proxmox 命令行">
+<meta property="og:description" content="强制删除虚拟机 1$ rm -f /etc/pve/nodes/*/*/<vm_id>.conf 参考文档 修復Proxmox VE：無法刪除虛擬機器">
 <meta property="og:image" content="https://blog.cuile.com/images/thumbnail.png">
 <link rel=apple-touch-icon sizes=180x180 href=https://blog.cuile.com/icons/apple-touch-icon.png>
 <link rel=icon type=image/png sizes=32x32 href=https://blog.cuile.com/icons/favicon-32x32.png>
 <link rel=manifest href=https://blog.cuile.com/icons/site.webmanifest>
-<link rel=canonical href=https://blog.cuile.com/tags/proxmox/>
-<link rel=alternate type=application/rss+xml href=https://blog.cuile.com/tags/proxmox/index.xml title=瘦了就帅了>
+<link rel=canonical href=https://blog.cuile.com/posts/proxmox/proxmox_cli/>
 <link rel=preload href=https://blog.cuile.com/css/styles.367129801480fead578d7a356a98fcb3bce794981ff18cee55868d198d0d2bf1eb4feac97319d0871c6255183b9fd27a7059e4632c785951f4c4f6953559c4d0.css integrity="sha512-NnEpgBSA/q1XjXo1apj8s7znlJgf8YzuVYaNGY0NK/HrT+rJcxnQhxxiVRg7n9J6cFnkYyx4WVH0xPaVNVnE0A==" as=style crossorigin=anonymous>
 <link rel=preload href=https://blog.cuile.com/zh-cn/js/bundle.4e04b93422786398f3502d560bd5acb3d3f99b2e942c8c11e0fd926ab6ec3ccbd020d4294d58c0825ecb606ef221b34edc81586f1832489816a57ae8f0276615.js as=script integrity="sha512-TgS5NCJ4Y5jzUC1WC9Wss9P5my6ULIwR4P2SarbsPMvQINQpTVjAgl7LYG7yIbNO3IFYbxgySJgWpXro8CdmFQ==" crossorigin=anonymous>
 <link rel=stylesheet type=text/css href=https://blog.cuile.com/css/styles.367129801480fead578d7a356a98fcb3bce794981ff18cee55868d198d0d2bf1eb4feac97319d0871c6255183b9fd27a7059e4632c785951f4c4f6953559c4d0.css integrity="sha512-NnEpgBSA/q1XjXo1apj8s7znlJgf8YzuVYaNGY0NK/HrT+rJcxnQhxxiVRg7n9J6cFnkYyx4WVH0xPaVNVnE0A==" crossorigin=anonymous>
@@ -47,66 +46,30 @@
 </header>
 <main>
 <div class="grid-inverse wrap content">
-<div>
-<ul class=posts id=posts>
-<li class=post_item>
-<div class=excerpt>
-<div class=excerpt_header>
-<h3 class=post_link>
-<a href=https://blog.cuile.com/posts/proxmox/proxmox_rrd_error/ title="修复 Proxmox RRD 错误">修复 Proxmox RRD 错误</a>
-</h3>
+<article class=post_content>
+<h1 class=post_title>Proxmox 命令行</h1>
 <div class=post_meta>
 <span><svg class="icon"><title>calendar</title><use xlink:href="#calendar"/></svg>
 </span>
 <span class=post_date>
-2022-02-08</span>
-<span class=post_time> · 阅读时长 1 分钟</span><span>&nbsp;· <a href=https://blog.cuile.com/tags/proxmox/ title=Proxmox class="post_tag button button_translucent">Proxmox
+2022-12-27</span>
+<span class=post_time> · 阅读时长 1 分钟</span><span>&nbsp;· <a href=https://blog.cuile.com/tags/cli/ title=CLI class="post_tag button button_translucent">CLI
 </a>
 </span>
 </div>
-</div>
-<div class=excerpt_footer>
-<div class=pale>
-<p>Proxmox系统安装后，日志报错 1rrdcached[4513]: handle_request_update: Could not read RRD file. 2pmxcfs[4527]: [status] notice: RRDC update error /var/lib/rrdcached/db/pve2-vm/85235: -1 3pmxcfs[4527]: [status] notice: RRD update error /var/lib/rrdcached/db/pve2-vm/85235: mmaping file '/var/lib/rrdcached/db/pve2-vm/85235': …</p>
-<br>
-<a href=https://blog.cuile.com/posts/proxmox/proxmox_rrd_error/ title=阅读更多 class="excerpt_more button">阅读更多</a>
-</div>
-</div>
-</div>
-</li>
-<li class=post_item>
-<div class=excerpt>
-<div class=excerpt_header>
-<h3 class=post_link>
-<a href=https://blog.cuile.com/posts/proxmox/proxmox_nat/ title="Proxmox 配置 NAT 网络">Proxmox 配置 NAT 网络</a>
-</h3>
-<div class=post_meta>
-<span><svg class="icon"><title>calendar</title><use xlink:href="#calendar"/></svg>
-</span>
-<span class=post_date>
-2022-02-07</span>
-<span class=post_time> · 阅读时长 1 分钟</span><span>&nbsp;· <a href=https://blog.cuile.com/tags/nat/ title=NAT class="post_tag button button_translucent">NAT
-</a><a href=https://blog.cuile.com/tags/proxmox/ title=Proxmox class="post_tag button button_translucent">Proxmox
-</a>
-</span>
-</div>
-</div>
-<div class=excerpt_footer>
-<div class=pale>
-<p><ol>
-<li>升级系统软件包 1$ apt-get update 2$ apt-get dist-upgrade 2. 安装 ifupdown2 使用 ifupdown2 网络管理软件包，还可以实时重新加载网络配置，而无需重新启动。 1$ apt install ifupdown2 3. 配置物理网卡 使用 PVE 的 WEB 管理界</li>
-</ol>
-</p>
-<br>
-<a href=https://blog.cuile.com/posts/proxmox/proxmox_nat/ title=阅读更多 class="excerpt_more button">阅读更多</a>
-</div>
-</div>
-</div>
-</li>
-<li>
-</li>
+<div class=post_body><h2 id=强制删除虚拟机>强制删除虚拟机</h2>
+<div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=ln>1</span>$ rm -f /etc/pve/nodes/*/*/&lt;vm_id&gt;.conf
+</code></pre></div><p>参考文档</p>
+<ul>
+<li><a href=https://blog.pulipuli.info/2014/08/proxmox-ve-fix-proxmox-ve-destroy.html#postcataproxmox-ve-fix-proxmox-ve-destroy.html0_anchor2>修復Proxmox VE：無法刪除虛擬機器</a></li>
 </ul>
 </div>
+<h2 class=post_related>相关专栏文章</h2>
+<ul>
+</ul>
+<div class=post_comments>
+</div>
+</article>
 <aside class=sidebar>
 <section class=sidebar_inner>
 <br>
@@ -114,6 +77,8 @@
 <div class=author_bio>
 产品里的技术、一眼看不出来的胖子
 </div>
+<ul>
+</ul>
 <h2 class=mt-4>最新文章</h2>
 <ul class=flex-column>
 <li>
@@ -146,7 +111,7 @@
 <nav class=tags_nav>
 <a href=https://blog.cuile.com/categories/%E7%B3%BB%E7%BB%9F%E9%85%8D%E7%BD%AE/ class="post_tag button button_translucent" title=系统配置>
 系统配置
-<span class=button_tally>24</span>
+<span class=button_tally>25</span>
 </a>
 <a href=https://blog.cuile.com/categories/tips/ class="post_tag button button_translucent" title=tips>
 TIPS
@@ -205,6 +170,10 @@ PYTHON
 ALPINE-LINUX
 <span class=button_tally>3</span>
 </a>
+<a href=https://blog.cuile.com/series/proxmox/ class="post_tag button button_translucent" title=proxmox>
+PROXMOX
+<span class=button_tally>3</span>
+</a>
 <a href=https://blog.cuile.com/series/git/ class="post_tag button button_translucent" title=git>
 GIT
 <span class=button_tally>2</span>
@@ -215,10 +184,6 @@ UBUNTU
 </a>
 <a href=https://blog.cuile.com/series/work-tips/ class="post_tag button button_translucent" title=work-tips>
 WORK-TIPS
-<span class=button_tally>2</span>
-</a>
-<a href=https://blog.cuile.com/series/%E8%99%9A%E6%8B%9F%E6%9C%BA/ class="post_tag button button_translucent" title=虚拟机>
-虚拟机
 <span class=button_tally>2</span>
 </a>
 <a href=https://blog.cuile.com/series/django/ class="post_tag button button_translucent" title=django>
@@ -253,6 +218,8 @@ DJANGO
 </a>
 <a href=https://blog.cuile.com/series/openwrt/ class="post_tag button button_translucent" data-position=4 title=openwrt>OPENWRT<span class=button_tally>4</span>
 </a>
+<a href=https://blog.cuile.com/series/proxmox/ class="post_tag button button_translucent" data-position=3 title=proxmox>PROXMOX<span class=button_tally>3</span>
+</a>
 <a href=https://blog.cuile.com/series/python/ class="post_tag button button_translucent" data-position=4 title=python>PYTHON<span class=button_tally>4</span>
 </a>
 <a href=https://blog.cuile.com/series/shadowsocks/ class="post_tag button button_translucent" data-position=1 title=shadowsocks>SHADOWSOCKS<span class=button_tally>1</span>
@@ -264,8 +231,6 @@ DJANGO
 <a href=https://blog.cuile.com/series/work-tips/ class="post_tag button button_translucent" data-position=2 title=work-tips>WORK-TIPS<span class=button_tally>2</span>
 </a>
 <a href=https://blog.cuile.com/series/%E7%81%AB%E7%82%AE/ class="post_tag button button_translucent" data-position=1 title=火炮>火炮<span class=button_tally>1</span>
-</a>
-<a href=https://blog.cuile.com/series/%E8%99%9A%E6%8B%9F%E6%9C%BA/ class="post_tag button button_translucent" data-position=2 title=虚拟机>虚拟机<span class=button_tally>2</span>
 </a>
 <div class=tags_sort><span title="sort alphabetically">[A~Z]</span><span title="sort by count">[0~9]</span>
 </div>
@@ -285,16 +250,16 @@ CENTOS-7
 NETWORK
 <span class=button_tally>2</span>
 </a>
-<a href=https://blog.cuile.com/tags/proxmox/ class="post_tag button button_translucent" title=proxmox>
-PROXMOX
-<span class=button_tally>2</span>
-</a>
 <a href=https://blog.cuile.com/tags/alg/ class="post_tag button button_translucent" title=alg>
 ALG
 <span class=button_tally>1</span>
 </a>
 <a href=https://blog.cuile.com/tags/blog/ class="post_tag button button_translucent" title=blog>
 BLOG
+<span class=button_tally>1</span>
+</a>
+<a href=https://blog.cuile.com/tags/cli/ class="post_tag button button_translucent" title=cli>
+CLI
 <span class=button_tally>1</span>
 </a>
 <a href=https://blog.cuile.com/tags/dns/ class="post_tag button button_translucent" title=dns>
@@ -343,6 +308,8 @@ IPTABLES
 </a>
 <a href=https://blog.cuile.com/tags/centos-7/ class="post_tag button button_translucent" data-position=2 title=centos-7>CENTOS-7<span class=button_tally>2</span>
 </a>
+<a href=https://blog.cuile.com/tags/cli/ class="post_tag button button_translucent" data-position=1 title=cli>CLI<span class=button_tally>1</span>
+</a>
 <a href=https://blog.cuile.com/tags/dns/ class="post_tag button button_translucent" data-position=1 title=dns>DNS<span class=button_tally>1</span>
 </a>
 <a href=https://blog.cuile.com/tags/docker/ class="post_tag button button_translucent" data-position=1 title=docker>DOCKER<span class=button_tally>1</span>
@@ -378,8 +345,6 @@ IPTABLES
 <a href=https://blog.cuile.com/tags/nmcli/ class="post_tag button button_translucent" data-position=1 title=nmcli>NMCLI<span class=button_tally>1</span>
 </a>
 <a href=https://blog.cuile.com/tags/pip3/ class="post_tag button button_translucent" data-position=1 title=pip3>PIP3<span class=button_tally>1</span>
-</a>
-<a href=https://blog.cuile.com/tags/proxmox/ class="post_tag button button_translucent" data-position=2 title=proxmox>PROXMOX<span class=button_tally>2</span>
 </a>
 <a href=https://blog.cuile.com/tags/proxy/ class="post_tag button button_translucent" data-position=1 title=proxy>PROXY<span class=button_tally>1</span>
 </a>
