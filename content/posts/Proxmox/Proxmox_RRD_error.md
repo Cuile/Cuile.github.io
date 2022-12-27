@@ -3,9 +3,8 @@ title: "修复 Proxmox RRD 错误"
 date: 2022-02-08T10:42:35+08:00
 # draft: true
 tags:
-- Proxmox
 series:
-- 虚拟机
+- Proxmox
 categories:
 - 系统配置
 ---
