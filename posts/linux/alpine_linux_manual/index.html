@@ -1,24 +1,24 @@
 <!doctype html><html lang=zh-cn data-figures class=page>
 <head>
-<title>Alpine Linux 安装 Docker | 瘦了就帅了</title>
+<title>Alpine Linux 配置 | 瘦了就帅了</title>
 <meta charset=utf-8>
 <meta name=viewport content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
 <meta http-equiv=x-ua-compatible content="IE=edge">
 <meta property="og:locale" content="zh-cn">
 <meta property="og:type" content="article">
-<meta name=description content="在 Alpine 上安装 Docker 真是一件让人感觉非常愉快的事情，因为过程非常简单。 修改 apk 源 1~# nano /etc/apk/repositories 因为 docker 在社区的库里，所以要打开 community 的源。 1#/media/cdrom/apks …">
+<meta name=description content="WindTerm 无法认证 WindTerm客户端，取消 “会话设置 -> SSH -> 验证 -> 尝试键盘交互认证” 可已正常连接。 终端配置和环境变量 在 /etc/profile.d 文件夹下，创建sh文件来实">
 <meta name=twitter:card content="summary">
 <meta name=twitter:creator content>
-<meta name=twitter:title content="Alpine Linux 安装 Docker">
+<meta name=twitter:title content="Alpine Linux 配置">
 <meta name=twitter:image content="https://blog.cuile.com/images/thumbnail.png">
-<meta property="og:url" content="https://blog.cuile.com/posts/alpine_linux/docker/">
-<meta property="og:title" content="Alpine Linux 安装 Docker">
-<meta property="og:description" content="在 Alpine 上安装 Docker 真是一件让人感觉非常愉快的事情，因为过程非常简单。 修改 apk 源 1~# nano /etc/apk/repositories 因为 docker 在社区的库里，所以要打开 community 的源。 1#/media/cdrom/apks …">
+<meta property="og:url" content="https://blog.cuile.com/posts/linux/alpine_linux_manual/">
+<meta property="og:title" content="Alpine Linux 配置">
+<meta property="og:description" content="WindTerm 无法认证 WindTerm客户端，取消 “会话设置 -> SSH -> 验证 -> 尝试键盘交互认证” 可已正常连接。 终端配置和环境变量 在 /etc/profile.d 文件夹下，创建sh文件来实">
 <meta property="og:image" content="https://blog.cuile.com/images/thumbnail.png">
 <link rel=apple-touch-icon sizes=180x180 href=https://blog.cuile.com/icons/apple-touch-icon.png>
 <link rel=icon type=image/png sizes=32x32 href=https://blog.cuile.com/icons/favicon-32x32.png>
 <link rel=manifest href=https://blog.cuile.com/icons/site.webmanifest>
-<link rel=canonical href=https://blog.cuile.com/posts/alpine_linux/docker/>
+<link rel=canonical href=https://blog.cuile.com/posts/linux/alpine_linux_manual/>
 <link rel=preload href=https://blog.cuile.com/css/styles.367129801480fead578d7a356a98fcb3bce794981ff18cee55868d198d0d2bf1eb4feac97319d0871c6255183b9fd27a7059e4632c785951f4c4f6953559c4d0.css integrity="sha512-NnEpgBSA/q1XjXo1apj8s7znlJgf8YzuVYaNGY0NK/HrT+rJcxnQhxxiVRg7n9J6cFnkYyx4WVH0xPaVNVnE0A==" as=style crossorigin=anonymous>
 <link rel=preload href=https://blog.cuile.com/zh-cn/js/bundle.4e04b93422786398f3502d560bd5acb3d3f99b2e942c8c11e0fd926ab6ec3ccbd020d4294d58c0825ecb606ef221b34edc81586f1832489816a57ae8f0276615.js as=script integrity="sha512-TgS5NCJ4Y5jzUC1WC9Wss9P5my6ULIwR4P2SarbsPMvQINQpTVjAgl7LYG7yIbNO3IFYbxgySJgWpXro8CdmFQ==" crossorigin=anonymous>
 <link rel=stylesheet type=text/css href=https://blog.cuile.com/css/styles.367129801480fead578d7a356a98fcb3bce794981ff18cee55868d198d0d2bf1eb4feac97319d0871c6255183b9fd27a7059e4632c785951f4c4f6953559c4d0.css integrity="sha512-NnEpgBSA/q1XjXo1apj8s7znlJgf8YzuVYaNGY0NK/HrT+rJcxnQhxxiVRg7n9J6cFnkYyx4WVH0xPaVNVnE0A==" crossorigin=anonymous>
@@ -47,45 +47,24 @@
 <main>
 <div class="grid-inverse wrap content">
 <article class=post_content>
-<h1 class=post_title>Alpine Linux 安装 Docker</h1>
+<h1 class=post_title>Alpine Linux 配置</h1>
 <div class=post_meta>
 <span><svg class="icon"><title>calendar</title><use xlink:href="#calendar"/></svg>
 </span>
 <span class=post_date>
-2022-06-19</span>
-<span class=post_time> · 阅读时长 1 分钟</span><span>&nbsp;· <a href=https://blog.cuile.com/tags/alpine-linux/ title="Alpine linux" class="post_tag button button_translucent">Alpine linux
+2022-12-28</span>
+<span class=post_time> · 阅读时长 1 分钟</span><span>&nbsp;· <a href=https://blog.cuile.com/tags/alpine-linux/ title="alpine linux" class="post_tag button button_translucent">alpine linux
 </a>
 </span>
 </div>
-<div class=post_body><p>在 Alpine 上安装 Docker 真是一件让人感觉非常愉快的事情，因为过程非常简单。</p>
-<h2 id=修改-apk-源>修改 apk 源</h2>
-<div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=ln>1</span>~# nano /etc/apk/repositories
-</code></pre></div><p>因为 docker 在社区的库里，所以要打开 community 的源。</p>
-<div class=highlight><pre tabindex=0 class=chroma><code class=language-fallback data-lang=fallback><span class=ln>1</span>#/media/cdrom/apks
-<span class=ln>2</span>http://mirrors.tuna.tsinghua.edu.cn/alpine/v3.16/main
-<span class=ln>3</span>http://mirrors.tuna.tsinghua.edu.cn/alpine/v3.16/community
-<span class=ln>4</span>#http://mirrors.tuna.tsinghua.edu.cn/alpine/edge/main
-<span class=ln>5</span>#http://mirrors.tuna.tsinghua.edu.cn/alpine/edge/community
-<span class=ln>6</span>#http://mirrors.tuna.tsinghua.edu.cn/alpine/edge/testing
-<span class=ln>7</span>
-</code></pre></div><div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=ln>1</span>~# apk update
-<span class=ln>2</span>
-</code></pre></div><h2 id=安装-docker>安装 docker</h2>
-<div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=ln>1</span>~# apk add docker docker-cli-compose
-<span class=ln>2</span><span class=c1># 这里要特别注意，docker compose 的包名在 Alpine 里是 docker-cli-compose，不是 docker-compose-plugin。</span>
-<span class=ln>3</span><span class=c1># docker-compose 包是 compose 的独立安装包，官方已经不再支持这种安装方式。</span>
-<span class=ln>4</span>...
-<span class=ln>5</span>~# docker -v
-<span class=ln>6</span>Docker version 20.10.16, build aa7e414fdcb23a66e8fabbef0a560ef1769eace5
-<span class=ln>7</span>~# docker compose version
-<span class=ln>8</span>Docker Compose version v2.12.2
-</code></pre></div><h2 id=启动-docker>启动 docker</h2>
-<div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=ln>1</span><span class=c1># 引导时启动</span>
-<span class=ln>2</span>~# rc-update add docker boot
-<span class=ln>3</span><span class=c1># 启动服务</span>
-<span class=ln>4</span>~# service docker start
-</code></pre></div><h2 id=测试>测试</h2>
-<div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=ln>1</span>~# docker run hello-world
+<div class=post_body><h2 id=windterm-无法认证>WindTerm 无法认证</h2>
+<p>WindTerm客户端，取消 “会话设置 -> SSH -> 验证 -> 尝试键盘交互认证” 可已正常连接。</p>
+<h2 id=终端配置和环境变量>终端配置和环境变量</h2>
+<p>在 /etc/profile.d 文件夹下，创建sh文件来实现。</p>
+<div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=ln>1</span><span class=c1># cli.sh</span>
+<span class=ln>2</span><span class=nb>alias</span> <span class=nv>ll</span><span class=o>=</span><span class=s1>&#39;ls -la --color=tty&#39;</span>
+</code></pre></div><div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=ln>1</span><span class=c1># keychain.sh</span>
+<span class=ln>2</span><span class=nb>eval</span> <span class=sb>`</span>keychain --eval ~/.ssh/github.com<span class=sb>`</span>
 </code></pre></div>
 </div>
 <h2 class=post_related>相关专栏文章</h2>
@@ -135,7 +114,7 @@
 <nav class=tags_nav>
 <a href=https://blog.cuile.com/categories/%E7%B3%BB%E7%BB%9F%E9%85%8D%E7%BD%AE/ class="post_tag button button_translucent" title=系统配置>
 系统配置
-<span class=button_tally>27</span>
+<span class=button_tally>28</span>
 </a>
 <a href=https://blog.cuile.com/categories/tips/ class="post_tag button button_translucent" title=tips>
 TIPS
@@ -160,7 +139,7 @@ TIPS
 <nav class=tags_nav>
 <a href=https://blog.cuile.com/series/linux/ class="post_tag button button_translucent" title=linux>
 LINUX
-<span class=button_tally>11</span>
+<span class=button_tally>12</span>
 </a>
 <a href=https://blog.cuile.com/series/life-tips/ class="post_tag button button_translucent" title=life-tips>
 LIFE-TIPS
@@ -169,6 +148,10 @@ LIFE-TIPS
 <a href=https://blog.cuile.com/series/docker/ class="post_tag button button_translucent" title=docker>
 DOCKER
 <span class=button_tally>5</span>
+</a>
+<a href=https://blog.cuile.com/series/cli/ class="post_tag button button_translucent" title=cli>
+CLI
+<span class=button_tally>4</span>
 </a>
 <a href=https://blog.cuile.com/series/hyper-v/ class="post_tag button button_translucent" title=hyper-v>
 HYPER-V
@@ -190,10 +173,6 @@ CENTOS
 PROXMOX
 <span class=button_tally>3</span>
 </a>
-<a href=https://blog.cuile.com/series/cli/ class="post_tag button button_translucent" title=cli>
-CLI
-<span class=button_tally>2</span>
-</a>
 <a href=https://blog.cuile.com/series/git/ class="post_tag button button_translucent" title=git>
 GIT
 <span class=button_tally>2</span>
@@ -210,8 +189,8 @@ DJANGO
 HARMONYOS
 <span class=button_tally>1</span>
 </a>
-<a href=https://blog.cuile.com/series/shadowsocks/ class="post_tag button button_translucent" title=shadowsocks>
-SHADOWSOCKS
+<a href=https://blog.cuile.com/series/network/ class="post_tag button button_translucent" title=network>
+NETWORK
 <span class=button_tally>1</span>
 </a>
 <br>
@@ -220,7 +199,7 @@ SHADOWSOCKS
 <div class=tags_list>
 <a href=https://blog.cuile.com/series/centos/ class="post_tag button button_translucent" data-position=3 title=centos>CENTOS<span class=button_tally>3</span>
 </a>
-<a href=https://blog.cuile.com/series/cli/ class="post_tag button button_translucent" data-position=2 title=cli>CLI<span class=button_tally>2</span>
+<a href=https://blog.cuile.com/series/cli/ class="post_tag button button_translucent" data-position=4 title=cli>CLI<span class=button_tally>4</span>
 </a>
 <a href=https://blog.cuile.com/series/django/ class="post_tag button button_translucent" data-position=1 title=django>DJANGO<span class=button_tally>1</span>
 </a>
@@ -234,7 +213,9 @@ SHADOWSOCKS
 </a>
 <a href=https://blog.cuile.com/series/life-tips/ class="post_tag button button_translucent" data-position=8 title=life-tips>LIFE-TIPS<span class=button_tally>8</span>
 </a>
-<a href=https://blog.cuile.com/series/linux/ class="post_tag button button_translucent" data-position=11 title=linux>LINUX<span class=button_tally>11</span>
+<a href=https://blog.cuile.com/series/linux/ class="post_tag button button_translucent" data-position=12 title=linux>LINUX<span class=button_tally>12</span>
+</a>
+<a href=https://blog.cuile.com/series/network/ class="post_tag button button_translucent" data-position=1 title=network>NETWORK<span class=button_tally>1</span>
 </a>
 <a href=https://blog.cuile.com/series/openwrt/ class="post_tag button button_translucent" data-position=4 title=openwrt>OPENWRT<span class=button_tally>4</span>
 </a>
@@ -266,15 +247,11 @@ SHADOWSOCKS
 <nav class=tags_nav>
 <a href=https://blog.cuile.com/tags/cli/ class="post_tag button button_translucent" title=cli>
 CLI
-<span class=button_tally>9</span>
+<span class=button_tally>7</span>
 </a>
 <a href=https://blog.cuile.com/tags/alpine-linux/ class="post_tag button button_translucent" title=alpine-linux>
 ALPINE-LINUX
-<span class=button_tally>3</span>
-</a>
-<a href=https://blog.cuile.com/tags/network/ class="post_tag button button_translucent" title=network>
-NETWORK
-<span class=button_tally>2</span>
+<span class=button_tally>4</span>
 </a>
 <a href=https://blog.cuile.com/tags/alg/ class="post_tag button button_translucent" title=alg>
 ALG
@@ -320,13 +297,17 @@ GITHUB
 HTTP
 <span class=button_tally>1</span>
 </a>
+<a href=https://blog.cuile.com/tags/hugo/ class="post_tag button button_translucent" title=hugo>
+HUGO
+<span class=button_tally>1</span>
+</a>
 <br>
 <div class="post_tags_toggle button">所有标签</div>
 <div class=post_tags>
 <div class=tags_list>
 <a href=https://blog.cuile.com/tags/alg/ class="post_tag button button_translucent" data-position=1 title=alg>ALG<span class=button_tally>1</span>
 </a>
-<a href=https://blog.cuile.com/tags/alpine-linux/ class="post_tag button button_translucent" data-position=3 title=alpine-linux>ALPINE-LINUX<span class=button_tally>3</span>
+<a href=https://blog.cuile.com/tags/alpine-linux/ class="post_tag button button_translucent" data-position=4 title=alpine-linux>ALPINE-LINUX<span class=button_tally>4</span>
 </a>
 <a href=https://blog.cuile.com/tags/blog/ class="post_tag button button_translucent" data-position=1 title=blog>BLOG<span class=button_tally>1</span>
 </a>
@@ -334,7 +315,7 @@ HTTP
 </a>
 <a href=https://blog.cuile.com/tags/centos-7/ class="post_tag button button_translucent" data-position=1 title=centos-7>CENTOS-7<span class=button_tally>1</span>
 </a>
-<a href=https://blog.cuile.com/tags/cli/ class="post_tag button button_translucent" data-position=9 title=cli>CLI<span class=button_tally>9</span>
+<a href=https://blog.cuile.com/tags/cli/ class="post_tag button button_translucent" data-position=7 title=cli>CLI<span class=button_tally>7</span>
 </a>
 <a href=https://blog.cuile.com/tags/dns/ class="post_tag button button_translucent" data-position=1 title=dns>DNS<span class=button_tally>1</span>
 </a>
@@ -366,7 +347,7 @@ HTTP
 </a>
 <a href=https://blog.cuile.com/tags/nat/ class="post_tag button button_translucent" data-position=1 title=nat>NAT<span class=button_tally>1</span>
 </a>
-<a href=https://blog.cuile.com/tags/network/ class="post_tag button button_translucent" data-position=2 title=network>NETWORK<span class=button_tally>2</span>
+<a href=https://blog.cuile.com/tags/network/ class="post_tag button button_translucent" data-position=1 title=network>NETWORK<span class=button_tally>1</span>
 </a>
 <a href=https://blog.cuile.com/tags/nmcli/ class="post_tag button button_translucent" data-position=1 title=nmcli>NMCLI<span class=button_tally>1</span>
 </a>
