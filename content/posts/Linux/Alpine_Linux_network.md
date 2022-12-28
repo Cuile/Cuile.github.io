@@ -3,9 +3,9 @@ title: "Alpine Linux 网络设置"
 date: 2022-06-19T15:25:18+08:00
 # draft: true
 tags: 
-- network
 - Alpine linux
 series:
+- network
 - linux
 categories:
 - 系统配置
