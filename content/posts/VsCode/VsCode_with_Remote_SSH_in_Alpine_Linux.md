@@ -21,7 +21,7 @@ VsCode Remote SSH 默认是不支持 Alpine Linux 的，不过，对 Alpine Linu
 
 ## 安装
 
-1. [安装 Bash](../Linux/Alpine_Linux_Bash.md)
+1. [安装 Bash](https://blog.cuile.com/posts/linux/alpine_linux_bash/)
 2. 安装需要的包
 ```bash
 $ apk del dropbear
