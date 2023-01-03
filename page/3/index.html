@@ -56,6 +56,31 @@
 <div class=excerpt>
 <div class=excerpt_header>
 <h3 class=post_link>
+<a href=https://blog.cuile.com/posts/linux/alpine_linux_network/ title="Alpine Linux 网络设置">Alpine Linux 网络设置</a>
+</h3>
+<div class=post_meta>
+<span><svg class="icon"><title>calendar</title><use xlink:href="#calendar"/></svg>
+</span>
+<span class=post_date>
+2022-06-19</span>
+<span class=post_time> · 阅读时长 1 分钟</span><span>&nbsp;· <a href=https://blog.cuile.com/tags/alpine-linux/ title="Alpine linux" class="post_tag button button_translucent">Alpine linux
+</a>
+</span>
+</div>
+</div>
+<div class=excerpt_footer>
+<div class=pale>
+<p>网卡静态地址 1~# nano /etc/network/interfaces 1auto lo 2iface lo inet loopback 3 4auto eth0 5iface eth0 inet static 6 address 192.168.10.16/24 7 gateway 192.168.10.10 8 hostname alpine DNS 地址 1~# nano /etc/resolv.conf 1nameserver 114.114.114.114 重启网络 1~# service networking restart</p>
+<br>
+<a href=https://blog.cuile.com/posts/linux/alpine_linux_network/ title=阅读更多 class="excerpt_more button">阅读更多</a>
+</div>
+</div>
+</div>
+</li>
+<li class=post_item>
+<div class=excerpt>
+<div class=excerpt_header>
+<h3 class=post_link>
 <a href=https://blog.cuile.com/posts/linux/alpine_linux_install/ title="Alpine Linux 3.16 安装">Alpine Linux 3.16 安装</a>
 </h3>
 <div class=post_meta>
@@ -269,29 +294,6 @@
 </div>
 </div>
 </li>
-<li class=post_item>
-<div class=excerpt>
-<div class=excerpt_header>
-<h3 class=post_link>
-<a href=https://blog.cuile.com/posts/django/django_development_introduction/ title="Django 开发简介">Django 开发简介</a>
-</h3>
-<div class=post_meta>
-<span><svg class="icon"><title>calendar</title><use xlink:href="#calendar"/></svg>
-</span>
-<span class=post_date>
-2022-05-10</span>
-<span class=post_time> · 阅读时长 2 分钟</span>
-</div>
-</div>
-<div class=excerpt_footer>
-<div class=pale>
-<p>1 准备环境 开发环境还是建议使用 Docker 来搭建，方便快捷。 不过 Django 的官方镜像已经弃用了，官方建议新版本使用 Python 官方提供的镜像来构建。 1Docker 2 ┗ Python == 3.9.12-buster 3 ┗ Django ==</p>
-<br>
-<a href=https://blog.cuile.com/posts/django/django_development_introduction/ title=阅读更多 class="excerpt_more button">阅读更多</a>
-</div>
-</div>
-</div>
-</li>
 <li>
 <ul class="pagination pagination-default">
 <li class=page-item>
@@ -319,7 +321,7 @@
 <a href=/page/4/ aria-label=Next class=page-link role=button><span aria-hidden=true>&#187;</span></a>
 </li>
 <li class=page-item>
-<a href=/page/5/ aria-label=Last class=page-link role=button><span aria-hidden=true>&#187;&#187;</span></a>
+<a href=/page/6/ aria-label=Last class=page-link role=button><span aria-hidden=true>&#187;&#187;</span></a>
 </li>
 </ul>
 </li>
@@ -334,6 +336,9 @@
 </div>
 <h2 class=mt-4>最新文章</h2>
 <ul class=flex-column>
+<li>
+<a href=https://blog.cuile.com/posts/linux/alpine_linux_bash/ class=nav-link title="Alpine Linux 安装 Bash">Alpine Linux 安装 Bash</a>
+</li>
 <li>
 <a href=https://blog.cuile.com/posts/linux/linux_frp_install/ class=nav-link title=frp安装配置>frp安装配置</a>
 </li>
@@ -355,16 +360,13 @@
 <li>
 <a href=https://blog.cuile.com/posts/hyper-v/setup_ubuntu_resolution_in_hyper-v/ class=nav-link title="Hyper-V 环境下设置 Ubuntu 分辨率">Hyper-V 环境下设置 Ubuntu 分辨率</a>
 </li>
-<li>
-<a href=https://blog.cuile.com/posts/hyper-v/install_hyper-v_in_windows10/ class=nav-link title="Windows 10 家庭版安装 Hyper-V">Windows 10 家庭版安装 Hyper-V</a>
-</li>
 </ul>
 <div>
 <h2 class="mt-4 taxonomy" id=categories-section>分类</h2>
 <nav class=tags_nav>
 <a href=https://blog.cuile.com/categories/%E7%B3%BB%E7%BB%9F%E9%85%8D%E7%BD%AE/ class="post_tag button button_translucent" title=系统配置>
 系统配置
-<span class=button_tally>29</span>
+<span class=button_tally>30</span>
 </a>
 <a href=https://blog.cuile.com/categories/tips/ class="post_tag button button_translucent" title=tips>
 TIPS
@@ -389,7 +391,7 @@ TIPS
 <nav class=tags_nav>
 <a href=https://blog.cuile.com/series/linux/ class="post_tag button button_translucent" title=linux>
 LINUX
-<span class=button_tally>13</span>
+<span class=button_tally>14</span>
 </a>
 <a href=https://blog.cuile.com/series/life-tips/ class="post_tag button button_translucent" title=life-tips>
 LIFE-TIPS
@@ -463,7 +465,7 @@ NETWORK
 </a>
 <a href=https://blog.cuile.com/series/life-tips/ class="post_tag button button_translucent" data-position=8 title=life-tips>LIFE-TIPS<span class=button_tally>8</span>
 </a>
-<a href=https://blog.cuile.com/series/linux/ class="post_tag button button_translucent" data-position=13 title=linux>LINUX<span class=button_tally>13</span>
+<a href=https://blog.cuile.com/series/linux/ class="post_tag button button_translucent" data-position=14 title=linux>LINUX<span class=button_tally>14</span>
 </a>
 <a href=https://blog.cuile.com/series/network/ class="post_tag button button_translucent" data-position=1 title=network>NETWORK<span class=button_tally>1</span>
 </a>
@@ -503,10 +505,14 @@ CLI
 </a>
 <a href=https://blog.cuile.com/tags/alpine-linux/ class="post_tag button button_translucent" title=alpine-linux>
 ALPINE-LINUX
-<span class=button_tally>4</span>
+<span class=button_tally>5</span>
 </a>
 <a href=https://blog.cuile.com/tags/alg/ class="post_tag button button_translucent" title=alg>
 ALG
+<span class=button_tally>1</span>
+</a>
+<a href=https://blog.cuile.com/tags/bash/ class="post_tag button button_translucent" title=bash>
+BASH
 <span class=button_tally>1</span>
 </a>
 <a href=https://blog.cuile.com/tags/blog/ class="post_tag button button_translucent" title=blog>
@@ -549,17 +555,15 @@ FTP
 GITHUB
 <span class=button_tally>1</span>
 </a>
-<a href=https://blog.cuile.com/tags/http/ class="post_tag button button_translucent" title=http>
-HTTP
-<span class=button_tally>1</span>
-</a>
 <br>
 <div class="post_tags_toggle button">所有标签</div>
 <div class=post_tags>
 <div class=tags_list>
 <a href=https://blog.cuile.com/tags/alg/ class="post_tag button button_translucent" data-position=1 title=alg>ALG<span class=button_tally>1</span>
 </a>
-<a href=https://blog.cuile.com/tags/alpine-linux/ class="post_tag button button_translucent" data-position=4 title=alpine-linux>ALPINE-LINUX<span class=button_tally>4</span>
+<a href=https://blog.cuile.com/tags/alpine-linux/ class="post_tag button button_translucent" data-position=5 title=alpine-linux>ALPINE-LINUX<span class=button_tally>5</span>
+</a>
+<a href=https://blog.cuile.com/tags/bash/ class="post_tag button button_translucent" data-position=1 title=bash>BASH<span class=button_tally>1</span>
 </a>
 <a href=https://blog.cuile.com/tags/blog/ class="post_tag button button_translucent" data-position=1 title=blog>BLOG<span class=button_tally>1</span>
 </a>
