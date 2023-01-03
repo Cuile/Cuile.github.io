@@ -61,7 +61,7 @@
 <div class=post_body><p>Alpine Linux 原始安装的是 busybox，小巧精干，但毕竟与主流的 Bash 还是有区别，特别是与其它系统联动时会比较麻烦，所以还是安装 Bash，统一 Shell 环境，方便日后使用。</p>
 <p>而且基本网上的安装教程都有问题，所以这里给出正确的安装步骤。</p>
 <h2 id=安装>安装</h2>
-<div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=ln>1</span>$ apk add bash
+<div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=ln>1</span>$ apk add bash libuser
 </code></pre></div><h2 id=配置>配置</h2>
 <div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=ln>1</span>$ touch /etc/login.defs
 <span class=ln>2</span>$ mkdir /etc/default
