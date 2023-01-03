@@ -21,7 +21,7 @@ Alpine Linux 原始安装的是 busybox，小巧精干，但毕竟与主流的 B
 
 ## 安装
 ```bash
-$ apk add bash
+$ apk add bash libuser
 ```
 
 ## 配置
