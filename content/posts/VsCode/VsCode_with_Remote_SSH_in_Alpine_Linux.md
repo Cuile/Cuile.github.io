@@ -1,11 +1,11 @@
 ---
-title: "VsCode_with_Remote_SSH_in_Alpine_Linux"
+title: "VsCode 使用 Remote SSH 连接 Alpine Linux"
 date: 2023-01-03T20:42:02+08:00
 # draft: true
 
 # 标签
 tags:
--  alpine linux
+- alpine linux
 - remote ssh
 # 专栏
 series:
