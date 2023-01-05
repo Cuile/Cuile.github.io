@@ -85,11 +85,11 @@ Superuser created successfully.
 
 ## 4 创建数据模型
 
-### 4.1 编辑 models.py 文件，改变模型。
+### 4.1 编辑 models.py 文件，改变模型
 
 ......
 
-### 4.2 为模型的改变生成迁移文件。
+### 4.2 为模型的改变生成迁移文件
 
 ```bash
 $ python manage.py makemigrations websrc
@@ -118,9 +118,50 @@ Running migrations:
 
 ```python
 # websrc/admin.py
+
 from django.contrib import admin
 
 from .models import Question
 
 admin.site.register(Question)
 ```
+
+## 6 Gunicorn 托管 Django
+
+### 6.1 安装 Gunicorn
+
+参考文档
+- [Gunicorn-配置详解](https://blog.csdn.net/y472360651/article/details/78538188)
+
+### 6.2 收集静态文件
+
+```bash
+$ python manage.py collectstatic
+# 如果报错
+django.core.exceptions.ImproperlyConfigured: You're using the staticfiles app without having set the STATIC_ROOT setting to a filesystem path.
+```
+需要修改 settings.py ，添加 STATIC_ROOT
+```python
+# <myproject>/settings.py
+
+# STATICFILES_DIRS = [os.path.join(BASE_DIR, "static"), ]
+STATIC_ROOT = os.path.join(BASE_DIR, "static")
+```
+*如果你从 INSTALLED_APPS 中删除一个应用程序，最好使用 collectstatic --clear 选项来删除过时的静态文件。*
+
+参考文档
+- [Django - STATICFILES_DIRS - STATIC_ROOT 配置](https://blog.csdn.net/qq_42701659/article/details/126399713)
+
+### 6.3 设置静态文件路由
+
+```python
+# <myproject>/urls.py
+
+...
+urlpatterns = [
+    ...
+] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT) + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
+```
+
+参考文档
+- [开发时提供静态文件服务](https://docs.djangoproject.com/zh-hans/3.2/howto/static-files/#serving-static-files-during-development)
