@@ -53,7 +53,7 @@
 </span>
 <span class=post_date>
 2022-05-10</span>
-<span class=post_time> · 阅读时长 2 分钟</span>
+<span class=post_time> · 阅读时长 3 分钟</span>
 </div>
 <div class=post_body><h2 id=1-准备环境>1 准备环境</h2>
 <p>开发环境还是建议使用 Docker 来搭建，方便快捷。
@@ -110,9 +110,9 @@
 <span class=ln>6</span>Superuser created successfully.
 </code></pre></div><p>访问项目链接，比如"http://127.0.0.1:8000/admin/</p>
 <h2 id=4-创建数据模型>4 创建数据模型</h2>
-<h3 id=41-编辑-modelspy-文件改变模型>4.1 编辑 models.py 文件，改变模型。</h3>
+<h3 id=41-编辑-modelspy-文件改变模型>4.1 编辑 models.py 文件，改变模型</h3>
 <p>......</p>
-<h3 id=42-为模型的改变生成迁移文件>4.2 为模型的改变生成迁移文件。</h3>
+<h3 id=42-为模型的改变生成迁移文件>4.2 为模型的改变生成迁移文件</h3>
 <div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=ln>1</span>$ python manage.py makemigrations websrc
 <span class=ln>2</span>Migrations <span class=k>for</span> <span class=s1>&#39;websrc&#39;</span>:
 <span class=ln>3</span>  polls/migrations/0001_initial.py
@@ -129,12 +129,43 @@
 <span class=ln>6</span>  Applying websrc.0001_initial... OK
 </code></pre></div><h2 id=5-向管理页面加入数据模型>5 向管理页面加入数据模型</h2>
 <div class=highlight><pre tabindex=0 class=chroma><code class=language-python data-lang=python><span class=ln>1</span><span class=c1># websrc/admin.py</span>
-<span class=ln>2</span><span class=kn>from</span> <span class=nn>django.contrib</span> <span class=kn>import</span> <span class=n>admin</span>
-<span class=ln>3</span>
-<span class=ln>4</span><span class=kn>from</span> <span class=nn>.models</span> <span class=kn>import</span> <span class=n>Question</span>
-<span class=ln>5</span>
-<span class=ln>6</span><span class=n>admin</span><span class=o>.</span><span class=n>site</span><span class=o>.</span><span class=n>register</span><span class=p>(</span><span class=n>Question</span><span class=p>)</span>
-</code></pre></div>
+<span class=ln>2</span>
+<span class=ln>3</span><span class=kn>from</span> <span class=nn>django.contrib</span> <span class=kn>import</span> <span class=n>admin</span>
+<span class=ln>4</span>
+<span class=ln>5</span><span class=kn>from</span> <span class=nn>.models</span> <span class=kn>import</span> <span class=n>Question</span>
+<span class=ln>6</span>
+<span class=ln>7</span><span class=n>admin</span><span class=o>.</span><span class=n>site</span><span class=o>.</span><span class=n>register</span><span class=p>(</span><span class=n>Question</span><span class=p>)</span>
+</code></pre></div><h2 id=6-gunicorn-托管-django>6 Gunicorn 托管 Django</h2>
+<h3 id=61-安装-gunicorn>6.1 安装 Gunicorn</h3>
+<p>参考文档</p>
+<ul>
+<li><a href=https://blog.csdn.net/y472360651/article/details/78538188>Gunicorn-配置详解</a></li>
+</ul>
+<h3 id=62-收集静态文件>6.2 收集静态文件</h3>
+<div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=ln>1</span>$ python manage.py collectstatic
+<span class=ln>2</span><span class=c1># 如果报错</span>
+<span class=ln>3</span>django.core.exceptions.ImproperlyConfigured: You<span class=err>&#39;</span>re using the staticfiles app without having <span class=nb>set</span> the STATIC_ROOT setting to a filesystem path.
+</code></pre></div><p>需要修改 settings.py ，添加 STATIC_ROOT</p>
+<div class=highlight><pre tabindex=0 class=chroma><code class=language-python data-lang=python><span class=ln>1</span><span class=c1># &lt;myproject&gt;/settings.py</span>
+<span class=ln>2</span>
+<span class=ln>3</span><span class=c1># STATICFILES_DIRS = [os.path.join(BASE_DIR, &#34;static&#34;), ]</span>
+<span class=ln>4</span><span class=n>STATIC_ROOT</span> <span class=o>=</span> <span class=n>os</span><span class=o>.</span><span class=n>path</span><span class=o>.</span><span class=n>join</span><span class=p>(</span><span class=n>BASE_DIR</span><span class=p>,</span> <span class=s2>&#34;static&#34;</span><span class=p>)</span>
+</code></pre></div><p><em>如果你从 INSTALLED_APPS 中删除一个应用程序，最好使用 collectstatic --clear 选项来删除过时的静态文件。</em></p>
+<p>参考文档</p>
+<ul>
+<li><a href=https://blog.csdn.net/qq_42701659/article/details/126399713>Django - STATICFILES_DIRS - STATIC_ROOT 配置</a></li>
+</ul>
+<h3 id=63-设置静态文件路由>6.3 设置静态文件路由</h3>
+<div class=highlight><pre tabindex=0 class=chroma><code class=language-python data-lang=python><span class=ln>1</span><span class=c1># &lt;myproject&gt;/urls.py</span>
+<span class=ln>2</span>
+<span class=ln>3</span><span class=o>...</span>
+<span class=ln>4</span><span class=n>urlpatterns</span> <span class=o>=</span> <span class=p>[</span>
+<span class=ln>5</span>    <span class=o>...</span>
+<span class=ln>6</span><span class=p>]</span> <span class=o>+</span> <span class=n>static</span><span class=p>(</span><span class=n>settings</span><span class=o>.</span><span class=n>MEDIA_URL</span><span class=p>,</span> <span class=n>document_root</span><span class=o>=</span><span class=n>settings</span><span class=o>.</span><span class=n>MEDIA_ROOT</span><span class=p>)</span> <span class=o>+</span> <span class=n>static</span><span class=p>(</span><span class=n>settings</span><span class=o>.</span><span class=n>STATIC_URL</span><span class=p>,</span> <span class=n>document_root</span><span class=o>=</span><span class=n>settings</span><span class=o>.</span><span class=n>STATIC_ROOT</span><span class=p>)</span>
+</code></pre></div><p>参考文档</p>
+<ul>
+<li><a href=https://docs.djangoproject.com/zh-hans/3.2/howto/static-files/#serving-static-files-during-development>开发时提供静态文件服务</a></li>
+</ul>
 </div>
 <h2 class=post_related>相关专栏文章</h2>
 <ul>
