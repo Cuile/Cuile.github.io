@@ -1,6 +1,6 @@
 <!doctype html><html lang=zh-cn data-figures class=page>
 <head>
-<title>Django 开发简介 | 瘦了就帅了</title>
+<title>Docker 环境 Django 开发简介 | 瘦了就帅了</title>
 <meta charset=utf-8>
 <meta name=viewport content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
 <meta http-equiv=x-ua-compatible content="IE=edge">
@@ -9,10 +9,10 @@
 <meta name=description content="1 准备环境 开发环境还是建议使用 Docker 来搭建，方便快捷。 不过 Django 的官方镜像已经弃用了，官方建议新版本使用 Python 官方提供的镜像来构建。 1Docker 2 ┗ Python == 3.9.12-buster 3 ┗ Django ==">
 <meta name=twitter:card content="summary">
 <meta name=twitter:creator content>
-<meta name=twitter:title content="Django 开发简介">
+<meta name=twitter:title content="Docker 环境 Django 开发简介">
 <meta name=twitter:image content="https://blog.cuile.com/images/thumbnail.png">
 <meta property="og:url" content="https://blog.cuile.com/posts/django/django_development_introduction/">
-<meta property="og:title" content="Django 开发简介">
+<meta property="og:title" content="Docker 环境 Django 开发简介">
 <meta property="og:description" content="1 准备环境 开发环境还是建议使用 Docker 来搭建，方便快捷。 不过 Django 的官方镜像已经弃用了，官方建议新版本使用 Python 官方提供的镜像来构建。 1Docker 2 ┗ Python == 3.9.12-buster 3 ┗ Django ==">
 <meta property="og:image" content="https://blog.cuile.com/images/thumbnail.png">
 <link rel=apple-touch-icon sizes=180x180 href=https://blog.cuile.com/icons/apple-touch-icon.png>
@@ -47,13 +47,19 @@
 <main>
 <div class="grid-inverse wrap content">
 <article class=post_content>
-<h1 class=post_title>Django 开发简介</h1>
+<h1 class=post_title>Docker 环境 Django 开发简介</h1>
 <div class=post_meta>
 <span><svg class="icon"><title>calendar</title><use xlink:href="#calendar"/></svg>
 </span>
 <span class=post_date>
 2022-05-10</span>
-<span class=post_time> · 阅读时长 3 分钟</span>
+<span class=post_time> · 阅读时长 3 分钟</span><span>&nbsp;· <a href=https://blog.cuile.com/tags/django/ title=Django class="post_tag button button_translucent">Django
+</a><a href=https://blog.cuile.com/tags/python/ title=Python class="post_tag button button_translucent">Python
+</a><a href=https://blog.cuile.com/tags/docker/ title=docker class="post_tag button button_translucent">docker
+</a><a href=https://blog.cuile.com/tags/gunicorn/ title=gunicorn class="post_tag button button_translucent">gunicorn
+</a><a href=https://blog.cuile.com/tags/supervisor/ title=Supervisor class="post_tag button button_translucent">Supervisor
+</a>
+</span>
 </div>
 <div class=post_body><h2 id=1-准备环境>1 准备环境</h2>
 <p>开发环境还是建议使用 Docker 来搭建，方便快捷。
@@ -166,9 +172,25 @@
 <ul>
 <li><a href=https://docs.djangoproject.com/zh-hans/3.2/howto/static-files/#serving-static-files-during-development>开发时提供静态文件服务</a></li>
 </ul>
+<h2 id=7-supervisor-启动-gunicorn>7 Supervisor 启动 Gunicorn</h2>
+<p><em>注意：使用 docker 时，要确保 nodaemon 选项为 true，否则 docker 不能正常启动</em></p>
+<div class=highlight><pre tabindex=0 class=chroma><code class=language-ini data-lang=ini><span class=ln>1</span><span class=k>[supervisord]</span>
+<span class=ln>2</span><span class=na>nodaemon</span><span class=o>=</span><span class=s>true</span>
+</code></pre></div><p>参考文档</p>
+<ul>
+<li><a href=https://gdevillele.github.io/engine/admin/using_supervisord/>Using Supervisor with Docker</a></li>
+</ul>
 </div>
 <h2 class=post_related>相关专栏文章</h2>
 <ul>
+<li><a href=https://blog.cuile.com/posts/ups/ups_install/ class=nav-link title="山克 UPS 安装手册">山克 UPS 安装手册</a></li>
+<li><a href=https://blog.cuile.com/posts/django/django_development_introduction/ class=nav-link title="Docker 环境 Django 开发简介">Docker 环境 Django 开发简介</a></li>
+<li><a href=https://blog.cuile.com/posts/ffmpeg_manual/ class=nav-link title=FFmpeg脚本>FFmpeg脚本</a></li>
+<li><a href=https://blog.cuile.com/posts/mysql_manual/ class=nav-link title="MySQL 数据操作">MySQL 数据操作</a></li>
+<li><a href=https://blog.cuile.com/posts/hugo_setup_for_github/ class=nav-link title=Github使用Hugo生成Blog>Github使用Hugo生成Blog</a></li>
+<li><a href=https://blog.cuile.com/archives/ class=nav-link title></a></li>
+<li><a href=https://blog.cuile.com/about/ class=nav-link title=About>About</a></li>
+<li><a href=https://blog.cuile.com/search/ class=nav-link title=Search>Search</a></li>
 </ul>
 <div class=post_comments>
 </div>
@@ -181,6 +203,30 @@
 产品里的技术、一眼看不出来的胖子
 </div>
 <ul>
+<li>
+<a href=https://blog.cuile.com/posts/ups/ups_install/ class=nav-link title="山克 UPS 安装手册">山克 UPS 安装手册</a>
+</li>
+<li>
+<a href=https://blog.cuile.com/posts/django/django_development_introduction/ class=nav-link title="Docker 环境 Django 开发简介">Docker 环境 Django 开发简介</a>
+</li>
+<li>
+<a href=https://blog.cuile.com/posts/ffmpeg_manual/ class=nav-link title=FFmpeg脚本>FFmpeg脚本</a>
+</li>
+<li>
+<a href=https://blog.cuile.com/posts/mysql_manual/ class=nav-link title="MySQL 数据操作">MySQL 数据操作</a>
+</li>
+<li>
+<a href=https://blog.cuile.com/posts/hugo_setup_for_github/ class=nav-link title=Github使用Hugo生成Blog>Github使用Hugo生成Blog</a>
+</li>
+<li>
+<a href=https://blog.cuile.com/archives/ class=nav-link title></a>
+</li>
+<li>
+<a href=https://blog.cuile.com/about/ class=nav-link title=About>About</a>
+</li>
+<li>
+<a href=https://blog.cuile.com/search/ class=nav-link title=Search>Search</a>
+</li>
 </ul>
 <h2 class=mt-4>最新文章</h2>
 <ul class=flex-column>
@@ -261,16 +307,16 @@ HYPER-V
 OPENWRT
 <span class=button_tally>4</span>
 </a>
-<a href=https://blog.cuile.com/series/python/ class="post_tag button button_translucent" title=python>
-PYTHON
-<span class=button_tally>4</span>
-</a>
 <a href=https://blog.cuile.com/series/centos/ class="post_tag button button_translucent" title=centos>
 CENTOS
 <span class=button_tally>3</span>
 </a>
 <a href=https://blog.cuile.com/series/proxmox/ class="post_tag button button_translucent" title=proxmox>
 PROXMOX
+<span class=button_tally>3</span>
+</a>
+<a href=https://blog.cuile.com/series/python/ class="post_tag button button_translucent" title=python>
+PYTHON
 <span class=button_tally>3</span>
 </a>
 <a href=https://blog.cuile.com/series/git/ class="post_tag button button_translucent" title=git>
@@ -281,16 +327,16 @@ GIT
 WORK-TIPS
 <span class=button_tally>2</span>
 </a>
-<a href=https://blog.cuile.com/series/django/ class="post_tag button button_translucent" title=django>
-DJANGO
-<span class=button_tally>1</span>
-</a>
 <a href=https://blog.cuile.com/series/harmonyos/ class="post_tag button button_translucent" title=harmonyos>
 HARMONYOS
 <span class=button_tally>1</span>
 </a>
 <a href=https://blog.cuile.com/series/network/ class="post_tag button button_translucent" title=network>
 NETWORK
+<span class=button_tally>1</span>
+</a>
+<a href=https://blog.cuile.com/series/proxy/ class="post_tag button button_translucent" title=proxy>
+PROXY
 <span class=button_tally>1</span>
 </a>
 <br>
@@ -300,8 +346,6 @@ NETWORK
 <a href=https://blog.cuile.com/series/centos/ class="post_tag button button_translucent" data-position=3 title=centos>CENTOS<span class=button_tally>3</span>
 </a>
 <a href=https://blog.cuile.com/series/cli/ class="post_tag button button_translucent" data-position=4 title=cli>CLI<span class=button_tally>4</span>
-</a>
-<a href=https://blog.cuile.com/series/django/ class="post_tag button button_translucent" data-position=1 title=django>DJANGO<span class=button_tally>1</span>
 </a>
 <a href=https://blog.cuile.com/series/docker/ class="post_tag button button_translucent" data-position=5 title=docker>DOCKER<span class=button_tally>5</span>
 </a>
@@ -323,7 +367,7 @@ NETWORK
 </a>
 <a href=https://blog.cuile.com/series/proxy/ class="post_tag button button_translucent" data-position=1 title=proxy>PROXY<span class=button_tally>1</span>
 </a>
-<a href=https://blog.cuile.com/series/python/ class="post_tag button button_translucent" data-position=4 title=python>PYTHON<span class=button_tally>4</span>
+<a href=https://blog.cuile.com/series/python/ class="post_tag button button_translucent" data-position=3 title=python>PYTHON<span class=button_tally>3</span>
 </a>
 <a href=https://blog.cuile.com/series/shadowsocks/ class="post_tag button button_translucent" data-position=1 title=shadowsocks>SHADOWSOCKS<span class=button_tally>1</span>
 </a>
@@ -377,8 +421,16 @@ CENTOS
 CENTOS-7
 <span class=button_tally>1</span>
 </a>
+<a href=https://blog.cuile.com/tags/django/ class="post_tag button button_translucent" title=django>
+DJANGO
+<span class=button_tally>1</span>
+</a>
 <a href=https://blog.cuile.com/tags/dns/ class="post_tag button button_translucent" title=dns>
 DNS
+<span class=button_tally>1</span>
+</a>
+<a href=https://blog.cuile.com/tags/docker/ class="post_tag button button_translucent" title=docker>
+DOCKER
 <span class=button_tally>1</span>
 </a>
 <a href=https://blog.cuile.com/tags/docker-compose/ class="post_tag button button_translucent" title=docker-compose>
@@ -395,14 +447,6 @@ FIREWALL
 </a>
 <a href=https://blog.cuile.com/tags/frp/ class="post_tag button button_translucent" title=frp>
 FRP
-<span class=button_tally>1</span>
-</a>
-<a href=https://blog.cuile.com/tags/ftp/ class="post_tag button button_translucent" title=ftp>
-FTP
-<span class=button_tally>1</span>
-</a>
-<a href=https://blog.cuile.com/tags/github/ class="post_tag button button_translucent" title=github>
-GITHUB
 <span class=button_tally>1</span>
 </a>
 <br>
@@ -423,7 +467,11 @@ GITHUB
 </a>
 <a href=https://blog.cuile.com/tags/cli/ class="post_tag button button_translucent" data-position=7 title=cli>CLI<span class=button_tally>7</span>
 </a>
+<a href=https://blog.cuile.com/tags/django/ class="post_tag button button_translucent" data-position=1 title=django>DJANGO<span class=button_tally>1</span>
+</a>
 <a href=https://blog.cuile.com/tags/dns/ class="post_tag button button_translucent" data-position=1 title=dns>DNS<span class=button_tally>1</span>
+</a>
+<a href=https://blog.cuile.com/tags/docker/ class="post_tag button button_translucent" data-position=1 title=docker>DOCKER<span class=button_tally>1</span>
 </a>
 <a href=https://blog.cuile.com/tags/docker-compose/ class="post_tag button button_translucent" data-position=1 title=docker-compose>DOCKER-COMPOSE<span class=button_tally>1</span>
 </a>
@@ -436,6 +484,8 @@ GITHUB
 <a href=https://blog.cuile.com/tags/ftp/ class="post_tag button button_translucent" data-position=1 title=ftp>FTP<span class=button_tally>1</span>
 </a>
 <a href=https://blog.cuile.com/tags/github/ class="post_tag button button_translucent" data-position=1 title=github>GITHUB<span class=button_tally>1</span>
+</a>
+<a href=https://blog.cuile.com/tags/gunicorn/ class="post_tag button button_translucent" data-position=1 title=gunicorn>GUNICORN<span class=button_tally>1</span>
 </a>
 <a href=https://blog.cuile.com/tags/http/ class="post_tag button button_translucent" data-position=1 title=http>HTTP<span class=button_tally>1</span>
 </a>
@@ -465,6 +515,8 @@ GITHUB
 </a>
 <a href=https://blog.cuile.com/tags/pypi/ class="post_tag button button_translucent" data-position=1 title=pypi>PYPI<span class=button_tally>1</span>
 </a>
+<a href=https://blog.cuile.com/tags/python/ class="post_tag button button_translucent" data-position=1 title=python>PYTHON<span class=button_tally>1</span>
+</a>
 <a href=https://blog.cuile.com/tags/python3/ class="post_tag button button_translucent" data-position=1 title=python3>PYTHON3<span class=button_tally>1</span>
 </a>
 <a href=https://blog.cuile.com/tags/remote-ssh/ class="post_tag button button_translucent" data-position=1 title=remote-ssh>REMOTE-SSH<span class=button_tally>1</span>
@@ -476,6 +528,8 @@ GITHUB
 <a href=https://blog.cuile.com/tags/sed/ class="post_tag button button_translucent" data-position=1 title=sed>SED<span class=button_tally>1</span>
 </a>
 <a href=https://blog.cuile.com/tags/ssh/ class="post_tag button button_translucent" data-position=1 title=ssh>SSH<span class=button_tally>1</span>
+</a>
+<a href=https://blog.cuile.com/tags/supervisor/ class="post_tag button button_translucent" data-position=1 title=supervisor>SUPERVISOR<span class=button_tally>1</span>
 </a>
 <a href=https://blog.cuile.com/tags/systemd/ class="post_tag button button_translucent" data-position=1 title=systemd>SYSTEMD<span class=button_tally>1</span>
 </a>
