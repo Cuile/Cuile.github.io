@@ -1,11 +1,14 @@
 ---
-title: "Django 开发简介"
+title: "Docker 环境 Django 开发简介"
 date: 2022-05-10T16:30:13+08:00
 # draft: true
 tags:
-series:
 - Django
 - Python
+- docker
+- gunicorn
+- Supervisor
+series:
 categories:
 - 编程
 ---
@@ -165,3 +168,14 @@ urlpatterns = [
 
 参考文档
 - [开发时提供静态文件服务](https://docs.djangoproject.com/zh-hans/3.2/howto/static-files/#serving-static-files-during-development)
+
+## 7 Supervisor 启动 Gunicorn
+
+*注意：使用 docker 时，要确保 nodaemon 选项为 true，否则 docker 不能正常启动*
+```ini
+[supervisord]
+nodaemon=true
+```
+
+参考文档
+- [Using Supervisor with Docker](https://gdevillele.github.io/engine/admin/using_supervisord/)
