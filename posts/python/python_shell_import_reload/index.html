@@ -1,25 +1,24 @@
-<!doctype html><html lang=zh-cn data-figures>
+<!doctype html><html lang=zh-cn data-figures class=page>
 <head>
-<title>Posts | 瘦了就帅了</title>
+<title>在 Python Shell 中重新导入模块 | 瘦了就帅了</title>
 <meta charset=utf-8>
 <meta name=viewport content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
 <meta http-equiv=x-ua-compatible content="IE=edge">
 <meta property="og:locale" content="zh-cn">
 <meta property="og:type" content="article">
-<meta name=description content>
+<meta name=description content="不同版本中，不同的表现形式： Python 2.x：reload() 是内置函数 Python 3.0 - 3.3：使用 imp.reload(module) Python 3.4：imp 已经被废弃，取而代之的是 importlib 1from importlib import reload 2 …">
 <meta name=twitter:card content="summary">
 <meta name=twitter:creator content>
-<meta name=twitter:title content="Posts">
+<meta name=twitter:title content="在 Python Shell 中重新导入模块">
 <meta name=twitter:image content="https://blog.cuile.com/images/thumbnail.png">
-<meta property="og:url" content="https://blog.cuile.com/posts/">
-<meta property="og:title" content="Posts">
-<meta property="og:description" content>
+<meta property="og:url" content="https://blog.cuile.com/posts/python/python_shell_import_reload/">
+<meta property="og:title" content="在 Python Shell 中重新导入模块">
+<meta property="og:description" content="不同版本中，不同的表现形式： Python 2.x：reload() 是内置函数 Python 3.0 - 3.3：使用 imp.reload(module) Python 3.4：imp 已经被废弃，取而代之的是 importlib 1from importlib import reload 2 …">
 <meta property="og:image" content="https://blog.cuile.com/images/thumbnail.png">
 <link rel=apple-touch-icon sizes=180x180 href=https://blog.cuile.com/icons/apple-touch-icon.png>
 <link rel=icon type=image/png sizes=32x32 href=https://blog.cuile.com/icons/favicon-32x32.png>
 <link rel=manifest href=https://blog.cuile.com/icons/site.webmanifest>
-<link rel=canonical href=https://blog.cuile.com/posts/>
-<link rel=alternate type=application/rss+xml href=https://blog.cuile.com/posts/index.xml title=瘦了就帅了>
+<link rel=canonical href=https://blog.cuile.com/posts/python/python_shell_import_reload/>
 <link rel=preload href=https://blog.cuile.com/css/styles.367129801480fead578d7a356a98fcb3bce794981ff18cee55868d198d0d2bf1eb4feac97319d0871c6255183b9fd27a7059e4632c785951f4c4f6953559c4d0.css integrity="sha512-NnEpgBSA/q1XjXo1apj8s7znlJgf8YzuVYaNGY0NK/HrT+rJcxnQhxxiVRg7n9J6cFnkYyx4WVH0xPaVNVnE0A==" as=style crossorigin=anonymous>
 <link rel=preload href=https://blog.cuile.com/zh-cn/js/bundle.4e04b93422786398f3502d560bd5acb3d3f99b2e942c8c11e0fd926ab6ec3ccbd020d4294d58c0825ecb606ef221b34edc81586f1832489816a57ae8f0276615.js as=script integrity="sha512-TgS5NCJ4Y5jzUC1WC9Wss9P5my6ULIwR4P2SarbsPMvQINQpTVjAgl7LYG7yIbNO3IFYbxgySJgWpXro8CdmFQ==" crossorigin=anonymous>
 <link rel=stylesheet type=text/css href=https://blog.cuile.com/css/styles.367129801480fead578d7a356a98fcb3bce794981ff18cee55868d198d0d2bf1eb4feac97319d0871c6255183b9fd27a7059e4632c785951f4c4f6953559c4d0.css integrity="sha512-NnEpgBSA/q1XjXo1apj8s7znlJgf8YzuVYaNGY0NK/HrT+rJcxnQhxxiVRg7n9J6cFnkYyx4WVH0xPaVNVnE0A==" crossorigin=anonymous>
@@ -47,14 +46,8 @@
 </header>
 <main>
 <div class="grid-inverse wrap content">
-<div>
-<ul class=posts id=posts>
-<li class=post_item>
-<div class=excerpt>
-<div class=excerpt_header>
-<h3 class=post_link>
-<a href=https://blog.cuile.com/posts/python/python_shell_import_reload/ title="在 Python Shell 中重新导入模块">在 Python Shell 中重新导入模块</a>
-</h3>
+<article class=post_content>
+<h1 class=post_title>在 Python Shell 中重新导入模块</h1>
 <div class=post_meta>
 <span><svg class="icon"><title>calendar</title><use xlink:href="#calendar"/></svg>
 </span>
@@ -64,276 +57,35 @@
 </a>
 </span>
 </div>
-</div>
-<div class=excerpt_footer>
-<div class=pale>
-<p>不同版本中，不同的表现形式： Python 2.x：reload() 是内置函数 Python 3.0 - 3.3：使用 imp.reload(module) Python 3.4：imp 已经被废弃，取而代之的是 importlib 1from importlib import reload 2 3reload(&lt;module>) 参</p>
-<br>
-<a href=https://blog.cuile.com/posts/python/python_shell_import_reload/ title=阅读更多 class="excerpt_more button">阅读更多</a>
-</div>
-</div>
-</div>
-</li>
-<li class=post_item>
-<div class=excerpt>
-<div class=excerpt_header>
-<h3 class=post_link>
-<a href=https://blog.cuile.com/posts/vscode/vscode_with_remote_ssh_in_alpine_linux/ title="VsCode 使用 Remote SSH 连接 Alpine Linux">VsCode 使用 Remote SSH 连接 Alpine Linux</a>
-</h3>
-<div class=post_meta>
-<span><svg class="icon"><title>calendar</title><use xlink:href="#calendar"/></svg>
-</span>
-<span class=post_date>
-2023-01-03</span>
-<span class=post_time> · 阅读时长 1 分钟</span><span>&nbsp;· <a href=https://blog.cuile.com/tags/alpine-linux/ title="alpine linux" class="post_tag button button_translucent">alpine linux
-</a><a href=https://blog.cuile.com/tags/remote-ssh/ title="remote ssh" class="post_tag button button_translucent">remote ssh
-</a>
-</span>
-</div>
-</div>
-<div class=excerpt_footer>
-<div class=pale>
-<p>VsCode Remote SSH 默认是不支持 Alpine Linux 的，不过，对 Alpine Linux 进行一些改动，就可以实现，比较方便。 步骤如下： 安装 安装 Bash 安装需要的包 1$ apk del dropbear 2$ apk add gcompat libstdc++6 openssh wget git Alpine 配置 1$ nano</p>
-<br>
-<a href=https://blog.cuile.com/posts/vscode/vscode_with_remote_ssh_in_alpine_linux/ title=阅读更多 class="excerpt_more button">阅读更多</a>
-</div>
-</div>
-</div>
-</li>
-<li class=post_item>
-<div class=excerpt>
-<div class=excerpt_header>
-<h3 class=post_link>
-<a href=https://blog.cuile.com/posts/linux/alpine_linux_bash/ title="Alpine Linux 安装 Bash">Alpine Linux 安装 Bash</a>
-</h3>
-<div class=post_meta>
-<span><svg class="icon"><title>calendar</title><use xlink:href="#calendar"/></svg>
-</span>
-<span class=post_date>
-2023-01-03</span>
-<span class=post_time> · 阅读时长 1 分钟</span><span>&nbsp;· <a href=https://blog.cuile.com/tags/bash/ title=bash class="post_tag button button_translucent">bash
-</a><a href=https://blog.cuile.com/tags/alpine-linux/ title="alpine linux" class="post_tag button button_translucent">alpine linux
-</a>
-</span>
-</div>
-</div>
-<div class=excerpt_footer>
-<div class=pale>
-<p>Alpine Linux 原始安装的是 busybox，小巧精干，但毕竟与主流的 Bash 还是有区别，特别是与其它系统联动时会比较麻烦，所以还是安装 Bash，统一 Shell 环境，方</p>
-<br>
-<a href=https://blog.cuile.com/posts/linux/alpine_linux_bash/ title=阅读更多 class="excerpt_more button">阅读更多</a>
-</div>
-</div>
-</div>
-</li>
-<li class=post_item>
-<div class=excerpt>
-<div class=excerpt_header>
-<h3 class=post_link>
-<a href=https://blog.cuile.com/posts/linux/linux_frp_install/ title=frp安装配置>frp安装配置</a>
-</h3>
-<div class=post_meta>
-<span><svg class="icon"><title>calendar</title><use xlink:href="#calendar"/></svg>
-</span>
-<span class=post_date>
-2022-12-28</span>
-<span class=post_time> · 阅读时长 1 分钟</span><span>&nbsp;· <a href=https://blog.cuile.com/tags/frp/ title=frp class="post_tag button button_translucent">frp
-</a>
-</span>
-</div>
-</div>
-<div class=excerpt_footer>
-<div class=pale>
-<p><ol>
-<li>使用手册 看完这3篇足以把服务建起来，非常方便 官方文档 教程1 教程2 2. 服务端安装配置 可直接使用 Docker 的配置进行 3. 客户端下载、 安装、运行 原本也想使用</li>
-</ol>
-</p>
-<br>
-<a href=https://blog.cuile.com/posts/linux/linux_frp_install/ title=阅读更多 class="excerpt_more button">阅读更多</a>
-</div>
-</div>
-</div>
-</li>
-<li class=post_item>
-<div class=excerpt>
-<div class=excerpt_header>
-<h3 class=post_link>
-<a href=https://blog.cuile.com/posts/linux/alpine_linux_manual/ title="Alpine Linux 配置">Alpine Linux 配置</a>
-</h3>
-<div class=post_meta>
-<span><svg class="icon"><title>calendar</title><use xlink:href="#calendar"/></svg>
-</span>
-<span class=post_date>
-2022-12-28</span>
-<span class=post_time> · 阅读时长 1 分钟</span><span>&nbsp;· <a href=https://blog.cuile.com/tags/alpine-linux/ title="alpine linux" class="post_tag button button_translucent">alpine linux
-</a>
-</span>
-</div>
-</div>
-<div class=excerpt_footer>
-<div class=pale>
-<p>WindTerm 无法认证 WindTerm客户端，取消 “会话设置 -> SSH -> 验证 -> 尝试键盘交互认证” 可已正常连接。 终端配置和环境变量 在 /etc/profile.d 文件夹下，创建sh文件来实</p>
-<br>
-<a href=https://blog.cuile.com/posts/linux/alpine_linux_manual/ title=阅读更多 class="excerpt_more button">阅读更多</a>
-</div>
-</div>
-</div>
-</li>
-<li class=post_item>
-<div class=excerpt>
-<div class=excerpt_header>
-<h3 class=post_link>
-<a href=https://blog.cuile.com/posts/linux/linux_screen_manual/ title="screen 命令">screen 命令</a>
-</h3>
-<div class=post_meta>
-<span><svg class="icon"><title>calendar</title><use xlink:href="#calendar"/></svg>
-</span>
-<span class=post_date>
-2022-12-28</span>
-<span class=post_time> · 阅读时长 1 分钟</span><span>&nbsp;· <a href=https://blog.cuile.com/tags/screen/ title=screen class="post_tag button button_translucent">screen
-</a>
-</span>
-</div>
-</div>
-<div class=excerpt_footer>
-<div class=pale>
-<p>创建屏幕 1# 离线方式创建屏幕，一般用在启动脚本 2$ screen -S &lt;screen_name> -d -m 执行命令 1# 在指定屏幕内输入cmd，注意\n代表回车 2$ screen -S &lt;screen_name> -X stuff "&lt;cmd>\n" 3# 在当前窗口内，通过</p>
-<br>
-<a href=https://blog.cuile.com/posts/linux/linux_screen_manual/ title=阅读更多 class="excerpt_more button">阅读更多</a>
-</div>
-</div>
-</div>
-</li>
-<li class=post_item>
-<div class=excerpt>
-<div class=excerpt_header>
-<h3 class=post_link>
-<a href=https://blog.cuile.com/posts/linux/linux_systemd/ title="Systemd 命令指南">Systemd 命令指南</a>
-</h3>
-<div class=post_meta>
-<span><svg class="icon"><title>calendar</title><use xlink:href="#calendar"/></svg>
-</span>
-<span class=post_date>
-2022-12-27</span>
-<span class=post_time> · 阅读时长 1 分钟</span><span>&nbsp;· <a href=https://blog.cuile.com/tags/cli/ title=CLI class="post_tag button button_translucent">CLI
-</a><a href=https://blog.cuile.com/tags/systemd/ title=Systemd class="post_tag button button_translucent">Systemd
-</a>
-</span>
-</div>
-</div>
-<div class=excerpt_footer>
-<div class=pale>
-<p>systemctl命令 1systemctl list-units ##列出当前系统服务的状态 2systemctl list-unit-files ##列出服务的开机状态 3systemctl status sshd ##查看指定服务的状态 4systemctl stop sshd ##关闭指定服务 5systemctl start sshd ##开</p>
-<br>
-<a href=https://blog.cuile.com/posts/linux/linux_systemd/ title=阅读更多 class="excerpt_more button">阅读更多</a>
-</div>
-</div>
-</div>
-</li>
-<li class=post_item>
-<div class=excerpt>
-<div class=excerpt_header>
-<h3 class=post_link>
-<a href=https://blog.cuile.com/posts/proxmox/proxmox_cli/ title="Proxmox 命令行">Proxmox 命令行</a>
-</h3>
-<div class=post_meta>
-<span><svg class="icon"><title>calendar</title><use xlink:href="#calendar"/></svg>
-</span>
-<span class=post_date>
-2022-12-27</span>
-<span class=post_time> · 阅读时长 1 分钟</span><span>&nbsp;· <a href=https://blog.cuile.com/tags/cli/ title=CLI class="post_tag button button_translucent">CLI
-</a>
-</span>
-</div>
-</div>
-<div class=excerpt_footer>
-<div class=pale>
-<p>强制删除虚拟机 1$ rm -f /etc/pve/nodes/<em>/</em>/&lt;vm_id>.conf 参考文档 修復Proxmox VE：無法刪除虛擬機器</p>
-<br>
-<a href=https://blog.cuile.com/posts/proxmox/proxmox_cli/ title=阅读更多 class="excerpt_more button">阅读更多</a>
-</div>
-</div>
-</div>
-</li>
-<li class=post_item>
-<div class=excerpt>
-<div class=excerpt_header>
-<h3 class=post_link>
-<a href=https://blog.cuile.com/posts/hyper-v/centos_disk_expansion_in_hyper-v/ title="Hyper-V 环境下给 CentOS 磁盘扩容">Hyper-V 环境下给 CentOS 磁盘扩容</a>
-</h3>
-<div class=post_meta>
-<span><svg class="icon"><title>calendar</title><use xlink:href="#calendar"/></svg>
-</span>
-<span class=post_date>
-2022-12-26</span>
-<span class=post_time> · 阅读时长 5 分钟</span>
-</div>
-</div>
-<div class=excerpt_footer>
-<div class=pale>
-<p>使用Hyper-V安装CentOS虚拟机，使用起来非常方便。但遇到磁盘空间不够时，不像Windows虚拟机那样方便给磁盘空间扩容。 总体两分二</p>
-<br>
-<a href=https://blog.cuile.com/posts/hyper-v/centos_disk_expansion_in_hyper-v/ title=阅读更多 class="excerpt_more button">阅读更多</a>
-</div>
-</div>
-</div>
-</li>
-<li class=post_item>
-<div class=excerpt>
-<div class=excerpt_header>
-<h3 class=post_link>
-<a href=https://blog.cuile.com/posts/hyper-v/setup_ubuntu_resolution_in_hyper-v/ title="Hyper-V 环境下设置 Ubuntu 分辨率">Hyper-V 环境下设置 Ubuntu 分辨率</a>
-</h3>
-<div class=post_meta>
-<span><svg class="icon"><title>calendar</title><use xlink:href="#calendar"/></svg>
-</span>
-<span class=post_date>
-2022-12-26</span>
-<span class=post_time> · 阅读时长 1 分钟</span>
-</div>
-</div>
-<div class=excerpt_footer>
-<div class=pale>
-<p>Hyper-V 环境下安装 Linux 是无法调节分辨率的，但可以通过设置指定分辨率，不过最大只能支持1920x1080 1. 修改配置文件 1$ sudo nano /etc/default/grub 将配置 1GRUB_CMDLINE_LINUX_DEFAULT="quiet splash " 修改为 1GRUB_CMDLINE_LINUX_DEFAULT="quiet splash video=hyperv_fb:1920x1080"</p>
-<br>
-<a href=https://blog.cuile.com/posts/hyper-v/setup_ubuntu_resolution_in_hyper-v/ title=阅读更多 class="excerpt_more button">阅读更多</a>
-</div>
-</div>
-</div>
-</li>
-<li>
-<ul class="pagination pagination-default">
-<li class="page-item disabled">
-<a aria-disabled=true aria-label=First class=page-link role=button tabindex=-1><span aria-hidden=true>&#171;&#171;</span></a>
-</li>
-<li class="page-item disabled">
-<a aria-disabled=true aria-label=Previous class=page-link role=button tabindex=-1><span aria-hidden=true>&#171;</span></a>
-</li>
-<li class="page-item active">
-<a aria-current=page aria-label="Page 1" class=page-link role=button>1</a>
-</li>
-<li class=page-item>
-<a href=/posts/page/2/ aria-label="Page 2" class=page-link role=button>2</a>
-</li>
-<li class=page-item>
-<a href=/posts/page/3/ aria-label="Page 3" class=page-link role=button>3</a>
-</li>
-<li class=page-item>
-<a href=/posts/page/4/ aria-label="Page 4" class=page-link role=button>4</a>
-</li>
-<li class=page-item>
-<a href=/posts/page/5/ aria-label="Page 5" class=page-link role=button>5</a>
-</li>
-<li class=page-item>
-<a href=/posts/page/2/ aria-label=Next class=page-link role=button><span aria-hidden=true>&#187;</span></a>
-</li>
-<li class=page-item>
-<a href=/posts/page/6/ aria-label=Last class=page-link role=button><span aria-hidden=true>&#187;&#187;</span></a>
-</li>
+<div class=post_body><p>不同版本中，不同的表现形式：</p>
+<ul>
+<li>Python 2.x：reload() 是内置函数</li>
+<li>Python 3.0 - 3.3：使用 imp.reload(module)</li>
+<li>Python 3.4：imp 已经被废弃，取而代之的是 importlib</li>
 </ul>
-</li>
+<div class=highlight><pre tabindex=0 class=chroma><code class=language-python data-lang=python><span class=ln>1</span><span class=kn>from</span> <span class=nn>importlib</span> <span class=kn>import</span> <span class=n>reload</span>
+<span class=ln>2</span>
+<span class=ln>3</span><span class=n>reload</span><span class=p>(</span><span class=o>&lt;</span><span class=n>module</span><span class=o>&gt;</span><span class=p>)</span>
+</code></pre></div><p>参考文档</p>
+<ul>
+<li><a href=https://blog.csdn.net/lvhdbb/article/details/95230019>Python 重新加载模块 reload</a></li>
 </ul>
 </div>
+<h2 class=post_related>相关专栏文章</h2>
+<ul>
+<li><a href=https://blog.cuile.com/posts/python/python_shell_import_reload/ class=nav-link title="在 Python Shell 中重新导入模块">在 Python Shell 中重新导入模块</a></li>
+<li><a href=https://blog.cuile.com/posts/ups/ups_install/ class=nav-link title="山克 UPS 安装手册">山克 UPS 安装手册</a></li>
+<li><a href=https://blog.cuile.com/posts/django/django_development_introduction/ class=nav-link title="Docker 环境 Django 开发简介">Docker 环境 Django 开发简介</a></li>
+<li><a href=https://blog.cuile.com/posts/ffmpeg_manual/ class=nav-link title=FFmpeg脚本>FFmpeg脚本</a></li>
+<li><a href=https://blog.cuile.com/posts/mysql_manual/ class=nav-link title="MySQL 数据操作">MySQL 数据操作</a></li>
+<li><a href=https://blog.cuile.com/posts/hugo_setup_for_github/ class=nav-link title=Github使用Hugo生成Blog>Github使用Hugo生成Blog</a></li>
+<li><a href=https://blog.cuile.com/archives/ class=nav-link title></a></li>
+<li><a href=https://blog.cuile.com/about/ class=nav-link title=About>About</a></li>
+<li><a href=https://blog.cuile.com/search/ class=nav-link title=Search>Search</a></li>
+</ul>
+<div class=post_comments>
+</div>
+</article>
 <aside class=sidebar>
 <section class=sidebar_inner>
 <br>
@@ -341,11 +93,37 @@
 <div class=author_bio>
 产品里的技术、一眼看不出来的胖子
 </div>
-<h2 class=mt-4>最新文章</h2>
-<ul class=flex-column>
+<ul>
 <li>
 <a href=https://blog.cuile.com/posts/python/python_shell_import_reload/ class=nav-link title="在 Python Shell 中重新导入模块">在 Python Shell 中重新导入模块</a>
 </li>
+<li>
+<a href=https://blog.cuile.com/posts/ups/ups_install/ class=nav-link title="山克 UPS 安装手册">山克 UPS 安装手册</a>
+</li>
+<li>
+<a href=https://blog.cuile.com/posts/django/django_development_introduction/ class=nav-link title="Docker 环境 Django 开发简介">Docker 环境 Django 开发简介</a>
+</li>
+<li>
+<a href=https://blog.cuile.com/posts/ffmpeg_manual/ class=nav-link title=FFmpeg脚本>FFmpeg脚本</a>
+</li>
+<li>
+<a href=https://blog.cuile.com/posts/mysql_manual/ class=nav-link title="MySQL 数据操作">MySQL 数据操作</a>
+</li>
+<li>
+<a href=https://blog.cuile.com/posts/hugo_setup_for_github/ class=nav-link title=Github使用Hugo生成Blog>Github使用Hugo生成Blog</a>
+</li>
+<li>
+<a href=https://blog.cuile.com/archives/ class=nav-link title></a>
+</li>
+<li>
+<a href=https://blog.cuile.com/about/ class=nav-link title=About>About</a>
+</li>
+<li>
+<a href=https://blog.cuile.com/search/ class=nav-link title=Search>Search</a>
+</li>
+</ul>
+<h2 class=mt-4>最新文章</h2>
+<ul class=flex-column>
 <li>
 <a href=https://blog.cuile.com/posts/vscode/vscode_with_remote_ssh_in_alpine_linux/ class=nav-link title="VsCode 使用 Remote SSH 连接 Alpine Linux">VsCode 使用 Remote SSH 连接 Alpine Linux</a>
 </li>
@@ -366,6 +144,9 @@
 </li>
 <li>
 <a href=https://blog.cuile.com/posts/proxmox/proxmox_cli/ class=nav-link title="Proxmox 命令行">Proxmox 命令行</a>
+</li>
+<li>
+<a href=https://blog.cuile.com/posts/hyper-v/centos_disk_expansion_in_hyper-v/ class=nav-link title="Hyper-V 环境下给 CentOS 磁盘扩容">Hyper-V 环境下给 CentOS 磁盘扩容</a>
 </li>
 </ul>
 <div>
