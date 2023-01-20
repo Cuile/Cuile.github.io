@@ -5,7 +5,7 @@ date: 2023-01-20T23:44:17+08:00
 
 # 标签
 tags:
-- python3
+- python
 # 专栏
 series:
 # 分类

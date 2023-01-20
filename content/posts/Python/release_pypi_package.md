@@ -2,9 +2,10 @@
 title: "在pypi上发布自己的Python库"
 date: 2018-05-11T14:49:57+08:00
 # draft: true
-tags: ["PyPi"]
-series:
+tags: 
+- PyPi
 - Python
+series:
 categories:
 - 编程
 ---

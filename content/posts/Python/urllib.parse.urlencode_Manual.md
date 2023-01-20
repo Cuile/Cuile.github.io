@@ -2,9 +2,10 @@
 title: "urllib.parse.urlencode 使用详解"
 date: 2022-01-17T15:24:58+08:00
 # draft: true
-tags: ["http"]
-series:
+tags: 
+- url编码
 - Python
+series:
 categories:
 - 编程
 ---
