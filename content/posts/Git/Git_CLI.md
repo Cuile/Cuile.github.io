@@ -46,8 +46,6 @@ $ git rm [-r] --cached <file | .>
 $ git commit -m [message]
 # 推送到远程库
 $ git push
-# or
-$ git push <远程主机名> <本地分支名>:<远程分支名>
 ```
 
 ### 2.1、推送新项目到github
@@ -68,17 +66,29 @@ $ git push -u origin master
 
 ## 3、分支
 
+### 3.1 创建分支
+
+```bash
+// 只创建一个分支
+$ git branch <branch-name>
+
+// 创建一个分支并切换到该分支
+$ git checkout -b <branch-name>
+```
+
+### 3.2 查看分支
+
 ```bash
 $ git branch -a
 ```
 
-### 切换分支
+### 3.3 切换分支
 
 ```bash
 $ git checkout <branch name>
 ```
 
-### 拉取远程分支
+### 3.4 拉取远程分支
 
 ```bash
 $ git fetch origin <branch>
@@ -86,7 +96,12 @@ $ git checkout -b <branch> origin/<branch>
 $ git pull origin <branch>
 ```
 
-### 更新远程分支列表
+### 3.5 发布本地分支
+```bash
+$ git push <远程主机名> <本地分支名>:<远程分支名>
+```
+
+### 3.6 更新远程分支列表
 
 ```bash
 # 如果你的 remote branch 不是在 origin 下，把 origin 换成你的名字
