@@ -96,26 +96,40 @@
 <span class=ln>8</span>$ git remote add origin git@github.com:Youname/repo_name.git
 <span class=ln>9</span>$ git push -u origin master
 </code></pre></div><h2 id=3分支>3、分支</h2>
-<h3 id=31-创建分支>3.1 创建分支</h3>
-<div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=ln>1</span>// 只创建一个分支
-<span class=ln>2</span>$ git branch &lt;branch-name&gt;
-<span class=ln>3</span>
-<span class=ln>4</span>// 创建一个分支并切换到该分支
-<span class=ln>5</span>$ git checkout -b &lt;branch-name&gt;
-</code></pre></div><h3 id=32-查看分支>3.2 查看分支</h3>
-<div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=ln>1</span>$ git branch -a
-</code></pre></div><h3 id=33-切换分支>3.3 切换分支</h3>
-<div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=ln>1</span>$ git checkout &lt;branch name&gt;
-</code></pre></div><h3 id=34-拉取远程分支>3.4 拉取远程分支</h3>
-<div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=ln>1</span>$ git fetch origin &lt;branch&gt;
-<span class=ln>2</span>$ git checkout -b &lt;branch&gt; origin/&lt;branch&gt;
-<span class=ln>3</span>$ git pull origin &lt;branch&gt;
-</code></pre></div><h3 id=35-发布本地分支>3.5 发布本地分支</h3>
-<div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=ln>1</span>$ git push &lt;远程主机名&gt; &lt;本地分支名&gt;:&lt;远程分支名&gt;
-</code></pre></div><h3 id=36-更新远程分支列表>3.6 更新远程分支列表</h3>
-<div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=ln>1</span><span class=c1># 如果你的 remote branch 不是在 origin 下，把 origin 换成你的名字</span>
-<span class=ln>2</span><span class=c1># --prune 删除远程已经删除的分支</span>
-<span class=ln>3</span>$ git remote update origin --prune
+<h3 id=31-本地分支>3.1 本地分支</h3>
+<div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=ln> 1</span><span class=c1># 创建分支</span>
+<span class=ln> 2</span><span class=c1># 只创建一个分支</span>
+<span class=ln> 3</span>$ git branch &lt;branch-name&gt;
+<span class=ln> 4</span><span class=c1># 创建一个分支并切换到该分支</span>
+<span class=ln> 5</span>$ git checkout -b &lt;branch-name&gt;
+<span class=ln> 6</span>
+<span class=ln> 7</span><span class=c1># 查看分支</span>
+<span class=ln> 8</span>$ git branch -a
+<span class=ln> 9</span>
+<span class=ln>10</span><span class=c1># 切换分支</span>
+<span class=ln>11</span>$ git checkout &lt;branch name&gt;
+<span class=ln>12</span>
+<span class=ln>13</span><span class=c1># 删除分支</span>
+<span class=ln>14</span>$ git branch -d &lt;branch name&gt;
+<span class=ln>15</span>
+<span class=ln>16</span><span class=c1># 发布本地分支</span>
+<span class=ln>17</span>$ git push &lt;远程主机名&gt; &lt;本地分支名&gt;:&lt;远程分支名&gt;
+<span class=ln>18</span>
+<span class=ln>19</span><span class=c1># 合并分支</span>
+<span class=ln>20</span><span class=c1># 将 a 分支合并到 b 分支</span>
+<span class=ln>21</span>$ git checkout b
+<span class=ln>22</span>$ git merge a
+<span class=ln>23</span>$ git push
+</code></pre></div><h3 id=32-远程分支>3.2 远程分支</h3>
+<div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=ln>1</span><span class=c1># 拉取</span>
+<span class=ln>2</span>$ git fetch origin &lt;branch&gt;
+<span class=ln>3</span>$ git checkout -b &lt;branch&gt; origin/&lt;branch&gt;
+<span class=ln>4</span>$ git pull origin &lt;branch&gt;
+<span class=ln>5</span>
+<span class=ln>6</span><span class=c1># 更新远程分支列表</span>
+<span class=ln>7</span><span class=c1># 如果你的 remote branch 不是在 origin 下，把 origin 换成你的名字</span>
+<span class=ln>8</span><span class=c1># --prune 删除远程已经删除的分支</span>
+<span class=ln>9</span>$ git remote update origin --prune
 </code></pre></div><hr>
 <h2 id=4标签>4、标签</h2>
 <div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=ln>1</span><span class=c1># 查看现有的标签</span>
