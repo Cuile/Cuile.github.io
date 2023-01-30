@@ -66,48 +66,48 @@ $ git push -u origin master
 
 ## 3、分支
 
-### 3.1 创建分支
+### 3.1 本地分支
 
 ```bash
-// 只创建一个分支
+# 创建分支
+# 只创建一个分支
 $ git branch <branch-name>
-
-// 创建一个分支并切换到该分支
+# 创建一个分支并切换到该分支
 $ git checkout -b <branch-name>
-```
 
-### 3.2 查看分支
-
-```bash
+# 查看分支
 $ git branch -a
-```
 
-### 3.3 切换分支
-
-```bash
+# 切换分支
 $ git checkout <branch name>
+
+# 删除分支
+$ git branch -d <branch name>
+
+# 发布本地分支
+$ git push <远程主机名> <本地分支名>:<远程分支名>
+
+# 合并分支
+# 将 a 分支合并到 b 分支
+$ git checkout b
+$ git merge a
+$ git push
 ```
 
-### 3.4 拉取远程分支
+### 3.2 远程分支
 
 ```bash
+# 拉取
 $ git fetch origin <branch>
 $ git checkout -b <branch> origin/<branch>
 $ git pull origin <branch>
-```
 
-### 3.5 发布本地分支
-```bash
-$ git push <远程主机名> <本地分支名>:<远程分支名>
-```
-
-### 3.6 更新远程分支列表
-
-```bash
+# 更新远程分支列表
 # 如果你的 remote branch 不是在 origin 下，把 origin 换成你的名字
 # --prune 删除远程已经删除的分支
 $ git remote update origin --prune
 ```
+
 
 ---
 
