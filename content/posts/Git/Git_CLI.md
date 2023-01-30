@@ -3,9 +3,9 @@ title: "Git 命令行"
 date: 2022-05-16T14:32:27+08:00
 # draft: true
 tags:
-series:
 - git
 - CLI
+series:
 categories:
 - 系统配置
 ---
