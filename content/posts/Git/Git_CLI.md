@@ -16,7 +16,7 @@ categories:
 $ git pull
 ```
 
-### 1.1、删除本地文件后，从远端重新拉取最新版本
+### 1.1 删除本地文件后，从远端重新拉取最新版本
 
 git提示： up-to-date. 但未从远端得到文件
 
@@ -33,8 +33,10 @@ $ git fetch --all
 $ git reset --hard origin/<branch name>
 $ git pull
 ```
+---
 
 ## 2、推送
+
 ```bash
 # 查看本地项目状态
 $ git status -s
@@ -48,7 +50,7 @@ $ git commit -m [message]
 $ git push
 ```
 
-### 2.1、推送新项目到github
+### 2.1 推送新项目到github
 
 先在githubh上创建好项目
 
@@ -63,6 +65,7 @@ $ git commit -m "first commit"
 $ git remote add origin git@github.com:Youname/repo_name.git
 $ git push -u origin master
 ```
+---
 
 ## 3、分支
 
@@ -128,7 +131,7 @@ $ git push --tags
 
 ## 5、项目
 
-### 克隆
+### 5.1 克隆
 
 ```bash
 $ git clone https://xxxx@bitbucket.org/xxxx/xxxx.git
@@ -138,7 +141,7 @@ $ git clone git@github.com:xxxxx/xxxxx.git
 $ git clone -b <branch> <repo> <path>
 ```
 
-### 导出
+### 5.2 导出
 
 ```bash
 $ git archive --format zip -0 \
@@ -163,7 +166,7 @@ master
 
 ## 6、代理
 
-### 设置代理
+### 6.1 设置代理
 
 ```bash
 $ git config --global http.proxy http://[username:passwrod@]<ip or URL>:port 
@@ -174,7 +177,7 @@ $ git config --global http.https://github.com.proxy http://[username:passwrod@]<
 $ git config --global https.https://github.com.proxy http://[username:passwrod@]<ip or URL>:port
 ```
 
-### 查看代理
+### 6.2 查看代理
 
 ```bash
 $ git config --global --get http.proxy
@@ -184,7 +187,7 @@ $ git config --global --get http.https://github.com.proxy
 $ git config --global --get https.https://github.com.proxy
 ```
 
-### 取消代理
+### 6.3 取消代理
 
 ```bash
 $ git config --global --unset http.proxy
