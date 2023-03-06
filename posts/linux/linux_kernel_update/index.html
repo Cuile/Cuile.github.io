@@ -74,19 +74,38 @@
 安装内核</p>
 <div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=ln>1</span>$ yum -y --enablerepo<span class=o>=</span>elrepo-kernel install kernel-ml.x86_64 kernel-ml-devel.x86_64
 </code></pre></div><h2 id=3修改grub>3、修改grub</h2>
-<div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=ln> 1</span>$ awk -F<span class=se>\&#39;</span> <span class=s1>&#39;$1==&#34;menuentry &#34; {print $2}&#39;</span> /etc/grub2.cfg
-<span class=ln> 2</span>CentOS Linux <span class=o>(</span>5.2.11-1.el7.elrepo.x86_64<span class=o>)</span> <span class=m>7</span> <span class=o>(</span>Core<span class=o>)</span>
-<span class=ln> 3</span>CentOS Linux <span class=o>(</span>3.10.0-957.27.2.el7.x86_64<span class=o>)</span> <span class=m>7</span> <span class=o>(</span>Core<span class=o>)</span>
-<span class=ln> 4</span>CentOS Linux <span class=o>(</span>3.10.0-514.26.2.el7.x86_64<span class=o>)</span> <span class=m>7</span> <span class=o>(</span>Core<span class=o>)</span>
-<span class=ln> 5</span>CentOS Linux <span class=o>(</span>3.10.0-514.el7.x86_64<span class=o>)</span> <span class=m>7</span> <span class=o>(</span>Core<span class=o>)</span>
-<span class=ln> 6</span>CentOS Linux <span class=o>(</span>0-rescue-963c2c41b08343f7b063dddac6b2e486<span class=o>)</span> <span class=m>7</span> <span class=o>(</span>Core<span class=o>)</span>
-<span class=ln> 7</span><span class=c1># 新内核（5.2.11）在0的位置上</span>
+<div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=ln> 1</span><span class=c1># 查看系统内核列表</span>
+<span class=ln> 2</span>$ awk -F<span class=se>\&#39;</span> <span class=s1>&#39;$1==&#34;menuentry &#34; {print $2}&#39;</span> /etc/grub2.cfg
+<span class=ln> 3</span>CentOS Linux <span class=o>(</span>5.2.11-1.el7.elrepo.x86_64<span class=o>)</span> <span class=m>7</span> <span class=o>(</span>Core<span class=o>)</span> <span class=c1># 新内核（5.2.11）在0的位置上</span>
+<span class=ln> 4</span>CentOS Linux <span class=o>(</span>3.10.0-957.27.2.el7.x86_64<span class=o>)</span> <span class=m>7</span> <span class=o>(</span>Core<span class=o>)</span>
+<span class=ln> 5</span>CentOS Linux <span class=o>(</span>3.10.0-514.26.2.el7.x86_64<span class=o>)</span> <span class=m>7</span> <span class=o>(</span>Core<span class=o>)</span>
+<span class=ln> 6</span>CentOS Linux <span class=o>(</span>3.10.0-514.el7.x86_64<span class=o>)</span> <span class=m>7</span> <span class=o>(</span>Core<span class=o>)</span>
+<span class=ln> 7</span>CentOS Linux <span class=o>(</span>0-rescue-963c2c41b08343f7b063dddac6b2e486<span class=o>)</span> <span class=m>7</span> <span class=o>(</span>Core<span class=o>)</span>
 <span class=ln> 8</span>
 <span class=ln> 9</span>$ vim /etc/default/grub
 <span class=ln>10</span><span class=c1>#将 GRUB_DEFAULT=saved 改为 GRUB_DEFAULT=0</span>
 <span class=ln>11</span>
 <span class=ln>12</span><span class=c1># 重建内核配置</span>
 <span class=ln>13</span>$ grub2-mkconfig -o /boot/grub2/grub.cfg
+<span class=ln>14</span>
+<span class=ln>15</span><span class=c1># or 使用第二种命令行方式，减少操作复杂度，减少出错机率</span>
+<span class=ln>16</span>
+<span class=ln>17</span><span class=c1># 查看系统内核列表</span>
+<span class=ln>18</span>$ cat /boot/grub2/grub.cfg <span class=p>|</span> grep menuentry
+<span class=ln>19</span><span class=k>if</span> <span class=o>[</span> x<span class=s2>&#34;</span><span class=si>${</span><span class=nv>feature_menuentry_id</span><span class=si>}</span><span class=s2>&#34;</span> <span class=o>=</span> xy <span class=o>]</span><span class=p>;</span> <span class=k>then</span>
+<span class=ln>20</span>  <span class=nv>menuentry_id_option</span><span class=o>=</span><span class=s2>&#34;--id&#34;</span>
+<span class=ln>21</span>  <span class=nv>menuentry_id_option</span><span class=o>=</span><span class=s2>&#34;&#34;</span>
+<span class=ln>22</span><span class=nb>export</span> menuentry_id_option
+<span class=ln>23</span>menuentry <span class=s1>&#39;CentOS Linux (6.2.2-1.el7.elrepo.x86_64) 7 (Core)&#39;</span> --class centos --class gnu-linux --class gnu --class os --unrestricted <span class=nv>$menuentry_id_option</span> <span class=s1>&#39;gnulinux-3.10.0-1160.81.1.el7.x86_64-advanced-fbc2582d-2e8a-4c41-8ba8-83656d8df89b&#39;</span> <span class=o>{</span>
+<span class=ln>24</span>menuentry <span class=s1>&#39;CentOS Linux (3.10.0-1160.83.1.el7.x86_64) 7 (Core)&#39;</span> --class centos --class gnu-linux --class gnu --class os --unrestricted <span class=nv>$menuentry_id_option</span> <span class=s1>&#39;gnulinux-3.10.0-1160.81.1.el7.x86_64-advanced-fbc2582d-2e8a-4c41-8ba8-83656d8df89b&#39;</span> <span class=o>{</span>
+<span class=ln>25</span>menuentry <span class=s1>&#39;CentOS Linux (3.10.0-1160.81.1.el7.x86_64) 7 (Core)&#39;</span> --class centos --class gnu-linux --class gnu --class os --unrestricted <span class=nv>$menuentry_id_option</span> <span class=s1>&#39;gnulinux-3.10.0-1160.81.1.el7.x86_64-advanced-fbc2582d-2e8a-4c41-8ba8-83656d8df89b&#39;</span> <span class=o>{</span>
+<span class=ln>26</span>menuentry <span class=s1>&#39;CentOS Linux (3.10.0-1160.el7.x86_64) 7 (Core)&#39;</span> --class centos --class gnu-linux --class gnu --class os --unrestricted <span class=nv>$menuentry_id_option</span> <span class=s1>&#39;gnulinux-3.10.0-1160.el7.x86_64-advanced-fbc2582d-2e8a-4c41-8ba8-83656d8df89b&#39;</span> <span class=o>{</span>
+<span class=ln>27</span>menuentry <span class=s1>&#39;CentOS Linux (0-rescue-9745ea2ecc634c89aef55f4dc21ee8fc) 7 (Core)&#39;</span> --class centos --class gnu-linux --class gnu --class os --unrestricted <span class=nv>$menuentry_id_option</span> <span class=s1>&#39;gnulinux-0-rescue-9745ea2ecc634c89aef55f4dc21ee8fc-advanced-fbc2582d-2e8a-4c41-8ba8-83656d8df89b&#39;</span> <span class=o>{</span>
+<span class=ln>28</span><span class=c1># 配置默认内核</span>
+<span class=ln>29</span>$ grub2-set-default <span class=s2>&#34;CentOS Linux (6.2.2-1.el7.elrepo.x86_64) 7 (Core)&#34;</span>
+<span class=ln>30</span><span class=c1># 验证修改结果</span>
+<span class=ln>31</span>$ grub2-editenv list
+<span class=ln>32</span><span class=nv>saved_entry</span><span class=o>=</span>CentOS Linux <span class=o>(</span>6.2.2-1.el7.elrepo.x86_64<span class=o>)</span> <span class=m>7</span> <span class=o>(</span>Core<span class=o>)</span>
 </code></pre></div><h2 id=4重启系统>4、重启系统</h2>
 <div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=ln>1</span>$ reboot
 <span class=ln>2</span>
