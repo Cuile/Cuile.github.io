@@ -6,14 +6,14 @@
 <meta http-equiv=x-ua-compatible content="IE=edge">
 <meta property="og:locale" content="zh-cn">
 <meta property="og:type" content="article">
-<meta name=description content="1、拉取 1$ git pull 1.1、删除本地文件后，从远端重新拉取最新版本 git提示： up-to-date. 但未从远端得到文件 1# 1 查看本地分支是否发生变化 2$ git branch -a 3 4# 2 如本地">
+<meta name=description content="1、拉取 1$ git pull 1.1 删除本地文件后，从远端重新拉取最新版本 git提示： up-to-date. 但未从远端得到文件 1# 1 查看本地分支是否发生变化 2$ git branch -a 3 4# 2 如本地库处于">
 <meta name=twitter:card content="summary">
 <meta name=twitter:creator content>
 <meta name=twitter:title content="Git 命令行">
 <meta name=twitter:image content="https://blog.cuile.com/images/thumbnail.png">
 <meta property="og:url" content="https://blog.cuile.com/posts/git/git_cli/">
 <meta property="og:title" content="Git 命令行">
-<meta property="og:description" content="1、拉取 1$ git pull 1.1、删除本地文件后，从远端重新拉取最新版本 git提示： up-to-date. 但未从远端得到文件 1# 1 查看本地分支是否发生变化 2$ git branch -a 3 4# 2 如本地">
+<meta property="og:description" content="1、拉取 1$ git pull 1.1 删除本地文件后，从远端重新拉取最新版本 git提示： up-to-date. 但未从远端得到文件 1# 1 查看本地分支是否发生变化 2$ git branch -a 3 4# 2 如本地库处于">
 <meta property="og:image" content="https://blog.cuile.com/images/thumbnail.png">
 <link rel=apple-touch-icon sizes=180x180 href=https://blog.cuile.com/icons/apple-touch-icon.png>
 <link rel=icon type=image/png sizes=32x32 href=https://blog.cuile.com/icons/favicon-32x32.png>
@@ -60,7 +60,7 @@
 </div>
 <div class=post_body><h2 id=1拉取>1、拉取</h2>
 <div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=ln>1</span>$ git pull
-</code></pre></div><h3 id=11删除本地文件后从远端重新拉取最新版本>1.1、删除本地文件后，从远端重新拉取最新版本</h3>
+</code></pre></div><h3 id=11-删除本地文件后从远端重新拉取最新版本>1.1 删除本地文件后，从远端重新拉取最新版本</h3>
 <p>git提示： up-to-date. 但未从远端得到文件</p>
 <div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=ln> 1</span><span class=c1># 1 查看本地分支是否发生变化</span>
 <span class=ln> 2</span>$ git branch -a
@@ -73,7 +73,8 @@
 <span class=ln> 9</span>$ git fetch --all
 <span class=ln>10</span>$ git reset --hard origin/&lt;branch name&gt;
 <span class=ln>11</span>$ git pull
-</code></pre></div><h2 id=2推送>2、推送</h2>
+</code></pre></div><hr>
+<h2 id=2推送>2、推送</h2>
 <div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=ln> 1</span><span class=c1># 查看本地项目状态</span>
 <span class=ln> 2</span>$ git status -s
 <span class=ln> 3</span><span class=c1># 添加文件 | 添加目录 | 添加所有内容</span>
@@ -84,7 +85,7 @@
 <span class=ln> 8</span>$ git commit -m <span class=o>[</span>message<span class=o>]</span>
 <span class=ln> 9</span><span class=c1># 推送到远程库</span>
 <span class=ln>10</span>$ git push
-</code></pre></div><h3 id=21推送新项目到github>2.1、推送新项目到github</h3>
+</code></pre></div><h3 id=21-推送新项目到github>2.1 推送新项目到github</h3>
 <p>先在githubh上创建好项目</p>
 <div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=ln>1</span>$ git init
 <span class=ln>2</span>$ git add .
@@ -95,7 +96,8 @@
 <span class=ln>7</span>$ git commit -m <span class=s2>&#34;first commit&#34;</span>
 <span class=ln>8</span>$ git remote add origin git@github.com:Youname/repo_name.git
 <span class=ln>9</span>$ git push -u origin master
-</code></pre></div><h2 id=3分支>3、分支</h2>
+</code></pre></div><hr>
+<h2 id=3分支>3、分支</h2>
 <h3 id=31-本地分支>3.1 本地分支</h3>
 <div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=ln> 1</span><span class=c1># 创建分支</span>
 <span class=ln> 2</span><span class=c1># 只创建一个分支</span>
@@ -142,13 +144,13 @@
 <span class=ln>8</span>$ git push --tags
 </code></pre></div><hr>
 <h2 id=5项目>5、项目</h2>
-<h3 id=克隆>克隆</h3>
+<h3 id=51-克隆>5.1 克隆</h3>
 <div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=ln>1</span>$ git clone https://xxxx@bitbucket.org/xxxx/xxxx.git
 <span class=ln>2</span><span class=c1># or </span>
 <span class=ln>3</span>$ git clone git@github.com:xxxxx/xxxxx.git
 <span class=ln>4</span><span class=c1># 克隆指定分支，到指定目录</span>
 <span class=ln>5</span>$ git clone -b &lt;branch&gt; &lt;repo&gt; &lt;path&gt;
-</code></pre></div><h3 id=导出>导出</h3>
+</code></pre></div><h3 id=52-导出>5.2 导出</h3>
 <div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=ln> 1</span>$ git archive --format zip -0 <span class=se>\
 </span><span class=ln> 2</span><span class=se></span>                --output output.zip <span class=se>\
 </span><span class=ln> 3</span><span class=se></span>                --remote git@github.com:Cuile/NMP.git <span class=se>\
@@ -167,20 +169,20 @@
 <span class=ln>16</span>./
 </code></pre></div><hr>
 <h2 id=6代理>6、代理</h2>
-<h3 id=设置代理>设置代理</h3>
+<h3 id=61-设置代理>6.1 设置代理</h3>
 <div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=ln>1</span>$ git config --global http.proxy http://<span class=o>[</span>username:passwrod@<span class=o>]</span>&lt;ip or URL&gt;:port 
 <span class=ln>2</span>$ git config --global https.proxy http://<span class=o>[</span>username:passwrod@<span class=o>]</span>&lt;ip or URL&gt;:port
 <span class=ln>3</span>
 <span class=ln>4</span><span class=c1># 只代理github.com</span>
 <span class=ln>5</span>$ git config --global http.https://github.com.proxy http://<span class=o>[</span>username:passwrod@<span class=o>]</span>&lt;ip or URL&gt;:port
 <span class=ln>6</span>$ git config --global https.https://github.com.proxy http://<span class=o>[</span>username:passwrod@<span class=o>]</span>&lt;ip or URL&gt;:port
-</code></pre></div><h3 id=查看代理>查看代理</h3>
+</code></pre></div><h3 id=62-查看代理>6.2 查看代理</h3>
 <div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=ln>1</span>$ git config --global --get http.proxy
 <span class=ln>2</span>$ git config --global --get https.proxy
 <span class=ln>3</span>
 <span class=ln>4</span>$ git config --global --get http.https://github.com.proxy
 <span class=ln>5</span>$ git config --global --get https.https://github.com.proxy
-</code></pre></div><h3 id=取消代理>取消代理</h3>
+</code></pre></div><h3 id=63-取消代理>6.3 取消代理</h3>
 <div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=ln>1</span>$ git config --global --unset http.proxy
 <span class=ln>2</span>$ git config --global --unset https.proxy
 <span class=ln>3</span>
