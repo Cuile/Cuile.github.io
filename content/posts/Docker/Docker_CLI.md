@@ -3,9 +3,9 @@ title: "Docker使用命令"
 date: 2022-01-13T22:20:52+08:00
 # draft: true
 tags: 
-series:
 - CLI
 - Docker
+series:
 categories:
 - 系统配置
 ---
