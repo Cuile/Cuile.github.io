@@ -5,9 +5,9 @@ date: 2022-02-08T10:28:50+08:00
 tags:
 - repo
 - CentOS
-series:
 - CLI
 - Linux
+series:
 categories:
 - 系统配置
 ---

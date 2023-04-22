@@ -4,9 +4,8 @@ date: 2022-12-28T17:15:15+08:00
 # draft: true
 tags: 
 - frp
-series:
-- Linux
 - proxy
+series:
 categories:
 - 系统配置
 ---

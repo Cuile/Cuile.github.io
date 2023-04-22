@@ -4,8 +4,8 @@ date: 2022-01-17T11:07:07+08:00
 # draft: true
 tags: 
 - CLI
+- linux
 series:
-- Linux
 categories:
 - 系统配置
 ---
