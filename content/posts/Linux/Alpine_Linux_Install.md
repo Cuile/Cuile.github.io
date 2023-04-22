@@ -10,6 +10,22 @@ categories:
 - 系统配置
 ---
 
+特点：
+1、小巧：基于musl libc 和 busybox，和 busybox一样小巧，最小的Docker镜像只有5MB。
+2、安全：面向安全的轻量发行版
+3、简单：提供APK包管理工具，软件的搜索、安装、删除、升级都非常方便。
+4、适合容器使用：由于小巧、功能完备，非常适合作为容器的基础镜像。
+
+不同版本：
+- STANDARD：最小的可启动镜像，需要网络才能安装。
+- EXTENDED：包括最常用的软件包。适用于路由器和服务器。从RAM运行。扩展版本，带有更多软件包。
+- NETBOOT：netboot的内核、initramfs和modloop。
+- MINI ROOT FILESYSTEM：最小系统版本，仅包含内核，只用于构建Docker镜像。
+- VIRTUAL：与STANDARD类似，但更小，更适合虚拟系统使用。
+- XEN：内置XEN Hypervisor支持。
+- RASPBERRY PI：带有树莓派内核的版本。
+- GENERIC ARM：带有ARM内核，带有uboot加载器。
+
 ## 1. 准备系统
 
 Alpine 有许多版本，其中 VIRTUAL 是专门针对虚拟环境优化过的，所以主要使用这个版本来安装。
