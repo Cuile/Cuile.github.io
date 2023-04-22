@@ -47,5 +47,12 @@ $ nmcli dev disconnect eth0
 ```
 > 建议使用 nmcli dev disconnect interface-name 命令，而不是 nmcli con down connection-name 命令，因为连接断开可将该接口放到“手动”模式，这样做用户让 NetworkManager 启动某个连接前，或发生外部事件（比如载波变化、休眠或睡眠）前，不会启动任何自动连接。
 
+## 自动连接
+```bash
+$ nmcli -f name,autoconnect connection
+$ nmcli con mod eth1 connection.autoconnect yes
+```
+
 ## 参考链接
 - https://www.jianshu.com/p/5d5560e9e26a
+- [修改 NetworkManager 配置文件的自动连接属性](https://docs.rockylinux.org/zh/gemstones/nmcli/)
