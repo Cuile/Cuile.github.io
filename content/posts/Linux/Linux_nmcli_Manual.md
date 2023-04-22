@@ -41,7 +41,9 @@ $ nmcli con add type ethernet con-name static-vm100 ifname eth0 ipv4 192.168.100
 ## 激活连接
 ```bash
 $ nmcli con up static-vm100
-$ nmcli dev up eth0
+$ nmcli con down static-vm100
+$ nmcli dev connect eth0
+$ nmcli dev disconnect eth0
 ```
 > 建议使用 nmcli dev disconnect interface-name 命令，而不是 nmcli con down connection-name 命令，因为连接断开可将该接口放到“手动”模式，这样做用户让 NetworkManager 启动某个连接前，或发生外部事件（比如载波变化、休眠或睡眠）前，不会启动任何自动连接。
 
