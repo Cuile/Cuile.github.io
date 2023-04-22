@@ -6,14 +6,14 @@
 <meta http-equiv=x-ua-compatible content="IE=edge">
 <meta property="og:locale" content="zh-cn">
 <meta property="og:type" content="article">
-<meta name=description content="1. 准备系统 Alpine 有许多版本，其中 VIRTUAL 是专门针对虚拟环境优化过的，所以主要使用这个版本来安装。 https://www.alpinelinux.org/downloads/ 2. 登录 1... 2# 使用启动盘启动后，直接使用 root 登录系统 3localhost login: root">
+<meta name=description content="特点： 1、小巧：基于musl libc 和 busybox，和 busybox一样小巧，最小的Docker镜像只有5MB。 2、安全：面向安全的轻量发行版 3">
 <meta name=twitter:card content="summary">
 <meta name=twitter:creator content>
 <meta name=twitter:title content="Alpine Linux 3.16 安装">
 <meta name=twitter:image content="https://blog.cuile.com/images/thumbnail.png">
 <meta property="og:url" content="https://blog.cuile.com/posts/linux/alpine_linux_install/">
 <meta property="og:title" content="Alpine Linux 3.16 安装">
-<meta property="og:description" content="1. 准备系统 Alpine 有许多版本，其中 VIRTUAL 是专门针对虚拟环境优化过的，所以主要使用这个版本来安装。 https://www.alpinelinux.org/downloads/ 2. 登录 1... 2# 使用启动盘启动后，直接使用 root 登录系统 3localhost login: root">
+<meta property="og:description" content="特点： 1、小巧：基于musl libc 和 busybox，和 busybox一样小巧，最小的Docker镜像只有5MB。 2、安全：面向安全的轻量发行版 3">
 <meta property="og:image" content="https://blog.cuile.com/images/thumbnail.png">
 <link rel=apple-touch-icon sizes=180x180 href=https://blog.cuile.com/icons/apple-touch-icon.png>
 <link rel=icon type=image/png sizes=32x32 href=https://blog.cuile.com/icons/favicon-32x32.png>
@@ -57,7 +57,23 @@
 </a>
 </span>
 </div>
-<div class=post_body><h2 id=1-准备系统>1. 准备系统</h2>
+<div class=post_body><p>特点：
+1、小巧：基于musl libc 和 busybox，和 busybox一样小巧，最小的Docker镜像只有5MB。
+2、安全：面向安全的轻量发行版
+3、简单：提供APK包管理工具，软件的搜索、安装、删除、升级都非常方便。
+4、适合容器使用：由于小巧、功能完备，非常适合作为容器的基础镜像。</p>
+<p>不同版本：</p>
+<ul>
+<li>STANDARD：最小的可启动镜像，需要网络才能安装。</li>
+<li>EXTENDED：包括最常用的软件包。适用于路由器和服务器。从RAM运行。扩展版本，带有更多软件包。</li>
+<li>NETBOOT：netboot的内核、initramfs和modloop。</li>
+<li>MINI ROOT FILESYSTEM：最小系统版本，仅包含内核，只用于构建Docker镜像。</li>
+<li>VIRTUAL：与STANDARD类似，但更小，更适合虚拟系统使用。</li>
+<li>XEN：内置XEN Hypervisor支持。</li>
+<li>RASPBERRY PI：带有树莓派内核的版本。</li>
+<li>GENERIC ARM：带有ARM内核，带有uboot加载器。</li>
+</ul>
+<h2 id=1-准备系统>1. 准备系统</h2>
 <p>Alpine 有许多版本，其中 VIRTUAL 是专门针对虚拟环境优化过的，所以主要使用这个版本来安装。</p>
 <p><a href=https://www.alpinelinux.org/downloads/>https://www.alpinelinux.org/downloads/</a></p>
 <h2 id=2-登录>2. 登录</h2>
