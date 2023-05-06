@@ -1,5 +1,5 @@
 ---
-title: "Hyper-V 环境下设置 Ubuntu 分辨率"
+title: "Hyper-V 下设置 Ubuntu 分辨率"
 date: 2022-12-26T20:58:50+08:00
 # draft: true
 
