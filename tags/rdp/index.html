@@ -1,24 +1,25 @@
-<!doctype html><html lang=zh-cn data-figures class=page>
+<!doctype html><html lang=zh-cn data-figures>
 <head>
-<title>Hyper-V 环境下设置 Ubuntu 分辨率 | 瘦了就帅了</title>
+<title>rdp | 瘦了就帅了</title>
 <meta charset=utf-8>
 <meta name=viewport content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
 <meta http-equiv=x-ua-compatible content="IE=edge">
 <meta property="og:locale" content="zh-cn">
 <meta property="og:type" content="article">
-<meta name=description content="Hyper-V 环境下安装 Linux 是无法调节分辨率的，但可以通过设置指定分辨率，不过最大只能支持1920x1080 1. 修改配置文件 1$ sudo nano /etc/default/grub 将配置 1GRUB_CMDLINE_LINUX_DEFAULT=&#34;quiet splash &#34; 修改 …">
+<meta name=description content>
 <meta name=twitter:card content="summary">
 <meta name=twitter:creator content>
-<meta name=twitter:title content="Hyper-V 环境下设置 Ubuntu 分辨率">
+<meta name=twitter:title content="rdp">
 <meta name=twitter:image content="https://blog.cuile.com/images/thumbnail.png">
-<meta property="og:url" content="https://blog.cuile.com/posts/hyper-v/setup_ubuntu_resolution_in_hyper-v/">
-<meta property="og:title" content="Hyper-V 环境下设置 Ubuntu 分辨率">
-<meta property="og:description" content="Hyper-V 环境下安装 Linux 是无法调节分辨率的，但可以通过设置指定分辨率，不过最大只能支持1920x1080 1. 修改配置文件 1$ sudo nano /etc/default/grub 将配置 1GRUB_CMDLINE_LINUX_DEFAULT=&#34;quiet splash &#34; 修改 …">
+<meta property="og:url" content="https://blog.cuile.com/tags/rdp/">
+<meta property="og:title" content="rdp">
+<meta property="og:description" content>
 <meta property="og:image" content="https://blog.cuile.com/images/thumbnail.png">
 <link rel=apple-touch-icon sizes=180x180 href=https://blog.cuile.com/icons/apple-touch-icon.png>
 <link rel=icon type=image/png sizes=32x32 href=https://blog.cuile.com/icons/favicon-32x32.png>
 <link rel=manifest href=https://blog.cuile.com/icons/site.webmanifest>
-<link rel=canonical href=https://blog.cuile.com/posts/hyper-v/setup_ubuntu_resolution_in_hyper-v/>
+<link rel=canonical href=https://blog.cuile.com/tags/rdp/>
+<link rel=alternate type=application/rss+xml href=https://blog.cuile.com/tags/rdp/index.xml title=瘦了就帅了>
 <link rel=preload href=https://blog.cuile.com/css/styles.367129801480fead578d7a356a98fcb3bce794981ff18cee55868d198d0d2bf1eb4feac97319d0871c6255183b9fd27a7059e4632c785951f4c4f6953559c4d0.css integrity="sha512-NnEpgBSA/q1XjXo1apj8s7znlJgf8YzuVYaNGY0NK/HrT+rJcxnQhxxiVRg7n9J6cFnkYyx4WVH0xPaVNVnE0A==" as=style crossorigin=anonymous>
 <link rel=preload href=https://blog.cuile.com/zh-cn/js/bundle.4e04b93422786398f3502d560bd5acb3d3f99b2e942c8c11e0fd926ab6ec3ccbd020d4294d58c0825ecb606ef221b34edc81586f1832489816a57ae8f0276615.js as=script integrity="sha512-TgS5NCJ4Y5jzUC1WC9Wss9P5my6ULIwR4P2SarbsPMvQINQpTVjAgl7LYG7yIbNO3IFYbxgySJgWpXro8CdmFQ==" crossorigin=anonymous>
 <link rel=stylesheet type=text/css href=https://blog.cuile.com/css/styles.367129801480fead578d7a356a98fcb3bce794981ff18cee55868d198d0d2bf1eb4feac97319d0871c6255183b9fd27a7059e4632c785951f4c4f6953559c4d0.css integrity="sha512-NnEpgBSA/q1XjXo1apj8s7znlJgf8YzuVYaNGY0NK/HrT+rJcxnQhxxiVRg7n9J6cFnkYyx4WVH0xPaVNVnE0A==" crossorigin=anonymous>
@@ -46,38 +47,38 @@
 </header>
 <main>
 <div class="grid-inverse wrap content">
-<article class=post_content>
-<h1 class=post_title>Hyper-V 环境下设置 Ubuntu 分辨率</h1>
+<div>
+<ul class=posts id=posts>
+<li class=post_item>
+<div class=excerpt>
+<div class=excerpt_header>
+<h3 class=post_link>
+<a href=https://blog.cuile.com/posts/linux/deepin_xrdp/ title="Deepin 使用远程桌面">Deepin 使用远程桌面</a>
+</h3>
 <div class=post_meta>
 <span><svg class="icon"><title>calendar</title><use xlink:href="#calendar"/></svg>
 </span>
 <span class=post_date>
-2022-12-26</span>
-<span class=post_time> · 阅读时长 1 分钟</span><span>&nbsp;· <a href=https://blog.cuile.com/tags/ubuntu/ title=Ubuntu class="post_tag button button_translucent">Ubuntu
+2023-05-06</span>
+<span class=post_time> · 阅读时长 1 分钟</span><span>&nbsp;· <a href=https://blog.cuile.com/tags/deepin/ title=deepin class="post_tag button button_translucent">deepin
+</a><a href=https://blog.cuile.com/tags/rdp/ title=rdp class="post_tag button button_translucent">rdp
 </a>
 </span>
 </div>
-<div class=post_body><p>Hyper-V 环境下安装 Linux 是无法调节分辨率的，但可以通过设置指定分辨率，不过最大只能支持1920x1080</p>
-<h2 id=1-修改配置文件>1. 修改配置文件</h2>
-<div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=ln>1</span>$ sudo nano /etc/default/grub
-</code></pre></div><p>将配置</p>
-<div class=highlight><pre tabindex=0 class=chroma><code class=language-ini data-lang=ini><span class=ln>1</span><span class=na>GRUB_CMDLINE_LINUX_DEFAULT</span><span class=o>=</span><span class=s>&#34;quiet splash &#34;</span>
-</code></pre></div><p>修改为</p>
-<div class=highlight><pre tabindex=0 class=chroma><code class=language-ini data-lang=ini><span class=ln>1</span><span class=na>GRUB_CMDLINE_LINUX_DEFAULT</span><span class=o>=</span><span class=s>&#34;quiet splash video=hyperv_fb:1920x1080&#34;</span>
-</code></pre></div><p>这里要注意屏幕的实际分辨率，在15寸的笔记本上，适合的分辨率为1600x900</p>
-<h2 id=2-更新-grub>2. 更新 Grub</h2>
-<div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=ln>1</span>$ sudo update-grub
-</code></pre></div><h2 id=3-重启>3. 重启</h2>
-<div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=ln>1</span>$ reboot
-</code></pre></div><h2 id=参考文档>参考文档</h2>
-<p><a href=https://www.pcoic.com/system/743.html>Hyper-V 下 Ubuntu/Deepin 如何设置分辨率</a></p>
 </div>
-<h2 class=post_related>相关专栏文章</h2>
-<ul>
+<div class=excerpt_footer>
+<div class=pale>
+<p>安装 xrdp 1$ sudo apt install xrdp 启动xrdp服务，并设置为开机启动 1$ sudo systemctl start xrdp 2$ sudo systemctl enable xrdp 解决黑屏/空屏/无画面 1$ nano /etc/xrdp/startwm.sh 1unset DBUS_SESSION_BUS_ADDRESS 2unset XDG_RUNTIME_DIR 3. $HOME/.profile 重启deepin，使用Xorg</p>
+<br>
+<a href=https://blog.cuile.com/posts/linux/deepin_xrdp/ title=阅读更多 class="excerpt_more button">阅读更多</a>
+</div>
+</div>
+</div>
+</li>
+<li>
+</li>
 </ul>
-<div class=post_comments>
 </div>
-</article>
 <aside class=sidebar>
 <section class=sidebar_inner>
 <br>
@@ -85,12 +86,13 @@
 <div class=author_bio>
 产品里的技术、一眼看不出来的胖子
 </div>
-<ul>
-</ul>
 <h2 class=mt-4>最新文章</h2>
 <ul class=flex-column>
 <li>
-<a href=https://blog.cuile.com/posts/linux/deepin/ class=nav-link title=Deepin>Deepin</a>
+<a href=https://blog.cuile.com/posts/linux/deepin_xrdp/ class=nav-link title="Deepin 使用远程桌面">Deepin 使用远程桌面</a>
+</li>
+<li>
+<a href=https://blog.cuile.com/posts/hyper-v/hyper-v_deepin_resolution/ class=nav-link title="Hyper-V 下设置 Deepin 分辨率">Hyper-V 下设置 Deepin 分辨率</a>
 </li>
 <li>
 <a href=https://blog.cuile.com/posts/django/django_crontab/ class=nav-link title="Django crontab 使用说明">Django crontab 使用说明</a>
@@ -110,16 +112,13 @@
 <li>
 <a href=https://blog.cuile.com/posts/linux/alpine_linux_manual/ class=nav-link title="Alpine Linux 配置">Alpine Linux 配置</a>
 </li>
-<li>
-<a href=https://blog.cuile.com/posts/linux/linux_screen_manual/ class=nav-link title="screen 命令">screen 命令</a>
-</li>
 </ul>
 <div>
 <h2 class="mt-4 taxonomy" id=categories-section>分类</h2>
 <nav class=tags_nav>
 <a href=https://blog.cuile.com/categories/%E7%B3%BB%E7%BB%9F%E9%85%8D%E7%BD%AE/ class="post_tag button button_translucent" title=系统配置>
 系统配置
-<span class=button_tally>34</span>
+<span class=button_tally>35</span>
 </a>
 <a href=https://blog.cuile.com/categories/tips/ class="post_tag button button_translucent" title=tips>
 TIPS
@@ -156,7 +155,7 @@ DOCKER
 </a>
 <a href=https://blog.cuile.com/series/hyper-v/ class="post_tag button button_translucent" title=hyper-v>
 HYPER-V
-<span class=button_tally>4</span>
+<span class=button_tally>5</span>
 </a>
 <a href=https://blog.cuile.com/series/openwrt/ class="post_tag button button_translucent" title=openwrt>
 OPENWRT
@@ -211,6 +210,10 @@ ALPINE-LINUX
 CENTOS
 <span class=button_tally>3</span>
 </a>
+<a href=https://blog.cuile.com/tags/deepin/ class="post_tag button button_translucent" title=deepin>
+DEEPIN
+<span class=button_tally>2</span>
+</a>
 <a href=https://blog.cuile.com/tags/network/ class="post_tag button button_translucent" title=network>
 NETWORK
 <span class=button_tally>2</span>
@@ -243,10 +246,6 @@ CENTOS-7
 CRONTAB
 <span class=button_tally>1</span>
 </a>
-<a href=https://blog.cuile.com/tags/deepin/ class="post_tag button button_translucent" title=deepin>
-DEEPIN
-<span class=button_tally>1</span>
-</a>
 <a href=https://blog.cuile.com/tags/dns/ class="post_tag button button_translucent" title=dns>
 DNS
 <span class=button_tally>1</span>
@@ -275,7 +274,7 @@ DOCKER
 </a>
 <a href=https://blog.cuile.com/tags/crontab/ class="post_tag button button_translucent" data-position=1 title=crontab>CRONTAB<span class=button_tally>1</span>
 </a>
-<a href=https://blog.cuile.com/tags/deepin/ class="post_tag button button_translucent" data-position=1 title=deepin>DEEPIN<span class=button_tally>1</span>
+<a href=https://blog.cuile.com/tags/deepin/ class="post_tag button button_translucent" data-position=2 title=deepin>DEEPIN<span class=button_tally>2</span>
 </a>
 <a href=https://blog.cuile.com/tags/dns/ class="post_tag button button_translucent" data-position=1 title=dns>DNS<span class=button_tally>1</span>
 </a>
@@ -320,6 +319,8 @@ DOCKER
 <a href=https://blog.cuile.com/tags/pypi/ class="post_tag button button_translucent" data-position=1 title=pypi>PYPI<span class=button_tally>1</span>
 </a>
 <a href=https://blog.cuile.com/tags/python/ class="post_tag button button_translucent" data-position=2 title=python>PYTHON<span class=button_tally>2</span>
+</a>
+<a href=https://blog.cuile.com/tags/rdp/ class="post_tag button button_translucent" data-position=1 title=rdp>RDP<span class=button_tally>1</span>
 </a>
 <a href=https://blog.cuile.com/tags/reload/ class="post_tag button button_translucent" data-position=1 title=reload>RELOAD<span class=button_tally>1</span>
 </a>
