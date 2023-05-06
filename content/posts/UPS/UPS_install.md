@@ -4,7 +4,8 @@ date: 2022-06-18T17:35:15+08:00
 # draft: true
 tags:
 - UPS
-- Linux
+categories:
+- 系统配置
 ---
 
 为家里的微形PVE服务器买了山克的UPS，发现与 linux 连接使用还是需要安装一下的，而且市场上基本都是 OEM 的产品，所以操作过程通用

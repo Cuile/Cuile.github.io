@@ -5,8 +5,8 @@ date: 2022-01-17T15:17:58+08:00
 tags:
 - nmcli
 - CLI
-- Linux
 series:
+- Linux
 categories:
 - 系统配置
 ---

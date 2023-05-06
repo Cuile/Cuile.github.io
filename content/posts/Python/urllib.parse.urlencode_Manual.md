@@ -4,8 +4,8 @@ date: 2022-01-17T15:24:58+08:00
 # draft: true
 tags: 
 - url编码
-- Python
 series:
+- Python
 categories:
 - 编程
 ---

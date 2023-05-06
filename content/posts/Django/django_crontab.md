@@ -6,10 +6,10 @@ date: 2023-01-22T16:35:36+08:00
 # 标签
 tags:
 - crontab
-- django
 - python
 # 专栏
 series:
+- django
 # 分类
 categories:
 - 编程

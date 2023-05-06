@@ -5,10 +5,10 @@ date: 2022-12-26T20:58:50+08:00
 
 # 标签
 tags:
+- Ubuntu
 # 专栏
 series:
 - Hyper-V
-- Ubuntu
 # 分类
 categories:
 - 系统配置

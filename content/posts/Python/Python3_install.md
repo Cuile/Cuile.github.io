@@ -3,10 +3,10 @@ title: "CentOS 7 安装 Python3.9.12"
 date: 2022-05-06T13:11:27+08:00
 # draft: true
 tags:
-- Python
 - pip
 - CentOS 7
 series:
+- Python
 categories:
 - 编程
 ---

@@ -6,6 +6,7 @@ tags:
 - frp
 - proxy
 series:
+- linux
 categories:
 - 系统配置
 ---

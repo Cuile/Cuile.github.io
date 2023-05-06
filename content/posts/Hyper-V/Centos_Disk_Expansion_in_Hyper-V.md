@@ -5,10 +5,10 @@ date: 2022-12-26T21:01:32+08:00
 
 # 标签
 tags:
-- Hyper-V
 - CentOS
 # 专栏
 series:
+- Hyper-V
 # 分类
 categories:
 - 系统配置

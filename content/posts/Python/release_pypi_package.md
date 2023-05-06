@@ -4,8 +4,8 @@ date: 2018-05-11T14:49:57+08:00
 # draft: true
 tags: 
 - PyPi
-- Python
 series:
+- Python
 categories:
 - 编程
 ---

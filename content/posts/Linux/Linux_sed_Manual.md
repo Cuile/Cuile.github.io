@@ -5,8 +5,8 @@ date: 2022-01-17T11:18:47+08:00
 tags: 
 - sed
 - CLI
-- Linux
 series:
+- Linux
 categories:
 - 系统配置
 

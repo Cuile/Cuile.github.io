@@ -6,11 +6,12 @@ date: 2022-07-19T11:31:21+08:00
 # 标签
 tags:
 - docker compose
-- Docker
 # 专栏
 series:
+- Docker
 # 分类
 categories:
+- 系统配置
 ---
 
 ## command 指令

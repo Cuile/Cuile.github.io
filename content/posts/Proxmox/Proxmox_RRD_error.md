@@ -3,6 +3,7 @@ title: "修复 Proxmox RRD 错误"
 date: 2022-02-08T10:42:35+08:00
 # draft: true
 tags:
+- rrd
 series:
 - Proxmox
 categories:

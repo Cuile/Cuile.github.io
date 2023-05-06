@@ -6,8 +6,8 @@ tags:
 - repo
 - CentOS
 - CLI
-- Linux
 series:
+- Linux
 categories:
 - 系统配置
 ---

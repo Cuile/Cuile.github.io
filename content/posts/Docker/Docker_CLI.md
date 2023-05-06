@@ -4,8 +4,8 @@ date: 2022-01-13T22:20:52+08:00
 # draft: true
 tags: 
 - CLI
-- Docker
 series:
+- Docker
 categories:
 - 系统配置
 ---

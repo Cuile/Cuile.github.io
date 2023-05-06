@@ -5,10 +5,10 @@ date: 2022-12-26T20:55:50+08:00
 
 # 标签
 tags:
+- Windows 10
 # 专栏
 series:
 - Hyper-V
-- Windows 10
 # 分类
 categories:
 - 系统配置

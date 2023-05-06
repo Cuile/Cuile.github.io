@@ -5,8 +5,8 @@ date: 2022-02-08T10:17:48+08:00
 tags:
 - kernel
 - CLI
-- Linux
 series:
+- Linux
 categories:
 - 系统配置
 ---

@@ -7,6 +7,7 @@ tags:
 - Firewall
 - CLI
 series:
+- linux
 categories:
 - 系统配置
 ---

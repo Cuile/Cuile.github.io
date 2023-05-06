@@ -2,10 +2,12 @@
 title: "OpenWRT 配置透明代理"
 date: 2022-02-07T13:37:19+08:00
 # draft: true
-tags: ["v2ray","proxy"]
+tags: 
+- v2ray
+- proxy
+- ShadowSocks
 series:
 - OpenWRT
-- ShadowSocks
 categories:
 - 系统配置
 ---

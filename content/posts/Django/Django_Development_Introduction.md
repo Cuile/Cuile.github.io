@@ -3,12 +3,12 @@ title: "Docker 环境 Django 开发简介"
 date: 2022-05-10T16:30:13+08:00
 # draft: true
 tags:
-- Django
 - Python
 - docker
 - gunicorn
 - Supervisor
 series:
+- Django
 categories:
 - 编程
 ---

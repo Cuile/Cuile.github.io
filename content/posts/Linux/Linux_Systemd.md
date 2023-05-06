@@ -7,9 +7,9 @@ date: 2022-12-27T17:29:08+08:00
 tags:
 - Systemd
 - CLI
-- Linux
 # 专栏
 series:
+- Linux
 # 分类
 categories:
 - 系统配置

@@ -5,8 +5,8 @@ date: 2022-06-21T19:20:04+08:00
 tags:
 - ssh
 - keychain
-- git
 series:
+- git
 categories:
 - 系统配置
 

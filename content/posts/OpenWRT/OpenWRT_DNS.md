@@ -2,7 +2,8 @@
 title: "OpenWRT DNS设置"
 date: 2022-02-07T13:17:39+08:00
 # draft: true
-tags: ["DNS"]
+tags: 
+- DNS
 series:
 - OpenWRT
 categories:
