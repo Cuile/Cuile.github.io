@@ -77,5 +77,10 @@ $ systemctl restart sshd
 $ sed ......
 ```
 
+## 读取指定行
+```bash
+$ sed -n '1,2p' file
+```
+
 ## 参考文档
 - [sed入门详解教程](https://developer.aliyun.com/article/623030)
