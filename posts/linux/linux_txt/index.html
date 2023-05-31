@@ -1,25 +1,24 @@
-<!doctype html><html lang=zh-cn data-figures>
+<!doctype html><html lang=zh-cn data-figures class=page>
 <head>
-<title>python | 瘦了就帅了</title>
+<title>Linux 文本文件操作 | 瘦了就帅了</title>
 <meta charset=utf-8>
 <meta name=viewport content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
 <meta http-equiv=x-ua-compatible content="IE=edge">
 <meta property="og:locale" content="zh-cn">
 <meta property="og:type" content="article">
-<meta name=description content>
+<meta name=description content="合并文件 1cat info.log error.log > merge.log.bak 2cp merge.log.bak merge.log 文件操作 文件截取">
 <meta name=twitter:card content="summary">
 <meta name=twitter:creator content>
-<meta name=twitter:title content="python">
+<meta name=twitter:title content="Linux 文本文件操作">
 <meta name=twitter:image content="https://blog.cuile.com/images/thumbnail.png">
-<meta property="og:url" content="https://blog.cuile.com/tags/python/">
-<meta property="og:title" content="python">
-<meta property="og:description" content>
+<meta property="og:url" content="https://blog.cuile.com/posts/linux/linux_txt/">
+<meta property="og:title" content="Linux 文本文件操作">
+<meta property="og:description" content="合并文件 1cat info.log error.log > merge.log.bak 2cp merge.log.bak merge.log 文件操作 文件截取">
 <meta property="og:image" content="https://blog.cuile.com/images/thumbnail.png">
 <link rel=apple-touch-icon sizes=180x180 href=https://blog.cuile.com/icons/apple-touch-icon.png>
 <link rel=icon type=image/png sizes=32x32 href=https://blog.cuile.com/icons/favicon-32x32.png>
 <link rel=manifest href=https://blog.cuile.com/icons/site.webmanifest>
-<link rel=canonical href=https://blog.cuile.com/tags/python/>
-<link rel=alternate type=application/rss+xml href=https://blog.cuile.com/tags/python/index.xml title=瘦了就帅了>
+<link rel=canonical href=https://blog.cuile.com/posts/linux/linux_txt/>
 <link rel=preload href=https://blog.cuile.com/css/styles.367129801480fead578d7a356a98fcb3bce794981ff18cee55868d198d0d2bf1eb4feac97319d0871c6255183b9fd27a7059e4632c785951f4c4f6953559c4d0.css integrity="sha512-NnEpgBSA/q1XjXo1apj8s7znlJgf8YzuVYaNGY0NK/HrT+rJcxnQhxxiVRg7n9J6cFnkYyx4WVH0xPaVNVnE0A==" as=style crossorigin=anonymous>
 <link rel=preload href=https://blog.cuile.com/zh-cn/js/bundle.4e04b93422786398f3502d560bd5acb3d3f99b2e942c8c11e0fd926ab6ec3ccbd020d4294d58c0825ecb606ef221b34edc81586f1832489816a57ae8f0276615.js as=script integrity="sha512-TgS5NCJ4Y5jzUC1WC9Wss9P5my6ULIwR4P2SarbsPMvQINQpTVjAgl7LYG7yIbNO3IFYbxgySJgWpXro8CdmFQ==" crossorigin=anonymous>
 <link rel=stylesheet type=text/css href=https://blog.cuile.com/css/styles.367129801480fead578d7a356a98fcb3bce794981ff18cee55868d198d0d2bf1eb4feac97319d0871c6255183b9fd27a7059e4632c785951f4c4f6953559c4d0.css integrity="sha512-NnEpgBSA/q1XjXo1apj8s7znlJgf8YzuVYaNGY0NK/HrT+rJcxnQhxxiVRg7n9J6cFnkYyx4WVH0xPaVNVnE0A==" crossorigin=anonymous>
@@ -47,66 +46,31 @@
 </header>
 <main>
 <div class="grid-inverse wrap content">
-<div>
-<ul class=posts id=posts>
-<li class=post_item>
-<div class=excerpt>
-<div class=excerpt_header>
-<h3 class=post_link>
-<a href=https://blog.cuile.com/posts/django/django_crontab/ title="Django crontab 使用说明">Django crontab 使用说明</a>
-</h3>
+<article class=post_content>
+<h1 class=post_title>Linux 文本文件操作</h1>
 <div class=post_meta>
 <span><svg class="icon"><title>calendar</title><use xlink:href="#calendar"/></svg>
 </span>
 <span class=post_date>
-2023-01-22</span>
-<span class=post_time> · 阅读时长 1 分钟</span><span>&nbsp;· <a href=https://blog.cuile.com/tags/crontab/ title=crontab class="post_tag button button_translucent">crontab
-</a><a href=https://blog.cuile.com/tags/python/ title=python class="post_tag button button_translucent">python
+2023-05-31</span>
+<span class=post_time> · 阅读时长 1 分钟</span><span>&nbsp;· <a href=https://blog.cuile.com/tags/cli/ title=cli class="post_tag button button_translucent">cli
 </a>
 </span>
 </div>
-</div>
-<div class=excerpt_footer>
-<div class=pale>
-<p>参考文档 kraiz/django-crontab 使用django-crontab建立定时任务 Linux crontab 命令</p>
-<br>
-<a href=https://blog.cuile.com/posts/django/django_crontab/ title=阅读更多 class="excerpt_more button">阅读更多</a>
-</div>
-</div>
-</div>
-</li>
-<li class=post_item>
-<div class=excerpt>
-<div class=excerpt_header>
-<h3 class=post_link>
-<a href=https://blog.cuile.com/posts/django/django_development_introduction/ title="Docker 环境 Django 开发简介">Docker 环境 Django 开发简介</a>
-</h3>
-<div class=post_meta>
-<span><svg class="icon"><title>calendar</title><use xlink:href="#calendar"/></svg>
-</span>
-<span class=post_date>
-2022-05-10</span>
-<span class=post_time> · 阅读时长 3 分钟</span><span>&nbsp;· <a href=https://blog.cuile.com/tags/python/ title=Python class="post_tag button button_translucent">Python
-</a><a href=https://blog.cuile.com/tags/docker/ title=docker class="post_tag button button_translucent">docker
-</a><a href=https://blog.cuile.com/tags/gunicorn/ title=gunicorn class="post_tag button button_translucent">gunicorn
-</a><a href=https://blog.cuile.com/tags/supervisor/ title=Supervisor class="post_tag button button_translucent">Supervisor
-</a>
-</span>
-</div>
-</div>
-<div class=excerpt_footer>
-<div class=pale>
-<p>1 准备环境 开发环境还是建议使用 Docker 来搭建，方便快捷。 不过 Django 的官方镜像已经弃用了，官方建议新版本使用 Python 官方提供的镜像来构建。 1Docker 2 ┗ Python == 3.9.12-buster 3 ┗ Django ==</p>
-<br>
-<a href=https://blog.cuile.com/posts/django/django_development_introduction/ title=阅读更多 class="excerpt_more button">阅读更多</a>
-</div>
-</div>
-</div>
-</li>
-<li>
-</li>
+<div class=post_body><h2 id=合并文件>合并文件</h2>
+<div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=ln>1</span>cat info.log error.log &gt; merge.log.bak
+<span class=ln>2</span>cp merge.log.bak merge.log
+</code></pre></div><h2 id=文件操作>文件操作</h2>
+<ul>
+<li><a href=https://blog.csdn.net/kangaroo_07/article/details/43733891>文件截取</a></li>
 </ul>
 </div>
+<h2 class=post_related>相关专栏文章</h2>
+<ul>
+</ul>
+<div class=post_comments>
+</div>
+</article>
 <aside class=sidebar>
 <section class=sidebar_inner>
 <br>
@@ -114,11 +78,10 @@
 <div class=author_bio>
 产品里的技术、一眼看不出来的胖子
 </div>
+<ul>
+</ul>
 <h2 class=mt-4>最新文章</h2>
 <ul class=flex-column>
-<li>
-<a href=https://blog.cuile.com/posts/linux/linux_txt/ class=nav-link title="Linux 文本文件操作">Linux 文本文件操作</a>
-</li>
 <li>
 <a href=https://blog.cuile.com/posts/linux/deepin_xrdp/ class=nav-link title="Deepin 使用远程桌面">Deepin 使用远程桌面</a>
 </li>
@@ -139,6 +102,9 @@
 </li>
 <li>
 <a href=https://blog.cuile.com/posts/linux/linux_frp_install/ class=nav-link title=frp安装配置>frp安装配置</a>
+</li>
+<li>
+<a href=https://blog.cuile.com/posts/linux/alpine_linux_manual/ class=nav-link title="Alpine Linux 配置">Alpine Linux 配置</a>
 </li>
 </ul>
 <div>
