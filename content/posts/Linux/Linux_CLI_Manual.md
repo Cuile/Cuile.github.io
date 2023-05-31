@@ -53,10 +53,6 @@ $ netstat -tlunp
 $ netstat -tlunp | grep <port>
 ```
 
-## 文件操作
-
-- [文件截取](https://blog.csdn.net/kangaroo_07/article/details/43733891)
-
 ## 修改命令提示符
 
 ```bash

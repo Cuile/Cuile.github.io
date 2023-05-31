@@ -12,14 +12,6 @@ categories:
 
 ---
 
-**`脚本基于Ubuntu 20.04`**
-
-## 合并文件
-```bash
-cat info.log error.log > merge.log.bak
-cp merge.log.bak merge.log
-```
-
 ##  删除冗余信息
 ```bash
 sed -i 's/.*a2p_replyclient_log.*[infoerror].[0-9].log.gz://' merge.log \
