@@ -6,14 +6,14 @@
 <meta http-equiv=x-ua-compatible content="IE=edge">
 <meta property="og:locale" content="zh-cn">
 <meta property="og:type" content="article">
-<meta name=description content="脚本基于Centos 7 查看接口设备信息 1# 简单接口状态 2$ nmcli dev status 3# 详细的接口信息 4$ nmcli dev show 5# 接口的详细信息 6$ nmcli dev show interface-name 查看连接(connection">
+<meta name=description content="脚本基于Centos 7 查看接口设备信息 1# 简单接口状态 2$ nmcli dev status 3# 详细的接口信息 4$ nmcli dev show 5# 接口的详细信息 6$ nmcli dev show <interface-name> 查看连接(connection">
 <meta name=twitter:card content="summary">
 <meta name=twitter:creator content>
 <meta name=twitter:title content="使用 nmcli 配置网络">
 <meta name=twitter:image content="https://blog.cuile.com/images/thumbnail.png">
 <meta property="og:url" content="https://blog.cuile.com/posts/linux/linux_nmcli_manual/">
 <meta property="og:title" content="使用 nmcli 配置网络">
-<meta property="og:description" content="脚本基于Centos 7 查看接口设备信息 1# 简单接口状态 2$ nmcli dev status 3# 详细的接口信息 4$ nmcli dev show 5# 接口的详细信息 6$ nmcli dev show interface-name 查看连接(connection">
+<meta property="og:description" content="脚本基于Centos 7 查看接口设备信息 1# 简单接口状态 2$ nmcli dev status 3# 详细的接口信息 4$ nmcli dev show 5# 接口的详细信息 6$ nmcli dev show <interface-name> 查看连接(connection">
 <meta property="og:image" content="https://blog.cuile.com/images/thumbnail.png">
 <link rel=apple-touch-icon sizes=180x180 href=https://blog.cuile.com/icons/apple-touch-icon.png>
 <link rel=icon type=image/png sizes=32x32 href=https://blog.cuile.com/icons/favicon-32x32.png>
@@ -65,30 +65,33 @@
 <span class=ln>3</span><span class=c1># 详细的接口信息</span>
 <span class=ln>4</span>$ nmcli dev show
 <span class=ln>5</span><span class=c1># 接口的详细信息</span>
-<span class=ln>6</span>$ nmcli dev show interface-name
+<span class=ln>6</span>$ nmcli dev show &lt;interface-name&gt;
 </code></pre></div><h2 id=查看连接connection的信息>查看连接(connection)的信息</h2>
 <div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=ln>1</span><span class=c1># 简单信息</span>
 <span class=ln>2</span>$ nmcli con show
 <span class=ln>3</span><span class=c1># 详细的连接信息</span>
 <span class=ln>4</span>$ nmcli con show
 <span class=ln>5</span><span class=c1># 某个连接的详细信息</span>
-<span class=ln>6</span>$ nmcli con show con-name
+<span class=ln>6</span>$ nmcli con show &lt;con-name&gt;
 </code></pre></div><h2 id=创建连接>创建连接</h2>
-<div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=ln>1</span>$ nmcli con add <span class=nb>type</span> ethernet con-name static-vm100 ifname eth0 ipv4 192.168.100.100/24 gw4 192.168.100.1
+<div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=ln>1</span>$ nmcli con add <span class=nb>type</span> &lt;ethernet&gt; con-name &lt;static-vm100&gt; ifname &lt;eth0&gt; ip4 &lt;192.168.100.100/24&gt; <span class=o>[</span>gw4 &lt;192.168.100.1&gt;<span class=o>]</span>
 </code></pre></div><h2 id=激活连接>激活连接</h2>
-<div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=ln>1</span>$ nmcli con up static-vm100
-<span class=ln>2</span>$ nmcli con down static-vm100
-<span class=ln>3</span>$ nmcli dev connect eth0
-<span class=ln>4</span>$ nmcli dev disconnect eth0
+<div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=ln>1</span>$ nmcli con up &lt;static-vm100&gt;
+<span class=ln>2</span>$ nmcli con down &lt;static-vm100&gt;
+<span class=ln>3</span>
+<span class=ln>4</span>$ nmcli dev connect &lt;eth0&gt;
+<span class=ln>5</span>$ nmcli dev disconnect &lt;eth0&gt;
 </code></pre></div><blockquote>
 <p>建议使用 nmcli dev disconnect interface-name 命令，而不是 nmcli con down connection-name 命令，因为连接断开可将该接口放到“手动”模式，这样做用户让 NetworkManager 启动某个连接前，或发生外部事件（比如载波变化、休眠或睡眠）前，不会启动任何自动连接。</p>
 </blockquote>
 <h2 id=自动连接>自动连接</h2>
-<div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=ln>1</span>$ nmcli -f name,autoconnect connection
-<span class=ln>2</span>$ nmcli con mod eth1 connection.autoconnect yes
+<div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=ln>1</span><span class=c1># 查询和显示所有网络连接的自动连接属性的当前值</span>
+<span class=ln>2</span>$ nmcli -f name,autoconnect connection
+<span class=ln>3</span><span class=c1># 更改网络连接的属性值</span>
+<span class=ln>4</span>$ nmcli con mod &lt;eth1&gt; connection.autoconnect yes
 </code></pre></div><h2 id=参考链接>参考链接</h2>
 <ul>
-<li><a href=https://www.jianshu.com/p/5d5560e9e26a>https://www.jianshu.com/p/5d5560e9e26a</a></li>
+<li><a href=https://www.jianshu.com/p/5d5560e9e26a>CentOS 7 下网络管理之命令行工具nmcli</a></li>
 <li><a href=https://docs.rockylinux.org/zh/gemstones/nmcli/>修改 NetworkManager 配置文件的自动连接属性</a></li>
 </ul>
 </div>
