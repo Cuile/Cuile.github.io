@@ -1,6 +1,6 @@
 <!doctype html><html lang=zh-cn data-figures class=page>
 <head>
-<title>Alpine Linux 3.16 安装 | 瘦了就帅了</title>
+<title>虚拟机安装 Alpine Linux 3.16 | 瘦了就帅了</title>
 <meta charset=utf-8>
 <meta name=viewport content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
 <meta http-equiv=x-ua-compatible content="IE=edge">
@@ -9,10 +9,10 @@
 <meta name=description content="特点： 1、小巧：基于musl libc 和 busybox，和 busybox一样小巧，最小的Docker镜像只有5MB。 2、安全：面向安全的轻量发行版 3">
 <meta name=twitter:card content="summary">
 <meta name=twitter:creator content>
-<meta name=twitter:title content="Alpine Linux 3.16 安装">
+<meta name=twitter:title content="虚拟机安装 Alpine Linux 3.16">
 <meta name=twitter:image content="https://blog.cuile.com/images/thumbnail.png">
 <meta property="og:url" content="https://blog.cuile.com/posts/linux/alpine_linux_install/">
-<meta property="og:title" content="Alpine Linux 3.16 安装">
+<meta property="og:title" content="虚拟机安装 Alpine Linux 3.16">
 <meta property="og:description" content="特点： 1、小巧：基于musl libc 和 busybox，和 busybox一样小巧，最小的Docker镜像只有5MB。 2、安全：面向安全的轻量发行版 3">
 <meta property="og:image" content="https://blog.cuile.com/images/thumbnail.png">
 <link rel=apple-touch-icon sizes=180x180 href=https://blog.cuile.com/icons/apple-touch-icon.png>
@@ -47,7 +47,7 @@
 <main>
 <div class="grid-inverse wrap content">
 <article class=post_content>
-<h1 class=post_title>Alpine Linux 3.16 安装</h1>
+<h1 class=post_title>虚拟机安装 Alpine Linux 3.16</h1>
 <div class=post_meta>
 <span><svg class="icon"><title>calendar</title><use xlink:href="#calendar"/></svg>
 </span>
@@ -148,9 +148,16 @@
 <span class=ln>65</span>...
 <span class=ln>66</span>Installation is complete. Please reboot.
 <span class=ln>67</span><span class=c1># 到这里安装全部完成</span>
-<span class=ln>68</span>
-<span class=ln>69</span><span class=c1># 2.13 reboot命令重启电脑</span>
-<span class=ln>70</span>home:~# reboot
+</code></pre></div><h3 id=31-自动安装>3.1. 自动安装</h3>
+<div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=ln>1</span><span class=c1># 准备应答文件</span>
+</code></pre></div><ul>
+<li><a href=https://docs.alpinelinux.org/user-handbook/0.1a/Installing/setup_alpine.html#_answer_files>Answer Files</a></li>
+</ul>
+<h2 id=4-命令重启电脑>4. 命令重启电脑</h2>
+<div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=ln>1</span>home:~# reboot
+</code></pre></div><h2 id=5-关闭防火墙>5. 关闭防火墙</h2>
+<div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=ln>1</span>home:~# rc-service iptables stop
+<span class=ln>2</span>home:~# rc-update del iptables
 </code></pre></div>
 </div>
 <h2 class=post_related>相关专栏文章</h2>
