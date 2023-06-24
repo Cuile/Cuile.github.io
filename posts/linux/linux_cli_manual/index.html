@@ -93,14 +93,19 @@
 <span class=ln>5</span>$ netstat -tlunp <span class=p>|</span> grep &lt;port&gt;
 </code></pre></div><h2 id=修改命令提示符>修改命令提示符</h2>
 <div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=ln>1</span>$ nano .bash_profile
-</code></pre></div><div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=ln>1</span><span class=c1># [HH:MM user@hostname path] 命令提示符</span>
-<span class=ln>2</span><span class=nb>export</span> <span class=nv>PS1</span><span class=o>=</span><span class=s2>&#34;[\A \u@\H \w]\\</span>$<span class=s2> &#34;</span>
-<span class=ln>3</span>
-<span class=ln>4</span><span class=c1># [yyyy-mm-dd HH:MM] path</span>
-<span class=ln>5</span><span class=c1># [user@hostname] 命令提示符</span>
-<span class=ln>6</span><span class=nb>export</span> <span class=nv>PS1</span><span class=o>=</span><span class=s1>&#39;\[\e[36;40m\][\D{%Y-%m-%d} \A] \[\e[0m\] \[\e[35;40m\]\w\[\e[0m\]\n\[\e[33;40m\][\u@\H]\[\e[0m\]  \\$ &#39;</span>
+</code></pre></div><div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=ln> 1</span><span class=c1># [HH:MM user@hostname path] 命令提示符</span>
+<span class=ln> 2</span><span class=nb>export</span> <span class=nv>PS1</span><span class=o>=</span><span class=s2>&#34;[\A \u@\H \w]\\</span>$<span class=s2> &#34;</span>
+<span class=ln> 3</span>
+<span class=ln> 4</span><span class=c1># [yyyy-mm-dd HH:MM] path</span>
+<span class=ln> 5</span><span class=c1># [user@hostname] 命令提示符</span>
+<span class=ln> 6</span><span class=nb>export</span> <span class=nv>PS1</span><span class=o>=</span><span class=s1>&#39;\[\e[36;40m\][\D{%Y-%m-%d} \A] \[\e[0m\] \[\e[35;40m\]\w\[\e[0m\]\n\[\e[33;40m\][\u@\H]\[\e[0m\]  \\$ &#39;</span>
+<span class=ln> 7</span>
+<span class=ln> 8</span><span class=c1># Alpine Linux</span>
+<span class=ln> 9</span><span class=c1># BusyBox 不支持日期格式</span>
+<span class=ln>10</span><span class=nb>export</span> <span class=nv>PS1</span><span class=o>=</span><span class=s1>&#39;\[\e[36;40m\][\A] \[\e[0m\] \[\e[35;40m\]\w\[\e[0m\]\n\[\e[33;40m\][\u@\H]\[\e[0m\]  \\$ &#39;</span>
 </code></pre></div><ul>
 <li><a href=https://www.linuxidc.com/Linux/2017-10/147438.htm>命令提示符设置参考</a></li>
+<li><a href=https://www.cnblogs.com/jinzhenshui/p/16358242.html>busybox：ash：PS1：支持的内部替换变量</a></li>
 </ul>
 <h2 id=查看系统版本>查看系统版本</h2>
 <div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=ln>1</span>$ lsb_release -a
