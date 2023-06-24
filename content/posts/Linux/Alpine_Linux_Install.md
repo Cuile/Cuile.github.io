@@ -1,5 +1,5 @@
 ---
-title: "Alpine Linux 3.16 安装"
+title: "虚拟机安装 Alpine Linux 3.16"
 date: 2022-06-19T11:46:55+08:00
 # draft: true
 tags:
@@ -110,7 +110,20 @@ WARNING: Erase the aboue disk(s) and continue? (y/n) [n] y
 ...
 Installation is complete. Please reboot.
 # 到这里安装全部完成
+```
+### 3.1. 自动安装
+```bash
+# 准备应答文件
+```
+- [Answer Files](https://docs.alpinelinux.org/user-handbook/0.1a/Installing/setup_alpine.html#_answer_files)
 
-# 2.13 reboot命令重启电脑
+## 4. 命令重启电脑
+```bash
 home:~# reboot
+```
+
+## 5. 关闭防火墙
+```bash
+home:~# rc-service iptables stop
+home:~# rc-update del iptables
 ```
