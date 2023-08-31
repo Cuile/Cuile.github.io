@@ -122,15 +122,19 @@
 <span class=ln>22</span>$ git merge a
 <span class=ln>23</span>$ git push
 </code></pre></div><h3 id=32-远程分支>3.2 远程分支</h3>
-<div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=ln>1</span><span class=c1># 拉取</span>
-<span class=ln>2</span>$ git fetch origin &lt;branch&gt;
-<span class=ln>3</span>$ git checkout -b &lt;branch&gt; origin/&lt;branch&gt;
-<span class=ln>4</span>$ git pull origin &lt;branch&gt;
-<span class=ln>5</span>
-<span class=ln>6</span><span class=c1># 更新远程分支列表</span>
-<span class=ln>7</span><span class=c1># 如果你的 remote branch 不是在 origin 下，把 origin 换成你的名字</span>
-<span class=ln>8</span><span class=c1># --prune 删除远程已经删除的分支</span>
-<span class=ln>9</span>$ git remote update origin --prune
+<div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=ln> 1</span><span class=c1># 拉取</span>
+<span class=ln> 2</span>$ git fetch origin &lt;branch&gt;
+<span class=ln> 3</span>$ git checkout -b &lt;branch&gt; origin/&lt;branch&gt;
+<span class=ln> 4</span>$ git pull origin &lt;branch&gt;
+<span class=ln> 5</span>
+<span class=ln> 6</span><span class=c1># 查看远程仓库地址</span>
+<span class=ln> 7</span>$ git remote -v
+<span class=ln> 8</span>
+<span class=ln> 9</span><span class=c1># 更新远程分支列表</span>
+<span class=ln>10</span><span class=c1># 如果你的 remote branch 不是在 origin 下，把 origin 换成你的名字</span>
+<span class=ln>11</span><span class=c1># --prune 删除远程已经删除的分支</span>
+<span class=ln>12</span>$ git remote update origin --prune
+<span class=ln>13</span>
 </code></pre></div><hr>
 <h2 id=4标签>4、标签</h2>
 <div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=ln>1</span><span class=c1># 查看现有的标签</span>
