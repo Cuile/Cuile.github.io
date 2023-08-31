@@ -105,12 +105,15 @@ $ git fetch origin <branch>
 $ git checkout -b <branch> origin/<branch>
 $ git pull origin <branch>
 
+# 查看远程仓库地址
+$ git remote -v
+
 # 更新远程分支列表
 # 如果你的 remote branch 不是在 origin 下，把 origin 换成你的名字
 # --prune 删除远程已经删除的分支
 $ git remote update origin --prune
-```
 
+```
 
 ---
 
