@@ -53,6 +53,31 @@
 <div class=excerpt>
 <div class=excerpt_header>
 <h3 class=post_link>
+<a href=https://blog.cuile.com/posts/proxmox/proxmox_cli/ title="Proxmox 命令行">Proxmox 命令行</a>
+</h3>
+<div class=post_meta>
+<span><svg class="icon"><title>calendar</title><use xlink:href="#calendar"/></svg>
+</span>
+<span class=post_date>
+2022-12-27</span>
+<span class=post_time> · 阅读时长 1 分钟</span><span>&nbsp;· <a href=https://blog.cuile.com/tags/cli/ title=CLI class="post_tag button button_translucent">CLI
+</a>
+</span>
+</div>
+</div>
+<div class=excerpt_footer>
+<div class=pale>
+<p>强制删除虚拟机 1$ rm -f /etc/pve/nodes/<em>/</em>/&lt;vm_id>.conf 参考文档 修復Proxmox VE：無法刪除虛擬機器</p>
+<br>
+<a href=https://blog.cuile.com/posts/proxmox/proxmox_cli/ title=阅读更多 class="excerpt_more button">阅读更多</a>
+</div>
+</div>
+</div>
+</li>
+<li class=post_item>
+<div class=excerpt>
+<div class=excerpt_header>
+<h3 class=post_link>
 <a href=https://blog.cuile.com/posts/hyper-v/hyper-v_centos_disk_expansion/ title="Hyper-V 环境下给 CentOS 磁盘扩容">Hyper-V 环境下给 CentOS 磁盘扩容</a>
 </h3>
 <div class=post_meta>
@@ -279,31 +304,6 @@
 </div>
 </div>
 </li>
-<li class=post_item>
-<div class=excerpt>
-<div class=excerpt_header>
-<h3 class=post_link>
-<a href=https://blog.cuile.com/posts/ups/ups_install/ title="山克 UPS 安装手册">山克 UPS 安装手册</a>
-</h3>
-<div class=post_meta>
-<span><svg class="icon"><title>calendar</title><use xlink:href="#calendar"/></svg>
-</span>
-<span class=post_date>
-2022-06-18</span>
-<span class=post_time> · 阅读时长 1 分钟</span><span>&nbsp;· <a href=https://blog.cuile.com/tags/ups/ title=UPS class="post_tag button button_translucent">UPS
-</a>
-</span>
-</div>
-</div>
-<div class=excerpt_footer>
-<div class=pale>
-<p>为家里的微形PVE服务器买了山克的UPS，发现与 linux 连接使用还是需要安装一下的，而且市场上基本都是 OEM 的产品，所以操作过程通用 记录Gen8安装P</p>
-<br>
-<a href=https://blog.cuile.com/posts/ups/ups_install/ title=阅读更多 class="excerpt_more button">阅读更多</a>
-</div>
-</div>
-</div>
-</li>
 <li>
 <ul class="pagination pagination-default">
 <li class=page-item>
@@ -344,6 +344,9 @@
 <h2 class=mt-4>最新文章</h2>
 <ul class=flex-column>
 <li>
+<a href=https://blog.cuile.com/posts/proxmox/proxmox_bbr/ class=nav-link title="Proxmox 配置 BBR">Proxmox 配置 BBR</a>
+</li>
+<li>
 <a href=https://blog.cuile.com/posts/proxmox/proxmox_subscription/ class=nav-link title="Proxmox 关闭订阅提示">Proxmox 关闭订阅提示</a>
 </li>
 <li>
@@ -364,16 +367,13 @@
 <li>
 <a href=https://blog.cuile.com/posts/vscode/vscode_with_remote_ssh_in_alpine_linux/ class=nav-link title="VsCode 使用 Remote SSH 连接 Alpine Linux">VsCode 使用 Remote SSH 连接 Alpine Linux</a>
 </li>
-<li>
-<a href=https://blog.cuile.com/posts/linux/alpine_linux_bash/ class=nav-link title="Alpine Linux 安装 Bash">Alpine Linux 安装 Bash</a>
-</li>
 </ul>
 <div>
 <h2 class="mt-4 taxonomy" id=categories-section>分类</h2>
 <nav class=tags_nav>
 <a href=https://blog.cuile.com/categories/%E7%B3%BB%E7%BB%9F%E9%85%8D%E7%BD%AE/ class="post_tag button button_translucent" title=系统配置>
 系统配置
-<span class=button_tally>36</span>
+<span class=button_tally>37</span>
 </a>
 <a href=https://blog.cuile.com/categories/tips/ class="post_tag button button_translucent" title=tips>
 TIPS
@@ -412,12 +412,12 @@ DOCKER
 HYPER-V
 <span class=button_tally>5</span>
 </a>
-<a href=https://blog.cuile.com/series/openwrt/ class="post_tag button button_translucent" title=openwrt>
-OPENWRT
-<span class=button_tally>4</span>
-</a>
 <a href=https://blog.cuile.com/series/proxmox/ class="post_tag button button_translucent" title=proxmox>
 PROXMOX
+<span class=button_tally>5</span>
+</a>
+<a href=https://blog.cuile.com/series/openwrt/ class="post_tag button button_translucent" title=openwrt>
+OPENWRT
 <span class=button_tally>4</span>
 </a>
 <a href=https://blog.cuile.com/series/python/ class="post_tag button button_translucent" title=python>
@@ -489,6 +489,10 @@ ALG
 BASH
 <span class=button_tally>1</span>
 </a>
+<a href=https://blog.cuile.com/tags/bbr/ class="post_tag button button_translucent" title=bbr>
+BBR
+<span class=button_tally>1</span>
+</a>
 <a href=https://blog.cuile.com/tags/blog/ class="post_tag button button_translucent" title=blog>
 BLOG
 <span class=button_tally>1</span>
@@ -505,10 +509,6 @@ CRONTAB
 DNS
 <span class=button_tally>1</span>
 </a>
-<a href=https://blog.cuile.com/tags/docker/ class="post_tag button button_translucent" title=docker>
-DOCKER
-<span class=button_tally>1</span>
-</a>
 <br>
 <div class="post_tags_toggle button">所有标签</div>
 <div class=post_tags>
@@ -518,6 +518,8 @@ DOCKER
 <a href=https://blog.cuile.com/tags/alpine-linux/ class="post_tag button button_translucent" data-position=6 title=alpine-linux>ALPINE-LINUX<span class=button_tally>6</span>
 </a>
 <a href=https://blog.cuile.com/tags/bash/ class="post_tag button button_translucent" data-position=1 title=bash>BASH<span class=button_tally>1</span>
+</a>
+<a href=https://blog.cuile.com/tags/bbr/ class="post_tag button button_translucent" data-position=1 title=bbr>BBR<span class=button_tally>1</span>
 </a>
 <a href=https://blog.cuile.com/tags/blog/ class="post_tag button button_translucent" data-position=1 title=blog>BLOG<span class=button_tally>1</span>
 </a>
@@ -600,6 +602,8 @@ DOCKER
 <a href=https://blog.cuile.com/tags/supervisor/ class="post_tag button button_translucent" data-position=1 title=supervisor>SUPERVISOR<span class=button_tally>1</span>
 </a>
 <a href=https://blog.cuile.com/tags/systemd/ class="post_tag button button_translucent" data-position=1 title=systemd>SYSTEMD<span class=button_tally>1</span>
+</a>
+<a href=https://blog.cuile.com/tags/tcp/ class="post_tag button button_translucent" data-position=1 title=tcp>TCP<span class=button_tally>1</span>
 </a>
 <a href=https://blog.cuile.com/tags/ubuntu/ class="post_tag button button_translucent" data-position=1 title=ubuntu>UBUNTU<span class=button_tally>1</span>
 </a>
