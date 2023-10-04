@@ -93,6 +93,10 @@
 </thead>
 <tbody>
 <tr>
+<td style=text-align:center>Combined</td>
+<td style=text-align:left>组合的，包括bootloader、kernel、rootfs</td>
+</tr>
+<tr>
 <td style=text-align:center>squashfs</td>
 <td style=text-align:left>该磁盘映像使用传统的OpenWrt布局，一个squashfs只读根文件系统和一个读写分区，在其中存储您安装的设置和软件包。由于此映像的组装方式，您只有230 兆MB的空间来存储其他程序包和配置，而Extroot不起作用。squashfs适用于直接编译带有软件包的openwrt系统，方便重置路由器，不必从安装包重新刷机。</td>
 </tr>
@@ -104,10 +108,24 @@
 <td style=text-align:center>efi</td>
 <td style=text-align:left>指的是UEFI，可以使用GPT分区列表，是较新的技术，性能和可扩展性上更好，不带efi的则是使用Legacy。</td>
 </tr>
+<tr>
+<td style=text-align:center>bootloader</td>
+<td style=text-align:left>引导程序</td>
+</tr>
+<tr>
+<td style=text-align:center>kernel</td>
+<td style=text-align:left>Linux内核</td>
+</tr>
+<tr>
+<td style=text-align:center>rootfs</td>
+<td style=text-align:left>openwrt根系统</td>
+</tr>
 </tbody>
 </table>
 <h3 id=参考文档>参考文档</h3>
 <ul>
+<li><a href=https://openwrt.org/docs/guide-user/installation/openwrt_x86>OpenWrt on x86 hardware (PC / VM / server)</a></li>
+<li><a href=https://blog.csdn.net/WTCLLB/article/details/131094724>安装OpenWrt到电脑，安装包选哪个？</a></li>
 <li><a href="https://www.right.com.cn/forum/forum.php?mod=viewthread&tid=193351&page=1&authorid=227980">openwrt x86版本</a></li>
 <li><a href=https://www.bilibili.com/read/cv21254550/>原版Openwrt在x86平台上的安装和配置以及常用插件安装</a></li>
 </ul>
