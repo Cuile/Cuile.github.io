@@ -70,14 +70,10 @@ OpenWRT 配置 IPv6，在网上有许多教程，但大部分都说的不清不�
 >         option masq '1' # 打开 NAT 功能
 >         option mtu_fix '1' # 路由器直接拨号时要设置
 > ...
-> # 这两个转发规划很重要
+> # 转发规划很重要
 > config forwarding
 >         option src 'lan'
 >         option dest 'wan'
-> 
-> config forwarding
->         option src 'wan'
->         option dest 'lan'
 > ...
 > # 允许外网IPv6协议下，任意地址的547端口的UDP包通过wan口，访问本机546端口
 > config rule
