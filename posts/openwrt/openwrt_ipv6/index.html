@@ -120,24 +120,20 @@
 </span><span class=ln>16</span><span class=w>        </span><span class=l>option masq &#39;1&#39;</span><span class=w> </span><span class=c># 打开 NAT 功能</span><span class=w>
 </span><span class=ln>17</span><span class=w>        </span><span class=l>option mtu_fix &#39;1&#39;</span><span class=w> </span><span class=c># 路由器直接拨号时要设置</span><span class=w>
 </span><span class=ln>18</span><span class=w></span><span class=nn>...</span><span class=w>
-</span><span class=ln>19</span><span class=w></span><span class=c># 这两个转发规划很重要</span><span class=w>
+</span><span class=ln>19</span><span class=w></span><span class=c># 转发规划很重要</span><span class=w>
 </span><span class=ln>20</span><span class=w></span><span class=l>config forwarding</span><span class=w>
 </span><span class=ln>21</span><span class=w>        </span><span class=l>option src &#39;lan&#39;</span><span class=w>
 </span><span class=ln>22</span><span class=w>        </span><span class=l>option dest &#39;wan&#39;</span><span class=w>
-</span><span class=ln>23</span><span class=w>
-</span><span class=ln>24</span><span class=w></span><span class=l>config forwarding</span><span class=w>
-</span><span class=ln>25</span><span class=w>        </span><span class=l>option src &#39;wan&#39;</span><span class=w>
-</span><span class=ln>26</span><span class=w>        </span><span class=l>option dest &#39;lan&#39;</span><span class=w>
-</span><span class=ln>27</span><span class=w></span><span class=nn>...</span><span class=w>
-</span><span class=ln>28</span><span class=w></span><span class=c># 允许外网IPv6协议下，任意地址的547端口的UDP包通过wan口，访问本机546端口</span><span class=w>
-</span><span class=ln>29</span><span class=w></span><span class=l>config rule</span><span class=w>
-</span><span class=ln>30</span><span class=w>        </span><span class=l>option name &#39;Allow-DHCPv6&#39;</span><span class=w>
-</span><span class=ln>31</span><span class=w>        </span><span class=l>option proto &#39;udp&#39;</span><span class=w>
-</span><span class=ln>32</span><span class=w>        </span><span class=l>option src &#39;wan&#39;</span><span class=w>
-</span><span class=ln>33</span><span class=w>        </span><span class=l>option src_port &#39;547&#39;</span><span class=w>
-</span><span class=ln>34</span><span class=w>        </span><span class=l>option dest_port &#39;546&#39;</span><span class=w>
-</span><span class=ln>35</span><span class=w>        </span><span class=l>option target &#39;ACCEPT&#39;</span><span class=w>
-</span><span class=ln>36</span><span class=w>        </span><span class=l>option family &#39;ipv6&#39;</span><span class=w>
+</span><span class=ln>23</span><span class=w></span><span class=nn>...</span><span class=w>
+</span><span class=ln>24</span><span class=w></span><span class=c># 允许外网IPv6协议下，任意地址的547端口的UDP包通过wan口，访问本机546端口</span><span class=w>
+</span><span class=ln>25</span><span class=w></span><span class=l>config rule</span><span class=w>
+</span><span class=ln>26</span><span class=w>        </span><span class=l>option name &#39;Allow-DHCPv6&#39;</span><span class=w>
+</span><span class=ln>27</span><span class=w>        </span><span class=l>option proto &#39;udp&#39;</span><span class=w>
+</span><span class=ln>28</span><span class=w>        </span><span class=l>option src &#39;wan&#39;</span><span class=w>
+</span><span class=ln>29</span><span class=w>        </span><span class=l>option src_port &#39;547&#39;</span><span class=w>
+</span><span class=ln>30</span><span class=w>        </span><span class=l>option dest_port &#39;546&#39;</span><span class=w>
+</span><span class=ln>31</span><span class=w>        </span><span class=l>option target &#39;ACCEPT&#39;</span><span class=w>
+</span><span class=ln>32</span><span class=w>        </span><span class=l>option family &#39;ipv6&#39;</span><span class=w>
 </span></code></pre></div></blockquote>
 <ol start=4>
 <li>重启OpenWRT</li>
