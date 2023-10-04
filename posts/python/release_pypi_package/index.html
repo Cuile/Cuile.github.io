@@ -137,6 +137,9 @@
 <h2 class=mt-4>最新文章</h2>
 <ul class=flex-column>
 <li>
+<a href=https://blog.cuile.com/posts/openwrt/openwrt_ipv6/ class=nav-link title="OpenWRT 配置 IPv6">OpenWRT 配置 IPv6</a>
+</li>
+<li>
 <a href=https://blog.cuile.com/posts/openwrt/openwrt_version/ class=nav-link title="OpenWRT 版本区别">OpenWRT 版本区别</a>
 </li>
 <li>
@@ -157,16 +160,13 @@
 <li>
 <a href=https://blog.cuile.com/posts/django/django_crontab/ class=nav-link title="Django crontab 使用说明">Django crontab 使用说明</a>
 </li>
-<li>
-<a href=https://blog.cuile.com/posts/python/python_shell_import_reload/ class=nav-link title="在 Python Shell 中重新导入模块">在 Python Shell 中重新导入模块</a>
-</li>
 </ul>
 <div>
 <h2 class="mt-4 taxonomy" id=categories-section>分类</h2>
 <nav class=tags_nav>
 <a href=https://blog.cuile.com/categories/%E7%B3%BB%E7%BB%9F%E9%85%8D%E7%BD%AE/ class="post_tag button button_translucent" title=系统配置>
 系统配置
-<span class=button_tally>38</span>
+<span class=button_tally>39</span>
 </a>
 <a href=https://blog.cuile.com/categories/tips/ class="post_tag button button_translucent" title=tips>
 TIPS
@@ -197,16 +197,16 @@ LINUX
 LIFE-TIPS
 <span class=button_tally>8</span>
 </a>
+<a href=https://blog.cuile.com/series/openwrt/ class="post_tag button button_translucent" title=openwrt>
+OPENWRT
+<span class=button_tally>6</span>
+</a>
 <a href=https://blog.cuile.com/series/docker/ class="post_tag button button_translucent" title=docker>
 DOCKER
 <span class=button_tally>5</span>
 </a>
 <a href=https://blog.cuile.com/series/hyper-v/ class="post_tag button button_translucent" title=hyper-v>
 HYPER-V
-<span class=button_tally>5</span>
-</a>
-<a href=https://blog.cuile.com/series/openwrt/ class="post_tag button button_translucent" title=openwrt>
-OPENWRT
 <span class=button_tally>5</span>
 </a>
 <a href=https://blog.cuile.com/series/proxmox/ class="post_tag button button_translucent" title=proxmox>
@@ -258,12 +258,16 @@ ALPINE-LINUX
 CENTOS
 <span class=button_tally>3</span>
 </a>
+<a href=https://blog.cuile.com/tags/network/ class="post_tag button button_translucent" title=network>
+NETWORK
+<span class=button_tally>3</span>
+</a>
 <a href=https://blog.cuile.com/tags/deepin/ class="post_tag button button_translucent" title=deepin>
 DEEPIN
 <span class=button_tally>2</span>
 </a>
-<a href=https://blog.cuile.com/tags/network/ class="post_tag button button_translucent" title=network>
-NETWORK
+<a href=https://blog.cuile.com/tags/firewall/ class="post_tag button button_translucent" title=firewall>
+FIREWALL
 <span class=button_tally>2</span>
 </a>
 <a href=https://blog.cuile.com/tags/proxy/ class="post_tag button button_translucent" title=proxy>
@@ -298,10 +302,6 @@ CENTOS-7
 CRONTAB
 <span class=button_tally>1</span>
 </a>
-<a href=https://blog.cuile.com/tags/dns/ class="post_tag button button_translucent" title=dns>
-DNS
-<span class=button_tally>1</span>
-</a>
 <br>
 <div class="post_tags_toggle button">所有标签</div>
 <div class=post_tags>
@@ -334,7 +334,7 @@ DNS
 </a>
 <a href=https://blog.cuile.com/tags/ffmpeg/ class="post_tag button button_translucent" data-position=1 title=ffmpeg>FFMPEG<span class=button_tally>1</span>
 </a>
-<a href=https://blog.cuile.com/tags/firewall/ class="post_tag button button_translucent" data-position=1 title=firewall>FIREWALL<span class=button_tally>1</span>
+<a href=https://blog.cuile.com/tags/firewall/ class="post_tag button button_translucent" data-position=2 title=firewall>FIREWALL<span class=button_tally>2</span>
 </a>
 <a href=https://blog.cuile.com/tags/frp/ class="post_tag button button_translucent" data-position=1 title=frp>FRP<span class=button_tally>1</span>
 </a>
@@ -348,6 +348,8 @@ DNS
 </a>
 <a href=https://blog.cuile.com/tags/iptables/ class="post_tag button button_translucent" data-position=1 title=iptables>IPTABLES<span class=button_tally>1</span>
 </a>
+<a href=https://blog.cuile.com/tags/ipv6/ class="post_tag button button_translucent" data-position=1 title=ipv6>IPV6<span class=button_tally>1</span>
+</a>
 <a href=https://blog.cuile.com/tags/kernel/ class="post_tag button button_translucent" data-position=1 title=kernel>KERNEL<span class=button_tally>1</span>
 </a>
 <a href=https://blog.cuile.com/tags/keychain/ class="post_tag button button_translucent" data-position=1 title=keychain>KEYCHAIN<span class=button_tally>1</span>
@@ -358,7 +360,7 @@ DNS
 </a>
 <a href=https://blog.cuile.com/tags/nat/ class="post_tag button button_translucent" data-position=1 title=nat>NAT<span class=button_tally>1</span>
 </a>
-<a href=https://blog.cuile.com/tags/network/ class="post_tag button button_translucent" data-position=2 title=network>NETWORK<span class=button_tally>2</span>
+<a href=https://blog.cuile.com/tags/network/ class="post_tag button button_translucent" data-position=3 title=network>NETWORK<span class=button_tally>3</span>
 </a>
 <a href=https://blog.cuile.com/tags/nmcli/ class="post_tag button button_translucent" data-position=1 title=nmcli>NMCLI<span class=button_tally>1</span>
 </a>
