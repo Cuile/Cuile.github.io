@@ -70,6 +70,10 @@
 <li>目标平台：x86/64</li>
 <li>固件版本：OpenWrt 21.02.0 r16279-5cc0535800 / LuCI openwrt-21.02 branch git-23.093.57360-e98243e</li>
 <li>内核版本：5.4.143</li>
+<li>DHCPv6 客户端 (odhcp6c)</li>
+<li>RA & DHCPv6 服务器 (odhcpd)</li>
+<li>IPv6 防火墙 (ip6tables)</li>
+<li>Luci网页配置 (luci-proto-ipv6)</li>
 </ul>
 </li>
 </ul>
@@ -86,17 +90,16 @@
 </span><span class=ln> 5</span><span class=w>        </span><span class=l>option ipaddr &#39;192.168.10.10&#39;</span><span class=w>
 </span><span class=ln> 6</span><span class=w>        </span><span class=l>option netmask &#39;255.255.255.0&#39;</span><span class=w>
 </span><span class=ln> 7</span><span class=w>        </span><span class=l>option device &#39;eth0&#39;</span><span class=w>
-</span><span class=ln> 8</span><span class=w>        </span><span class=l>option delegate &#39;0&#39;</span><span class=w>
-</span><span class=ln> 9</span><span class=w>        </span><span class=l>option ip6assign &#39;64&#39;</span><span class=w> </span><span class=c># IPv6分配长度</span><span class=w>
-</span><span class=ln>10</span><span class=w>
-</span><span class=ln>11</span><span class=w></span><span class=l>config interface &#39;wan&#39;</span><span class=w>
-</span><span class=ln>12</span><span class=w>        </span><span class=l>option proto &#39;pppoe&#39;</span><span class=w>
-</span><span class=ln>13</span><span class=w>        </span><span class=l>option username &#39;***********&#39;</span><span class=w>
-</span><span class=ln>14</span><span class=w>        </span><span class=l>option password &#39;***********&#39;</span><span class=w>
-</span><span class=ln>15</span><span class=w>        </span><span class=l>option device &#39;eth1&#39;</span><span class=w>
-</span><span class=ln>16</span><span class=w>        </span><span class=l>option delegate &#39;0&#39;</span><span class=w>
-</span><span class=ln>17</span><span class=w>        </span><span class=l>option ipv6 &#39;auto&#39;</span><span class=w> </span><span class=c># 自动获取IPv6地址，使用这个选项后，会自动创建一个虚拟动态接口(WAN_6)，不用配置。</span><span class=w>
-</span><span class=ln>18</span><span class=w></span><span class=nn>...</span><span class=w>
+</span><span class=ln> 8</span><span class=w>        </span><span class=l>option ip6assign &#39;64&#39;</span><span class=w> </span><span class=c># IPv6分配长度。要与 wan 口一致。</span><span class=w>
+</span><span class=ln> 9</span><span class=w>
+</span><span class=ln>10</span><span class=w></span><span class=l>config interface &#39;wan&#39;</span><span class=w>
+</span><span class=ln>11</span><span class=w>        </span><span class=l>option proto &#39;pppoe&#39;</span><span class=w>
+</span><span class=ln>12</span><span class=w>        </span><span class=l>option username &#39;***********&#39;</span><span class=w>
+</span><span class=ln>13</span><span class=w>        </span><span class=l>option password &#39;***********&#39;</span><span class=w>
+</span><span class=ln>14</span><span class=w>        </span><span class=l>option device &#39;eth1&#39;</span><span class=w>
+</span><span class=ln>15</span><span class=w>        </span><span class=l>option ipv6 &#39;auto&#39;</span><span class=w> </span><span class=c># 自动获取IPv6地址，使用这个选项后，会自动创建一个虚拟动态接口(WAN_6)，不用配置。</span><span class=w>
+</span><span class=ln>16</span><span class=w>        </span><span class=l>option ip6assign &#39;64&#39;</span><span class=w> </span><span class=c># IPv6分配长度。参考 WAN_6 接口 IPv6-PD 的掩码长度，一般为“60”，比它大即可，系统默认为64。</span><span class=w>
+</span><span class=ln>17</span><span class=w></span><span class=nn>...</span><span class=w>
 </span></code></pre></div></blockquote>
 <ol start=3>
 <li>OpenWRT 防火墙配置</li>
@@ -114,11 +117,11 @@
 </span><span class=ln>10</span><span class=w></span><span class=l>config zone</span><span class=w>
 </span><span class=ln>11</span><span class=w>        </span><span class=l>option name &#39;wan&#39;</span><span class=w>
 </span><span class=ln>12</span><span class=w>        </span><span class=l>list network &#39;wan&#39;</span><span class=w>
-</span><span class=ln>13</span><span class=w>        </span><span class=l>option input &#39;DROP&#39;</span><span class=w> </span><span class=c># wan 口的安全规划要注意</span><span class=w>
+</span><span class=ln>13</span><span class=w>        </span><span class=l>option input &#39;DROP&#39;</span><span class=w> </span><span class=c># 关闭 wan 口输入流量</span><span class=w>
 </span><span class=ln>14</span><span class=w>        </span><span class=l>option output &#39;ACCEPT&#39;</span><span class=w> </span><span class=c># 只出不进</span><span class=w>
 </span><span class=ln>15</span><span class=w>        </span><span class=l>option forward &#39;REJECT&#39;</span><span class=w>
 </span><span class=ln>16</span><span class=w>        </span><span class=l>option masq &#39;1&#39;</span><span class=w> </span><span class=c># 打开 NAT 功能</span><span class=w>
-</span><span class=ln>17</span><span class=w>        </span><span class=l>option mtu_fix &#39;1&#39;</span><span class=w> </span><span class=c># 路由器直接拨号时要设置</span><span class=w>
+</span><span class=ln>17</span><span class=w>        </span><span class=l>option mtu_fix &#39;1&#39;</span><span class=w> </span><span class=c># 路由器直接拨号时使用</span><span class=w>
 </span><span class=ln>18</span><span class=w></span><span class=nn>...</span><span class=w>
 </span><span class=ln>19</span><span class=w></span><span class=c># 转发规划很重要</span><span class=w>
 </span><span class=ln>20</span><span class=w></span><span class=l>config forwarding</span><span class=w>
@@ -136,9 +139,36 @@
 </span><span class=ln>32</span><span class=w>        </span><span class=l>option family &#39;ipv6&#39;</span><span class=w>
 </span></code></pre></div></blockquote>
 <ol start=4>
+<li>OpenWRT DHCP 配置</li>
+</ol>
+<div class=highlight><pre tabindex=0 class=chroma><code class=language-yaml data-lang=yaml><span class=ln> 1</span><span class=c># /etc/config/dhcp</span><span class=w>
+</span><span class=ln> 2</span><span class=w></span><span class=nn>...</span><span class=w>
+</span><span class=ln> 3</span><span class=w></span><span class=l>config dhcp &#39;lan&#39;</span><span class=w>
+</span><span class=ln> 4</span><span class=w>        </span><span class=l>option interface &#39;lan&#39;</span><span class=w>
+</span><span class=ln> 5</span><span class=w>        </span><span class=l>option start &#39;100&#39;</span><span class=w>
+</span><span class=ln> 6</span><span class=w>        </span><span class=l>option dhcpv4 &#39;server&#39;</span><span class=w>
+</span><span class=ln> 7</span><span class=w>        </span><span class=l>option limit &#39;200&#39;</span><span class=w>
+</span><span class=ln> 8</span><span class=w>        </span><span class=l>option force &#39;1&#39;</span><span class=w>
+</span><span class=ln> 9</span><span class=w>        </span><span class=l>option leasetime &#39;2h&#39;</span><span class=w>
+</span><span class=ln>10</span><span class=w>        </span><span class=l>option ra &#39;server&#39;</span><span class=w> </span><span class=c># RA服务 服务器模式</span><span class=w>
+</span><span class=ln>11</span><span class=w>        </span><span class=l>option dhcpv6 &#39;server&#39;</span><span class=w> </span><span class=c># DHCPv6服务 服务器模式</span><span class=w>
+</span><span class=ln>12</span><span class=w>        </span><span class=l>list ra_flags &#39;none&#39;</span><span class=w> </span><span class=c># RA标记 无</span><span class=w>
+</span><span class=ln>13</span><span class=w>
+</span><span class=ln>14</span><span class=w></span><span class=l>config dhcp &#39;wan&#39;</span><span class=w>
+</span><span class=ln>15</span><span class=w>        </span><span class=l>option interface &#39;wan&#39;</span><span class=w>
+</span><span class=ln>16</span><span class=w>        </span><span class=l>option ignore &#39;1&#39;</span><span class=w>
+</span><span class=ln>17</span><span class=w>        </span><span class=l>list ra_flags &#39;none&#39;</span><span class=w>
+</span><span class=ln>18</span><span class=w>
+</span><span class=ln>19</span><span class=w></span><span class=l>config odhcpd &#39;odhcpd&#39;</span><span class=w>
+</span><span class=ln>20</span><span class=w>        </span><span class=l>option maindhcp &#39;0&#39;</span><span class=w>
+</span><span class=ln>21</span><span class=w>        </span><span class=l>option leasefile &#39;/tmp/hosts/odhcpd&#39;</span><span class=w>
+</span><span class=ln>22</span><span class=w>        </span><span class=l>option leasetrigger &#39;/usr/sbin/odhcpd-update&#39;</span><span class=w>
+</span><span class=ln>23</span><span class=w>        </span><span class=l>option loglevel &#39;4&#39;</span><span class=w>
+</span><span class=ln>24</span><span class=w>
+</span></code></pre></div><ol start=5>
 <li>重启OpenWRT</li>
-<li>查看 Luci -> 网络 -> 接口 -> WAN_6，已拿到的IPv6地址</li>
-<li>测试本机外网IPv6地址，与 WAN_6 的 IPv6地址一致即可</li>
+<li>查看 Luci -> 网络 -> 接口 -> LAN，已拿到的IPv6地址</li>
+<li>测试本机外网IPv6地址，与 LAN 的 IPv6地址一致即可</li>
 </ol>
 <blockquote>
 <div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=ln>1</span>$ curl 6.ipw.cn
@@ -146,6 +176,7 @@
 <h2 id=参考文档>参考文档</h2>
 <ul>
 <li><a href=https://openwrt.org/docs/guide-user/network/ipv6/configuration>IPv6 configuration</a></li>
+<li><a href=https://vicfree.com/2023/02/ipv6-explained-and-setup-in-openwrt/>IPv6 原理及如何设置 OpenWrt</a></li>
 <li><a href=https://openwrt.org/zh-cn/doc/uci/firewall>如何配置防火墙</a></li>
 <li><a href=https://openwrt.org/docs/guide-user/network/ipv6/start>IPv6</a></li>
 </ul>
