@@ -5,7 +5,7 @@ date: 2022-12-26T20:55:50+08:00
 
 # 标签
 tags:
-- Windows 10
+- Windows
 # 专栏
 series:
 - Hyper-V
@@ -40,3 +40,7 @@ Dism /online /enable-feature /featurename:Microsoft-Hyper-V-All /LimitAccess /AL
 ## 2. 运行脚本
 
 将脚本放到桌面，右键“以管理员身份运行”，等待安装结束后，就可以使用 Hyper-V 功能了。
+
+## 3. 其它
+
+- [在 Windows 或 Windows Server 的 Hyper-V 中升级虚拟机版本](https://learn.microsoft.com/zh-cn/windows-server/virtualization/hyper-v/deploy/upgrade-virtual-machine-version-in-hyper-v-on-windows-or-windows-server)
