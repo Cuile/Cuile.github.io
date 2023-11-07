@@ -34,7 +34,7 @@ categories:
 ### 2.1 DNS访问流程
 
 ```mermaid
-graph LR
+flowchart LR
     lh((localhost));
     dm(Dnsmasq);
     cd(ChinaDNS);
@@ -61,7 +61,7 @@ graph LR
 ### 2.2 IP访问流程
 
 ```mermaid
-graph LR
+flowchart LR
     fs(国外服务器);
     ds(国内服务器);
     lh((localhost));
