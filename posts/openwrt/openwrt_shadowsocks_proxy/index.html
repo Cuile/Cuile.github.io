@@ -76,7 +76,7 @@
 <h2 id=2-运行流程>2. 运行流程</h2>
 <p>透明代理的运行原理主要由<code>DNS访问流程</code>、<code>IP访问流程</code>两部分组成组成</p>
 <h3 id=21-dns访问流程>2.1 DNS访问流程</h3>
-<div class=highlight><pre tabindex=0 class=chroma><code class=language-fallback data-lang=fallback><span class=ln> 1</span>graph LR
+<div class=highlight><pre tabindex=0 class=chroma><code class=language-fallback data-lang=fallback><span class=ln> 1</span>flowchart LR
 <span class=ln> 2</span>    lh((localhost));
 <span class=ln> 3</span>    dm(Dnsmasq);
 <span class=ln> 4</span>    cd(ChinaDNS);
@@ -99,7 +99,7 @@
 <span class=ln>21</span>    cd -. 9 缓存 .-&gt; dm;
 <span class=ln>22</span>    dm -. 10 IP地址 .-&gt; lh;
 </code></pre></div><h3 id=22-ip访问流程>2.2 IP访问流程</h3>
-<div class=highlight><pre tabindex=0 class=chroma><code class=language-fallback data-lang=fallback><span class=ln> 1</span>graph LR
+<div class=highlight><pre tabindex=0 class=chroma><code class=language-fallback data-lang=fallback><span class=ln> 1</span>flowchart LR
 <span class=ln> 2</span>    fs(国外服务器);
 <span class=ln> 3</span>    ds(国内服务器);
 <span class=ln> 4</span>    lh((localhost));
