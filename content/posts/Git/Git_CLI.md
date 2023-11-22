@@ -112,7 +112,21 @@ $ git remote -v
 # 如果你的 remote branch 不是在 origin 下，把 origin 换成你的名字
 # --prune 删除远程已经删除的分支
 $ git remote update origin --prune
+```
 
+### 3.3 重命名分支
+
+```bash
+# 查看本地分支
+$ git branch -a
+# 切换到要重命名的分支
+$ git checkout <branch-name>
+# 重命名分支
+$ git branch -m <new branch-name>
+# 上传新分支
+$ git push origin -u <new branch-name>
+# 删除原分支
+$ git push origin --delete <old branch-name>
 ```
 
 ---
