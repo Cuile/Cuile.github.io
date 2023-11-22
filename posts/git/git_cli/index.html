@@ -134,7 +134,17 @@
 <span class=ln>10</span><span class=c1># 如果你的 remote branch 不是在 origin 下，把 origin 换成你的名字</span>
 <span class=ln>11</span><span class=c1># --prune 删除远程已经删除的分支</span>
 <span class=ln>12</span>$ git remote update origin --prune
-<span class=ln>13</span>
+</code></pre></div><h3 id=33-重命名分支>3.3 重命名分支</h3>
+<div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=ln> 1</span><span class=c1># 查看本地分支</span>
+<span class=ln> 2</span>$ git branch -a
+<span class=ln> 3</span><span class=c1># 切换到要重命名的分支</span>
+<span class=ln> 4</span>$ git checkout &lt;branch-name&gt;
+<span class=ln> 5</span><span class=c1># 重命名分支</span>
+<span class=ln> 6</span>$ git branch -m &lt;new branch-name&gt;
+<span class=ln> 7</span><span class=c1># 上传新分支</span>
+<span class=ln> 8</span>$ git push origin -u &lt;new branch-name&gt;
+<span class=ln> 9</span><span class=c1># 删除原分支</span>
+<span class=ln>10</span>$ git push origin --delete &lt;old branch-name&gt;
 </code></pre></div><hr>
 <h2 id=4标签>4、标签</h2>
 <div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=ln>1</span><span class=c1># 查看现有的标签</span>
