@@ -6,14 +6,14 @@
 <meta http-equiv=x-ua-compatible content="IE=edge">
 <meta property="og:locale" content="zh-cn">
 <meta property="og:type" content="article">
-<meta name=description content="1、拉取 1$ git pull 1.1 删除本地文件后，从远端重新拉取最新版本 git提示： up-to-date. 但未从远端得到文件 1# 1 查看本地分支是否发生变化 2$ git branch -a 3 4# 2 如本地库处于">
+<meta name=description content="1、拉取 1$ git pull 2、推送 1# 查看本地项目状态 2$ git status -s 3# 添加文件 | 添加目录 | 添加所有内容 4$ git add < file | dir | . > 5# 删除 add 的文件 6$ git rm [-r] --cached <file | …">
 <meta name=twitter:card content="summary">
 <meta name=twitter:creator content>
 <meta name=twitter:title content="Git 命令行">
 <meta name=twitter:image content="https://blog.cuile.com/images/thumbnail.png">
 <meta property="og:url" content="https://blog.cuile.com/posts/git/git_cli/">
 <meta property="og:title" content="Git 命令行">
-<meta property="og:description" content="1、拉取 1$ git pull 1.1 删除本地文件后，从远端重新拉取最新版本 git提示： up-to-date. 但未从远端得到文件 1# 1 查看本地分支是否发生变化 2$ git branch -a 3 4# 2 如本地库处于">
+<meta property="og:description" content="1、拉取 1$ git pull 2、推送 1# 查看本地项目状态 2$ git status -s 3# 添加文件 | 添加目录 | 添加所有内容 4$ git add < file | dir | . > 5# 删除 add 的文件 6$ git rm [-r] --cached <file | …">
 <meta property="og:image" content="https://blog.cuile.com/images/thumbnail.png">
 <link rel=apple-touch-icon sizes=180x180 href=https://blog.cuile.com/icons/apple-touch-icon.png>
 <link rel=icon type=image/png sizes=32x32 href=https://blog.cuile.com/icons/favicon-32x32.png>
@@ -59,19 +59,6 @@
 </div>
 <div class=post_body><h2 id=1拉取>1、拉取</h2>
 <div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=ln>1</span>$ git pull
-</code></pre></div><h3 id=11-删除本地文件后从远端重新拉取最新版本>1.1 删除本地文件后，从远端重新拉取最新版本</h3>
-<p>git提示： up-to-date. 但未从远端得到文件</p>
-<div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=ln> 1</span><span class=c1># 1 查看本地分支是否发生变化</span>
-<span class=ln> 2</span>$ git branch -a
-<span class=ln> 3</span>
-<span class=ln> 4</span><span class=c1># 2 如本地库处于另一个分支中，需将本地分支重置回原分支</span>
-<span class=ln> 5</span>$ git checkout &lt;branch name&gt;
-<span class=ln> 6</span>$ git reset --hard
-<span class=ln> 7</span>
-<span class=ln> 8</span><span class=c1># 3 如本地分支没有变化，则强行 pull 覆盖本地文件</span>
-<span class=ln> 9</span>$ git fetch --all
-<span class=ln>10</span>$ git reset --hard origin/&lt;branch name&gt;
-<span class=ln>11</span>$ git pull
 </code></pre></div><hr>
 <h2 id=2推送>2、推送</h2>
 <div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=ln> 1</span><span class=c1># 查看本地项目状态</span>
@@ -84,17 +71,6 @@
 <span class=ln> 8</span>$ git commit -m <span class=o>[</span>message<span class=o>]</span>
 <span class=ln> 9</span><span class=c1># 推送到远程库</span>
 <span class=ln>10</span>$ git push
-</code></pre></div><h3 id=21-推送新项目到github>2.1 推送新项目到github</h3>
-<p>先在githubh上创建好项目</p>
-<div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=ln>1</span>$ git init
-<span class=ln>2</span>$ git add .
-<span class=ln>3</span>$ git status -s
-<span class=ln>4</span>$ git config --global user.name <span class=s2>&#34;Your Name&#34;</span>
-<span class=ln>5</span>$ git config --global user.email you@example.com
-<span class=ln>6</span>$ git commit --amend --reset-author
-<span class=ln>7</span>$ git commit -m <span class=s2>&#34;first commit&#34;</span>
-<span class=ln>8</span>$ git remote add origin git@github.com:Youname/repo_name.git
-<span class=ln>9</span>$ git push -u origin master
 </code></pre></div><hr>
 <h2 id=3分支>3、分支</h2>
 <h3 id=31-本地分支>3.1 本地分支</h3>
@@ -134,7 +110,20 @@
 <span class=ln>10</span><span class=c1># 如果你的 remote branch 不是在 origin 下，把 origin 换成你的名字</span>
 <span class=ln>11</span><span class=c1># --prune 删除远程已经删除的分支</span>
 <span class=ln>12</span>$ git remote update origin --prune
-</code></pre></div><h3 id=33-重命名分支>3.3 重命名分支</h3>
+</code></pre></div><h3 id=33-删除本地文件后从远端重新拉取最新版本>3.3 删除本地文件后，从远端重新拉取最新版本</h3>
+<p>git提示： up-to-date. 但未从远端得到文件</p>
+<div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=ln> 1</span><span class=c1># 1 查看本地分支是否发生变化</span>
+<span class=ln> 2</span>$ git branch -a
+<span class=ln> 3</span>
+<span class=ln> 4</span><span class=c1># 2 如本地库处于另一个分支中，需将本地分支重置回原分支</span>
+<span class=ln> 5</span>$ git checkout &lt;branch name&gt;
+<span class=ln> 6</span>$ git reset --hard
+<span class=ln> 7</span>
+<span class=ln> 8</span><span class=c1># 3 如本地分支没有变化，则强行 pull 覆盖本地文件</span>
+<span class=ln> 9</span>$ git fetch --all
+<span class=ln>10</span>$ git reset --hard origin/&lt;branch name&gt;
+<span class=ln>11</span>$ git pull
+</code></pre></div><h3 id=34-重命名分支>3.4 重命名分支</h3>
 <div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=ln> 1</span><span class=c1># 查看本地分支</span>
 <span class=ln> 2</span>$ git branch -a
 <span class=ln> 3</span><span class=c1># 切换到要重命名的分支</span>
@@ -145,6 +134,11 @@
 <span class=ln> 8</span>$ git push origin -u &lt;new branch-name&gt;
 <span class=ln> 9</span><span class=c1># 删除原分支</span>
 <span class=ln>10</span>$ git push origin --delete &lt;old branch-name&gt;
+</code></pre></div><h3 id=35-更改本地分支对应的远程分支>3.5 更改本地分支对应的远程分支</h3>
+<div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=ln>1</span><span class=c1># dev为本地分支，origin/master为远程分支</span>
+<span class=ln>2</span>$ git branch --set-upstream-to<span class=o>=</span>origin/master dev
+<span class=ln>3</span><span class=c1># or</span>
+<span class=ln>4</span>$ git branch --set-upstream dev origin/master 
 </code></pre></div><hr>
 <h2 id=4标签>4、标签</h2>
 <div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=ln>1</span><span class=c1># 查看现有的标签</span>
@@ -163,23 +157,23 @@
 <span class=ln>3</span>$ git clone git@github.com:xxxxx/xxxxx.git
 <span class=ln>4</span><span class=c1># 克隆指定分支，到指定目录</span>
 <span class=ln>5</span>$ git clone -b &lt;branch&gt; &lt;repo&gt; &lt;path&gt;
-</code></pre></div><h3 id=52-导出>5.2 导出</h3>
-<div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=ln> 1</span>$ git archive --format zip -0 <span class=se>\
-</span><span class=ln> 2</span><span class=se></span>                --output output.zip <span class=se>\
-</span><span class=ln> 3</span><span class=se></span>                --remote git@github.com:Cuile/NMP.git <span class=se>\
-</span><span class=ln> 4</span><span class=se></span>                master <span class=se>\
-</span><span class=ln> 5</span><span class=se></span>                ./
-<span class=ln> 6</span>
-<span class=ln> 7</span><span class=c1># 使用zip格式，不压缩</span>
-<span class=ln> 8</span>--format zip -0
-<span class=ln> 9</span><span class=c1># 输出的文件名</span>
-<span class=ln>10</span>--output output.zip
-<span class=ln>11</span><span class=c1># 远程项目地址</span>
-<span class=ln>12</span>--remote git@github.com:Cuile/NMP.git
-<span class=ln>13</span><span class=c1># 分支名</span>
-<span class=ln>14</span>master
-<span class=ln>15</span><span class=c1># 输出到当前目录</span>
-<span class=ln>16</span>./
+</code></pre></div><h3 id=52-推送新项目到github>5.2 推送新项目到github</h3>
+<p>先在githubh上创建好项目</p>
+<div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=ln>1</span>$ git init
+<span class=ln>2</span>$ git add .
+<span class=ln>3</span>$ git status -s
+<span class=ln>4</span>$ git config --global user.name <span class=s2>&#34;Your Name&#34;</span>
+<span class=ln>5</span>$ git config --global user.email you@example.com
+<span class=ln>6</span>$ git commit --amend --reset-author
+<span class=ln>7</span>$ git commit -m <span class=s2>&#34;first commit&#34;</span>
+<span class=ln>8</span>$ git remote add origin git@github.com:Youname/repo_name.git
+<span class=ln>9</span>$ git push -u origin master
+</code></pre></div><h3 id=53-导出>5.3 导出</h3>
+<div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=ln>1</span>$ git archive --format zip -0 <span class=se>\ </span>                        <span class=c1># 使用zip格式，不压缩</span>
+<span class=ln>2</span>              --output output.zip <span class=se>\ </span>                    <span class=c1># 输出的文件名</span>
+<span class=ln>3</span>              --remote git@github.com:Cuile/NMP.git <span class=se>\ </span>  <span class=c1># 远程项目地址</span>
+<span class=ln>4</span>              master <span class=se>\ </span>                                 <span class=c1># 分支名</span>
+<span class=ln>5</span>              ./                                        <span class=c1># 输出到当前目录</span>
 </code></pre></div><hr>
 <h2 id=6代理>6、代理</h2>
 <h3 id=61-设置代理>6.1 设置代理</h3>
