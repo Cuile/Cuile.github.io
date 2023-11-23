@@ -16,23 +16,6 @@ categories:
 $ git pull
 ```
 
-### 1.1 删除本地文件后，从远端重新拉取最新版本
-
-git提示： up-to-date. 但未从远端得到文件
-
-```bash
-# 1 查看本地分支是否发生变化
-$ git branch -a
-
-# 2 如本地库处于另一个分支中，需将本地分支重置回原分支
-$ git checkout <branch name>
-$ git reset --hard
-
-# 3 如本地分支没有变化，则强行 pull 覆盖本地文件
-$ git fetch --all
-$ git reset --hard origin/<branch name>
-$ git pull
-```
 ---
 
 ## 2、推送
@@ -50,27 +33,11 @@ $ git commit -m [message]
 $ git push
 ```
 
-### 2.1 推送新项目到github
-
-先在githubh上创建好项目
-
-```bash
-$ git init
-$ git add .
-$ git status -s
-$ git config --global user.name "Your Name"
-$ git config --global user.email you@example.com
-$ git commit --amend --reset-author
-$ git commit -m "first commit"
-$ git remote add origin git@github.com:Youname/repo_name.git
-$ git push -u origin master
-```
 ---
 
 ## 3、分支
 
 ### 3.1 本地分支
-
 ```bash
 # 创建分支
 # 只创建一个分支
@@ -98,7 +65,6 @@ $ git push
 ```
 
 ### 3.2 远程分支
-
 ```bash
 # 拉取
 $ git fetch origin <branch>
@@ -114,8 +80,23 @@ $ git remote -v
 $ git remote update origin --prune
 ```
 
-### 3.3 重命名分支
+### 3.3 删除本地文件后，从远端重新拉取最新版本
+git提示： up-to-date. 但未从远端得到文件
+```bash
+# 1 查看本地分支是否发生变化
+$ git branch -a
 
+# 2 如本地库处于另一个分支中，需将本地分支重置回原分支
+$ git checkout <branch name>
+$ git reset --hard
+
+# 3 如本地分支没有变化，则强行 pull 覆盖本地文件
+$ git fetch --all
+$ git reset --hard origin/<branch name>
+$ git pull
+```
+
+### 3.4 重命名分支
 ```bash
 # 查看本地分支
 $ git branch -a
@@ -127,6 +108,14 @@ $ git branch -m <new branch-name>
 $ git push origin -u <new branch-name>
 # 删除原分支
 $ git push origin --delete <old branch-name>
+```
+
+### 3.5 更改本地分支对应的远程分支
+```bash
+# dev为本地分支，origin/master为远程分支
+$ git branch --set-upstream-to=origin/master dev
+# or
+$ git branch --set-upstream dev origin/master 
 ```
 
 ---
@@ -149,7 +138,6 @@ $ git push --tags
 ## 5、项目
 
 ### 5.1 克隆
-
 ```bash
 $ git clone https://xxxx@bitbucket.org/xxxx/xxxx.git
 # or 
@@ -158,25 +146,27 @@ $ git clone git@github.com:xxxxx/xxxxx.git
 $ git clone -b <branch> <repo> <path>
 ```
 
-### 5.2 导出
-
+### 5.2 推送新项目到github
+先在githubh上创建好项目
 ```bash
-$ git archive --format zip -0 \
-                --output output.zip \
-                --remote git@github.com:Cuile/NMP.git \
-                master \
-                ./
+$ git init
+$ git add .
+$ git status -s
+$ git config --global user.name "Your Name"
+$ git config --global user.email you@example.com
+$ git commit --amend --reset-author
+$ git commit -m "first commit"
+$ git remote add origin git@github.com:Youname/repo_name.git
+$ git push -u origin master
+```
 
-# 使用zip格式，不压缩
---format zip -0
-# 输出的文件名
---output output.zip
-# 远程项目地址
---remote git@github.com:Cuile/NMP.git
-# 分支名
-master
-# 输出到当前目录
-./
+### 5.3 导出
+```bash
+$ git archive --format zip -0 \                         # 使用zip格式，不压缩
+              --output output.zip \                     # 输出的文件名
+              --remote git@github.com:Cuile/NMP.git \   # 远程项目地址
+              master \                                  # 分支名
+              ./                                        # 输出到当前目录
 ```
 
 ---
@@ -184,7 +174,6 @@ master
 ## 6、代理
 
 ### 6.1 设置代理
-
 ```bash
 $ git config --global http.proxy http://[username:passwrod@]<ip or URL>:port 
 $ git config --global https.proxy http://[username:passwrod@]<ip or URL>:port
@@ -195,7 +184,6 @@ $ git config --global https.https://github.com.proxy http://[username:passwrod@]
 ```
 
 ### 6.2 查看代理
-
 ```bash
 $ git config --global --get http.proxy
 $ git config --global --get https.proxy
@@ -205,7 +193,6 @@ $ git config --global --get https.https://github.com.proxy
 ```
 
 ### 6.3 取消代理
-
 ```bash
 $ git config --global --unset http.proxy
 $ git config --global --unset https.proxy
