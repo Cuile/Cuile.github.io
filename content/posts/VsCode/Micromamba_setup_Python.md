@@ -20,9 +20,9 @@ categories:
 - micromamba 安装的软件，不会在系统留下痕迹，不会污染本地系统。
 - micromamba 只配置 python 基础环境，不影响 python 虚拟环境，同一个基础环境可提供给多个虚拟环境使用。
 
-## 安装 Micromamba 
+## Windows
 
-### Windows
+### 安装 Micromamba 
 
 #### 下载
 推荐使用 PowerShell[^1]
