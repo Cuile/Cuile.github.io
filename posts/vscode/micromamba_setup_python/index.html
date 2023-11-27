@@ -63,7 +63,11 @@
 <div class=post_body><p>使用 VSCode 开发 Python 是替代 PyCharm 的一个很好选择，有丰富的扩展和第三方工具可以使用，安装配置好它们，会让开发工作事半功倍。下面列举推荐安装的扩展和工具：</p>
 <p>扩展</p>
 <ul>
-<li>Material Icon There</li>
+<li>Material Icon There
+<ul>
+<li>VSCode图标，很好看</li>
+</ul>
+</li>
 <li>Python
 <ul>
 <li>微软官方扩展，一定要装</li>
@@ -80,7 +84,7 @@
 <li>Code Runner</li>
 <li>Qt for Python</li>
 </ul>
-<p>第三方工具</p>
+<p>工具</p>
 <ul>
 <li>Micromamba
 <ul>
@@ -94,8 +98,8 @@
 </ul>
 </li>
 </ul>
-<h2 id=windows系统>Windows系统</h2>
-<h3 id=安装-micromamba>安装 Micromamba</h3>
+<h2 id=配置-micromamba>配置 Micromamba</h2>
+<h3 id=windows环境>Windows环境</h3>
 <h4 id=下载>下载</h4>
 <p>推荐使用 PowerShell<sup id=fnref:1><a href=#fn:1 class=footnote-ref role=doc-noteref>1</a></sup></p>
 <div class=highlight><pre tabindex=0 class=chroma><code class=language-powershell data-lang=powershell><span class=ln>1</span><span class=p>&gt;</span> <span class=nb>Invoke-Webrequest</span> <span class=n>-URI</span> <span class=n>https</span><span class=err>:</span><span class=p>//</span><span class=n>micro</span><span class=p>.</span><span class=n>mamba</span><span class=p>.</span><span class=n>pm</span><span class=p>/</span><span class=n>api</span><span class=p>/</span><span class=n>micromamba</span><span class=p>/</span><span class=n>win</span><span class=p>-</span><span class=n>64</span><span class=p>/</span><span class=n>latest</span> <span class=n>-OutFile</span> <span class=n>micromamba</span><span class=p>.</span><span class=n>tar</span><span class=p>.</span><span class=n>bz2</span>
@@ -129,13 +133,14 @@
 </span><span class=ln>6</span><span class=w></span><span class=nt>dependencies</span><span class=p>:</span><span class=w>
 </span><span class=ln>7</span><span class=w>  </span>- <span class=l>python 3.11</span><span class=w>
 </span><span class=ln>8</span><span class=w>  </span>- <span class=l>mingw 4.7</span><span class=w>
-</span></code></pre></div><h3 id=配置-vscode2>配置 VSCode<sup id=fnref:2><a href=#fn:2 class=footnote-ref role=doc-noteref>2</a></sup></h3>
+</span></code></pre></div><h4 id=配置-vscode2>配置 VSCode<sup id=fnref:2><a href=#fn:2 class=footnote-ref role=doc-noteref>2</a></sup></h4>
 <p>配置 Venv 路径</p>
 <ol>
 <li>使用 “ctrl+,” 打开设置界面，搜索 venv ，出现两个结果：
 <ul>
-<li>Python: Venv Folders （如果安装时使用默认位置，就填写 micromamba，下面的不用设置）</li>
-<li>Python: Venv Path （如果安装时没有使用默认位置，就填写安装位置，上面的不用设置）</li>
+<li>Python: Venv Folders # 如果安装时使用默认位置，就填写 micromamba，下面的不用设置</li>
+<li>Python: Venv Path # 如果安装时没有使用默认位置，就填写安装位置，上面的不用设置</li>
+<li>Python: Conda Path</li>
 </ul>
 </li>
 <li>重启VSCode，进入 Python 项目，就可以看到右下角的 Python 环境了，如果创建了多个环境，可以通过这里切换。</li>
@@ -157,7 +162,21 @@
 </code></pre></div><p>关于 Python Environment Manger 的相关操作，这里不再类述，也是非常简单的。</p>
 <p>重启 VSCode，进入项目终端界面，看到括号里的名字，与刚才创建的虚拟环境名一致，就成功了。</p>
 <div class=highlight><pre tabindex=0 class=chroma><code class=language-powershell data-lang=powershell><span class=ln>1</span><span class=p>(.</span><span class=n>venv</span><span class=p>)</span> <span class=nb>PS </span><span class=s2>&#34;Your Project Path&#34;</span><span class=p>&gt;</span>
-</code></pre></div><section class=footnotes role=doc-endnotes>
+</code></pre></div><h2 id=配置-vscode>配置 VSCode</h2>
+<ul>
+<li>Editor: Default Formatter # 选 Ruff</li>
+</ul>
+<h2 id=配置-python>配置 Python</h2>
+<ul>
+<li>Python > Terminal: ACtivate Env In Current Terminal # 勾选</li>
+<li>Python > Terminal: Focus After Launch # 勾选</li>
+<li>Python: Language Server # 选 Pylance</li>
+</ul>
+<h2 id=配置-pylance>配置 Pylance</h2>
+<ul>
+<li>Pylthon > Analysis: Type Checking Mode # 选 basic</li>
+</ul>
+<section class=footnotes role=doc-endnotes>
 <hr>
 <ol>
 <li id=fn:1 role=doc-endnote>
