@@ -91,9 +91,13 @@ dependencies:
 #### 配置 VSCode[^2]
 配置 Venv 路径
 1. 使用 “ctrl+,” 打开设置界面，搜索 venv ，出现两个结果：
-    - Python: Venv Folders # 如果安装时使用默认位置，就填写 micromamba，下面的不用设置
-    - Python: Venv Path    # 如果安装时没有使用默认位置，就填写安装位置，上面的不用设置
-    - Python: Conda Path
+
+| 选项 | 值   |
+| :---  | :--- |
+| Python: Venv Folders | 如果安装时使用默认位置，就填写 micromamba，下面的不用设置 |
+| Python: Venv Path    | 如果安装时没有使用默认位置，就填写安装位置，上面的不用设置 |
+| Python: Conda Path   |                                                       |
+
 2. 重启VSCode，进入 Python 项目，就可以看到右下角的 Python 环境了，如果创建了多个环境，可以通过这里切换。
 3. 使用 “ctrl+`” 打开项目终端界面，看到括号里的名字，与刚才创建的基础环境名一致，就成功了。
 ```powershell
@@ -124,15 +128,23 @@ dependencies:
 ```
 
 ## 配置 VSCode
-- Editor: Default Formatter # 选 Ruff
+| 选项 | 值  |
+| :---  | :--- |
+| Editor: Default Formatter | 选 Ruff |
 
 ## 配置 Python
-- Python > Terminal: ACtivate Env In Current Terminal # 勾选
-- Python > Terminal: Focus After Launch               # 勾选
-- Python: Language Server                             # 选 Pylance
+| 选项 | 值  |
+| :---  | :--- |
+| Python > Terminal: ACtivate Env In Current Terminal | 勾选    |
+| Python > Terminal: Focus After Launch               | 勾选    |
+| Python: Language Server                             | Pylance |
 
 ## 配置 Pylance
-- Pylthon > Analysis: Type Checking Mode # 选 basic
+| 选项 | 值  |
+| :---  | :--- |
+| Pylthon > Analysis: Type Checking Mode | basic |
+
+
 
 [^1]:[Micromamba Installation](https://mamba.readthedocs.io/en/latest/installation/micromamba-installation.html#operating-system-package-managers)
 [^2]:[使用 Micromamba 替换 Miniconda 更快配置 Python 环境](https://zhuanlan.zhihu.com/p/622346839?utm_id=0)
