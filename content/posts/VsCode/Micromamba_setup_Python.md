@@ -130,7 +130,7 @@ dependencies:
 ## 配置 VSCode
 | 选项 | 值  |
 | :---  | :--- |
-| Editor: Default Formatter | 选 Ruff |
+| Editor: Default Formatter | Ruff |
 
 ## 配置 Python
 | 选项 | 值  |
