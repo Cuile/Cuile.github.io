@@ -136,13 +136,31 @@
 </span></code></pre></div><h4 id=配置-vscode2>配置 VSCode<sup id=fnref:2><a href=#fn:2 class=footnote-ref role=doc-noteref>2</a></sup></h4>
 <p>配置 Venv 路径</p>
 <ol>
-<li>使用 “ctrl+,” 打开设置界面，搜索 venv ，出现两个结果：
-<ul>
-<li>Python: Venv Folders # 如果安装时使用默认位置，就填写 micromamba，下面的不用设置</li>
-<li>Python: Venv Path # 如果安装时没有使用默认位置，就填写安装位置，上面的不用设置</li>
-<li>Python: Conda Path</li>
-</ul>
-</li>
+<li>使用 “ctrl+,” 打开设置界面，搜索 venv ，出现两个结果：</li>
+</ol>
+<table>
+<thead>
+<tr>
+<th style=text-align:left>选项</th>
+<th style=text-align:left>值</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style=text-align:left>Python: Venv Folders</td>
+<td style=text-align:left>如果安装时使用默认位置，就填写 micromamba，下面的不用设置</td>
+</tr>
+<tr>
+<td style=text-align:left>Python: Venv Path</td>
+<td style=text-align:left>如果安装时没有使用默认位置，就填写安装位置，上面的不用设置</td>
+</tr>
+<tr>
+<td style=text-align:left>Python: Conda Path</td>
+<td style=text-align:left></td>
+</tr>
+</tbody>
+</table>
+<ol start=2>
 <li>重启VSCode，进入 Python 项目，就可以看到右下角的 Python 环境了，如果创建了多个环境，可以通过这里切换。</li>
 <li>使用 “ctrl+`” 打开项目终端界面，看到括号里的名字，与刚才创建的基础环境名一致，就成功了。</li>
 </ol>
@@ -163,19 +181,58 @@
 <p>重启 VSCode，进入项目终端界面，看到括号里的名字，与刚才创建的虚拟环境名一致，就成功了。</p>
 <div class=highlight><pre tabindex=0 class=chroma><code class=language-powershell data-lang=powershell><span class=ln>1</span><span class=p>(.</span><span class=n>venv</span><span class=p>)</span> <span class=nb>PS </span><span class=s2>&#34;Your Project Path&#34;</span><span class=p>&gt;</span>
 </code></pre></div><h2 id=配置-vscode>配置 VSCode</h2>
-<ul>
-<li>Editor: Default Formatter # 选 Ruff</li>
-</ul>
+<table>
+<thead>
+<tr>
+<th style=text-align:left>选项</th>
+<th style=text-align:left>值</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style=text-align:left>Editor: Default Formatter</td>
+<td style=text-align:left>选 Ruff</td>
+</tr>
+</tbody>
+</table>
 <h2 id=配置-python>配置 Python</h2>
-<ul>
-<li>Python > Terminal: ACtivate Env In Current Terminal # 勾选</li>
-<li>Python > Terminal: Focus After Launch # 勾选</li>
-<li>Python: Language Server # 选 Pylance</li>
-</ul>
+<table>
+<thead>
+<tr>
+<th style=text-align:left>选项</th>
+<th style=text-align:left>值</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style=text-align:left>Python > Terminal: ACtivate Env In Current Terminal</td>
+<td style=text-align:left>勾选</td>
+</tr>
+<tr>
+<td style=text-align:left>Python > Terminal: Focus After Launch</td>
+<td style=text-align:left>勾选</td>
+</tr>
+<tr>
+<td style=text-align:left>Python: Language Server</td>
+<td style=text-align:left>Pylance</td>
+</tr>
+</tbody>
+</table>
 <h2 id=配置-pylance>配置 Pylance</h2>
-<ul>
-<li>Pylthon > Analysis: Type Checking Mode # 选 basic</li>
-</ul>
+<table>
+<thead>
+<tr>
+<th style=text-align:left>选项</th>
+<th style=text-align:left>值</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style=text-align:left>Pylthon > Analysis: Type Checking Mode</td>
+<td style=text-align:left>basic</td>
+</tr>
+</tbody>
+</table>
 <section class=footnotes role=doc-endnotes>
 <hr>
 <ol>
