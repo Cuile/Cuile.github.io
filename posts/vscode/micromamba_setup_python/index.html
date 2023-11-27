@@ -1,19 +1,19 @@
 <!doctype html><html lang=zh-cn data-figures class=page>
 <head>
-<title>使用 Micromamba 配置 Python 开发环境 | 瘦了就帅了</title>
+<title>VSCode 配置 Python 开发环境 | 瘦了就帅了</title>
 <meta charset=utf-8>
 <meta name=viewport content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
 <meta http-equiv=x-ua-compatible content="IE=edge">
 <meta property="og:locale" content="zh-cn">
 <meta property="og:type" content="article">
-<meta name=description content="使用 Micromamba 来配置 Python 开发环境有几个好处： micromamba 是一个包管理器，可方便的同时安装几个软件，形成一个独立的开发环境，与其它项目的开发环境完全隔离。 micromamba 安装的">
+<meta name=description content="使用 VSCode 开发 Python 是替代 PyCharm 的一个很好选择，有丰富的扩展和第三方工具可以使用，安装配置好它们，会让开发工作事半功倍。下面列举推荐安装的扩展和工具： 扩">
 <meta name=twitter:card content="summary">
 <meta name=twitter:creator content>
-<meta name=twitter:title content="使用 Micromamba 配置 Python 开发环境">
+<meta name=twitter:title content="VSCode 配置 Python 开发环境">
 <meta name=twitter:image content="https://blog.cuile.com/images/thumbnail.png">
 <meta property="og:url" content="https://blog.cuile.com/posts/vscode/micromamba_setup_python/">
-<meta property="og:title" content="使用 Micromamba 配置 Python 开发环境">
-<meta property="og:description" content="使用 Micromamba 来配置 Python 开发环境有几个好处： micromamba 是一个包管理器，可方便的同时安装几个软件，形成一个独立的开发环境，与其它项目的开发环境完全隔离。 micromamba 安装的">
+<meta property="og:title" content="VSCode 配置 Python 开发环境">
+<meta property="og:description" content="使用 VSCode 开发 Python 是替代 PyCharm 的一个很好选择，有丰富的扩展和第三方工具可以使用，安装配置好它们，会让开发工作事半功倍。下面列举推荐安装的扩展和工具： 扩">
 <meta property="og:image" content="https://blog.cuile.com/images/thumbnail.png">
 <link rel=apple-touch-icon sizes=180x180 href=https://blog.cuile.com/icons/apple-touch-icon.png>
 <link rel=icon type=image/png sizes=32x32 href=https://blog.cuile.com/icons/favicon-32x32.png>
@@ -47,7 +47,7 @@
 <main>
 <div class="grid-inverse wrap content">
 <article class=post_content>
-<h1 class=post_title>使用 Micromamba 配置 Python 开发环境</h1>
+<h1 class=post_title>VSCode 配置 Python 开发环境</h1>
 <div class=post_meta>
 <span><svg class="icon"><title>calendar</title><use xlink:href="#calendar"/></svg>
 </span>
@@ -60,13 +60,41 @@
 </a>
 </span>
 </div>
-<div class=post_body><p>使用 Micromamba 来配置 Python 开发环境有几个好处：</p>
+<div class=post_body><p>使用 VSCode 开发 Python 是替代 PyCharm 的一个很好选择，有丰富的扩展和第三方工具可以使用，安装配置好它们，会让开发工作事半功倍。下面列举推荐安装的扩展和工具：</p>
+<p>扩展</p>
+<ul>
+<li>Material Icon There</li>
+<li>Python
+<ul>
+<li>微软官方扩展，一定要装</li>
+</ul>
+</li>
+<li>Pylance
+<ul>
+<li>微软官方扩展，一定要装</li>
+</ul>
+</li>
+<li>autoDocstring</li>
+<li>Python Environment Manager</li>
+<li>Ruff</li>
+<li>Code Runner</li>
+<li>Qt for Python</li>
+</ul>
+<p>第三方工具</p>
+<ul>
+<li>Micromamba
+<ul>
+<li>使用 Micromamba 来配置 Python 开发环境有几个好处：
 <ul>
 <li>micromamba 是一个包管理器，可方便的同时安装几个软件，形成一个独立的开发环境，与其它项目的开发环境完全隔离。</li>
 <li>micromamba 安装的软件，不会在系统留下痕迹，不会污染本地系统。</li>
 <li>micromamba 只配置 python 基础环境，不影响 python 虚拟环境，同一个基础环境可提供给多个虚拟环境使用。</li>
 </ul>
-<h2 id=windows>Windows</h2>
+</li>
+</ul>
+</li>
+</ul>
+<h2 id=windows系统>Windows系统</h2>
 <h3 id=安装-micromamba>安装 Micromamba</h3>
 <h4 id=下载>下载</h4>
 <p>推荐使用 PowerShell<sup id=fnref:1><a href=#fn:1 class=footnote-ref role=doc-noteref>1</a></sup></p>
@@ -101,12 +129,7 @@
 </span><span class=ln>6</span><span class=w></span><span class=nt>dependencies</span><span class=p>:</span><span class=w>
 </span><span class=ln>7</span><span class=w>  </span>- <span class=l>python 3.11</span><span class=w>
 </span><span class=ln>8</span><span class=w>  </span>- <span class=l>mingw 4.7</span><span class=w>
-</span></code></pre></div><h4 id=配置-vscode2>配置 VSCode<sup id=fnref:2><a href=#fn:2 class=footnote-ref role=doc-noteref>2</a></sup></h4>
-<p>安装扩展</p>
-<ul>
-<li>Python</li>
-<li>Python Environment Manger</li>
-</ul>
+</span></code></pre></div><h3 id=配置-vscode2>配置 VSCode<sup id=fnref:2><a href=#fn:2 class=footnote-ref role=doc-noteref>2</a></sup></h3>
 <p>配置 Venv 路径</p>
 <ol>
 <li>使用 “ctrl+,” 打开设置界面，搜索 venv ，出现两个结果：
@@ -146,19 +169,6 @@
 </ol>
 </section>
 </div>
-<h2 class=post_related>相关专栏文章</h2>
-<ul>
-<li><a href=https://blog.cuile.com/posts/slam_dunk_2/ class=nav-link title="灌篮高手大结局(全国大赛后) 下">灌篮高手大结局(全国大赛后) 下</a></li>
-<li><a href=https://blog.cuile.com/posts/slam_dunk_1/ class=nav-link title="灌篮高手大结局(全国大赛后) 上">灌篮高手大结局(全国大赛后) 上</a></li>
-<li><a href=https://blog.cuile.com/posts/vscode/micromamba_setup_python/ class=nav-link title="使用 Micromamba 配置 Python 开发环境">使用 Micromamba 配置 Python 开发环境</a></li>
-<li><a href=https://blog.cuile.com/posts/ups/ups_install/ class=nav-link title="山克 UPS 安装手册">山克 UPS 安装手册</a></li>
-<li><a href=https://blog.cuile.com/posts/ffmpeg_manual/ class=nav-link title=FFmpeg脚本>FFmpeg脚本</a></li>
-<li><a href=https://blog.cuile.com/posts/mysql_manual/ class=nav-link title="MySQL 数据操作">MySQL 数据操作</a></li>
-<li><a href=https://blog.cuile.com/posts/hugo_setup_for_github/ class=nav-link title=Github使用Hugo生成Blog>Github使用Hugo生成Blog</a></li>
-<li><a href=https://blog.cuile.com/archives/ class=nav-link title></a></li>
-<li><a href=https://blog.cuile.com/about/ class=nav-link title=About>About</a></li>
-<li><a href=https://blog.cuile.com/search/ class=nav-link title=Search>Search</a></li>
-</ul>
 <div class=post_comments>
 </div>
 </article>
@@ -169,38 +179,6 @@
 <div class=author_bio>
 产品里的技术、一眼看不出来的胖子
 </div>
-<ul>
-<li>
-<a href=https://blog.cuile.com/posts/slam_dunk_2/ class=nav-link title="灌篮高手大结局(全国大赛后) 下">灌篮高手大结局(全国大赛后) 下</a>
-</li>
-<li>
-<a href=https://blog.cuile.com/posts/slam_dunk_1/ class=nav-link title="灌篮高手大结局(全国大赛后) 上">灌篮高手大结局(全国大赛后) 上</a>
-</li>
-<li>
-<a href=https://blog.cuile.com/posts/vscode/micromamba_setup_python/ class=nav-link title="使用 Micromamba 配置 Python 开发环境">使用 Micromamba 配置 Python 开发环境</a>
-</li>
-<li>
-<a href=https://blog.cuile.com/posts/ups/ups_install/ class=nav-link title="山克 UPS 安装手册">山克 UPS 安装手册</a>
-</li>
-<li>
-<a href=https://blog.cuile.com/posts/ffmpeg_manual/ class=nav-link title=FFmpeg脚本>FFmpeg脚本</a>
-</li>
-<li>
-<a href=https://blog.cuile.com/posts/mysql_manual/ class=nav-link title="MySQL 数据操作">MySQL 数据操作</a>
-</li>
-<li>
-<a href=https://blog.cuile.com/posts/hugo_setup_for_github/ class=nav-link title=Github使用Hugo生成Blog>Github使用Hugo生成Blog</a>
-</li>
-<li>
-<a href=https://blog.cuile.com/archives/ class=nav-link title></a>
-</li>
-<li>
-<a href=https://blog.cuile.com/about/ class=nav-link title=About>About</a>
-</li>
-<li>
-<a href=https://blog.cuile.com/search/ class=nav-link title=Search>Search</a>
-</li>
-</ul>
 <h2 class=mt-4>最新文章</h2>
 <ul class=flex-column>
 <li>
