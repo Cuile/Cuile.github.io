@@ -1,5 +1,5 @@
 ---
-title: "使用 Micromamba 配置 Python 开发环境"
+title: "VSCode 配置 Python 开发环境"
 date: 2023-11-25T00:24:10+08:00
 # draft: true
 
@@ -10,17 +10,33 @@ tags:
 - venv
 - vscode
 # 专栏
-series:
+# series:
 # 分类
-categories:
+# categories:
 ---
 
-使用 Micromamba 来配置 Python 开发环境有几个好处：
-- micromamba 是一个包管理器，可方便的同时安装几个软件，形成一个独立的开发环境，与其它项目的开发环境完全隔离。
-- micromamba 安装的软件，不会在系统留下痕迹，不会污染本地系统。
-- micromamba 只配置 python 基础环境，不影响 python 虚拟环境，同一个基础环境可提供给多个虚拟环境使用。
+使用 VSCode 开发 Python 是替代 PyCharm 的一个很好选择，有丰富的扩展和第三方工具可以使用，安装配置好它们，会让开发工作事半功倍。下面列举推荐安装的扩展和工具：
 
-## Windows
+扩展
+- Material Icon There
+- Python
+  - 微软官方扩展，一定要装
+- Pylance
+  - 微软官方扩展，一定要装
+- autoDocstring
+- Python Environment Manager
+- Ruff
+- Code Runner
+- Qt for Python
+
+第三方工具
+- Micromamba
+  - 使用 Micromamba 来配置 Python 开发环境有几个好处：
+    - micromamba 是一个包管理器，可方便的同时安装几个软件，形成一个独立的开发环境，与其它项目的开发环境完全隔离。
+    - micromamba 安装的软件，不会在系统留下痕迹，不会污染本地系统。
+    - micromamba 只配置 python 基础环境，不影响 python 虚拟环境，同一个基础环境可提供给多个虚拟环境使用。
+
+## Windows系统
 
 ### 安装 Micromamba 
 
@@ -73,11 +89,7 @@ dependencies:
   - mingw 4.7
 ```
 
-#### 配置 VSCode[^2]
-
-安装扩展
-- Python
-- Python Environment Manger
+### 配置 VSCode[^2]
 
 配置 Venv 路径
 1. 使用 “ctrl+,” 打开设置界面，搜索 venv ，出现两个结果：
