@@ -86,7 +86,10 @@
 <a href=https://blog.cuile.com/posts/slam_dunk_1/ class=nav-link title="灌篮高手大结局(全国大赛后) 上">灌篮高手大结局(全国大赛后) 上</a>
 </li>
 <li>
-<a href=https://blog.cuile.com/posts/vscode/micromamba_setup_python/ class=nav-link title="VSCode 配置 Python 开发环境">VSCode 配置 Python 开发环境</a>
+<a href=https://blog.cuile.com/posts/vscode/vscode_develop_inside_docker_container/ class=nav-link title="VScode 在 Docker 容器内开发">VScode 在 Docker 容器内开发</a>
+</li>
+<li>
+<a href=https://blog.cuile.com/posts/vscode/vscode_configures_python_development_environment/ class=nav-link title="VSCode 配置 Python 开发环境">VSCode 配置 Python 开发环境</a>
 </li>
 <li>
 <a href=https://blog.cuile.com/posts/openwrt/openwrt_ipv6/ class=nav-link title="OpenWRT 配置 IPv6">OpenWRT 配置 IPv6</a>
@@ -99,9 +102,6 @@
 </li>
 <li>
 <a href=https://blog.cuile.com/posts/proxmox/proxmox_subscription/ class=nav-link title="Proxmox 关闭订阅提示">Proxmox 关闭订阅提示</a>
-</li>
-<li>
-<a href=https://blog.cuile.com/posts/linux/linux_txt/ class=nav-link title="Linux 文本文件操作">Linux 文本文件操作</a>
 </li>
 </ul>
 <div>
@@ -197,16 +197,16 @@ CLI
 ALPINE-LINUX
 <span class=button_tally>6</span>
 </a>
+<a href=https://blog.cuile.com/tags/python/ class="post_tag button button_translucent" title=python>
+PYTHON
+<span class=button_tally>4</span>
+</a>
 <a href=https://blog.cuile.com/tags/centos/ class="post_tag button button_translucent" title=centos>
 CENTOS
 <span class=button_tally>3</span>
 </a>
 <a href=https://blog.cuile.com/tags/network/ class="post_tag button button_translucent" title=network>
 NETWORK
-<span class=button_tally>3</span>
-</a>
-<a href=https://blog.cuile.com/tags/python/ class="post_tag button button_translucent" title=python>
-PYTHON
 <span class=button_tally>3</span>
 </a>
 <a href=https://blog.cuile.com/tags/deepin/ class="post_tag button button_translucent" title=deepin>
@@ -217,8 +217,20 @@ DEEPIN
 FIREWALL
 <span class=button_tally>2</span>
 </a>
+<a href=https://blog.cuile.com/tags/micromamba/ class="post_tag button button_translucent" title=micromamba>
+MICROMAMBA
+<span class=button_tally>2</span>
+</a>
 <a href=https://blog.cuile.com/tags/proxy/ class="post_tag button button_translucent" title=proxy>
 PROXY
+<span class=button_tally>2</span>
+</a>
+<a href=https://blog.cuile.com/tags/venv/ class="post_tag button button_translucent" title=venv>
+VENV
+<span class=button_tally>2</span>
+</a>
+<a href=https://blog.cuile.com/tags/vscode/ class="post_tag button button_translucent" title=vscode>
+VSCODE
 <span class=button_tally>2</span>
 </a>
 <a href=https://blog.cuile.com/tags/%E5%8A%A8%E6%BC%AB/ class="post_tag button button_translucent" title=动漫>
@@ -232,18 +244,6 @@ PROXY
 <a href=https://blog.cuile.com/tags/%E7%81%8C%E7%AF%AE%E9%AB%98%E6%89%8B/ class="post_tag button button_translucent" title=灌篮高手>
 灌篮高手
 <span class=button_tally>2</span>
-</a>
-<a href=https://blog.cuile.com/tags/%E7%AF%AE%E7%90%83/ class="post_tag button button_translucent" title=篮球>
-篮球
-<span class=button_tally>2</span>
-</a>
-<a href=https://blog.cuile.com/tags/%E7%AF%AE%E7%90%83%E9%A3%9E%E4%BA%BA/ class="post_tag button button_translucent" title=篮球飞人>
-篮球飞人
-<span class=button_tally>2</span>
-</a>
-<a href=https://blog.cuile.com/tags/alg/ class="post_tag button button_translucent" title=alg>
-ALG
-<span class=button_tally>1</span>
 </a>
 <br>
 <div class="post_tags_toggle button">所有标签</div>
@@ -299,7 +299,7 @@ ALG
 </a>
 <a href=https://blog.cuile.com/tags/make/ class="post_tag button button_translucent" data-position=1 title=make>MAKE<span class=button_tally>1</span>
 </a>
-<a href=https://blog.cuile.com/tags/micromamba/ class="post_tag button button_translucent" data-position=1 title=micromamba>MICROMAMBA<span class=button_tally>1</span>
+<a href=https://blog.cuile.com/tags/micromamba/ class="post_tag button button_translucent" data-position=2 title=micromamba>MICROMAMBA<span class=button_tally>2</span>
 </a>
 <a href=https://blog.cuile.com/tags/mysql/ class="post_tag button button_translucent" data-position=1 title=mysql>MYSQL<span class=button_tally>1</span>
 </a>
@@ -315,7 +315,7 @@ ALG
 </a>
 <a href=https://blog.cuile.com/tags/pypi/ class="post_tag button button_translucent" data-position=1 title=pypi>PYPI<span class=button_tally>1</span>
 </a>
-<a href=https://blog.cuile.com/tags/python/ class="post_tag button button_translucent" data-position=3 title=python>PYTHON<span class=button_tally>3</span>
+<a href=https://blog.cuile.com/tags/python/ class="post_tag button button_translucent" data-position=4 title=python>PYTHON<span class=button_tally>4</span>
 </a>
 <a href=https://blog.cuile.com/tags/rdp/ class="post_tag button button_translucent" data-position=1 title=rdp>RDP<span class=button_tally>1</span>
 </a>
@@ -353,11 +353,11 @@ ALG
 </a>
 <a href=https://blog.cuile.com/tags/v2ray/ class="post_tag button button_translucent" data-position=1 title=v2ray>V2RAY<span class=button_tally>1</span>
 </a>
-<a href=https://blog.cuile.com/tags/venv/ class="post_tag button button_translucent" data-position=1 title=venv>VENV<span class=button_tally>1</span>
+<a href=https://blog.cuile.com/tags/venv/ class="post_tag button button_translucent" data-position=2 title=venv>VENV<span class=button_tally>2</span>
 </a>
 <a href=https://blog.cuile.com/tags/version/ class="post_tag button button_translucent" data-position=1 title=version>VERSION<span class=button_tally>1</span>
 </a>
-<a href=https://blog.cuile.com/tags/vscode/ class="post_tag button button_translucent" data-position=1 title=vscode>VSCODE<span class=button_tally>1</span>
+<a href=https://blog.cuile.com/tags/vscode/ class="post_tag button button_translucent" data-position=2 title=vscode>VSCODE<span class=button_tally>2</span>
 </a>
 <a href=https://blog.cuile.com/tags/windows/ class="post_tag button button_translucent" data-position=1 title=windows>WINDOWS<span class=button_tally>1</span>
 </a>
