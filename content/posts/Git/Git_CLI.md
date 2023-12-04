@@ -4,10 +4,9 @@ date: 2022-05-16T14:32:27+08:00
 # draft: true
 tags:
 - CLI
-series:
 - git
+series:
 categories:
-- 系统配置
 ---
 
 ## 1、拉取
