@@ -53,32 +53,6 @@
 <div class=excerpt>
 <div class=excerpt_header>
 <h3 class=post_link>
-<a href=https://blog.cuile.com/posts/linux/alpine_linux_network/ title="Alpine Linux 网络设置">Alpine Linux 网络设置</a>
-</h3>
-<div class=post_meta>
-<span><svg class="icon"><title>calendar</title><use xlink:href="#calendar"/></svg>
-</span>
-<span class=post_date>
-2022-06-19</span>
-<span class=post_time> · 阅读时长 1 分钟</span><span>&nbsp;· <a href=https://blog.cuile.com/tags/alpine-linux/ title="Alpine linux" class="post_tag button button_translucent">Alpine linux
-</a><a href=https://blog.cuile.com/tags/network/ title=network class="post_tag button button_translucent">network
-</a>
-</span>
-</div>
-</div>
-<div class=excerpt_footer>
-<div class=pale>
-<p>网卡静态地址 1~# nano /etc/network/interfaces 1auto lo 2iface lo inet loopback 3 4auto eth0 5iface eth0 inet static 6 address 192.168.10.16/24 7 gateway 192.168.10.10 8 hostname alpine DNS 地址 1~# nano /etc/resolv.conf 1nameserver 114.114.114.114 重启网络 1~# service networking restart</p>
-<br>
-<a href=https://blog.cuile.com/posts/linux/alpine_linux_network/ title=阅读更多 class="excerpt_more button">阅读更多</a>
-</div>
-</div>
-</div>
-</li>
-<li class=post_item>
-<div class=excerpt>
-<div class=excerpt_header>
-<h3 class=post_link>
 <a href=https://blog.cuile.com/posts/linux/alpine_linux_install/ title="虚拟机安装 Alpine Linux 3.16">虚拟机安装 Alpine Linux 3.16</a>
 </h3>
 <div class=post_meta>
@@ -121,31 +95,6 @@
 <p>为家里的微形PVE服务器买了山克的UPS，发现与 linux 连接使用还是需要安装一下的，而且市场上基本都是 OEM 的产品，所以操作过程通用 记录Gen8安装P</p>
 <br>
 <a href=https://blog.cuile.com/posts/ups/ups_install/ title=阅读更多 class="excerpt_more button">阅读更多</a>
-</div>
-</div>
-</div>
-</li>
-<li class=post_item>
-<div class=excerpt>
-<div class=excerpt_header>
-<h3 class=post_link>
-<a href=https://blog.cuile.com/posts/git/git_cli/ title="Git 命令行">Git 命令行</a>
-</h3>
-<div class=post_meta>
-<span><svg class="icon"><title>calendar</title><use xlink:href="#calendar"/></svg>
-</span>
-<span class=post_date>
-2022-05-16</span>
-<span class=post_time> · 阅读时长 2 分钟</span><span>&nbsp;· <a href=https://blog.cuile.com/tags/cli/ title=CLI class="post_tag button button_translucent">CLI
-</a>
-</span>
-</div>
-</div>
-<div class=excerpt_footer>
-<div class=pale>
-<p>1、拉取 1$ git pull 2、推送 1# 查看本地项目状态 2$ git status -s 3# 添加文件 | 添加目录 | 添加所有内容 4$ git add &lt; file | dir | . > 5# 删除 add 的文件 6$ git rm [-r] --cached &lt;file | .> 7# 提交变</p>
-<br>
-<a href=https://blog.cuile.com/posts/git/git_cli/ title=阅读更多 class="excerpt_more button">阅读更多</a>
 </div>
 </div>
 </div>
@@ -301,6 +250,61 @@
 </div>
 </div>
 </li>
+<li class=post_item>
+<div class=excerpt>
+<div class=excerpt_header>
+<h3 class=post_link>
+<a href=https://blog.cuile.com/posts/linux/linux_iptables_manual/ title="iptables 命令">iptables 命令</a>
+</h3>
+<div class=post_meta>
+<span><svg class="icon"><title>calendar</title><use xlink:href="#calendar"/></svg>
+</span>
+<span class=post_date>
+2022-02-08</span>
+<span class=post_time> · 阅读时长 2 分钟</span><span>&nbsp;· <a href=https://blog.cuile.com/tags/iptables/ title=iptables class="post_tag button button_translucent">iptables
+</a><a href=https://blog.cuile.com/tags/firewall/ title=Firewall class="post_tag button button_translucent">Firewall
+</a><a href=https://blog.cuile.com/tags/cli/ title=CLI class="post_tag button button_translucent">CLI
+</a>
+</span>
+</div>
+</div>
+<div class=excerpt_footer>
+<div class=pale>
+<p>脚本基于Centos 7 注意：CentOS 7默认的防火墙不是iptables,而是firewalld 停止firewalld服务 1#停止fire</p>
+<br>
+<a href=https://blog.cuile.com/posts/linux/linux_iptables_manual/ title=阅读更多 class="excerpt_more button">阅读更多</a>
+</div>
+</div>
+</div>
+</li>
+<li class=post_item>
+<div class=excerpt>
+<div class=excerpt_header>
+<h3 class=post_link>
+<a href=https://blog.cuile.com/posts/proxmox/proxmox_nat/ title="Proxmox 配置 NAT 网络">Proxmox 配置 NAT 网络</a>
+</h3>
+<div class=post_meta>
+<span><svg class="icon"><title>calendar</title><use xlink:href="#calendar"/></svg>
+</span>
+<span class=post_date>
+2022-02-07</span>
+<span class=post_time> · 阅读时长 1 分钟</span><span>&nbsp;· <a href=https://blog.cuile.com/tags/nat/ title=NAT class="post_tag button button_translucent">NAT
+</a>
+</span>
+</div>
+</div>
+<div class=excerpt_footer>
+<div class=pale>
+<p><ol>
+<li>升级系统软件包 1$ apt-get update 2$ apt-get dist-upgrade 2. 安装 ifupdown2 使用 ifupdown2 网络管理软件包，还可以实时重新加载网络配置，而无需重新启动。 1$ apt install ifupdown2 3. 配置物理网卡 使用 PVE 的 WEB 管理界</li>
+</ol>
+</p>
+<br>
+<a href=https://blog.cuile.com/posts/proxmox/proxmox_nat/ title=阅读更多 class="excerpt_more button">阅读更多</a>
+</div>
+</div>
+</div>
+</li>
 <li>
 <ul class="pagination pagination-default">
 <li class=page-item>
@@ -370,7 +374,7 @@
 <nav class=tags_nav>
 <a href=https://blog.cuile.com/categories/%E7%B3%BB%E7%BB%9F%E9%85%8D%E7%BD%AE/ class="post_tag button button_translucent" title=系统配置>
 系统配置
-<span class=button_tally>39</span>
+<span class=button_tally>37</span>
 </a>
 <a href=https://blog.cuile.com/categories/tips/ class="post_tag button button_translucent" title=tips>
 TIPS
@@ -425,10 +429,6 @@ PYTHON
 DJANGO
 <span class=button_tally>2</span>
 </a>
-<a href=https://blog.cuile.com/series/git/ class="post_tag button button_translucent" title=git>
-GIT
-<span class=button_tally>2</span>
-</a>
 <a href=https://blog.cuile.com/series/work-tips/ class="post_tag button button_translucent" title=work-tips>
 WORK-TIPS
 <span class=button_tally>2</span>
@@ -478,6 +478,10 @@ DEEPIN
 FIREWALL
 <span class=button_tally>2</span>
 </a>
+<a href=https://blog.cuile.com/tags/git/ class="post_tag button button_translucent" title=git>
+GIT
+<span class=button_tally>2</span>
+</a>
 <a href=https://blog.cuile.com/tags/micromamba/ class="post_tag button button_translucent" title=micromamba>
 MICROMAMBA
 <span class=button_tally>2</span>
@@ -500,10 +504,6 @@ VSCODE
 </a>
 <a href=https://blog.cuile.com/tags/%E6%95%85%E4%BA%8B/ class="post_tag button button_translucent" title=故事>
 故事
-<span class=button_tally>2</span>
-</a>
-<a href=https://blog.cuile.com/tags/%E7%81%8C%E7%AF%AE%E9%AB%98%E6%89%8B/ class="post_tag button button_translucent" title=灌篮高手>
-灌篮高手
 <span class=button_tally>2</span>
 </a>
 <br>
@@ -543,6 +543,8 @@ VSCODE
 <a href=https://blog.cuile.com/tags/frp/ class="post_tag button button_translucent" data-position=1 title=frp>FRP<span class=button_tally>1</span>
 </a>
 <a href=https://blog.cuile.com/tags/ftp/ class="post_tag button button_translucent" data-position=1 title=ftp>FTP<span class=button_tally>1</span>
+</a>
+<a href=https://blog.cuile.com/tags/git/ class="post_tag button button_translucent" data-position=2 title=git>GIT<span class=button_tally>2</span>
 </a>
 <a href=https://blog.cuile.com/tags/github/ class="post_tag button button_translucent" data-position=1 title=github>GITHUB<span class=button_tally>1</span>
 </a>
