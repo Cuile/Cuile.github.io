@@ -7,12 +7,11 @@ date: 2023-01-03T20:42:02+08:00
 tags:
 - alpine linux
 - remote ssh
+- vscode
 # 专栏
 series:
-- vscode
 # 分类
 categories:
-- 系统配置
 ---
 
 VsCode Remote SSH 默认是不支持 Alpine Linux 的，不过，对 Alpine Linux 进行一些改动，就可以实现，比较方便。
