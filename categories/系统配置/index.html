@@ -207,32 +207,6 @@
 <div class=excerpt>
 <div class=excerpt_header>
 <h3 class=post_link>
-<a href=https://blog.cuile.com/posts/vscode/vscode_with_remote_ssh_in_alpine_linux/ title="VsCode 使用 Remote SSH 连接 Alpine Linux">VsCode 使用 Remote SSH 连接 Alpine Linux</a>
-</h3>
-<div class=post_meta>
-<span><svg class="icon"><title>calendar</title><use xlink:href="#calendar"/></svg>
-</span>
-<span class=post_date>
-2023-01-03</span>
-<span class=post_time> · 阅读时长 1 分钟</span><span>&nbsp;· <a href=https://blog.cuile.com/tags/alpine-linux/ title="alpine linux" class="post_tag button button_translucent">alpine linux
-</a><a href=https://blog.cuile.com/tags/remote-ssh/ title="remote ssh" class="post_tag button button_translucent">remote ssh
-</a>
-</span>
-</div>
-</div>
-<div class=excerpt_footer>
-<div class=pale>
-<p>VsCode Remote SSH 默认是不支持 Alpine Linux 的，不过，对 Alpine Linux 进行一些改动，就可以实现，比较方便。 步骤如下： 安装 安装 Bash 安装需要的包 1$ apk del dropbear 2$ apk add gcompat libstdc++6 openssh wget git Alpine 配置 1$ nano</p>
-<br>
-<a href=https://blog.cuile.com/posts/vscode/vscode_with_remote_ssh_in_alpine_linux/ title=阅读更多 class="excerpt_more button">阅读更多</a>
-</div>
-</div>
-</div>
-</li>
-<li class=post_item>
-<div class=excerpt>
-<div class=excerpt_header>
-<h3 class=post_link>
 <a href=https://blog.cuile.com/posts/linux/alpine_linux_bash/ title="Alpine Linux 安装 Bash">Alpine Linux 安装 Bash</a>
 </h3>
 <div class=post_meta>
@@ -309,6 +283,32 @@
 </div>
 </div>
 </li>
+<li class=post_item>
+<div class=excerpt>
+<div class=excerpt_header>
+<h3 class=post_link>
+<a href=https://blog.cuile.com/posts/linux/linux_screen_manual/ title="screen 命令">screen 命令</a>
+</h3>
+<div class=post_meta>
+<span><svg class="icon"><title>calendar</title><use xlink:href="#calendar"/></svg>
+</span>
+<span class=post_date>
+2022-12-28</span>
+<span class=post_time> · 阅读时长 1 分钟</span><span>&nbsp;· <a href=https://blog.cuile.com/tags/screen/ title=screen class="post_tag button button_translucent">screen
+</a><a href=https://blog.cuile.com/tags/cli/ title=cli class="post_tag button button_translucent">cli
+</a>
+</span>
+</div>
+</div>
+<div class=excerpt_footer>
+<div class=pale>
+<p>创建屏幕 1# 离线方式创建屏幕，一般用在启动脚本 2$ screen -S &lt;screen_name> -d -m 执行命令 1# 在指定屏幕内输入cmd，注意\n代表回车 2$ screen -S &lt;screen_name> -X stuff "&lt;cmd>\n" 3# 在当前窗口内，通过</p>
+<br>
+<a href=https://blog.cuile.com/posts/linux/linux_screen_manual/ title=阅读更多 class="excerpt_more button">阅读更多</a>
+</div>
+</div>
+</div>
+</li>
 <li>
 <ul class="pagination pagination-default">
 <li class="page-item disabled">
@@ -378,7 +378,7 @@
 <nav class=tags_nav>
 <a href=https://blog.cuile.com/categories/%E7%B3%BB%E7%BB%9F%E9%85%8D%E7%BD%AE/ class="post_tag button button_translucent" title=系统配置>
 系统配置
-<span class=button_tally>37</span>
+<span class=button_tally>36</span>
 </a>
 <a href=https://blog.cuile.com/categories/tips/ class="post_tag button button_translucent" title=tips>
 TIPS
@@ -441,10 +441,6 @@ WORK-TIPS
 HARMONYOS
 <span class=button_tally>1</span>
 </a>
-<a href=https://blog.cuile.com/series/vscode/ class="post_tag button button_translucent" title=vscode>
-VSCODE
-<span class=button_tally>1</span>
-</a>
 <a href=https://blog.cuile.com/series/%E7%81%AB%E7%82%AE/ class="post_tag button button_translucent" title=火炮>
 火炮
 <span class=button_tally>1</span>
@@ -474,6 +470,10 @@ CENTOS
 NETWORK
 <span class=button_tally>3</span>
 </a>
+<a href=https://blog.cuile.com/tags/vscode/ class="post_tag button button_translucent" title=vscode>
+VSCODE
+<span class=button_tally>3</span>
+</a>
 <a href=https://blog.cuile.com/tags/deepin/ class="post_tag button button_translucent" title=deepin>
 DEEPIN
 <span class=button_tally>2</span>
@@ -496,10 +496,6 @@ PROXY
 </a>
 <a href=https://blog.cuile.com/tags/venv/ class="post_tag button button_translucent" title=venv>
 VENV
-<span class=button_tally>2</span>
-</a>
-<a href=https://blog.cuile.com/tags/vscode/ class="post_tag button button_translucent" title=vscode>
-VSCODE
 <span class=button_tally>2</span>
 </a>
 <a href=https://blog.cuile.com/tags/%E5%8A%A8%E6%BC%AB/ class="post_tag button button_translucent" title=动漫>
@@ -624,7 +620,7 @@ VSCODE
 </a>
 <a href=https://blog.cuile.com/tags/version/ class="post_tag button button_translucent" data-position=1 title=version>VERSION<span class=button_tally>1</span>
 </a>
-<a href=https://blog.cuile.com/tags/vscode/ class="post_tag button button_translucent" data-position=2 title=vscode>VSCODE<span class=button_tally>2</span>
+<a href=https://blog.cuile.com/tags/vscode/ class="post_tag button button_translucent" data-position=3 title=vscode>VSCODE<span class=button_tally>3</span>
 </a>
 <a href=https://blog.cuile.com/tags/windows/ class="post_tag button button_translucent" data-position=1 title=windows>WINDOWS<span class=button_tally>1</span>
 </a>
