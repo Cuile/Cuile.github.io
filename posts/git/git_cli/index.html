@@ -65,13 +65,17 @@
 <span class=ln>3</span>$ git clone git@github.com:xxxxx/xxxxx.git
 <span class=ln>4</span><span class=c1># 克隆指定分支，到指定目录</span>
 <span class=ln>5</span>$ git clone -b &lt;branch&gt; &lt;repo&gt; &lt;path&gt;
+<span class=ln>6</span>
+<span class=ln>7</span>$ git config user.name <span class=s2>&#34;Your Name&#34;</span>
+<span class=ln>8</span>$ git config user.email you@example.com
+<span class=ln>9</span>
 </code></pre></div><h3 id=12-推送新项目到github>1.2 推送新项目到github</h3>
 <p>先在githubh上创建好项目</p>
 <div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=ln>1</span>$ git init
 <span class=ln>2</span>$ git add .
 <span class=ln>3</span>$ git status -s
-<span class=ln>4</span>$ git config --global user.name <span class=s2>&#34;Your Name&#34;</span>
-<span class=ln>5</span>$ git config --global user.email you@example.com
+<span class=ln>4</span>$ git config user.name <span class=s2>&#34;Your Name&#34;</span>
+<span class=ln>5</span>$ git config user.email you@example.com
 <span class=ln>6</span>$ git commit --amend --reset-author
 <span class=ln>7</span>$ git commit -m <span class=s2>&#34;first commit&#34;</span>
 <span class=ln>8</span>$ git remote add origin git@github.com:Youname/repo_name.git
