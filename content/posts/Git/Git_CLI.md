@@ -18,6 +18,10 @@ $ git clone https://xxxx@bitbucket.org/xxxx/xxxx.git
 $ git clone git@github.com:xxxxx/xxxxx.git
 # 克隆指定分支，到指定目录
 $ git clone -b <branch> <repo> <path>
+
+$ git config user.name "Your Name"
+$ git config user.email you@example.com
+
 ```
 
 ### 1.2 推送新项目到github
@@ -26,8 +30,8 @@ $ git clone -b <branch> <repo> <path>
 $ git init
 $ git add .
 $ git status -s
-$ git config --global user.name "Your Name"
-$ git config --global user.email you@example.com
+$ git config user.name "Your Name"
+$ git config user.email you@example.com
 $ git commit --amend --reset-author
 $ git commit -m "first commit"
 $ git remote add origin git@github.com:Youname/repo_name.git
