@@ -4,10 +4,9 @@ date: 2022-06-19T11:46:55+08:00
 # draft: true
 tags:
 - Alpine linux
-series:
 - linux
+series:
 categories:
-- 系统配置
 ---
 
 特点：
