@@ -8,10 +8,8 @@ tags:
 - alpine linux
 # 专栏
 series:
-- linux
 # 分类
 categories:
-- 系统配置
 ---
 
 ## WindTerm 无法认证
