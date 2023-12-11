@@ -29,3 +29,22 @@ alias ll='ls -la --color=tty'
 # keychain.sh
 eval `keychain --eval ~/.ssh/github.com`
 ```
+
+## 安装 OpenSSH Server
+```bash
+$ apk update
+$ apk add openssh-server
+# 开放Root登录
+$ echo 'PermitRootLogin yes' >> /etc/ssh/sshd_config
+
+# 设置开机启动
+$ rc-update add sshd
+# 删除开机启动服务
+$ rc-update del sshd
+
+$ rc-service sshd start
+$ rc-service sshd restart
+# 显示所有服务
+# rc-status -a
+```
+- [Alpine安装SSH服务，并开启SSH远程登录](https://mayanpeng.cn/archives/248.html)
