@@ -61,10 +61,16 @@
 <p>WindTerm客户端，取消 “会话设置 -> SSH -> 验证 -> 尝试键盘交互认证” 可已正常连接。</p>
 <h2 id=终端配置和环境变量>终端配置和环境变量</h2>
 <p>在 /etc/profile.d 文件夹下，创建sh文件来实现。</p>
-<div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=ln>1</span><span class=c1># cli.sh</span>
-<span class=ln>2</span><span class=nb>alias</span> <span class=nv>ll</span><span class=o>=</span><span class=s1>&#39;ls -la --color=tty&#39;</span>
-</code></pre></div><div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=ln>1</span><span class=c1># keychain.sh</span>
-<span class=ln>2</span><span class=nb>eval</span> <span class=sb>`</span>keychain --eval ~/.ssh/github.com<span class=sb>`</span>
+<div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=ln> 1</span><span class=c1># cli.sh</span>
+<span class=ln> 2</span><span class=nb>alias</span> <span class=nv>ll</span><span class=o>=</span><span class=s1>&#39;ls -la --color=tty&#39;</span>
+<span class=ln> 3</span><span class=c1># ash.sh</span>
+<span class=ln> 4</span><span class=c1># Alpine Linux</span>
+<span class=ln> 5</span><span class=c1># BusyBox 不支持日期格式</span>
+<span class=ln> 6</span><span class=c1># [HH:MM] path</span>
+<span class=ln> 7</span><span class=c1># [user@hostname] 命令提示符</span>
+<span class=ln> 8</span><span class=nb>export</span> <span class=nv>PS1</span><span class=o>=</span><span class=s1>&#39;\[\e[36;40m\][\A] \[\e[0m\] \[\e[35;40m\]\w\[\e[0m\]\n\[\e[33;40m\][\u@\H]\[\e[0m\]  \\$ &#39;</span>
+<span class=ln> 9</span><span class=c1># keychain.sh</span>
+<span class=ln>10</span><span class=nb>eval</span> <span class=sb>`</span>keychain --eval ~/.ssh/github.com<span class=sb>`</span>
 </code></pre></div><h2 id=安装-openssh-server>安装 OpenSSH Server</h2>
 <div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=ln> 1</span>$ apk update
 <span class=ln> 2</span>$ apk add openssh-server
@@ -131,7 +137,7 @@
 <nav class=tags_nav>
 <a href=https://blog.cuile.com/categories/%E7%B3%BB%E7%BB%9F%E9%85%8D%E7%BD%AE/ class="post_tag button button_translucent" title=系统配置>
 系统配置
-<span class=button_tally>35</span>
+<span class=button_tally>34</span>
 </a>
 <a href=https://blog.cuile.com/categories/tips/ class="post_tag button button_translucent" title=tips>
 TIPS
@@ -156,7 +162,7 @@ TIPS
 <nav class=tags_nav>
 <a href=https://blog.cuile.com/series/linux/ class="post_tag button button_translucent" title=linux>
 LINUX
-<span class=button_tally>15</span>
+<span class=button_tally>14</span>
 </a>
 <a href=https://blog.cuile.com/series/life-tips/ class="post_tag button button_translucent" title=life-tips>
 LIFE-TIPS
@@ -239,6 +245,10 @@ FIREWALL
 GIT
 <span class=button_tally>2</span>
 </a>
+<a href=https://blog.cuile.com/tags/linux/ class="post_tag button button_translucent" title=linux>
+LINUX
+<span class=button_tally>2</span>
+</a>
 <a href=https://blog.cuile.com/tags/micromamba/ class="post_tag button button_translucent" title=micromamba>
 MICROMAMBA
 <span class=button_tally>2</span>
@@ -253,10 +263,6 @@ VENV
 </a>
 <a href=https://blog.cuile.com/tags/%E5%8A%A8%E6%BC%AB/ class="post_tag button button_translucent" title=动漫>
 动漫
-<span class=button_tally>2</span>
-</a>
-<a href=https://blog.cuile.com/tags/%E6%95%85%E4%BA%8B/ class="post_tag button button_translucent" title=故事>
-故事
 <span class=button_tally>2</span>
 </a>
 <br>
@@ -313,7 +319,7 @@ VENV
 </a>
 <a href=https://blog.cuile.com/tags/keychain/ class="post_tag button button_translucent" data-position=1 title=keychain>KEYCHAIN<span class=button_tally>1</span>
 </a>
-<a href=https://blog.cuile.com/tags/linux/ class="post_tag button button_translucent" data-position=1 title=linux>LINUX<span class=button_tally>1</span>
+<a href=https://blog.cuile.com/tags/linux/ class="post_tag button button_translucent" data-position=2 title=linux>LINUX<span class=button_tally>2</span>
 </a>
 <a href=https://blog.cuile.com/tags/make/ class="post_tag button button_translucent" data-position=1 title=make>MAKE<span class=button_tally>1</span>
 </a>
