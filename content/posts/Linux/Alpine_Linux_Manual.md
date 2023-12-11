@@ -35,7 +35,7 @@ eval `keychain --eval ~/.ssh/github.com`
 ## 安装 OpenSSH Server
 ```bash
 $ apk update
-$ apk add openssh-server
+$ apk add openssh-server openssh
 # 开放Root登录
 $ echo 'PermitRootLogin yes' >> /etc/ssh/sshd_config
 
