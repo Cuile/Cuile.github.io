@@ -24,8 +24,12 @@ WindTerm客户端，取消 “会话设置 -> SSH -> 验证 -> 尝试键盘交�
 ```bash
 # cli.sh
 alias ll='ls -la --color=tty'
-```
-```bash
+# ash.sh
+# Alpine Linux
+# BusyBox 不支持日期格式
+# [HH:MM] path
+# [user@hostname] 命令提示符
+export PS1='\[\e[36;40m\][\A] \[\e[0m\] \[\e[35;40m\]\w\[\e[0m\]\n\[\e[33;40m\][\u@\H]\[\e[0m\]  \\$ '
 # keychain.sh
 eval `keychain --eval ~/.ssh/github.com`
 ```

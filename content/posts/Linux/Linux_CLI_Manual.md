@@ -4,10 +4,9 @@ date: 2022-01-17T11:07:07+08:00
 # draft: true
 tags: 
 - CLI
-series:
 - linux
+series:
 categories:
-- 系统配置
 ---
 
 **`脚本基于Centos 7`**
@@ -65,12 +64,6 @@ export PS1="[\A \u@\H \w]\\$ "
 # [yyyy-mm-dd HH:MM] path
 # [user@hostname] 命令提示符
 export PS1='\[\e[36;40m\][\D{%Y-%m-%d} \A] \[\e[0m\] \[\e[35;40m\]\w\[\e[0m\]\n\[\e[33;40m\][\u@\H]\[\e[0m\]  \\$ '
-
-# Alpine Linux
-# BusyBox 不支持日期格式
-# [HH:MM] path
-# [user@hostname] 命令提示符
-export PS1='\[\e[36;40m\][\A] \[\e[0m\] \[\e[35;40m\]\w\[\e[0m\]\n\[\e[33;40m\][\u@\H]\[\e[0m\]  \\$ '
 ```
 - [命令提示符设置参考](https://www.linuxidc.com/Linux/2017-10/147438.htm)
 - [busybox：ash：PS1：支持的内部替换变量](https://www.cnblogs.com/jinzhenshui/p/16358242.html)
