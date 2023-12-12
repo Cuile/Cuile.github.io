@@ -95,7 +95,10 @@ $ systemctl start docker.service
 ```
 
 ## 7.配置仓库镜像
-
+```bash
+$ mkdir /etc/docker/
+$ cd /etc/docker/
+```
 添加官方仓库镜像地址
 ```ini
 ; /etc/docker/daemon.json
