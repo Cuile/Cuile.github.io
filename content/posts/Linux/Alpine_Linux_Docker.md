@@ -48,7 +48,7 @@ Docker Compose version v2.12.2
 ```
 
 ## 配置仓库镜像
-[CentOS 7 安装 Docker](../Docker/Docker_install_CentOS.md#7配置仓库镜像)
+[CentOS 7 安装 Docker](https://blog.cuile.com/posts/docker/docker_install_centos/#7%E9%85%8D%E7%BD%AE%E4%BB%93%E5%BA%93%E9%95%9C%E5%83%8F)
 
 ## 启动 docker
 
