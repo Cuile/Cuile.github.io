@@ -4,10 +4,9 @@ date: 2022-05-06T11:05:23+08:00
 # draft: true
 tags: 
 - CentOS
-series:
 - Docker
+series:
 categories:
-- 系统配置
 ---
 
 其实网上相关的文章已经非常多了，所以这篇文章的作用只是记录和明确一条确定可行的操作路径，为以后的操作节省时间，毕竟像我一样大部分人都不是专业的系统管理员，能够快速解决问题就可以了，并不想做过多的专业研究与探索。
@@ -97,13 +96,9 @@ $ systemctl start docker.service
 
 ## 7.配置仓库镜像
 
-```bash
-$ nano /etc/docker/daemon.json
-```
-
 添加官方仓库镜像地址
-
 ```ini
+; /etc/docker/daemon.json
 {
   "registry-mirrors": ["https://registry.docker-cn.com"]
 }

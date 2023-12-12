@@ -4,11 +4,9 @@ date: 2022-06-19T16:08:06+08:00
 # draft: true
 tags:
 - Alpine linux
-series:
 - Docker
-- linux
+series:
 categories:
-- 系统配置
 ---
 
 在 Alpine 上安装 Docker 真是一件让人感觉非常愉快的事情，因为过程非常简单。
@@ -48,6 +46,9 @@ Docker version 20.10.16, build aa7e414fdcb23a66e8fabbef0a560ef1769eace5
 ~# docker compose version
 Docker Compose version v2.12.2
 ```
+
+## 配置仓库镜像
+[CentOS 7 安装 Docker](../Docker/Docker_install_CentOS.md#7配置仓库镜像)
 
 ## 启动 docker
 
