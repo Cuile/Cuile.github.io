@@ -97,11 +97,10 @@ $ systemctl start docker.service
 ## 7.配置仓库镜像
 ```bash
 $ mkdir /etc/docker/
-$ cd /etc/docker/
+$ nano /etc/docker/daemon.json
 ```
 添加官方仓库镜像地址
-```ini
-; /etc/docker/daemon.json
+```json
 {
   "registry-mirrors": ["https://registry.docker-cn.com"]
 }
