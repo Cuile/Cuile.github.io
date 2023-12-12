@@ -117,7 +117,9 @@
 <span class=ln>3</span><span class=c1># 启动服务</span>
 <span class=ln>4</span>$ systemctl start docker.service
 </code></pre></div><h2 id=7配置仓库镜像>7.配置仓库镜像</h2>
-<p>添加官方仓库镜像地址</p>
+<div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=ln>1</span>$ mkdir /etc/docker/
+<span class=ln>2</span>$ <span class=nb>cd</span> /etc/docker/
+</code></pre></div><p>添加官方仓库镜像地址</p>
 <div class=highlight><pre tabindex=0 class=chroma><code class=language-ini data-lang=ini><span class=ln>1</span><span class=c1>; /etc/docker/daemon.json</span>
 <span class=ln>2</span><span class=na>{</span>
 <span class=ln>3</span>  <span class=na>&#34;registry-mirrors&#34;: [&#34;https://registry.docker-cn.com&#34;]</span>
