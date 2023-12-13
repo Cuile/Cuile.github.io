@@ -23,6 +23,12 @@ $ docker container ls -a
 $ docker ps
 ```
 
+## 查看输出
+```bash
+$ docker compose -f <yml file> logs [-f] [service name]
+# or
+$ docker logs [-f] [container id]
+```
 ## 删除冗余镜像
 ```bash
 $ docker system prune
