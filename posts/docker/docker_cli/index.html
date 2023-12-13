@@ -6,14 +6,14 @@
 <meta http-equiv=x-ua-compatible content="IE=edge">
 <meta property="og:locale" content="zh-cn">
 <meta property="og:type" content="article">
-<meta name=description content="镜像列表 1$ docker image ls -a 2# or 3$ docker images 容器列表 1$ docker container ls -a 2# or 3$ docker ps 删除冗余镜像 1$ docker system prune 创建桥接网络 1$ docker network …">
+<meta name=description content="镜像列表 1$ docker image ls -a 2# or 3$ docker images 容器列表 1$ docker container ls -a 2# or 3$ docker ps 查看输出 1$ docker compose -f <yml file> logs [-f] …">
 <meta name=twitter:card content="summary">
 <meta name=twitter:creator content>
 <meta name=twitter:title content="Docker使用命令">
 <meta name=twitter:image content="https://blog.cuile.com/images/thumbnail.png">
 <meta property="og:url" content="https://blog.cuile.com/posts/docker/docker_cli/">
 <meta property="og:title" content="Docker使用命令">
-<meta property="og:description" content="镜像列表 1$ docker image ls -a 2# or 3$ docker images 容器列表 1$ docker container ls -a 2# or 3$ docker ps 删除冗余镜像 1$ docker system prune 创建桥接网络 1$ docker network …">
+<meta property="og:description" content="镜像列表 1$ docker image ls -a 2# or 3$ docker images 容器列表 1$ docker container ls -a 2# or 3$ docker ps 查看输出 1$ docker compose -f <yml file> logs [-f] …">
 <meta property="og:image" content="https://blog.cuile.com/images/thumbnail.png">
 <link rel=apple-touch-icon sizes=180x180 href=https://blog.cuile.com/icons/apple-touch-icon.png>
 <link rel=icon type=image/png sizes=32x32 href=https://blog.cuile.com/icons/favicon-32x32.png>
@@ -66,6 +66,10 @@
 <div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=ln>1</span>$ docker container ls -a
 <span class=ln>2</span><span class=c1># or</span>
 <span class=ln>3</span>$ docker ps
+</code></pre></div><h2 id=查看输出>查看输出</h2>
+<div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=ln>1</span>$ docker compose -f &lt;yml file&gt; logs <span class=o>[</span>-f<span class=o>]</span> <span class=o>[</span>service name<span class=o>]</span>
+<span class=ln>2</span><span class=c1># or</span>
+<span class=ln>3</span>$ docker logs <span class=o>[</span>-f<span class=o>]</span> <span class=o>[</span>container id<span class=o>]</span>
 </code></pre></div><h2 id=删除冗余镜像>删除冗余镜像</h2>
 <div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=ln>1</span>$ docker system prune
 </code></pre></div><h2 id=创建桥接网络>创建桥接网络</h2>
