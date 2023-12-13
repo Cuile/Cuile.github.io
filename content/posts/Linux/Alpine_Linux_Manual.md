@@ -50,3 +50,14 @@ $ rc-service sshd restart
 # rc-status -a
 ```
 - [Alpine安装SSH服务，并开启SSH远程登录](https://mayanpeng.cn/archives/248.html)
+
+## 修改时区
+```bash
+# 查看当时时间
+$ date -R
+# 修改到 +8 时区
+$ apk add tzdata
+$ cp /usr/share/zoneinfo/Asia/Shanghai /etc/localtime
+$ echo "Asia/Shanghai" > /etc/timezone
+$ apk del tzdata
+```
