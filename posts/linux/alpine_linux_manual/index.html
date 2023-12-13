@@ -89,6 +89,15 @@
 </code></pre></div><ul>
 <li><a href=https://mayanpeng.cn/archives/248.html>Alpine安装SSH服务，并开启SSH远程登录</a></li>
 </ul>
+<h2 id=修改时区>修改时区</h2>
+<div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=ln>1</span><span class=c1># 查看当时时间</span>
+<span class=ln>2</span>$ date -R
+<span class=ln>3</span><span class=c1># 修改到 +8 时区</span>
+<span class=ln>4</span>$ apk add tzdata
+<span class=ln>5</span>$ cp /usr/share/zoneinfo/Asia/Shanghai /etc/localtime
+<span class=ln>6</span>$ <span class=nb>echo</span> <span class=s2>&#34;Asia/Shanghai&#34;</span> &gt; /etc/timezone
+<span class=ln>7</span>$ apk del tzdata
+</code></pre></div>
 </div>
 <h2 class=post_related>相关专栏文章</h2>
 <ul>

@@ -63,15 +63,16 @@
 <div class=highlight><pre tabindex=0 class=chroma><code class=language-yml data-lang=yml><span class=ln>1</span><span class=w>    </span><span class=nt>command</span><span class=p>:</span><span class=w> </span><span class=l>/bin/bash -c &#34;cp /app/dtest/config.default.yml /app/config.yml &amp;&amp; python -u /app/dtest/tcc.py&#34;</span><span class=w>
 </span><span class=ln>2</span><span class=w>    </span><span class=c># 另一种方式</span><span class=w>
 </span><span class=ln>3</span><span class=w>    </span><span class=nt>command</span><span class=p>:</span><span class=w> </span><span class=l>/bin/bash -c &#34; while true; do sleep 1; done&#34;</span><span class=w>
-</span></code></pre></div><h3 id=配置文件方式>配置文件方式</h3>
+</span></code></pre></div><ul>
+<li><a href=https://blog.csdn.net/whatday/article/details/108863389>docker compose command 执行多条指令</a></li>
+</ul>
+<h3 id=配置文件方式>配置文件方式</h3>
 <p>......</p>
 <h2 id=tty-指令>tty 指令</h2>
 <p>启动后停在cli，等待登录</p>
-<div class=highlight><pre tabindex=0 class=chroma><code class=language-yml data-lang=yml><span class=ln>1</span><span class=w>    </span><span class=nt>tty</span><span class=p>:</span><span class=w> </span><span class=kc>true</span><span class=w>
-</span></code></pre></div><h2 id=参考文档>参考文档</h2>
-<ul>
-<li><a href=https://blog.csdn.net/whatday/article/details/108863389>docker compose command 执行多条指令</a></li>
-</ul>
+<div class=highlight><pre tabindex=0 class=chroma><code class=language-yml data-lang=yml><span class=ln>1</span><span class=w>    </span><span class=nt>stdin_open</span><span class=p>:</span><span class=w> </span><span class=kc>true</span><span class=w> </span><span class=c># 对应 docker run 中的 -i</span><span class=w>
+</span><span class=ln>2</span><span class=w>    </span><span class=nt>tty</span><span class=p>:</span><span class=w> </span><span class=kc>true</span><span class=w>        </span><span class=c># 对应 docker run 中的 -t</span><span class=w>
+</span></code></pre></div>
 </div>
 <h2 class=post_related>相关专栏文章</h2>
 <ul>
