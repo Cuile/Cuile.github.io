@@ -191,3 +191,5 @@ $ git config --global --unset https.proxy
 $ git config --global --unset http.https://github.com.proxy
 $ git config --global --unset https.https://github.com.proxy
 ```
+
+- [Git忽略文件.gitignore详解](https://blog.csdn.net/ThinkWon/article/details/101447866)
