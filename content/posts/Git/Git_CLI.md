@@ -61,8 +61,10 @@ $ git status -s
 $ git add < file | dir | . >
 # 删除 add 的文件
 $ git rm [-r] --cached <file | .>
-# 提交变化
-$ git commit -m [message]
+# 提交已修改的文件，但不提交未跟踪的文件
+$ git commit -m <"message"> --untracked-files=no
+# 提交已删除的文件
+$ git commit -m <"message"> -a
 # 推送到远程库
 $ git push
 
