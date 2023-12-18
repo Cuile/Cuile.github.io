@@ -49,6 +49,15 @@ $ rc-service sshd restart
 # 显示所有服务
 # rc-status -a
 ```
+### 解决ssh自动断开
+```ini
+; /etc/ssh/sshd_config
+ClientAliveInterval 60
+ClientAliveCountMax 3
+```
+```bash
+$ rc-service sshd restart
+```
 - [Alpine安装SSH服务，并开启SSH远程登录](https://mayanpeng.cn/archives/248.html)
 
 ## 修改时区
