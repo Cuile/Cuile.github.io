@@ -1,5 +1,5 @@
 ---
-title: "Systemd 命令指南"
+title: "Systemd 系统工具命令指南"
 date: 2022-12-27T17:29:08+08:00
 # draft: true
 
@@ -49,3 +49,5 @@ $ timedatectl set-timezone Asia/Shanghai
 ```
 参考文档
 - [timedatectl 参考](https://www.jianshu.com/p/5e8e22bf135d)
+- [Systemd 入门教程：命令篇](http://www.ruanyifeng.com/blog/2016/03/systemd-tutorial-commands.html)
+- [Systemd 入门教程：命令篇](http://www.ruanyifeng.com/blog/2016/03/systemd-tutorial-part-two.html)
