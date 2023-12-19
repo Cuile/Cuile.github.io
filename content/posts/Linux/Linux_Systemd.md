@@ -32,10 +32,6 @@ systemctl unmask sshd           ##启用服务
 systemctl set-default multi-user.target ##开机不开启图形
 systemctl set-default graphical.target  ##开机启动图形
 ```
-- [拾遗：systemctl --user]https://www.cnblogs.com/hadex/p/6571278.html)
-- [Systemd 入门教程：命令篇](http://www.ruanyifeng.com/blog/2016/03/systemd-tutorial-commands.html)
-- [Systemd 入门教程：命令篇](http://www.ruanyifeng.com/blog/2016/03/systemd-tutorial-part-two.html)
-- [Systemd 定时器教程](https://www.ruanyifeng.com/blog/2018/03/systemd-timer.html)
 
 ## 设置主机名
 ```bash
