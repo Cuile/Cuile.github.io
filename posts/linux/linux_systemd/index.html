@@ -73,13 +73,7 @@
 <span class=ln>12</span>systemctl unmask sshd           <span class=c1>##启用服务</span>
 <span class=ln>13</span>systemctl set-default multi-user.target <span class=c1>##开机不开启图形</span>
 <span class=ln>14</span>systemctl set-default graphical.target  <span class=c1>##开机启动图形</span>
-</code></pre></div><ul>
-<li>[拾遗：systemctl --user]https://www.cnblogs.com/hadex/p/6571278.html)</li>
-<li><a href=http://www.ruanyifeng.com/blog/2016/03/systemd-tutorial-commands.html>Systemd 入门教程：命令篇</a></li>
-<li><a href=http://www.ruanyifeng.com/blog/2016/03/systemd-tutorial-part-two.html>Systemd 入门教程：命令篇</a></li>
-<li><a href=https://www.ruanyifeng.com/blog/2018/03/systemd-timer.html>Systemd 定时器教程</a></li>
-</ul>
-<h2 id=设置主机名>设置主机名</h2>
+</code></pre></div><h2 id=设置主机名>设置主机名</h2>
 <div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=ln>1</span>$ <span class=nv>_hostname_</span><span class=o>=</span>XXXX
 <span class=ln>2</span>$ hostnamectl --static set-hostname <span class=si>${</span><span class=nv>_hostname_</span><span class=si>}</span>
 <span class=ln>3</span>$ hostnamectl --transient set-hostname <span class=si>${</span><span class=nv>_hostname_</span><span class=si>}</span>
