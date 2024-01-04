@@ -72,25 +72,26 @@
 <span class=ln> 9</span><span class=c1># keychain.sh</span>
 <span class=ln>10</span><span class=nb>eval</span> <span class=sb>`</span>keychain --eval ~/.ssh/github.com<span class=sb>`</span>
 </code></pre></div><h2 id=安装-openssh-server>安装 OpenSSH Server</h2>
-<div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=ln> 1</span>$ apk update
-<span class=ln> 2</span>$ apk add openssh-server openssh
-<span class=ln> 3</span><span class=c1># 开放Root登录</span>
-<span class=ln> 4</span>$ <span class=nb>echo</span> <span class=s1>&#39;PermitRootLogin yes&#39;</span> &gt;&gt; /etc/ssh/sshd_config
-<span class=ln> 5</span>
-<span class=ln> 6</span><span class=c1># 设置开机启动</span>
-<span class=ln> 7</span>$ rc-update add sshd
-<span class=ln> 8</span><span class=c1># 删除开机启动服务</span>
-<span class=ln> 9</span>$ rc-update del sshd
-<span class=ln>10</span>
-<span class=ln>11</span>$ rc-service sshd start
-<span class=ln>12</span>$ rc-service sshd restart
-<span class=ln>13</span><span class=c1># 显示所有服务</span>
-<span class=ln>14</span><span class=c1># rc-status -a</span>
-</code></pre></div><h3 id=解决ssh自动断开>解决ssh自动断开</h3>
-<div class=highlight><pre tabindex=0 class=chroma><code class=language-ini data-lang=ini><span class=ln>1</span><span class=c1>; /etc/ssh/sshd_config</span>
-<span class=ln>2</span><span class=na>ClientAliveInterval 60</span>
-<span class=ln>3</span><span class=na>ClientAliveCountMax 3</span>
-</code></pre></div><div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=ln>1</span>$ rc-service sshd restart
+<div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=ln>1</span>$ apk update
+<span class=ln>2</span>$ apk add openssh-server openssh
+</code></pre></div><div class=highlight><pre tabindex=0 class=chroma><code class=language-ini data-lang=ini><span class=ln>1</span><span class=c1>; /etc/ssh/sshd_config</span>
+<span class=ln>2</span><span class=c1># 开放Root登录</span>
+<span class=ln>3</span><span class=na>- #PermitRootLogin prohibit-password</span>
+<span class=ln>4</span><span class=na>+ PermitRootLogin yes</span>
+<span class=ln>5</span><span class=c1># 解决ssh自动断开</span>
+<span class=ln>6</span><span class=na>- #ClientAliveInterval 0</span>
+<span class=ln>7</span><span class=na>- #ClientAliveCountMax 3</span>
+<span class=ln>8</span><span class=na>+ ClientAliveInterval 60</span>
+<span class=ln>9</span><span class=na>+ ClientAliveCountMax 3</span>
+</code></pre></div><div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=ln>1</span>$ rc-service sshd start
+<span class=ln>2</span>
+<span class=ln>3</span>$ rc-service sshd restart
+<span class=ln>4</span><span class=c1># 设置开机启动</span>
+<span class=ln>5</span>$ rc-update add sshd
+<span class=ln>6</span><span class=c1># 删除开机启动服务</span>
+<span class=ln>7</span>$ rc-update del sshd
+<span class=ln>8</span><span class=c1># 显示所有服务</span>
+<span class=ln>9</span><span class=c1># rc-status -a</span>
 </code></pre></div><ul>
 <li><a href=https://mayanpeng.cn/archives/248.html>Alpine安装SSH服务，并开启SSH远程登录</a></li>
 </ul>
