@@ -87,16 +87,14 @@
 </ul>
 <h2 id=终端配置>终端配置</h2>
 <p>在 /etc/profile.d 文件夹下，创建sh文件来实现。</p>
-<div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=ln> 1</span><span class=c1># /etc/profile.d/30user.sh</span>
-<span class=ln> 2</span>+ <span class=nb>alias</span> <span class=nv>ll</span><span class=o>=</span><span class=s1>&#39;ls -la --color=tty&#39;</span>
-<span class=ln> 3</span><span class=c1># ash.sh</span>
-<span class=ln> 4</span><span class=c1># Alpine Linux</span>
-<span class=ln> 5</span><span class=c1># BusyBox 不支持日期格式</span>
-<span class=ln> 6</span><span class=c1># [HH:MM] path</span>
-<span class=ln> 7</span><span class=c1># [user@hostname] 命令提示符</span>
-<span class=ln> 8</span>+ <span class=nb>export</span> <span class=nv>PS1</span><span class=o>=</span><span class=s1>&#39;\[\e[36;40m\][\A] \[\e[0m\] \[\e[35;40m\]\w\[\e[0m\]\n\[\e[33;40m\][\u@\H]\[\e[0m\]  \\$ &#39;</span>
-<span class=ln> 9</span><span class=c1># keychain.sh</span>
-<span class=ln>10</span>+ <span class=nb>eval</span> <span class=sb>`</span>keychain --eval ~/.ssh/github.com<span class=sb>`</span>
+<div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=ln>1</span><span class=c1># /etc/profile.d/30user.sh</span>
+<span class=ln>2</span>+ <span class=nb>alias</span> <span class=nv>ll</span><span class=o>=</span><span class=s1>&#39;ls -la --color=tty&#39;</span>
+<span class=ln>3</span><span class=c1># Alpine Linux BusyBox 不支持日期格式</span>
+<span class=ln>4</span><span class=c1># [HH:MM] path</span>
+<span class=ln>5</span><span class=c1># [user@hostname] 命令提示符</span>
+<span class=ln>6</span>+ <span class=nb>export</span> <span class=nv>PS1</span><span class=o>=</span><span class=s1>&#39;\[\e[36;40m\][\A] \[\e[0m\] \[\e[35;40m\]\w\[\e[0m\]\n\[\e[33;40m\][\u@\H]\[\e[0m\]  \\$ &#39;</span>
+<span class=ln>7</span><span class=c1># keychain</span>
+<span class=ln>8</span>+ <span class=nb>eval</span> <span class=sb>`</span>keychain --eval ~/.ssh/github.com<span class=sb>`</span>
 </code></pre></div><ul>
 <li><a href=https://www.cnblogs.com/jinzhenshui/p/16358242.html>busybox：ash：PS1：支持的内部替换变量</a></li>
 </ul>
