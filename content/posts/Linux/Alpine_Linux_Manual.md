@@ -56,7 +56,7 @@ $ rc-update del sshd
 # Alpine Linux BusyBox 不支持日期格式
 # [HH:MM] path
 # [user@hostname] 命令提示符
-+ export PS1='\[\e[36;40m\][\A] \[\e[0m\] \[\e[35;40m\]\w\[\e[0m\]\n\[\e[33;40m\][\u@\H]\[\e[0m\]  \\$ '
++ export PS1='\[\e[36;40m\][\A] \[\e[0m\] \[\e[35;40m\]\w\[\e[0m\]\n\[\e[33;40m\][\u@\H]\[\e[0m\] \\$ '
 # keychain
 + eval `keychain --eval ~/.ssh/github.com`
 ```
