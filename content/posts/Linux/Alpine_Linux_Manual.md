@@ -72,3 +72,12 @@ $ cp /usr/share/zoneinfo/Asia/Shanghai /etc/localtime
 $ echo "Asia/Shanghai" > /etc/timezone
 $ apk del tzdata
 ```
+
+## 修改主机名
+```ini
+; /etc/hostname
+<hostname>
+```
+```bash
+$ reboot
+```
