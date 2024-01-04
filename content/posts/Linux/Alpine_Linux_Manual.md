@@ -36,27 +36,28 @@ eval `keychain --eval ~/.ssh/github.com`
 ```bash
 $ apk update
 $ apk add openssh-server openssh
+```
+```ini
+; /etc/ssh/sshd_config
 # 开放Root登录
-$ echo 'PermitRootLogin yes' >> /etc/ssh/sshd_config
+- #PermitRootLogin prohibit-password
++ PermitRootLogin yes
+# 解决ssh自动断开
+- #ClientAliveInterval 0
+- #ClientAliveCountMax 3
++ ClientAliveInterval 60
++ ClientAliveCountMax 3
+```
+```bash
+$ rc-service sshd start
 
+$ rc-service sshd restart
 # 设置开机启动
 $ rc-update add sshd
 # 删除开机启动服务
 $ rc-update del sshd
-
-$ rc-service sshd start
-$ rc-service sshd restart
 # 显示所有服务
 # rc-status -a
-```
-### 解决ssh自动断开
-```ini
-; /etc/ssh/sshd_config
-ClientAliveInterval 60
-ClientAliveCountMax 3
-```
-```bash
-$ rc-service sshd restart
 ```
 - [Alpine安装SSH服务，并开启SSH远程登录](https://mayanpeng.cn/archives/248.html)
 
