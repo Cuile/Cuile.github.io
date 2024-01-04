@@ -6,14 +6,14 @@
 <meta http-equiv=x-ua-compatible content="IE=edge">
 <meta property="og:locale" content="zh-cn">
 <meta property="og:type" content="article">
-<meta name=description content="WindTerm 无法认证 WindTerm客户端，取消 “会话设置 -> SSH -> 验证 -> 尝试键盘交互认证” 可已正常连接。 终端配置和环境变量 在 /etc/profile.d 文件夹下，创建sh文件来实">
+<meta name=description content="WindTerm 无法认证 WindTerm客户端，取消 “会话设置 -> SSH -> 验证 -> 尝试键盘交互认证” 可已正常连接。 安装 OpenSSH Server 1$ apk update 2$ apk add openssh-server openssh 1; …">
 <meta name=twitter:card content="summary">
 <meta name=twitter:creator content>
 <meta name=twitter:title content="Alpine Linux 配置">
 <meta name=twitter:image content="https://cuile.github.io/images/thumbnail.png">
 <meta property="og:url" content="https://cuile.github.io/posts/linux/alpine_linux_manual/">
 <meta property="og:title" content="Alpine Linux 配置">
-<meta property="og:description" content="WindTerm 无法认证 WindTerm客户端，取消 “会话设置 -> SSH -> 验证 -> 尝试键盘交互认证” 可已正常连接。 终端配置和环境变量 在 /etc/profile.d 文件夹下，创建sh文件来实">
+<meta property="og:description" content="WindTerm 无法认证 WindTerm客户端，取消 “会话设置 -> SSH -> 验证 -> 尝试键盘交互认证” 可已正常连接。 安装 OpenSSH Server 1$ apk update 2$ apk add openssh-server openssh 1; …">
 <meta property="og:image" content="https://cuile.github.io/images/thumbnail.png">
 <link rel=apple-touch-icon sizes=180x180 href=https://cuile.github.io/icons/apple-touch-icon.png>
 <link rel=icon type=image/png sizes=32x32 href=https://cuile.github.io/icons/favicon-32x32.png>
@@ -54,24 +54,14 @@
 <span class=post_date>
 2022-12-28</span>
 <span class=post_time> · 阅读时长 1 分钟</span><span>&nbsp;· <a href=https://cuile.github.io/tags/alpine-linux/ title="alpine linux" class="post_tag button button_translucent">alpine linux
+</a><a href=https://cuile.github.io/tags/cli/ title=cli class="post_tag button button_translucent">cli
+</a><a href=https://cuile.github.io/tags/linux/ title=linux class="post_tag button button_translucent">linux
 </a>
 </span>
 </div>
 <div class=post_body><h2 id=windterm-无法认证>WindTerm 无法认证</h2>
 <p>WindTerm客户端，取消 “会话设置 -> SSH -> 验证 -> 尝试键盘交互认证” 可已正常连接。</p>
-<h2 id=终端配置和环境变量>终端配置和环境变量</h2>
-<p>在 /etc/profile.d 文件夹下，创建sh文件来实现。</p>
-<div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=ln> 1</span><span class=c1># cli.sh</span>
-<span class=ln> 2</span><span class=nb>alias</span> <span class=nv>ll</span><span class=o>=</span><span class=s1>&#39;ls -la --color=tty&#39;</span>
-<span class=ln> 3</span><span class=c1># ash.sh</span>
-<span class=ln> 4</span><span class=c1># Alpine Linux</span>
-<span class=ln> 5</span><span class=c1># BusyBox 不支持日期格式</span>
-<span class=ln> 6</span><span class=c1># [HH:MM] path</span>
-<span class=ln> 7</span><span class=c1># [user@hostname] 命令提示符</span>
-<span class=ln> 8</span><span class=nb>export</span> <span class=nv>PS1</span><span class=o>=</span><span class=s1>&#39;\[\e[36;40m\][\A] \[\e[0m\] \[\e[35;40m\]\w\[\e[0m\]\n\[\e[33;40m\][\u@\H]\[\e[0m\]  \\$ &#39;</span>
-<span class=ln> 9</span><span class=c1># keychain.sh</span>
-<span class=ln>10</span><span class=nb>eval</span> <span class=sb>`</span>keychain --eval ~/.ssh/github.com<span class=sb>`</span>
-</code></pre></div><h2 id=安装-openssh-server>安装 OpenSSH Server</h2>
+<h2 id=安装-openssh-server>安装 OpenSSH Server</h2>
 <div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=ln>1</span>$ apk update
 <span class=ln>2</span>$ apk add openssh-server openssh
 </code></pre></div><div class=highlight><pre tabindex=0 class=chroma><code class=language-ini data-lang=ini><span class=ln>1</span><span class=c1>; /etc/ssh/sshd_config</span>
@@ -94,6 +84,21 @@
 <span class=ln>9</span><span class=c1># rc-status -a</span>
 </code></pre></div><ul>
 <li><a href=https://mayanpeng.cn/archives/248.html>Alpine安装SSH服务，并开启SSH远程登录</a></li>
+</ul>
+<h2 id=终端配置>终端配置</h2>
+<p>在 /etc/profile.d 文件夹下，创建sh文件来实现。</p>
+<div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=ln> 1</span><span class=c1># /etc/profile.d/30user.sh</span>
+<span class=ln> 2</span>+ <span class=nb>alias</span> <span class=nv>ll</span><span class=o>=</span><span class=s1>&#39;ls -la --color=tty&#39;</span>
+<span class=ln> 3</span><span class=c1># ash.sh</span>
+<span class=ln> 4</span><span class=c1># Alpine Linux</span>
+<span class=ln> 5</span><span class=c1># BusyBox 不支持日期格式</span>
+<span class=ln> 6</span><span class=c1># [HH:MM] path</span>
+<span class=ln> 7</span><span class=c1># [user@hostname] 命令提示符</span>
+<span class=ln> 8</span>+ <span class=nb>export</span> <span class=nv>PS1</span><span class=o>=</span><span class=s1>&#39;\[\e[36;40m\][\A] \[\e[0m\] \[\e[35;40m\]\w\[\e[0m\]\n\[\e[33;40m\][\u@\H]\[\e[0m\]  \\$ &#39;</span>
+<span class=ln> 9</span><span class=c1># keychain.sh</span>
+<span class=ln>10</span>+ <span class=nb>eval</span> <span class=sb>`</span>keychain --eval ~/.ssh/github.com<span class=sb>`</span>
+</code></pre></div><ul>
+<li><a href=https://www.cnblogs.com/jinzhenshui/p/16358242.html>busybox：ash：PS1：支持的内部替换变量</a></li>
 </ul>
 <h2 id=修改时区>修改时区</h2>
 <div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=ln>1</span><span class=c1># 查看当时时间</span>
@@ -314,7 +319,7 @@ HARMONYOS
 <nav class=tags_nav>
 <a href=https://cuile.github.io/tags/cli/ class="post_tag button button_translucent" title=cli>
 CLI
-<span class=button_tally>12</span>
+<span class=button_tally>13</span>
 </a>
 <a href=https://cuile.github.io/tags/alpine-linux/ class="post_tag button button_translucent" title=alpine-linux>
 ALPINE-LINUX
@@ -330,6 +335,10 @@ PYTHON
 </a>
 <a href=https://cuile.github.io/tags/centos/ class="post_tag button button_translucent" title=centos>
 CENTOS
+<span class=button_tally>3</span>
+</a>
+<a href=https://cuile.github.io/tags/linux/ class="post_tag button button_translucent" title=linux>
+LINUX
 <span class=button_tally>3</span>
 </a>
 <a href=https://cuile.github.io/tags/network/ class="post_tag button button_translucent" title=network>
@@ -350,10 +359,6 @@ FIREWALL
 </a>
 <a href=https://cuile.github.io/tags/git/ class="post_tag button button_translucent" title=git>
 GIT
-<span class=button_tally>2</span>
-</a>
-<a href=https://cuile.github.io/tags/linux/ class="post_tag button button_translucent" title=linux>
-LINUX
 <span class=button_tally>2</span>
 </a>
 <a href=https://cuile.github.io/tags/micromamba/ class="post_tag button button_translucent" title=micromamba>
@@ -386,7 +391,7 @@ VENV
 </a>
 <a href=https://cuile.github.io/tags/centos-7/ class="post_tag button button_translucent" data-position=1 title=centos-7>CENTOS-7<span class=button_tally>1</span>
 </a>
-<a href=https://cuile.github.io/tags/cli/ class="post_tag button button_translucent" data-position=12 title=cli>CLI<span class=button_tally>12</span>
+<a href=https://cuile.github.io/tags/cli/ class="post_tag button button_translucent" data-position=13 title=cli>CLI<span class=button_tally>13</span>
 </a>
 <a href=https://cuile.github.io/tags/crontab/ class="post_tag button button_translucent" data-position=1 title=crontab>CRONTAB<span class=button_tally>1</span>
 </a>
@@ -422,7 +427,7 @@ VENV
 </a>
 <a href=https://cuile.github.io/tags/keychain/ class="post_tag button button_translucent" data-position=1 title=keychain>KEYCHAIN<span class=button_tally>1</span>
 </a>
-<a href=https://cuile.github.io/tags/linux/ class="post_tag button button_translucent" data-position=2 title=linux>LINUX<span class=button_tally>2</span>
+<a href=https://cuile.github.io/tags/linux/ class="post_tag button button_translucent" data-position=3 title=linux>LINUX<span class=button_tally>3</span>
 </a>
 <a href=https://cuile.github.io/tags/make/ class="post_tag button button_translucent" data-position=1 title=make>MAKE<span class=button_tally>1</span>
 </a>
