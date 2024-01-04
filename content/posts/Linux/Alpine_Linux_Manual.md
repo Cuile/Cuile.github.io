@@ -6,6 +6,8 @@ date: 2022-12-28T16:27:00+08:00
 # 标签
 tags:
 - alpine linux
+- cli
+- linux
 # 专栏
 series:
 # 分类
@@ -15,22 +17,6 @@ categories:
 ## WindTerm 无法认证
 
 WindTerm客户端，取消 “会话设置 -> SSH -> 验证 -> 尝试键盘交互认证” 可已正常连接。
-
-## 终端配置和环境变量
-
-在 /etc/profile.d 文件夹下，创建sh文件来实现。
-```bash
-# cli.sh
-alias ll='ls -la --color=tty'
-# ash.sh
-# Alpine Linux
-# BusyBox 不支持日期格式
-# [HH:MM] path
-# [user@hostname] 命令提示符
-export PS1='\[\e[36;40m\][\A] \[\e[0m\] \[\e[35;40m\]\w\[\e[0m\]\n\[\e[33;40m\][\u@\H]\[\e[0m\]  \\$ '
-# keychain.sh
-eval `keychain --eval ~/.ssh/github.com`
-```
 
 ## 安装 OpenSSH Server
 ```bash
@@ -60,6 +46,23 @@ $ rc-update del sshd
 # rc-status -a
 ```
 - [Alpine安装SSH服务，并开启SSH远程登录](https://mayanpeng.cn/archives/248.html)
+
+## 终端配置
+
+在 /etc/profile.d 文件夹下，创建sh文件来实现。
+```bash
+# /etc/profile.d/30user.sh
++ alias ll='ls -la --color=tty'
+# ash.sh
+# Alpine Linux
+# BusyBox 不支持日期格式
+# [HH:MM] path
+# [user@hostname] 命令提示符
++ export PS1='\[\e[36;40m\][\A] \[\e[0m\] \[\e[35;40m\]\w\[\e[0m\]\n\[\e[33;40m\][\u@\H]\[\e[0m\]  \\$ '
+# keychain.sh
++ eval `keychain --eval ~/.ssh/github.com`
+```
+- [busybox：ash：PS1：支持的内部替换变量](https://www.cnblogs.com/jinzhenshui/p/16358242.html)
 
 ## 修改时区
 ```bash
