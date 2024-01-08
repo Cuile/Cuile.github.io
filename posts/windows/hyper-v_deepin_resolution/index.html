@@ -1,24 +1,24 @@
 <!doctype html><html lang=zh-cn data-figures class=page>
 <head>
-<title>Hyper-V 网络设置 | 瘦了就帅了</title>
+<title>Hyper-V 下设置 Deepin 分辨率 | 瘦了就帅了</title>
 <meta charset=utf-8>
 <meta name=viewport content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
 <meta http-equiv=x-ua-compatible content="IE=edge">
 <meta property="og:locale" content="zh-cn">
 <meta property="og:type" content="article">
-<meta name=description content="1. 网络设置 1.1. 基础知识 Hyper-V 安装完后，将自动创建一个“默认虚拟交换机”，并同时创建一个同名的虚拟网卡。此交换机及网卡都无法修改，且每次启动时IP都">
+<meta name=description content="在hyper-v虚拟机下调节分辨率 1$ sudo nano /etc/default/grub 修改配置项 1GRUB_CMDLINE_LINUX_DEFAULT=&#34;quiet splash video=hyperv_fb:1366x768&#34; 更新 grub 1$ sudo …">
 <meta name=twitter:card content="summary">
 <meta name=twitter:creator content>
-<meta name=twitter:title content="Hyper-V 网络设置">
+<meta name=twitter:title content="Hyper-V 下设置 Deepin 分辨率">
 <meta name=twitter:image content="https://cuile.github.io/images/thumbnail.png">
-<meta property="og:url" content="https://cuile.github.io/posts/hyper-v/hyper-v_network/">
-<meta property="og:title" content="Hyper-V 网络设置">
-<meta property="og:description" content="1. 网络设置 1.1. 基础知识 Hyper-V 安装完后，将自动创建一个“默认虚拟交换机”，并同时创建一个同名的虚拟网卡。此交换机及网卡都无法修改，且每次启动时IP都">
+<meta property="og:url" content="https://cuile.github.io/posts/windows/hyper-v_deepin_resolution/">
+<meta property="og:title" content="Hyper-V 下设置 Deepin 分辨率">
+<meta property="og:description" content="在hyper-v虚拟机下调节分辨率 1$ sudo nano /etc/default/grub 修改配置项 1GRUB_CMDLINE_LINUX_DEFAULT=&#34;quiet splash video=hyperv_fb:1366x768&#34; 更新 grub 1$ sudo …">
 <meta property="og:image" content="https://cuile.github.io/images/thumbnail.png">
 <link rel=apple-touch-icon sizes=180x180 href=https://cuile.github.io/icons/apple-touch-icon.png>
 <link rel=icon type=image/png sizes=32x32 href=https://cuile.github.io/icons/favicon-32x32.png>
 <link rel=manifest href=https://cuile.github.io/icons/site.webmanifest>
-<link rel=canonical href=https://cuile.github.io/posts/hyper-v/hyper-v_network/>
+<link rel=canonical href=https://cuile.github.io/posts/windows/hyper-v_deepin_resolution/>
 <link rel=preload href=https://cuile.github.io/css/styles.367129801480fead578d7a356a98fcb3bce794981ff18cee55868d198d0d2bf1eb4feac97319d0871c6255183b9fd27a7059e4632c785951f4c4f6953559c4d0.css integrity="sha512-NnEpgBSA/q1XjXo1apj8s7znlJgf8YzuVYaNGY0NK/HrT+rJcxnQhxxiVRg7n9J6cFnkYyx4WVH0xPaVNVnE0A==" as=style crossorigin=anonymous>
 <link rel=preload href=https://cuile.github.io/zh-cn/js/bundle.4e04b93422786398f3502d560bd5acb3d3f99b2e942c8c11e0fd926ab6ec3ccbd020d4294d58c0825ecb606ef221b34edc81586f1832489816a57ae8f0276615.js as=script integrity="sha512-TgS5NCJ4Y5jzUC1WC9Wss9P5my6ULIwR4P2SarbsPMvQINQpTVjAgl7LYG7yIbNO3IFYbxgySJgWpXro8CdmFQ==" crossorigin=anonymous>
 <link rel=stylesheet type=text/css href=https://cuile.github.io/css/styles.367129801480fead578d7a356a98fcb3bce794981ff18cee55868d198d0d2bf1eb4feac97319d0871c6255183b9fd27a7059e4632c785951f4c4f6953559c4d0.css integrity="sha512-NnEpgBSA/q1XjXo1apj8s7znlJgf8YzuVYaNGY0NK/HrT+rJcxnQhxxiVRg7n9J6cFnkYyx4WVH0xPaVNVnE0A==" crossorigin=anonymous>
@@ -47,164 +47,63 @@
 <main>
 <div class="grid-inverse wrap content">
 <article class=post_content>
-<h1 class=post_title>Hyper-V 网络设置</h1>
+<h1 class=post_title>Hyper-V 下设置 Deepin 分辨率</h1>
 <div class=post_meta>
 <span><svg class="icon"><title>calendar</title><use xlink:href="#calendar"/></svg>
 </span>
 <span class=post_date>
-2022-12-26</span>
-<span class=post_time> · 阅读时长 3 分钟</span><span>&nbsp;· <a href=https://cuile.github.io/tags/network/ title=network class="post_tag button button_translucent">network
+2023-05-06</span>
+<span class=post_time> · 阅读时长 1 分钟</span><span>&nbsp;· <a href=https://cuile.github.io/tags/deepin/ title=deepin class="post_tag button button_translucent">deepin
+</a><a href=https://cuile.github.io/tags/hyper-v/ title=Hyper-V class="post_tag button button_translucent">Hyper-V
+</a><a href=https://cuile.github.io/tags/%E7%B3%BB%E7%BB%9F%E9%85%8D%E7%BD%AE/ title=系统配置 class="post_tag button button_translucent">系统配置
+</a><a href=https://cuile.github.io/tags/windows/ title=windows class="post_tag button button_translucent">windows
 </a>
 </span>
 </div>
-<div class=post_body><h2 id=1-网络设置>1. 网络设置</h2>
-<h3 id=11-基础知识>1.1. 基础知识</h3>
+<div class=post_body><h2 id=在hyper-v虚拟机下调节分辨率>在hyper-v虚拟机下调节分辨率</h2>
+<div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=ln>1</span>$ sudo nano /etc/default/grub
+</code></pre></div><p>修改配置项</p>
+<div class=highlight><pre tabindex=0 class=chroma><code class=language-ini data-lang=ini><span class=ln>1</span><span class=na>GRUB_CMDLINE_LINUX_DEFAULT</span><span class=o>=</span><span class=s>&#34;quiet splash video=hyperv_fb:1366x768&#34;</span>
+</code></pre></div><p>更新 grub</p>
+<div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=ln>1</span>$ sudo /usr/lib/deepin-api/adjust-grub-theme
+<span class=ln>2</span>$ sudo update-grub
+</code></pre></div><p><em>注意：这种方法最高只能支持 1920×1080 的分辨率，对于大显示器，高 DPI 的童鞋，可以考虑用 RDP，VNC 等方式来用上更高的分辨率。</em></p>
+<h3 id=参考文档>参考文档</h3>
 <ul>
-<li>Hyper-V 安装完后，将自动创建一个“默认虚拟交换机”，并同时创建一个同名的虚拟网卡。此交换机及网卡都无法修改，且每次启动时IP都会发生变化。
-<ul>
-<li>如在宿主机同时安装了“Windows沙盒”功能，则沙盒会给每个物理网卡和虚拟网卡，都自动的再创建一个对应的虚拟网卡，容易造成混乱，使用中要注意。</li>
-</ul>
-</li>
-<li>将物理网卡直接共享给“默认虚拟交换机”对应的网卡，是比较省事高效的方法，相当于在物理网卡上做了一个NAT转换，而且IP地址会自动固定为192.168.137.1，网速较快。
-<ul>
-<li>缺点是在多个物理网卡之间切换时非常不方便。</li>
-</ul>
-</li>
-<li>Windows 网络共享重启会失效，这个BUG一直没有解决，需要如此解决：
-<ul>
-<li>找到“Internet Connection Sharing”服务
-<ul>
-<li>启动类型：自动</li>
-</ul>
-</li>
-<li>找到注册表中“HKEY_LOCAL_MACHINE\Software\Microsoft\Windows\CurrentVersion\SharedAccess”
-<ul>
-<li>新建“DWORD(32位)值(D)”：EnableRebootPersistConnection</li>
-<li>值（十六进制）：1</li>
-</ul>
-</li>
-<li>重启电脑</li>
-</ul>
-</li>
-<li>在宿主机使用无线网卡时，由于Hyper-V对无线网卡支持的不好，需要做以下操作：
-<ul>
-<li>新建“外部虚拟交换机”：
-<ul>
-<li>勾选“允许管理操作系统共享此网络适配器”，选择“外部虚拟交换机”对应的网卡，相当于在无线网卡上做了一个NAT转换，而且IP地址会自动固定为192.168.137.1，网速较快。
-<ul>
-<li>会在宿主机上添加一个网桥，一个虚拟网卡，且宿主机可同时上网。</li>
-</ul>
-</li>
-<li>反之，则只会添加一个网桥，且宿主机无法同时上网。
-<ul>
-<li>这是 Hyper-V 对无线网卡支持不够好的表现，而且网速很慢，慢到什么程度呢？慢到微信连文件都发不出去！</li>
-</ul>
-</li>
-</ul>
-</li>
-<li>新建“内部虚拟交换机”：
-<ul>
-<li>将所有虚拟机都接入自建的“内部虚拟交换机”，可以解决IP变化的问题。</li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
-<h3 id=12-网络拓扑>1.2. 网络拓扑</h3>
-<p>假设使用以下拓扑结构来设计网络：
-宿主机直连路由器，宿主机上创建一个虚拟路由器，和一个虚拟机，宿主机与虚拟机都通过虚拟路由器来上网。</p>
-<table>
-<thead>
-<tr>
-<th></th>
-<th>TP Route</th>
-<th>宿主机</th>
-<th>OpenWRT</th>
-<th>虚拟机</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>WLAN</td>
-<td>>DHCP<br>IP: 192.168.10.113<br>IP: 192.168.10.114<br>mac: ac-8f</td>
-<td>>Bridge<br>IP: -<br>mac: ac-8f</td>
-<td>-</td>
-<td>-</td>
-</tr>
-<tr>
-<td>外部网络</td>
-<td>-</td>
-<td>>WLAN<br>IP: 192.168.10.113<br>mac: ac-8f</td>
-<td>>WLAN<br>IP: 192.168.10.114<br>mac: 01-36</td>
-<td>-</td>
-</tr>
-<tr>
-<td>内部网络</td>
-<td>-</td>
-<td>>DHCP<br>IP: 192.168.123.100<br>mac: 01-28</td>
-<td>>Static<br>IP: 192.168.123.1<br>mac: 01-29</td>
-<td>>DHCP<br>IP: 192.168.123.102<br>mac: 01-2c</td>
-</tr>
-<tr>
-<td>网桥</td>
-<td>-</td>
-<td>>Switch<br>IP: -<br>mac: ac-8f</td>
-<td>-</td>
-<td>-</td>
-</tr>
-</tbody>
-</table>
-<h2 id=2-查看网卡虚拟网卡虚拟交换机的命令>2. 查看网卡、虚拟网卡、虚拟交换机的命令</h2>
-<p>使用管理员模式，启动 PowerShell</p>
-<div class=highlight><pre tabindex=0 class=chroma><code class=language-powershell data-lang=powershell><span class=ln> 1</span><span class=c># 查看所有网卡</span>
-<span class=ln> 2</span><span class=p>&gt;</span> <span class=nb>get-netadapter</span> 
-<span class=ln> 3</span>
-<span class=ln> 4</span><span class=c># 查看虚拟交换机</span>
-<span class=ln> 5</span><span class=p>&gt;</span> <span class=nb>get-vmswitch</span>
-<span class=ln> 6</span>
-<span class=ln> 7</span><span class=c># 查看所有虚拟网卡</span>
-<span class=ln> 8</span><span class=p>&gt;</span> <span class=nb>get-vmnetworkadapter</span> <span class=n>-all</span> 
-<span class=ln> 9</span>
-<span class=ln>10</span><span class=c># 查看在主机上的虚拟网卡</span>
-<span class=ln>11</span><span class=p>&gt;</span> <span class=nb>get-vmnetworkadapter</span> <span class=n>-managementos</span> 
-<span class=ln>12</span>
-<span class=ln>13</span><span class=c># 查看网卡组</span>
-<span class=ln>14</span><span class=p>&gt;</span> <span class=nb>get-netlbfoteam</span>
-</code></pre></div><h2 id=3-删除>3. 删除</h2>
-<p>使用管理员模式，启动 PowerShell</p>
-<div class=highlight><pre tabindex=0 class=chroma><code class=language-powershell data-lang=powershell><span class=ln>1</span><span class=c># 删除虚拟网卡</span>
-<span class=ln>2</span><span class=p>&gt;</span> <span class=nb>remove-vmnetworkadapter</span> <span class=n>-managementos</span> <span class=n>-name</span> <span class=s2>&#34;xxx&#34;</span>
-<span class=ln>3</span>
-<span class=ln>4</span><span class=c># 删除虚拟交换机</span>
-<span class=ln>5</span><span class=p>&gt;</span> <span class=nb>remove-vmswitch</span> <span class=n>-name</span> <span class=s2>&#34;xxx&#34;</span>
-<span class=ln>6</span>
-<span class=ln>7</span><span class=c># 删除网卡组</span>
-<span class=ln>8</span><span class=p>&gt;</span> <span class=nb>remove-netlbfoteam</span> <span class=n>-name</span> <span class=s2>&#34;xxx&#34;</span>
-</code></pre></div><p>这里要注意删除顺序是，虚拟网卡 > 虚拟交换机 > 网卡组 > 物理网卡。</p>
-<p>当然还有一个最简单粗暴的命令，删除所有设置，只保留物理网卡，非常简单好用。</p>
-<div class=highlight><pre tabindex=0 class=chroma><code class=language-powershell data-lang=powershell><span class=ln>1</span><span class=p>&gt;</span> <span class=n>netcfg</span> <span class=n>-d</span>
-</code></pre></div><h2 id=参考文档>参考文档</h2>
-<ul>
-<li>Hyper-V网络设置
-<ul>
-<li><a href=https://www.junmajinlong.com/virtual/network/hyperv_net/>理解Hyper-V外部网络、内部网络、私有网络</a></li>
-<li><a href=https://www.cnblogs.com/qingspace/p/4268993.html>删除Windows中隐藏的物理网卡和网络虚拟化失败后的虚拟网卡</a></li>
-<li><a href=https://blog.51cto.com/u_15162069/2761935>Hyper-V 网络配置</a></li>
-<li><a href=https://www.it-swarm.cn/zh/hyper-v/%E5%A6%82%E4%BD%95%E4%BB%8E%E8%AE%BE%E5%A4%87%E7%AE%A1%E7%90%86%E5%99%A8%E4%B8%AD%E5%88%A0%E9%99%A4hyperv%E8%99%9A%E6%8B%9F%E4%BA%A4%E6%8D%A2%E6%9C%BA%E6%89%A9%E5%B1%95%E9%80%82%E9%85%8D%E5%99%A8/960270896/>如何从设备管理器中删除Hyper-V虚拟交换机扩展适配器</a></li>
-<li><a href=https://www.cnblogs.com/daner1257/p/9824745.html>Win10 Hyper-v下虚拟机使用无线网络</a></li>
-<li><a href=https://www.cnblogs.com/guoyabin/p/4443146.html>hyper-v使用wifi链接网络</a></li>
-</ul>
-</li>
-<li>Windows 网络共享
-<ul>
-<li><a href=https://blog.moeyukina.top/index.php/2019/12/08/windowsics/>Windows 网络共享重启失效解决方案</a></li>
-<li><a href="https://social.technet.microsoft.com/Forums/security/zh-CN/efb64b6a-a90c-469c-ba42-53866ddde7ad/win10?forum=win10itprogeneralCN">win10 系统在做双网卡共享Internet问题-已解决！！多谢帮助！！</a></li>
-</ul>
-</li>
+<li><a href=https://www.jianshu.com/p/f7fd7b708a65>https://www.jianshu.com/p/f7fd7b708a65</a></li>
 </ul>
 </div>
 <h2 class=post_related>相关专栏文章</h2>
 <ul>
+<li><a href=https://cuile.github.io/posts/windows/windows_setup/ class=nav-link title=Windows系统配置>Windows系统配置</a></li>
+<li><a href=https://cuile.github.io/posts/slam_dunk_2/ class=nav-link title="灌篮高手大结局(全国大赛后) 下">灌篮高手大结局(全国大赛后) 下</a></li>
+<li><a href=https://cuile.github.io/posts/slam_dunk_1/ class=nav-link title="灌篮高手大结局(全国大赛后) 上">灌篮高手大结局(全国大赛后) 上</a></li>
+<li><a href=https://cuile.github.io/posts/vscode/vscode_develop_inside_docker_container/ class=nav-link title="VScode 在 Docker 容器内开发">VScode 在 Docker 容器内开发</a></li>
+<li><a href=https://cuile.github.io/posts/vscode/vscode_configures_python_development_environment/ class=nav-link title="VSCode 配置 Python 开发环境">VSCode 配置 Python 开发环境</a></li>
+<li><a href=https://cuile.github.io/posts/windows/hyper-v_deepin_resolution/ class=nav-link title="Hyper-V 下设置 Deepin 分辨率">Hyper-V 下设置 Deepin 分辨率</a></li>
+<li><a href=https://cuile.github.io/posts/vscode/vscode_with_remote_ssh_in_alpine_linux/ class=nav-link title="VsCode 使用 Remote SSH 连接 Alpine Linux">VsCode 使用 Remote SSH 连接 Alpine Linux</a></li>
+<li><a href=https://cuile.github.io/posts/linux/alpine_linux_manual/ class=nav-link title="Alpine Linux 配置">Alpine Linux 配置</a></li>
+<li><a href=https://cuile.github.io/posts/proxmox/proxmox_cli/ class=nav-link title="Proxmox 命令行">Proxmox 命令行</a></li>
+<li><a href=https://cuile.github.io/posts/windows/hyper-v_centos_disk_expansion/ class=nav-link title="Hyper-V 环境下给 CentOS 磁盘扩容">Hyper-V 环境下给 CentOS 磁盘扩容</a></li>
+<li><a href=https://cuile.github.io/posts/windows/hyper-v_ubuntu_resolution/ class=nav-link title="Hyper-V 下设置 Ubuntu 分辨率">Hyper-V 下设置 Ubuntu 分辨率</a></li>
+<li><a href=https://cuile.github.io/posts/windows/hyper-v_windows10/ class=nav-link title="Windows 10 家庭版安装 Hyper-V">Windows 10 家庭版安装 Hyper-V</a></li>
+<li><a href=https://cuile.github.io/posts/windows/hyper-v_network/ class=nav-link title="Hyper-V 网络设置">Hyper-V 网络设置</a></li>
+<li><a href=https://cuile.github.io/posts/docker/docker_compose/ class=nav-link title="Docker Compose 指令">Docker Compose 指令</a></li>
+<li><a href=https://cuile.github.io/posts/git/connect_with_ssh/ class=nav-link title="使用 SSH 连接 Github">使用 SSH 连接 Github</a></li>
+<li><a href=https://cuile.github.io/posts/linux/alpine_linux_docker/ class=nav-link title="Alpine Linux 安装 Docker">Alpine Linux 安装 Docker</a></li>
+<li><a href=https://cuile.github.io/posts/linux/alpine_linux_install/ class=nav-link title="虚拟机安装 Alpine Linux 3.16">虚拟机安装 Alpine Linux 3.16</a></li>
+<li><a href=https://cuile.github.io/posts/ups/ups_install/ class=nav-link title="山克 UPS 安装手册">山克 UPS 安装手册</a></li>
+<li><a href=https://cuile.github.io/posts/git/git_cli/ class=nav-link title="Git 命令行">Git 命令行</a></li>
+<li><a href=https://cuile.github.io/posts/docker/docker_install_snap/ class=nav-link title="使用 Snap 安装 Docker">使用 Snap 安装 Docker</a></li>
+<li><a href=https://cuile.github.io/posts/docker/docker_install_centos/ class=nav-link title="CentOS 7 安装 Docker">CentOS 7 安装 Docker</a></li>
+<li><a href=https://cuile.github.io/posts/ffmpeg_manual/ class=nav-link title=FFmpeg脚本>FFmpeg脚本</a></li>
+<li><a href=https://cuile.github.io/posts/mysql_manual/ class=nav-link title="MySQL 数据操作">MySQL 数据操作</a></li>
+<li><a href=https://cuile.github.io/posts/linux/linux_cli_manual/ class=nav-link title=Linux系统命令>Linux系统命令</a></li>
+<li><a href=https://cuile.github.io/posts/hugo_setup_for_github/ class=nav-link title=Github使用Hugo生成Blog>Github使用Hugo生成Blog</a></li>
+<li><a href=https://cuile.github.io/posts/docker/docker_cli/ class=nav-link title=Docker使用命令>Docker使用命令</a></li>
+<li><a href=https://cuile.github.io/archives/ class=nav-link title></a></li>
+<li><a href=https://cuile.github.io/about/ class=nav-link title=About>About</a></li>
+<li><a href=https://cuile.github.io/search/ class=nav-link title=Search>Search</a></li>
 </ul>
 <div class=post_comments>
 </div>
@@ -217,9 +116,99 @@
 产品里的技术、一眼看不出来的胖子
 </div>
 <ul>
+<li>
+<a href=https://cuile.github.io/posts/windows/windows_setup/ class=nav-link title=Windows系统配置>Windows系统配置</a>
+</li>
+<li>
+<a href=https://cuile.github.io/posts/slam_dunk_2/ class=nav-link title="灌篮高手大结局(全国大赛后) 下">灌篮高手大结局(全国大赛后) 下</a>
+</li>
+<li>
+<a href=https://cuile.github.io/posts/slam_dunk_1/ class=nav-link title="灌篮高手大结局(全国大赛后) 上">灌篮高手大结局(全国大赛后) 上</a>
+</li>
+<li>
+<a href=https://cuile.github.io/posts/vscode/vscode_develop_inside_docker_container/ class=nav-link title="VScode 在 Docker 容器内开发">VScode 在 Docker 容器内开发</a>
+</li>
+<li>
+<a href=https://cuile.github.io/posts/vscode/vscode_configures_python_development_environment/ class=nav-link title="VSCode 配置 Python 开发环境">VSCode 配置 Python 开发环境</a>
+</li>
+<li>
+<a href=https://cuile.github.io/posts/windows/hyper-v_deepin_resolution/ class=nav-link title="Hyper-V 下设置 Deepin 分辨率">Hyper-V 下设置 Deepin 分辨率</a>
+</li>
+<li>
+<a href=https://cuile.github.io/posts/vscode/vscode_with_remote_ssh_in_alpine_linux/ class=nav-link title="VsCode 使用 Remote SSH 连接 Alpine Linux">VsCode 使用 Remote SSH 连接 Alpine Linux</a>
+</li>
+<li>
+<a href=https://cuile.github.io/posts/linux/alpine_linux_manual/ class=nav-link title="Alpine Linux 配置">Alpine Linux 配置</a>
+</li>
+<li>
+<a href=https://cuile.github.io/posts/proxmox/proxmox_cli/ class=nav-link title="Proxmox 命令行">Proxmox 命令行</a>
+</li>
+<li>
+<a href=https://cuile.github.io/posts/windows/hyper-v_centos_disk_expansion/ class=nav-link title="Hyper-V 环境下给 CentOS 磁盘扩容">Hyper-V 环境下给 CentOS 磁盘扩容</a>
+</li>
+<li>
+<a href=https://cuile.github.io/posts/windows/hyper-v_ubuntu_resolution/ class=nav-link title="Hyper-V 下设置 Ubuntu 分辨率">Hyper-V 下设置 Ubuntu 分辨率</a>
+</li>
+<li>
+<a href=https://cuile.github.io/posts/windows/hyper-v_windows10/ class=nav-link title="Windows 10 家庭版安装 Hyper-V">Windows 10 家庭版安装 Hyper-V</a>
+</li>
+<li>
+<a href=https://cuile.github.io/posts/windows/hyper-v_network/ class=nav-link title="Hyper-V 网络设置">Hyper-V 网络设置</a>
+</li>
+<li>
+<a href=https://cuile.github.io/posts/docker/docker_compose/ class=nav-link title="Docker Compose 指令">Docker Compose 指令</a>
+</li>
+<li>
+<a href=https://cuile.github.io/posts/git/connect_with_ssh/ class=nav-link title="使用 SSH 连接 Github">使用 SSH 连接 Github</a>
+</li>
+<li>
+<a href=https://cuile.github.io/posts/linux/alpine_linux_docker/ class=nav-link title="Alpine Linux 安装 Docker">Alpine Linux 安装 Docker</a>
+</li>
+<li>
+<a href=https://cuile.github.io/posts/linux/alpine_linux_install/ class=nav-link title="虚拟机安装 Alpine Linux 3.16">虚拟机安装 Alpine Linux 3.16</a>
+</li>
+<li>
+<a href=https://cuile.github.io/posts/ups/ups_install/ class=nav-link title="山克 UPS 安装手册">山克 UPS 安装手册</a>
+</li>
+<li>
+<a href=https://cuile.github.io/posts/git/git_cli/ class=nav-link title="Git 命令行">Git 命令行</a>
+</li>
+<li>
+<a href=https://cuile.github.io/posts/docker/docker_install_snap/ class=nav-link title="使用 Snap 安装 Docker">使用 Snap 安装 Docker</a>
+</li>
+<li>
+<a href=https://cuile.github.io/posts/docker/docker_install_centos/ class=nav-link title="CentOS 7 安装 Docker">CentOS 7 安装 Docker</a>
+</li>
+<li>
+<a href=https://cuile.github.io/posts/ffmpeg_manual/ class=nav-link title=FFmpeg脚本>FFmpeg脚本</a>
+</li>
+<li>
+<a href=https://cuile.github.io/posts/mysql_manual/ class=nav-link title="MySQL 数据操作">MySQL 数据操作</a>
+</li>
+<li>
+<a href=https://cuile.github.io/posts/linux/linux_cli_manual/ class=nav-link title=Linux系统命令>Linux系统命令</a>
+</li>
+<li>
+<a href=https://cuile.github.io/posts/hugo_setup_for_github/ class=nav-link title=Github使用Hugo生成Blog>Github使用Hugo生成Blog</a>
+</li>
+<li>
+<a href=https://cuile.github.io/posts/docker/docker_cli/ class=nav-link title=Docker使用命令>Docker使用命令</a>
+</li>
+<li>
+<a href=https://cuile.github.io/archives/ class=nav-link title></a>
+</li>
+<li>
+<a href=https://cuile.github.io/about/ class=nav-link title=About>About</a>
+</li>
+<li>
+<a href=https://cuile.github.io/search/ class=nav-link title=Search>Search</a>
+</li>
 </ul>
 <h2 class=mt-4>最新文章</h2>
 <ul class=flex-column>
+<li>
+<a href=https://cuile.github.io/posts/windows/windows_setup/ class=nav-link title=Windows系统配置>Windows系统配置</a>
+</li>
 <li>
 <a href=https://cuile.github.io/posts/slam_dunk_2/ class=nav-link title="灌篮高手大结局(全国大赛后) 下">灌篮高手大结局(全国大赛后) 下</a>
 </li>
@@ -241,16 +230,13 @@
 <li>
 <a href=https://cuile.github.io/posts/proxmox/proxmox_bbr/ class=nav-link title="Proxmox 配置 BBR">Proxmox 配置 BBR</a>
 </li>
-<li>
-<a href=https://cuile.github.io/posts/proxmox/proxmox_subscription/ class=nav-link title="Proxmox 关闭订阅提示">Proxmox 关闭订阅提示</a>
-</li>
 </ul>
 <div>
 <h2 class="mt-4 taxonomy" id=categories-section>分类</h2>
 <nav class=tags_nav>
 <a href=https://cuile.github.io/categories/%E7%B3%BB%E7%BB%9F%E9%85%8D%E7%BD%AE/ class="post_tag button button_translucent" title=系统配置>
 系统配置
-<span class=button_tally>27</span>
+<span class=button_tally>22</span>
 </a>
 <a href=https://cuile.github.io/categories/tips/ class="post_tag button button_translucent" title=tips>
 TIPS
@@ -284,10 +270,6 @@ LIFE-TIPS
 <a href=https://cuile.github.io/series/openwrt/ class="post_tag button button_translucent" title=openwrt>
 OPENWRT
 <span class=button_tally>6</span>
-</a>
-<a href=https://cuile.github.io/series/hyper-v/ class="post_tag button button_translucent" title=hyper-v>
-HYPER-V
-<span class=button_tally>5</span>
 </a>
 <a href=https://cuile.github.io/series/proxmox/ class="post_tag button button_translucent" title=proxmox>
 PROXMOX
@@ -330,6 +312,18 @@ ALPINE-LINUX
 DOCKER
 <span class=button_tally>6</span>
 </a>
+<a href=https://cuile.github.io/tags/windows/ class="post_tag button button_translucent" title=windows>
+WINDOWS
+<span class=button_tally>6</span>
+</a>
+<a href=https://cuile.github.io/tags/%E7%B3%BB%E7%BB%9F%E9%85%8D%E7%BD%AE/ class="post_tag button button_translucent" title=系统配置>
+系统配置
+<span class=button_tally>6</span>
+</a>
+<a href=https://cuile.github.io/tags/hyper-v/ class="post_tag button button_translucent" title=hyper-v>
+HYPER-V
+<span class=button_tally>5</span>
+</a>
 <a href=https://cuile.github.io/tags/python/ class="post_tag button button_translucent" title=python>
 PYTHON
 <span class=button_tally>4</span>
@@ -360,18 +354,6 @@ FIREWALL
 </a>
 <a href=https://cuile.github.io/tags/git/ class="post_tag button button_translucent" title=git>
 GIT
-<span class=button_tally>2</span>
-</a>
-<a href=https://cuile.github.io/tags/micromamba/ class="post_tag button button_translucent" title=micromamba>
-MICROMAMBA
-<span class=button_tally>2</span>
-</a>
-<a href=https://cuile.github.io/tags/proxy/ class="post_tag button button_translucent" title=proxy>
-PROXY
-<span class=button_tally>2</span>
-</a>
-<a href=https://cuile.github.io/tags/venv/ class="post_tag button button_translucent" title=venv>
-VENV
 <span class=button_tally>2</span>
 </a>
 <br>
@@ -419,6 +401,8 @@ VENV
 <a href=https://cuile.github.io/tags/gunicorn/ class="post_tag button button_translucent" data-position=1 title=gunicorn>GUNICORN<span class=button_tally>1</span>
 </a>
 <a href=https://cuile.github.io/tags/hugo/ class="post_tag button button_translucent" data-position=1 title=hugo>HUGO<span class=button_tally>1</span>
+</a>
+<a href=https://cuile.github.io/tags/hyper-v/ class="post_tag button button_translucent" data-position=5 title=hyper-v>HYPER-V<span class=button_tally>5</span>
 </a>
 <a href=https://cuile.github.io/tags/iptables/ class="post_tag button button_translucent" data-position=1 title=iptables>IPTABLES<span class=button_tally>1</span>
 </a>
@@ -494,7 +478,7 @@ VENV
 </a>
 <a href=https://cuile.github.io/tags/vscode/ class="post_tag button button_translucent" data-position=3 title=vscode>VSCODE<span class=button_tally>3</span>
 </a>
-<a href=https://cuile.github.io/tags/windows/ class="post_tag button button_translucent" data-position=1 title=windows>WINDOWS<span class=button_tally>1</span>
+<a href=https://cuile.github.io/tags/windows/ class="post_tag button button_translucent" data-position=6 title=windows>WINDOWS<span class=button_tally>6</span>
 </a>
 <a href=https://cuile.github.io/tags/windwos-10/ class="post_tag button button_translucent" data-position=1 title=windwos-10>WINDWOS-10<span class=button_tally>1</span>
 </a>
@@ -509,6 +493,8 @@ VENV
 <a href=https://cuile.github.io/tags/%E7%AF%AE%E7%90%83/ class="post_tag button button_translucent" data-position=2 title=篮球>篮球<span class=button_tally>2</span>
 </a>
 <a href=https://cuile.github.io/tags/%E7%AF%AE%E7%90%83%E9%A3%9E%E4%BA%BA/ class="post_tag button button_translucent" data-position=2 title=篮球飞人>篮球飞人<span class=button_tally>2</span>
+</a>
+<a href=https://cuile.github.io/tags/%E7%B3%BB%E7%BB%9F%E9%85%8D%E7%BD%AE/ class="post_tag button button_translucent" data-position=6 title=系统配置>系统配置<span class=button_tally>6</span>
 </a>
 <div class=tags_sort><span title="sort alphabetically">[A~Z]</span><span title="sort by count">[0~9]</span>
 </div>

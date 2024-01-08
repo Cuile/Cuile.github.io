@@ -1,24 +1,24 @@
 <!doctype html><html lang=zh-cn data-figures class=page>
 <head>
-<title>Hyper-V 下设置 Ubuntu 分辨率 | 瘦了就帅了</title>
+<title>Windows系统配置 | 瘦了就帅了</title>
 <meta charset=utf-8>
 <meta name=viewport content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
 <meta http-equiv=x-ua-compatible content="IE=edge">
 <meta property="og:locale" content="zh-cn">
 <meta property="og:type" content="article">
-<meta name=description content="Hyper-V 环境下安装 Linux 是无法调节分辨率的，但可以通过设置指定分辨率，不过最大只能支持1920x1080 1. 修改配置文件 1$ sudo nano /etc/default/grub 将配置 1GRUB_CMDLINE_LINUX_DEFAULT=&#34;quiet splash &#34; 修改 …">
+<meta name=description content="Windows 10 自带输入法，没有候选字栏 1> DISM /Online /Add-Capability /CapabilityName:Windows.Client.ShellComponents~~~~0.0.1.0 我用的win10自带输入法，最近不知道为什么没有候选字栏，只能用空格选定输入，怎么解 …">
 <meta name=twitter:card content="summary">
 <meta name=twitter:creator content>
-<meta name=twitter:title content="Hyper-V 下设置 Ubuntu 分辨率">
+<meta name=twitter:title content="Windows系统配置">
 <meta name=twitter:image content="https://cuile.github.io/images/thumbnail.png">
-<meta property="og:url" content="https://cuile.github.io/posts/hyper-v/hyper-v_ubuntu_resolution/">
-<meta property="og:title" content="Hyper-V 下设置 Ubuntu 分辨率">
-<meta property="og:description" content="Hyper-V 环境下安装 Linux 是无法调节分辨率的，但可以通过设置指定分辨率，不过最大只能支持1920x1080 1. 修改配置文件 1$ sudo nano /etc/default/grub 将配置 1GRUB_CMDLINE_LINUX_DEFAULT=&#34;quiet splash &#34; 修改 …">
+<meta property="og:url" content="https://cuile.github.io/posts/windows/windows_setup/">
+<meta property="og:title" content="Windows系统配置">
+<meta property="og:description" content="Windows 10 自带输入法，没有候选字栏 1> DISM /Online /Add-Capability /CapabilityName:Windows.Client.ShellComponents~~~~0.0.1.0 我用的win10自带输入法，最近不知道为什么没有候选字栏，只能用空格选定输入，怎么解 …">
 <meta property="og:image" content="https://cuile.github.io/images/thumbnail.png">
 <link rel=apple-touch-icon sizes=180x180 href=https://cuile.github.io/icons/apple-touch-icon.png>
 <link rel=icon type=image/png sizes=32x32 href=https://cuile.github.io/icons/favicon-32x32.png>
 <link rel=manifest href=https://cuile.github.io/icons/site.webmanifest>
-<link rel=canonical href=https://cuile.github.io/posts/hyper-v/hyper-v_ubuntu_resolution/>
+<link rel=canonical href=https://cuile.github.io/posts/windows/windows_setup/>
 <link rel=preload href=https://cuile.github.io/css/styles.367129801480fead578d7a356a98fcb3bce794981ff18cee55868d198d0d2bf1eb4feac97319d0871c6255183b9fd27a7059e4632c785951f4c4f6953559c4d0.css integrity="sha512-NnEpgBSA/q1XjXo1apj8s7znlJgf8YzuVYaNGY0NK/HrT+rJcxnQhxxiVRg7n9J6cFnkYyx4WVH0xPaVNVnE0A==" as=style crossorigin=anonymous>
 <link rel=preload href=https://cuile.github.io/zh-cn/js/bundle.4e04b93422786398f3502d560bd5acb3d3f99b2e942c8c11e0fd926ab6ec3ccbd020d4294d58c0825ecb606ef221b34edc81586f1832489816a57ae8f0276615.js as=script integrity="sha512-TgS5NCJ4Y5jzUC1WC9Wss9P5my6ULIwR4P2SarbsPMvQINQpTVjAgl7LYG7yIbNO3IFYbxgySJgWpXro8CdmFQ==" crossorigin=anonymous>
 <link rel=stylesheet type=text/css href=https://cuile.github.io/css/styles.367129801480fead578d7a356a98fcb3bce794981ff18cee55868d198d0d2bf1eb4feac97319d0871c6255183b9fd27a7059e4632c785951f4c4f6953559c4d0.css integrity="sha512-NnEpgBSA/q1XjXo1apj8s7znlJgf8YzuVYaNGY0NK/HrT+rJcxnQhxxiVRg7n9J6cFnkYyx4WVH0xPaVNVnE0A==" crossorigin=anonymous>
@@ -47,34 +47,23 @@
 <main>
 <div class="grid-inverse wrap content">
 <article class=post_content>
-<h1 class=post_title>Hyper-V 下设置 Ubuntu 分辨率</h1>
+<h1 class=post_title>Windows系统配置</h1>
 <div class=post_meta>
 <span><svg class="icon"><title>calendar</title><use xlink:href="#calendar"/></svg>
 </span>
 <span class=post_date>
-2022-12-26</span>
-<span class=post_time> · 阅读时长 1 分钟</span><span>&nbsp;· <a href=https://cuile.github.io/tags/ubuntu/ title=Ubuntu class="post_tag button button_translucent">Ubuntu
+2024-01-08</span>
+<span class=post_time> · 阅读时长 1 分钟</span><span>&nbsp;· <a href=https://cuile.github.io/tags/windows/ title=windows class="post_tag button button_translucent">windows
+</a><a href=https://cuile.github.io/tags/%E7%B3%BB%E7%BB%9F%E9%85%8D%E7%BD%AE/ title=系统配置 class="post_tag button button_translucent">系统配置
 </a>
 </span>
 </div>
-<div class=post_body><p>Hyper-V 环境下安装 Linux 是无法调节分辨率的，但可以通过设置指定分辨率，不过最大只能支持1920x1080</p>
-<h2 id=1-修改配置文件>1. 修改配置文件</h2>
-<div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=ln>1</span>$ sudo nano /etc/default/grub
-</code></pre></div><p>将配置</p>
-<div class=highlight><pre tabindex=0 class=chroma><code class=language-ini data-lang=ini><span class=ln>1</span><span class=na>GRUB_CMDLINE_LINUX_DEFAULT</span><span class=o>=</span><span class=s>&#34;quiet splash &#34;</span>
-</code></pre></div><p>修改为</p>
-<div class=highlight><pre tabindex=0 class=chroma><code class=language-ini data-lang=ini><span class=ln>1</span><span class=na>GRUB_CMDLINE_LINUX_DEFAULT</span><span class=o>=</span><span class=s>&#34;quiet splash video=hyperv_fb:1920x1080&#34;</span>
-</code></pre></div><p>这里要注意屏幕的实际分辨率，在15寸的笔记本上，适合的分辨率为1600x900</p>
-<h2 id=2-更新-grub>2. 更新 Grub</h2>
-<div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=ln>1</span>$ sudo update-grub
-</code></pre></div><h2 id=3-重启>3. 重启</h2>
-<div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=ln>1</span>$ reboot
-</code></pre></div><h2 id=参考文档>参考文档</h2>
-<p><a href=https://www.pcoic.com/system/743.html>Hyper-V 下 Ubuntu/Deepin 如何设置分辨率</a></p>
-</div>
-<h2 class=post_related>相关专栏文章</h2>
-<ul>
+<div class=post_body><h2 id=windows-10-自带输入法没有候选字栏>Windows 10 自带输入法，没有候选字栏</h2>
+<div class=highlight><pre tabindex=0 class=chroma><code class=language-powershell data-lang=powershell><span class=ln>1</span><span class=p>&gt;</span> <span class=n>DISM</span> <span class=p>/</span><span class=n>Online</span> <span class=p>/</span><span class=nb>Add-Capability</span> <span class=p>/</span><span class=n>CapabilityName</span><span class=err>:</span><span class=n>Windows</span><span class=p>.</span><span class=n>Client</span><span class=p>.</span><span class=n>ShellComponents</span><span class=p>~~~~</span><span class=n>0</span><span class=p>.</span><span class=n>0</span><span class=p>.</span><span class=n>1</span><span class=p>.</span><span class=n>0</span>
+</code></pre></div><ul>
+<li><a href=https://www.zhihu.com/question/427491064>我用的win10自带输入法，最近不知道为什么没有候选字栏，只能用空格选定输入，怎么解决？</a></li>
 </ul>
+</div>
 <div class=post_comments>
 </div>
 </article>
@@ -85,8 +74,6 @@
 <div class=author_bio>
 产品里的技术、一眼看不出来的胖子
 </div>
-<ul>
-</ul>
 <h2 class=mt-4>最新文章</h2>
 <ul class=flex-column>
 <li>
@@ -119,7 +106,7 @@
 <nav class=tags_nav>
 <a href=https://cuile.github.io/categories/%E7%B3%BB%E7%BB%9F%E9%85%8D%E7%BD%AE/ class="post_tag button button_translucent" title=系统配置>
 系统配置
-<span class=button_tally>27</span>
+<span class=button_tally>22</span>
 </a>
 <a href=https://cuile.github.io/categories/tips/ class="post_tag button button_translucent" title=tips>
 TIPS
@@ -153,10 +140,6 @@ LIFE-TIPS
 <a href=https://cuile.github.io/series/openwrt/ class="post_tag button button_translucent" title=openwrt>
 OPENWRT
 <span class=button_tally>6</span>
-</a>
-<a href=https://cuile.github.io/series/hyper-v/ class="post_tag button button_translucent" title=hyper-v>
-HYPER-V
-<span class=button_tally>5</span>
 </a>
 <a href=https://cuile.github.io/series/proxmox/ class="post_tag button button_translucent" title=proxmox>
 PROXMOX
@@ -199,6 +182,18 @@ ALPINE-LINUX
 DOCKER
 <span class=button_tally>6</span>
 </a>
+<a href=https://cuile.github.io/tags/windows/ class="post_tag button button_translucent" title=windows>
+WINDOWS
+<span class=button_tally>6</span>
+</a>
+<a href=https://cuile.github.io/tags/%E7%B3%BB%E7%BB%9F%E9%85%8D%E7%BD%AE/ class="post_tag button button_translucent" title=系统配置>
+系统配置
+<span class=button_tally>6</span>
+</a>
+<a href=https://cuile.github.io/tags/hyper-v/ class="post_tag button button_translucent" title=hyper-v>
+HYPER-V
+<span class=button_tally>5</span>
+</a>
 <a href=https://cuile.github.io/tags/python/ class="post_tag button button_translucent" title=python>
 PYTHON
 <span class=button_tally>4</span>
@@ -229,18 +224,6 @@ FIREWALL
 </a>
 <a href=https://cuile.github.io/tags/git/ class="post_tag button button_translucent" title=git>
 GIT
-<span class=button_tally>2</span>
-</a>
-<a href=https://cuile.github.io/tags/micromamba/ class="post_tag button button_translucent" title=micromamba>
-MICROMAMBA
-<span class=button_tally>2</span>
-</a>
-<a href=https://cuile.github.io/tags/proxy/ class="post_tag button button_translucent" title=proxy>
-PROXY
-<span class=button_tally>2</span>
-</a>
-<a href=https://cuile.github.io/tags/venv/ class="post_tag button button_translucent" title=venv>
-VENV
 <span class=button_tally>2</span>
 </a>
 <br>
@@ -288,6 +271,8 @@ VENV
 <a href=https://cuile.github.io/tags/gunicorn/ class="post_tag button button_translucent" data-position=1 title=gunicorn>GUNICORN<span class=button_tally>1</span>
 </a>
 <a href=https://cuile.github.io/tags/hugo/ class="post_tag button button_translucent" data-position=1 title=hugo>HUGO<span class=button_tally>1</span>
+</a>
+<a href=https://cuile.github.io/tags/hyper-v/ class="post_tag button button_translucent" data-position=5 title=hyper-v>HYPER-V<span class=button_tally>5</span>
 </a>
 <a href=https://cuile.github.io/tags/iptables/ class="post_tag button button_translucent" data-position=1 title=iptables>IPTABLES<span class=button_tally>1</span>
 </a>
@@ -363,7 +348,7 @@ VENV
 </a>
 <a href=https://cuile.github.io/tags/vscode/ class="post_tag button button_translucent" data-position=3 title=vscode>VSCODE<span class=button_tally>3</span>
 </a>
-<a href=https://cuile.github.io/tags/windows/ class="post_tag button button_translucent" data-position=1 title=windows>WINDOWS<span class=button_tally>1</span>
+<a href=https://cuile.github.io/tags/windows/ class="post_tag button button_translucent" data-position=6 title=windows>WINDOWS<span class=button_tally>6</span>
 </a>
 <a href=https://cuile.github.io/tags/windwos-10/ class="post_tag button button_translucent" data-position=1 title=windwos-10>WINDWOS-10<span class=button_tally>1</span>
 </a>
@@ -378,6 +363,8 @@ VENV
 <a href=https://cuile.github.io/tags/%E7%AF%AE%E7%90%83/ class="post_tag button button_translucent" data-position=2 title=篮球>篮球<span class=button_tally>2</span>
 </a>
 <a href=https://cuile.github.io/tags/%E7%AF%AE%E7%90%83%E9%A3%9E%E4%BA%BA/ class="post_tag button button_translucent" data-position=2 title=篮球飞人>篮球飞人<span class=button_tally>2</span>
+</a>
+<a href=https://cuile.github.io/tags/%E7%B3%BB%E7%BB%9F%E9%85%8D%E7%BD%AE/ class="post_tag button button_translucent" data-position=6 title=系统配置>系统配置<span class=button_tally>6</span>
 </a>
 <div class=tags_sort><span title="sort alphabetically">[A~Z]</span><span title="sort by count">[0~9]</span>
 </div>

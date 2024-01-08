@@ -11,14 +11,14 @@
 <meta name=twitter:creator content>
 <meta name=twitter:title content="Hyper-V 环境下给 CentOS 磁盘扩容">
 <meta name=twitter:image content="https://cuile.github.io/images/thumbnail.png">
-<meta property="og:url" content="https://cuile.github.io/posts/hyper-v/hyper-v_centos_disk_expansion/">
+<meta property="og:url" content="https://cuile.github.io/posts/windows/hyper-v_centos_disk_expansion/">
 <meta property="og:title" content="Hyper-V 环境下给 CentOS 磁盘扩容">
 <meta property="og:description" content="使用Hyper-V安装CentOS虚拟机，使用起来非常方便。但遇到磁盘空间不够时，不像Windows虚拟机那样方便给磁盘空间扩容。 总体两分二">
 <meta property="og:image" content="https://cuile.github.io/images/thumbnail.png">
 <link rel=apple-touch-icon sizes=180x180 href=https://cuile.github.io/icons/apple-touch-icon.png>
 <link rel=icon type=image/png sizes=32x32 href=https://cuile.github.io/icons/favicon-32x32.png>
 <link rel=manifest href=https://cuile.github.io/icons/site.webmanifest>
-<link rel=canonical href=https://cuile.github.io/posts/hyper-v/hyper-v_centos_disk_expansion/>
+<link rel=canonical href=https://cuile.github.io/posts/windows/hyper-v_centos_disk_expansion/>
 <link rel=preload href=https://cuile.github.io/css/styles.367129801480fead578d7a356a98fcb3bce794981ff18cee55868d198d0d2bf1eb4feac97319d0871c6255183b9fd27a7059e4632c785951f4c4f6953559c4d0.css integrity="sha512-NnEpgBSA/q1XjXo1apj8s7znlJgf8YzuVYaNGY0NK/HrT+rJcxnQhxxiVRg7n9J6cFnkYyx4WVH0xPaVNVnE0A==" as=style crossorigin=anonymous>
 <link rel=preload href=https://cuile.github.io/zh-cn/js/bundle.4e04b93422786398f3502d560bd5acb3d3f99b2e942c8c11e0fd926ab6ec3ccbd020d4294d58c0825ecb606ef221b34edc81586f1832489816a57ae8f0276615.js as=script integrity="sha512-TgS5NCJ4Y5jzUC1WC9Wss9P5my6ULIwR4P2SarbsPMvQINQpTVjAgl7LYG7yIbNO3IFYbxgySJgWpXro8CdmFQ==" crossorigin=anonymous>
 <link rel=stylesheet type=text/css href=https://cuile.github.io/css/styles.367129801480fead578d7a356a98fcb3bce794981ff18cee55868d198d0d2bf1eb4feac97319d0871c6255183b9fd27a7059e4632c785951f4c4f6953559c4d0.css integrity="sha512-NnEpgBSA/q1XjXo1apj8s7znlJgf8YzuVYaNGY0NK/HrT+rJcxnQhxxiVRg7n9J6cFnkYyx4WVH0xPaVNVnE0A==" crossorigin=anonymous>
@@ -54,6 +54,9 @@
 <span class=post_date>
 2022-12-26</span>
 <span class=post_time> · 阅读时长 5 分钟</span><span>&nbsp;· <a href=https://cuile.github.io/tags/centos/ title=CentOS class="post_tag button button_translucent">CentOS
+</a><a href=https://cuile.github.io/tags/hyper-v/ title=Hyper-V class="post_tag button button_translucent">Hyper-V
+</a><a href=https://cuile.github.io/tags/windows/ title=windows class="post_tag button button_translucent">windows
+</a><a href=https://cuile.github.io/tags/%E7%B3%BB%E7%BB%9F%E9%85%8D%E7%BD%AE/ title=系统配置 class="post_tag button button_translucent">系统配置
 </a>
 </span>
 </div>
@@ -318,6 +321,35 @@
 </div>
 <h2 class=post_related>相关专栏文章</h2>
 <ul>
+<li><a href=https://cuile.github.io/posts/windows/windows_setup/ class=nav-link title=Windows系统配置>Windows系统配置</a></li>
+<li><a href=https://cuile.github.io/posts/slam_dunk_2/ class=nav-link title="灌篮高手大结局(全国大赛后) 下">灌篮高手大结局(全国大赛后) 下</a></li>
+<li><a href=https://cuile.github.io/posts/slam_dunk_1/ class=nav-link title="灌篮高手大结局(全国大赛后) 上">灌篮高手大结局(全国大赛后) 上</a></li>
+<li><a href=https://cuile.github.io/posts/vscode/vscode_develop_inside_docker_container/ class=nav-link title="VScode 在 Docker 容器内开发">VScode 在 Docker 容器内开发</a></li>
+<li><a href=https://cuile.github.io/posts/vscode/vscode_configures_python_development_environment/ class=nav-link title="VSCode 配置 Python 开发环境">VSCode 配置 Python 开发环境</a></li>
+<li><a href=https://cuile.github.io/posts/windows/hyper-v_deepin_resolution/ class=nav-link title="Hyper-V 下设置 Deepin 分辨率">Hyper-V 下设置 Deepin 分辨率</a></li>
+<li><a href=https://cuile.github.io/posts/vscode/vscode_with_remote_ssh_in_alpine_linux/ class=nav-link title="VsCode 使用 Remote SSH 连接 Alpine Linux">VsCode 使用 Remote SSH 连接 Alpine Linux</a></li>
+<li><a href=https://cuile.github.io/posts/linux/alpine_linux_manual/ class=nav-link title="Alpine Linux 配置">Alpine Linux 配置</a></li>
+<li><a href=https://cuile.github.io/posts/proxmox/proxmox_cli/ class=nav-link title="Proxmox 命令行">Proxmox 命令行</a></li>
+<li><a href=https://cuile.github.io/posts/windows/hyper-v_centos_disk_expansion/ class=nav-link title="Hyper-V 环境下给 CentOS 磁盘扩容">Hyper-V 环境下给 CentOS 磁盘扩容</a></li>
+<li><a href=https://cuile.github.io/posts/windows/hyper-v_ubuntu_resolution/ class=nav-link title="Hyper-V 下设置 Ubuntu 分辨率">Hyper-V 下设置 Ubuntu 分辨率</a></li>
+<li><a href=https://cuile.github.io/posts/windows/hyper-v_windows10/ class=nav-link title="Windows 10 家庭版安装 Hyper-V">Windows 10 家庭版安装 Hyper-V</a></li>
+<li><a href=https://cuile.github.io/posts/windows/hyper-v_network/ class=nav-link title="Hyper-V 网络设置">Hyper-V 网络设置</a></li>
+<li><a href=https://cuile.github.io/posts/docker/docker_compose/ class=nav-link title="Docker Compose 指令">Docker Compose 指令</a></li>
+<li><a href=https://cuile.github.io/posts/git/connect_with_ssh/ class=nav-link title="使用 SSH 连接 Github">使用 SSH 连接 Github</a></li>
+<li><a href=https://cuile.github.io/posts/linux/alpine_linux_docker/ class=nav-link title="Alpine Linux 安装 Docker">Alpine Linux 安装 Docker</a></li>
+<li><a href=https://cuile.github.io/posts/linux/alpine_linux_install/ class=nav-link title="虚拟机安装 Alpine Linux 3.16">虚拟机安装 Alpine Linux 3.16</a></li>
+<li><a href=https://cuile.github.io/posts/ups/ups_install/ class=nav-link title="山克 UPS 安装手册">山克 UPS 安装手册</a></li>
+<li><a href=https://cuile.github.io/posts/git/git_cli/ class=nav-link title="Git 命令行">Git 命令行</a></li>
+<li><a href=https://cuile.github.io/posts/docker/docker_install_snap/ class=nav-link title="使用 Snap 安装 Docker">使用 Snap 安装 Docker</a></li>
+<li><a href=https://cuile.github.io/posts/docker/docker_install_centos/ class=nav-link title="CentOS 7 安装 Docker">CentOS 7 安装 Docker</a></li>
+<li><a href=https://cuile.github.io/posts/ffmpeg_manual/ class=nav-link title=FFmpeg脚本>FFmpeg脚本</a></li>
+<li><a href=https://cuile.github.io/posts/mysql_manual/ class=nav-link title="MySQL 数据操作">MySQL 数据操作</a></li>
+<li><a href=https://cuile.github.io/posts/linux/linux_cli_manual/ class=nav-link title=Linux系统命令>Linux系统命令</a></li>
+<li><a href=https://cuile.github.io/posts/hugo_setup_for_github/ class=nav-link title=Github使用Hugo生成Blog>Github使用Hugo生成Blog</a></li>
+<li><a href=https://cuile.github.io/posts/docker/docker_cli/ class=nav-link title=Docker使用命令>Docker使用命令</a></li>
+<li><a href=https://cuile.github.io/archives/ class=nav-link title></a></li>
+<li><a href=https://cuile.github.io/about/ class=nav-link title=About>About</a></li>
+<li><a href=https://cuile.github.io/search/ class=nav-link title=Search>Search</a></li>
 </ul>
 <div class=post_comments>
 </div>
@@ -330,9 +362,99 @@
 产品里的技术、一眼看不出来的胖子
 </div>
 <ul>
+<li>
+<a href=https://cuile.github.io/posts/windows/windows_setup/ class=nav-link title=Windows系统配置>Windows系统配置</a>
+</li>
+<li>
+<a href=https://cuile.github.io/posts/slam_dunk_2/ class=nav-link title="灌篮高手大结局(全国大赛后) 下">灌篮高手大结局(全国大赛后) 下</a>
+</li>
+<li>
+<a href=https://cuile.github.io/posts/slam_dunk_1/ class=nav-link title="灌篮高手大结局(全国大赛后) 上">灌篮高手大结局(全国大赛后) 上</a>
+</li>
+<li>
+<a href=https://cuile.github.io/posts/vscode/vscode_develop_inside_docker_container/ class=nav-link title="VScode 在 Docker 容器内开发">VScode 在 Docker 容器内开发</a>
+</li>
+<li>
+<a href=https://cuile.github.io/posts/vscode/vscode_configures_python_development_environment/ class=nav-link title="VSCode 配置 Python 开发环境">VSCode 配置 Python 开发环境</a>
+</li>
+<li>
+<a href=https://cuile.github.io/posts/windows/hyper-v_deepin_resolution/ class=nav-link title="Hyper-V 下设置 Deepin 分辨率">Hyper-V 下设置 Deepin 分辨率</a>
+</li>
+<li>
+<a href=https://cuile.github.io/posts/vscode/vscode_with_remote_ssh_in_alpine_linux/ class=nav-link title="VsCode 使用 Remote SSH 连接 Alpine Linux">VsCode 使用 Remote SSH 连接 Alpine Linux</a>
+</li>
+<li>
+<a href=https://cuile.github.io/posts/linux/alpine_linux_manual/ class=nav-link title="Alpine Linux 配置">Alpine Linux 配置</a>
+</li>
+<li>
+<a href=https://cuile.github.io/posts/proxmox/proxmox_cli/ class=nav-link title="Proxmox 命令行">Proxmox 命令行</a>
+</li>
+<li>
+<a href=https://cuile.github.io/posts/windows/hyper-v_centos_disk_expansion/ class=nav-link title="Hyper-V 环境下给 CentOS 磁盘扩容">Hyper-V 环境下给 CentOS 磁盘扩容</a>
+</li>
+<li>
+<a href=https://cuile.github.io/posts/windows/hyper-v_ubuntu_resolution/ class=nav-link title="Hyper-V 下设置 Ubuntu 分辨率">Hyper-V 下设置 Ubuntu 分辨率</a>
+</li>
+<li>
+<a href=https://cuile.github.io/posts/windows/hyper-v_windows10/ class=nav-link title="Windows 10 家庭版安装 Hyper-V">Windows 10 家庭版安装 Hyper-V</a>
+</li>
+<li>
+<a href=https://cuile.github.io/posts/windows/hyper-v_network/ class=nav-link title="Hyper-V 网络设置">Hyper-V 网络设置</a>
+</li>
+<li>
+<a href=https://cuile.github.io/posts/docker/docker_compose/ class=nav-link title="Docker Compose 指令">Docker Compose 指令</a>
+</li>
+<li>
+<a href=https://cuile.github.io/posts/git/connect_with_ssh/ class=nav-link title="使用 SSH 连接 Github">使用 SSH 连接 Github</a>
+</li>
+<li>
+<a href=https://cuile.github.io/posts/linux/alpine_linux_docker/ class=nav-link title="Alpine Linux 安装 Docker">Alpine Linux 安装 Docker</a>
+</li>
+<li>
+<a href=https://cuile.github.io/posts/linux/alpine_linux_install/ class=nav-link title="虚拟机安装 Alpine Linux 3.16">虚拟机安装 Alpine Linux 3.16</a>
+</li>
+<li>
+<a href=https://cuile.github.io/posts/ups/ups_install/ class=nav-link title="山克 UPS 安装手册">山克 UPS 安装手册</a>
+</li>
+<li>
+<a href=https://cuile.github.io/posts/git/git_cli/ class=nav-link title="Git 命令行">Git 命令行</a>
+</li>
+<li>
+<a href=https://cuile.github.io/posts/docker/docker_install_snap/ class=nav-link title="使用 Snap 安装 Docker">使用 Snap 安装 Docker</a>
+</li>
+<li>
+<a href=https://cuile.github.io/posts/docker/docker_install_centos/ class=nav-link title="CentOS 7 安装 Docker">CentOS 7 安装 Docker</a>
+</li>
+<li>
+<a href=https://cuile.github.io/posts/ffmpeg_manual/ class=nav-link title=FFmpeg脚本>FFmpeg脚本</a>
+</li>
+<li>
+<a href=https://cuile.github.io/posts/mysql_manual/ class=nav-link title="MySQL 数据操作">MySQL 数据操作</a>
+</li>
+<li>
+<a href=https://cuile.github.io/posts/linux/linux_cli_manual/ class=nav-link title=Linux系统命令>Linux系统命令</a>
+</li>
+<li>
+<a href=https://cuile.github.io/posts/hugo_setup_for_github/ class=nav-link title=Github使用Hugo生成Blog>Github使用Hugo生成Blog</a>
+</li>
+<li>
+<a href=https://cuile.github.io/posts/docker/docker_cli/ class=nav-link title=Docker使用命令>Docker使用命令</a>
+</li>
+<li>
+<a href=https://cuile.github.io/archives/ class=nav-link title></a>
+</li>
+<li>
+<a href=https://cuile.github.io/about/ class=nav-link title=About>About</a>
+</li>
+<li>
+<a href=https://cuile.github.io/search/ class=nav-link title=Search>Search</a>
+</li>
 </ul>
 <h2 class=mt-4>最新文章</h2>
 <ul class=flex-column>
+<li>
+<a href=https://cuile.github.io/posts/windows/windows_setup/ class=nav-link title=Windows系统配置>Windows系统配置</a>
+</li>
 <li>
 <a href=https://cuile.github.io/posts/slam_dunk_2/ class=nav-link title="灌篮高手大结局(全国大赛后) 下">灌篮高手大结局(全国大赛后) 下</a>
 </li>
@@ -354,16 +476,13 @@
 <li>
 <a href=https://cuile.github.io/posts/proxmox/proxmox_bbr/ class=nav-link title="Proxmox 配置 BBR">Proxmox 配置 BBR</a>
 </li>
-<li>
-<a href=https://cuile.github.io/posts/proxmox/proxmox_subscription/ class=nav-link title="Proxmox 关闭订阅提示">Proxmox 关闭订阅提示</a>
-</li>
 </ul>
 <div>
 <h2 class="mt-4 taxonomy" id=categories-section>分类</h2>
 <nav class=tags_nav>
 <a href=https://cuile.github.io/categories/%E7%B3%BB%E7%BB%9F%E9%85%8D%E7%BD%AE/ class="post_tag button button_translucent" title=系统配置>
 系统配置
-<span class=button_tally>27</span>
+<span class=button_tally>22</span>
 </a>
 <a href=https://cuile.github.io/categories/tips/ class="post_tag button button_translucent" title=tips>
 TIPS
@@ -397,10 +516,6 @@ LIFE-TIPS
 <a href=https://cuile.github.io/series/openwrt/ class="post_tag button button_translucent" title=openwrt>
 OPENWRT
 <span class=button_tally>6</span>
-</a>
-<a href=https://cuile.github.io/series/hyper-v/ class="post_tag button button_translucent" title=hyper-v>
-HYPER-V
-<span class=button_tally>5</span>
 </a>
 <a href=https://cuile.github.io/series/proxmox/ class="post_tag button button_translucent" title=proxmox>
 PROXMOX
@@ -443,6 +558,18 @@ ALPINE-LINUX
 DOCKER
 <span class=button_tally>6</span>
 </a>
+<a href=https://cuile.github.io/tags/windows/ class="post_tag button button_translucent" title=windows>
+WINDOWS
+<span class=button_tally>6</span>
+</a>
+<a href=https://cuile.github.io/tags/%E7%B3%BB%E7%BB%9F%E9%85%8D%E7%BD%AE/ class="post_tag button button_translucent" title=系统配置>
+系统配置
+<span class=button_tally>6</span>
+</a>
+<a href=https://cuile.github.io/tags/hyper-v/ class="post_tag button button_translucent" title=hyper-v>
+HYPER-V
+<span class=button_tally>5</span>
+</a>
 <a href=https://cuile.github.io/tags/python/ class="post_tag button button_translucent" title=python>
 PYTHON
 <span class=button_tally>4</span>
@@ -473,18 +600,6 @@ FIREWALL
 </a>
 <a href=https://cuile.github.io/tags/git/ class="post_tag button button_translucent" title=git>
 GIT
-<span class=button_tally>2</span>
-</a>
-<a href=https://cuile.github.io/tags/micromamba/ class="post_tag button button_translucent" title=micromamba>
-MICROMAMBA
-<span class=button_tally>2</span>
-</a>
-<a href=https://cuile.github.io/tags/proxy/ class="post_tag button button_translucent" title=proxy>
-PROXY
-<span class=button_tally>2</span>
-</a>
-<a href=https://cuile.github.io/tags/venv/ class="post_tag button button_translucent" title=venv>
-VENV
 <span class=button_tally>2</span>
 </a>
 <br>
@@ -532,6 +647,8 @@ VENV
 <a href=https://cuile.github.io/tags/gunicorn/ class="post_tag button button_translucent" data-position=1 title=gunicorn>GUNICORN<span class=button_tally>1</span>
 </a>
 <a href=https://cuile.github.io/tags/hugo/ class="post_tag button button_translucent" data-position=1 title=hugo>HUGO<span class=button_tally>1</span>
+</a>
+<a href=https://cuile.github.io/tags/hyper-v/ class="post_tag button button_translucent" data-position=5 title=hyper-v>HYPER-V<span class=button_tally>5</span>
 </a>
 <a href=https://cuile.github.io/tags/iptables/ class="post_tag button button_translucent" data-position=1 title=iptables>IPTABLES<span class=button_tally>1</span>
 </a>
@@ -607,7 +724,7 @@ VENV
 </a>
 <a href=https://cuile.github.io/tags/vscode/ class="post_tag button button_translucent" data-position=3 title=vscode>VSCODE<span class=button_tally>3</span>
 </a>
-<a href=https://cuile.github.io/tags/windows/ class="post_tag button button_translucent" data-position=1 title=windows>WINDOWS<span class=button_tally>1</span>
+<a href=https://cuile.github.io/tags/windows/ class="post_tag button button_translucent" data-position=6 title=windows>WINDOWS<span class=button_tally>6</span>
 </a>
 <a href=https://cuile.github.io/tags/windwos-10/ class="post_tag button button_translucent" data-position=1 title=windwos-10>WINDWOS-10<span class=button_tally>1</span>
 </a>
@@ -622,6 +739,8 @@ VENV
 <a href=https://cuile.github.io/tags/%E7%AF%AE%E7%90%83/ class="post_tag button button_translucent" data-position=2 title=篮球>篮球<span class=button_tally>2</span>
 </a>
 <a href=https://cuile.github.io/tags/%E7%AF%AE%E7%90%83%E9%A3%9E%E4%BA%BA/ class="post_tag button button_translucent" data-position=2 title=篮球飞人>篮球飞人<span class=button_tally>2</span>
+</a>
+<a href=https://cuile.github.io/tags/%E7%B3%BB%E7%BB%9F%E9%85%8D%E7%BD%AE/ class="post_tag button button_translucent" data-position=6 title=系统配置>系统配置<span class=button_tally>6</span>
 </a>
 <div class=tags_sort><span title="sort alphabetically">[A~Z]</span><span title="sort by count">[0~9]</span>
 </div>

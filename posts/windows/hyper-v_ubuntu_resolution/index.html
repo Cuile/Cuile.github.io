@@ -1,25 +1,24 @@
-<!doctype html><html lang=zh-cn data-figures>
+<!doctype html><html lang=zh-cn data-figures class=page>
 <head>
-<title>Hyper-V | 瘦了就帅了</title>
+<title>Hyper-V 下设置 Ubuntu 分辨率 | 瘦了就帅了</title>
 <meta charset=utf-8>
 <meta name=viewport content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
 <meta http-equiv=x-ua-compatible content="IE=edge">
 <meta property="og:locale" content="zh-cn">
 <meta property="og:type" content="article">
-<meta name=description content>
+<meta name=description content="Hyper-V 环境下安装 Linux 是无法调节分辨率的，但可以通过设置指定分辨率，不过最大只能支持1920x1080 1. 修改配置文件 1$ sudo nano /etc/default/grub 将配置 1GRUB_CMDLINE_LINUX_DEFAULT=&#34;quiet splash &#34; 修改 …">
 <meta name=twitter:card content="summary">
 <meta name=twitter:creator content>
-<meta name=twitter:title content="Hyper-V">
+<meta name=twitter:title content="Hyper-V 下设置 Ubuntu 分辨率">
 <meta name=twitter:image content="https://cuile.github.io/images/thumbnail.png">
-<meta property="og:url" content="https://cuile.github.io/series/hyper-v/">
-<meta property="og:title" content="Hyper-V">
-<meta property="og:description" content>
+<meta property="og:url" content="https://cuile.github.io/posts/windows/hyper-v_ubuntu_resolution/">
+<meta property="og:title" content="Hyper-V 下设置 Ubuntu 分辨率">
+<meta property="og:description" content="Hyper-V 环境下安装 Linux 是无法调节分辨率的，但可以通过设置指定分辨率，不过最大只能支持1920x1080 1. 修改配置文件 1$ sudo nano /etc/default/grub 将配置 1GRUB_CMDLINE_LINUX_DEFAULT=&#34;quiet splash &#34; 修改 …">
 <meta property="og:image" content="https://cuile.github.io/images/thumbnail.png">
 <link rel=apple-touch-icon sizes=180x180 href=https://cuile.github.io/icons/apple-touch-icon.png>
 <link rel=icon type=image/png sizes=32x32 href=https://cuile.github.io/icons/favicon-32x32.png>
 <link rel=manifest href=https://cuile.github.io/icons/site.webmanifest>
-<link rel=canonical href=https://cuile.github.io/series/hyper-v/>
-<link rel=alternate type=application/rss+xml href=https://cuile.github.io/series/hyper-v/index.xml title=瘦了就帅了>
+<link rel=canonical href=https://cuile.github.io/posts/windows/hyper-v_ubuntu_resolution/>
 <link rel=preload href=https://cuile.github.io/css/styles.367129801480fead578d7a356a98fcb3bce794981ff18cee55868d198d0d2bf1eb4feac97319d0871c6255183b9fd27a7059e4632c785951f4c4f6953559c4d0.css integrity="sha512-NnEpgBSA/q1XjXo1apj8s7znlJgf8YzuVYaNGY0NK/HrT+rJcxnQhxxiVRg7n9J6cFnkYyx4WVH0xPaVNVnE0A==" as=style crossorigin=anonymous>
 <link rel=preload href=https://cuile.github.io/zh-cn/js/bundle.4e04b93422786398f3502d560bd5acb3d3f99b2e942c8c11e0fd926ab6ec3ccbd020d4294d58c0825ecb606ef221b34edc81586f1832489816a57ae8f0276615.js as=script integrity="sha512-TgS5NCJ4Y5jzUC1WC9Wss9P5my6ULIwR4P2SarbsPMvQINQpTVjAgl7LYG7yIbNO3IFYbxgySJgWpXro8CdmFQ==" crossorigin=anonymous>
 <link rel=stylesheet type=text/css href=https://cuile.github.io/css/styles.367129801480fead578d7a356a98fcb3bce794981ff18cee55868d198d0d2bf1eb4feac97319d0871c6255183b9fd27a7059e4632c785951f4c4f6953559c4d0.css integrity="sha512-NnEpgBSA/q1XjXo1apj8s7znlJgf8YzuVYaNGY0NK/HrT+rJcxnQhxxiVRg7n9J6cFnkYyx4WVH0xPaVNVnE0A==" crossorigin=anonymous>
@@ -47,140 +46,70 @@
 </header>
 <main>
 <div class="grid-inverse wrap content">
-<div>
-<ul class=posts id=posts>
-<li class=post_item>
-<div class=excerpt>
-<div class=excerpt_header>
-<h3 class=post_link>
-<a href=https://cuile.github.io/posts/hyper-v/hyper-v_deepin_resolution/ title="Hyper-V 下设置 Deepin 分辨率">Hyper-V 下设置 Deepin 分辨率</a>
-</h3>
-<div class=post_meta>
-<span><svg class="icon"><title>calendar</title><use xlink:href="#calendar"/></svg>
-</span>
-<span class=post_date>
-2023-05-06</span>
-<span class=post_time> · 阅读时长 1 分钟</span><span>&nbsp;· <a href=https://cuile.github.io/tags/deepin/ title=deepin class="post_tag button button_translucent">deepin
-</a>
-</span>
-</div>
-</div>
-<div class=excerpt_footer>
-<div class=pale>
-<p>在hyper-v虚拟机下调节分辨率 1$ sudo nano /etc/default/grub 修改配置项 1GRUB_CMDLINE_LINUX_DEFAULT="quiet splash video=hyperv_fb:1366x768" 更新 grub 1$ sudo /usr/lib/deepin-api/adjust-grub-theme 2$ sudo update-grub 注意：这种方法最高只能支持 1920×1080 的分辨率，对于大显示</p>
-<br>
-<a href=https://cuile.github.io/posts/hyper-v/hyper-v_deepin_resolution/ title=阅读更多 class="excerpt_more button">阅读更多</a>
-</div>
-</div>
-</div>
-</li>
-<li class=post_item>
-<div class=excerpt>
-<div class=excerpt_header>
-<h3 class=post_link>
-<a href=https://cuile.github.io/posts/hyper-v/hyper-v_centos_disk_expansion/ title="Hyper-V 环境下给 CentOS 磁盘扩容">Hyper-V 环境下给 CentOS 磁盘扩容</a>
-</h3>
-<div class=post_meta>
-<span><svg class="icon"><title>calendar</title><use xlink:href="#calendar"/></svg>
-</span>
-<span class=post_date>
-2022-12-26</span>
-<span class=post_time> · 阅读时长 5 分钟</span><span>&nbsp;· <a href=https://cuile.github.io/tags/centos/ title=CentOS class="post_tag button button_translucent">CentOS
-</a>
-</span>
-</div>
-</div>
-<div class=excerpt_footer>
-<div class=pale>
-<p>使用Hyper-V安装CentOS虚拟机，使用起来非常方便。但遇到磁盘空间不够时，不像Windows虚拟机那样方便给磁盘空间扩容。 总体两分二</p>
-<br>
-<a href=https://cuile.github.io/posts/hyper-v/hyper-v_centos_disk_expansion/ title=阅读更多 class="excerpt_more button">阅读更多</a>
-</div>
-</div>
-</div>
-</li>
-<li class=post_item>
-<div class=excerpt>
-<div class=excerpt_header>
-<h3 class=post_link>
-<a href=https://cuile.github.io/posts/hyper-v/hyper-v_ubuntu_resolution/ title="Hyper-V 下设置 Ubuntu 分辨率">Hyper-V 下设置 Ubuntu 分辨率</a>
-</h3>
+<article class=post_content>
+<h1 class=post_title>Hyper-V 下设置 Ubuntu 分辨率</h1>
 <div class=post_meta>
 <span><svg class="icon"><title>calendar</title><use xlink:href="#calendar"/></svg>
 </span>
 <span class=post_date>
 2022-12-26</span>
 <span class=post_time> · 阅读时长 1 分钟</span><span>&nbsp;· <a href=https://cuile.github.io/tags/ubuntu/ title=Ubuntu class="post_tag button button_translucent">Ubuntu
+</a><a href=https://cuile.github.io/tags/hyper-v/ title=Hyper-V class="post_tag button button_translucent">Hyper-V
+</a><a href=https://cuile.github.io/tags/%E7%B3%BB%E7%BB%9F%E9%85%8D%E7%BD%AE/ title=系统配置 class="post_tag button button_translucent">系统配置
+</a><a href=https://cuile.github.io/tags/windows/ title=windows class="post_tag button button_translucent">windows
 </a>
 </span>
 </div>
+<div class=post_body><p>Hyper-V 环境下安装 Linux 是无法调节分辨率的，但可以通过设置指定分辨率，不过最大只能支持1920x1080</p>
+<h2 id=1-修改配置文件>1. 修改配置文件</h2>
+<div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=ln>1</span>$ sudo nano /etc/default/grub
+</code></pre></div><p>将配置</p>
+<div class=highlight><pre tabindex=0 class=chroma><code class=language-ini data-lang=ini><span class=ln>1</span><span class=na>GRUB_CMDLINE_LINUX_DEFAULT</span><span class=o>=</span><span class=s>&#34;quiet splash &#34;</span>
+</code></pre></div><p>修改为</p>
+<div class=highlight><pre tabindex=0 class=chroma><code class=language-ini data-lang=ini><span class=ln>1</span><span class=na>GRUB_CMDLINE_LINUX_DEFAULT</span><span class=o>=</span><span class=s>&#34;quiet splash video=hyperv_fb:1920x1080&#34;</span>
+</code></pre></div><p>这里要注意屏幕的实际分辨率，在15寸的笔记本上，适合的分辨率为1600x900</p>
+<h2 id=2-更新-grub>2. 更新 Grub</h2>
+<div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=ln>1</span>$ sudo update-grub
+</code></pre></div><h2 id=3-重启>3. 重启</h2>
+<div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=ln>1</span>$ reboot
+</code></pre></div><h2 id=参考文档>参考文档</h2>
+<p><a href=https://www.pcoic.com/system/743.html>Hyper-V 下 Ubuntu/Deepin 如何设置分辨率</a></p>
 </div>
-<div class=excerpt_footer>
-<div class=pale>
-<p>Hyper-V 环境下安装 Linux 是无法调节分辨率的，但可以通过设置指定分辨率，不过最大只能支持1920x1080 1. 修改配置文件 1$ sudo nano /etc/default/grub 将配置 1GRUB_CMDLINE_LINUX_DEFAULT="quiet splash " 修改为 1GRUB_CMDLINE_LINUX_DEFAULT="quiet splash video=hyperv_fb:1920x1080"</p>
-<br>
-<a href=https://cuile.github.io/posts/hyper-v/hyper-v_ubuntu_resolution/ title=阅读更多 class="excerpt_more button">阅读更多</a>
-</div>
-</div>
-</div>
-</li>
-<li class=post_item>
-<div class=excerpt>
-<div class=excerpt_header>
-<h3 class=post_link>
-<a href=https://cuile.github.io/posts/hyper-v/hyper-v_windows10/ title="Windows 10 家庭版安装 Hyper-V">Windows 10 家庭版安装 Hyper-V</a>
-</h3>
-<div class=post_meta>
-<span><svg class="icon"><title>calendar</title><use xlink:href="#calendar"/></svg>
-</span>
-<span class=post_date>
-2022-12-26</span>
-<span class=post_time> · 阅读时长 1 分钟</span><span>&nbsp;· <a href=https://cuile.github.io/tags/windows/ title=Windows class="post_tag button button_translucent">Windows
-</a>
-</span>
-</div>
-</div>
-<div class=excerpt_footer>
-<div class=pale>
-<p>一般新电脑买来都默认安排家庭版，相比专业版一个主要的区别就是没有Hpyer-V 功能。 Hpyer-V 功能支持虚拟机，Windows原生的虚拟机在资源占用方</p>
-<br>
-<a href=https://cuile.github.io/posts/hyper-v/hyper-v_windows10/ title=阅读更多 class="excerpt_more button">阅读更多</a>
-</div>
-</div>
-</div>
-</li>
-<li class=post_item>
-<div class=excerpt>
-<div class=excerpt_header>
-<h3 class=post_link>
-<a href=https://cuile.github.io/posts/hyper-v/hyper-v_network/ title="Hyper-V 网络设置">Hyper-V 网络设置</a>
-</h3>
-<div class=post_meta>
-<span><svg class="icon"><title>calendar</title><use xlink:href="#calendar"/></svg>
-</span>
-<span class=post_date>
-2022-12-26</span>
-<span class=post_time> · 阅读时长 3 分钟</span><span>&nbsp;· <a href=https://cuile.github.io/tags/network/ title=network class="post_tag button button_translucent">network
-</a>
-</span>
-</div>
-</div>
-<div class=excerpt_footer>
-<div class=pale>
-<p><ol>
-<li>网络设置 1.1. 基础知识 Hyper-V 安装完后，将自动创建一个“默认虚拟交换机”，并同时创建一个同名的虚拟网卡。此交换机及网卡都无法修改，且每次启动时IP都</li>
-</ol>
-</p>
-<br>
-<a href=https://cuile.github.io/posts/hyper-v/hyper-v_network/ title=阅读更多 class="excerpt_more button">阅读更多</a>
-</div>
-</div>
-</div>
-</li>
-<li>
-</li>
+<h2 class=post_related>相关专栏文章</h2>
+<ul>
+<li><a href=https://cuile.github.io/posts/windows/windows_setup/ class=nav-link title=Windows系统配置>Windows系统配置</a></li>
+<li><a href=https://cuile.github.io/posts/slam_dunk_2/ class=nav-link title="灌篮高手大结局(全国大赛后) 下">灌篮高手大结局(全国大赛后) 下</a></li>
+<li><a href=https://cuile.github.io/posts/slam_dunk_1/ class=nav-link title="灌篮高手大结局(全国大赛后) 上">灌篮高手大结局(全国大赛后) 上</a></li>
+<li><a href=https://cuile.github.io/posts/vscode/vscode_develop_inside_docker_container/ class=nav-link title="VScode 在 Docker 容器内开发">VScode 在 Docker 容器内开发</a></li>
+<li><a href=https://cuile.github.io/posts/vscode/vscode_configures_python_development_environment/ class=nav-link title="VSCode 配置 Python 开发环境">VSCode 配置 Python 开发环境</a></li>
+<li><a href=https://cuile.github.io/posts/windows/hyper-v_deepin_resolution/ class=nav-link title="Hyper-V 下设置 Deepin 分辨率">Hyper-V 下设置 Deepin 分辨率</a></li>
+<li><a href=https://cuile.github.io/posts/vscode/vscode_with_remote_ssh_in_alpine_linux/ class=nav-link title="VsCode 使用 Remote SSH 连接 Alpine Linux">VsCode 使用 Remote SSH 连接 Alpine Linux</a></li>
+<li><a href=https://cuile.github.io/posts/linux/alpine_linux_manual/ class=nav-link title="Alpine Linux 配置">Alpine Linux 配置</a></li>
+<li><a href=https://cuile.github.io/posts/proxmox/proxmox_cli/ class=nav-link title="Proxmox 命令行">Proxmox 命令行</a></li>
+<li><a href=https://cuile.github.io/posts/windows/hyper-v_centos_disk_expansion/ class=nav-link title="Hyper-V 环境下给 CentOS 磁盘扩容">Hyper-V 环境下给 CentOS 磁盘扩容</a></li>
+<li><a href=https://cuile.github.io/posts/windows/hyper-v_ubuntu_resolution/ class=nav-link title="Hyper-V 下设置 Ubuntu 分辨率">Hyper-V 下设置 Ubuntu 分辨率</a></li>
+<li><a href=https://cuile.github.io/posts/windows/hyper-v_windows10/ class=nav-link title="Windows 10 家庭版安装 Hyper-V">Windows 10 家庭版安装 Hyper-V</a></li>
+<li><a href=https://cuile.github.io/posts/windows/hyper-v_network/ class=nav-link title="Hyper-V 网络设置">Hyper-V 网络设置</a></li>
+<li><a href=https://cuile.github.io/posts/docker/docker_compose/ class=nav-link title="Docker Compose 指令">Docker Compose 指令</a></li>
+<li><a href=https://cuile.github.io/posts/git/connect_with_ssh/ class=nav-link title="使用 SSH 连接 Github">使用 SSH 连接 Github</a></li>
+<li><a href=https://cuile.github.io/posts/linux/alpine_linux_docker/ class=nav-link title="Alpine Linux 安装 Docker">Alpine Linux 安装 Docker</a></li>
+<li><a href=https://cuile.github.io/posts/linux/alpine_linux_install/ class=nav-link title="虚拟机安装 Alpine Linux 3.16">虚拟机安装 Alpine Linux 3.16</a></li>
+<li><a href=https://cuile.github.io/posts/ups/ups_install/ class=nav-link title="山克 UPS 安装手册">山克 UPS 安装手册</a></li>
+<li><a href=https://cuile.github.io/posts/git/git_cli/ class=nav-link title="Git 命令行">Git 命令行</a></li>
+<li><a href=https://cuile.github.io/posts/docker/docker_install_snap/ class=nav-link title="使用 Snap 安装 Docker">使用 Snap 安装 Docker</a></li>
+<li><a href=https://cuile.github.io/posts/docker/docker_install_centos/ class=nav-link title="CentOS 7 安装 Docker">CentOS 7 安装 Docker</a></li>
+<li><a href=https://cuile.github.io/posts/ffmpeg_manual/ class=nav-link title=FFmpeg脚本>FFmpeg脚本</a></li>
+<li><a href=https://cuile.github.io/posts/mysql_manual/ class=nav-link title="MySQL 数据操作">MySQL 数据操作</a></li>
+<li><a href=https://cuile.github.io/posts/linux/linux_cli_manual/ class=nav-link title=Linux系统命令>Linux系统命令</a></li>
+<li><a href=https://cuile.github.io/posts/hugo_setup_for_github/ class=nav-link title=Github使用Hugo生成Blog>Github使用Hugo生成Blog</a></li>
+<li><a href=https://cuile.github.io/posts/docker/docker_cli/ class=nav-link title=Docker使用命令>Docker使用命令</a></li>
+<li><a href=https://cuile.github.io/archives/ class=nav-link title></a></li>
+<li><a href=https://cuile.github.io/about/ class=nav-link title=About>About</a></li>
+<li><a href=https://cuile.github.io/search/ class=nav-link title=Search>Search</a></li>
 </ul>
+<div class=post_comments>
 </div>
+</article>
 <aside class=sidebar>
 <section class=sidebar_inner>
 <br>
@@ -188,8 +117,100 @@
 <div class=author_bio>
 产品里的技术、一眼看不出来的胖子
 </div>
+<ul>
+<li>
+<a href=https://cuile.github.io/posts/windows/windows_setup/ class=nav-link title=Windows系统配置>Windows系统配置</a>
+</li>
+<li>
+<a href=https://cuile.github.io/posts/slam_dunk_2/ class=nav-link title="灌篮高手大结局(全国大赛后) 下">灌篮高手大结局(全国大赛后) 下</a>
+</li>
+<li>
+<a href=https://cuile.github.io/posts/slam_dunk_1/ class=nav-link title="灌篮高手大结局(全国大赛后) 上">灌篮高手大结局(全国大赛后) 上</a>
+</li>
+<li>
+<a href=https://cuile.github.io/posts/vscode/vscode_develop_inside_docker_container/ class=nav-link title="VScode 在 Docker 容器内开发">VScode 在 Docker 容器内开发</a>
+</li>
+<li>
+<a href=https://cuile.github.io/posts/vscode/vscode_configures_python_development_environment/ class=nav-link title="VSCode 配置 Python 开发环境">VSCode 配置 Python 开发环境</a>
+</li>
+<li>
+<a href=https://cuile.github.io/posts/windows/hyper-v_deepin_resolution/ class=nav-link title="Hyper-V 下设置 Deepin 分辨率">Hyper-V 下设置 Deepin 分辨率</a>
+</li>
+<li>
+<a href=https://cuile.github.io/posts/vscode/vscode_with_remote_ssh_in_alpine_linux/ class=nav-link title="VsCode 使用 Remote SSH 连接 Alpine Linux">VsCode 使用 Remote SSH 连接 Alpine Linux</a>
+</li>
+<li>
+<a href=https://cuile.github.io/posts/linux/alpine_linux_manual/ class=nav-link title="Alpine Linux 配置">Alpine Linux 配置</a>
+</li>
+<li>
+<a href=https://cuile.github.io/posts/proxmox/proxmox_cli/ class=nav-link title="Proxmox 命令行">Proxmox 命令行</a>
+</li>
+<li>
+<a href=https://cuile.github.io/posts/windows/hyper-v_centos_disk_expansion/ class=nav-link title="Hyper-V 环境下给 CentOS 磁盘扩容">Hyper-V 环境下给 CentOS 磁盘扩容</a>
+</li>
+<li>
+<a href=https://cuile.github.io/posts/windows/hyper-v_ubuntu_resolution/ class=nav-link title="Hyper-V 下设置 Ubuntu 分辨率">Hyper-V 下设置 Ubuntu 分辨率</a>
+</li>
+<li>
+<a href=https://cuile.github.io/posts/windows/hyper-v_windows10/ class=nav-link title="Windows 10 家庭版安装 Hyper-V">Windows 10 家庭版安装 Hyper-V</a>
+</li>
+<li>
+<a href=https://cuile.github.io/posts/windows/hyper-v_network/ class=nav-link title="Hyper-V 网络设置">Hyper-V 网络设置</a>
+</li>
+<li>
+<a href=https://cuile.github.io/posts/docker/docker_compose/ class=nav-link title="Docker Compose 指令">Docker Compose 指令</a>
+</li>
+<li>
+<a href=https://cuile.github.io/posts/git/connect_with_ssh/ class=nav-link title="使用 SSH 连接 Github">使用 SSH 连接 Github</a>
+</li>
+<li>
+<a href=https://cuile.github.io/posts/linux/alpine_linux_docker/ class=nav-link title="Alpine Linux 安装 Docker">Alpine Linux 安装 Docker</a>
+</li>
+<li>
+<a href=https://cuile.github.io/posts/linux/alpine_linux_install/ class=nav-link title="虚拟机安装 Alpine Linux 3.16">虚拟机安装 Alpine Linux 3.16</a>
+</li>
+<li>
+<a href=https://cuile.github.io/posts/ups/ups_install/ class=nav-link title="山克 UPS 安装手册">山克 UPS 安装手册</a>
+</li>
+<li>
+<a href=https://cuile.github.io/posts/git/git_cli/ class=nav-link title="Git 命令行">Git 命令行</a>
+</li>
+<li>
+<a href=https://cuile.github.io/posts/docker/docker_install_snap/ class=nav-link title="使用 Snap 安装 Docker">使用 Snap 安装 Docker</a>
+</li>
+<li>
+<a href=https://cuile.github.io/posts/docker/docker_install_centos/ class=nav-link title="CentOS 7 安装 Docker">CentOS 7 安装 Docker</a>
+</li>
+<li>
+<a href=https://cuile.github.io/posts/ffmpeg_manual/ class=nav-link title=FFmpeg脚本>FFmpeg脚本</a>
+</li>
+<li>
+<a href=https://cuile.github.io/posts/mysql_manual/ class=nav-link title="MySQL 数据操作">MySQL 数据操作</a>
+</li>
+<li>
+<a href=https://cuile.github.io/posts/linux/linux_cli_manual/ class=nav-link title=Linux系统命令>Linux系统命令</a>
+</li>
+<li>
+<a href=https://cuile.github.io/posts/hugo_setup_for_github/ class=nav-link title=Github使用Hugo生成Blog>Github使用Hugo生成Blog</a>
+</li>
+<li>
+<a href=https://cuile.github.io/posts/docker/docker_cli/ class=nav-link title=Docker使用命令>Docker使用命令</a>
+</li>
+<li>
+<a href=https://cuile.github.io/archives/ class=nav-link title></a>
+</li>
+<li>
+<a href=https://cuile.github.io/about/ class=nav-link title=About>About</a>
+</li>
+<li>
+<a href=https://cuile.github.io/search/ class=nav-link title=Search>Search</a>
+</li>
+</ul>
 <h2 class=mt-4>最新文章</h2>
 <ul class=flex-column>
+<li>
+<a href=https://cuile.github.io/posts/windows/windows_setup/ class=nav-link title=Windows系统配置>Windows系统配置</a>
+</li>
 <li>
 <a href=https://cuile.github.io/posts/slam_dunk_2/ class=nav-link title="灌篮高手大结局(全国大赛后) 下">灌篮高手大结局(全国大赛后) 下</a>
 </li>
@@ -211,16 +232,13 @@
 <li>
 <a href=https://cuile.github.io/posts/proxmox/proxmox_bbr/ class=nav-link title="Proxmox 配置 BBR">Proxmox 配置 BBR</a>
 </li>
-<li>
-<a href=https://cuile.github.io/posts/proxmox/proxmox_subscription/ class=nav-link title="Proxmox 关闭订阅提示">Proxmox 关闭订阅提示</a>
-</li>
 </ul>
 <div>
 <h2 class="mt-4 taxonomy" id=categories-section>分类</h2>
 <nav class=tags_nav>
 <a href=https://cuile.github.io/categories/%E7%B3%BB%E7%BB%9F%E9%85%8D%E7%BD%AE/ class="post_tag button button_translucent" title=系统配置>
 系统配置
-<span class=button_tally>27</span>
+<span class=button_tally>22</span>
 </a>
 <a href=https://cuile.github.io/categories/tips/ class="post_tag button button_translucent" title=tips>
 TIPS
@@ -254,10 +272,6 @@ LIFE-TIPS
 <a href=https://cuile.github.io/series/openwrt/ class="post_tag button button_translucent" title=openwrt>
 OPENWRT
 <span class=button_tally>6</span>
-</a>
-<a href=https://cuile.github.io/series/hyper-v/ class="post_tag button button_translucent" title=hyper-v>
-HYPER-V
-<span class=button_tally>5</span>
 </a>
 <a href=https://cuile.github.io/series/proxmox/ class="post_tag button button_translucent" title=proxmox>
 PROXMOX
@@ -300,6 +314,18 @@ ALPINE-LINUX
 DOCKER
 <span class=button_tally>6</span>
 </a>
+<a href=https://cuile.github.io/tags/windows/ class="post_tag button button_translucent" title=windows>
+WINDOWS
+<span class=button_tally>6</span>
+</a>
+<a href=https://cuile.github.io/tags/%E7%B3%BB%E7%BB%9F%E9%85%8D%E7%BD%AE/ class="post_tag button button_translucent" title=系统配置>
+系统配置
+<span class=button_tally>6</span>
+</a>
+<a href=https://cuile.github.io/tags/hyper-v/ class="post_tag button button_translucent" title=hyper-v>
+HYPER-V
+<span class=button_tally>5</span>
+</a>
 <a href=https://cuile.github.io/tags/python/ class="post_tag button button_translucent" title=python>
 PYTHON
 <span class=button_tally>4</span>
@@ -330,18 +356,6 @@ FIREWALL
 </a>
 <a href=https://cuile.github.io/tags/git/ class="post_tag button button_translucent" title=git>
 GIT
-<span class=button_tally>2</span>
-</a>
-<a href=https://cuile.github.io/tags/micromamba/ class="post_tag button button_translucent" title=micromamba>
-MICROMAMBA
-<span class=button_tally>2</span>
-</a>
-<a href=https://cuile.github.io/tags/proxy/ class="post_tag button button_translucent" title=proxy>
-PROXY
-<span class=button_tally>2</span>
-</a>
-<a href=https://cuile.github.io/tags/venv/ class="post_tag button button_translucent" title=venv>
-VENV
 <span class=button_tally>2</span>
 </a>
 <br>
@@ -389,6 +403,8 @@ VENV
 <a href=https://cuile.github.io/tags/gunicorn/ class="post_tag button button_translucent" data-position=1 title=gunicorn>GUNICORN<span class=button_tally>1</span>
 </a>
 <a href=https://cuile.github.io/tags/hugo/ class="post_tag button button_translucent" data-position=1 title=hugo>HUGO<span class=button_tally>1</span>
+</a>
+<a href=https://cuile.github.io/tags/hyper-v/ class="post_tag button button_translucent" data-position=5 title=hyper-v>HYPER-V<span class=button_tally>5</span>
 </a>
 <a href=https://cuile.github.io/tags/iptables/ class="post_tag button button_translucent" data-position=1 title=iptables>IPTABLES<span class=button_tally>1</span>
 </a>
@@ -464,7 +480,7 @@ VENV
 </a>
 <a href=https://cuile.github.io/tags/vscode/ class="post_tag button button_translucent" data-position=3 title=vscode>VSCODE<span class=button_tally>3</span>
 </a>
-<a href=https://cuile.github.io/tags/windows/ class="post_tag button button_translucent" data-position=1 title=windows>WINDOWS<span class=button_tally>1</span>
+<a href=https://cuile.github.io/tags/windows/ class="post_tag button button_translucent" data-position=6 title=windows>WINDOWS<span class=button_tally>6</span>
 </a>
 <a href=https://cuile.github.io/tags/windwos-10/ class="post_tag button button_translucent" data-position=1 title=windwos-10>WINDWOS-10<span class=button_tally>1</span>
 </a>
@@ -479,6 +495,8 @@ VENV
 <a href=https://cuile.github.io/tags/%E7%AF%AE%E7%90%83/ class="post_tag button button_translucent" data-position=2 title=篮球>篮球<span class=button_tally>2</span>
 </a>
 <a href=https://cuile.github.io/tags/%E7%AF%AE%E7%90%83%E9%A3%9E%E4%BA%BA/ class="post_tag button button_translucent" data-position=2 title=篮球飞人>篮球飞人<span class=button_tally>2</span>
+</a>
+<a href=https://cuile.github.io/tags/%E7%B3%BB%E7%BB%9F%E9%85%8D%E7%BD%AE/ class="post_tag button button_translucent" data-position=6 title=系统配置>系统配置<span class=button_tally>6</span>
 </a>
 <div class=tags_sort><span title="sort alphabetically">[A~Z]</span><span title="sort by count">[0~9]</span>
 </div>
