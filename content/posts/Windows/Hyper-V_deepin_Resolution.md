@@ -6,12 +6,13 @@ date: 2023-05-06T20:20:12+08:00
 # 标签
 tags:
 - deepin
+- Hyper-V
+- 系统配置
+- windows
 # 专栏
 series:
-- Hyper-V
 # 分类
 categories:
-- 系统配置
 ---
 
 ## 在hyper-v虚拟机下调节分辨率

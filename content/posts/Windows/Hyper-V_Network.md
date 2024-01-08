@@ -6,12 +6,13 @@ date: 2022-12-26T20:49:50+08:00
 # 标签
 tags:
 - network
+- Hyper-V
+- 系统配置
+- windows
 # 专栏
 series:
-- Hyper-V
 # 分类
 categories:
-- 系统配置
 ---
 
 ## 1. 网络设置

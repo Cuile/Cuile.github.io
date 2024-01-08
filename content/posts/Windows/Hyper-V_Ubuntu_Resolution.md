@@ -6,12 +6,13 @@ date: 2022-12-26T20:58:50+08:00
 # 标签
 tags:
 - Ubuntu
+- Hyper-V
+- 系统配置
+- windows
 # 专栏
 series:
-- Hyper-V
 # 分类
 categories:
-- 系统配置
 ---
 
 Hyper-V 环境下安装 Linux 是无法调节分辨率的，但可以通过设置指定分辨率，不过最大只能支持1920x1080
