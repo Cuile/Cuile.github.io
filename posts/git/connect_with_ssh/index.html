@@ -100,16 +100,14 @@
 <span class=ln>6</span>  <span class=na>IdentityFile ~/.ssh/cuile.key</span>
 <span class=ln>7</span>  <span class=na>User git</span>
 </code></pre></div><h2 id=自动验证>自动验证</h2>
-<ol>
-<li>安装keychain</li>
-</ol>
 <p>如果找不到软件，<a href=https://crpm.cn/keychain-2-8-5-1-el7-noarch-rpm/>直接下载安装</a> 或 更换软件源 <a href=../linux/Linux_repo_Manual.md>Linux 版本库管理</a></p>
-<div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=ln>1</span>$ yum install -y keychain
-<span class=ln>2</span><span class=c1># or</span>
-<span class=ln>3</span>$ apk add keychain
-<span class=ln>4</span>
-<span class=ln>5</span><span class=c1># ~/.bash_profile or ~/.bashrc</span>
-<span class=ln>6</span>+ <span class=nb>eval</span> <span class=sb>`</span>keychain --eval ~/.ssh/github.com.key<span class=sb>`</span>
+<div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=ln>1</span><span class=c1># 安装keychain</span>
+<span class=ln>2</span>$ yum install -y keychain
+<span class=ln>3</span><span class=c1># or</span>
+<span class=ln>4</span>$ apk add keychain
+<span class=ln>5</span>
+<span class=ln>6</span><span class=c1># ~/.bash_profile or ~/.bashrc</span>
+<span class=ln>7</span>+ <span class=nb>eval</span> <span class=sb>`</span>keychain --eval ~/.ssh/github.com.key<span class=sb>`</span>
 </code></pre></div><ul>
 <li><a href=https://docs.github.com/cn/github-ae@latest/authentication/connecting-to-github-with-ssh/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent>Generating a new SSH key and adding it to the ssh-agent</a></li>
 <li><a href=https://www.funtoo.org/Funtoo:Keychain>Funtoo Keychain Project</a></li>
