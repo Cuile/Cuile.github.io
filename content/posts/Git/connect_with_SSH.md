@@ -61,10 +61,9 @@ Host github.com
 
 ## 自动验证
 
-1. 安装keychain
-
 如果找不到软件，[直接下载安装](https://crpm.cn/keychain-2-8-5-1-el7-noarch-rpm/) 或 更换软件源 [Linux 版本库管理](../linux/Linux_repo_Manual.md)
 ```bash
+# 安装keychain
 $ yum install -y keychain
 # or
 $ apk add keychain
