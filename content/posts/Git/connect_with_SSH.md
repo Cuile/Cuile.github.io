@@ -6,6 +6,7 @@ tags:
 - ssh
 - keychain
 - git
+- github.com
 series:
 categories:
 
@@ -16,7 +17,7 @@ categories:
 ```bash
 $ ssh-keygen -t rsa -b 4096 -C "your_email@example.com"
 ...
-Enter a file in which to save the key (/home/you/.ssh/algorithm): <密钥文件名>
+Enter a file in which to save the key (/home/you/.ssh/algorithm): <key_name>
 Enter passphrase (empty for no passphrase): [输入密码]
 Enter same passphrase again: [再次输入密码]
 ```
@@ -26,7 +27,7 @@ Enter same passphrase again: [再次输入密码]
 1. 将公钥文件的内容COPY出来
 
 ```bash
-$ cat ~/.ssh/github.com.key.pub
+$ cat ~/.ssh/<私钥文件名>.pub
 ```
 
 2. Github.com -> "Settings" -> "SSH and GPG keys" -> "New SSH key"
@@ -41,6 +42,9 @@ $ cat ~/.ssh/github.com.key.pub
 
 1. 测试连接
 ```bash
+# 设置访问权限
+$ chmod 600 <key_name> <key_name>.pub
+
 $ ssh -T -p 443 git@ssh.github.com
 ...
 Are you sure you want to continue connecting (yes/no)? <yes>
@@ -57,6 +61,12 @@ Host github.com
   Port 443
   IdentityFile ~/.ssh/cuile.key
   User git
+```
+
+3. 连接测试
+```bash
+$ ssh -T git@github.com
+Hi <username>! You've successfully authenticated, but GitHub does not provide shell access.
 ```
 
 ## 自动验证
