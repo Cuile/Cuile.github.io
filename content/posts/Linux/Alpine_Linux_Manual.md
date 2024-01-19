@@ -25,9 +25,15 @@ $ apk add openssh-server openssh
 ```
 ```ini
 ; /etc/ssh/sshd_config
+
 # 开放Root登录
 - #PermitRootLogin prohibit-password
 + PermitRootLogin yes
+
+# 允许其它用户登录
+- #PasswordAuthentication yes
++ PasswordAuthentication yes
+
 # 解决ssh自动断开
 - #ClientAliveInterval 0
 - #ClientAliveCountMax 3
