@@ -1,24 +1,24 @@
 <!doctype html><html lang=zh-cn data-figures class=page>
 <head>
-<title>使用 Snap 安装 Docker | 瘦了就帅了</title>
+<title>虚拟主机安装 Laravel 框架 | 瘦了就帅了</title>
 <meta charset=utf-8>
 <meta name=viewport content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
 <meta http-equiv=x-ua-compatible content="IE=edge">
 <meta property="og:locale" content="zh-cn">
 <meta property="og:type" content="article">
-<meta name=description content="尝试使用 Ubuntu 的 Snap 后，发现真的非常方便。 看过Snap的介绍以后，发现Snap的沙盒理念非常先进，在存储基本不成问题背景下，会系统环境的影响更小。">
+<meta name=description content="因为阿里的弹性WEB托管，使用php 5.5.30版本，所以只能安装Laravel 5.2版本。 本教程使用WSL + docker环境安装，除完整的">
 <meta name=twitter:card content="summary">
 <meta name=twitter:creator content>
-<meta name=twitter:title content="使用 Snap 安装 Docker">
+<meta name=twitter:title content="虚拟主机安装 Laravel 框架">
 <meta name=twitter:image content="https://cuile.github.io/images/thumbnail.png">
-<meta property="og:url" content="https://cuile.github.io/posts/docker/docker_install_snap/">
-<meta property="og:title" content="使用 Snap 安装 Docker">
-<meta property="og:description" content="尝试使用 Ubuntu 的 Snap 后，发现真的非常方便。 看过Snap的介绍以后，发现Snap的沙盒理念非常先进，在存储基本不成问题背景下，会系统环境的影响更小。">
+<meta property="og:url" content="https://cuile.github.io/posts/laravel/install_for_virtualhost/">
+<meta property="og:title" content="虚拟主机安装 Laravel 框架">
+<meta property="og:description" content="因为阿里的弹性WEB托管，使用php 5.5.30版本，所以只能安装Laravel 5.2版本。 本教程使用WSL + docker环境安装，除完整的">
 <meta property="og:image" content="https://cuile.github.io/images/thumbnail.png">
 <link rel=apple-touch-icon sizes=180x180 href=https://cuile.github.io/icons/apple-touch-icon.png>
 <link rel=icon type=image/png sizes=32x32 href=https://cuile.github.io/icons/favicon-32x32.png>
 <link rel=manifest href=https://cuile.github.io/icons/site.webmanifest>
-<link rel=canonical href=https://cuile.github.io/posts/docker/docker_install_snap/>
+<link rel=canonical href=https://cuile.github.io/posts/laravel/install_for_virtualhost/>
 <link rel=preload href=https://cuile.github.io/css/styles.367129801480fead578d7a356a98fcb3bce794981ff18cee55868d198d0d2bf1eb4feac97319d0871c6255183b9fd27a7059e4632c785951f4c4f6953559c4d0.css integrity="sha512-NnEpgBSA/q1XjXo1apj8s7znlJgf8YzuVYaNGY0NK/HrT+rJcxnQhxxiVRg7n9J6cFnkYyx4WVH0xPaVNVnE0A==" as=style crossorigin=anonymous>
 <link rel=preload href=https://cuile.github.io/zh-cn/js/bundle.4e04b93422786398f3502d560bd5acb3d3f99b2e942c8c11e0fd926ab6ec3ccbd020d4294d58c0825ecb606ef221b34edc81586f1832489816a57ae8f0276615.js as=script integrity="sha512-TgS5NCJ4Y5jzUC1WC9Wss9P5my6ULIwR4P2SarbsPMvQINQpTVjAgl7LYG7yIbNO3IFYbxgySJgWpXro8CdmFQ==" crossorigin=anonymous>
 <link rel=stylesheet type=text/css href=https://cuile.github.io/css/styles.367129801480fead578d7a356a98fcb3bce794981ff18cee55868d198d0d2bf1eb4feac97319d0871c6255183b9fd27a7059e4632c785951f4c4f6953559c4d0.css integrity="sha512-NnEpgBSA/q1XjXo1apj8s7znlJgf8YzuVYaNGY0NK/HrT+rJcxnQhxxiVRg7n9J6cFnkYyx4WVH0xPaVNVnE0A==" crossorigin=anonymous>
@@ -47,75 +47,53 @@
 <main>
 <div class="grid-inverse wrap content">
 <article class=post_content>
-<h1 class=post_title>使用 Snap 安装 Docker</h1>
+<h1 class=post_title>虚拟主机安装 Laravel 框架</h1>
 <div class=post_meta>
 <span><svg class="icon"><title>calendar</title><use xlink:href="#calendar"/></svg>
 </span>
 <span class=post_date>
-2022-05-11</span>
-<span class=post_time> · 阅读时长 1 分钟</span><span>&nbsp;· <a href=https://cuile.github.io/tags/snap/ title=Snap class="post_tag button button_translucent">Snap
-</a><a href=https://cuile.github.io/tags/docker/ title=Docker class="post_tag button button_translucent">Docker
+2024-01-19</span>
+<span class=post_time> · 阅读时长 1 分钟</span><span>&nbsp;· <a href=https://cuile.github.io/tags/php/ title=php class="post_tag button button_translucent">php
+</a><a href=https://cuile.github.io/tags/laravel/ title=laravel class="post_tag button button_translucent">laravel
+</a><a href=https://cuile.github.io/tags/docker/ title=docker class="post_tag button button_translucent">docker
 </a>
 </span>
 </div>
-<div class=post_body><p>尝试使用 Ubuntu 的 Snap 后，发现真的非常方便。</p>
-<p>看过Snap的介绍以后，发现Snap的沙盒理念非常先进，在存储基本不成问题背景下，会系统环境的影响更小。</p>
-<p>而且docker-compose命令也会一起安装，更是方便。</p>
-<h2 id=1安装>1.安装</h2>
-<div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=ln>1</span>$ sudo snap install docker
-</code></pre></div><h2 id=2设置>2.设置</h2>
-<div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=ln>1</span><span class=c1># 设置开机启动</span>
-<span class=ln>2</span>$ sudo snap start docker --enable
-<span class=ln>3</span><span class=c1># 确认服务状态</span>
-<span class=ln>4</span>$ sudo snap services docker
-<span class=ln>5</span><span class=c1># 查看服务详情</span>
-<span class=ln>6</span>$ service snap.docker.dockerd status
-</code></pre></div><p>使用sudo安装后要注意以后调用时，都要使用sudo命令前缀。</p>
-<h2 id=3其它>3.其它</h2>
-<div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=ln>1</span><span class=c1># 安装目录</span>
-<span class=ln>2</span>/snap/docker/current         
-<span class=ln>3</span><span class=c1># 服务启动配置文件</span>
-<span class=ln>4</span>/etc/systemd/system/snap.docker.dockerd.service
-<span class=ln>5</span><span class=c1># 配套 AppArmor 配置文件</span>
-<span class=ln>6</span>/var/lib/snapd/apparmor/profiles/snap.docker.docker
-<span class=ln>7</span>/var/lib/snapd/apparmor/profiles/snap.docker.dockerd
-<span class=ln>8</span><span class=c1># 默认 Unix Socket 文件路径</span>
-<span class=ln>9</span>unix:///var/snap/docker/current/run/docker/libcontainerd/docker-containerd.sock
-</code></pre></div><h2 id=4参考文献>4.参考文献</h2>
-<p><a href=https://www.moha.online/en/node/111#Snap%E5%AE%89%E8%A3%85>Docker 安装指南</a></p>
+<div class=post_body><p>因为阿里的弹性WEB托管，使用php 5.5.30版本，所以只能安装Laravel 5.2版本。</p>
+<p>本教程使用WSL + docker环境安装，除完整的laravel环境外，不会在本地留下任何痕迹。</p>
+<h2 id=1本地安装composer镜像>1、本地安装Composer镜像</h2>
+<div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=ln>1</span>$ docker pull composer:1.9.0
+</code></pre></div><h2 id=2配置composer镜像>2、配置Composer镜像</h2>
+<div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=ln> 1</span><span class=c1># 启动Composer镜像</span>
+<span class=ln> 2</span>$ docker run --rm <span class=se>\
+</span><span class=ln> 3</span><span class=se></span>                -it <span class=se>\
+</span><span class=ln> 4</span><span class=se></span>                -v <span class=si>${</span><span class=nv>PWD</span><span class=si>}</span>:/app <span class=se>\
+</span><span class=ln> 5</span><span class=se></span>                composer:1.9.0 /bin/bash
+<span class=ln> 6</span>
+<span class=ln> 7</span><span class=c1># 使用国内 Packagist镜像</span>
+<span class=ln> 8</span>$ composer config -g repo.packagist composer https://mirrors.aliyun.com/composer/
+<span class=ln> 9</span>
+<span class=ln>10</span>$ composer create-project -vvv <span class=se>\
+</span><span class=ln>11</span><span class=se></span>                            --prefer-dist <span class=se>\
+</span><span class=ln>12</span><span class=se></span>                            --no-scripts <span class=se>\
+</span><span class=ln>13</span><span class=se></span>                            --keep-vcs <span class=se>\
+</span><span class=ln>14</span><span class=se></span>                            laravel/laravel:5.2.31 <span class=se>\
+</span><span class=ln>15</span><span class=se></span>                            YSME
+<span class=ln>16</span>
+<span class=ln>17</span><span class=c1># 看到以下输出，说明安装完成。</span>
+<span class=ln>18</span>
+<span class=ln>19</span>Writing lock file
+<span class=ln>20</span>Generating autoload files
+<span class=ln>21</span>
+<span class=ln>22</span><span class=c1># 退出Composer镜像</span>
+<span class=ln>23</span>$ <span class=nb>exit</span>  
+<span class=ln>24</span>
+</code></pre></div><h2 id=4安装到虚拟主机>4、安装到虚拟主机</h2>
+<p>copy YSME目录下的全部内容，到虚拟主机的目录下即可。</p>
+<h2 id=5测试>5、测试</h2>
+<p>访问 http://你的域名/YSME/public/
+如果显示 Laravel 5 字样，说明安装成功！</p>
 </div>
-<h2 class=post_related>相关专栏文章</h2>
-<ul>
-<li><a href=https://cuile.github.io/posts/windows/windows_setup/ class=nav-link title=Windows系统配置>Windows系统配置</a></li>
-<li><a href=https://cuile.github.io/posts/slam_dunk_2/ class=nav-link title="灌篮高手大结局(全国大赛后) 下">灌篮高手大结局(全国大赛后) 下</a></li>
-<li><a href=https://cuile.github.io/posts/slam_dunk_1/ class=nav-link title="灌篮高手大结局(全国大赛后) 上">灌篮高手大结局(全国大赛后) 上</a></li>
-<li><a href=https://cuile.github.io/posts/vscode/vscode_develop_inside_docker_container/ class=nav-link title="VScode 在 Docker 容器内开发">VScode 在 Docker 容器内开发</a></li>
-<li><a href=https://cuile.github.io/posts/vscode/vscode_configures_python_development_environment/ class=nav-link title="VSCode 配置 Python 开发环境">VSCode 配置 Python 开发环境</a></li>
-<li><a href=https://cuile.github.io/posts/windows/hyper-v_deepin_resolution/ class=nav-link title="Hyper-V 下设置 Deepin 分辨率">Hyper-V 下设置 Deepin 分辨率</a></li>
-<li><a href=https://cuile.github.io/posts/vscode/vscode_with_remote_ssh_in_alpine_linux/ class=nav-link title="VsCode 使用 Remote SSH 连接 Alpine Linux">VsCode 使用 Remote SSH 连接 Alpine Linux</a></li>
-<li><a href=https://cuile.github.io/posts/linux/alpine_linux_manual/ class=nav-link title="Alpine Linux 配置">Alpine Linux 配置</a></li>
-<li><a href=https://cuile.github.io/posts/proxmox/proxmox_cli/ class=nav-link title="Proxmox 命令行">Proxmox 命令行</a></li>
-<li><a href=https://cuile.github.io/posts/windows/hyper-v_centos_disk_expansion/ class=nav-link title="Hyper-V 环境下给 CentOS 磁盘扩容">Hyper-V 环境下给 CentOS 磁盘扩容</a></li>
-<li><a href=https://cuile.github.io/posts/windows/hyper-v_ubuntu_resolution/ class=nav-link title="Hyper-V 下设置 Ubuntu 分辨率">Hyper-V 下设置 Ubuntu 分辨率</a></li>
-<li><a href=https://cuile.github.io/posts/windows/hyper-v_windows10/ class=nav-link title="Windows 10 家庭版安装 Hyper-V">Windows 10 家庭版安装 Hyper-V</a></li>
-<li><a href=https://cuile.github.io/posts/windows/hyper-v_network/ class=nav-link title="Hyper-V 网络设置">Hyper-V 网络设置</a></li>
-<li><a href=https://cuile.github.io/posts/docker/docker_compose/ class=nav-link title="Docker Compose 指令">Docker Compose 指令</a></li>
-<li><a href=https://cuile.github.io/posts/git/connect_with_ssh/ class=nav-link title="使用 SSH 连接 Github">使用 SSH 连接 Github</a></li>
-<li><a href=https://cuile.github.io/posts/linux/alpine_linux_docker/ class=nav-link title="Alpine Linux 安装 Docker">Alpine Linux 安装 Docker</a></li>
-<li><a href=https://cuile.github.io/posts/linux/alpine_linux_install/ class=nav-link title="虚拟机安装 Alpine Linux 3.16">虚拟机安装 Alpine Linux 3.16</a></li>
-<li><a href=https://cuile.github.io/posts/ups/ups_install/ class=nav-link title="山克 UPS 安装手册">山克 UPS 安装手册</a></li>
-<li><a href=https://cuile.github.io/posts/git/git_cli/ class=nav-link title="Git 命令行">Git 命令行</a></li>
-<li><a href=https://cuile.github.io/posts/docker/docker_install_snap/ class=nav-link title="使用 Snap 安装 Docker">使用 Snap 安装 Docker</a></li>
-<li><a href=https://cuile.github.io/posts/docker/docker_install_centos/ class=nav-link title="CentOS 7 安装 Docker">CentOS 7 安装 Docker</a></li>
-<li><a href=https://cuile.github.io/posts/ffmpeg_manual/ class=nav-link title=FFmpeg脚本>FFmpeg脚本</a></li>
-<li><a href=https://cuile.github.io/posts/mysql_manual/ class=nav-link title="MySQL 数据操作">MySQL 数据操作</a></li>
-<li><a href=https://cuile.github.io/posts/linux/linux_cli_manual/ class=nav-link title=Linux系统命令>Linux系统命令</a></li>
-<li><a href=https://cuile.github.io/posts/hugo_setup_for_github/ class=nav-link title=Github使用Hugo生成Blog>Github使用Hugo生成Blog</a></li>
-<li><a href=https://cuile.github.io/posts/docker/docker_cli/ class=nav-link title=Docker使用命令>Docker使用命令</a></li>
-<li><a href=https://cuile.github.io/archives/ class=nav-link title></a></li>
-<li><a href=https://cuile.github.io/about/ class=nav-link title=About>About</a></li>
-<li><a href=https://cuile.github.io/search/ class=nav-link title=Search>Search</a></li>
-</ul>
 <div class=post_comments>
 </div>
 </article>
@@ -126,98 +104,21 @@
 <div class=author_bio>
 产品里的技术、一眼看不出来的胖子
 </div>
-<ul>
-<li>
-<a href=https://cuile.github.io/posts/windows/windows_setup/ class=nav-link title=Windows系统配置>Windows系统配置</a>
-</li>
-<li>
-<a href=https://cuile.github.io/posts/slam_dunk_2/ class=nav-link title="灌篮高手大结局(全国大赛后) 下">灌篮高手大结局(全国大赛后) 下</a>
-</li>
-<li>
-<a href=https://cuile.github.io/posts/slam_dunk_1/ class=nav-link title="灌篮高手大结局(全国大赛后) 上">灌篮高手大结局(全国大赛后) 上</a>
-</li>
-<li>
-<a href=https://cuile.github.io/posts/vscode/vscode_develop_inside_docker_container/ class=nav-link title="VScode 在 Docker 容器内开发">VScode 在 Docker 容器内开发</a>
-</li>
-<li>
-<a href=https://cuile.github.io/posts/vscode/vscode_configures_python_development_environment/ class=nav-link title="VSCode 配置 Python 开发环境">VSCode 配置 Python 开发环境</a>
-</li>
-<li>
-<a href=https://cuile.github.io/posts/windows/hyper-v_deepin_resolution/ class=nav-link title="Hyper-V 下设置 Deepin 分辨率">Hyper-V 下设置 Deepin 分辨率</a>
-</li>
-<li>
-<a href=https://cuile.github.io/posts/vscode/vscode_with_remote_ssh_in_alpine_linux/ class=nav-link title="VsCode 使用 Remote SSH 连接 Alpine Linux">VsCode 使用 Remote SSH 连接 Alpine Linux</a>
-</li>
-<li>
-<a href=https://cuile.github.io/posts/linux/alpine_linux_manual/ class=nav-link title="Alpine Linux 配置">Alpine Linux 配置</a>
-</li>
-<li>
-<a href=https://cuile.github.io/posts/proxmox/proxmox_cli/ class=nav-link title="Proxmox 命令行">Proxmox 命令行</a>
-</li>
-<li>
-<a href=https://cuile.github.io/posts/windows/hyper-v_centos_disk_expansion/ class=nav-link title="Hyper-V 环境下给 CentOS 磁盘扩容">Hyper-V 环境下给 CentOS 磁盘扩容</a>
-</li>
-<li>
-<a href=https://cuile.github.io/posts/windows/hyper-v_ubuntu_resolution/ class=nav-link title="Hyper-V 下设置 Ubuntu 分辨率">Hyper-V 下设置 Ubuntu 分辨率</a>
-</li>
-<li>
-<a href=https://cuile.github.io/posts/windows/hyper-v_windows10/ class=nav-link title="Windows 10 家庭版安装 Hyper-V">Windows 10 家庭版安装 Hyper-V</a>
-</li>
-<li>
-<a href=https://cuile.github.io/posts/windows/hyper-v_network/ class=nav-link title="Hyper-V 网络设置">Hyper-V 网络设置</a>
-</li>
-<li>
-<a href=https://cuile.github.io/posts/docker/docker_compose/ class=nav-link title="Docker Compose 指令">Docker Compose 指令</a>
-</li>
-<li>
-<a href=https://cuile.github.io/posts/git/connect_with_ssh/ class=nav-link title="使用 SSH 连接 Github">使用 SSH 连接 Github</a>
-</li>
-<li>
-<a href=https://cuile.github.io/posts/linux/alpine_linux_docker/ class=nav-link title="Alpine Linux 安装 Docker">Alpine Linux 安装 Docker</a>
-</li>
-<li>
-<a href=https://cuile.github.io/posts/linux/alpine_linux_install/ class=nav-link title="虚拟机安装 Alpine Linux 3.16">虚拟机安装 Alpine Linux 3.16</a>
-</li>
-<li>
-<a href=https://cuile.github.io/posts/ups/ups_install/ class=nav-link title="山克 UPS 安装手册">山克 UPS 安装手册</a>
-</li>
-<li>
-<a href=https://cuile.github.io/posts/git/git_cli/ class=nav-link title="Git 命令行">Git 命令行</a>
-</li>
-<li>
-<a href=https://cuile.github.io/posts/docker/docker_install_snap/ class=nav-link title="使用 Snap 安装 Docker">使用 Snap 安装 Docker</a>
-</li>
-<li>
-<a href=https://cuile.github.io/posts/docker/docker_install_centos/ class=nav-link title="CentOS 7 安装 Docker">CentOS 7 安装 Docker</a>
-</li>
-<li>
-<a href=https://cuile.github.io/posts/ffmpeg_manual/ class=nav-link title=FFmpeg脚本>FFmpeg脚本</a>
-</li>
-<li>
-<a href=https://cuile.github.io/posts/mysql_manual/ class=nav-link title="MySQL 数据操作">MySQL 数据操作</a>
-</li>
-<li>
-<a href=https://cuile.github.io/posts/linux/linux_cli_manual/ class=nav-link title=Linux系统命令>Linux系统命令</a>
-</li>
-<li>
-<a href=https://cuile.github.io/posts/hugo_setup_for_github/ class=nav-link title=Github使用Hugo生成Blog>Github使用Hugo生成Blog</a>
-</li>
-<li>
-<a href=https://cuile.github.io/posts/docker/docker_cli/ class=nav-link title=Docker使用命令>Docker使用命令</a>
-</li>
-<li>
-<a href=https://cuile.github.io/archives/ class=nav-link title></a>
-</li>
-<li>
-<a href=https://cuile.github.io/about/ class=nav-link title=About>About</a>
-</li>
-<li>
-<a href=https://cuile.github.io/search/ class=nav-link title=Search>Search</a>
-</li>
-</ul>
 <h2 class=mt-4>最新文章</h2>
 <ul class=flex-column>
 <li>
+<a href=https://cuile.github.io/posts/database/postgresql_for_centos/ class=nav-link title="Centos7 安装 Postgresql">Centos7 安装 Postgresql</a>
+</li>
+<li>
+<a href=https://cuile.github.io/posts/laravel/install_for_centos/ class=nav-link title="在CentOS中安装 Laravel 框架">在CentOS中安装 Laravel 框架</a>
+</li>
+<li>
+<a href=https://cuile.github.io/posts/snap/snap_proxy/ class=nav-link title="snap 设置代理">snap 设置代理</a>
+</li>
+<li>
+<a href=https://cuile.github.io/posts/rime_setup/ class=nav-link title=Rime输入法设置>Rime输入法设置</a>
+</li>
+<li>
 <a href=https://cuile.github.io/posts/windows/windows_setup/ class=nav-link title=Windows系统配置>Windows系统配置</a>
 </li>
 <li>
@@ -228,18 +129,6 @@
 </li>
 <li>
 <a href=https://cuile.github.io/posts/vscode/vscode_develop_inside_docker_container/ class=nav-link title="VScode 在 Docker 容器内开发">VScode 在 Docker 容器内开发</a>
-</li>
-<li>
-<a href=https://cuile.github.io/posts/vscode/vscode_configures_python_development_environment/ class=nav-link title="VSCode 配置 Python 开发环境">VSCode 配置 Python 开发环境</a>
-</li>
-<li>
-<a href=https://cuile.github.io/posts/openwrt/openwrt_ipv6/ class=nav-link title="OpenWRT 配置 IPv6">OpenWRT 配置 IPv6</a>
-</li>
-<li>
-<a href=https://cuile.github.io/posts/openwrt/openwrt_version/ class=nav-link title="OpenWRT 版本区别">OpenWRT 版本区别</a>
-</li>
-<li>
-<a href=https://cuile.github.io/posts/proxmox/proxmox_bbr/ class=nav-link title="Proxmox 配置 BBR">Proxmox 配置 BBR</a>
 </li>
 </ul>
 <div>
@@ -315,12 +204,12 @@ HARMONYOS
 CLI
 <span class=button_tally>13</span>
 </a>
-<a href=https://cuile.github.io/tags/alpine-linux/ class="post_tag button button_translucent" title=alpine-linux>
-ALPINE-LINUX
-<span class=button_tally>6</span>
-</a>
 <a href=https://cuile.github.io/tags/docker/ class="post_tag button button_translucent" title=docker>
 DOCKER
+<span class=button_tally>8</span>
+</a>
+<a href=https://cuile.github.io/tags/alpine-linux/ class="post_tag button button_translucent" title=alpine-linux>
+ALPINE-LINUX
 <span class=button_tally>6</span>
 </a>
 <a href=https://cuile.github.io/tags/windows/ class="post_tag button button_translucent" title=windows>
@@ -331,6 +220,10 @@ WINDOWS
 系统配置
 <span class=button_tally>6</span>
 </a>
+<a href=https://cuile.github.io/tags/centos/ class="post_tag button button_translucent" title=centos>
+CENTOS
+<span class=button_tally>5</span>
+</a>
 <a href=https://cuile.github.io/tags/hyper-v/ class="post_tag button button_translucent" title=hyper-v>
 HYPER-V
 <span class=button_tally>5</span>
@@ -339,16 +232,16 @@ HYPER-V
 PYTHON
 <span class=button_tally>4</span>
 </a>
-<a href=https://cuile.github.io/tags/centos/ class="post_tag button button_translucent" title=centos>
-CENTOS
-<span class=button_tally>3</span>
-</a>
 <a href=https://cuile.github.io/tags/linux/ class="post_tag button button_translucent" title=linux>
 LINUX
 <span class=button_tally>3</span>
 </a>
 <a href=https://cuile.github.io/tags/network/ class="post_tag button button_translucent" title=network>
 NETWORK
+<span class=button_tally>3</span>
+</a>
+<a href=https://cuile.github.io/tags/proxy/ class="post_tag button button_translucent" title=proxy>
+PROXY
 <span class=button_tally>3</span>
 </a>
 <a href=https://cuile.github.io/tags/vscode/ class="post_tag button button_translucent" title=vscode>
@@ -361,10 +254,6 @@ DEEPIN
 </a>
 <a href=https://cuile.github.io/tags/firewall/ class="post_tag button button_translucent" title=firewall>
 FIREWALL
-<span class=button_tally>2</span>
-</a>
-<a href=https://cuile.github.io/tags/git/ class="post_tag button button_translucent" title=git>
-GIT
 <span class=button_tally>2</span>
 </a>
 <br>
@@ -381,7 +270,7 @@ GIT
 </a>
 <a href=https://cuile.github.io/tags/blog/ class="post_tag button button_translucent" data-position=1 title=blog>BLOG<span class=button_tally>1</span>
 </a>
-<a href=https://cuile.github.io/tags/centos/ class="post_tag button button_translucent" data-position=3 title=centos>CENTOS<span class=button_tally>3</span>
+<a href=https://cuile.github.io/tags/centos/ class="post_tag button button_translucent" data-position=5 title=centos>CENTOS<span class=button_tally>5</span>
 </a>
 <a href=https://cuile.github.io/tags/centos-7/ class="post_tag button button_translucent" data-position=1 title=centos-7>CENTOS-7<span class=button_tally>1</span>
 </a>
@@ -393,7 +282,7 @@ GIT
 </a>
 <a href=https://cuile.github.io/tags/dns/ class="post_tag button button_translucent" data-position=1 title=dns>DNS<span class=button_tally>1</span>
 </a>
-<a href=https://cuile.github.io/tags/docker/ class="post_tag button button_translucent" data-position=6 title=docker>DOCKER<span class=button_tally>6</span>
+<a href=https://cuile.github.io/tags/docker/ class="post_tag button button_translucent" data-position=8 title=docker>DOCKER<span class=button_tally>8</span>
 </a>
 <a href=https://cuile.github.io/tags/docker-compose/ class="post_tag button button_translucent" data-position=1 title=docker-compose>DOCKER-COMPOSE<span class=button_tally>1</span>
 </a>
@@ -423,6 +312,8 @@ GIT
 </a>
 <a href=https://cuile.github.io/tags/keychain/ class="post_tag button button_translucent" data-position=1 title=keychain>KEYCHAIN<span class=button_tally>1</span>
 </a>
+<a href=https://cuile.github.io/tags/laravel/ class="post_tag button button_translucent" data-position=2 title=laravel>LARAVEL<span class=button_tally>2</span>
+</a>
 <a href=https://cuile.github.io/tags/linux/ class="post_tag button button_translucent" data-position=3 title=linux>LINUX<span class=button_tally>3</span>
 </a>
 <a href=https://cuile.github.io/tags/make/ class="post_tag button button_translucent" data-position=1 title=make>MAKE<span class=button_tally>1</span>
@@ -437,11 +328,15 @@ GIT
 </a>
 <a href=https://cuile.github.io/tags/nmcli/ class="post_tag button button_translucent" data-position=1 title=nmcli>NMCLI<span class=button_tally>1</span>
 </a>
+<a href=https://cuile.github.io/tags/php/ class="post_tag button button_translucent" data-position=2 title=php>PHP<span class=button_tally>2</span>
+</a>
 <a href=https://cuile.github.io/tags/pip/ class="post_tag button button_translucent" data-position=1 title=pip>PIP<span class=button_tally>1</span>
+</a>
+<a href=https://cuile.github.io/tags/postgresql/ class="post_tag button button_translucent" data-position=1 title=postgresql>POSTGRESQL<span class=button_tally>1</span>
 </a>
 <a href=https://cuile.github.io/tags/proxmox/ class="post_tag button button_translucent" data-position=1 title=proxmox>PROXMOX<span class=button_tally>1</span>
 </a>
-<a href=https://cuile.github.io/tags/proxy/ class="post_tag button button_translucent" data-position=2 title=proxy>PROXY<span class=button_tally>2</span>
+<a href=https://cuile.github.io/tags/proxy/ class="post_tag button button_translucent" data-position=3 title=proxy>PROXY<span class=button_tally>3</span>
 </a>
 <a href=https://cuile.github.io/tags/pypi/ class="post_tag button button_translucent" data-position=1 title=pypi>PYPI<span class=button_tally>1</span>
 </a>
@@ -455,6 +350,8 @@ GIT
 </a>
 <a href=https://cuile.github.io/tags/repo/ class="post_tag button button_translucent" data-position=1 title=repo>REPO<span class=button_tally>1</span>
 </a>
+<a href=https://cuile.github.io/tags/rime/ class="post_tag button button_translucent" data-position=1 title=rime>RIME<span class=button_tally>1</span>
+</a>
 <a href=https://cuile.github.io/tags/rrd/ class="post_tag button button_translucent" data-position=1 title=rrd>RRD<span class=button_tally>1</span>
 </a>
 <a href=https://cuile.github.io/tags/screen/ class="post_tag button button_translucent" data-position=1 title=screen>SCREEN<span class=button_tally>1</span>
@@ -463,7 +360,7 @@ GIT
 </a>
 <a href=https://cuile.github.io/tags/shadowsocks/ class="post_tag button button_translucent" data-position=1 title=shadowsocks>SHADOWSOCKS<span class=button_tally>1</span>
 </a>
-<a href=https://cuile.github.io/tags/snap/ class="post_tag button button_translucent" data-position=1 title=snap>SNAP<span class=button_tally>1</span>
+<a href=https://cuile.github.io/tags/snap/ class="post_tag button button_translucent" data-position=2 title=snap>SNAP<span class=button_tally>2</span>
 </a>
 <a href=https://cuile.github.io/tags/ssh/ class="post_tag button button_translucent" data-position=1 title=ssh>SSH<span class=button_tally>1</span>
 </a>
