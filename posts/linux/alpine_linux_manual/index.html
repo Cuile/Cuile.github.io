@@ -64,15 +64,21 @@
 <h2 id=安装-openssh-server>安装 OpenSSH Server</h2>
 <div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=ln>1</span>$ apk update
 <span class=ln>2</span>$ apk add openssh-server openssh
-</code></pre></div><div class=highlight><pre tabindex=0 class=chroma><code class=language-ini data-lang=ini><span class=ln>1</span><span class=c1>; /etc/ssh/sshd_config</span>
-<span class=ln>2</span><span class=c1># 开放Root登录</span>
-<span class=ln>3</span><span class=na>- #PermitRootLogin prohibit-password</span>
-<span class=ln>4</span><span class=na>+ PermitRootLogin yes</span>
-<span class=ln>5</span><span class=c1># 解决ssh自动断开</span>
-<span class=ln>6</span><span class=na>- #ClientAliveInterval 0</span>
-<span class=ln>7</span><span class=na>- #ClientAliveCountMax 3</span>
-<span class=ln>8</span><span class=na>+ ClientAliveInterval 60</span>
-<span class=ln>9</span><span class=na>+ ClientAliveCountMax 3</span>
+</code></pre></div><div class=highlight><pre tabindex=0 class=chroma><code class=language-ini data-lang=ini><span class=ln> 1</span><span class=c1>; /etc/ssh/sshd_config</span>
+<span class=ln> 2</span>
+<span class=ln> 3</span><span class=c1># 开放Root登录</span>
+<span class=ln> 4</span><span class=na>- #PermitRootLogin prohibit-password</span>
+<span class=ln> 5</span><span class=na>+ PermitRootLogin yes</span>
+<span class=ln> 6</span>
+<span class=ln> 7</span><span class=c1># 允许其它用户登录</span>
+<span class=ln> 8</span><span class=na>- #PasswordAuthentication yes</span>
+<span class=ln> 9</span><span class=na>+ PasswordAuthentication yes</span>
+<span class=ln>10</span>
+<span class=ln>11</span><span class=c1># 解决ssh自动断开</span>
+<span class=ln>12</span><span class=na>- #ClientAliveInterval 0</span>
+<span class=ln>13</span><span class=na>- #ClientAliveCountMax 3</span>
+<span class=ln>14</span><span class=na>+ ClientAliveInterval 60</span>
+<span class=ln>15</span><span class=na>+ ClientAliveCountMax 3</span>
 </code></pre></div><div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=ln>1</span>$ rc-service sshd start
 <span class=ln>2</span>
 <span class=ln>3</span>$ rc-service sshd restart
