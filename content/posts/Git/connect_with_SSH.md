@@ -27,7 +27,7 @@ Enter same passphrase again: [再次输入密码]
 1. 将公钥文件的内容COPY出来
 
 ```bash
-$ cat ~/.ssh/<私钥文件名>.pub
+$ cat ~/.ssh/<key_name>.pub
 ```
 
 2. Github.com -> "Settings" -> "SSH and GPG keys" -> "New SSH key"
