@@ -110,11 +110,17 @@
 </code></pre></div><h2 id=修改密码>修改密码</h2>
 <div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=ln>1</span>$ passwd &lt;username&gt;
 </code></pre></div><h2 id=远程公私钥登录>远程公私钥登录</h2>
-<div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=ln>1</span><span class=c1># 生成公钥、私钥</span>
-<span class=ln>2</span>$ ssh-keygen -t rsa -b <span class=m>4096</span> -C <span class=s2>&#34;your_email@example.com&#34;</span>
-<span class=ln>3</span><span class=c1># 将公钥追加到 authorized_keys 文件，可追加多个公钥</span>
-<span class=ln>4</span>$ cat &lt;key.pub&gt; &gt;&gt; authorized_keys
-<span class=ln>5</span><span class=c1># 私钥在 SSH 登录时使用</span>
+<div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=ln> 1</span><span class=c1># 生成公钥、私钥</span>
+<span class=ln> 2</span>$ ssh-keygen -t rsa -b <span class=m>4096</span> -C <span class=s2>&#34;your_email@example.com&#34;</span>
+<span class=ln> 3</span>...
+<span class=ln> 4</span>Enter a file in which to save the key <span class=o>(</span>/home/you/.ssh/algorithm<span class=o>)</span>: &lt;key_name&gt;
+<span class=ln> 5</span>Enter passphrase <span class=o>(</span>empty <span class=k>for</span> no passphrase<span class=o>)</span>: <span class=o>[</span>输入密码<span class=o>]</span>
+<span class=ln> 6</span>Enter same passphrase again: <span class=o>[</span>再次输入密码<span class=o>]</span>
+<span class=ln> 7</span><span class=c1># 设置访问权限</span>
+<span class=ln> 8</span>$ chmod <span class=m>600</span> &lt;key_name&gt; &lt;key_name&gt;.pub
+<span class=ln> 9</span><span class=c1># 将公钥追加到 authorized_keys 文件，可追加多个公钥</span>
+<span class=ln>10</span>$ cat &lt;key.pub&gt; &gt;&gt; authorized_keys
+<span class=ln>11</span><span class=c1># 私钥在 SSH 登录时使用</span>
 </code></pre></div>
 </div>
 <h2 class=post_related>相关专栏文章</h2>
@@ -461,6 +467,8 @@ FIREWALL
 <a href=https://cuile.github.io/tags/git/ class="post_tag button button_translucent" data-position=2 title=git>GIT<span class=button_tally>2</span>
 </a>
 <a href=https://cuile.github.io/tags/github/ class="post_tag button button_translucent" data-position=1 title=github>GITHUB<span class=button_tally>1</span>
+</a>
+<a href=https://cuile.github.io/tags/github.com/ class="post_tag button button_translucent" data-position=1 title=github.com>GITHUB.COM<span class=button_tally>1</span>
 </a>
 <a href=https://cuile.github.io/tags/gunicorn/ class="post_tag button button_translucent" data-position=1 title=gunicorn>GUNICORN<span class=button_tally>1</span>
 </a>
