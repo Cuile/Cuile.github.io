@@ -108,7 +108,13 @@
 <span class=ln>2</span>$ cat /etc/redhat-release
 <span class=ln>3</span>$ cat /etc/issue
 </code></pre></div><h2 id=修改密码>修改密码</h2>
-<div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=ln>1</span>$ passwd &lt;user_name&gt;
+<div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=ln>1</span>$ passwd &lt;username&gt;
+</code></pre></div><h2 id=远程公私钥登录>远程公私钥登录</h2>
+<div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=ln>1</span><span class=c1># 生成公钥、私钥</span>
+<span class=ln>2</span>$ ssh-keygen -t rsa -b <span class=m>4096</span> -C <span class=s2>&#34;your_email@example.com&#34;</span>
+<span class=ln>3</span><span class=c1># 将公钥追加到 authorized_keys 文件，可追加多个公钥</span>
+<span class=ln>4</span>$ cat &lt;key.pub&gt; &gt;&gt; authorized_keys
+<span class=ln>5</span><span class=c1># 私钥在 SSH 登录时使用</span>
 </code></pre></div>
 </div>
 <h2 class=post_related>相关专栏文章</h2>
