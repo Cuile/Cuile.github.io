@@ -39,42 +39,39 @@ $ cat ~/.ssh/github.com.key.pub
 
 ## 使用 SSH 连接到 Github
 
-1. 安装keychain
-
-如果找不到软件，[直接下载安装](https://crpm.cn/keychain-2-8-5-1-el7-noarch-rpm/) 或 更换软件源 [Linux 版本库管理](../linux/Linux_repo_Manual.md)
-
+1. 测试连接
 ```bash
-$ yum install -y keychain
-# or
-$ apk add keychain
-```
-
-2. 使用 SSH key
-
-```bash
-$ eval `keychain --eval ~/.ssh/github.com.key`
-```
-
-3. 测试连接
-
-```bash
-$ ssh -T git@github.com
+$ ssh -T -p 443 git@ssh.github.com
 ...
 Are you sure you want to continue connecting (yes/no)? <yes>
 ...
-Hi username! You've successfully authenticated, but GitHub does not
-provide shell access.
+Hi <username>! You've successfully authenticated, but GitHub does not provide shell access.
+```
+
+2. ssh config
+```ini
+; ~/.ssh/config
+
+Host github.com
+  Hostname ssh.github.com
+  Port 443
+  IdentityFile ~/.ssh/cuile.key
+  User git
 ```
 
 ## 自动验证
 
-在 ~/.bash_profile 或 ~/.bashrc 文件内添加，在每次登录的时候，自动添加密钥
+1. 安装keychain
 
+如果找不到软件，[直接下载安装](https://crpm.cn/keychain-2-8-5-1-el7-noarch-rpm/) 或 更换软件源 [Linux 版本库管理](../linux/Linux_repo_Manual.md)
 ```bash
-eval `keychain --eval ~/.ssh/github.com.key`
-```
+$ yum install -y keychain
+# or
+$ apk add keychain
 
-## 参考文档
+# ~/.bash_profile or ~/.bashrc
++ eval `keychain --eval ~/.ssh/github.com.key`
+```
 
 - [Generating a new SSH key and adding it to the ssh-agent](https://docs.github.com/cn/github-ae@latest/authentication/connecting-to-github-with-ssh/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent)
 - [Funtoo Keychain Project](https://www.funtoo.org/Funtoo:Keychain)
