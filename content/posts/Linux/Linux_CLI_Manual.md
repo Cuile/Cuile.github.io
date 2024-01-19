@@ -78,5 +78,15 @@ $ cat /etc/issue
 ## 修改密码
 
 ```bash
-$ passwd <user_name>
+$ passwd <username>
+```
+
+## 远程公私钥登录
+
+```bash
+# 生成公钥、私钥
+$ ssh-keygen -t rsa -b 4096 -C "your_email@example.com"
+# 将公钥追加到 authorized_keys 文件，可追加多个公钥
+$ cat <key.pub> >> authorized_keys
+# 私钥在 SSH 登录时使用
 ```
