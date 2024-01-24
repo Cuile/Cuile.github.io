@@ -6,14 +6,14 @@
 <meta http-equiv=x-ua-compatible content="IE=edge">
 <meta property="og:locale" content="zh-cn">
 <meta property="og:type" content="article">
-<meta name=description content="创建屏幕 1# 离线方式创建屏幕，一般用在启动脚本 2$ screen -S <screen_name> -d -m 执行命令 1# 在指定屏幕内输入cmd，注意\n代表回车 2$ screen -S <screen_name> -X stuff &#34;<cmd>\n&#34; …">
+<meta name=description content="创建屏幕 1# 离线方式创建屏幕，一般用在启动脚本 2$ screen -S <screen_name> -d -m 查年屏幕 1$ screen -ls 执行命令 1# 在指定屏幕内输入cmd，注意\n代表回车 2$ screen -S <screen_name> -X stuff …">
 <meta name=twitter:card content="summary">
 <meta name=twitter:creator content>
 <meta name=twitter:title content="screen 命令">
 <meta name=twitter:image content="https://cuile.github.io/images/thumbnail.png">
 <meta property="og:url" content="https://cuile.github.io/posts/linux/linux_screen_manual/">
 <meta property="og:title" content="screen 命令">
-<meta property="og:description" content="创建屏幕 1# 离线方式创建屏幕，一般用在启动脚本 2$ screen -S <screen_name> -d -m 执行命令 1# 在指定屏幕内输入cmd，注意\n代表回车 2$ screen -S <screen_name> -X stuff &#34;<cmd>\n&#34; …">
+<meta property="og:description" content="创建屏幕 1# 离线方式创建屏幕，一般用在启动脚本 2$ screen -S <screen_name> -d -m 查年屏幕 1$ screen -ls 执行命令 1# 在指定屏幕内输入cmd，注意\n代表回车 2$ screen -S <screen_name> -X stuff …">
 <meta property="og:image" content="https://cuile.github.io/images/thumbnail.png">
 <link rel=apple-touch-icon sizes=180x180 href=https://cuile.github.io/icons/apple-touch-icon.png>
 <link rel=icon type=image/png sizes=32x32 href=https://cuile.github.io/icons/favicon-32x32.png>
@@ -61,6 +61,8 @@
 <div class=post_body><h2 id=创建屏幕>创建屏幕</h2>
 <div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=ln>1</span><span class=c1># 离线方式创建屏幕，一般用在启动脚本</span>
 <span class=ln>2</span>$ screen -S &lt;screen_name&gt; -d -m
+</code></pre></div><h2 id=查年屏幕>查年屏幕</h2>
+<div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=ln>1</span>$ screen -ls
 </code></pre></div><h2 id=执行命令>执行命令</h2>
 <div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=ln>1</span><span class=c1># 在指定屏幕内输入cmd，注意\n代表回车</span>
 <span class=ln>2</span>$ screen -S &lt;screen_name&gt; -X stuff <span class=s2>&#34;&lt;cmd&gt;\n&#34;</span>
