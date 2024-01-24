@@ -20,6 +20,10 @@ categories:
 # 离线方式创建屏幕，一般用在启动脚本
 $ screen -S <screen_name> -d -m
 ```
+## 查年屏幕
+```bash
+$ screen -ls
+```
 
 ## 执行命令
 ```bash
@@ -37,7 +41,6 @@ $ screen -S <screen_name> -X exec<cmd>
 - [screen exec](https://www.gnu.org/software/screen/manual/screen.html#index-exec)
 
 ## 离开屏幕
-
 在 screen 终端下，按 Ctrl+a d 键
 
 ## 退出屏幕
