@@ -33,26 +33,16 @@ $ cat ~/.ssh/<key_name>.pub
 2. Github.com -> "Settings" -> "SSH and GPG keys" -> "New SSH key"
 
 > Title : 为新密钥添加描述性标签
->
 > Key : 粘贴COPY的公钥内容
 
 3. "Add SSH key"
 
 ## 使用 SSH 连接到 Github
-
-1. 测试连接
+1. ssh config
 ```bash
 # 设置访问权限
 $ chmod 600 <key_name> <key_name>.pub
-
-$ ssh -T -p 443 git@ssh.github.com
-...
-Are you sure you want to continue connecting (yes/no)? <yes>
-...
-Hi <username>! You've successfully authenticated, but GitHub does not provide shell access.
 ```
-
-2. ssh config
 ```ini
 ; ~/.ssh/config
 
@@ -63,9 +53,12 @@ Host github.com
   User git
 ```
 
-3. 连接测试
+2. 连接测试
 ```bash
 $ ssh -T git@github.com
+...
+Are you sure you want to continue connecting (yes/no)? <yes>
+...
 Hi <username>! You've successfully authenticated, but GitHub does not provide shell access.
 ```
 
