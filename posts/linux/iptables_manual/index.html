@@ -84,53 +84,46 @@
 <span class=ln> 8</span>$ systemctl restart iptables
 <span class=ln> 9</span><span class=c1># 保存规则</span>
 <span class=ln>10</span>$ service iptables save
-</code></pre></div><h2 id=规则>规则</h2>
-<div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=ln> 1</span><span class=c1># 基础规则</span>
-<span class=ln> 2</span><span class=c1># 允许所有本机向外的访问</span>
-<span class=ln> 3</span>$ iptables -P OUTPUT ACCEPT
-<span class=ln> 4</span><span class=c1># 禁止其他未允许的规则访问</span>
-<span class=ln> 5</span>$ iptables -P INPUT DROP      // 默认入站规则为拒绝
-<span class=ln> 6</span>$ iptables -P FORWARD DROP    // 默认转发规则为拒绝
+</code></pre></div><h2 id=基础规则>基础规则</h2>
+<p>注意添加规则的先后顺序</p>
+<div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=ln> 1</span><span class=c1># 允许本地回环接口(即运行本机访问本机)</span>
+<span class=ln> 2</span>$ iptables -A INPUT -s 127.0.0.1 -d 127.0.0.1 -j ACCEPT
+<span class=ln> 3</span><span class=c1># 允许已建立的或相关连的通行</span>
+<span class=ln> 4</span>$ iptables -A INPUT -m state --state ESTABLISHED,RELATED -j ACCEPT
+<span class=ln> 5</span><span class=c1># 允许ping</span>
+<span class=ln> 6</span><span class=c1># $ iptables -A INPUT -p icmp -m icmp --icmp-type 8 -j ACCEPT</span>
+<span class=ln> 7</span><span class=c1># or</span>
+<span class=ln> 8</span>$ iptables -A INPUT -p icmp -j ACCEPT
+<span class=ln> 9</span><span class=c1># 添加SSH访问端口</span>
+<span class=ln>10</span>$ iptables -A INPUT -p tcp -m tcp --dport <span class=m>28124</span> -j ACCEPT
+<span class=ln>11</span><span class=c1># 允许所有本机向外的访问</span>
+<span class=ln>12</span>$ iptables -P OUTPUT ACCEPT
+<span class=ln>13</span><span class=c1># 禁止其他未允许的规则访问</span>
+<span class=ln>14</span>$ iptables -P INPUT DROP      // 默认入站规则为拒绝
+<span class=ln>15</span>$ iptables -P FORWARD DROP    // 默认转发规则为拒绝
+</code></pre></div><h2 id=其它规则>其它规则</h2>
+<div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=ln> 1</span><span class=c1># 允许访问指定端口</span>
+<span class=ln> 2</span>$ iptables -A INPUT -p tcp -m tcp --dport <span class=m>6443</span> -j ACCEPT
+<span class=ln> 3</span><span class=c1># 允许访问连续端口</span>
+<span class=ln> 4</span>$ iptables -A INPUT -p tcp -m tcp --dport 21:25 -j ACCEPT
+<span class=ln> 5</span><span class=c1># 允许访问不连续端口</span>
+<span class=ln> 6</span>$ iptables -A INPUT -p tcp -m multiport --dport 21:25,135:139 -j ACCEPT
 <span class=ln> 7</span>
-<span class=ln> 8</span><span class=c1># 允许ping</span>
-<span class=ln> 9</span>$ iptables -A INPUT -p icmp -m icmp --icmp-type <span class=m>8</span> -j ACCEPT
-<span class=ln>10</span><span class=c1># or</span>
-<span class=ln>11</span>$ iptables -A INPUT -p icmp -j ACCEPT
-<span class=ln>12</span>
-<span class=ln>13</span><span class=c1># 允许本地回环接口(即运行本机访问本机)</span>
-<span class=ln>14</span>$ iptables -A INPUT -s 127.0.0.1 -d 127.0.0.1 -j ACCEPT
-<span class=ln>15</span>
-<span class=ln>16</span><span class=c1># 如果要添加内网ip信任（接受其所有TCP请求）</span>
-<span class=ln>17</span>$ iptables -A INPUT -p tcp -s 45.96.174.68 -j ACCEPT
-<span class=ln>18</span>
-<span class=ln>19</span><span class=c1># 允许已建立的或相关连的通行</span>
-<span class=ln>20</span>$ iptables -A INPUT -m state --state ESTABLISHED,RELATED -j ACCEPT
-<span class=ln>21</span>
-<span class=ln>22</span><span class=c1># 允许访问指定端口</span>
-<span class=ln>23</span>$ iptables -A INPUT -p tcp -m tcp --dport <span class=m>28124</span> -j ACCEPT
-<span class=ln>24</span>$ iptables -A INPUT -p tcp -m tcp --dport <span class=m>6443</span> -j ACCEPT
-<span class=ln>25</span><span class=c1># 允许访问连续端口</span>
-<span class=ln>26</span>$ iptables -A INPUT -p tcp -m tcp --dport 21:25 -j ACCEPT
-<span class=ln>27</span><span class=c1># 允许访问不连续端口</span>
-<span class=ln>28</span>$ iptables -A INPUT -p tcp -m multiport --dport 21:25,135:139 -j ACCEPT
-<span class=ln>29</span>
-<span class=ln>30</span><span class=c1># 过滤所有非以上规则的请求</span>
-<span class=ln>31</span>$ iptables -P INPUT DROP
-<span class=ln>32</span><span class=c1># 封停一个IP</span>
-<span class=ln>33</span>$ iptables -I INPUT -s ***.***.***.*** -j DROP
-<span class=ln>34</span>
-<span class=ln>35</span><span class=c1># 转发数据包</span>
-<span class=ln>36</span><span class=c1># 将&lt;本地端口&gt;接收到的TCP数据包，直接转发到&lt;目标IP&gt;的&lt;目标端口&gt;</span>
-<span class=ln>37</span>$ iptables -t nat -A PREROUTING -p tcp --dport &lt;本地端口&gt; -j DNAT --to-destination &lt;目标IP&gt;:&lt;目标端口&gt;
-<span class=ln>38</span><span class=c1># 将&lt;目标IP&gt;的&lt;目标端口&gt;发来的TCP数据包，IP地址修改为&lt;本地IP&gt;后，原路转发回去</span>
-<span class=ln>39</span>$ iptables -t nat -A POSTROUTING -p tcp -d &lt;目标IP&gt; --dport &lt;目标端口&gt; -j SNAT --to &lt;本地IP&gt;
-<span class=ln>40</span>
-<span class=ln>41</span><span class=c1># 删除规则</span>
-<span class=ln>42</span>$ iptables -D INPUT <span class=c1>#rulenum#</span>
-<span class=ln>43</span><span class=c1># or 使用建立规则时条件，删除指定规则，这个方法比如适合代码使用</span>
-<span class=ln>44</span>$ iptables -D INPUT -p tcp -m tcp --dport <span class=m>6443</span> -j ACCEPT
-<span class=ln>45</span><span class=c1># 解封一个IP</span>
-<span class=ln>46</span>$ iptables -D INPUT -s ***.***.***.*** -j DROP
+<span class=ln> 8</span><span class=c1># 转发数据包</span>
+<span class=ln> 9</span><span class=c1># 将&lt;本地端口&gt;接收到的TCP数据包，直接转发到&lt;目标IP&gt;的&lt;目标端口&gt;</span>
+<span class=ln>10</span>$ iptables -t nat -A PREROUTING -p tcp --dport &lt;本地端口&gt; -j DNAT --to-destination &lt;目标IP&gt;:&lt;目标端口&gt;
+<span class=ln>11</span><span class=c1># 将&lt;目标IP&gt;的&lt;目标端口&gt;发来的TCP数据包，IP地址修改为&lt;本地IP&gt;后，原路转发回去</span>
+<span class=ln>12</span>$ iptables -t nat -A POSTROUTING -p tcp -d &lt;目标IP&gt; --dport &lt;目标端口&gt; -j SNAT --to &lt;本地IP&gt;
+<span class=ln>13</span><span class=c1># 如果要添加内网ip信任（接受其所有TCP请求）</span>
+<span class=ln>14</span>$ iptables -A INPUT -p tcp -s 45.96.174.68 -j ACCEPT
+<span class=ln>15</span><span class=c1># 封停一个IP</span>
+<span class=ln>16</span>$ iptables -I INPUT -s ***.***.***.*** -j DROP
+<span class=ln>17</span><span class=c1># 删除规则</span>
+<span class=ln>18</span>$ iptables -D INPUT <span class=c1>#rulenum#</span>
+<span class=ln>19</span><span class=c1># or 使用建立规则时条件，删除指定规则，这个方法比如适合代码使用</span>
+<span class=ln>20</span>$ iptables -D INPUT -p tcp -m tcp --dport <span class=m>6443</span> -j ACCEPT
+<span class=ln>21</span><span class=c1># 解封一个IP</span>
+<span class=ln>22</span>$ iptables -D INPUT -s ***.***.***.*** -j DROP
 </code></pre></div><h2 id=查看规则>查看规则</h2>
 <div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=ln>1</span>$ iptables -L -n --line-numbers
 </code></pre></div><h2 id=重置规则>重置规则</h2>
