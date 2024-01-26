@@ -3,6 +3,7 @@ title: "CentOS 7 安装 Docker"
 date: 2022-05-06T11:05:23+08:00
 # draft: true
 tags: 
+- linux
 - CentOS
 - Docker
 series:
