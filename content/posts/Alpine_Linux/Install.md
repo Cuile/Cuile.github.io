@@ -3,8 +3,11 @@ title: "虚拟机安装 Alpine Linux 3.16"
 date: 2022-06-19T11:46:55+08:00
 # draft: true
 tags:
-- Alpine linux
 - linux
+- Alpine linux
+- proxmox
+- vm
+- qmue\kvm
 series:
 categories:
 ---

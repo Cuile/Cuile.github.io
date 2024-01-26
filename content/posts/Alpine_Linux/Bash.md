@@ -5,14 +5,13 @@ date: 2023-01-03T20:08:42+08:00
 
 # 标签
 tags:
-- bash
+- linux
 - alpine linux
+- bash
 # 专栏
 series:
-- linux
 # 分类
 categories:
-- 系统配置
 ---
 
 Alpine Linux 原始安装的是 busybox，小巧精干，但毕竟与主流的 Bash 还是有区别，特别是与其它系统联动时会比较麻烦，所以还是安装 Bash，统一 Shell 环境，方便日后使用。
