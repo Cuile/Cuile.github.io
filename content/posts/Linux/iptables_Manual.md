@@ -47,49 +47,44 @@ $ systemctl restart iptables
 $ service iptables save
 ```
 
-## 规则
-
+## 基础规则
+注意添加规则的先后顺序
 ```bash
-# 基础规则
+# 允许本地回环接口(即运行本机访问本机)
+$ iptables -A INPUT -s 127.0.0.1 -d 127.0.0.1 -j ACCEPT
+# 允许已建立的或相关连的通行
+$ iptables -A INPUT -m state --state ESTABLISHED,RELATED -j ACCEPT
+# 允许ping
+# $ iptables -A INPUT -p icmp -m icmp --icmp-type 8 -j ACCEPT
+# or
+$ iptables -A INPUT -p icmp -j ACCEPT
+# 添加SSH访问端口
+$ iptables -A INPUT -p tcp -m tcp --dport 28124 -j ACCEPT
 # 允许所有本机向外的访问
 $ iptables -P OUTPUT ACCEPT
 # 禁止其他未允许的规则访问
 $ iptables -P INPUT DROP      // 默认入站规则为拒绝
 $ iptables -P FORWARD DROP    // 默认转发规则为拒绝
+```
 
-# 允许ping
-$ iptables -A INPUT -p icmp -m icmp --icmp-type 8 -j ACCEPT
-# or
-$ iptables -A INPUT -p icmp -j ACCEPT
-
-# 允许本地回环接口(即运行本机访问本机)
-$ iptables -A INPUT -s 127.0.0.1 -d 127.0.0.1 -j ACCEPT
-
-# 如果要添加内网ip信任（接受其所有TCP请求）
-$ iptables -A INPUT -p tcp -s 45.96.174.68 -j ACCEPT
-
-# 允许已建立的或相关连的通行
-$ iptables -A INPUT -m state --state ESTABLISHED,RELATED -j ACCEPT
-
+## 其它规则
+```bash
 # 允许访问指定端口
-$ iptables -A INPUT -p tcp -m tcp --dport 28124 -j ACCEPT
 $ iptables -A INPUT -p tcp -m tcp --dport 6443 -j ACCEPT
 # 允许访问连续端口
 $ iptables -A INPUT -p tcp -m tcp --dport 21:25 -j ACCEPT
 # 允许访问不连续端口
 $ iptables -A INPUT -p tcp -m multiport --dport 21:25,135:139 -j ACCEPT
 
-# 过滤所有非以上规则的请求
-$ iptables -P INPUT DROP
-# 封停一个IP
-$ iptables -I INPUT -s ***.***.***.*** -j DROP
-
 # 转发数据包
 # 将<本地端口>接收到的TCP数据包，直接转发到<目标IP>的<目标端口>
 $ iptables -t nat -A PREROUTING -p tcp --dport <本地端口> -j DNAT --to-destination <目标IP>:<目标端口>
 # 将<目标IP>的<目标端口>发来的TCP数据包，IP地址修改为<本地IP>后，原路转发回去
 $ iptables -t nat -A POSTROUTING -p tcp -d <目标IP> --dport <目标端口> -j SNAT --to <本地IP>
-
+# 如果要添加内网ip信任（接受其所有TCP请求）
+$ iptables -A INPUT -p tcp -s 45.96.174.68 -j ACCEPT
+# 封停一个IP
+$ iptables -I INPUT -s ***.***.***.*** -j DROP
 # 删除规则
 $ iptables -D INPUT #rulenum#
 # or 使用建立规则时条件，删除指定规则，这个方法比如适合代码使用
