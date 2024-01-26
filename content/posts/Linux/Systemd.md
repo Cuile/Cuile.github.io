@@ -39,12 +39,10 @@ $ hostnamectl --static set-hostname ${_hostname_}
 $ hostnamectl --transient set-hostname ${_hostname_}
 $ hostnamectl --pretty set-hostname ${_hostname_}
 ```
-参考文档
 - [hostnamectl 参考](https://blog.csdn.net/tantexian/article/details/45958275)
 
 ## 修改服务器时区
 ```bash
 $ timedatectl set-timezone Asia/Shanghai
 ```
-参考文档
 - [timedatectl 参考](https://www.jianshu.com/p/5e8e22bf135d)
