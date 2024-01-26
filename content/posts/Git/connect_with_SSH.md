@@ -41,10 +41,10 @@ $ cat ~/.ssh/<key_name>.pub
 1. ssh config
 ```bash
 # 设置访问权限
-$ chmod 600 <key_name> <key_name>.pub
+$ chmod 600 <key_name>
 ```
 ```ini
-; ~/.ssh/config
+# ~/.ssh/config
 
 Host github.com
   Hostname ssh.github.com
