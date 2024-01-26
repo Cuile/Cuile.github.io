@@ -29,7 +29,7 @@ export PS1='\[\e[36;40m\][\D{%Y-%m-%d} \A] \[\e[0m\] \[\e[35;40m\]\w\[\e[0m\]\n\
 - [命令提示符设置参考](https://www.linuxidc.com/Linux/2017-10/147438.htm)
 
 ## 2. 修改时区
-- [Systemd 系统工具命令指南](../systmed/#修改服务器时区)
+- [Systemd 系统工具命令指南](../systemd/#修改服务器时区)
 
 ## 3. 远程公私钥登录
 ```bash
@@ -47,7 +47,7 @@ $ cat <key.pub> >> authorized_keys
 ```
 
 ## 4. 配置防火墙
-- [iptables 配置](iptables_Manual.md)
+- [iptables 配置](../iptables_Manual/)
 
 ## 5. 配置sshd
 ```ini
