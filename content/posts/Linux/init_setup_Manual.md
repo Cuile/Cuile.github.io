@@ -47,9 +47,9 @@ $ cat <key.pub> >> authorized_keys
 ```
 
 ## 4. 配置防火墙
-- [iptables 配置](../iptables_Manual/)
+- [iptables 配置](../iptables_manual/)
 
-## 5. 配置sshd
+## 5. 配置 sshd
 ```ini
 # /etc/ssh/sshd_config
 
@@ -65,7 +65,18 @@ $ cat <key.pub> >> authorized_keys
 $ systemctl restart sshd
 ```
 
-## 网络端口操作
+## 6. 配置 Git
+```bash
+$ yum install git
+```
+- [使用 SSH 连接 Github](../git/connect_with_ssh/)
+
+## 7. 配置 Docker
+- [CentOS 7 安装 Docker](../docker/docker_install_centos)
+
+## 其它配置
+
+### 网络端口操作
 ```bash
 # 查看端口占用
 # 查看所有端口占用情况
@@ -74,14 +85,14 @@ $ netstat -tlunp
 $ netstat -tlunp | grep <port>
 ```
 
-## 查看系统版本
+### 查看系统版本
 ```bash
 $ lsb_release -a
 $ cat /etc/redhat-release
 $ cat /etc/issue
 ```
 
-## 系统进程操作
+### 系统进程操作
 ```bash
 # 定位高CPU占用
 $ ps H -eo user,pid,ppid,tid,time,%cpu,cmd --sort=%cpu
@@ -94,7 +105,7 @@ $ ls -l /proc/<PID>/cwd
 - [查看CPU和内存使用情况](https://www.cnblogs.com/xd502djj/archive/2011/03/01/1968041.html)
 - [查看运行进程的启动目录](https://blog.csdn.net/CHEndorid/article/details/105775330)
 
-## 磁盘操作
+### 磁盘操作
 ```bash
 # 修改硬盘挂载目录
 # 卸载硬盘
@@ -108,7 +119,7 @@ $ mount -av /dev/md127 /mnt/raid1-250G-2disk
 ```
 - [查询并筛选 磁盘空间 统计 排序](https://blog.csdn.net/u013030100/article/details/79564378)
 
-## 修改密码
+### 修改密码
 ```bash
 $ passwd <username>
 ```
