@@ -5,13 +5,12 @@ date: 2023-06-06T20:20:04+08:00
 
 # 标签
 tags:
+- Proxmox
 - subscription
 # 专栏
 series:
-- Proxmox
 # 分类
 categories:
-- 系统配置
 ---
 
 ## 修改JS文件

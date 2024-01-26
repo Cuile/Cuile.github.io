@@ -5,8 +5,8 @@ date: 2022-12-27T16:51:54+08:00
 
 # 标签
 tags:
-- CLI
 - Proxmox
+- CLI
 # 专栏
 series:
 # 分类

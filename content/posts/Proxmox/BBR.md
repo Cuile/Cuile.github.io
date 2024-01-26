@@ -5,14 +5,13 @@ date: 2023-10-03T13:04:09+08:00
 
 # 标签
 tags:
-- bbr
+- Proxmox
 - tcp
+- bbr
 # 专栏
 series:
-- Proxmox
 # 分类
 categories:
--  系统配置
 ---
 
 ## 查看系统内核

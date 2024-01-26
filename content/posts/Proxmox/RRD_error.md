@@ -3,11 +3,10 @@ title: "修复 Proxmox RRD 错误"
 date: 2022-02-08T10:42:35+08:00
 # draft: true
 tags:
+- Proxmox
 - rrd
 series:
-- Proxmox
 categories:
-- 系统配置
 ---
 
 Proxmox系统安装后，日志报错
