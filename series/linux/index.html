@@ -104,32 +104,6 @@
 <div class=excerpt>
 <div class=excerpt_header>
 <h3 class=post_link>
-<a href=https://cuile.github.io/posts/linux/alpine_linux_bash/ title="Alpine Linux 安装 Bash">Alpine Linux 安装 Bash</a>
-</h3>
-<div class=post_meta>
-<span><svg class="icon"><title>calendar</title><use xlink:href="#calendar"/></svg>
-</span>
-<span class=post_date>
-2023-01-03</span>
-<span class=post_time> · 阅读时长 1 分钟</span><span>&nbsp;· <a href=https://cuile.github.io/tags/bash/ title=bash class="post_tag button button_translucent">bash
-</a><a href=https://cuile.github.io/tags/alpine-linux/ title="alpine linux" class="post_tag button button_translucent">alpine linux
-</a>
-</span>
-</div>
-</div>
-<div class=excerpt_footer>
-<div class=pale>
-<p>Alpine Linux 原始安装的是 busybox，小巧精干，但毕竟与主流的 Bash 还是有区别，特别是与其它系统联动时会比较麻烦，所以还是安装 Bash，统一 Shell 环境，方</p>
-<br>
-<a href=https://cuile.github.io/posts/linux/alpine_linux_bash/ title=阅读更多 class="excerpt_more button">阅读更多</a>
-</div>
-</div>
-</div>
-</li>
-<li class=post_item>
-<div class=excerpt>
-<div class=excerpt_header>
-<h3 class=post_link>
 <a href=https://cuile.github.io/posts/linux/linux_frp_install/ title=frp安装配置>frp安装配置</a>
 </h3>
 <div class=post_meta>
@@ -203,32 +177,6 @@
 <p>systemctl命令 1systemctl list-units ##列出当前系统服务的状态 2systemctl list-unit-files ##列出服务的开机状态 3systemctl status sshd ##查看指定服务的状态 4systemctl stop sshd ##关闭指定服务 5systemctl start sshd ##开</p>
 <br>
 <a href=https://cuile.github.io/posts/linux/linux_systemd/ title=阅读更多 class="excerpt_more button">阅读更多</a>
-</div>
-</div>
-</div>
-</li>
-<li class=post_item>
-<div class=excerpt>
-<div class=excerpt_header>
-<h3 class=post_link>
-<a href=https://cuile.github.io/posts/linux/alpine_linux_network/ title="Alpine Linux 网络设置">Alpine Linux 网络设置</a>
-</h3>
-<div class=post_meta>
-<span><svg class="icon"><title>calendar</title><use xlink:href="#calendar"/></svg>
-</span>
-<span class=post_date>
-2022-06-19</span>
-<span class=post_time> · 阅读时长 1 分钟</span><span>&nbsp;· <a href=https://cuile.github.io/tags/alpine-linux/ title="Alpine linux" class="post_tag button button_translucent">Alpine linux
-</a><a href=https://cuile.github.io/tags/network/ title=network class="post_tag button button_translucent">network
-</a>
-</span>
-</div>
-</div>
-<div class=excerpt_footer>
-<div class=pale>
-<p>网卡静态地址 1~# nano /etc/network/interfaces 1auto lo 2iface lo inet loopback 3 4auto eth0 5iface eth0 inet static 6 address 192.168.10.16/24 7 gateway 192.168.10.10 8 hostname alpine DNS 地址 1~# nano /etc/resolv.conf 1nameserver 114.114.114.114 重启网络 1~# service networking restart</p>
-<br>
-<a href=https://cuile.github.io/posts/linux/alpine_linux_network/ title=阅读更多 class="excerpt_more button">阅读更多</a>
 </div>
 </div>
 </div>
@@ -313,27 +261,59 @@
 </div>
 </div>
 </li>
+<li class=post_item>
+<div class=excerpt>
+<div class=excerpt_header>
+<h3 class=post_link>
+<a href=https://cuile.github.io/posts/linux/linux_nmcli_manual/ title="使用 nmcli 配置网络">使用 nmcli 配置网络</a>
+</h3>
+<div class=post_meta>
+<span><svg class="icon"><title>calendar</title><use xlink:href="#calendar"/></svg>
+</span>
+<span class=post_date>
+2022-01-17</span>
+<span class=post_time> · 阅读时长 1 分钟</span><span>&nbsp;· <a href=https://cuile.github.io/tags/nmcli/ title=nmcli class="post_tag button button_translucent">nmcli
+</a><a href=https://cuile.github.io/tags/cli/ title=CLI class="post_tag button button_translucent">CLI
+</a>
+</span>
+</div>
+</div>
+<div class=excerpt_footer>
+<div class=pale>
+<p>脚本基于Centos 7 查看接口设备信息 1# 简单接口状态 2$ nmcli dev status 3# 详细的接口信息 4$ nmcli dev show 5# 接口的详细信息 6$ nmcli dev show &lt;interface-name> 查看连接(connection</p>
+<br>
+<a href=https://cuile.github.io/posts/linux/linux_nmcli_manual/ title=阅读更多 class="excerpt_more button">阅读更多</a>
+</div>
+</div>
+</div>
+</li>
+<li class=post_item>
+<div class=excerpt>
+<div class=excerpt_header>
+<h3 class=post_link>
+<a href=https://cuile.github.io/posts/linux/linux_sed_manual/ title="使用 sed 命令操作">使用 sed 命令操作</a>
+</h3>
+<div class=post_meta>
+<span><svg class="icon"><title>calendar</title><use xlink:href="#calendar"/></svg>
+</span>
+<span class=post_date>
+2022-01-17</span>
+<span class=post_time> · 阅读时长 1 分钟</span><span>&nbsp;· <a href=https://cuile.github.io/tags/sed/ title=sed class="post_tag button button_translucent">sed
+</a><a href=https://cuile.github.io/tags/cli/ title=CLI class="post_tag button button_translucent">CLI
+</a>
+</span>
+</div>
+</div>
+<div class=excerpt_footer>
+<div class=pale>
+<p>删除冗余信息 1sed -i 's/.<em>a2p_replyclient_log.</em>[infoerror].[0-9].log.gz://' merge.log \ 2&& sed -i 's/org.springframework.amqp.rabbit.RabbitListenerEndpointContainer.* - //' merge.log \ 3&& sed -i '/.<em>send 1 time for the url is .</em>/d' merge.log \ 4&& sed -i '/.*redis …</p>
+<br>
+<a href=https://cuile.github.io/posts/linux/linux_sed_manual/ title=阅读更多 class="excerpt_more button">阅读更多</a>
+</div>
+</div>
+</div>
+</li>
 <li>
-<ul class="pagination pagination-default">
-<li class="page-item disabled">
-<a aria-disabled=true aria-label=First class=page-link role=button tabindex=-1><span aria-hidden=true>&#171;&#171;</span></a>
-</li>
-<li class="page-item disabled">
-<a aria-disabled=true aria-label=Previous class=page-link role=button tabindex=-1><span aria-hidden=true>&#171;</span></a>
-</li>
-<li class="page-item active">
-<a aria-current=page aria-label="Page 1" class=page-link role=button>1</a>
-</li>
-<li class=page-item>
-<a href=/series/linux/page/2/ aria-label="Page 2" class=page-link role=button>2</a>
-</li>
-<li class=page-item>
-<a href=/series/linux/page/2/ aria-label=Next class=page-link role=button><span aria-hidden=true>&#187;</span></a>
-</li>
-<li class=page-item>
-<a href=/series/linux/page/2/ aria-label=Last class=page-link role=button><span aria-hidden=true>&#187;&#187;</span></a>
-</li>
-</ul>
 </li>
 </ul>
 </div>
@@ -376,7 +356,7 @@
 <nav class=tags_nav>
 <a href=https://cuile.github.io/categories/%E7%B3%BB%E7%BB%9F%E9%85%8D%E7%BD%AE/ class="post_tag button button_translucent" title=系统配置>
 系统配置
-<span class=button_tally>22</span>
+<span class=button_tally>20</span>
 </a>
 <a href=https://cuile.github.io/categories/tips/ class="post_tag button button_translucent" title=tips>
 TIPS
@@ -401,7 +381,7 @@ TIPS
 <nav class=tags_nav>
 <a href=https://cuile.github.io/series/linux/ class="post_tag button button_translucent" title=linux>
 LINUX
-<span class=button_tally>12</span>
+<span class=button_tally>10</span>
 </a>
 <a href=https://cuile.github.io/series/life-tips/ class="post_tag button button_translucent" title=life-tips>
 LIFE-TIPS
@@ -452,6 +432,10 @@ DOCKER
 ALPINE-LINUX
 <span class=button_tally>6</span>
 </a>
+<a href=https://cuile.github.io/tags/linux/ class="post_tag button button_translucent" title=linux>
+LINUX
+<span class=button_tally>6</span>
+</a>
 <a href=https://cuile.github.io/tags/windows/ class="post_tag button button_translucent" title=windows>
 WINDOWS
 <span class=button_tally>6</span>
@@ -471,10 +455,6 @@ HYPER-V
 <a href=https://cuile.github.io/tags/python/ class="post_tag button button_translucent" title=python>
 PYTHON
 <span class=button_tally>4</span>
-</a>
-<a href=https://cuile.github.io/tags/linux/ class="post_tag button button_translucent" title=linux>
-LINUX
-<span class=button_tally>3</span>
 </a>
 <a href=https://cuile.github.io/tags/network/ class="post_tag button button_translucent" title=network>
 NETWORK
@@ -556,7 +536,7 @@ FIREWALL
 </a>
 <a href=https://cuile.github.io/tags/laravel/ class="post_tag button button_translucent" data-position=2 title=laravel>LARAVEL<span class=button_tally>2</span>
 </a>
-<a href=https://cuile.github.io/tags/linux/ class="post_tag button button_translucent" data-position=3 title=linux>LINUX<span class=button_tally>3</span>
+<a href=https://cuile.github.io/tags/linux/ class="post_tag button button_translucent" data-position=6 title=linux>LINUX<span class=button_tally>6</span>
 </a>
 <a href=https://cuile.github.io/tags/make/ class="post_tag button button_translucent" data-position=1 title=make>MAKE<span class=button_tally>1</span>
 </a>
@@ -576,13 +556,15 @@ FIREWALL
 </a>
 <a href=https://cuile.github.io/tags/postgresql/ class="post_tag button button_translucent" data-position=1 title=postgresql>POSTGRESQL<span class=button_tally>1</span>
 </a>
-<a href=https://cuile.github.io/tags/proxmox/ class="post_tag button button_translucent" data-position=1 title=proxmox>PROXMOX<span class=button_tally>1</span>
+<a href=https://cuile.github.io/tags/proxmox/ class="post_tag button button_translucent" data-position=2 title=proxmox>PROXMOX<span class=button_tally>2</span>
 </a>
 <a href=https://cuile.github.io/tags/proxy/ class="post_tag button button_translucent" data-position=3 title=proxy>PROXY<span class=button_tally>3</span>
 </a>
 <a href=https://cuile.github.io/tags/pypi/ class="post_tag button button_translucent" data-position=1 title=pypi>PYPI<span class=button_tally>1</span>
 </a>
 <a href=https://cuile.github.io/tags/python/ class="post_tag button button_translucent" data-position=4 title=python>PYTHON<span class=button_tally>4</span>
+</a>
+<a href=https://cuile.github.io/tags/qmue%5Ckvm/ class="post_tag button button_translucent" data-position=1 title=qmue\kvm>QMUE\KVM<span class=button_tally>1</span>
 </a>
 <a href=https://cuile.github.io/tags/rdp/ class="post_tag button button_translucent" data-position=1 title=rdp>RDP<span class=button_tally>1</span>
 </a>
@@ -625,6 +607,8 @@ FIREWALL
 <a href=https://cuile.github.io/tags/venv/ class="post_tag button button_translucent" data-position=2 title=venv>VENV<span class=button_tally>2</span>
 </a>
 <a href=https://cuile.github.io/tags/version/ class="post_tag button button_translucent" data-position=1 title=version>VERSION<span class=button_tally>1</span>
+</a>
+<a href=https://cuile.github.io/tags/vm/ class="post_tag button button_translucent" data-position=1 title=vm>VM<span class=button_tally>1</span>
 </a>
 <a href=https://cuile.github.io/tags/vscode/ class="post_tag button button_translucent" data-position=3 title=vscode>VSCODE<span class=button_tally>3</span>
 </a>

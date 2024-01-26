@@ -1,24 +1,24 @@
 <!doctype html><html lang=zh-cn data-figures class=page>
 <head>
-<title>Alpine Linux 安装 Bash | 瘦了就帅了</title>
+<title>Alpine Linux 配置 | 瘦了就帅了</title>
 <meta charset=utf-8>
 <meta name=viewport content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
 <meta http-equiv=x-ua-compatible content="IE=edge">
 <meta property="og:locale" content="zh-cn">
 <meta property="og:type" content="article">
-<meta name=description content="Alpine Linux 原始安装的是 busybox，小巧精干，但毕竟与主流的 Bash 还是有区别，特别是与其它系统联动时会比较麻烦，所以还是安装 Bash，统一 Shell 环境，方">
+<meta name=description content="WindTerm 无法认证 WindTerm客户端，取消 “会话设置 -> SSH -> 验证 -> 尝试键盘交互认证” 可已正常连接。 安装 OpenSSH Server 1$ apk update 2$ apk add openssh-server openssh 1; …">
 <meta name=twitter:card content="summary">
 <meta name=twitter:creator content>
-<meta name=twitter:title content="Alpine Linux 安装 Bash">
+<meta name=twitter:title content="Alpine Linux 配置">
 <meta name=twitter:image content="https://cuile.github.io/images/thumbnail.png">
-<meta property="og:url" content="https://cuile.github.io/posts/linux/alpine_linux_bash/">
-<meta property="og:title" content="Alpine Linux 安装 Bash">
-<meta property="og:description" content="Alpine Linux 原始安装的是 busybox，小巧精干，但毕竟与主流的 Bash 还是有区别，特别是与其它系统联动时会比较麻烦，所以还是安装 Bash，统一 Shell 环境，方">
+<meta property="og:url" content="https://cuile.github.io/posts/alpine_linux/manual/">
+<meta property="og:title" content="Alpine Linux 配置">
+<meta property="og:description" content="WindTerm 无法认证 WindTerm客户端，取消 “会话设置 -> SSH -> 验证 -> 尝试键盘交互认证” 可已正常连接。 安装 OpenSSH Server 1$ apk update 2$ apk add openssh-server openssh 1; …">
 <meta property="og:image" content="https://cuile.github.io/images/thumbnail.png">
 <link rel=apple-touch-icon sizes=180x180 href=https://cuile.github.io/icons/apple-touch-icon.png>
 <link rel=icon type=image/png sizes=32x32 href=https://cuile.github.io/icons/favicon-32x32.png>
 <link rel=manifest href=https://cuile.github.io/icons/site.webmanifest>
-<link rel=canonical href=https://cuile.github.io/posts/linux/alpine_linux_bash/>
+<link rel=canonical href=https://cuile.github.io/posts/alpine_linux/manual/>
 <link rel=preload href=https://cuile.github.io/css/styles.367129801480fead578d7a356a98fcb3bce794981ff18cee55868d198d0d2bf1eb4feac97319d0871c6255183b9fd27a7059e4632c785951f4c4f6953559c4d0.css integrity="sha512-NnEpgBSA/q1XjXo1apj8s7znlJgf8YzuVYaNGY0NK/HrT+rJcxnQhxxiVRg7n9J6cFnkYyx4WVH0xPaVNVnE0A==" as=style crossorigin=anonymous>
 <link rel=preload href=https://cuile.github.io/zh-cn/js/bundle.4e04b93422786398f3502d560bd5acb3d3f99b2e942c8c11e0fd926ab6ec3ccbd020d4294d58c0825ecb606ef221b34edc81586f1832489816a57ae8f0276615.js as=script integrity="sha512-TgS5NCJ4Y5jzUC1WC9Wss9P5my6ULIwR4P2SarbsPMvQINQpTVjAgl7LYG7yIbNO3IFYbxgySJgWpXro8CdmFQ==" crossorigin=anonymous>
 <link rel=stylesheet type=text/css href=https://cuile.github.io/css/styles.367129801480fead578d7a356a98fcb3bce794981ff18cee55868d198d0d2bf1eb4feac97319d0871c6255183b9fd27a7059e4632c785951f4c4f6953559c4d0.css integrity="sha512-NnEpgBSA/q1XjXo1apj8s7znlJgf8YzuVYaNGY0NK/HrT+rJcxnQhxxiVRg7n9J6cFnkYyx4WVH0xPaVNVnE0A==" crossorigin=anonymous>
@@ -47,38 +47,115 @@
 <main>
 <div class="grid-inverse wrap content">
 <article class=post_content>
-<h1 class=post_title>Alpine Linux 安装 Bash</h1>
+<h1 class=post_title>Alpine Linux 配置</h1>
 <div class=post_meta>
 <span><svg class="icon"><title>calendar</title><use xlink:href="#calendar"/></svg>
 </span>
 <span class=post_date>
-2023-01-03</span>
-<span class=post_time> · 阅读时长 1 分钟</span><span>&nbsp;· <a href=https://cuile.github.io/tags/bash/ title=bash class="post_tag button button_translucent">bash
+2022-12-28</span>
+<span class=post_time> · 阅读时长 1 分钟</span><span>&nbsp;· <a href=https://cuile.github.io/tags/linux/ title=linux class="post_tag button button_translucent">linux
 </a><a href=https://cuile.github.io/tags/alpine-linux/ title="alpine linux" class="post_tag button button_translucent">alpine linux
+</a><a href=https://cuile.github.io/tags/cli/ title=cli class="post_tag button button_translucent">cli
 </a>
 </span>
 </div>
-<div class=post_body><p>Alpine Linux 原始安装的是 busybox，小巧精干，但毕竟与主流的 Bash 还是有区别，特别是与其它系统联动时会比较麻烦，所以还是安装 Bash，统一 Shell 环境，方便日后使用。</p>
-<p>而且基本网上的安装教程都有问题，所以这里给出正确的安装步骤。</p>
-<h2 id=安装>安装</h2>
-<div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=ln>1</span>$ apk add bash libuser
-</code></pre></div><h2 id=配置>配置</h2>
-<div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=ln>1</span>$ touch /etc/login.defs
-<span class=ln>2</span>$ mkdir /etc/default
-<span class=ln>3</span>$ touch /etc/default/useradd
-<span class=ln>4</span>$ lchsh &lt;root&gt;
-<span class=ln>5</span>Changing shell <span class=k>for</span> root.
-<span class=ln>6</span>Password: &lt;root password&gt;
-<span class=ln>7</span>New Shell <span class=o>[</span>/bin/ash<span class=o>]</span>: /bin/bash
-<span class=ln>8</span>Shell changed.
-</code></pre></div><h3 id=参考文档>参考文档：</h3>
-<ul>
-<li><a href=https://www.reddit.com/r/vscode/comments/smw8tn/working_with_remote_ssh_in_alpine/>Working with Remote SSH in Alpine</a></li>
-<li><a href=https://blog.csdn.net/liaowenxiong/article/details/120494681>Linux命令之 chsh -- 用来更换登录系统时使用的shell</a></li>
+<div class=post_body><h2 id=windterm-无法认证>WindTerm 无法认证</h2>
+<p>WindTerm客户端，取消 “会话设置 -> SSH -> 验证 -> 尝试键盘交互认证” 可已正常连接。</p>
+<h2 id=安装-openssh-server>安装 OpenSSH Server</h2>
+<div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=ln>1</span>$ apk update
+<span class=ln>2</span>$ apk add openssh-server openssh
+</code></pre></div><div class=highlight><pre tabindex=0 class=chroma><code class=language-ini data-lang=ini><span class=ln> 1</span><span class=c1>; /etc/ssh/sshd_config</span>
+<span class=ln> 2</span>
+<span class=ln> 3</span><span class=c1># 开放Root登录</span>
+<span class=ln> 4</span><span class=na>- #PermitRootLogin prohibit-password</span>
+<span class=ln> 5</span><span class=na>+ PermitRootLogin yes</span>
+<span class=ln> 6</span>
+<span class=ln> 7</span><span class=c1># 允许其它用户登录</span>
+<span class=ln> 8</span><span class=na>- #PasswordAuthentication yes</span>
+<span class=ln> 9</span><span class=na>+ PasswordAuthentication yes</span>
+<span class=ln>10</span>
+<span class=ln>11</span><span class=c1># 解决ssh自动断开</span>
+<span class=ln>12</span><span class=na>- #ClientAliveInterval 0</span>
+<span class=ln>13</span><span class=na>- #ClientAliveCountMax 3</span>
+<span class=ln>14</span><span class=na>+ ClientAliveInterval 60</span>
+<span class=ln>15</span><span class=na>+ ClientAliveCountMax 3</span>
+</code></pre></div><div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=ln>1</span>$ rc-service sshd start
+<span class=ln>2</span>
+<span class=ln>3</span>$ rc-service sshd restart
+<span class=ln>4</span><span class=c1># 设置开机启动</span>
+<span class=ln>5</span>$ rc-update add sshd
+<span class=ln>6</span><span class=c1># 删除开机启动服务</span>
+<span class=ln>7</span>$ rc-update del sshd
+<span class=ln>8</span><span class=c1># 显示所有服务</span>
+<span class=ln>9</span><span class=c1># rc-status -a</span>
+</code></pre></div><ul>
+<li><a href=https://mayanpeng.cn/archives/248.html>Alpine安装SSH服务，并开启SSH远程登录</a></li>
 </ul>
+<h2 id=终端配置>终端配置</h2>
+<p>在 /etc/profile.d 文件夹下，创建sh文件来实现。</p>
+<div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=ln>1</span><span class=c1># /etc/profile.d/30user.sh</span>
+<span class=ln>2</span>+ <span class=nb>alias</span> <span class=nv>ll</span><span class=o>=</span><span class=s1>&#39;ls -la --color=tty&#39;</span>
+<span class=ln>3</span><span class=c1># Alpine Linux BusyBox 不支持日期格式</span>
+<span class=ln>4</span><span class=c1># [HH:MM] path</span>
+<span class=ln>5</span><span class=c1># [user@hostname] 命令提示符</span>
+<span class=ln>6</span>+ <span class=nb>export</span> <span class=nv>PS1</span><span class=o>=</span><span class=s1>&#39;\[\e[36;40m\][\A] \[\e[0m\] \[\e[35;40m\]\w\[\e[0m\]\n\[\e[33;40m\][\u@\H]\[\e[0m\] \\$ &#39;</span>
+<span class=ln>7</span><span class=c1># keychain</span>
+<span class=ln>8</span>+ <span class=nb>eval</span> <span class=sb>`</span>keychain --eval ~/.ssh/github.com<span class=sb>`</span>
+</code></pre></div><ul>
+<li><a href=https://www.cnblogs.com/jinzhenshui/p/16358242.html>busybox：ash：PS1：支持的内部替换变量</a></li>
+</ul>
+<h2 id=修改时区>修改时区</h2>
+<div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=ln>1</span><span class=c1># 查看当时时间</span>
+<span class=ln>2</span>$ date -R
+<span class=ln>3</span><span class=c1># 修改到 +8 时区</span>
+<span class=ln>4</span>$ apk add tzdata
+<span class=ln>5</span>$ cp /usr/share/zoneinfo/Asia/Shanghai /etc/localtime
+<span class=ln>6</span>$ <span class=nb>echo</span> <span class=s2>&#34;Asia/Shanghai&#34;</span> &gt; /etc/timezone
+<span class=ln>7</span>$ apk del tzdata
+</code></pre></div><h2 id=修改主机名>修改主机名</h2>
+<div class=highlight><pre tabindex=0 class=chroma><code class=language-ini data-lang=ini><span class=ln>1</span><span class=c1>; /etc/hostname</span>
+<span class=ln>2</span><span class=na>&lt;hostname&gt;</span>
+</code></pre></div><div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=ln>1</span>$ reboot
+</code></pre></div>
 </div>
 <h2 class=post_related>相关专栏文章</h2>
 <ul>
+<li><a href=https://cuile.github.io/posts/database/postgresql_for_centos/ class=nav-link title="Centos7 安装 Postgresql">Centos7 安装 Postgresql</a></li>
+<li><a href=https://cuile.github.io/posts/laravel/install_for_centos/ class=nav-link title="在CentOS中安装 Laravel 框架">在CentOS中安装 Laravel 框架</a></li>
+<li><a href=https://cuile.github.io/posts/laravel/install_for_virtualhost/ class=nav-link title="虚拟主机安装 Laravel 框架">虚拟主机安装 Laravel 框架</a></li>
+<li><a href=https://cuile.github.io/posts/snap/snap_proxy/ class=nav-link title="snap 设置代理">snap 设置代理</a></li>
+<li><a href=https://cuile.github.io/posts/rime_setup/ class=nav-link title=Rime输入法设置>Rime输入法设置</a></li>
+<li><a href=https://cuile.github.io/posts/windows/windows_setup/ class=nav-link title=Windows系统配置>Windows系统配置</a></li>
+<li><a href=https://cuile.github.io/posts/slam_dunk_2/ class=nav-link title="灌篮高手大结局(全国大赛后) 下">灌篮高手大结局(全国大赛后) 下</a></li>
+<li><a href=https://cuile.github.io/posts/slam_dunk_1/ class=nav-link title="灌篮高手大结局(全国大赛后) 上">灌篮高手大结局(全国大赛后) 上</a></li>
+<li><a href=https://cuile.github.io/posts/vscode/vscode_develop_inside_docker_container/ class=nav-link title="VScode 在 Docker 容器内开发">VScode 在 Docker 容器内开发</a></li>
+<li><a href=https://cuile.github.io/posts/vscode/vscode_configures_python_development_environment/ class=nav-link title="VSCode 配置 Python 开发环境">VSCode 配置 Python 开发环境</a></li>
+<li><a href=https://cuile.github.io/posts/windows/hyper-v_deepin_resolution/ class=nav-link title="Hyper-V 下设置 Deepin 分辨率">Hyper-V 下设置 Deepin 分辨率</a></li>
+<li><a href=https://cuile.github.io/posts/vscode/vscode_with_remote_ssh_in_alpine_linux/ class=nav-link title="VsCode 使用 Remote SSH 连接 Alpine Linux">VsCode 使用 Remote SSH 连接 Alpine Linux</a></li>
+<li><a href=https://cuile.github.io/posts/alpine_linux/bash/ class=nav-link title="Alpine Linux 安装 Bash">Alpine Linux 安装 Bash</a></li>
+<li><a href=https://cuile.github.io/posts/alpine_linux/manual/ class=nav-link title="Alpine Linux 配置">Alpine Linux 配置</a></li>
+<li><a href=https://cuile.github.io/posts/proxmox/proxmox_cli/ class=nav-link title="Proxmox 命令行">Proxmox 命令行</a></li>
+<li><a href=https://cuile.github.io/posts/windows/hyper-v_centos_disk_expansion/ class=nav-link title="Hyper-V 环境下给 CentOS 磁盘扩容">Hyper-V 环境下给 CentOS 磁盘扩容</a></li>
+<li><a href=https://cuile.github.io/posts/windows/hyper-v_ubuntu_resolution/ class=nav-link title="Hyper-V 下设置 Ubuntu 分辨率">Hyper-V 下设置 Ubuntu 分辨率</a></li>
+<li><a href=https://cuile.github.io/posts/windows/hyper-v_windows10/ class=nav-link title="Windows 10 家庭版安装 Hyper-V">Windows 10 家庭版安装 Hyper-V</a></li>
+<li><a href=https://cuile.github.io/posts/windows/hyper-v_network/ class=nav-link title="Hyper-V 网络设置">Hyper-V 网络设置</a></li>
+<li><a href=https://cuile.github.io/posts/docker/docker_compose/ class=nav-link title="Docker Compose 指令">Docker Compose 指令</a></li>
+<li><a href=https://cuile.github.io/posts/git/connect_with_ssh/ class=nav-link title="使用 SSH 连接 Github">使用 SSH 连接 Github</a></li>
+<li><a href=https://cuile.github.io/posts/alpine_linux/docker/ class=nav-link title="Alpine Linux 安装 Docker">Alpine Linux 安装 Docker</a></li>
+<li><a href=https://cuile.github.io/posts/alpine_linux/network/ class=nav-link title="Alpine Linux 网络设置">Alpine Linux 网络设置</a></li>
+<li><a href=https://cuile.github.io/posts/alpine_linux/install/ class=nav-link title="虚拟机安装 Alpine Linux 3.16">虚拟机安装 Alpine Linux 3.16</a></li>
+<li><a href=https://cuile.github.io/posts/ups/ups_install/ class=nav-link title="山克 UPS 安装手册">山克 UPS 安装手册</a></li>
+<li><a href=https://cuile.github.io/posts/git/git_cli/ class=nav-link title="Git 命令行">Git 命令行</a></li>
+<li><a href=https://cuile.github.io/posts/snap/docker_install_snap/ class=nav-link title="使用 Snap 安装 Docker">使用 Snap 安装 Docker</a></li>
+<li><a href=https://cuile.github.io/posts/docker/docker_install_centos/ class=nav-link title="CentOS 7 安装 Docker">CentOS 7 安装 Docker</a></li>
+<li><a href=https://cuile.github.io/posts/ffmpeg_manual/ class=nav-link title=FFmpeg脚本>FFmpeg脚本</a></li>
+<li><a href=https://cuile.github.io/posts/database/mysql_manual/ class=nav-link title="MySQL 数据操作">MySQL 数据操作</a></li>
+<li><a href=https://cuile.github.io/posts/linux/linux_cli_manual/ class=nav-link title=Linux系统命令>Linux系统命令</a></li>
+<li><a href=https://cuile.github.io/posts/hugo_setup_for_github/ class=nav-link title=Github使用Hugo生成Blog>Github使用Hugo生成Blog</a></li>
+<li><a href=https://cuile.github.io/posts/docker/docker_cli/ class=nav-link title=Docker使用命令>Docker使用命令</a></li>
+<li><a href=https://cuile.github.io/archives/ class=nav-link title></a></li>
+<li><a href=https://cuile.github.io/about/ class=nav-link title=About>About</a></li>
+<li><a href=https://cuile.github.io/search/ class=nav-link title=Search>Search</a></li>
 </ul>
 <div class=post_comments>
 </div>
@@ -91,6 +168,114 @@
 产品里的技术、一眼看不出来的胖子
 </div>
 <ul>
+<li>
+<a href=https://cuile.github.io/posts/database/postgresql_for_centos/ class=nav-link title="Centos7 安装 Postgresql">Centos7 安装 Postgresql</a>
+</li>
+<li>
+<a href=https://cuile.github.io/posts/laravel/install_for_centos/ class=nav-link title="在CentOS中安装 Laravel 框架">在CentOS中安装 Laravel 框架</a>
+</li>
+<li>
+<a href=https://cuile.github.io/posts/laravel/install_for_virtualhost/ class=nav-link title="虚拟主机安装 Laravel 框架">虚拟主机安装 Laravel 框架</a>
+</li>
+<li>
+<a href=https://cuile.github.io/posts/snap/snap_proxy/ class=nav-link title="snap 设置代理">snap 设置代理</a>
+</li>
+<li>
+<a href=https://cuile.github.io/posts/rime_setup/ class=nav-link title=Rime输入法设置>Rime输入法设置</a>
+</li>
+<li>
+<a href=https://cuile.github.io/posts/windows/windows_setup/ class=nav-link title=Windows系统配置>Windows系统配置</a>
+</li>
+<li>
+<a href=https://cuile.github.io/posts/slam_dunk_2/ class=nav-link title="灌篮高手大结局(全国大赛后) 下">灌篮高手大结局(全国大赛后) 下</a>
+</li>
+<li>
+<a href=https://cuile.github.io/posts/slam_dunk_1/ class=nav-link title="灌篮高手大结局(全国大赛后) 上">灌篮高手大结局(全国大赛后) 上</a>
+</li>
+<li>
+<a href=https://cuile.github.io/posts/vscode/vscode_develop_inside_docker_container/ class=nav-link title="VScode 在 Docker 容器内开发">VScode 在 Docker 容器内开发</a>
+</li>
+<li>
+<a href=https://cuile.github.io/posts/vscode/vscode_configures_python_development_environment/ class=nav-link title="VSCode 配置 Python 开发环境">VSCode 配置 Python 开发环境</a>
+</li>
+<li>
+<a href=https://cuile.github.io/posts/windows/hyper-v_deepin_resolution/ class=nav-link title="Hyper-V 下设置 Deepin 分辨率">Hyper-V 下设置 Deepin 分辨率</a>
+</li>
+<li>
+<a href=https://cuile.github.io/posts/vscode/vscode_with_remote_ssh_in_alpine_linux/ class=nav-link title="VsCode 使用 Remote SSH 连接 Alpine Linux">VsCode 使用 Remote SSH 连接 Alpine Linux</a>
+</li>
+<li>
+<a href=https://cuile.github.io/posts/alpine_linux/bash/ class=nav-link title="Alpine Linux 安装 Bash">Alpine Linux 安装 Bash</a>
+</li>
+<li>
+<a href=https://cuile.github.io/posts/alpine_linux/manual/ class=nav-link title="Alpine Linux 配置">Alpine Linux 配置</a>
+</li>
+<li>
+<a href=https://cuile.github.io/posts/proxmox/proxmox_cli/ class=nav-link title="Proxmox 命令行">Proxmox 命令行</a>
+</li>
+<li>
+<a href=https://cuile.github.io/posts/windows/hyper-v_centos_disk_expansion/ class=nav-link title="Hyper-V 环境下给 CentOS 磁盘扩容">Hyper-V 环境下给 CentOS 磁盘扩容</a>
+</li>
+<li>
+<a href=https://cuile.github.io/posts/windows/hyper-v_ubuntu_resolution/ class=nav-link title="Hyper-V 下设置 Ubuntu 分辨率">Hyper-V 下设置 Ubuntu 分辨率</a>
+</li>
+<li>
+<a href=https://cuile.github.io/posts/windows/hyper-v_windows10/ class=nav-link title="Windows 10 家庭版安装 Hyper-V">Windows 10 家庭版安装 Hyper-V</a>
+</li>
+<li>
+<a href=https://cuile.github.io/posts/windows/hyper-v_network/ class=nav-link title="Hyper-V 网络设置">Hyper-V 网络设置</a>
+</li>
+<li>
+<a href=https://cuile.github.io/posts/docker/docker_compose/ class=nav-link title="Docker Compose 指令">Docker Compose 指令</a>
+</li>
+<li>
+<a href=https://cuile.github.io/posts/git/connect_with_ssh/ class=nav-link title="使用 SSH 连接 Github">使用 SSH 连接 Github</a>
+</li>
+<li>
+<a href=https://cuile.github.io/posts/alpine_linux/docker/ class=nav-link title="Alpine Linux 安装 Docker">Alpine Linux 安装 Docker</a>
+</li>
+<li>
+<a href=https://cuile.github.io/posts/alpine_linux/network/ class=nav-link title="Alpine Linux 网络设置">Alpine Linux 网络设置</a>
+</li>
+<li>
+<a href=https://cuile.github.io/posts/alpine_linux/install/ class=nav-link title="虚拟机安装 Alpine Linux 3.16">虚拟机安装 Alpine Linux 3.16</a>
+</li>
+<li>
+<a href=https://cuile.github.io/posts/ups/ups_install/ class=nav-link title="山克 UPS 安装手册">山克 UPS 安装手册</a>
+</li>
+<li>
+<a href=https://cuile.github.io/posts/git/git_cli/ class=nav-link title="Git 命令行">Git 命令行</a>
+</li>
+<li>
+<a href=https://cuile.github.io/posts/snap/docker_install_snap/ class=nav-link title="使用 Snap 安装 Docker">使用 Snap 安装 Docker</a>
+</li>
+<li>
+<a href=https://cuile.github.io/posts/docker/docker_install_centos/ class=nav-link title="CentOS 7 安装 Docker">CentOS 7 安装 Docker</a>
+</li>
+<li>
+<a href=https://cuile.github.io/posts/ffmpeg_manual/ class=nav-link title=FFmpeg脚本>FFmpeg脚本</a>
+</li>
+<li>
+<a href=https://cuile.github.io/posts/database/mysql_manual/ class=nav-link title="MySQL 数据操作">MySQL 数据操作</a>
+</li>
+<li>
+<a href=https://cuile.github.io/posts/linux/linux_cli_manual/ class=nav-link title=Linux系统命令>Linux系统命令</a>
+</li>
+<li>
+<a href=https://cuile.github.io/posts/hugo_setup_for_github/ class=nav-link title=Github使用Hugo生成Blog>Github使用Hugo生成Blog</a>
+</li>
+<li>
+<a href=https://cuile.github.io/posts/docker/docker_cli/ class=nav-link title=Docker使用命令>Docker使用命令</a>
+</li>
+<li>
+<a href=https://cuile.github.io/archives/ class=nav-link title></a>
+</li>
+<li>
+<a href=https://cuile.github.io/about/ class=nav-link title=About>About</a>
+</li>
+<li>
+<a href=https://cuile.github.io/search/ class=nav-link title=Search>Search</a>
+</li>
 </ul>
 <h2 class=mt-4>最新文章</h2>
 <ul class=flex-column>
@@ -124,7 +309,7 @@
 <nav class=tags_nav>
 <a href=https://cuile.github.io/categories/%E7%B3%BB%E7%BB%9F%E9%85%8D%E7%BD%AE/ class="post_tag button button_translucent" title=系统配置>
 系统配置
-<span class=button_tally>22</span>
+<span class=button_tally>20</span>
 </a>
 <a href=https://cuile.github.io/categories/tips/ class="post_tag button button_translucent" title=tips>
 TIPS
@@ -149,7 +334,7 @@ TIPS
 <nav class=tags_nav>
 <a href=https://cuile.github.io/series/linux/ class="post_tag button button_translucent" title=linux>
 LINUX
-<span class=button_tally>12</span>
+<span class=button_tally>10</span>
 </a>
 <a href=https://cuile.github.io/series/life-tips/ class="post_tag button button_translucent" title=life-tips>
 LIFE-TIPS
@@ -200,6 +385,10 @@ DOCKER
 ALPINE-LINUX
 <span class=button_tally>6</span>
 </a>
+<a href=https://cuile.github.io/tags/linux/ class="post_tag button button_translucent" title=linux>
+LINUX
+<span class=button_tally>6</span>
+</a>
 <a href=https://cuile.github.io/tags/windows/ class="post_tag button button_translucent" title=windows>
 WINDOWS
 <span class=button_tally>6</span>
@@ -219,10 +408,6 @@ HYPER-V
 <a href=https://cuile.github.io/tags/python/ class="post_tag button button_translucent" title=python>
 PYTHON
 <span class=button_tally>4</span>
-</a>
-<a href=https://cuile.github.io/tags/linux/ class="post_tag button button_translucent" title=linux>
-LINUX
-<span class=button_tally>3</span>
 </a>
 <a href=https://cuile.github.io/tags/network/ class="post_tag button button_translucent" title=network>
 NETWORK
@@ -304,7 +489,7 @@ FIREWALL
 </a>
 <a href=https://cuile.github.io/tags/laravel/ class="post_tag button button_translucent" data-position=2 title=laravel>LARAVEL<span class=button_tally>2</span>
 </a>
-<a href=https://cuile.github.io/tags/linux/ class="post_tag button button_translucent" data-position=3 title=linux>LINUX<span class=button_tally>3</span>
+<a href=https://cuile.github.io/tags/linux/ class="post_tag button button_translucent" data-position=6 title=linux>LINUX<span class=button_tally>6</span>
 </a>
 <a href=https://cuile.github.io/tags/make/ class="post_tag button button_translucent" data-position=1 title=make>MAKE<span class=button_tally>1</span>
 </a>
@@ -324,13 +509,15 @@ FIREWALL
 </a>
 <a href=https://cuile.github.io/tags/postgresql/ class="post_tag button button_translucent" data-position=1 title=postgresql>POSTGRESQL<span class=button_tally>1</span>
 </a>
-<a href=https://cuile.github.io/tags/proxmox/ class="post_tag button button_translucent" data-position=1 title=proxmox>PROXMOX<span class=button_tally>1</span>
+<a href=https://cuile.github.io/tags/proxmox/ class="post_tag button button_translucent" data-position=2 title=proxmox>PROXMOX<span class=button_tally>2</span>
 </a>
 <a href=https://cuile.github.io/tags/proxy/ class="post_tag button button_translucent" data-position=3 title=proxy>PROXY<span class=button_tally>3</span>
 </a>
 <a href=https://cuile.github.io/tags/pypi/ class="post_tag button button_translucent" data-position=1 title=pypi>PYPI<span class=button_tally>1</span>
 </a>
 <a href=https://cuile.github.io/tags/python/ class="post_tag button button_translucent" data-position=4 title=python>PYTHON<span class=button_tally>4</span>
+</a>
+<a href=https://cuile.github.io/tags/qmue%5Ckvm/ class="post_tag button button_translucent" data-position=1 title=qmue\kvm>QMUE\KVM<span class=button_tally>1</span>
 </a>
 <a href=https://cuile.github.io/tags/rdp/ class="post_tag button button_translucent" data-position=1 title=rdp>RDP<span class=button_tally>1</span>
 </a>
@@ -373,6 +560,8 @@ FIREWALL
 <a href=https://cuile.github.io/tags/venv/ class="post_tag button button_translucent" data-position=2 title=venv>VENV<span class=button_tally>2</span>
 </a>
 <a href=https://cuile.github.io/tags/version/ class="post_tag button button_translucent" data-position=1 title=version>VERSION<span class=button_tally>1</span>
+</a>
+<a href=https://cuile.github.io/tags/vm/ class="post_tag button button_translucent" data-position=1 title=vm>VM<span class=button_tally>1</span>
 </a>
 <a href=https://cuile.github.io/tags/vscode/ class="post_tag button button_translucent" data-position=3 title=vscode>VSCODE<span class=button_tally>3</span>
 </a>

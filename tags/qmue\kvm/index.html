@@ -1,24 +1,25 @@
-<!doctype html><html lang=zh-cn data-figures class=page>
+<!doctype html><html lang=zh-cn data-figures>
 <head>
-<title>虚拟机安装 Alpine Linux 3.16 | 瘦了就帅了</title>
+<title>qmue\kvm | 瘦了就帅了</title>
 <meta charset=utf-8>
 <meta name=viewport content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
 <meta http-equiv=x-ua-compatible content="IE=edge">
 <meta property="og:locale" content="zh-cn">
 <meta property="og:type" content="article">
-<meta name=description content="特点： 小巧：基于musl libc 和 busybox，和 busybox一样小巧，最小的Docker镜像只有5MB。 安全：面向安全的轻量发行版 简单：提供">
+<meta name=description content>
 <meta name=twitter:card content="summary">
 <meta name=twitter:creator content>
-<meta name=twitter:title content="虚拟机安装 Alpine Linux 3.16">
+<meta name=twitter:title content="qmue\kvm">
 <meta name=twitter:image content="https://cuile.github.io/images/thumbnail.png">
-<meta property="og:url" content="https://cuile.github.io/posts/linux/alpine_linux_install/">
-<meta property="og:title" content="虚拟机安装 Alpine Linux 3.16">
-<meta property="og:description" content="特点： 小巧：基于musl libc 和 busybox，和 busybox一样小巧，最小的Docker镜像只有5MB。 安全：面向安全的轻量发行版 简单：提供">
+<meta property="og:url" content="https://cuile.github.io/tags/qmue%5Ckvm/">
+<meta property="og:title" content="qmue\kvm">
+<meta property="og:description" content>
 <meta property="og:image" content="https://cuile.github.io/images/thumbnail.png">
 <link rel=apple-touch-icon sizes=180x180 href=https://cuile.github.io/icons/apple-touch-icon.png>
 <link rel=icon type=image/png sizes=32x32 href=https://cuile.github.io/icons/favicon-32x32.png>
 <link rel=manifest href=https://cuile.github.io/icons/site.webmanifest>
-<link rel=canonical href=https://cuile.github.io/posts/linux/alpine_linux_install/>
+<link rel=canonical href=https://cuile.github.io/tags/qmue%5Ckvm/>
+<link rel=alternate type=application/rss+xml href=https://cuile.github.io/tags/qmue%5Ckvm/index.xml title=瘦了就帅了>
 <link rel=preload href=https://cuile.github.io/css/styles.367129801480fead578d7a356a98fcb3bce794981ff18cee55868d198d0d2bf1eb4feac97319d0871c6255183b9fd27a7059e4632c785951f4c4f6953559c4d0.css integrity="sha512-NnEpgBSA/q1XjXo1apj8s7znlJgf8YzuVYaNGY0NK/HrT+rJcxnQhxxiVRg7n9J6cFnkYyx4WVH0xPaVNVnE0A==" as=style crossorigin=anonymous>
 <link rel=preload href=https://cuile.github.io/zh-cn/js/bundle.4e04b93422786398f3502d560bd5acb3d3f99b2e942c8c11e0fd926ab6ec3ccbd020d4294d58c0825ecb606ef221b34edc81586f1832489816a57ae8f0276615.js as=script integrity="sha512-TgS5NCJ4Y5jzUC1WC9Wss9P5my6ULIwR4P2SarbsPMvQINQpTVjAgl7LYG7yIbNO3IFYbxgySJgWpXro8CdmFQ==" crossorigin=anonymous>
 <link rel=stylesheet type=text/css href=https://cuile.github.io/css/styles.367129801480fead578d7a356a98fcb3bce794981ff18cee55868d198d0d2bf1eb4feac97319d0871c6255183b9fd27a7059e4632c785951f4c4f6953559c4d0.css integrity="sha512-NnEpgBSA/q1XjXo1apj8s7znlJgf8YzuVYaNGY0NK/HrT+rJcxnQhxxiVRg7n9J6cFnkYyx4WVH0xPaVNVnE0A==" crossorigin=anonymous>
@@ -46,163 +47,41 @@
 </header>
 <main>
 <div class="grid-inverse wrap content">
-<article class=post_content>
-<h1 class=post_title>虚拟机安装 Alpine Linux 3.16</h1>
+<div>
+<ul class=posts id=posts>
+<li class=post_item>
+<div class=excerpt>
+<div class=excerpt_header>
+<h3 class=post_link>
+<a href=https://cuile.github.io/posts/alpine_linux/install/ title="虚拟机安装 Alpine Linux 3.16">虚拟机安装 Alpine Linux 3.16</a>
+</h3>
 <div class=post_meta>
 <span><svg class="icon"><title>calendar</title><use xlink:href="#calendar"/></svg>
 </span>
 <span class=post_date>
 2022-06-19</span>
-<span class=post_time> · 阅读时长 2 分钟</span><span>&nbsp;· <a href=https://cuile.github.io/tags/alpine-linux/ title="Alpine linux" class="post_tag button button_translucent">Alpine linux
-</a><a href=https://cuile.github.io/tags/linux/ title=linux class="post_tag button button_translucent">linux
+<span class=post_time> · 阅读时长 2 分钟</span><span>&nbsp;· <a href=https://cuile.github.io/tags/linux/ title=linux class="post_tag button button_translucent">linux
+</a><a href=https://cuile.github.io/tags/alpine-linux/ title="Alpine linux" class="post_tag button button_translucent">Alpine linux
+</a><a href=https://cuile.github.io/tags/proxmox/ title=proxmox class="post_tag button button_translucent">proxmox
+</a><a href=https://cuile.github.io/tags/vm/ title=vm class="post_tag button button_translucent">vm
+</a><a href=https://cuile.github.io/tags/qmue%5Ckvm/ title=qmue\kvm class="post_tag button button_translucent">qmue\kvm
 </a>
 </span>
 </div>
-<div class=post_body><p>特点：</p>
-<ol>
-<li>小巧：基于musl libc 和 busybox，和 busybox一样小巧，最小的Docker镜像只有5MB。</li>
-<li>安全：面向安全的轻量发行版</li>
-<li>简单：提供APK包管理工具，软件的搜索、安装、删除、升级都非常方便。</li>
-<li>适合容器使用：由于小巧、功能完备，非常适合作为容器的基础镜像。</li>
-</ol>
-<p>不同版本：</p>
-<ul>
-<li>STANDARD：最小的可启动镜像，需要网络才能安装。带有Intel, AMD等CPU的微代码。</li>
-<li>VIRTUAL：与STANDARD类似，但更小，更适合虚拟系统使用。</li>
-<li>EXTENDED：包括最常用的软件包。适用于路由器和服务器。从RAM运行。扩展版本，带有更多软件包。</li>
-<li>XEN：内置XEN Hypervisor支持。</li>
-<li>NETBOOT：netboot的内核、initramfs和modloop。</li>
-<li>RASPBERRY PI：带有树莓派内核的版本。</li>
-<li>GENERIC ARM：带有ARM内核，带有uboot加载器。</li>
-<li>MINI ROOT FILESYSTEM：最小系统版本，仅包含内核，只用于构建Docker镜像。</li>
-</ul>
-<h2 id=1-准备系统>1. 准备系统</h2>
-<p>Alpine 有许多版本，其中 VIRTUAL 是专门针对虚拟环境优化过的，所以主要使用这个版本来安装。</p>
-<p><a href=https://www.alpinelinux.org/downloads/>https://www.alpinelinux.org/downloads/</a></p>
-<h2 id=2-登录>2. 登录</h2>
-<div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=ln>1</span>...
-<span class=ln>2</span><span class=c1># 使用启动盘启动后，直接使用 root 登录系统</span>
-<span class=ln>3</span>localhost login: root
-</code></pre></div><h2 id=3-安装>3. 安装</h2>
-<div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=ln> 1</span>...
-<span class=ln> 2</span>localhost:~# setup-alpine
-<span class=ln> 3</span>
-<span class=ln> 4</span><span class=c1># 选择键盘布局</span>
-<span class=ln> 5</span><span class=c1># 这里两个都选 cn 或都不选</span>
-<span class=ln> 6</span>...
-<span class=ln> 7</span>Select keyboard layout: <span class=o>[</span>none<span class=o>]</span> cn
-<span class=ln> 8</span>...
-<span class=ln> 9</span>Select variant <span class=o>(</span>or <span class=s1>&#39;abort&#39;</span><span class=o>)</span>: cn
-<span class=ln>10</span>
-<span class=ln>11</span><span class=c1># 设置主机名</span>
-<span class=ln>12</span>...
-<span class=ln>13</span>Enter system hostname <span class=o>(</span>fully qualified form, e.g. <span class=s1>&#39;foo.example.org&#39;</span><span class=o>)</span> <span class=o>[</span>localhost<span class=o>]</span> home
-<span class=ln>14</span>
-<span class=ln>15</span><span class=c1># 设置网络</span>
-<span class=ln>16</span>...
-<span class=ln>17</span>Which one <span class=k>do</span> you want to initialize? <span class=o>(</span>or <span class=s1>&#39;?&#39;</span> or <span class=s1>&#39;done&#39;</span><span class=o>)</span> <span class=o>[</span>eth0<span class=o>]</span> eth0
-<span class=ln>18</span>
-<span class=ln>19</span>Ip address <span class=k>for</span> eth0? <span class=o>(</span>or <span class=s1>&#39;dhcp&#39;</span>, <span class=s1>&#39;none&#39;</span>, <span class=s1>&#39;?&#39;</span><span class=o>)</span> <span class=o>[</span>dhcp<span class=o>]</span> dhcp
-<span class=ln>20</span>Do you want to <span class=k>do</span> any manual network configuration? <span class=o>(</span>y/n<span class=o>)</span> <span class=o>[</span>n<span class=o>]</span> n
-<span class=ln>21</span><span class=c1># or 手动输入IP地址</span>
-<span class=ln>22</span>Ip address <span class=k>for</span> eth0? <span class=o>(</span>or <span class=s1>&#39;dhcp&#39;</span>, <span class=s1>&#39;none&#39;</span>, <span class=s1>&#39;?&#39;</span><span class=o>)</span> <span class=o>[</span>dhcp<span class=o>]</span> 192.168.10.16/24
-<span class=ln>23</span>Gateway? <span class=o>(</span>or <span class=s1>&#39;none&#39;</span><span class=o>)</span> <span class=o>[</span>none<span class=o>]</span> 192.168.10.10
-<span class=ln>24</span>Do you want to <span class=k>do</span> any manual network configuration? <span class=o>(</span>y/n<span class=o>)</span> <span class=o>[</span>n<span class=o>]</span> n
-<span class=ln>25</span>DNS domain name? <span class=o>(</span>e.g <span class=s1>&#39;bar.com&#39;</span><span class=o>)</span> 
-<span class=ln>26</span>DNS nameserver<span class=o>(</span>s<span class=o>)</span>? 114.114.114.114
-<span class=ln>27</span>
-<span class=ln>28</span><span class=c1># 设置密码</span>
-<span class=ln>29</span>...
-<span class=ln>30</span>New password: 
-<span class=ln>31</span>...
-<span class=ln>32</span>Retype password:
-<span class=ln>33</span>
-<span class=ln>34</span><span class=c1># 设置时区</span>
-<span class=ln>35</span><span class=c1># PRC 代理中国，也可以输入 Asia/，再输入 Shanghai</span>
-<span class=ln>36</span>...
-<span class=ln>37</span>Which timezone are you in? <span class=o>(</span><span class=s1>&#39;?&#39;</span> <span class=k>for</span> list<span class=o>)</span> <span class=o>[</span>UTC<span class=o>]</span> PRC
-<span class=ln>38</span>
-<span class=ln>39</span><span class=c1># 设备代理</span>
-<span class=ln>40</span>...
-<span class=ln>41</span>HTTP/FTP proxy URL? <span class=o>(</span>e.g. <span class=s1>&#39;http://proxy:8080&#39;</span>, or <span class=s1>&#39;none&#39;</span><span class=o>)</span> <span class=o>[</span>none<span class=o>]</span> none
-<span class=ln>42</span>
-<span class=ln>43</span><span class=c1># 设置更新源</span>
-<span class=ln>44</span><span class=c1># f 是自动测试并选择最快的源，建议使用</span>
-<span class=ln>45</span>...
-<span class=ln>46</span>Enter mirror number <span class=o>(</span>1-74<span class=o>)</span> or URL to add <span class=o>(</span>or r/f/e/done<span class=o>)</span> <span class=o>[</span>1<span class=o>]</span> f
-<span class=ln>47</span>
-<span class=ln>48</span><span class=c1># </span>
-<span class=ln>49</span>Setup a user? <span class=o>(</span>enter a lower-case loginname, or <span class=s1>&#39;no&#39;</span><span class=o>)</span> <span class=o>[</span>no<span class=o>]</span> no
-<span class=ln>50</span>
-<span class=ln>51</span><span class=c1># 设置ssh服务</span>
-<span class=ln>52</span>Which ssh server? <span class=o>(</span><span class=s1>&#39;openssh&#39;</span>, <span class=s1>&#39;dropbear&#39;</span>, or <span class=s1>&#39;none&#39;</span><span class=o>)</span> <span class=o>[</span>openssh<span class=o>]</span> openssh
-<span class=ln>53</span><span class=c1># 这里一定要输入 yes </span>
-<span class=ln>54</span><span class=c1># 许多教程都说 Alpine 默认没有远程登录，都上手动修改，其实是可以在安装时就设备好的</span>
-<span class=ln>55</span>Allow root ssh login? <span class=o>(</span><span class=s1>&#39;?&#39;</span> <span class=k>for</span> <span class=nb>help</span><span class=o>)</span> <span class=o>[</span>prohibit-password<span class=o>]</span> yes
-<span class=ln>56</span>Enter ssh key or URL <span class=k>for</span> root <span class=o>(</span>or <span class=s1>&#39;none&#39;</span><span class=o>)</span> <span class=o>[</span>none<span class=o>]</span> none
-<span class=ln>57</span>
-<span class=ln>58</span><span class=c1># 设置磁盘</span>
-<span class=ln>59</span>...
-<span class=ln>60</span>Which disk<span class=o>(</span>s<span class=o>)</span> would you like to use? <span class=o>(</span>or <span class=s1>&#39;?&#39;</span> <span class=k>for</span> <span class=nb>help</span> or <span class=s1>&#39;none&#39;</span><span class=o>)</span> <span class=o>[</span>none<span class=o>]</span> sda
-<span class=ln>61</span>...
-<span class=ln>62</span>How would you like to use it? <span class=o>(</span><span class=s1>&#39;sys&#39;</span>, <span class=s1>&#39;data&#39;</span>, <span class=s1>&#39;crypt&#39;</span>, <span class=s1>&#39;lvm&#39;</span> or <span class=s1>&#39;?&#39;</span> <span class=k>for</span> <span class=nb>help</span><span class=o>)</span> <span class=o>[</span>?<span class=o>]</span> sys
-<span class=ln>63</span>...
-<span class=ln>64</span>WARNING: Erase the aboue disk<span class=o>(</span>s<span class=o>)</span> and <span class=k>continue</span>? <span class=o>(</span>y/n<span class=o>)</span> <span class=o>[</span>n<span class=o>]</span> y
-<span class=ln>65</span>...
-<span class=ln>66</span>Installation is complete. Please reboot.
-<span class=ln>67</span><span class=c1># 到这里安装全部完成</span>
-</code></pre></div><h3 id=31-自动安装>3.1. 自动安装</h3>
-<div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=ln>1</span><span class=c1># 准备应答文件</span>
-</code></pre></div><ul>
-<li><a href=https://docs.alpinelinux.org/user-handbook/0.1a/Installing/setup_alpine.html#_answer_files>Answer Files</a></li>
-</ul>
-<h2 id=4-命令重启电脑>4. 命令重启电脑</h2>
-<div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=ln>1</span>home:~# reboot
-</code></pre></div><h2 id=5-关闭防火墙>5. 关闭防火墙</h2>
-<div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=ln>1</span>home:~# rc-service iptables stop
-<span class=ln>2</span>home:~# rc-update del iptables
-</code></pre></div>
 </div>
-<h2 class=post_related>相关专栏文章</h2>
-<ul>
-<li><a href=https://cuile.github.io/posts/database/postgresql_for_centos/ class=nav-link title="Centos7 安装 Postgresql">Centos7 安装 Postgresql</a></li>
-<li><a href=https://cuile.github.io/posts/laravel/install_for_centos/ class=nav-link title="在CentOS中安装 Laravel 框架">在CentOS中安装 Laravel 框架</a></li>
-<li><a href=https://cuile.github.io/posts/laravel/install_for_virtualhost/ class=nav-link title="虚拟主机安装 Laravel 框架">虚拟主机安装 Laravel 框架</a></li>
-<li><a href=https://cuile.github.io/posts/snap/snap_proxy/ class=nav-link title="snap 设置代理">snap 设置代理</a></li>
-<li><a href=https://cuile.github.io/posts/rime_setup/ class=nav-link title=Rime输入法设置>Rime输入法设置</a></li>
-<li><a href=https://cuile.github.io/posts/windows/windows_setup/ class=nav-link title=Windows系统配置>Windows系统配置</a></li>
-<li><a href=https://cuile.github.io/posts/slam_dunk_2/ class=nav-link title="灌篮高手大结局(全国大赛后) 下">灌篮高手大结局(全国大赛后) 下</a></li>
-<li><a href=https://cuile.github.io/posts/slam_dunk_1/ class=nav-link title="灌篮高手大结局(全国大赛后) 上">灌篮高手大结局(全国大赛后) 上</a></li>
-<li><a href=https://cuile.github.io/posts/vscode/vscode_develop_inside_docker_container/ class=nav-link title="VScode 在 Docker 容器内开发">VScode 在 Docker 容器内开发</a></li>
-<li><a href=https://cuile.github.io/posts/vscode/vscode_configures_python_development_environment/ class=nav-link title="VSCode 配置 Python 开发环境">VSCode 配置 Python 开发环境</a></li>
-<li><a href=https://cuile.github.io/posts/windows/hyper-v_deepin_resolution/ class=nav-link title="Hyper-V 下设置 Deepin 分辨率">Hyper-V 下设置 Deepin 分辨率</a></li>
-<li><a href=https://cuile.github.io/posts/vscode/vscode_with_remote_ssh_in_alpine_linux/ class=nav-link title="VsCode 使用 Remote SSH 连接 Alpine Linux">VsCode 使用 Remote SSH 连接 Alpine Linux</a></li>
-<li><a href=https://cuile.github.io/posts/linux/alpine_linux_manual/ class=nav-link title="Alpine Linux 配置">Alpine Linux 配置</a></li>
-<li><a href=https://cuile.github.io/posts/proxmox/proxmox_cli/ class=nav-link title="Proxmox 命令行">Proxmox 命令行</a></li>
-<li><a href=https://cuile.github.io/posts/windows/hyper-v_centos_disk_expansion/ class=nav-link title="Hyper-V 环境下给 CentOS 磁盘扩容">Hyper-V 环境下给 CentOS 磁盘扩容</a></li>
-<li><a href=https://cuile.github.io/posts/windows/hyper-v_ubuntu_resolution/ class=nav-link title="Hyper-V 下设置 Ubuntu 分辨率">Hyper-V 下设置 Ubuntu 分辨率</a></li>
-<li><a href=https://cuile.github.io/posts/windows/hyper-v_windows10/ class=nav-link title="Windows 10 家庭版安装 Hyper-V">Windows 10 家庭版安装 Hyper-V</a></li>
-<li><a href=https://cuile.github.io/posts/windows/hyper-v_network/ class=nav-link title="Hyper-V 网络设置">Hyper-V 网络设置</a></li>
-<li><a href=https://cuile.github.io/posts/docker/docker_compose/ class=nav-link title="Docker Compose 指令">Docker Compose 指令</a></li>
-<li><a href=https://cuile.github.io/posts/git/connect_with_ssh/ class=nav-link title="使用 SSH 连接 Github">使用 SSH 连接 Github</a></li>
-<li><a href=https://cuile.github.io/posts/linux/alpine_linux_docker/ class=nav-link title="Alpine Linux 安装 Docker">Alpine Linux 安装 Docker</a></li>
-<li><a href=https://cuile.github.io/posts/linux/alpine_linux_install/ class=nav-link title="虚拟机安装 Alpine Linux 3.16">虚拟机安装 Alpine Linux 3.16</a></li>
-<li><a href=https://cuile.github.io/posts/ups/ups_install/ class=nav-link title="山克 UPS 安装手册">山克 UPS 安装手册</a></li>
-<li><a href=https://cuile.github.io/posts/git/git_cli/ class=nav-link title="Git 命令行">Git 命令行</a></li>
-<li><a href=https://cuile.github.io/posts/snap/docker_install_snap/ class=nav-link title="使用 Snap 安装 Docker">使用 Snap 安装 Docker</a></li>
-<li><a href=https://cuile.github.io/posts/docker/docker_install_centos/ class=nav-link title="CentOS 7 安装 Docker">CentOS 7 安装 Docker</a></li>
-<li><a href=https://cuile.github.io/posts/ffmpeg_manual/ class=nav-link title=FFmpeg脚本>FFmpeg脚本</a></li>
-<li><a href=https://cuile.github.io/posts/database/mysql_manual/ class=nav-link title="MySQL 数据操作">MySQL 数据操作</a></li>
-<li><a href=https://cuile.github.io/posts/linux/linux_cli_manual/ class=nav-link title=Linux系统命令>Linux系统命令</a></li>
-<li><a href=https://cuile.github.io/posts/hugo_setup_for_github/ class=nav-link title=Github使用Hugo生成Blog>Github使用Hugo生成Blog</a></li>
-<li><a href=https://cuile.github.io/posts/docker/docker_cli/ class=nav-link title=Docker使用命令>Docker使用命令</a></li>
-<li><a href=https://cuile.github.io/archives/ class=nav-link title></a></li>
-<li><a href=https://cuile.github.io/about/ class=nav-link title=About>About</a></li>
-<li><a href=https://cuile.github.io/search/ class=nav-link title=Search>Search</a></li>
-</ul>
-<div class=post_comments>
+<div class=excerpt_footer>
+<div class=pale>
+<p>特点： 小巧：基于musl libc 和 busybox，和 busybox一样小巧，最小的Docker镜像只有5MB。 安全：面向安全的轻量发行版 简单：提供</p>
+<br>
+<a href=https://cuile.github.io/posts/alpine_linux/install/ title=阅读更多 class="excerpt_more button">阅读更多</a>
 </div>
-</article>
+</div>
+</div>
+</li>
+<li>
+</li>
+</ul>
+</div>
 <aside class=sidebar>
 <section class=sidebar_inner>
 <br>
@@ -210,110 +89,6 @@
 <div class=author_bio>
 产品里的技术、一眼看不出来的胖子
 </div>
-<ul>
-<li>
-<a href=https://cuile.github.io/posts/database/postgresql_for_centos/ class=nav-link title="Centos7 安装 Postgresql">Centos7 安装 Postgresql</a>
-</li>
-<li>
-<a href=https://cuile.github.io/posts/laravel/install_for_centos/ class=nav-link title="在CentOS中安装 Laravel 框架">在CentOS中安装 Laravel 框架</a>
-</li>
-<li>
-<a href=https://cuile.github.io/posts/laravel/install_for_virtualhost/ class=nav-link title="虚拟主机安装 Laravel 框架">虚拟主机安装 Laravel 框架</a>
-</li>
-<li>
-<a href=https://cuile.github.io/posts/snap/snap_proxy/ class=nav-link title="snap 设置代理">snap 设置代理</a>
-</li>
-<li>
-<a href=https://cuile.github.io/posts/rime_setup/ class=nav-link title=Rime输入法设置>Rime输入法设置</a>
-</li>
-<li>
-<a href=https://cuile.github.io/posts/windows/windows_setup/ class=nav-link title=Windows系统配置>Windows系统配置</a>
-</li>
-<li>
-<a href=https://cuile.github.io/posts/slam_dunk_2/ class=nav-link title="灌篮高手大结局(全国大赛后) 下">灌篮高手大结局(全国大赛后) 下</a>
-</li>
-<li>
-<a href=https://cuile.github.io/posts/slam_dunk_1/ class=nav-link title="灌篮高手大结局(全国大赛后) 上">灌篮高手大结局(全国大赛后) 上</a>
-</li>
-<li>
-<a href=https://cuile.github.io/posts/vscode/vscode_develop_inside_docker_container/ class=nav-link title="VScode 在 Docker 容器内开发">VScode 在 Docker 容器内开发</a>
-</li>
-<li>
-<a href=https://cuile.github.io/posts/vscode/vscode_configures_python_development_environment/ class=nav-link title="VSCode 配置 Python 开发环境">VSCode 配置 Python 开发环境</a>
-</li>
-<li>
-<a href=https://cuile.github.io/posts/windows/hyper-v_deepin_resolution/ class=nav-link title="Hyper-V 下设置 Deepin 分辨率">Hyper-V 下设置 Deepin 分辨率</a>
-</li>
-<li>
-<a href=https://cuile.github.io/posts/vscode/vscode_with_remote_ssh_in_alpine_linux/ class=nav-link title="VsCode 使用 Remote SSH 连接 Alpine Linux">VsCode 使用 Remote SSH 连接 Alpine Linux</a>
-</li>
-<li>
-<a href=https://cuile.github.io/posts/linux/alpine_linux_manual/ class=nav-link title="Alpine Linux 配置">Alpine Linux 配置</a>
-</li>
-<li>
-<a href=https://cuile.github.io/posts/proxmox/proxmox_cli/ class=nav-link title="Proxmox 命令行">Proxmox 命令行</a>
-</li>
-<li>
-<a href=https://cuile.github.io/posts/windows/hyper-v_centos_disk_expansion/ class=nav-link title="Hyper-V 环境下给 CentOS 磁盘扩容">Hyper-V 环境下给 CentOS 磁盘扩容</a>
-</li>
-<li>
-<a href=https://cuile.github.io/posts/windows/hyper-v_ubuntu_resolution/ class=nav-link title="Hyper-V 下设置 Ubuntu 分辨率">Hyper-V 下设置 Ubuntu 分辨率</a>
-</li>
-<li>
-<a href=https://cuile.github.io/posts/windows/hyper-v_windows10/ class=nav-link title="Windows 10 家庭版安装 Hyper-V">Windows 10 家庭版安装 Hyper-V</a>
-</li>
-<li>
-<a href=https://cuile.github.io/posts/windows/hyper-v_network/ class=nav-link title="Hyper-V 网络设置">Hyper-V 网络设置</a>
-</li>
-<li>
-<a href=https://cuile.github.io/posts/docker/docker_compose/ class=nav-link title="Docker Compose 指令">Docker Compose 指令</a>
-</li>
-<li>
-<a href=https://cuile.github.io/posts/git/connect_with_ssh/ class=nav-link title="使用 SSH 连接 Github">使用 SSH 连接 Github</a>
-</li>
-<li>
-<a href=https://cuile.github.io/posts/linux/alpine_linux_docker/ class=nav-link title="Alpine Linux 安装 Docker">Alpine Linux 安装 Docker</a>
-</li>
-<li>
-<a href=https://cuile.github.io/posts/linux/alpine_linux_install/ class=nav-link title="虚拟机安装 Alpine Linux 3.16">虚拟机安装 Alpine Linux 3.16</a>
-</li>
-<li>
-<a href=https://cuile.github.io/posts/ups/ups_install/ class=nav-link title="山克 UPS 安装手册">山克 UPS 安装手册</a>
-</li>
-<li>
-<a href=https://cuile.github.io/posts/git/git_cli/ class=nav-link title="Git 命令行">Git 命令行</a>
-</li>
-<li>
-<a href=https://cuile.github.io/posts/snap/docker_install_snap/ class=nav-link title="使用 Snap 安装 Docker">使用 Snap 安装 Docker</a>
-</li>
-<li>
-<a href=https://cuile.github.io/posts/docker/docker_install_centos/ class=nav-link title="CentOS 7 安装 Docker">CentOS 7 安装 Docker</a>
-</li>
-<li>
-<a href=https://cuile.github.io/posts/ffmpeg_manual/ class=nav-link title=FFmpeg脚本>FFmpeg脚本</a>
-</li>
-<li>
-<a href=https://cuile.github.io/posts/database/mysql_manual/ class=nav-link title="MySQL 数据操作">MySQL 数据操作</a>
-</li>
-<li>
-<a href=https://cuile.github.io/posts/linux/linux_cli_manual/ class=nav-link title=Linux系统命令>Linux系统命令</a>
-</li>
-<li>
-<a href=https://cuile.github.io/posts/hugo_setup_for_github/ class=nav-link title=Github使用Hugo生成Blog>Github使用Hugo生成Blog</a>
-</li>
-<li>
-<a href=https://cuile.github.io/posts/docker/docker_cli/ class=nav-link title=Docker使用命令>Docker使用命令</a>
-</li>
-<li>
-<a href=https://cuile.github.io/archives/ class=nav-link title></a>
-</li>
-<li>
-<a href=https://cuile.github.io/about/ class=nav-link title=About>About</a>
-</li>
-<li>
-<a href=https://cuile.github.io/search/ class=nav-link title=Search>Search</a>
-</li>
-</ul>
 <h2 class=mt-4>最新文章</h2>
 <ul class=flex-column>
 <li>
@@ -346,7 +121,7 @@
 <nav class=tags_nav>
 <a href=https://cuile.github.io/categories/%E7%B3%BB%E7%BB%9F%E9%85%8D%E7%BD%AE/ class="post_tag button button_translucent" title=系统配置>
 系统配置
-<span class=button_tally>22</span>
+<span class=button_tally>20</span>
 </a>
 <a href=https://cuile.github.io/categories/tips/ class="post_tag button button_translucent" title=tips>
 TIPS
@@ -371,7 +146,7 @@ TIPS
 <nav class=tags_nav>
 <a href=https://cuile.github.io/series/linux/ class="post_tag button button_translucent" title=linux>
 LINUX
-<span class=button_tally>12</span>
+<span class=button_tally>10</span>
 </a>
 <a href=https://cuile.github.io/series/life-tips/ class="post_tag button button_translucent" title=life-tips>
 LIFE-TIPS
@@ -422,6 +197,10 @@ DOCKER
 ALPINE-LINUX
 <span class=button_tally>6</span>
 </a>
+<a href=https://cuile.github.io/tags/linux/ class="post_tag button button_translucent" title=linux>
+LINUX
+<span class=button_tally>6</span>
+</a>
 <a href=https://cuile.github.io/tags/windows/ class="post_tag button button_translucent" title=windows>
 WINDOWS
 <span class=button_tally>6</span>
@@ -441,10 +220,6 @@ HYPER-V
 <a href=https://cuile.github.io/tags/python/ class="post_tag button button_translucent" title=python>
 PYTHON
 <span class=button_tally>4</span>
-</a>
-<a href=https://cuile.github.io/tags/linux/ class="post_tag button button_translucent" title=linux>
-LINUX
-<span class=button_tally>3</span>
 </a>
 <a href=https://cuile.github.io/tags/network/ class="post_tag button button_translucent" title=network>
 NETWORK
@@ -526,7 +301,7 @@ FIREWALL
 </a>
 <a href=https://cuile.github.io/tags/laravel/ class="post_tag button button_translucent" data-position=2 title=laravel>LARAVEL<span class=button_tally>2</span>
 </a>
-<a href=https://cuile.github.io/tags/linux/ class="post_tag button button_translucent" data-position=3 title=linux>LINUX<span class=button_tally>3</span>
+<a href=https://cuile.github.io/tags/linux/ class="post_tag button button_translucent" data-position=6 title=linux>LINUX<span class=button_tally>6</span>
 </a>
 <a href=https://cuile.github.io/tags/make/ class="post_tag button button_translucent" data-position=1 title=make>MAKE<span class=button_tally>1</span>
 </a>
@@ -546,13 +321,15 @@ FIREWALL
 </a>
 <a href=https://cuile.github.io/tags/postgresql/ class="post_tag button button_translucent" data-position=1 title=postgresql>POSTGRESQL<span class=button_tally>1</span>
 </a>
-<a href=https://cuile.github.io/tags/proxmox/ class="post_tag button button_translucent" data-position=1 title=proxmox>PROXMOX<span class=button_tally>1</span>
+<a href=https://cuile.github.io/tags/proxmox/ class="post_tag button button_translucent" data-position=2 title=proxmox>PROXMOX<span class=button_tally>2</span>
 </a>
 <a href=https://cuile.github.io/tags/proxy/ class="post_tag button button_translucent" data-position=3 title=proxy>PROXY<span class=button_tally>3</span>
 </a>
 <a href=https://cuile.github.io/tags/pypi/ class="post_tag button button_translucent" data-position=1 title=pypi>PYPI<span class=button_tally>1</span>
 </a>
 <a href=https://cuile.github.io/tags/python/ class="post_tag button button_translucent" data-position=4 title=python>PYTHON<span class=button_tally>4</span>
+</a>
+<a href=https://cuile.github.io/tags/qmue%5Ckvm/ class="post_tag button button_translucent" data-position=1 title=qmue\kvm>QMUE\KVM<span class=button_tally>1</span>
 </a>
 <a href=https://cuile.github.io/tags/rdp/ class="post_tag button button_translucent" data-position=1 title=rdp>RDP<span class=button_tally>1</span>
 </a>
@@ -595,6 +372,8 @@ FIREWALL
 <a href=https://cuile.github.io/tags/venv/ class="post_tag button button_translucent" data-position=2 title=venv>VENV<span class=button_tally>2</span>
 </a>
 <a href=https://cuile.github.io/tags/version/ class="post_tag button button_translucent" data-position=1 title=version>VERSION<span class=button_tally>1</span>
+</a>
+<a href=https://cuile.github.io/tags/vm/ class="post_tag button button_translucent" data-position=1 title=vm>VM<span class=button_tally>1</span>
 </a>
 <a href=https://cuile.github.io/tags/vscode/ class="post_tag button button_translucent" data-position=3 title=vscode>VSCODE<span class=button_tally>3</span>
 </a>
