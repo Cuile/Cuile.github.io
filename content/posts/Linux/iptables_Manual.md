@@ -1,5 +1,5 @@
 ---
-title: "iptables 命令"
+title: "iptables 配置"
 date: 2022-02-08T10:09:48+08:00
 # draft: true
 tags:
@@ -17,39 +17,46 @@ categories:
 ## 停止firewalld服务
 
 ```bash
-#停止firewalld服务
+# 停止firewalld服务
 $ systemctl stop firewalld
-#禁用firewalld服务
-$ systemctl mask firewalld
+# 禁用firewalld服务
+# $ systemctl mask firewalld
+# 删除firewalld
+$ yum erase firewalld
 ```
 
 ## 安装 iptables
-
 ```bash
-#先检查是否安装了iptables
-$ service iptables status
-#安装iptables
-$ yum install -y iptables
-#升级iptables
-$ yum update iptables 
-#安装iptables-services
-$ yum install iptables-services
+# 先检查是否安装了iptables
+$ systemctl status iptables
+# 安装iptables
+$ yum install iptables iptables-services -y
 ```
 
 ## 启动 iptables
-
 ```bash
-#注册iptables服务，相当于以前的chkconfig iptables on
-$ systemctl enable iptables.service
-#开启服务
-$ systemctl start iptables.service
-#查看状态
-$ systemctl status iptables.service
+# 注册iptables服务，相当于以前的chkconfig iptables on
+$ systemctl enable iptables
+# 开启服务
+$ systemctl start iptables
+# 查看状态
+$ systemctl status iptables
+# 重启防火墙
+$ systemctl restart iptables
+# 保存规则
+$ service iptables save
 ```
 
-## 创建规则
+## 规则
 
 ```bash
+# 基础规则
+# 允许所有本机向外的访问
+$ iptables -P OUTPUT ACCEPT
+# 禁止其他未允许的规则访问
+$ iptables -P INPUT DROP      // 默认入站规则为拒绝
+$ iptables -P FORWARD DROP    // 默认转发规则为拒绝
+
 # 允许ping
 $ iptables -A INPUT -p icmp -m icmp --icmp-type 8 -j ACCEPT
 # or
@@ -77,24 +84,13 @@ $ iptables -P INPUT DROP
 # 封停一个IP
 $ iptables -I INPUT -s ***.***.***.*** -j DROP
 
-
-#允许所有本机向外的访问
-$ iptables -P OUTPUT ACCEPT
-
-# 禁止其他未允许的规则访问
-$ iptables -P INPUT DROP      // 默认入站规则为拒绝
-$ iptables -P FORWARD DROP    // 默认转发规则为拒绝
-
 # 转发数据包
 # 将<本地端口>接收到的TCP数据包，直接转发到<目标IP>的<目标端口>
 $ iptables -t nat -A PREROUTING -p tcp --dport <本地端口> -j DNAT --to-destination <目标IP>:<目标端口>
 # 将<目标IP>的<目标端口>发来的TCP数据包，IP地址修改为<本地IP>后，原路转发回去
 $ iptables -t nat -A POSTROUTING -p tcp -d <目标IP> --dport <目标端口> -j SNAT --to <本地IP>
-```
 
-## 删除规则
-
-```bash
+# 删除规则
 $ iptables -D INPUT #rulenum#
 # or 使用建立规则时条件，删除指定规则，这个方法比如适合代码使用
 $ iptables -D INPUT -p tcp -m tcp --dport 6443 -j ACCEPT
@@ -102,26 +98,12 @@ $ iptables -D INPUT -p tcp -m tcp --dport 6443 -j ACCEPT
 $ iptables -D INPUT -s ***.***.***.*** -j DROP
 ```
 
-## 重启防火墙
-
-```bash
-$ service iptables restart
-```
-
-## 保存规则
-
-```bash
-$ service iptables save
-```
-
 ## 查看规则
-
 ```bash
 $ iptables -L -n --line-numbers
 ```
 
 ## 重置规则
-
 ```bash
 # 使用这些命令刷新和重置 iptables 到默认状态
 
