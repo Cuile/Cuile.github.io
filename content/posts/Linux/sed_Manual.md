@@ -3,13 +3,11 @@ title: "使用 sed 命令操作"
 date: 2022-01-17T11:18:47+08:00
 # draft: true
 tags: 
+- Linux
 - sed
 - CLI
 series:
-- Linux
 categories:
-- 系统配置
-
 ---
 
 ##  删除冗余信息

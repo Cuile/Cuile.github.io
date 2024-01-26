@@ -5,13 +5,13 @@ date: 2023-05-31T11:18:52+08:00
 
 # 标签
 tags:
+- linux
 - cli
+- txt
 # 专栏
 series:
-- linux
 # 分类
 categories:
-- 编程
 ---
 
 ## 合并文件

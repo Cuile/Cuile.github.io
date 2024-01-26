@@ -3,13 +3,11 @@ title: "Linux 版本库管理"
 date: 2022-02-08T10:28:50+08:00
 # draft: true
 tags:
-- repo
-- CentOS
-- CLI
-series:
 - Linux
+- CentOS
+- repo
+series:
 categories:
-- 系统配置
 ---
 
 **`脚本基于Centos 7`**

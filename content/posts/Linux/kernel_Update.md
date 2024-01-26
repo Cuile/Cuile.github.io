@@ -3,12 +3,10 @@ title: "Linux系统内核升级"
 date: 2022-02-08T10:17:48+08:00
 # draft: true
 tags:
-- kernel
-- CLI
-series:
 - Linux
+- kernel
+series:
 categories:
-- 系统配置
 ---
 
 **`脚本基于Centos 7`**
