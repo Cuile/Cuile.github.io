@@ -1,24 +1,24 @@
 <!doctype html><html lang=zh-cn data-figures class=page>
 <head>
-<title>Linux 系统配置 | 瘦了就帅了</title>
+<title>Linux 系统初始化配置 | 瘦了就帅了</title>
 <meta charset=utf-8>
 <meta name=viewport content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
 <meta http-equiv=x-ua-compatible content="IE=edge">
 <meta property="og:locale" content="zh-cn">
 <meta property="og:type" content="article">
-<meta name=description content="脚本基于Centos 7 修改命令提示符 1# ~/.bash_profile 2 3# [HH:MM user@hostname path] 命令提示符 4export PS1=&#34;[\A \u@\H \w]\\$&#34; 5 6# [yyyy-mm-dd HH:MM] path 7# …">
+<meta name=description content="脚本基于Centos 7 记录系统初始化应操作的一系统步骤 1. 修改命令提示符 1# ~/.bash_profile 2 3# [HH:MM user@hostname path] 命令提示符 4export PS1=&#34;[\A \u@\H \w]\\$&#34; 5 6# [yyyy-mm-dd HH:MM] …">
 <meta name=twitter:card content="summary">
 <meta name=twitter:creator content>
-<meta name=twitter:title content="Linux 系统配置">
+<meta name=twitter:title content="Linux 系统初始化配置">
 <meta name=twitter:image content="https://cuile.github.io/images/thumbnail.png">
-<meta property="og:url" content="https://cuile.github.io/posts/linux/setup_manual/">
-<meta property="og:title" content="Linux 系统配置">
-<meta property="og:description" content="脚本基于Centos 7 修改命令提示符 1# ~/.bash_profile 2 3# [HH:MM user@hostname path] 命令提示符 4export PS1=&#34;[\A \u@\H \w]\\$&#34; 5 6# [yyyy-mm-dd HH:MM] path 7# …">
+<meta property="og:url" content="https://cuile.github.io/posts/linux/init_setup_manual/">
+<meta property="og:title" content="Linux 系统初始化配置">
+<meta property="og:description" content="脚本基于Centos 7 记录系统初始化应操作的一系统步骤 1. 修改命令提示符 1# ~/.bash_profile 2 3# [HH:MM user@hostname path] 命令提示符 4export PS1=&#34;[\A \u@\H \w]\\$&#34; 5 6# [yyyy-mm-dd HH:MM] …">
 <meta property="og:image" content="https://cuile.github.io/images/thumbnail.png">
 <link rel=apple-touch-icon sizes=180x180 href=https://cuile.github.io/icons/apple-touch-icon.png>
 <link rel=icon type=image/png sizes=32x32 href=https://cuile.github.io/icons/favicon-32x32.png>
 <link rel=manifest href=https://cuile.github.io/icons/site.webmanifest>
-<link rel=canonical href=https://cuile.github.io/posts/linux/setup_manual/>
+<link rel=canonical href=https://cuile.github.io/posts/linux/init_setup_manual/>
 <link rel=preload href=https://cuile.github.io/css/styles.367129801480fead578d7a356a98fcb3bce794981ff18cee55868d198d0d2bf1eb4feac97319d0871c6255183b9fd27a7059e4632c785951f4c4f6953559c4d0.css integrity="sha512-NnEpgBSA/q1XjXo1apj8s7znlJgf8YzuVYaNGY0NK/HrT+rJcxnQhxxiVRg7n9J6cFnkYyx4WVH0xPaVNVnE0A==" as=style crossorigin=anonymous>
 <link rel=preload href=https://cuile.github.io/zh-cn/js/bundle.4e04b93422786398f3502d560bd5acb3d3f99b2e942c8c11e0fd926ab6ec3ccbd020d4294d58c0825ecb606ef221b34edc81586f1832489816a57ae8f0276615.js as=script integrity="sha512-TgS5NCJ4Y5jzUC1WC9Wss9P5my6ULIwR4P2SarbsPMvQINQpTVjAgl7LYG7yIbNO3IFYbxgySJgWpXro8CdmFQ==" crossorigin=anonymous>
 <link rel=stylesheet type=text/css href=https://cuile.github.io/css/styles.367129801480fead578d7a356a98fcb3bce794981ff18cee55868d198d0d2bf1eb4feac97319d0871c6255183b9fd27a7059e4632c785951f4c4f6953559c4d0.css integrity="sha512-NnEpgBSA/q1XjXo1apj8s7znlJgf8YzuVYaNGY0NK/HrT+rJcxnQhxxiVRg7n9J6cFnkYyx4WVH0xPaVNVnE0A==" crossorigin=anonymous>
@@ -47,7 +47,7 @@
 <main>
 <div class="grid-inverse wrap content">
 <article class=post_content>
-<h1 class=post_title>Linux 系统配置</h1>
+<h1 class=post_title>Linux 系统初始化配置</h1>
 <div class=post_meta>
 <span><svg class="icon"><title>calendar</title><use xlink:href="#calendar"/></svg>
 </span>
@@ -61,8 +61,9 @@
 </a>
 </span>
 </div>
-<div class=post_body><p><strong><code>脚本基于Centos 7</code></strong></p>
-<h2 id=修改命令提示符>修改命令提示符</h2>
+<div class=post_body><p><strong><code>脚本基于Centos 7</code></strong>
+记录系统初始化应操作的一系统步骤</p>
+<h2 id=1-修改命令提示符>1. 修改命令提示符</h2>
 <div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=ln>1</span><span class=c1># ~/.bash_profile</span>
 <span class=ln>2</span>
 <span class=ln>3</span><span class=c1># [HH:MM user@hostname path] 命令提示符</span>
@@ -74,7 +75,7 @@
 </code></pre></div><ul>
 <li><a href=https://www.linuxidc.com/Linux/2017-10/147438.htm>命令提示符设置参考</a></li>
 </ul>
-<h2 id=远程公私钥登录>远程公私钥登录</h2>
+<h2 id=2-远程公私钥登录>2. 远程公私钥登录</h2>
 <div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=ln> 1</span><span class=c1># 生成公钥、私钥</span>
 <span class=ln> 2</span>$ ssh-keygen -t rsa -b <span class=m>4096</span> -C <span class=s2>&#34;your_email@example.com&#34;</span>
 <span class=ln> 3</span>...
@@ -86,7 +87,11 @@
 <span class=ln> 9</span><span class=c1># 将公钥追加到 authorized_keys 文件，可追加多个公钥</span>
 <span class=ln>10</span>$ cat &lt;key.pub&gt; &gt;&gt; authorized_keys
 <span class=ln>11</span><span class=c1># 私钥在 SSH 登录时使用</span>
-</code></pre></div><h2 id=网络端口操作>网络端口操作</h2>
+</code></pre></div><h2 id=3-修改时区>3. 修改时区</h2>
+<ul>
+<li><a href=content/posts/Linux/Systmed.md#%E4%BF%AE%E6%94%B9%E6%9C%8D%E5%8A%A1%E5%99%A8%E6%97%B6%E5%8C%BA>Systemd 系统工具命令指南</a></li>
+</ul>
+<h2 id=网络端口操作>网络端口操作</h2>
 <div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=ln>1</span><span class=c1># 查看端口占用</span>
 <span class=ln>2</span><span class=c1># 查看所有端口占用情况</span>
 <span class=ln>3</span>$ netstat -tlunp
@@ -167,12 +172,12 @@
 <li><a href=https://cuile.github.io/posts/ffmpeg_manual/ class=nav-link title=FFmpeg脚本>FFmpeg脚本</a></li>
 <li><a href=https://cuile.github.io/posts/linux/repo_manual/ class=nav-link title="Linux 版本库管理">Linux 版本库管理</a></li>
 <li><a href=https://cuile.github.io/posts/linux/kernel_update/ class=nav-link title=Linux系统内核升级>Linux系统内核升级</a></li>
-<li><a href=https://cuile.github.io/posts/linux/iptables_manual/ class=nav-link title="iptables 命令">iptables 命令</a></li>
+<li><a href=https://cuile.github.io/posts/linux/iptables_manual/ class=nav-link title="iptables 配置">iptables 配置</a></li>
 <li><a href=https://cuile.github.io/posts/proxmox/nat/ class=nav-link title="Proxmox 配置 NAT 网络">Proxmox 配置 NAT 网络</a></li>
 <li><a href=https://cuile.github.io/posts/database/mysql_manual/ class=nav-link title="MySQL 数据操作">MySQL 数据操作</a></li>
 <li><a href=https://cuile.github.io/posts/linux/nmcli_manual/ class=nav-link title="使用 nmcli 配置网络">使用 nmcli 配置网络</a></li>
 <li><a href=https://cuile.github.io/posts/linux/sed_manual/ class=nav-link title="使用 sed 命令操作">使用 sed 命令操作</a></li>
-<li><a href=https://cuile.github.io/posts/linux/setup_manual/ class=nav-link title="Linux 系统配置">Linux 系统配置</a></li>
+<li><a href=https://cuile.github.io/posts/linux/init_setup_manual/ class=nav-link title="Linux 系统初始化配置">Linux 系统初始化配置</a></li>
 <li><a href=https://cuile.github.io/posts/hugo_setup_for_github/ class=nav-link title=Github使用Hugo生成Blog>Github使用Hugo生成Blog</a></li>
 <li><a href=https://cuile.github.io/posts/docker/docker_cli/ class=nav-link title=Docker使用命令>Docker使用命令</a></li>
 <li><a href=https://cuile.github.io/archives/ class=nav-link title></a></li>
@@ -311,7 +316,7 @@
 <a href=https://cuile.github.io/posts/linux/kernel_update/ class=nav-link title=Linux系统内核升级>Linux系统内核升级</a>
 </li>
 <li>
-<a href=https://cuile.github.io/posts/linux/iptables_manual/ class=nav-link title="iptables 命令">iptables 命令</a>
+<a href=https://cuile.github.io/posts/linux/iptables_manual/ class=nav-link title="iptables 配置">iptables 配置</a>
 </li>
 <li>
 <a href=https://cuile.github.io/posts/proxmox/nat/ class=nav-link title="Proxmox 配置 NAT 网络">Proxmox 配置 NAT 网络</a>
@@ -326,7 +331,7 @@
 <a href=https://cuile.github.io/posts/linux/sed_manual/ class=nav-link title="使用 sed 命令操作">使用 sed 命令操作</a>
 </li>
 <li>
-<a href=https://cuile.github.io/posts/linux/setup_manual/ class=nav-link title="Linux 系统配置">Linux 系统配置</a>
+<a href=https://cuile.github.io/posts/linux/init_setup_manual/ class=nav-link title="Linux 系统初始化配置">Linux 系统初始化配置</a>
 </li>
 <li>
 <a href=https://cuile.github.io/posts/hugo_setup_for_github/ class=nav-link title=Github使用Hugo生成Blog>Github使用Hugo生成Blog</a>
