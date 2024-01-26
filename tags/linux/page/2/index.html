@@ -243,7 +243,7 @@
 <div class=excerpt>
 <div class=excerpt_header>
 <h3 class=post_link>
-<a href=https://cuile.github.io/posts/linux/cli_manual/ title="Linux 系统配置">Linux 系统配置</a>
+<a href=https://cuile.github.io/posts/linux/setup_manual/ title="Linux 系统配置">Linux 系统配置</a>
 </h3>
 <div class=post_meta>
 <span><svg class="icon"><title>calendar</title><use xlink:href="#calendar"/></svg>
@@ -261,9 +261,9 @@
 </div>
 <div class=excerpt_footer>
 <div class=pale>
-<p>脚本基于Centos 7 查看系统版本 1$ lsb_release -a 2$ cat /etc/redhat-release 3$ cat /etc/issue 系统进程操作 1# 定位高CPU占用 2$ ps H -eo user,pid,ppid,tid,time,%cpu,cmd --sort=%cpu 3# 可视化显示CPU的使用状况的工具 4$ yum install -y htop 5$</p>
+<p>脚本基于Centos 7 修改命令提示符 1# ~/.bash_profile 2 3# [HH:MM user@hostname path] 命令提示符 4export PS1="[\A \u@\H \w]\$" 5 6# [yyyy-mm-dd HH:MM] path 7# [user@hostname] 命令提示符 8export PS1='[\e[36;40m][\D{%Y-%m-%d} \A] [\e[0m] [\e[35;40m]\w[\e[0m]\n[\e[33;40m][\u@\H][\e[0m] \$ ' 命令提示符设置参考 远程公私钥登录 1#</p>
 <br>
-<a href=https://cuile.github.io/posts/linux/cli_manual/ title=阅读更多 class="excerpt_more button">阅读更多</a>
+<a href=https://cuile.github.io/posts/linux/setup_manual/ title=阅读更多 class="excerpt_more button">阅读更多</a>
 </div>
 </div>
 </div>
