@@ -44,7 +44,10 @@ $ cat <key.pub> >> authorized_keys
 ```
 
 ## 3. 修改时区
-- [Systemd 系统工具命令指南](content/posts/Linux/Systmed.md#修改服务器时区)
+- [Systemd 系统工具命令指南](Systmed.md#修改服务器时区)
+
+## 4. 配置防火墙
+- [iptables 配置](iptables_Manual.md)
 
 ## 网络端口操作
 ```bash
