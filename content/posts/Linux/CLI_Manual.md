@@ -1,15 +1,25 @@
 ---
-title: "Linux系统命令"
+title: "Linux 系统配置"
 date: 2022-01-17T11:07:07+08:00
 # draft: true
 tags: 
 - linux
 - CLI
+- bash
+- ssh
+- top
 series:
 categories:
 ---
 
 **`脚本基于Centos 7`**
+
+## 查看系统版本
+```bash
+$ lsb_release -a
+$ cat /etc/redhat-release
+$ cat /etc/issue
+```
 
 ## 系统进程操作
 
@@ -53,36 +63,24 @@ $ netstat -tlunp | grep <port>
 ```
 
 ## 修改命令提示符
+```bash
+# ~/.bash_profile
 
-```bash
-$ nano .bash_profile
-```
-```bash
 # [HH:MM user@hostname path] 命令提示符
 export PS1="[\A \u@\H \w]\\$ "
 
 # [yyyy-mm-dd HH:MM] path
 # [user@hostname] 命令提示符
-export PS1='\[\e[36;40m\][\D{%Y-%m-%d} \A] \[\e[0m\] \[\e[35;40m\]\w\[\e[0m\]\n\[\e[33;40m\][\u@\H]\[\e[0m\]  \\$ '
+export PS1='\[\e[36;40m\][\D{%Y-%m-%d} \A] \[\e[0m\] \[\e[35;40m\]\w\[\e[0m\]\n\[\e[33;40m\][\u@\H]\[\e[0m\] \\$ '
 ```
 - [命令提示符设置参考](https://www.linuxidc.com/Linux/2017-10/147438.htm)
 
-## 查看系统版本
-
-```bash
-$ lsb_release -a
-$ cat /etc/redhat-release
-$ cat /etc/issue
-```
-
 ## 修改密码
-
 ```bash
 $ passwd <username>
 ```
 
 ## 远程公私钥登录
-
 ```bash
 # 生成公钥、私钥
 $ ssh-keygen -t rsa -b 4096 -C "your_email@example.com"
