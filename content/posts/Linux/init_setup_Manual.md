@@ -69,10 +69,10 @@ $ systemctl restart sshd
 ```bash
 $ yum install git
 ```
-- [使用 SSH 连接 Github](../git/connect_with_ssh/)
+- [使用 SSH 连接 Github](../../git/connect_with_ssh/)
 
 ## 7. 配置 Docker
-- [CentOS 7 安装 Docker](../docker/docker_install_centos)
+- [CentOS 7 安装 Docker](../../docker/docker_install_centos)
 
 ## 其它配置
 
