@@ -46,7 +46,7 @@ Enter a file in which to save the key (/home/you/.ssh/algorithm): <key_name>
 Enter passphrase (empty for no passphrase): [输入密码]
 Enter same passphrase again: [再次输入密码]
 # 设置访问权限
-$ chmod 600 <key_name> <key_name>.pub
+$ chmod 600 <key_name>
 # 将公钥追加到 authorized_keys 文件，可追加多个公钥
 $ cat <key.pub> >> authorized_keys
 # 私钥在 SSH 登录时使用

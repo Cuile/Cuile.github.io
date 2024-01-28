@@ -25,13 +25,11 @@ Enter same passphrase again: [再次输入密码]
 ## 将新的 SSH Key 添加到 Github
 
 1. 将公钥文件的内容COPY出来
-
 ```bash
 $ cat ~/.ssh/<key_name>.pub
 ```
 
 2. Github.com -> "Settings" -> "SSH and GPG keys" -> "New SSH key"
-
 > Title : 为新密钥添加描述性标签
 > Key : 粘贴COPY的公钥内容
 
@@ -50,8 +48,10 @@ Host github.com
   Hostname ssh.github.com
   Port 443
   IdentityFile ~/.ssh/cuile.key
+  UpdateHostKeys yes
   User git
 ```
+- [Improving Git protocol security on GitHub - The GitHub Blog](https://github.blog/2021-09-01-improving-git-protocol-security-github/#standard-git-client)
 
 2. 连接测试
 ```bash
