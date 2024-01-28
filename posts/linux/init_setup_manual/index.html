@@ -6,14 +6,14 @@
 <meta http-equiv=x-ua-compatible content="IE=edge">
 <meta property="og:locale" content="zh-cn">
 <meta property="og:type" content="article">
-<meta name=description content="脚本基于Centos 7 记录系统初始化应操作的一系统步骤 1. 修改命令提示符 1# ~/.bash_profile 2 3# [HH:MM user@hostname path] 命令提示符 4export PS1=&#34;[\A \u@\H \w]\\$&#34; 5 6# [yyyy-mm-dd HH:MM] …">
+<meta name=description content="脚本基于Centos 7 记录系统初始化应操作的一系统步骤 1. 更新 1$ yum update -y 2. 修改命令提示符 1# ~/.bash_profile 2 3# [HH:MM user@hostname path] 命令提示符 4export PS1=&#34;[\A \u@\H \w]\\$&#34; …">
 <meta name=twitter:card content="summary">
 <meta name=twitter:creator content>
 <meta name=twitter:title content="Linux 系统初始化配置">
 <meta name=twitter:image content="https://b.cuile.com/images/thumbnail.png">
 <meta property="og:url" content="https://b.cuile.com/posts/linux/init_setup_manual/">
 <meta property="og:title" content="Linux 系统初始化配置">
-<meta property="og:description" content="脚本基于Centos 7 记录系统初始化应操作的一系统步骤 1. 修改命令提示符 1# ~/.bash_profile 2 3# [HH:MM user@hostname path] 命令提示符 4export PS1=&#34;[\A \u@\H \w]\\$&#34; 5 6# [yyyy-mm-dd HH:MM] …">
+<meta property="og:description" content="脚本基于Centos 7 记录系统初始化应操作的一系统步骤 1. 更新 1$ yum update -y 2. 修改命令提示符 1# ~/.bash_profile 2 3# [HH:MM user@hostname path] 命令提示符 4export PS1=&#34;[\A \u@\H \w]\\$&#34; …">
 <meta property="og:image" content="https://b.cuile.com/images/thumbnail.png">
 <link rel=apple-touch-icon sizes=180x180 href=https://b.cuile.com/icons/apple-touch-icon.png>
 <link rel=icon type=image/png sizes=32x32 href=https://b.cuile.com/icons/favicon-32x32.png>
@@ -53,7 +53,7 @@
 </span>
 <span class=post_date>
 2022-01-17</span>
-<span class=post_time> · 阅读时长 1 分钟</span><span>&nbsp;· <a href=https://b.cuile.com/tags/linux/ title=linux class="post_tag button button_translucent">linux
+<span class=post_time> · 阅读时长 2 分钟</span><span>&nbsp;· <a href=https://b.cuile.com/tags/linux/ title=linux class="post_tag button button_translucent">linux
 </a><a href=https://b.cuile.com/tags/cli/ title=CLI class="post_tag button button_translucent">CLI
 </a><a href=https://b.cuile.com/tags/bash/ title=bash class="post_tag button button_translucent">bash
 </a><a href=https://b.cuile.com/tags/ssh/ title=ssh class="post_tag button button_translucent">ssh
@@ -63,7 +63,9 @@
 </div>
 <div class=post_body><p><strong><code>脚本基于Centos 7</code></strong></p>
 <p>记录系统初始化应操作的一系统步骤</p>
-<h2 id=1-修改命令提示符>1. 修改命令提示符</h2>
+<h2 id=1-更新>1. 更新</h2>
+<div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=ln>1</span>$ yum update -y
+</code></pre></div><h2 id=2-修改命令提示符>2. 修改命令提示符</h2>
 <div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=ln>1</span><span class=c1># ~/.bash_profile</span>
 <span class=ln>2</span>
 <span class=ln>3</span><span class=c1># [HH:MM user@hostname path] 命令提示符</span>
@@ -75,11 +77,11 @@
 </code></pre></div><ul>
 <li><a href=https://www.linuxidc.com/Linux/2017-10/147438.htm>命令提示符设置参考</a></li>
 </ul>
-<h2 id=2-修改时区>2. 修改时区</h2>
+<h2 id=3-修改时区>3. 修改时区</h2>
 <ul>
 <li><a href=../systemd/#%E4%BF%AE%E6%94%B9%E6%9C%8D%E5%8A%A1%E5%99%A8%E6%97%B6%E5%8C%BA>Systemd 系统工具命令指南</a></li>
 </ul>
-<h2 id=3-远程公私钥登录>3. 远程公私钥登录</h2>
+<h2 id=4-远程公私钥登录>4. 远程公私钥登录</h2>
 <div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=ln> 1</span><span class=c1># 生成公钥、私钥</span>
 <span class=ln> 2</span>$ ssh-keygen -t rsa -b <span class=m>4096</span> -C <span class=s2>&#34;your_email@example.com&#34;</span>
 <span class=ln> 3</span>...
@@ -91,11 +93,11 @@
 <span class=ln> 9</span><span class=c1># 将公钥追加到 authorized_keys 文件，可追加多个公钥</span>
 <span class=ln>10</span>$ cat &lt;key.pub&gt; &gt;&gt; authorized_keys
 <span class=ln>11</span><span class=c1># 私钥在 SSH 登录时使用</span>
-</code></pre></div><h2 id=4-配置防火墙>4. 配置防火墙</h2>
+</code></pre></div><h2 id=5-配置防火墙>5. 配置防火墙</h2>
 <ul>
 <li><a href=../iptables_manual/>iptables 配置</a></li>
 </ul>
-<h2 id=5-配置-sshd>5. 配置 sshd</h2>
+<h2 id=6-配置-sshd>6. 配置 sshd</h2>
 <div class=highlight><pre tabindex=0 class=chroma><code class=language-ini data-lang=ini><span class=ln>1</span><span class=c1># /etc/ssh/sshd_config</span>
 <span class=ln>2</span>
 <span class=ln>3</span><span class=na>- #PasswordAuthentication yes</span>
@@ -106,12 +108,12 @@
 <span class=ln>8</span><span class=na>+ ClientAliveInterval 60</span>
 <span class=ln>9</span><span class=na>+ ClientAliveCountMax 3</span>
 </code></pre></div><div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=ln>1</span>$ systemctl restart sshd
-</code></pre></div><h2 id=6-配置-git>6. 配置 Git</h2>
+</code></pre></div><h2 id=7-配置-git>7. 配置 Git</h2>
 <div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=ln>1</span>$ yum install git
 </code></pre></div><ul>
 <li><a href=../../git/connect_with_ssh/>使用 SSH 连接 Github</a></li>
 </ul>
-<h2 id=7-配置-docker>7. 配置 Docker</h2>
+<h2 id=8-配置-docker>8. 配置 Docker</h2>
 <ul>
 <li><a href=../../docker/docker_install_centos>CentOS 7 安装 Docker</a></li>
 </ul>
