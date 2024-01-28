@@ -53,7 +53,7 @@ $ yum install -y yum-utils \
                 lvm2
 ```
 
-## 4.添加yum软件源
+## 4.添加 Docker 软件源
 
 ```bash
 # 如果系统已切换到阿里云镜像源地址，可跳过此步。
