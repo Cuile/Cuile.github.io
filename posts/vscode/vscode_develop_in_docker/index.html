@@ -1,25 +1,24 @@
-<!doctype html><html lang=zh-cn data-figures>
+<!doctype html><html lang=zh-cn data-figures class=page>
 <head>
-<title>windows | 瘦了就帅了</title>
+<title>VScode 在 Docker 容器内开发 | 瘦了就帅了</title>
 <meta charset=utf-8>
 <meta name=viewport content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
 <meta http-equiv=x-ua-compatible content="IE=edge">
 <meta property="og:locale" content="zh-cn">
 <meta property="og:type" content="article">
-<meta name=description content>
+<meta name=description content="在 Docker 的容器内开发，相当于使用VSCode的远程开发能力，好处非常多。 开发环境统一、可维护性强 后期部署简单 1. 安装 Docker 各系统安装 Docker 的教程很多，这里">
 <meta name=twitter:card content="summary">
 <meta name=twitter:creator content>
-<meta name=twitter:title content="windows">
+<meta name=twitter:title content="VScode 在 Docker 容器内开发">
 <meta name=twitter:image content="https://b.cuile.com/images/thumbnail.png">
-<meta property="og:url" content="https://b.cuile.com/tags/windows/">
-<meta property="og:title" content="windows">
-<meta property="og:description" content>
+<meta property="og:url" content="https://b.cuile.com/posts/vscode/vscode_develop_in_docker/">
+<meta property="og:title" content="VScode 在 Docker 容器内开发">
+<meta property="og:description" content="在 Docker 的容器内开发，相当于使用VSCode的远程开发能力，好处非常多。 开发环境统一、可维护性强 后期部署简单 1. 安装 Docker 各系统安装 Docker 的教程很多，这里">
 <meta property="og:image" content="https://b.cuile.com/images/thumbnail.png">
 <link rel=apple-touch-icon sizes=180x180 href=https://b.cuile.com/icons/apple-touch-icon.png>
 <link rel=icon type=image/png sizes=32x32 href=https://b.cuile.com/icons/favicon-32x32.png>
 <link rel=manifest href=https://b.cuile.com/icons/site.webmanifest>
-<link rel=canonical href=https://b.cuile.com/tags/windows/>
-<link rel=alternate type=application/rss+xml href=https://b.cuile.com/tags/windows/index.xml title=瘦了就帅了>
+<link rel=canonical href=https://b.cuile.com/posts/vscode/vscode_develop_in_docker/>
 <link rel=preload href=https://b.cuile.com/css/styles.367129801480fead578d7a356a98fcb3bce794981ff18cee55868d198d0d2bf1eb4feac97319d0871c6255183b9fd27a7059e4632c785951f4c4f6953559c4d0.css integrity="sha512-NnEpgBSA/q1XjXo1apj8s7znlJgf8YzuVYaNGY0NK/HrT+rJcxnQhxxiVRg7n9J6cFnkYyx4WVH0xPaVNVnE0A==" as=style crossorigin=anonymous>
 <link rel=preload href=https://b.cuile.com/zh-cn/js/bundle.4e04b93422786398f3502d560bd5acb3d3f99b2e942c8c11e0fd926ab6ec3ccbd020d4294d58c0825ecb606ef221b34edc81586f1832489816a57ae8f0276615.js as=script integrity="sha512-TgS5NCJ4Y5jzUC1WC9Wss9P5my6ULIwR4P2SarbsPMvQINQpTVjAgl7LYG7yIbNO3IFYbxgySJgWpXro8CdmFQ==" crossorigin=anonymous>
 <link rel=stylesheet type=text/css href=https://b.cuile.com/css/styles.367129801480fead578d7a356a98fcb3bce794981ff18cee55868d198d0d2bf1eb4feac97319d0871c6255183b9fd27a7059e4632c785951f4c4f6953559c4d0.css integrity="sha512-NnEpgBSA/q1XjXo1apj8s7znlJgf8YzuVYaNGY0NK/HrT+rJcxnQhxxiVRg7n9J6cFnkYyx4WVH0xPaVNVnE0A==" crossorigin=anonymous>
@@ -47,180 +46,122 @@
 </header>
 <main>
 <div class="grid-inverse wrap content">
-<div>
-<ul class=posts id=posts>
-<li class=post_item>
-<div class=excerpt>
-<div class=excerpt_header>
-<h3 class=post_link>
-<a href=https://b.cuile.com/posts/windows/windows_setup/ title=Windows系统配置>Windows系统配置</a>
-</h3>
+<article class=post_content>
+<h1 class=post_title>VScode 在 Docker 容器内开发</h1>
 <div class=post_meta>
 <span><svg class="icon"><title>calendar</title><use xlink:href="#calendar"/></svg>
 </span>
 <span class=post_date>
-2024-01-08</span>
-<span class=post_time> · 阅读时长 1 分钟</span><span>&nbsp;· <a href=https://b.cuile.com/tags/windows/ title=windows class="post_tag button button_translucent">windows
-</a><a href=https://b.cuile.com/tags/%E7%B3%BB%E7%BB%9F%E9%85%8D%E7%BD%AE/ title=系统配置 class="post_tag button button_translucent">系统配置
+2023-11-25</span>
+<span class=post_time> · 阅读时长 3 分钟</span><span>&nbsp;· <a href=https://b.cuile.com/tags/python/ title=python class="post_tag button button_translucent">python
+</a><a href=https://b.cuile.com/tags/venv/ title=venv class="post_tag button button_translucent">venv
+</a><a href=https://b.cuile.com/tags/vscode/ title=vscode class="post_tag button button_translucent">vscode
+</a><a href=https://b.cuile.com/tags/docker/ title=docker class="post_tag button button_translucent">docker
 </a>
 </span>
 </div>
-</div>
-<div class=excerpt_footer>
-<div class=pale>
-<p>Windows 10 自带输入法，没有候选字栏 1> DISM /Online /Add-Capability /CapabilityName:Windows.Client.ShellComponents~~~~0.0.1.0 我用的win10自带输入法，最近不知道为什么没有候选字栏，只能用空格选定输入，怎么解决？</p>
-<br>
-<a href=https://b.cuile.com/posts/windows/windows_setup/ title=阅读更多 class="excerpt_more button">阅读更多</a>
-</div>
-</div>
-</div>
-</li>
-<li class=post_item>
-<div class=excerpt>
-<div class=excerpt_header>
-<h3 class=post_link>
-<a href=https://b.cuile.com/posts/windows/hyper-v_deepin_resolution/ title="Hyper-V 下设置 Deepin 分辨率">Hyper-V 下设置 Deepin 分辨率</a>
-</h3>
-<div class=post_meta>
-<span><svg class="icon"><title>calendar</title><use xlink:href="#calendar"/></svg>
-</span>
-<span class=post_date>
-2023-05-06</span>
-<span class=post_time> · 阅读时长 1 分钟</span><span>&nbsp;· <a href=https://b.cuile.com/tags/deepin/ title=deepin class="post_tag button button_translucent">deepin
-</a><a href=https://b.cuile.com/tags/hyper-v/ title=Hyper-V class="post_tag button button_translucent">Hyper-V
-</a><a href=https://b.cuile.com/tags/%E7%B3%BB%E7%BB%9F%E9%85%8D%E7%BD%AE/ title=系统配置 class="post_tag button button_translucent">系统配置
-</a><a href=https://b.cuile.com/tags/windows/ title=windows class="post_tag button button_translucent">windows
-</a>
-</span>
-</div>
-</div>
-<div class=excerpt_footer>
-<div class=pale>
-<p>在hyper-v虚拟机下调节分辨率 1$ sudo nano /etc/default/grub 修改配置项 1GRUB_CMDLINE_LINUX_DEFAULT="quiet splash video=hyperv_fb:1366x768" 更新 grub 1$ sudo /usr/lib/deepin-api/adjust-grub-theme 2$ sudo update-grub 注意：这种方法最高只能支持 1920×1080 的分辨率，对于大显示</p>
-<br>
-<a href=https://b.cuile.com/posts/windows/hyper-v_deepin_resolution/ title=阅读更多 class="excerpt_more button">阅读更多</a>
-</div>
-</div>
-</div>
-</li>
-<li class=post_item>
-<div class=excerpt>
-<div class=excerpt_header>
-<h3 class=post_link>
-<a href=https://b.cuile.com/posts/windows/hyper-v_centos_disk_expansion/ title="Hyper-V 环境下给 CentOS 磁盘扩容">Hyper-V 环境下给 CentOS 磁盘扩容</a>
-</h3>
-<div class=post_meta>
-<span><svg class="icon"><title>calendar</title><use xlink:href="#calendar"/></svg>
-</span>
-<span class=post_date>
-2022-12-26</span>
-<span class=post_time> · 阅读时长 5 分钟</span><span>&nbsp;· <a href=https://b.cuile.com/tags/centos/ title=CentOS class="post_tag button button_translucent">CentOS
-</a><a href=https://b.cuile.com/tags/hyper-v/ title=Hyper-V class="post_tag button button_translucent">Hyper-V
-</a><a href=https://b.cuile.com/tags/windows/ title=windows class="post_tag button button_translucent">windows
-</a><a href=https://b.cuile.com/tags/%E7%B3%BB%E7%BB%9F%E9%85%8D%E7%BD%AE/ title=系统配置 class="post_tag button button_translucent">系统配置
-</a>
-</span>
-</div>
-</div>
-<div class=excerpt_footer>
-<div class=pale>
-<p>使用Hyper-V安装CentOS虚拟机，使用起来非常方便。但遇到磁盘空间不够时，不像Windows虚拟机那样方便给磁盘空间扩容。 总体两分二</p>
-<br>
-<a href=https://b.cuile.com/posts/windows/hyper-v_centos_disk_expansion/ title=阅读更多 class="excerpt_more button">阅读更多</a>
-</div>
-</div>
-</div>
-</li>
-<li class=post_item>
-<div class=excerpt>
-<div class=excerpt_header>
-<h3 class=post_link>
-<a href=https://b.cuile.com/posts/windows/hyper-v_ubuntu_resolution/ title="Hyper-V 下设置 Ubuntu 分辨率">Hyper-V 下设置 Ubuntu 分辨率</a>
-</h3>
-<div class=post_meta>
-<span><svg class="icon"><title>calendar</title><use xlink:href="#calendar"/></svg>
-</span>
-<span class=post_date>
-2022-12-26</span>
-<span class=post_time> · 阅读时长 1 分钟</span><span>&nbsp;· <a href=https://b.cuile.com/tags/ubuntu/ title=Ubuntu class="post_tag button button_translucent">Ubuntu
-</a><a href=https://b.cuile.com/tags/hyper-v/ title=Hyper-V class="post_tag button button_translucent">Hyper-V
-</a><a href=https://b.cuile.com/tags/%E7%B3%BB%E7%BB%9F%E9%85%8D%E7%BD%AE/ title=系统配置 class="post_tag button button_translucent">系统配置
-</a><a href=https://b.cuile.com/tags/windows/ title=windows class="post_tag button button_translucent">windows
-</a>
-</span>
-</div>
-</div>
-<div class=excerpt_footer>
-<div class=pale>
-<p>Hyper-V 环境下安装 Linux 是无法调节分辨率的，但可以通过设置指定分辨率，不过最大只能支持1920x1080 1. 修改配置文件 1$ sudo nano /etc/default/grub 将配置 1GRUB_CMDLINE_LINUX_DEFAULT="quiet splash " 修改为 1GRUB_CMDLINE_LINUX_DEFAULT="quiet splash video=hyperv_fb:1920x1080"</p>
-<br>
-<a href=https://b.cuile.com/posts/windows/hyper-v_ubuntu_resolution/ title=阅读更多 class="excerpt_more button">阅读更多</a>
-</div>
-</div>
-</div>
-</li>
-<li class=post_item>
-<div class=excerpt>
-<div class=excerpt_header>
-<h3 class=post_link>
-<a href=https://b.cuile.com/posts/windows/hyper-v_windows10/ title="Windows 10 家庭版安装 Hyper-V">Windows 10 家庭版安装 Hyper-V</a>
-</h3>
-<div class=post_meta>
-<span><svg class="icon"><title>calendar</title><use xlink:href="#calendar"/></svg>
-</span>
-<span class=post_date>
-2022-12-26</span>
-<span class=post_time> · 阅读时长 1 分钟</span><span>&nbsp;· <a href=https://b.cuile.com/tags/windows/ title=Windows class="post_tag button button_translucent">Windows
-</a><a href=https://b.cuile.com/tags/hyper-v/ title=Hyper-V class="post_tag button button_translucent">Hyper-V
-</a><a href=https://b.cuile.com/tags/%E7%B3%BB%E7%BB%9F%E9%85%8D%E7%BD%AE/ title=系统配置 class="post_tag button button_translucent">系统配置
-</a>
-</span>
-</div>
-</div>
-<div class=excerpt_footer>
-<div class=pale>
-<p>一般新电脑买来都默认安排家庭版，相比专业版一个主要的区别就是没有Hpyer-V 功能。 Hpyer-V 功能支持虚拟机，Windows原生的虚拟机在资源占用方</p>
-<br>
-<a href=https://b.cuile.com/posts/windows/hyper-v_windows10/ title=阅读更多 class="excerpt_more button">阅读更多</a>
-</div>
-</div>
-</div>
-</li>
-<li class=post_item>
-<div class=excerpt>
-<div class=excerpt_header>
-<h3 class=post_link>
-<a href=https://b.cuile.com/posts/windows/hyper-v_network/ title="Hyper-V 网络设置">Hyper-V 网络设置</a>
-</h3>
-<div class=post_meta>
-<span><svg class="icon"><title>calendar</title><use xlink:href="#calendar"/></svg>
-</span>
-<span class=post_date>
-2022-12-26</span>
-<span class=post_time> · 阅读时长 3 分钟</span><span>&nbsp;· <a href=https://b.cuile.com/tags/network/ title=network class="post_tag button button_translucent">network
-</a><a href=https://b.cuile.com/tags/hyper-v/ title=Hyper-V class="post_tag button button_translucent">Hyper-V
-</a><a href=https://b.cuile.com/tags/%E7%B3%BB%E7%BB%9F%E9%85%8D%E7%BD%AE/ title=系统配置 class="post_tag button button_translucent">系统配置
-</a><a href=https://b.cuile.com/tags/windows/ title=windows class="post_tag button button_translucent">windows
-</a>
-</span>
-</div>
-</div>
-<div class=excerpt_footer>
-<div class=pale>
-<p><ol>
-<li>网络设置 1.1. 基础知识 Hyper-V 安装完后，将自动创建一个“默认虚拟交换机”，并同时创建一个同名的虚拟网卡。此交换机及网卡都无法修改，且每次启动时IP都</li>
+<div class=post_body><p>在 Docker 的容器内开发，相当于使用VSCode的远程开发能力，好处非常多。</p>
+<ul>
+<li>开发环境统一、可维护性强</li>
+<li>后期部署简单</li>
+</ul>
+<h2 id=1-安装-docker>1. 安装 Docker</h2>
+<p>各系统安装 Docker 的教程很多，这里略过。</p>
+<h2 id=2-安装-visual-stuido-code>2. 安装 Visual Stuido Code</h2>
+<p>这不废话嘛，同上。</p>
+<h2 id=3-安装-remote-development-扩展包>3. 安装 Remote Development 扩展包</h2>
+<p>官方推荐安装 Remote Development 这个扩展包，它包括三个扩展功能：</p>
+<ul>
+<li>Remote - SSH</li>
+<li>Remote - Containers</li>
+<li>Remote - WSL</li>
+</ul>
+<p>如果你只使用 Docker ，可以只安装 Remote - Containers 这个扩展。</p>
+<p>安装成功后，你可以在 VSCode 的左下角，看到一个“蓝底色+两个相对白箭头”的图标。</p>
+<p>点击图标，可以看到 Remote - Containers 提供了许多方法进行配置。</p>
+<h2 id=4-配置-remote---containers>4. 配置 Remote - Containers</h2>
+<h3 id=41-使用现成的-docker-composeyml-配置>4.1. 使用现成的 docker-compose.yml 配置</h3>
+<ol>
+<li>点击左下角的蓝色图标</li>
+<li>选择 Add Development Container Configuration Files...</li>
+<li>选择 Existing Docker Compose (Extend)
+<ol>
+<li>VSCode 会自动在项目的根目录下，生成 .devcontainer 文件夹</li>
+<li>在 .devcontainer 目录内，包括两个文件：
+<ol>
+<li>devcontainer.json：VSCode 使用它连接开发容器</li>
+<li>docker-compose.yml：示例文件，可以不用管它</li>
 </ol>
-</p>
-<br>
-<a href=https://b.cuile.com/posts/windows/hyper-v_network/ title=阅读更多 class="excerpt_more button">阅读更多</a>
-</div>
-</div>
-</div>
 </li>
-<li>
+</ol>
 </li>
+<li>打开 devcontainer.json 文件</li>
+</ol>
+<blockquote>
+<p>照着 docker-compose.yml 进行修改，见下面示例</p>
+</blockquote>
+<blockquote>
+<div class=highlight><pre tabindex=0 class=chroma><code class=language-json data-lang=json><span class=ln> 1</span><span class=c1>// If you want to run as a non-root user in the container, see .devcontainer/docker-compose.yml.
+</span><span class=ln> 2</span><span class=c1></span><span class=p>{</span>
+<span class=ln> 3</span>  <span class=nt>&#34;name&#34;</span><span class=p>:</span> <span class=s2>&#34;Existing Docker Compose (Extend)&#34;</span><span class=p>,</span>
+<span class=ln> 4</span>  <span class=c1>// Update the &#39;dockerComposeFile&#39; list if you have more compose files or use different names.
+</span><span class=ln> 5</span><span class=c1></span>  <span class=c1>// The .devcontainer/docker-compose.yml file contains any overrides you need/want to make.
+</span><span class=ln> 6</span><span class=c1></span>  <span class=nt>&#34;dockerComposeFile&#34;</span><span class=p>:</span> <span class=p>[</span>
+<span class=ln> 7</span>      <span class=c1>// 项目已有 docker-compose.yml 文件的相对路径
+</span><span class=ln> 8</span><span class=c1></span>      <span class=s2>&#34;../docker/docker-compose.yml&#34;</span><span class=p>,</span>
+<span class=ln> 9</span>      <span class=c1>// 可加载多个yml文件，按加载顺序排好即可
+</span><span class=ln>10</span><span class=c1></span>      <span class=s2>&#34;docker-compose.yml&#34;</span>
+<span class=ln>11</span>  <span class=p>],</span>
+<span class=ln>12</span>  <span class=c1>// The &#39;service&#39; property is the name of the service for the container that VS Code should
+</span><span class=ln>13</span><span class=c1></span>  <span class=c1>// use. Update this value and .devcontainer/docker-compose.yml to the real service name.
+</span><span class=ln>14</span><span class=c1></span>  <span class=c1>// VSCode 要连接的容器名称，必须与 docker-compose.yml 文件里 services 项定义的一致
+</span><span class=ln>15</span><span class=c1></span>  <span class=nt>&#34;service&#34;</span><span class=p>:</span> <span class=s2>&#34;robot&#34;</span><span class=p>,</span>
+<span class=ln>16</span>  <span class=c1>// The optional &#39;workspaceFolder&#39; property is the path VS Code should open by default when
+</span><span class=ln>17</span><span class=c1></span>  <span class=c1>// connected. This is typically a file mount in .devcontainer/docker-compose.yml
+</span><span class=ln>18</span><span class=c1></span>  <span class=c1>// 容器的工作目录，必须与 docker-compose.yml 文件里 volumes 项定义的一致
+</span><span class=ln>19</span><span class=c1></span>  <span class=nt>&#34;workspaceFolder&#34;</span><span class=p>:</span> <span class=s2>&#34;/root/code&#34;</span><span class=p>,</span>
+<span class=ln>20</span>  <span class=c1>// Use &#39;settings&#39; to set *default* container specific settings.json values on container create.
+</span><span class=ln>21</span><span class=c1></span>  <span class=c1>// You can edit these settings after create using File &gt; Preferences &gt; Settings &gt; Remote.
+</span><span class=ln>22</span><span class=c1></span>  <span class=nt>&#34;settings&#34;</span><span class=p>:</span> <span class=p>{</span>
+<span class=ln>23</span>      <span class=c1>// This will ignore your local shell user setting for Linux since shells like zsh are typically
+</span><span class=ln>24</span><span class=c1></span>      <span class=c1>// not in base container images. You can also update this to an specific shell to ensure VS Code
+</span><span class=ln>25</span><span class=c1></span>      <span class=c1>// uses the right one for terminals and tasks. For example, /bin/bash (or /bin/ash for Alpine).
+</span><span class=ln>26</span><span class=c1></span>      <span class=c1>// 系统使用的shell，一般都 /bin/bash
+</span><span class=ln>27</span><span class=c1></span>      <span class=nt>&#34;terminal.integrated.shell.linux&#34;</span><span class=p>:</span> <span class=s2>&#34;/bin/bash&#34;</span>
+<span class=ln>28</span>  <span class=p>},</span>
+<span class=ln>29</span>  <span class=c1>// Uncomment the next line to have VS Code connect as an existing non-root user in the container. See
+</span><span class=ln>30</span><span class=c1></span>  <span class=c1>// https://aka.ms/vscode-remote/containers/non-root for details on adding a non-root user if none exist.
+</span><span class=ln>31</span><span class=c1></span>  <span class=c1>// &#34;remoteUser&#34;: &#34;vscode&#34;,
+</span><span class=ln>32</span><span class=c1></span>  <span class=c1>// Uncomment the next line if you want start specific services in your Docker Compose config.
+</span><span class=ln>33</span><span class=c1></span>  <span class=c1>// &#34;runServices&#34;: [],
+</span><span class=ln>34</span><span class=c1></span>  <span class=c1>// Uncomment the next line if you want to keep your containers running after VS Code shuts down.
+</span><span class=ln>35</span><span class=c1></span>  <span class=c1>// &#34;shutdownAction&#34;: &#34;none&#34;,
+</span><span class=ln>36</span><span class=c1></span>  <span class=c1>// Uncomment the next line to run commands after the container is created - for example installing git.
+</span><span class=ln>37</span><span class=c1></span>  <span class=c1>// &#34;postCreateCommand&#34;: &#34;apt-get update &amp;&amp; apt-get install -y git&#34;,
+</span><span class=ln>38</span><span class=c1></span>  <span class=c1>// Add the IDs of extensions you want installed when the container is created in the array below.
+</span><span class=ln>39</span><span class=c1></span>  <span class=c1>// 在容器内安装的扩展，会在启动时自动安装好
+</span><span class=ln>40</span><span class=c1></span>  <span class=c1>// 容器外即本地安装的扩展，主要对 VSCode 的外观起作用
+</span><span class=ln>41</span><span class=c1></span>  <span class=c1>// 容器内安装的扩展，才能对代码起作用，如：代码格式化等
+</span><span class=ln>42</span><span class=c1></span>  <span class=nt>&#34;extensions&#34;</span><span class=p>:</span> <span class=p>[</span>
+<span class=ln>43</span>      <span class=c1>// 扩展的标识符，可以在扩展详细页面的[名称]旁边找到
+</span><span class=ln>44</span><span class=c1></span>      <span class=s2>&#34;ms-python.python&#34;</span>
+<span class=ln>45</span>  <span class=p>]</span>
+<span class=ln>46</span><span class=p>}</span>
+</code></pre></div></blockquote>
+<h2 id=5-运行>5. 运行</h2>
+<ol>
+<li>再次点击左下角的蓝色图标</li>
+<li>选择 Reopen in Container，VSCode 将重启，并自动启动 docker ，进入容器安装扩展，准备好开发环境</li>
+<li>成功启动过一次后，VSCode 会自动在[欢迎使用]页面[最近]项目下添加快速入口</li>
+</ol>
+<h2 id=6-参考链接>6. 参考链接</h2>
+<ul>
+<li><a href=https://code.visualstudio.com/docs/remote/containers>Developing inside a Container</a></li>
 </ul>
 </div>
+<div class=post_comments>
+</div>
+</article>
 <aside class=sidebar>
 <section class=sidebar_inner>
 <br>
