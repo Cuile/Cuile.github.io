@@ -19,6 +19,8 @@ categories:
 ## 1. 更新
 ```bash
 $ yum update -y
+# 查看以安装的包
+$ yum list installed
 ```
 
 ## 2. 修改命令提示符
@@ -26,11 +28,11 @@ $ yum update -y
 # ~/.bash_profile
 
 # [HH:MM user@hostname path] 命令提示符
-export PS1="[\A \u@\H \w]\\$ "
+$ echo "PS1='[\A \u@\H \w]\\$ '" >> ~/.bash_profile
 
 # [yyyy-mm-dd HH:MM] path
 # [user@hostname] 命令提示符
-export PS1='\[\e[36;40m\][\D{%Y-%m-%d} \A] \[\e[0m\] \[\e[35;40m\]\w\[\e[0m\]\n\[\e[33;40m\][\u@\H]\[\e[0m\] \\$ '
+$ echo "PS1='\[\e[36;40m\][\D{%Y-%m-%d} \A] \[\e[0m\] \[\e[35;40m\]\w\[\e[0m\]\n\[\e[33;40m\][\u@\H]\[\e[0m\] \\$ '" >> ~/.bash_profile
 ```
 - [命令提示符设置参考](https://www.linuxidc.com/Linux/2017-10/147438.htm)
 
