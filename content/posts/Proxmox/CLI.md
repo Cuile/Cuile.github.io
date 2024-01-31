@@ -14,9 +14,11 @@ categories:
 ---
 ## 强制关闭虚拟机
 ```bash
-$ qm stop <vm_id>
+$ qm stop <vmid>
+$ pct stop <vmid>
 # 如果关闭失败
 $ qm list
+$ pct list
 # 找到 vm 对应的 pid
 $ kill <pid>
 ```
