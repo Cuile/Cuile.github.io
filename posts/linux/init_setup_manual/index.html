@@ -6,14 +6,14 @@
 <meta http-equiv=x-ua-compatible content="IE=edge">
 <meta property="og:locale" content="zh-cn">
 <meta property="og:type" content="article">
-<meta name=description content="脚本基于Centos 7 记录系统初始化应操作的一系统步骤 1. 更新 1$ yum update -y 2. 修改命令提示符 1# ~/.bash_profile 2 3# [HH:MM user@hostname path] 命令提示符 4export PS1=&#34;[\A \u@\H \w]\\$&#34; …">
+<meta name=description content="脚本基于Centos 7 记录系统初始化应操作的一系统步骤 1. 更新 1$ yum update -y 2# 查看以安装的包 3$ yum list installed 2. 修改命令提示符 1# ~/.bash_profile 2 3# [HH:MM user@hostname path] 命令提示符 4$ …">
 <meta name=twitter:card content="summary">
 <meta name=twitter:creator content>
 <meta name=twitter:title content="Linux 系统初始化配置">
 <meta name=twitter:image content="https://b.cuile.com/images/thumbnail.png">
 <meta property="og:url" content="https://b.cuile.com/posts/linux/init_setup_manual/">
 <meta property="og:title" content="Linux 系统初始化配置">
-<meta property="og:description" content="脚本基于Centos 7 记录系统初始化应操作的一系统步骤 1. 更新 1$ yum update -y 2. 修改命令提示符 1# ~/.bash_profile 2 3# [HH:MM user@hostname path] 命令提示符 4export PS1=&#34;[\A \u@\H \w]\\$&#34; …">
+<meta property="og:description" content="脚本基于Centos 7 记录系统初始化应操作的一系统步骤 1. 更新 1$ yum update -y 2# 查看以安装的包 3$ yum list installed 2. 修改命令提示符 1# ~/.bash_profile 2 3# [HH:MM user@hostname path] 命令提示符 4$ …">
 <meta property="og:image" content="https://b.cuile.com/images/thumbnail.png">
 <link rel=apple-touch-icon sizes=180x180 href=https://b.cuile.com/icons/apple-touch-icon.png>
 <link rel=icon type=image/png sizes=32x32 href=https://b.cuile.com/icons/favicon-32x32.png>
@@ -65,15 +65,17 @@
 <p>记录系统初始化应操作的一系统步骤</p>
 <h2 id=1-更新>1. 更新</h2>
 <div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=ln>1</span>$ yum update -y
+<span class=ln>2</span><span class=c1># 查看以安装的包</span>
+<span class=ln>3</span>$ yum list installed
 </code></pre></div><h2 id=2-修改命令提示符>2. 修改命令提示符</h2>
 <div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=ln>1</span><span class=c1># ~/.bash_profile</span>
 <span class=ln>2</span>
 <span class=ln>3</span><span class=c1># [HH:MM user@hostname path] 命令提示符</span>
-<span class=ln>4</span><span class=nb>export</span> <span class=nv>PS1</span><span class=o>=</span><span class=s2>&#34;[\A \u@\H \w]\\</span>$<span class=s2> &#34;</span>
+<span class=ln>4</span>$ <span class=nb>echo</span> <span class=s2>&#34;PS1=&#39;[\A \u@\H \w]\\</span>$<span class=s2> &#39;&#34;</span> &gt;&gt; ~/.bash_profile
 <span class=ln>5</span>
 <span class=ln>6</span><span class=c1># [yyyy-mm-dd HH:MM] path</span>
 <span class=ln>7</span><span class=c1># [user@hostname] 命令提示符</span>
-<span class=ln>8</span><span class=nb>export</span> <span class=nv>PS1</span><span class=o>=</span><span class=s1>&#39;\[\e[36;40m\][\D{%Y-%m-%d} \A] \[\e[0m\] \[\e[35;40m\]\w\[\e[0m\]\n\[\e[33;40m\][\u@\H]\[\e[0m\] \\$ &#39;</span>
+<span class=ln>8</span>$ <span class=nb>echo</span> <span class=s2>&#34;PS1=&#39;\[\e[36;40m\][\D{%Y-%m-%d} \A] \[\e[0m\] \[\e[35;40m\]\w\[\e[0m\]\n\[\e[33;40m\][\u@\H]\[\e[0m\] \\</span>$<span class=s2> &#39;&#34;</span> &gt;&gt; ~/.bash_profile
 </code></pre></div><ul>
 <li><a href=https://www.linuxidc.com/Linux/2017-10/147438.htm>命令提示符设置参考</a></li>
 </ul>
