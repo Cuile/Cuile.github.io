@@ -9,9 +9,36 @@ series:
 categories:
 ---
 
+## 0、基础设置
+
+```bash
+# 查看代理
+$ git config --global --get http.proxy
+$ git config --global --get https.proxy
+# 设置代理
+$ git config --global http.proxy http://[username:passwrod@]<ip or URL>:port 
+$ git config --global https.proxy http://[username:passwrod@]<ip or URL>:port
+# 取消代理
+$ git config --global --unset http.proxy
+$ git config --global --unset https.proxy
+
+# 只代理github.com
+$ git config --global --get http.https://github.com.proxy
+$ git config --global --get https.https://github.com.proxy
+$ git config --global http.https://github.com.proxy http://[username:passwrod@]<ip or URL>:port
+$ git config --global https.https://github.com.proxy http://[username:passwrod@]<ip or URL>:port
+$ git config --global --unset http.https://github.com.proxy
+$ git config --global --unset https.https://github.com.proxy
+# push设置
+$ git config --global push.default simple
+```
+- [【Git】git push.default 简析 - 简书](https://www.jianshu.com/p/b7ba3d954eb0)
+- [Git忽略文件.gitignore详解](https://blog.csdn.net/ThinkWon/article/details/101447866)
+---
+
 ## 1、项目
 
-### 1.1 克隆
+### 1.1 克隆项目
 ```bash
 $ git clone https://xxxx@bitbucket.org/xxxx/xxxx.git
 # or 
@@ -21,6 +48,8 @@ $ git clone -b <branch> <repo> <path>
 
 $ git config user.name "Your Name"
 $ git config user.email you@example.com
+
+
 
 ```
 
@@ -52,6 +81,10 @@ $ git archive --format zip -0 \                         # 使用zip格式，不�
 ### 2.1 本地分支操作
 ```bash
 # 拉取
+$ git pull
+# 强制覆盖本地分支
+$ git fetch --all
+$ git reset --hard origin/<branch>
 $ git pull
 
 # 推送
@@ -146,7 +179,6 @@ $ git branch --set-upstream-to=origin/master dev
 # or
 $ git branch --set-upstream dev origin/master 
 ```
-
 ---
 
 ## 3、标签
@@ -161,37 +193,4 @@ $ git tag 1.0
 # 推送所有标签
 $ git push --tags
 ```
-
 ---
-
-## 4、代理
-
-### 4.1 设置代理
-```bash
-$ git config --global http.proxy http://[username:passwrod@]<ip or URL>:port 
-$ git config --global https.proxy http://[username:passwrod@]<ip or URL>:port
-
-# 只代理github.com
-$ git config --global http.https://github.com.proxy http://[username:passwrod@]<ip or URL>:port
-$ git config --global https.https://github.com.proxy http://[username:passwrod@]<ip or URL>:port
-```
-
-### 4.2 查看代理
-```bash
-$ git config --global --get http.proxy
-$ git config --global --get https.proxy
-
-$ git config --global --get http.https://github.com.proxy
-$ git config --global --get https.https://github.com.proxy
-```
-
-### 4.3 取消代理
-```bash
-$ git config --global --unset http.proxy
-$ git config --global --unset https.proxy
-
-$ git config --global --unset http.https://github.com.proxy
-$ git config --global --unset https.https://github.com.proxy
-```
-
-- [Git忽略文件.gitignore详解](https://blog.csdn.net/ThinkWon/article/details/101447866)
