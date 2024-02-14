@@ -1,6 +1,6 @@
 <!doctype html><html lang=zh-cn data-figures class=page>
 <head>
-<title>CentOS 7 安装 Docker | 瘦了就帅了</title>
+<title>(CentOS 7 | Rocky 9) 安装 Docker | 瘦了就帅了</title>
 <meta charset=utf-8>
 <meta name=viewport content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
 <meta http-equiv=x-ua-compatible content="IE=edge">
@@ -9,10 +9,10 @@
 <meta name=description content="其实网上相关的文章已经非常多了，所以这篇文章的作用只是记录和明确一条确定可行的操作路径，为以后的操作节省时间，毕竟像我一样大部分人都不是专业">
 <meta name=twitter:card content="summary">
 <meta name=twitter:creator content>
-<meta name=twitter:title content="CentOS 7 安装 Docker">
+<meta name=twitter:title content="(CentOS 7 | Rocky 9) 安装 Docker">
 <meta name=twitter:image content="https://cuile.github.io/images/thumbnail.png">
 <meta property="og:url" content="https://cuile.github.io/posts/docker/docker_install_centos/">
-<meta property="og:title" content="CentOS 7 安装 Docker">
+<meta property="og:title" content="(CentOS 7 | Rocky 9) 安装 Docker">
 <meta property="og:description" content="其实网上相关的文章已经非常多了，所以这篇文章的作用只是记录和明确一条确定可行的操作路径，为以后的操作节省时间，毕竟像我一样大部分人都不是专业">
 <meta property="og:image" content="https://cuile.github.io/images/thumbnail.png">
 <link rel=apple-touch-icon sizes=180x180 href=https://cuile.github.io/icons/apple-touch-icon.png>
@@ -47,7 +47,7 @@
 <main>
 <div class="grid-inverse wrap content">
 <article class=post_content>
-<h1 class=post_title>CentOS 7 安装 Docker</h1>
+<h1 class=post_title>(CentOS 7 | Rocky 9) 安装 Docker</h1>
 <div class=post_meta>
 <span><svg class="icon"><title>calendar</title><use xlink:href="#calendar"/></svg>
 </span>
@@ -55,6 +55,7 @@
 2022-05-06</span>
 <span class=post_time> · 阅读时长 2 分钟</span><span>&nbsp;· <a href=https://cuile.github.io/tags/linux/ title=linux class="post_tag button button_translucent">linux
 </a><a href=https://cuile.github.io/tags/centos/ title=CentOS class="post_tag button button_translucent">CentOS
+</a><a href=https://cuile.github.io/tags/rocky/ title=rocky class="post_tag button button_translucent">rocky
 </a><a href=https://cuile.github.io/tags/docker/ title=Docker class="post_tag button button_translucent">Docker
 </a>
 </span>
@@ -100,18 +101,12 @@
 </span><span class=ln>10</span><span class=se></span>    https://download.docker.com/linux/centos/docker-ce.repo
 <span class=ln>11</span>
 <span class=ln>12</span>$ yum makecache fast
-<span class=ln>13</span><span class=c1># CentOS 8 使用timer替换fast</span>
-<span class=ln>14</span><span class=c1># $ yum makecache timer</span>
+<span class=ln>13</span><span class=c1># CentOS 8 or Rocky 9 使用timer替换fast</span>
+<span class=ln>14</span>$ yum makecache timer
 </code></pre></div><h2 id=5安装docker>5.安装Docker</h2>
-<div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=ln>1</span>$ yum install docker-ce docker-ce-cli containerd.io
-<span class=ln>2</span>
-<span class=ln>3</span><span class=c1># 如果在CentOS 8 系统上，会提示containerd.io版本过低</span>
-<span class=ln>4</span><span class=c1># 需要独立安装containerd.io</span>
-<span class=ln>5</span>Error:
-<span class=ln>6</span> Problem: package docker-ce-3:19.03.6-3.el7.x86_64 requires containerd.io &gt;<span class=o>=</span> 1.2.2-3, but none of the providers can be installeddnf install
-<span class=ln>7</span>
-<span class=ln>8</span>$ yum install https://download.docker.com/linux/centos/7/x86_64/stable/Packages/containerd.io-1.2.6-3.3.el7.x86_64.rpm
-<span class=ln>9</span>$ yum install docker-ce docker-ce-cli
+<div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=ln>1</span><span class=c1># 如果在 Rocky 9 系统上，会提示containerd.io版本过低，或下载失败，需要独立安装containerd.io</span>
+<span class=ln>2</span><span class=c1># 可以重试几次</span>
+<span class=ln>3</span>$ yum install -y docker-ce docker-ce-cli containerd.io
 </code></pre></div><h2 id=6启动docker服务>6.启动Docker服务</h2>
 <div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=ln>1</span><span class=c1># 设为开机启动</span>
 <span class=ln>2</span>$ systemctl <span class=nb>enable</span> docker.service
@@ -160,7 +155,7 @@
 </code></pre></div><p>若能正常输出以上信息，则说明安装成功。</p>
 <h2 id=9安装-docker-compose>9.安装 docker compose</h2>
 <p>官方推荐使用插件方式安装</p>
-<div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=ln>1</span>$ yum -y install docker-compose-plugin
+<div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=ln>1</span>$ yum install -y docker-compose-plugin
 <span class=ln>2</span>
 <span class=ln>3</span>$ docker compose version
 <span class=ln>4</span>Docker Compose version v2.5.0
@@ -204,7 +199,7 @@
 <li><a href=https://cuile.github.io/posts/ups/ups_install/ class=nav-link title="山克 UPS 安装手册">山克 UPS 安装手册</a></li>
 <li><a href=https://cuile.github.io/posts/git/git_cli/ class=nav-link title="Git 命令行">Git 命令行</a></li>
 <li><a href=https://cuile.github.io/posts/snap/docker_install_snap/ class=nav-link title="使用 Snap 安装 Docker">使用 Snap 安装 Docker</a></li>
-<li><a href=https://cuile.github.io/posts/docker/docker_install_centos/ class=nav-link title="CentOS 7 安装 Docker">CentOS 7 安装 Docker</a></li>
+<li><a href=https://cuile.github.io/posts/docker/docker_install_centos/ class=nav-link title="(CentOS 7 | Rocky 9) 安装 Docker">(CentOS 7 | Rocky 9) 安装 Docker</a></li>
 <li><a href=https://cuile.github.io/posts/proxmox/rrd_error/ class=nav-link title="修复 Proxmox RRD 错误">修复 Proxmox RRD 错误</a></li>
 <li><a href=https://cuile.github.io/posts/ffmpeg_manual/ class=nav-link title=FFmpeg脚本>FFmpeg脚本</a></li>
 <li><a href=https://cuile.github.io/posts/linux/repo_manual/ class=nav-link title="Linux 版本库管理">Linux 版本库管理</a></li>
@@ -341,7 +336,7 @@
 <a href=https://cuile.github.io/posts/snap/docker_install_snap/ class=nav-link title="使用 Snap 安装 Docker">使用 Snap 安装 Docker</a>
 </li>
 <li>
-<a href=https://cuile.github.io/posts/docker/docker_install_centos/ class=nav-link title="CentOS 7 安装 Docker">CentOS 7 安装 Docker</a>
+<a href=https://cuile.github.io/posts/docker/docker_install_centos/ class=nav-link title="(CentOS 7 | Rocky 9) 安装 Docker">(CentOS 7 | Rocky 9) 安装 Docker</a>
 </li>
 <li>
 <a href=https://cuile.github.io/posts/proxmox/rrd_error/ class=nav-link title="修复 Proxmox RRD 错误">修复 Proxmox RRD 错误</a>
@@ -613,6 +608,8 @@ BASH
 <a href=https://cuile.github.io/tags/repo/ class="post_tag button button_translucent" data-position=1 title=repo>REPO<span class=button_tally>1</span>
 </a>
 <a href=https://cuile.github.io/tags/rime/ class="post_tag button button_translucent" data-position=1 title=rime>RIME<span class=button_tally>1</span>
+</a>
+<a href=https://cuile.github.io/tags/rocky/ class="post_tag button button_translucent" data-position=1 title=rocky>ROCKY<span class=button_tally>1</span>
 </a>
 <a href=https://cuile.github.io/tags/rrd/ class="post_tag button button_translucent" data-position=1 title=rrd>RRD<span class=button_tally>1</span>
 </a>
