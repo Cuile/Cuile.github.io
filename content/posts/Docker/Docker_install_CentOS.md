@@ -1,10 +1,11 @@
 ---
-title: "CentOS 7 安装 Docker"
+title: "(CentOS 7 | Rocky 9) 安装 Docker"
 date: 2022-05-06T11:05:23+08:00
 # draft: true
 tags: 
 - linux
 - CentOS
+- rocky
 - Docker
 series:
 categories:
@@ -68,22 +69,16 @@ $ yum-config-manager \
     https://download.docker.com/linux/centos/docker-ce.repo
 
 $ yum makecache fast
-# CentOS 8 使用timer替换fast
-# $ yum makecache timer
+# CentOS 8 or Rocky 9 使用timer替换fast
+$ yum makecache timer
 ```
 
 ## 5.安装Docker
 
 ```bash
-$ yum install docker-ce docker-ce-cli containerd.io
-
-# 如果在CentOS 8 系统上，会提示containerd.io版本过低
-# 需要独立安装containerd.io
-Error:
- Problem: package docker-ce-3:19.03.6-3.el7.x86_64 requires containerd.io >= 1.2.2-3, but none of the providers can be installeddnf install
-
-$ yum install https://download.docker.com/linux/centos/7/x86_64/stable/Packages/containerd.io-1.2.6-3.3.el7.x86_64.rpm
-$ yum install docker-ce docker-ce-cli
+# 如果在 Rocky 9 系统上，会提示containerd.io版本过低，或下载失败，需要独立安装containerd.io
+# 可以重试几次
+$ yum install -y docker-ce docker-ce-cli containerd.io
 ```
 
 ## 6.启动Docker服务
@@ -149,7 +144,7 @@ For more examples and ideas, visit:
 
 官方推荐使用插件方式安装
 ```bash
-$ yum -y install docker-compose-plugin
+$ yum install -y docker-compose-plugin
 
 $ docker compose version
 Docker Compose version v2.5.0
