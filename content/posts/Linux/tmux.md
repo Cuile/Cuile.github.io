@@ -1,5 +1,5 @@
 ---
-title: "$ tmux 命令"
+title: "Tmux 命令"
 date: 2024-02-21T16:08:32+08:00
 # draft: true
 
@@ -7,7 +7,7 @@ date: 2024-02-21T16:08:32+08:00
 tags:
 - linux
 - cli
-- $ tmux
+- tmux
 # 专栏
 # series:
 # 分类
