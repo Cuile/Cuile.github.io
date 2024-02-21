@@ -43,19 +43,26 @@ $ tmux kill-session -t 0
 $ tmux kill-session -t <session-name>
 ```
 
-## 快捷键
+## session快捷键
 
 需要提醒大家的是，所有的快捷键都是ctrl + b，按完松开，再去按下一个功能键！，不是一下子全按上。
 
-**选择需要跳转的session会话**
+**选择需要跳转的session**
 >Ctrl + b s
 
-**重命名当前会话**
+**重命名当前session**
 >Ctrl + b $
 
 **断开当前session**
 >Ctrl + b d
 
+**进入tmux翻屏模式**
+>Ctrl + b [  
+>进入翻屏模式后PgUp PgDn 实现上下翻页（mac可以用fn + ↑ ↓实现上下翻页）
+>
+>q 退出翻屏模式
+
+## window快捷键
 **在当前session中多加一个window**
 >Ctrl + b c
 
@@ -65,24 +72,19 @@ $ tmux kill-session -t <session-name>
 **关闭当前session中的当前window**
 >Ctrl + b x
 
-**进入$ tmux翻屏模式**
->Ctrl + b [  
->进入翻屏模式后PgUp PgDn 实现上下翻页（mac可以用fn + ↑ ↓实现上下翻页）
->
->q 退出翻屏模式
-
-**关闭一个session中所有窗口**
+**关闭一个session中所有window**
 >Ctrl + b !
 
-**将当前窗口分成左右两分**
+**将当前window分成左右两分**
 >Ctrl + b %
 
-**将当前窗口分成上下两分**
+**将当前window分成上下两分**
 >Ctrl + b "
 
-**让光标在不同的窗口中跳转**
+**让光标在不同的window中跳转**
 >Ctrl + b 方向键
->
->按住 Ctrl + b 不放，同时按住方向键，可以调节光标所在窗口的大小
+
+**调节光标所在窗口的大小**
+>按住 Ctrl + b 不放，同时按住方向键
 
 - [$ tmux使用指南：比screen好用n倍！ - 知乎](https://zhuanlan.zhihu.com/p/386085431)
