@@ -85,13 +85,13 @@
 <span class=ln>23</span>$ tmux kill-session -t <span class=m>0</span>
 <span class=ln>24</span><span class=c1># 使用session名称kill</span>
 <span class=ln>25</span>$ tmux kill-session -t &lt;session-name&gt;
-</code></pre></div><h2 id=快捷键>快捷键</h2>
+</code></pre></div><h2 id=session快捷键>session快捷键</h2>
 <p>需要提醒大家的是，所有的快捷键都是ctrl + b，按完松开，再去按下一个功能键！，不是一下子全按上。</p>
-<p><strong>选择需要跳转的session会话</strong></p>
+<p><strong>选择需要跳转的session</strong></p>
 <blockquote>
 <p>Ctrl + b s</p>
 </blockquote>
-<p><strong>重命名当前会话</strong></p>
+<p><strong>重命名当前session</strong></p>
 <blockquote>
 <p>Ctrl + b $</p>
 </blockquote>
@@ -99,6 +99,13 @@
 <blockquote>
 <p>Ctrl + b d</p>
 </blockquote>
+<p><strong>进入tmux翻屏模式</strong></p>
+<blockquote>
+<p>Ctrl + b [<br>
+进入翻屏模式后PgUp PgDn 实现上下翻页（mac可以用fn + ↑ ↓实现上下翻页）</p>
+<p>q 退出翻屏模式</p>
+</blockquote>
+<h2 id=window快捷键>window快捷键</h2>
 <p><strong>在当前session中多加一个window</strong></p>
 <blockquote>
 <p>Ctrl + b c</p>
@@ -111,28 +118,25 @@
 <blockquote>
 <p>Ctrl + b x</p>
 </blockquote>
-<p><strong>进入$ tmux翻屏模式</strong></p>
-<blockquote>
-<p>Ctrl + b [<br>
-进入翻屏模式后PgUp PgDn 实现上下翻页（mac可以用fn + ↑ ↓实现上下翻页）</p>
-<p>q 退出翻屏模式</p>
-</blockquote>
-<p><strong>关闭一个session中所有窗口</strong></p>
+<p><strong>关闭一个session中所有window</strong></p>
 <blockquote>
 <p>Ctrl + b !</p>
 </blockquote>
-<p><strong>将当前窗口分成左右两分</strong></p>
+<p><strong>将当前window分成左右两分</strong></p>
 <blockquote>
 <p>Ctrl + b %</p>
 </blockquote>
-<p><strong>将当前窗口分成上下两分</strong></p>
+<p><strong>将当前window分成上下两分</strong></p>
 <blockquote>
 <p>Ctrl + b "</p>
 </blockquote>
-<p><strong>让光标在不同的窗口中跳转</strong></p>
+<p><strong>让光标在不同的window中跳转</strong></p>
 <blockquote>
 <p>Ctrl + b 方向键</p>
-<p>按住 Ctrl + b 不放，同时按住方向键，可以调节光标所在窗口的大小</p>
+</blockquote>
+<p><strong>调节光标所在窗口的大小</strong></p>
+<blockquote>
+<p>按住 Ctrl + b 不放，同时按住方向键</p>
 </blockquote>
 <ul>
 <li><a href=https://zhuanlan.zhihu.com/p/386085431>$ tmux使用指南：比screen好用n倍！ - 知乎</a></li>
