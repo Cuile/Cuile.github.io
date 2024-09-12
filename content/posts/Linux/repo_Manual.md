@@ -1,11 +1,12 @@
 ---
-title: "Linux 版本库管理"
+title: "Yum 版本库管理"
 date: 2022-02-08T10:28:50+08:00
 # draft: true
 tags:
 - Linux
 - CentOS
 - repo
+- yum
 series:
 categories:
 ---
@@ -35,15 +36,13 @@ $ yum clean all && yum makecache
 $ yum list installed
 ```
 
-## 升级所有包同时也升级软件和系统内核
+## 更新
 
 ```bash
+# 升级所有包同时也升级软件和系统内核
 $ yum -y update
-```
 
-## 只升级所有包，不升级软件和系统内核
-
-```bash
+# 只升级所有包，不升级软件和系统内核
 $ yum -y upgrade
 ```
 
