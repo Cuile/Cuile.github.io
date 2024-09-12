@@ -6,14 +6,14 @@
 <meta http-equiv=x-ua-compatible content="IE=edge">
 <meta property="og:locale" content="zh-cn">
 <meta property="og:type" content="article">
-<meta name=description content="脚本基于Centos 7 记录系统初始化应操作的一系统步骤 1. 更新 1$ yum update -y 2# 查看以安装的包 3$ yum list installed 2. 修改命令提示符 1# ~/.bash_profile 2 3# [HH:MM user@hostname path] 命令提示符 4$ …">
+<meta name=description content="脚本基于Centos 7 记录系统初始化应操作的一系统步骤 1. 系统更新 Yum 版本库管理 2. 修改命令提示符 1# ~/.bash_profile 2 3# [HH:MM user@hostname path] 命令提示符 4$ echo &#34;PS1='[\A \u@\H …">
 <meta name=twitter:card content="summary">
 <meta name=twitter:creator content>
 <meta name=twitter:title content="Linux 系统初始化配置">
 <meta name=twitter:image content="https://cuile.github.io/images/thumbnail.png">
 <meta property="og:url" content="https://cuile.github.io/posts/linux/init_setup_manual/">
 <meta property="og:title" content="Linux 系统初始化配置">
-<meta property="og:description" content="脚本基于Centos 7 记录系统初始化应操作的一系统步骤 1. 更新 1$ yum update -y 2# 查看以安装的包 3$ yum list installed 2. 修改命令提示符 1# ~/.bash_profile 2 3# [HH:MM user@hostname path] 命令提示符 4$ …">
+<meta property="og:description" content="脚本基于Centos 7 记录系统初始化应操作的一系统步骤 1. 系统更新 Yum 版本库管理 2. 修改命令提示符 1# ~/.bash_profile 2 3# [HH:MM user@hostname path] 命令提示符 4$ echo &#34;PS1='[\A \u@\H …">
 <meta property="og:image" content="https://cuile.github.io/images/thumbnail.png">
 <link rel=apple-touch-icon sizes=180x180 href=https://cuile.github.io/icons/apple-touch-icon.png>
 <link rel=icon type=image/png sizes=32x32 href=https://cuile.github.io/icons/favicon-32x32.png>
@@ -58,16 +58,17 @@
 </a><a href=https://cuile.github.io/tags/bash/ title=bash class="post_tag button button_translucent">bash
 </a><a href=https://cuile.github.io/tags/ssh/ title=ssh class="post_tag button button_translucent">ssh
 </a><a href=https://cuile.github.io/tags/top/ title=top class="post_tag button button_translucent">top
+</a><a href=https://cuile.github.io/tags/centos/ title=centos class="post_tag button button_translucent">centos
 </a>
 </span>
 </div>
 <div class=post_body><p><strong><code>脚本基于Centos 7</code></strong></p>
 <p>记录系统初始化应操作的一系统步骤</p>
-<h2 id=1-更新>1. 更新</h2>
-<div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=ln>1</span>$ yum update -y
-<span class=ln>2</span><span class=c1># 查看以安装的包</span>
-<span class=ln>3</span>$ yum list installed
-</code></pre></div><h2 id=2-修改命令提示符>2. 修改命令提示符</h2>
+<h2 id=1-系统更新>1. 系统更新</h2>
+<ul>
+<li><a href=../repo_manual/#%E6%9B%B4%E6%96%B0>Yum 版本库管理</a></li>
+</ul>
+<h2 id=2-修改命令提示符>2. 修改命令提示符</h2>
 <div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=ln>1</span><span class=c1># ~/.bash_profile</span>
 <span class=ln>2</span>
 <span class=ln>3</span><span class=c1># [HH:MM user@hostname path] 命令提示符</span>
@@ -124,6 +125,8 @@
 <li><a href=https://blog.hellowood.dev/posts/ubuntu-22-%E7%8E%AF%E5%A2%83%E5%88%9D%E5%A7%8B%E5%8C%96/#%E4%BF%AE%E6%94%B9-apt-%E6%BA%90>Ubuntu 22 环境初始化</a></li>
 </ul>
 <hr>
+<h2 id=9-配置samba>9. 配置Samba</h2>
+<p>为使用机器名快速连接</p>
 <h2 id=其它配置>其它配置</h2>
 <h3 id=网络端口操作>网络端口操作</h3>
 <div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=ln>1</span><span class=c1># 查看端口占用</span>
@@ -206,7 +209,7 @@
 <li><a href=https://cuile.github.io/posts/docker/docker_install_centos/ class=nav-link title="(CentOS 7 | Rocky 9) 安装 Docker">(CentOS 7 | Rocky 9) 安装 Docker</a></li>
 <li><a href=https://cuile.github.io/posts/proxmox/rrd_error/ class=nav-link title="修复 Proxmox RRD 错误">修复 Proxmox RRD 错误</a></li>
 <li><a href=https://cuile.github.io/posts/ffmpeg_manual/ class=nav-link title=FFmpeg脚本>FFmpeg脚本</a></li>
-<li><a href=https://cuile.github.io/posts/linux/repo_manual/ class=nav-link title="Linux 版本库管理">Linux 版本库管理</a></li>
+<li><a href=https://cuile.github.io/posts/linux/repo_manual/ class=nav-link title="Yum 版本库管理">Yum 版本库管理</a></li>
 <li><a href=https://cuile.github.io/posts/linux/kernel_update/ class=nav-link title=Linux系统内核升级>Linux系统内核升级</a></li>
 <li><a href=https://cuile.github.io/posts/linux/iptables_manual/ class=nav-link title="iptables 配置">iptables 配置</a></li>
 <li><a href=https://cuile.github.io/posts/proxmox/nat/ class=nav-link title="Proxmox 配置 NAT 网络">Proxmox 配置 NAT 网络</a></li>
@@ -352,7 +355,7 @@
 <a href=https://cuile.github.io/posts/ffmpeg_manual/ class=nav-link title=FFmpeg脚本>FFmpeg脚本</a>
 </li>
 <li>
-<a href=https://cuile.github.io/posts/linux/repo_manual/ class=nav-link title="Linux 版本库管理">Linux 版本库管理</a>
+<a href=https://cuile.github.io/posts/linux/repo_manual/ class=nav-link title="Yum 版本库管理">Yum 版本库管理</a>
 </li>
 <li>
 <a href=https://cuile.github.io/posts/linux/kernel_update/ class=nav-link title=Linux系统内核升级>Linux系统内核升级</a>
@@ -474,6 +477,10 @@ PROXMOX
 ALPINE-LINUX
 <span class=button_tally>6</span>
 </a>
+<a href=https://cuile.github.io/tags/centos/ class="post_tag button button_translucent" title=centos>
+CENTOS
+<span class=button_tally>6</span>
+</a>
 <a href=https://cuile.github.io/tags/windows/ class="post_tag button button_translucent" title=windows>
 WINDOWS
 <span class=button_tally>6</span>
@@ -481,10 +488,6 @@ WINDOWS
 <a href=https://cuile.github.io/tags/%E7%B3%BB%E7%BB%9F%E9%85%8D%E7%BD%AE/ class="post_tag button button_translucent" title=系统配置>
 系统配置
 <span class=button_tally>6</span>
-</a>
-<a href=https://cuile.github.io/tags/centos/ class="post_tag button button_translucent" title=centos>
-CENTOS
-<span class=button_tally>5</span>
 </a>
 <a href=https://cuile.github.io/tags/hyper-v/ class="post_tag button button_translucent" title=hyper-v>
 HYPER-V
@@ -524,7 +527,7 @@ BASH
 </a>
 <a href=https://cuile.github.io/tags/blog/ class="post_tag button button_translucent" data-position=1 title=blog>BLOG<span class=button_tally>1</span>
 </a>
-<a href=https://cuile.github.io/tags/centos/ class="post_tag button button_translucent" data-position=5 title=centos>CENTOS<span class=button_tally>5</span>
+<a href=https://cuile.github.io/tags/centos/ class="post_tag button button_translucent" data-position=6 title=centos>CENTOS<span class=button_tally>6</span>
 </a>
 <a href=https://cuile.github.io/tags/centos-7/ class="post_tag button button_translucent" data-position=2 title=centos-7>CENTOS-7<span class=button_tally>2</span>
 </a>
@@ -663,6 +666,8 @@ BASH
 <a href=https://cuile.github.io/tags/windows/ class="post_tag button button_translucent" data-position=6 title=windows>WINDOWS<span class=button_tally>6</span>
 </a>
 <a href=https://cuile.github.io/tags/windwos-10/ class="post_tag button button_translucent" data-position=1 title=windwos-10>WINDWOS-10<span class=button_tally>1</span>
+</a>
+<a href=https://cuile.github.io/tags/yum/ class="post_tag button button_translucent" data-position=1 title=yum>YUM<span class=button_tally>1</span>
 </a>
 <a href=https://cuile.github.io/tags/%E5%8A%A8%E6%BC%AB/ class="post_tag button button_translucent" data-position=2 title=动漫>动漫<span class=button_tally>2</span>
 </a>
