@@ -8,6 +8,7 @@ tags:
 - bash
 - ssh
 - top
+- centos
 series:
 categories:
 ---
@@ -16,12 +17,8 @@ categories:
 
 记录系统初始化应操作的一系统步骤
 
-## 1. 更新
-```bash
-$ yum update -y
-# 查看以安装的包
-$ yum list installed
-```
+## 1. 系统更新
+- [Yum 版本库管理](../repo_manual/#更新)
 
 ## 2. 修改命令提示符
 ```bash
@@ -85,6 +82,9 @@ $ yum install git
 
 - [Ubuntu 22 环境初始化](https://blog.hellowood.dev/posts/ubuntu-22-%E7%8E%AF%E5%A2%83%E5%88%9D%E5%A7%8B%E5%8C%96/#%E4%BF%AE%E6%94%B9-apt-%E6%BA%90)
 ---
+
+## 9. 配置Samba
+为使用机器名快速连接
 
 ## 其它配置
 
