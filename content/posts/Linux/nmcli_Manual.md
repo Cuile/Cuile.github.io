@@ -6,6 +6,7 @@ tags:
 - Linux
 - CLI
 - nmcli
+- network
 series:
 categories:
 ---
