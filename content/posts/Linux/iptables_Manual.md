@@ -10,7 +10,7 @@ series:
 categories:
 ---
 
-**`脚本基于Centos 7`**
+**`基于Centos 7`**
 
 **注意：CentOS 7默认的防火墙不是iptables,而是firewalld**
 
