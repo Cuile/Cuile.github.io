@@ -1,2 +1,8 @@
 .hugo_build.lock
 _hugo/err.log
+
+# 暂时不处理除文章以外的所有内容
+config/
+resources/
+themes/
+
