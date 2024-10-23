@@ -27,9 +27,10 @@ $ yum install samba-winbind
 ```
 
 ## 修改配置文件
-```conf
-# Nano /etc/nsswitch.conf
-hosts:  files wins dns myhostname
+```ini
+; Nano /etc/nsswitch.conf
+; add wins
+hosts:  files <wins> dns myhostname
 ```
 
 ## 验证安装
@@ -40,6 +41,12 @@ $ ll /etc/<lib|lib64>/libnss_winbind.so
 ## 配置生效
 ```bash
 $ ldconfig
+```
+
+## 配置服务
+```bash
+$ systemctl start winbind
+$ systemctl status winbind
 ```
 
 ## 参考
