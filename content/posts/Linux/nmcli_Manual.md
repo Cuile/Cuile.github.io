@@ -11,7 +11,7 @@ series:
 categories:
 ---
 
-**`脚本基于Centos 7`**
+**`基于Centos 7`**
 
 ## 查看接口设备信息
 ```bash
@@ -26,22 +26,22 @@ $ nmcli dev show <interface-name>
 ## 查看连接(connection)的信息
 ```bash
 # 简单信息
-$ nmcli con show
+$ nmcli conn show
 # 详细的连接信息
-$ nmcli con show
+$ nmcli conn show
 # 某个连接的详细信息
-$ nmcli con show <con-name>
+$ nmcli conn show <conn-name>
 ```
 
 ## 创建连接
 ```bash
-$ nmcli con add type <ethernet> con-name <static-vm100> ifname <eth0> ip4 <192.168.100.100/24> [gw4 <192.168.100.1>]
+$ nmcli conn add type <ethernet> con-name <static-vm100> ifname <eth0> ip4 <192.168.100.100/24> [gw4 <192.168.100.1>]
 ```
 
 ## 激活连接
 ```bash
-$ nmcli con up <static-vm100>
-$ nmcli con down <static-vm100>
+$ nmcli conn up <conn-name>
+$ nmcli conn down <conn-name>
 
 $ nmcli dev connect <eth0>
 $ nmcli dev disconnect <eth0>
@@ -53,9 +53,16 @@ $ nmcli dev disconnect <eth0>
 # 查询和显示所有网络连接的自动连接属性的当前值
 $ nmcli -f name,autoconnect connection
 # 更改网络连接的属性值
-$ nmcli con mod <eth1> connection.autoconnect yes
+$ nmcli conn mod <conn-name> connection.autoconnect yes
+```
+
+## 修改DNS
+```bash
+$ nmcli conn mod <conn-name> ipv4.dns "1.2.4.8"
+$ nmcli conn up <conn-name>
 ```
 
 ## 参考链接
 - [CentOS 7 下网络管理之命令行工具nmcli](https://www.jianshu.com/p/5d5560e9e26a)
 - [修改 NetworkManager 配置文件的自动连接属性](https://docs.rockylinux.org/zh/gemstones/nmcli/)
+- [在 Ubuntu/Debian 上安装和使用 NetworkManager (NMCLI)](https://cn.linux-console.net/?p=22364)
