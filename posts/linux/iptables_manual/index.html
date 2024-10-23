@@ -6,14 +6,14 @@
 <meta http-equiv=x-ua-compatible content="IE=edge">
 <meta property="og:locale" content="zh-cn">
 <meta property="og:type" content="article">
-<meta name=description content="脚本基于Centos 7 注意：CentOS 7默认的防火墙不是iptables,而是firewalld 停止firewalld服务 1# 停止firew">
+<meta name=description content="基于Centos 7 注意：CentOS 7默认的防火墙不是iptables,而是firewalld 停止firewalld服务 1# 停止firewal">
 <meta name=twitter:card content="summary">
 <meta name=twitter:creator content>
 <meta name=twitter:title content="iptables 配置">
 <meta name=twitter:image content="https://cuile.github.io/images/thumbnail.png">
 <meta property="og:url" content="https://cuile.github.io/posts/linux/iptables_manual/">
 <meta property="og:title" content="iptables 配置">
-<meta property="og:description" content="脚本基于Centos 7 注意：CentOS 7默认的防火墙不是iptables,而是firewalld 停止firewalld服务 1# 停止firew">
+<meta property="og:description" content="基于Centos 7 注意：CentOS 7默认的防火墙不是iptables,而是firewalld 停止firewalld服务 1# 停止firewal">
 <meta property="og:image" content="https://cuile.github.io/images/thumbnail.png">
 <link rel=apple-touch-icon sizes=180x180 href=https://cuile.github.io/icons/apple-touch-icon.png>
 <link rel=icon type=image/png sizes=32x32 href=https://cuile.github.io/icons/favicon-32x32.png>
@@ -59,7 +59,7 @@
 </a>
 </span>
 </div>
-<div class=post_body><p><strong><code>脚本基于Centos 7</code></strong></p>
+<div class=post_body><p><strong><code>基于Centos 7</code></strong></p>
 <p><strong>注意：CentOS 7默认的防火墙不是iptables,而是firewalld</strong></p>
 <h2 id=停止firewalld服务>停止firewalld服务</h2>
 <div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=ln>1</span><span class=c1># 停止firewalld服务</span>
@@ -159,6 +159,7 @@
 </div>
 <h2 class=post_related>相关专栏文章</h2>
 <ul>
+<li><a href=https://cuile.github.io/posts/windows/windows_firewall/ class=nav-link title=Windows防火墙配置>Windows防火墙配置</a></li>
 <li><a href=https://cuile.github.io/posts/linux/wins_netbios/ class=nav-link title="在 CentOS 上部署 NetBIOS">在 CentOS 上部署 NetBIOS</a></li>
 <li><a href=https://cuile.github.io/posts/linux/tmux/ class=nav-link title="Tmux 命令">Tmux 命令</a></li>
 <li><a href=https://cuile.github.io/posts/proxmox/setup_ct_centos-7/ class=nav-link title="配置 CentOS 7 的 CT 容器">配置 CentOS 7 的 CT 容器</a></li>
@@ -225,6 +226,9 @@
 产品里的技术、一眼看不出来的胖子
 </div>
 <ul>
+<li>
+<a href=https://cuile.github.io/posts/windows/windows_firewall/ class=nav-link title=Windows防火墙配置>Windows防火墙配置</a>
+</li>
 <li>
 <a href=https://cuile.github.io/posts/linux/wins_netbios/ class=nav-link title="在 CentOS 上部署 NetBIOS">在 CentOS 上部署 NetBIOS</a>
 </li>
@@ -391,6 +395,9 @@
 <h2 class=mt-4>最新文章</h2>
 <ul class=flex-column>
 <li>
+<a href=https://cuile.github.io/posts/windows/windows_firewall/ class=nav-link title=Windows防火墙配置>Windows防火墙配置</a>
+</li>
+<li>
 <a href=https://cuile.github.io/posts/linux/wins_netbios/ class=nav-link title="在 CentOS 上部署 NetBIOS">在 CentOS 上部署 NetBIOS</a>
 </li>
 <li>
@@ -410,9 +417,6 @@
 </li>
 <li>
 <a href=https://cuile.github.io/posts/laravel/install_for_virtualhost/ class=nav-link title="虚拟主机安装 Laravel 框架">虚拟主机安装 Laravel 框架</a>
-</li>
-<li>
-<a href=https://cuile.github.io/posts/snap/snap_proxy/ class=nav-link title="snap 设置代理">snap 设置代理</a>
 </li>
 </ul>
 <div>
@@ -471,12 +475,12 @@ CENTOS
 PROXMOX
 <span class=button_tally>7</span>
 </a>
-<a href=https://cuile.github.io/tags/alpine-linux/ class="post_tag button button_translucent" title=alpine-linux>
-ALPINE-LINUX
-<span class=button_tally>6</span>
-</a>
 <a href=https://cuile.github.io/tags/windows/ class="post_tag button button_translucent" title=windows>
 WINDOWS
+<span class=button_tally>7</span>
+</a>
+<a href=https://cuile.github.io/tags/alpine-linux/ class="post_tag button button_translucent" title=alpine-linux>
+ALPINE-LINUX
 <span class=button_tally>6</span>
 </a>
 <a href=https://cuile.github.io/tags/%E7%B3%BB%E7%BB%9F%E9%85%8D%E7%BD%AE/ class="post_tag button button_translucent" title=系统配置>
@@ -495,6 +499,10 @@ NETWORK
 PYTHON
 <span class=button_tally>4</span>
 </a>
+<a href=https://cuile.github.io/tags/firewall/ class="post_tag button button_translucent" title=firewall>
+FIREWALL
+<span class=button_tally>3</span>
+</a>
 <a href=https://cuile.github.io/tags/proxy/ class="post_tag button button_translucent" title=proxy>
 PROXY
 <span class=button_tally>3</span>
@@ -502,10 +510,6 @@ PROXY
 <a href=https://cuile.github.io/tags/vscode/ class="post_tag button button_translucent" title=vscode>
 VSCODE
 <span class=button_tally>3</span>
-</a>
-<a href=https://cuile.github.io/tags/bash/ class="post_tag button button_translucent" title=bash>
-BASH
-<span class=button_tally>2</span>
 </a>
 <br>
 <div class="post_tags_toggle button">所有标签</div>
@@ -541,7 +545,7 @@ BASH
 </a>
 <a href=https://cuile.github.io/tags/ffmpeg/ class="post_tag button button_translucent" data-position=1 title=ffmpeg>FFMPEG<span class=button_tally>1</span>
 </a>
-<a href=https://cuile.github.io/tags/firewall/ class="post_tag button button_translucent" data-position=2 title=firewall>FIREWALL<span class=button_tally>2</span>
+<a href=https://cuile.github.io/tags/firewall/ class="post_tag button button_translucent" data-position=3 title=firewall>FIREWALL<span class=button_tally>3</span>
 </a>
 <a href=https://cuile.github.io/tags/frp/ class="post_tag button button_translucent" data-position=1 title=frp>FRP<span class=button_tally>1</span>
 </a>
@@ -659,7 +663,7 @@ BASH
 </a>
 <a href=https://cuile.github.io/tags/vscode/ class="post_tag button button_translucent" data-position=3 title=vscode>VSCODE<span class=button_tally>3</span>
 </a>
-<a href=https://cuile.github.io/tags/windows/ class="post_tag button button_translucent" data-position=6 title=windows>WINDOWS<span class=button_tally>6</span>
+<a href=https://cuile.github.io/tags/windows/ class="post_tag button button_translucent" data-position=7 title=windows>WINDOWS<span class=button_tally>7</span>
 </a>
 <a href=https://cuile.github.io/tags/windwos-10/ class="post_tag button button_translucent" data-position=1 title=windwos-10>WINDWOS-10<span class=button_tally>1</span>
 </a>

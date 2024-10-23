@@ -1,25 +1,24 @@
-<!doctype html><html lang=zh-cn data-figures>
+<!doctype html><html lang=zh-cn data-figures class=page>
 <head>
-<title>linux | 瘦了就帅了</title>
+<title>Windows防火墙配置 | 瘦了就帅了</title>
 <meta charset=utf-8>
 <meta name=viewport content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
 <meta http-equiv=x-ua-compatible content="IE=edge">
 <meta property="og:locale" content="zh-cn">
 <meta property="og:type" content="article">
-<meta name=description content>
+<meta name=description content="参考 Windows通过netsh控制安全中心防火墙和网络保护策略 使用命令行管理 Windows 防火墙">
 <meta name=twitter:card content="summary">
 <meta name=twitter:creator content>
-<meta name=twitter:title content="linux">
+<meta name=twitter:title content="Windows防火墙配置">
 <meta name=twitter:image content="https://cuile.github.io/images/thumbnail.png">
-<meta property="og:url" content="https://cuile.github.io/tags/linux/">
-<meta property="og:title" content="linux">
-<meta property="og:description" content>
+<meta property="og:url" content="https://cuile.github.io/posts/windows/windows_firewall/">
+<meta property="og:title" content="Windows防火墙配置">
+<meta property="og:description" content="参考 Windows通过netsh控制安全中心防火墙和网络保护策略 使用命令行管理 Windows 防火墙">
 <meta property="og:image" content="https://cuile.github.io/images/thumbnail.png">
 <link rel=apple-touch-icon sizes=180x180 href=https://cuile.github.io/icons/apple-touch-icon.png>
 <link rel=icon type=image/png sizes=32x32 href=https://cuile.github.io/icons/favicon-32x32.png>
 <link rel=manifest href=https://cuile.github.io/icons/site.webmanifest>
-<link rel=canonical href=https://cuile.github.io/tags/linux/>
-<link rel=alternate type=application/rss+xml href=https://cuile.github.io/tags/linux/index.xml title=瘦了就帅了>
+<link rel=canonical href=https://cuile.github.io/posts/windows/windows_firewall/>
 <link rel=preload href=https://cuile.github.io/css/styles.367129801480fead578d7a356a98fcb3bce794981ff18cee55868d198d0d2bf1eb4feac97319d0871c6255183b9fd27a7059e4632c785951f4c4f6953559c4d0.css integrity="sha512-NnEpgBSA/q1XjXo1apj8s7znlJgf8YzuVYaNGY0NK/HrT+rJcxnQhxxiVRg7n9J6cFnkYyx4WVH0xPaVNVnE0A==" as=style crossorigin=anonymous>
 <link rel=preload href=https://cuile.github.io/zh-cn/js/bundle.4e04b93422786398f3502d560bd5acb3d3f99b2e942c8c11e0fd926ab6ec3ccbd020d4294d58c0825ecb606ef221b34edc81586f1832489816a57ae8f0276615.js as=script integrity="sha512-TgS5NCJ4Y5jzUC1WC9Wss9P5my6ULIwR4P2SarbsPMvQINQpTVjAgl7LYG7yIbNO3IFYbxgySJgWpXro8CdmFQ==" crossorigin=anonymous>
 <link rel=stylesheet type=text/css href=https://cuile.github.io/css/styles.367129801480fead578d7a356a98fcb3bce794981ff18cee55868d198d0d2bf1eb4feac97319d0871c6255183b9fd27a7059e4632c785951f4c4f6953559c4d0.css integrity="sha512-NnEpgBSA/q1XjXo1apj8s7znlJgf8YzuVYaNGY0NK/HrT+rJcxnQhxxiVRg7n9J6cFnkYyx4WVH0xPaVNVnE0A==" crossorigin=anonymous>
@@ -47,65 +46,27 @@
 </header>
 <main>
 <div class="grid-inverse wrap content">
-<div>
-<ul class=posts id=posts>
-<li class=post_item>
-<div class=excerpt>
-<div class=excerpt_header>
-<h3 class=post_link>
-<a href=https://cuile.github.io/posts/linux/init_setup_manual/ title="Linux 系统初始化配置">Linux 系统初始化配置</a>
-</h3>
+<article class=post_content>
+<h1 class=post_title>Windows防火墙配置</h1>
 <div class=post_meta>
 <span><svg class="icon"><title>calendar</title><use xlink:href="#calendar"/></svg>
 </span>
 <span class=post_date>
-2022-01-17</span>
-<span class=post_time> · 阅读时长 2 分钟</span><span>&nbsp;· <a href=https://cuile.github.io/tags/linux/ title=linux class="post_tag button button_translucent">linux
-</a><a href=https://cuile.github.io/tags/cli/ title=CLI class="post_tag button button_translucent">CLI
-</a><a href=https://cuile.github.io/tags/bash/ title=bash class="post_tag button button_translucent">bash
-</a><a href=https://cuile.github.io/tags/ssh/ title=ssh class="post_tag button button_translucent">ssh
-</a><a href=https://cuile.github.io/tags/top/ title=top class="post_tag button button_translucent">top
-</a><a href=https://cuile.github.io/tags/centos/ title=centos class="post_tag button button_translucent">centos
+2024-10-23</span>
+<span class=post_time> · 阅读时长 1 分钟</span><span>&nbsp;· <a href=https://cuile.github.io/tags/windows/ title=windows class="post_tag button button_translucent">windows
+</a><a href=https://cuile.github.io/tags/firewall/ title=firewall class="post_tag button button_translucent">firewall
 </a>
 </span>
 </div>
-</div>
-<div class=excerpt_footer>
-<div class=pale>
-<p>脚本基于Centos 7 记录系统初始化应操作的一系统步骤 1. 系统更新 Yum 版本库管理 2. 修改命令提示符 1# ~/.bash_profile 2 3# [HH:MM user@hostname path] 命令提示符 4$ echo "PS1='[\A \u@\H \w]\$'" >> ~/.bash_profile 5 6# [yyyy-mm-dd HH:MM] path</p>
-<br>
-<a href=https://cuile.github.io/posts/linux/init_setup_manual/ title=阅读更多 class="excerpt_more button">阅读更多</a>
-</div>
-</div>
-</div>
-</li>
-<li>
-<ul class="pagination pagination-default">
-<li class=page-item>
-<a href=/tags/linux/ aria-label=First class=page-link role=button><span aria-hidden=true>&#171;&#171;</span></a>
-</li>
-<li class=page-item>
-<a href=/tags/linux/page/2/ aria-label=Previous class=page-link role=button><span aria-hidden=true>&#171;</span></a>
-</li>
-<li class=page-item>
-<a href=/tags/linux/ aria-label="Page 1" class=page-link role=button>1</a>
-</li>
-<li class=page-item>
-<a href=/tags/linux/page/2/ aria-label="Page 2" class=page-link role=button>2</a>
-</li>
-<li class="page-item active">
-<a aria-current=page aria-label="Page 3" class=page-link role=button>3</a>
-</li>
-<li class="page-item disabled">
-<a aria-disabled=true aria-label=Next class=page-link role=button tabindex=-1><span aria-hidden=true>&#187;</span></a>
-</li>
-<li class="page-item disabled">
-<a aria-disabled=true aria-label=Last class=page-link role=button tabindex=-1><span aria-hidden=true>&#187;&#187;</span></a>
-</li>
-</ul>
-</li>
+<div class=post_body><h2 id=参考>参考</h2>
+<ul>
+<li><a href=https://blog.csdn.net/mageriletu2012/article/details/143108382>Windows通过netsh控制安全中心防火墙和网络保护策略</a></li>
+<li><a href="https://learn.microsoft.com/zh-cn/windows/security/operating-system-security/network-security/windows-firewall/configure-with-command-line?tabs=cmd">使用命令行管理 Windows 防火墙</a></li>
 </ul>
 </div>
+<div class=post_comments>
+</div>
+</article>
 <aside class=sidebar>
 <section class=sidebar_inner>
 <br>
@@ -115,9 +76,6 @@
 </div>
 <h2 class=mt-4>最新文章</h2>
 <ul class=flex-column>
-<li>
-<a href=https://cuile.github.io/posts/windows/windows_firewall/ class=nav-link title=Windows防火墙配置>Windows防火墙配置</a>
-</li>
 <li>
 <a href=https://cuile.github.io/posts/linux/wins_netbios/ class=nav-link title="在 CentOS 上部署 NetBIOS">在 CentOS 上部署 NetBIOS</a>
 </li>
@@ -138,6 +96,9 @@
 </li>
 <li>
 <a href=https://cuile.github.io/posts/laravel/install_for_virtualhost/ class=nav-link title="虚拟主机安装 Laravel 框架">虚拟主机安装 Laravel 框架</a>
+</li>
+<li>
+<a href=https://cuile.github.io/posts/snap/snap_proxy/ class=nav-link title="snap 设置代理">snap 设置代理</a>
 </li>
 </ul>
 <div>
