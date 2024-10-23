@@ -82,15 +82,14 @@
 <span class=ln>3</span>
 <span class=ln>4</span><span class=c1># 只升级所有包，不升级软件和系统内核</span>
 <span class=ln>5</span>$ yum -y upgrade
-</code></pre></div><h2 id=查看源是否生效>查看源是否生效</h2>
-<div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=ln>1</span>$ yum repolist
 </code></pre></div><h2 id=查询仓库>查询仓库</h2>
-<div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=ln>1</span><span class=c1># 显示所有启动的仓库</span>
-<span class=ln>2</span>$ yum repolist enabled
-<span class=ln>3</span><span class=c1># 显示所有禁用的仓库</span>
-<span class=ln>4</span>$ yum repolist disabled
-<span class=ln>5</span><span class=c1># 显示所有仓库</span>
-<span class=ln>6</span>$ yum repolist all
+<div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=ln>1</span>$ yum repolist
+<span class=ln>2</span><span class=c1># 显示所有仓库</span>
+<span class=ln>3</span>$ yum repolist all
+<span class=ln>4</span><span class=c1># 显示所有启动的仓库</span>
+<span class=ln>5</span>$ yum repolist enabled
+<span class=ln>6</span><span class=c1># 显示所有禁用的仓库</span>
+<span class=ln>7</span>$ yum repolist disabled
 </code></pre></div><h2 id=修改仓库>修改仓库</h2>
 <p>最常用的修改操作就是启动和停用, 可以使用以下命令实现:</p>
 <div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=ln>1</span>$ yum-config-manager --enable repository…
