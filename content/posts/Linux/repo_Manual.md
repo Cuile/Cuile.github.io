@@ -18,13 +18,13 @@ categories:
 ```bash
 # 备份原镜像文件，以免出错后可以恢复。
 $ mv /etc/yum.repos.d/CentOS-Base.repo /etc/yum.repos.d/CentOS-Base.repo.backup \
-    && mv /etc/yum.repos.d/epel.repo /etc/yum.repos.d/epel.repo.backup \
-    && mv /etc/yum.repos.d/epel-testing.repo /etc/yum.repos.d/epel-testing.repo.backup
+&& mv /etc/yum.repos.d/epel.repo /etc/yum.repos.d/epel.repo.backup \
+&& mv /etc/yum.repos.d/epel-testing.repo /etc/yum.repos.d/epel-testing.repo.backup
 
 # 下载新的CentOS-Base.repo 到/etc/yum.repos.d/
 $ curl -o /etc/yum.repos.d/CentOS-Base.repo http://mirrors.aliyun.com/repo/Centos-7.repo \
-    && curl -o /etc/yum.repos.d/epel.repo http://mirrors.aliyun.com/repo/epel-7.repo \
-    && curl -o /etc/yum.repos.d/epel-testing.repo http://mirrors.aliyun.com/repo/epel-testing.repo
+&& curl -o /etc/yum.repos.d/epel.repo http://mirrors.aliyun.com/repo/epel-7.repo \
+&& curl -o /etc/yum.repos.d/epel-testing.repo http://mirrors.aliyun.com/repo/epel-testing.repo
 
 # 运行yum makecache生成缓存
 $ yum clean all && yum makecache
