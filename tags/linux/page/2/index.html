@@ -53,6 +53,33 @@
 <div class=excerpt>
 <div class=excerpt_header>
 <h3 class=post_link>
+<a href=https://cuile.github.io/posts/linux/systemd/ title="Systemd 系统工具命令指南">Systemd 系统工具命令指南</a>
+</h3>
+<div class=post_meta>
+<span><svg class="icon"><title>calendar</title><use xlink:href="#calendar"/></svg>
+</span>
+<span class=post_date>
+2022-12-27</span>
+<span class=post_time> · 阅读时长 1 分钟</span><span>&nbsp;· <a href=https://cuile.github.io/tags/linux/ title=Linux class="post_tag button button_translucent">Linux
+</a><a href=https://cuile.github.io/tags/cli/ title=CLI class="post_tag button button_translucent">CLI
+</a><a href=https://cuile.github.io/tags/systemd/ title=Systemd class="post_tag button button_translucent">Systemd
+</a>
+</span>
+</div>
+</div>
+<div class=excerpt_footer>
+<div class=pale>
+<p>systemctl命令 1systemctl list-units ##列出当前系统服务的状态 2systemctl list-unit-files ##列出服务的开机状态 3systemctl status sshd ##查看指定服务的状态 4systemctl stop sshd ##关闭指定服务 5systemctl start sshd ##开</p>
+<br>
+<a href=https://cuile.github.io/posts/linux/systemd/ title=阅读更多 class="excerpt_more button">阅读更多</a>
+</div>
+</div>
+</div>
+</li>
+<li class=post_item>
+<div class=excerpt>
+<div class=excerpt_header>
+<h3 class=post_link>
 <a href=https://cuile.github.io/posts/docker/docker_install_alpine_linux/ title="Alpine Linux 安装 Docker">Alpine Linux 安装 Docker</a>
 </h3>
 <div class=post_meta>
@@ -181,7 +208,7 @@
 </div>
 <div class=excerpt_footer>
 <div class=pale>
-<p>脚本基于Centos 7 更换阿里云软件安装源 1# 备份原镜像文件，以免出错后可以恢复。 2$ mv /etc/yum.repos.d/CentOS-Base.repo /etc/yum.repos.d/CentOS-Base.repo.backup \ 3 && mv /etc/yum.repos.d/epel.repo /etc/yum.repos.d/epel.repo.backup \ 4 && mv /etc/yum.repos.d/epel-testing.repo /etc/yum.repos.d/epel-testing.repo.backup 5 6# 下载新的CentOS-B</p>
+<p>脚本基于Centos 7 更换阿里云软件安装源 1# 备份原镜像文件，以免出错后可以恢复。 2$ mv /etc/yum.repos.d/CentOS-Base.repo /etc/yum.repos.d/CentOS-Base.repo.backup \ 3&& mv /etc/yum.repos.d/epel.repo /etc/yum.repos.d/epel.repo.backup \ 4&& mv /etc/yum.repos.d/epel-testing.repo /etc/yum.repos.d/epel-testing.repo.backup 5 6# 下载新的CentOS-Bas</p>
 <br>
 <a href=https://cuile.github.io/posts/linux/repo_manual/ title=阅读更多 class="excerpt_more button">阅读更多</a>
 </div>
@@ -262,7 +289,7 @@
 </div>
 <div class=excerpt_footer>
 <div class=pale>
-<p>脚本基于Centos 7 查看接口设备信息 1# 简单接口状态 2$ nmcli dev status 3# 详细的接口信息 4$ nmcli dev show 5# 接口的详细信息 6$ nmcli dev show &lt;interface-name> 查看连接(connection</p>
+<p>基于Centos 7 查看接口设备信息 1# 简单接口状态 2$ nmcli dev status 3# 详细的接口信息 4$ nmcli dev show 5# 接口的详细信息 6$ nmcli dev show &lt;interface-name> 查看连接(connection)的</p>
 <br>
 <a href=https://cuile.github.io/posts/linux/nmcli_manual/ title=阅读更多 class="excerpt_more button">阅读更多</a>
 </div>
@@ -296,36 +323,6 @@
 </div>
 </div>
 </li>
-<li class=post_item>
-<div class=excerpt>
-<div class=excerpt_header>
-<h3 class=post_link>
-<a href=https://cuile.github.io/posts/linux/init_setup_manual/ title="Linux 系统初始化配置">Linux 系统初始化配置</a>
-</h3>
-<div class=post_meta>
-<span><svg class="icon"><title>calendar</title><use xlink:href="#calendar"/></svg>
-</span>
-<span class=post_date>
-2022-01-17</span>
-<span class=post_time> · 阅读时长 2 分钟</span><span>&nbsp;· <a href=https://cuile.github.io/tags/linux/ title=linux class="post_tag button button_translucent">linux
-</a><a href=https://cuile.github.io/tags/cli/ title=CLI class="post_tag button button_translucent">CLI
-</a><a href=https://cuile.github.io/tags/bash/ title=bash class="post_tag button button_translucent">bash
-</a><a href=https://cuile.github.io/tags/ssh/ title=ssh class="post_tag button button_translucent">ssh
-</a><a href=https://cuile.github.io/tags/top/ title=top class="post_tag button button_translucent">top
-</a><a href=https://cuile.github.io/tags/centos/ title=centos class="post_tag button button_translucent">centos
-</a>
-</span>
-</div>
-</div>
-<div class=excerpt_footer>
-<div class=pale>
-<p>脚本基于Centos 7 记录系统初始化应操作的一系统步骤 1. 系统更新 Yum 版本库管理 2. 修改命令提示符 1# ~/.bash_profile 2 3# [HH:MM user@hostname path] 命令提示符 4$ echo "PS1='[\A \u@\H \w]\$'" >> ~/.bash_profile 5 6# [yyyy-mm-dd HH:MM] path</p>
-<br>
-<a href=https://cuile.github.io/posts/linux/init_setup_manual/ title=阅读更多 class="excerpt_more button">阅读更多</a>
-</div>
-</div>
-</div>
-</li>
 <li>
 <ul class="pagination pagination-default">
 <li class=page-item>
@@ -340,11 +337,14 @@
 <li class="page-item active">
 <a aria-current=page aria-label="Page 2" class=page-link role=button>2</a>
 </li>
-<li class="page-item disabled">
-<a aria-disabled=true aria-label=Next class=page-link role=button tabindex=-1><span aria-hidden=true>&#187;</span></a>
+<li class=page-item>
+<a href=/tags/linux/page/3/ aria-label="Page 3" class=page-link role=button>3</a>
 </li>
-<li class="page-item disabled">
-<a aria-disabled=true aria-label=Last class=page-link role=button tabindex=-1><span aria-hidden=true>&#187;&#187;</span></a>
+<li class=page-item>
+<a href=/tags/linux/page/3/ aria-label=Next class=page-link role=button><span aria-hidden=true>&#187;</span></a>
+</li>
+<li class=page-item>
+<a href=/tags/linux/page/3/ aria-label=Last class=page-link role=button><span aria-hidden=true>&#187;&#187;</span></a>
 </li>
 </ul>
 </li>
@@ -359,6 +359,9 @@
 </div>
 <h2 class=mt-4>最新文章</h2>
 <ul class=flex-column>
+<li>
+<a href=https://cuile.github.io/posts/linux/wins_netbios/ class=nav-link title="在 CentOS 上部署 NetBIOS">在 CentOS 上部署 NetBIOS</a>
+</li>
 <li>
 <a href=https://cuile.github.io/posts/linux/tmux/ class=nav-link title="Tmux 命令">Tmux 命令</a>
 </li>
@@ -379,9 +382,6 @@
 </li>
 <li>
 <a href=https://cuile.github.io/posts/snap/snap_proxy/ class=nav-link title="snap 设置代理">snap 设置代理</a>
-</li>
-<li>
-<a href=https://cuile.github.io/posts/rime_setup/ class=nav-link title=Rime输入法设置>Rime输入法设置</a>
 </li>
 </ul>
 <div>
@@ -422,7 +422,7 @@ HARMONYOS
 <nav class=tags_nav>
 <a href=https://cuile.github.io/tags/linux/ class="post_tag button button_translucent" title=linux>
 LINUX
-<span class=button_tally>20</span>
+<span class=button_tally>21</span>
 </a>
 <a href=https://cuile.github.io/tags/cli/ class="post_tag button button_translucent" title=cli>
 CLI
@@ -432,16 +432,16 @@ CLI
 DOCKER
 <span class=button_tally>9</span>
 </a>
+<a href=https://cuile.github.io/tags/centos/ class="post_tag button button_translucent" title=centos>
+CENTOS
+<span class=button_tally>7</span>
+</a>
 <a href=https://cuile.github.io/tags/proxmox/ class="post_tag button button_translucent" title=proxmox>
 PROXMOX
 <span class=button_tally>7</span>
 </a>
 <a href=https://cuile.github.io/tags/alpine-linux/ class="post_tag button button_translucent" title=alpine-linux>
 ALPINE-LINUX
-<span class=button_tally>6</span>
-</a>
-<a href=https://cuile.github.io/tags/centos/ class="post_tag button button_translucent" title=centos>
-CENTOS
 <span class=button_tally>6</span>
 </a>
 <a href=https://cuile.github.io/tags/windows/ class="post_tag button button_translucent" title=windows>
@@ -490,7 +490,7 @@ BASH
 </a>
 <a href=https://cuile.github.io/tags/blog/ class="post_tag button button_translucent" data-position=1 title=blog>BLOG<span class=button_tally>1</span>
 </a>
-<a href=https://cuile.github.io/tags/centos/ class="post_tag button button_translucent" data-position=6 title=centos>CENTOS<span class=button_tally>6</span>
+<a href=https://cuile.github.io/tags/centos/ class="post_tag button button_translucent" data-position=7 title=centos>CENTOS<span class=button_tally>7</span>
 </a>
 <a href=https://cuile.github.io/tags/centos-7/ class="post_tag button button_translucent" data-position=2 title=centos-7>CENTOS-7<span class=button_tally>2</span>
 </a>
@@ -538,7 +538,7 @@ BASH
 </a>
 <a href=https://cuile.github.io/tags/laravel/ class="post_tag button button_translucent" data-position=2 title=laravel>LARAVEL<span class=button_tally>2</span>
 </a>
-<a href=https://cuile.github.io/tags/linux/ class="post_tag button button_translucent" data-position=20 title=linux>LINUX<span class=button_tally>20</span>
+<a href=https://cuile.github.io/tags/linux/ class="post_tag button button_translucent" data-position=21 title=linux>LINUX<span class=button_tally>21</span>
 </a>
 <a href=https://cuile.github.io/tags/lxc/ class="post_tag button button_translucent" data-position=1 title=lxc>LXC<span class=button_tally>1</span>
 </a>
@@ -551,6 +551,8 @@ BASH
 <a href=https://cuile.github.io/tags/nat/ class="post_tag button button_translucent" data-position=1 title=nat>NAT<span class=button_tally>1</span>
 </a>
 <a href=https://cuile.github.io/tags/ncftp/ class="post_tag button button_translucent" data-position=1 title=ncftp>NCFTP<span class=button_tally>1</span>
+</a>
+<a href=https://cuile.github.io/tags/netbios/ class="post_tag button button_translucent" data-position=1 title=netbios>NETBIOS<span class=button_tally>1</span>
 </a>
 <a href=https://cuile.github.io/tags/network/ class="post_tag button button_translucent" data-position=4 title=network>NETWORK<span class=button_tally>4</span>
 </a>
@@ -629,6 +631,8 @@ BASH
 <a href=https://cuile.github.io/tags/windows/ class="post_tag button button_translucent" data-position=6 title=windows>WINDOWS<span class=button_tally>6</span>
 </a>
 <a href=https://cuile.github.io/tags/windwos-10/ class="post_tag button button_translucent" data-position=1 title=windwos-10>WINDWOS-10<span class=button_tally>1</span>
+</a>
+<a href=https://cuile.github.io/tags/wins/ class="post_tag button button_translucent" data-position=1 title=wins>WINS<span class=button_tally>1</span>
 </a>
 <a href=https://cuile.github.io/tags/yum/ class="post_tag button button_translucent" data-position=1 title=yum>YUM<span class=button_tally>1</span>
 </a>
