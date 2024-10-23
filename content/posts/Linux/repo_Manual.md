@@ -46,21 +46,16 @@ $ yum -y update
 $ yum -y upgrade
 ```
 
-## 查看源是否生效
-
-```bash
-$ yum repolist
-```
-
 ## 查询仓库
 
 ```bash
+$ yum repolist
+# 显示所有仓库
+$ yum repolist all
 # 显示所有启动的仓库
 $ yum repolist enabled
 # 显示所有禁用的仓库
 $ yum repolist disabled
-# 显示所有仓库
-$ yum repolist all
 ```
 
 ## 修改仓库
