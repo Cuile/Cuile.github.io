@@ -33,7 +33,7 @@ $ nmcli conn show
 $ nmcli conn show <conn-name>
 ```
 
-## 创建连接
+## 创建静态连接
 ```bash
 $ nmcli conn add type <ethernet> con-name <static-vm100> ifname <eth0> ip4 <192.168.100.100/24> [gw4 <192.168.100.1>]
 ```
