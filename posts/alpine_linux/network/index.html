@@ -60,20 +60,20 @@
 </span>
 </div>
 <div class=post_body><h2 id=网卡静态地址>网卡静态地址</h2>
-<div class=highlight><pre tabindex=0 class=chroma><code class=language-Bash data-lang=Bash><span class=ln>1</span>~# nano /etc/network/interfaces
-</code></pre></div><div class=highlight><pre tabindex=0 class=chroma><code class=language-fallback data-lang=fallback><span class=ln>1</span>auto lo
-<span class=ln>2</span>iface lo inet loopback
+<div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=ln>1</span>~# nano /etc/network/interfaces
+</code></pre></div><div class=highlight><pre tabindex=0 class=chroma><code class=language-ini data-lang=ini><span class=ln>1</span><span class=na>auto lo</span>
+<span class=ln>2</span><span class=na>iface lo inet loopback</span>
 <span class=ln>3</span>
-<span class=ln>4</span>auto eth0
-<span class=ln>5</span>iface eth0 inet static
-<span class=ln>6</span>    address 192.168.10.16/24
-<span class=ln>7</span>    gateway 192.168.10.10
-<span class=ln>8</span>    hostname alpine
+<span class=ln>4</span><span class=na>auto eth0</span>
+<span class=ln>5</span><span class=na>iface eth0 inet static</span>
+<span class=ln>6</span>    <span class=na>address 192.168.10.16/24</span>
+<span class=ln>7</span>    <span class=na>gateway 192.168.10.10</span>
+<span class=ln>8</span>    <span class=na>hostname alpine</span>
 </code></pre></div><h2 id=dns-地址>DNS 地址</h2>
-<div class=highlight><pre tabindex=0 class=chroma><code class=language-Bash data-lang=Bash><span class=ln>1</span>~# nano /etc/resolv.conf
-</code></pre></div><div class=highlight><pre tabindex=0 class=chroma><code class=language-fallback data-lang=fallback><span class=ln>1</span>nameserver 114.114.114.114
+<div class=highlight><pre tabindex=0 class=chroma><code class=language-ini data-lang=ini><span class=ln>1</span><span class=c1># nano /etc/resolv.conf</span>
+<span class=ln>2</span><span class=na>nameserver 114.114.114.114</span>
 </code></pre></div><h2 id=重启网络>重启网络</h2>
-<div class=highlight><pre tabindex=0 class=chroma><code class=language-Bash data-lang=Bash><span class=ln>1</span>~# service networking restart
+<div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=ln>1</span>~# service networking restart
 </code></pre></div>
 </div>
 <h2 class=post_related>相关专栏文章</h2>

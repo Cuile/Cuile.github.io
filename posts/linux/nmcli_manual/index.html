@@ -75,7 +75,7 @@
 <span class=ln>4</span>$ nmcli conn show
 <span class=ln>5</span><span class=c1># 某个连接的详细信息</span>
 <span class=ln>6</span>$ nmcli conn show &lt;conn-name&gt;
-</code></pre></div><h2 id=创建连接>创建连接</h2>
+</code></pre></div><h2 id=创建静态连接>创建静态连接</h2>
 <div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=ln>1</span>$ nmcli conn add <span class=nb>type</span> &lt;ethernet&gt; con-name &lt;static-vm100&gt; ifname &lt;eth0&gt; ip4 &lt;192.168.100.100/24&gt; <span class=o>[</span>gw4 &lt;192.168.100.1&gt;<span class=o>]</span>
 </code></pre></div><h2 id=激活连接>激活连接</h2>
 <div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=ln>1</span>$ nmcli conn up &lt;conn-name&gt;
