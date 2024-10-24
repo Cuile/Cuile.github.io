@@ -101,8 +101,9 @@ $ nano /etc/docker/daemon.json
   "registry-mirrors": ["https://registry.docker-cn.com"]
 }
 ```
-其实使用中仓库镜像的速度并不理想，还是设置代理更加实用
+- [Docker/DockerHub 国内镜像源/加速列表（长期维护）](https://xuanyuan.me/blog/archives/1154?from=tencent)
 
+其实使用中仓库镜像的速度并不理想，还是设置代理更加实用
 - [如何优雅的给 Docker 配置网络代理](https://cloud.tencent.com/developer/article/1806455)
 
 ## 8.测试安装结果
