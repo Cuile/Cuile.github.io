@@ -75,8 +75,13 @@
 <span class=ln>4</span>$ nmcli conn show
 <span class=ln>5</span><span class=c1># 某个连接的详细信息</span>
 <span class=ln>6</span>$ nmcli conn show &lt;conn-name&gt;
-</code></pre></div><h2 id=创建静态连接>创建静态连接</h2>
-<div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=ln>1</span>$ nmcli conn add <span class=nb>type</span> &lt;ethernet&gt; con-name &lt;static-vm100&gt; ifname &lt;eth0&gt; ip4 &lt;192.168.100.100/24&gt; <span class=o>[</span>gw4 &lt;192.168.100.1&gt;<span class=o>]</span>
+</code></pre></div><h2 id=自动连接>自动连接</h2>
+<div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=ln>1</span><span class=c1># 查询和显示所有网络连接的自动连接属性的当前值</span>
+<span class=ln>2</span>$ nmcli -f name,autoconnect connection
+<span class=ln>3</span><span class=c1># 更改网络连接的属性值</span>
+<span class=ln>4</span>$ nmcli conn mod &lt;conn-name&gt; connection.autoconnect yes
+</code></pre></div><h2 id=设置静态ip>设置静态IP</h2>
+<div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=ln>1</span>nmcli conn add <span class=nb>type</span> &lt;ethernet&gt; con-name &lt;conn-name&gt; ifname &lt;dev&gt; ip4 &lt;192.168.100.100/24&gt; <span class=o>[</span>gw4 &lt;192.168.100.1&gt;<span class=o>]</span>
 </code></pre></div><h2 id=激活连接>激活连接</h2>
 <div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=ln>1</span>$ nmcli conn up &lt;conn-name&gt;
 <span class=ln>2</span>$ nmcli conn down &lt;conn-name&gt;
@@ -86,12 +91,7 @@
 </code></pre></div><blockquote>
 <p>建议使用 nmcli dev disconnect interface-name 命令，而不是 nmcli con down connection-name 命令，因为连接断开可将该接口放到“手动”模式，这样做用户让 NetworkManager 启动某个连接前，或发生外部事件（比如载波变化、休眠或睡眠）前，不会启动任何自动连接。</p>
 </blockquote>
-<h2 id=自动连接>自动连接</h2>
-<div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=ln>1</span><span class=c1># 查询和显示所有网络连接的自动连接属性的当前值</span>
-<span class=ln>2</span>$ nmcli -f name,autoconnect connection
-<span class=ln>3</span><span class=c1># 更改网络连接的属性值</span>
-<span class=ln>4</span>$ nmcli conn mod &lt;conn-name&gt; connection.autoconnect yes
-</code></pre></div><h2 id=修改dns>修改DNS</h2>
+<h2 id=修改dns>修改DNS</h2>
 <div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=ln>1</span>$ nmcli conn mod &lt;conn-name&gt; ipv4.dns <span class=s2>&#34;1.2.4.8&#34;</span>
 <span class=ln>2</span>$ nmcli conn up &lt;conn-name&gt;
 </code></pre></div><h2 id=参考链接>参考链接</h2>
