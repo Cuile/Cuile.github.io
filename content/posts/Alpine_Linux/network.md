@@ -11,12 +11,11 @@ categories:
 ---
 
 ## 网卡静态地址
-
-```Bash
+```bash
 ~# nano /etc/network/interfaces
 ```
 
-```conf
+```ini
 auto lo
 iface lo inet loopback
 
@@ -28,17 +27,12 @@ iface eth0 inet static
 ```
 
 ## DNS 地址
-
-```Bash
-~# nano /etc/resolv.conf
-```
-
-```conf
+```ini
+# nano /etc/resolv.conf
 nameserver 114.114.114.114
 ```
 
 ## 重启网络
-
-```Bash
+```bash
 ~# service networking restart
 ```
