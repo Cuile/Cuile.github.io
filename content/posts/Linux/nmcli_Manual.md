@@ -32,19 +32,11 @@ $ nmcli conn show
 # 某个连接的详细信息
 $ nmcli conn show <conn-name>
 ```
-
-## 自动连接
+## 创建连接
 ```bash
-# 查询和显示所有网络连接的自动连接属性的当前值
-$ nmcli -f name,autoconnect connection
-# 更改网络连接的属性值
-$ nmcli conn mod <conn-name> connection.autoconnect yes
+nmcli conn add type <ethernet> con-name <conn-name> ifname <dev-name> ip4 <192.168.100.100/24> [gw4 <192.168.100.1>]
 ```
-
-## 设置静态IP
-```bash
-nmcli conn add type <ethernet> con-name <conn-name> ifname <dev> ip4 <192.168.100.100/24> [gw4 <192.168.100.1>]
-```
+## 修改配置
 ### 静态IP改动态IP
 ```bash
 nmcli conn mod <conn-name> /
@@ -52,12 +44,21 @@ nmcli conn mod <conn-name> /
     ipv4.address "" /
     ipv4.gateway "" /
     ipv4.dns ""
-nmcli conn up <conn-name>
 ```
-## 修改DNS
+### 修改DNS
 ```bash
 $ nmcli conn mod <conn-name> ipv4.dns "1.2.4.8"
-$ nmcli conn up <conn-name>
+```
+### 设置自动连接
+```bash
+# 查询和显示所有网络连接的自动连接属性的当前值
+$ nmcli -f name,autoconnect connection
+# 更改网络连接的属性值
+$ nmcli conn mod <conn-name> connection.autoconnect yes
+```
+### 配置生效
+```bash
+nmcli conn up <conn-name>
 ```
 
 ## 激活连接
@@ -65,8 +66,8 @@ $ nmcli conn up <conn-name>
 $ nmcli conn up <conn-name>
 $ nmcli conn down <conn-name>
 
-$ nmcli dev connect <eth0>
-$ nmcli dev disconnect <eth0>
+$ nmcli dev connect <dev-name>
+$ nmcli dev disconnect <dev-name>
 ```
 > 建议使用 nmcli dev disconnect interface-name 命令，而不是 nmcli con down connection-name 命令，因为连接断开可将该接口放到“手动”模式，这样做用户让 NetworkManager 启动某个连接前，或发生外部事件（比如载波变化、休眠或睡眠）前，不会启动任何自动连接。
 
