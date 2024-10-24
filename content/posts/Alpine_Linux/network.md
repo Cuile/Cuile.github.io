@@ -26,7 +26,7 @@ iface eth0 inet static
     hostname alpine
 ```
 
-## DNS 地址
+## 配置 DNS
 ```ini
 # nano /etc/resolv.conf
 nameserver 114.114.114.114
