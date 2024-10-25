@@ -6,14 +6,14 @@
 <meta http-equiv=x-ua-compatible content="IE=edge">
 <meta property="og:locale" content="zh-cn">
 <meta property="og:type" content="article">
-<meta name=description content="1. 网络设置 1.1. 基础知识 Hyper-V 安装完后，将自动创建一个“默认虚拟交换机”，并同时创建一个同名的虚拟网卡。此交换机及网卡都无法修改，且每次启动时IP都">
+<meta name=description content="1. 网络设置 Hyper-V 安装完后，将自动创建一个“默认虚拟交换机”，并同时创建一个同名的虚拟网卡。 如在宿主机同时安装了“Windows沙盒”功能，则沙盒">
 <meta name=twitter:card content="summary">
 <meta name=twitter:creator content>
 <meta name=twitter:title content="Hyper-V 网络设置">
 <meta name=twitter:image content="https://cuile.github.io/images/thumbnail.png">
 <meta property="og:url" content="https://cuile.github.io/posts/windows/hyper-v_network/">
 <meta property="og:title" content="Hyper-V 网络设置">
-<meta property="og:description" content="1. 网络设置 1.1. 基础知识 Hyper-V 安装完后，将自动创建一个“默认虚拟交换机”，并同时创建一个同名的虚拟网卡。此交换机及网卡都无法修改，且每次启动时IP都">
+<meta property="og:description" content="1. 网络设置 Hyper-V 安装完后，将自动创建一个“默认虚拟交换机”，并同时创建一个同名的虚拟网卡。 如在宿主机同时安装了“Windows沙盒”功能，则沙盒">
 <meta property="og:image" content="https://cuile.github.io/images/thumbnail.png">
 <link rel=apple-touch-icon sizes=180x180 href=https://cuile.github.io/icons/apple-touch-icon.png>
 <link rel=icon type=image/png sizes=32x32 href=https://cuile.github.io/icons/favicon-32x32.png>
@@ -61,41 +61,47 @@
 </span>
 </div>
 <div class=post_body><h2 id=1-网络设置>1. 网络设置</h2>
-<h3 id=11-基础知识>1.1. 基础知识</h3>
 <ul>
-<li>Hyper-V 安装完后，将自动创建一个“默认虚拟交换机”，并同时创建一个同名的虚拟网卡。此交换机及网卡都无法修改，且每次启动时IP都会发生变化。
+<li>Hyper-V 安装完后，将自动创建一个“默认虚拟交换机”，并同时创建一个同名的虚拟网卡。
 <ul>
 <li>如在宿主机同时安装了“Windows沙盒”功能，则沙盒会给每个物理网卡和虚拟网卡，都自动的再创建一个对应的虚拟网卡，容易造成混乱，使用中要注意。</li>
+<li>此交换机名及虚拟网卡都无法修改，虚拟机直接填加即可使用网络，但每次启动时IP都会发生变化。</li>
 </ul>
 </li>
-<li>将物理网卡直接共享给“默认虚拟交换机”对应的网卡，是比较省事高效的方法，相当于在物理网卡上做了一个NAT转换，而且IP地址会自动固定为192.168.137.1，网速较快。
+<li>将宿主机物理网卡直接共享给“默认虚拟交换机”对应的网卡，是比较省事、且高效的方法，相当于在物理网卡上做了一个NAT转换。
 <ul>
-<li>缺点是在多个物理网卡之间切换时非常不方便。</li>
+<li>优点：IP地址会自动固定为192.168.137.1，网速较快。</li>
+<li>缺点：在多个物理网卡之间切换时非常不方便。</li>
 </ul>
 </li>
-<li>Windows 网络共享重启会失效，这个BUG一直没有解决，需要如此解决：
+<li>貌似问题已解决
 <ul>
-<li>找到“Internet Connection Sharing”服务
+<li><del>Windows 网络共享重启会失效，这个BUG一直没有解决，需要如此解决：</del>
 <ul>
-<li>启动类型：自动</li>
+<li><del>找到“Internet Connection Sharing”服务</del>
+<ul>
+<li><del>启动类型：自动</del></li>
 </ul>
 </li>
-<li>找到注册表中“HKEY_LOCAL_MACHINE\Software\Microsoft\Windows\CurrentVersion\SharedAccess”
+<li><del>找到注册表中“HKEY_LOCAL_MACHINE\Software\Microsoft\Windows\CurrentVersion\SharedAccess”</del>
 <ul>
-<li>新建“DWORD(32位)值(D)”：EnableRebootPersistConnection</li>
-<li>值（十六进制）：1</li>
+<li><del>新建“DWORD(32位)值(D)”：EnableRebootPersistConnection</del></li>
+<li><del>值（十六进制）：1</del></li>
 </ul>
 </li>
-<li>重启电脑</li>
+<li><del>重启电脑</del></li>
+</ul>
+</li>
 </ul>
 </li>
 <li>在宿主机使用无线网卡时，由于Hyper-V对无线网卡支持的不好，需要做以下操作：
 <ul>
 <li>新建“外部虚拟交换机”：
 <ul>
-<li>勾选“允许管理操作系统共享此网络适配器”，选择“外部虚拟交换机”对应的网卡，相当于在无线网卡上做了一个NAT转换，而且IP地址会自动固定为192.168.137.1，网速较快。
+<li>选择宿主机网卡，勾选“允许管理操作系统共享此网络适配器”，相当于在无线网卡上做了一个NAT转换。
 <ul>
-<li>会在宿主机上添加一个网桥，一个虚拟网卡，且宿主机可同时上网。</li>
+<li>网速较快。</li>
+<li>会在宿主机上创建一个网桥，一个虚拟网卡，且宿主机可同时上网。</li>
 </ul>
 </li>
 <li>反之，则只会添加一个网桥，且宿主机无法同时上网。
@@ -107,14 +113,20 @@
 </li>
 <li>新建“内部虚拟交换机”：
 <ul>
+<li>会在宿主机上创建一个虚拟网卡。</li>
 <li>将所有虚拟机都接入自建的“内部虚拟交换机”，可以解决IP变化的问题。</li>
 </ul>
 </li>
+<li>在宿主机上，将“外部虚拟交换机”创建的虚拟网卡，共享给“内部虚拟交换机”创建的虚拟网卡。
+<ul>
+<li>“内部虚拟交换机”创建的虚拟网卡IP地址会自动固定为192.168.137.1，所有虚拟机的网段会固定为192.168.137.0。</li>
 </ul>
 </li>
 </ul>
-<h3 id=12-网络拓扑>1.2. 网络拓扑</h3>
-<p>假设使用以下拓扑结构来设计网络：
+</li>
+</ul>
+<h2 id=2-网络拓扑>2. 网络拓扑</h2>
+<p>使用以下拓扑结构来，解决多个物理网卡随时切换的问题：
 宿主机直连路由器，宿主机上创建一个虚拟路由器，和一个虚拟机，宿主机与虚拟机都通过虚拟路由器来上网。</p>
 <table>
 <thead>
@@ -157,35 +169,28 @@
 </tr>
 </tbody>
 </table>
-<h2 id=2-查看网卡虚拟网卡虚拟交换机的命令>2. 查看网卡、虚拟网卡、虚拟交换机的命令</h2>
+<p>可以尝试使用网桥功能，解决多物理网卡切换的问题</p>
+<h2 id=3-查看网卡虚拟网卡虚拟交换机的命令>3. 查看网卡、虚拟网卡、虚拟交换机的命令</h2>
 <p>使用管理员模式，启动 PowerShell</p>
-<div class=highlight><pre tabindex=0 class=chroma><code class=language-powershell data-lang=powershell><span class=ln> 1</span><span class=c># 查看所有网卡</span>
-<span class=ln> 2</span><span class=p>&gt;</span> <span class=nb>get-netadapter</span> 
-<span class=ln> 3</span>
-<span class=ln> 4</span><span class=c># 查看虚拟交换机</span>
-<span class=ln> 5</span><span class=p>&gt;</span> <span class=nb>get-vmswitch</span>
-<span class=ln> 6</span>
-<span class=ln> 7</span><span class=c># 查看所有虚拟网卡</span>
-<span class=ln> 8</span><span class=p>&gt;</span> <span class=nb>get-vmnetworkadapter</span> <span class=n>-all</span> 
-<span class=ln> 9</span>
-<span class=ln>10</span><span class=c># 查看在主机上的虚拟网卡</span>
-<span class=ln>11</span><span class=p>&gt;</span> <span class=nb>get-vmnetworkadapter</span> <span class=n>-managementos</span> 
-<span class=ln>12</span>
-<span class=ln>13</span><span class=c># 查看网卡组</span>
-<span class=ln>14</span><span class=p>&gt;</span> <span class=nb>get-netlbfoteam</span>
-</code></pre></div><h2 id=3-删除>3. 删除</h2>
-<p>使用管理员模式，启动 PowerShell</p>
-<div class=highlight><pre tabindex=0 class=chroma><code class=language-powershell data-lang=powershell><span class=ln>1</span><span class=c># 删除虚拟网卡</span>
-<span class=ln>2</span><span class=p>&gt;</span> <span class=nb>remove-vmnetworkadapter</span> <span class=n>-managementos</span> <span class=n>-name</span> <span class=s2>&#34;xxx&#34;</span>
-<span class=ln>3</span>
-<span class=ln>4</span><span class=c># 删除虚拟交换机</span>
-<span class=ln>5</span><span class=p>&gt;</span> <span class=nb>remove-vmswitch</span> <span class=n>-name</span> <span class=s2>&#34;xxx&#34;</span>
-<span class=ln>6</span>
-<span class=ln>7</span><span class=c># 删除网卡组</span>
-<span class=ln>8</span><span class=p>&gt;</span> <span class=nb>remove-netlbfoteam</span> <span class=n>-name</span> <span class=s2>&#34;xxx&#34;</span>
+<p>查看所有网卡</p>
+<div class=highlight><pre tabindex=0 class=chroma><code class=language-powershell data-lang=powershell><span class=ln>1</span><span class=nb>get-netadapter</span> 
+</code></pre></div><p>查看虚拟交换机</p>
+<div class=highlight><pre tabindex=0 class=chroma><code class=language-powershell data-lang=powershell><span class=ln>1</span><span class=nb>get-vmswitch</span>
+</code></pre></div><p>查看所有虚拟网卡</p>
+<div class=highlight><pre tabindex=0 class=chroma><code class=language-powershell data-lang=powershell><span class=ln>1</span><span class=nb>get-vmnetworkadapter</span> <span class=n>-all</span> 
+</code></pre></div><p>查看在主机上的虚拟网卡</p>
+<div class=highlight><pre tabindex=0 class=chroma><code class=language-powershell data-lang=powershell><span class=ln>1</span><span class=nb>get-vmnetworkadapter</span> <span class=n>-managementos</span> 
+</code></pre></div><p>查看网卡组</p>
+<div class=highlight><pre tabindex=0 class=chroma><code class=language-powershell data-lang=powershell><span class=ln>1</span><span class=nb>get-netlbfoteam</span>
+</code></pre></div><p>删除虚拟网卡</p>
+<div class=highlight><pre tabindex=0 class=chroma><code class=language-powershell data-lang=powershell><span class=ln>1</span><span class=nb>remove-vmnetworkadapter</span> <span class=n>-managementos</span> <span class=n>-name</span> <span class=s2>&#34;xxx&#34;</span>
+</code></pre></div><p>删除虚拟交换机</p>
+<div class=highlight><pre tabindex=0 class=chroma><code class=language-powershell data-lang=powershell><span class=ln>1</span><span class=nb>remove-vmswitch</span> <span class=n>-name</span> <span class=s2>&#34;xxx&#34;</span>
+</code></pre></div><p>删除网卡组</p>
+<div class=highlight><pre tabindex=0 class=chroma><code class=language-powershell data-lang=powershell><span class=ln>1</span><span class=nb>remove-netlbfoteam</span> <span class=n>-name</span> <span class=s2>&#34;xxx&#34;</span>
 </code></pre></div><p>这里要注意删除顺序是，虚拟网卡 > 虚拟交换机 > 网卡组 > 物理网卡。</p>
 <p>当然还有一个最简单粗暴的命令，删除所有设置，只保留物理网卡，非常简单好用。</p>
-<div class=highlight><pre tabindex=0 class=chroma><code class=language-powershell data-lang=powershell><span class=ln>1</span><span class=p>&gt;</span> <span class=n>netcfg</span> <span class=n>-d</span>
+<div class=highlight><pre tabindex=0 class=chroma><code class=language-powershell data-lang=powershell><span class=ln>1</span><span class=n>netcfg</span> <span class=n>-d</span>
 </code></pre></div><h2 id=参考文档>参考文档</h2>
 <ul>
 <li>Hyper-V网络设置
