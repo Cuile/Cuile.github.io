@@ -6,14 +6,14 @@
 <meta http-equiv=x-ua-compatible content="IE=edge">
 <meta property="og:locale" content="zh-cn">
 <meta property="og:type" content="article">
-<meta name=description content="1. 网络设置 Hyper-V 安装完后，将自动创建一个“默认虚拟交换机”，并同时创建一个同名的虚拟网卡。 如在宿主机同时安装了“Windows沙盒”功能，则沙盒">
+<meta name=description content="1. 网络配置的三种方法 1.1 Hyper-V 安装完后，将自动创建一个“默认虚拟交换机”，并同时创建一个同名的虚拟网卡。 如在宿主机同时安装了“Windows沙盒”">
 <meta name=twitter:card content="summary">
 <meta name=twitter:creator content>
 <meta name=twitter:title content="Hyper-V 网络设置">
 <meta name=twitter:image content="https://cuile.github.io/images/thumbnail.png">
 <meta property="og:url" content="https://cuile.github.io/posts/windows/hyper-v_network/">
 <meta property="og:title" content="Hyper-V 网络设置">
-<meta property="og:description" content="1. 网络设置 Hyper-V 安装完后，将自动创建一个“默认虚拟交换机”，并同时创建一个同名的虚拟网卡。 如在宿主机同时安装了“Windows沙盒”功能，则沙盒">
+<meta property="og:description" content="1. 网络配置的三种方法 1.1 Hyper-V 安装完后，将自动创建一个“默认虚拟交换机”，并同时创建一个同名的虚拟网卡。 如在宿主机同时安装了“Windows沙盒”">
 <meta property="og:image" content="https://cuile.github.io/images/thumbnail.png">
 <link rel=apple-touch-icon sizes=180x180 href=https://cuile.github.io/icons/apple-touch-icon.png>
 <link rel=icon type=image/png sizes=32x32 href=https://cuile.github.io/icons/favicon-32x32.png>
@@ -60,45 +60,28 @@
 </a>
 </span>
 </div>
-<div class=post_body><h2 id=1-网络设置>1. 网络设置</h2>
+<div class=post_body><h2 id=1-网络配置的三种方法>1. 网络配置的三种方法</h2>
 <ul>
-<li>Hyper-V 安装完后，将自动创建一个“默认虚拟交换机”，并同时创建一个同名的虚拟网卡。
+<li>1.1 Hyper-V 安装完后，将自动创建一个“默认虚拟交换机”，并同时创建一个同名的虚拟网卡。
 <ul>
 <li>如在宿主机同时安装了“Windows沙盒”功能，则沙盒会给每个物理网卡和虚拟网卡，都自动的再创建一个对应的虚拟网卡，容易造成混乱，使用中要注意。</li>
-<li>此交换机名及虚拟网卡都无法修改，虚拟机直接填加即可使用网络，但每次启动时IP都会发生变化。</li>
+<li>此交换机名及虚拟网卡都无法修改，虚拟机直接填加即可使用网络。</li>
+<li>每次启动时IP都会发生变化。</li>
 </ul>
 </li>
-<li>将宿主机物理网卡直接共享给“默认虚拟交换机”对应的网卡，是比较省事、且高效的方法，相当于在物理网卡上做了一个NAT转换。
+<li>1.2 将宿主机物理网卡直接共享给“默认虚拟交换机”创建的虚拟网卡，是比较省事、且高效的方法，相当于在物理网卡上做了一个NAT转换。
 <ul>
-<li>优点：IP地址会自动固定为192.168.137.1，网速较快。</li>
+<li>优点：“默认虚拟交换机”创建的虚拟网卡IP地址会自动固定为192.168.137.1，所有虚拟机的网段会固定为192.168.137.0。网速较快。</li>
 <li>缺点：在多个物理网卡之间切换时非常不方便。</li>
 </ul>
 </li>
-<li>貌似问题已解决
-<ul>
-<li><del>Windows 网络共享重启会失效，这个BUG一直没有解决，需要如此解决：</del>
-<ul>
-<li><del>找到“Internet Connection Sharing”服务</del>
-<ul>
-<li><del>启动类型：自动</del></li>
-</ul>
-</li>
-<li><del>找到注册表中“HKEY_LOCAL_MACHINE\Software\Microsoft\Windows\CurrentVersion\SharedAccess”</del>
-<ul>
-<li><del>新建“DWORD(32位)值(D)”：EnableRebootPersistConnection</del></li>
-<li><del>值（十六进制）：1</del></li>
-</ul>
-</li>
-<li><del>重启电脑</del></li>
-</ul>
-</li>
-</ul>
-</li>
-<li>在宿主机使用无线网卡时，由于Hyper-V对无线网卡支持的不好，需要做以下操作：
+<li>1.3 在宿主机使用无线网卡时，由于Hyper-V对无线网卡支持的不好，需要做以下操作：
 <ul>
 <li>新建“外部虚拟交换机”：
 <ul>
-<li>选择宿主机网卡，勾选“允许管理操作系统共享此网络适配器”，相当于在无线网卡上做了一个NAT转换。
+<li>选择宿主机网卡。
+<ul>
+<li>勾选“允许管理操作系统共享此网络适配器”。
 <ul>
 <li>网速较快。</li>
 <li>会在宿主机上创建一个网桥，一个虚拟网卡，且宿主机可同时上网。</li>
@@ -107,6 +90,8 @@
 <li>反之，则只会添加一个网桥，且宿主机无法同时上网。
 <ul>
 <li>这是 Hyper-V 对无线网卡支持不够好的表现，而且网速很慢，慢到什么程度呢？慢到微信连文件都发不出去！</li>
+</ul>
+</li>
 </ul>
 </li>
 </ul>
@@ -122,6 +107,22 @@
 <li>“内部虚拟交换机”创建的虚拟网卡IP地址会自动固定为192.168.137.1，所有虚拟机的网段会固定为192.168.137.0。</li>
 </ul>
 </li>
+</ul>
+</li>
+<li>Windows 网络共享重启会失效，这个BUG一直没有解决，需要如此解决：
+<ul>
+<li>找到“Internet Connection Sharing”服务
+<ul>
+<li>启动类型：自动</li>
+</ul>
+</li>
+<li>找到注册表中“HKEY_LOCAL_MACHINE\Software\Microsoft\Windows\CurrentVersion\SharedAccess”
+<ul>
+<li>新建“DWORD(32位)值(D)”：EnableRebootPersistConnection</li>
+<li>值（十六进制）：1</li>
+</ul>
+</li>
+<li>重启电脑</li>
 </ul>
 </li>
 </ul>
@@ -200,7 +201,6 @@
 <li><a href=https://blog.51cto.com/u_15162069/2761935>Hyper-V 网络配置</a></li>
 <li><a href=https://www.it-swarm.cn/zh/hyper-v/%E5%A6%82%E4%BD%95%E4%BB%8E%E8%AE%BE%E5%A4%87%E7%AE%A1%E7%90%86%E5%99%A8%E4%B8%AD%E5%88%A0%E9%99%A4hyperv%E8%99%9A%E6%8B%9F%E4%BA%A4%E6%8D%A2%E6%9C%BA%E6%89%A9%E5%B1%95%E9%80%82%E9%85%8D%E5%99%A8/960270896/>如何从设备管理器中删除Hyper-V虚拟交换机扩展适配器</a></li>
 <li><a href=https://www.cnblogs.com/daner1257/p/9824745.html>Win10 Hyper-v下虚拟机使用无线网络</a></li>
-<li><a href=https://www.cnblogs.com/guoyabin/p/4443146.html>hyper-v使用wifi链接网络</a></li>
 </ul>
 </li>
 <li>Windows 网络共享
