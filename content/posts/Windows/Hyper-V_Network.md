@@ -91,11 +91,10 @@ remove-vmnetworkadapter -managementos -name "xxx"
 remove-vmswitch -name "xxx"
 ```
 删除网卡组
+这里要注意删除顺序是，虚拟网卡 >  虚拟交换机 > 网卡组 > 物理网卡。
 ```powershell
 remove-netlbfoteam -name "xxx"
 ```
-这里要注意删除顺序是，虚拟网卡 >  虚拟交换机 > 网卡组 > 物理网卡。
-
 当然还有一个最简单粗暴的命令，删除所有设置，只保留物理网卡，非常简单好用。
 ```powershell
 netcfg -d
