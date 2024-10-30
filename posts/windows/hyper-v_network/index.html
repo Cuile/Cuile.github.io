@@ -6,14 +6,14 @@
 <meta http-equiv=x-ua-compatible content="IE=edge">
 <meta property="og:locale" content="zh-cn">
 <meta property="og:type" content="article">
-<meta name=description content="1. 网络配置的方法 1.1 Hyper-V 安装完后，将自动创建一个“默认虚拟交换机”，并同时创建一个同名的虚拟网卡。 如在宿主机同时安装了“Windows沙盒”功能">
+<meta name=description content="1. 网络配置的方法 如在宿主机同时安装了“Windows沙盒”功能，则沙盒会给每个物理网卡和虚拟网卡，都自动的再创建一个对应的虚拟网卡，容易造成">
 <meta name=twitter:card content="summary">
 <meta name=twitter:creator content>
 <meta name=twitter:title content="Hyper-V 网络设置">
 <meta name=twitter:image content="https://cuile.github.io/images/thumbnail.png">
 <meta property="og:url" content="https://cuile.github.io/posts/windows/hyper-v_network/">
 <meta property="og:title" content="Hyper-V 网络设置">
-<meta property="og:description" content="1. 网络配置的方法 1.1 Hyper-V 安装完后，将自动创建一个“默认虚拟交换机”，并同时创建一个同名的虚拟网卡。 如在宿主机同时安装了“Windows沙盒”功能">
+<meta property="og:description" content="1. 网络配置的方法 如在宿主机同时安装了“Windows沙盒”功能，则沙盒会给每个物理网卡和虚拟网卡，都自动的再创建一个对应的虚拟网卡，容易造成">
 <meta property="og:image" content="https://cuile.github.io/images/thumbnail.png">
 <link rel=apple-touch-icon sizes=180x180 href=https://cuile.github.io/icons/apple-touch-icon.png>
 <link rel=icon type=image/png sizes=32x32 href=https://cuile.github.io/icons/favicon-32x32.png>
@@ -62,11 +62,12 @@
 </div>
 <div class=post_body><h2 id=1-网络配置的方法>1. 网络配置的方法</h2>
 <ul>
+<li>如在宿主机同时安装了“Windows沙盒”功能，则沙盒会给每个物理网卡和虚拟网卡，都自动的再创建一个对应的虚拟网卡，容易造成混乱，使用中要注意。</li>
 <li>1.1 Hyper-V 安装完后，将自动创建一个“默认虚拟交换机”，并同时创建一个同名的虚拟网卡。
 <ul>
-<li>如在宿主机同时安装了“Windows沙盒”功能，则沙盒会给每个物理网卡和虚拟网卡，都自动的再创建一个对应的虚拟网卡，容易造成混乱，使用中要注意。</li>
 <li>此交换机名及虚拟网卡都无法修改，虚拟机直接填加即可使用网络。</li>
 <li>虚拟机之间互联，再创建一个“内部交换机”，添加到虚拟机并设置同一网段即可。</li>
+<li>缺点：速度较慢</li>
 </ul>
 </li>
 <li>1.2 将宿主机物理网卡直接共享给“默认虚拟交换机”创建的虚拟网卡，是比较省事、且高效的方法，相当于在物理网卡上做了一个NAT转换。
