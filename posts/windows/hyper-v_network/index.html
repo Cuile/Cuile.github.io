@@ -6,14 +6,14 @@
 <meta http-equiv=x-ua-compatible content="IE=edge">
 <meta property="og:locale" content="zh-cn">
 <meta property="og:type" content="article">
-<meta name=description content="1. 网络配置的方法 如在宿主机同时安装了“Windows沙盒”功能，则沙盒会给每个物理网卡和虚拟网卡，都自动的再创建一个对应的虚拟网卡，容易造成">
+<meta name=description content="1. 网络配置的方法 1.1 Hyper-V 安装完后，将自动创建一个“默认虚拟交换机”，并同时创建一个同名的虚拟网卡。 此交换机名及虚拟网卡都无法修改，虚拟机直接填加">
 <meta name=twitter:card content="summary">
 <meta name=twitter:creator content>
 <meta name=twitter:title content="Hyper-V 网络设置">
 <meta name=twitter:image content="https://cuile.github.io/images/thumbnail.png">
 <meta property="og:url" content="https://cuile.github.io/posts/windows/hyper-v_network/">
 <meta property="og:title" content="Hyper-V 网络设置">
-<meta property="og:description" content="1. 网络配置的方法 如在宿主机同时安装了“Windows沙盒”功能，则沙盒会给每个物理网卡和虚拟网卡，都自动的再创建一个对应的虚拟网卡，容易造成">
+<meta property="og:description" content="1. 网络配置的方法 1.1 Hyper-V 安装完后，将自动创建一个“默认虚拟交换机”，并同时创建一个同名的虚拟网卡。 此交换机名及虚拟网卡都无法修改，虚拟机直接填加">
 <meta property="og:image" content="https://cuile.github.io/images/thumbnail.png">
 <link rel=apple-touch-icon sizes=180x180 href=https://cuile.github.io/icons/apple-touch-icon.png>
 <link rel=icon type=image/png sizes=32x32 href=https://cuile.github.io/icons/favicon-32x32.png>
@@ -53,7 +53,7 @@
 </span>
 <span class=post_date>
 2022-12-26</span>
-<span class=post_time> · 阅读时长 3 分钟</span><span>&nbsp;· <a href=https://cuile.github.io/tags/network/ title=network class="post_tag button button_translucent">network
+<span class=post_time> · 阅读时长 4 分钟</span><span>&nbsp;· <a href=https://cuile.github.io/tags/network/ title=network class="post_tag button button_translucent">network
 </a><a href=https://cuile.github.io/tags/hyper-v/ title=Hyper-V class="post_tag button button_translucent">Hyper-V
 </a><a href=https://cuile.github.io/tags/%E7%B3%BB%E7%BB%9F%E9%85%8D%E7%BD%AE/ title=系统配置 class="post_tag button button_translucent">系统配置
 </a><a href=https://cuile.github.io/tags/windows/ title=windows class="post_tag button button_translucent">windows
@@ -62,7 +62,6 @@
 </div>
 <div class=post_body><h2 id=1-网络配置的方法>1. 网络配置的方法</h2>
 <ul>
-<li>如在宿主机同时安装了“Windows沙盒”功能，则沙盒会给每个物理网卡和虚拟网卡，都自动的再创建一个对应的虚拟网卡，容易造成混乱，使用中要注意。</li>
 <li>1.1 Hyper-V 安装完后，将自动创建一个“默认虚拟交换机”，并同时创建一个同名的虚拟网卡。
 <ul>
 <li>此交换机名及虚拟网卡都无法修改，虚拟机直接填加即可使用网络。</li>
@@ -116,7 +115,11 @@
 <li>在ReviOS等第三方精简系统中，运作不稳定。</li>
 </ul>
 </li>
-<li>PS: Windows 网络共享重启会失效，这个BUG一直没有解决，需要如此解决：
+</ul>
+<h3 id=ps>PS:</h3>
+<ul>
+<li>如在宿主机同时安装了“Windows沙盒”功能，则沙盒会给每个物理网卡和虚拟网卡，都自动的再创建一个对应的虚拟网卡，容易造成混乱，使用中要注意。</li>
+<li>Windows 网络共享重启会失效，这个BUG一直没有解决，需要如此解决：
 <ul>
 <li>找到“Internet Connection Sharing”服务
 <ul>
@@ -132,6 +135,7 @@
 <li>重启电脑</li>
 </ul>
 </li>
+<li>最好给每个虚拟机都设置外网DNS，比如1.2.4.8，因为hyper-v的DNS服务不是很稳定。</li>
 </ul>
 <h2 id=2-网络拓扑>2. 网络拓扑</h2>
 <p>使用以下拓扑结构来，解决多个物理网卡随时切换的问题：
