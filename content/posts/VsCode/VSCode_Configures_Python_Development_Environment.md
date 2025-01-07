@@ -59,24 +59,20 @@ tags:
 同时会在 PowerShell 的 Profile 文件中（相当于 Bash 的 .bashrc）添加以下代码，保证每次启动 PowerShell 时，都会自动初始化 Micromamba 。
 ```powershell
 # $HOME/Documents/WindowsPowerShell/profile.ps1
+
 #region mamba initialize
 # !! Contents within this block are managed by 'mamba shell init' !!
 $Env:MAMBA_ROOT_PREFIX = "C:\Users\username\micromamba"
 $Env:MAMBA_EXE = "C:\Users\username\.micromamba\Library\bin\micromamba.exe"
 (& $Env:MAMBA_EXE 'shell' 'hook' -s 'powershell' -p $Env:MAMBA_ROOT_PREFIX) | Out-String | Invoke-Expression
 #endregion
-```
-在这段代码的下面，加入设置 micromamba 别名的命令。
-```powershell
+
+# 加入设置 micromamba 别名的命令。
+# 设置别名后，即方便使用，也可配合 VSCode 的配置，实现自动启动开发环境。
 > Set-Alias -name conda -value micromamba
 ```
-设置别名后，即方便使用，也可配合 VSCode 的配置，实现自动启动开发环境。
 
-#### 配置 Python 基础环境
-```powershell
-> cd ~/micromamba
-> conda create -f env.yml
-```
+#### 创建不同的 Python 版本
 ```yml
 # env.yml
 name: PyQt
@@ -87,8 +83,12 @@ dependencies:
   - python 3.11
   - mingw 4.7
 ```
+```powershell
+> cd ~/micromamba
+> conda create -f env.yml
+```
 
-#### 配置 VSCode[^2]
+## 配置 VSCode[^2]
 配置 Venv 路径
 1. 使用 “ctrl+,” 打开设置界面，搜索 venv ，出现两个结果：
 
@@ -96,55 +96,31 @@ dependencies:
 | :---  | :--- |
 | Python: Venv Folders | 如果安装时使用默认位置，就填写 micromamba，下面的不用设置 |
 | Python: Venv Path    | 如果安装时没有使用默认位置，就填写安装位置，上面的不用设置 |
-| Python: Conda Path   |                                                       |
+| Python: Conda Path   | 直接输入conda 即可                                     |
 
-2. 重启VSCode，进入 Python 项目，就可以看到右下角的 Python 环境了，如果创建了多个环境，可以通过这里切换。
-3. 使用 “ctrl+`” 打开项目终端界面，看到括号里的名字，与刚才创建的基础环境名一致，就成功了。
-```powershell
-(PyQt) PS "Your Project Path">
-```
+2. 重启VSCode，进入 Python 项目，就可以看到右下角的 Python 环境了，如果创建了多个环境，可以通过这里切换。这里需要注意 vscode 可以识别多个 Python 版本，但无法正确配置它们。所以创建不同的 Python 版本后，还要为项目选择解释器。
 
-#### 配置 Python 虚拟环境
-使用项目终端界面，创建虚拟环境
+### 配置 Python 虚拟环境
+1. 使用项目终端界面，创建虚拟环境。
 ```powershell
 > python -m venv .venv
 ```
-查看 VSCode 最左侧的主侧栏，打开 Python Environment Manger 扩展（Python icon）。
-```
-˅ WORKSPACE ENVIRONMENTS
- > .venv(3.11.0)
 
-˅ GLOBAL ENVIRONMENTS
- ˅ Global
-  > PyQt(3.11.0)
- ˅ Venv
-  > .venv(3.11.0)
-```
-关于 Python Environment Manger 的相关操作，这里不再类述，也是非常简单的。
-
-重启 VSCode，进入项目终端界面，看到括号里的名字，与刚才创建的虚拟环境名一致，就成功了。
+2. 查看项目资源管理器，看到 .venv 文件夹就成功了。重启 vscode 再次进入项目终端，不一定会看到项目前缀[^3]。
 ```powershell
-(.venv) PS "Your Project Path">
+PS "Your Project Path">
 ```
 
-## 配置 VSCode
-| 选项 | 值  |
-| :---  | :--- |
-| Editor: Default Formatter | Ruff |
 
-## 配置 Python
+## 其它配置
 | 选项 | 值  |
 | :---  | :--- |
+| Editor: Default Formatter                           | Ruff |
 | Python > Terminal: ACtivate Env In Current Terminal | 勾选    |
 | Python > Terminal: Focus After Launch               | 勾选    |
 | Python: Language Server                             | Pylance |
-
-## 配置 Pylance
-| 选项 | 值  |
-| :---  | :--- |
-| Pylthon > Analysis: Type Checking Mode | basic |
-
-
+| Pylthon > Analysis: Type Checking Mode              | basic |
 
 [^1]:[Micromamba Installation](https://mamba.readthedocs.io/en/latest/installation/micromamba-installation.html#operating-system-package-managers)
 [^2]:[使用 Micromamba 替换 Miniconda 更快配置 Python 环境](https://zhuanlan.zhihu.com/p/622346839?utm_id=0)
+[^3]:[Activate Environments in Terminal Using Environment Variables](https://github.com/microsoft/vscode-python/wiki/Activate-Environments-in-Terminal-Using-Environment-Variables)
