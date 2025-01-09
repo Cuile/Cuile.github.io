@@ -100,17 +100,21 @@ dependencies:
 
 2. 重启VSCode，进入 Python 项目，就可以看到右下角的 Python 环境了，如果创建了多个环境，可以通过这里切换。这里需要注意 vscode 可以识别多个 Python 版本，但无法正确配置它们。所以创建不同的 Python 版本后，还要为项目选择解释器。
 
-### 配置 Python 虚拟环境
+### 使用 Python 虚拟环境
 1. 使用项目终端界面，创建虚拟环境。
 ```powershell
-> python -m venv .venv
+# 先激活 micromamba 环境
+PS "Your Project Path"> conda activate PyQt
+# 创建虚拟环境
+# 查看项目资源管理器，看到 .venv 文件夹就成功了。
+(PyQt) PS "Your Project Path"> python -m venv .venv
+# 激活虚拟环境
+(PyQt) PS "Your Project Path"> Activate.ps1
+# 成功进入虚拟环境
+(.venv) (PyQt) PS "Your Project Path">
+# 重启 vscode 再次进入项目终端，不一定会看到项目前缀[^3]。
+# 使用时按此顺序激活环境，可保证环境设置正确。
 ```
-
-2. 查看项目资源管理器，看到 .venv 文件夹就成功了。重启 vscode 再次进入项目终端，不一定会看到项目前缀[^3]。
-```powershell
-PS "Your Project Path">
-```
-
 
 ## 其它配置
 | 选项 | 值  |
