@@ -72,7 +72,7 @@ $Env:MAMBA_EXE = "C:\Users\username\.micromamba\Library\bin\micromamba.exe"
 > Set-Alias -name conda -value micromamba
 ```
 
-#### 创建不同的 Python 版本
+#### 创建 Python 版本
 ```yml
 # env.yml
 name: PyQt
