@@ -71,6 +71,13 @@ $Env:MAMBA_EXE = "C:\Users\username\.micromamba\Library\bin\micromamba.exe"
 # 设置别名后，即方便使用，也可配合 VSCode 的配置，实现自动启动开发环境。
 > Set-Alias -name conda -value micromamba
 ```
+```powershell
+# 配置包通道
+> conda config append channels conda-forge
+
+# 查看 micromamba 设置
+> conda info
+```
 
 #### 创建 Python 版本
 ```yml
