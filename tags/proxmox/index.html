@@ -53,114 +53,6 @@
 <div class=excerpt>
 <div class=excerpt_header>
 <h3 class=post_link>
-<a href=https://cuile.github.io/posts/proxmox/setup_ct_centos-7/ title="配置 CentOS 7 的 CT 容器">配置 CentOS 7 的 CT 容器</a>
-</h3>
-<div class=post_meta>
-<span><svg class="icon"><title>calendar</title><use xlink:href="#calendar"/></svg>
-</span>
-<span class=post_date>
-2024-01-31</span>
-<span class=post_time> · 阅读时长 1 分钟</span><span>&nbsp;· <a href=https://cuile.github.io/tags/proxmox/ title=proxmox class="post_tag button button_translucent">proxmox
-</a><a href=https://cuile.github.io/tags/ct-container/ title="CT Container" class="post_tag button button_translucent">CT Container
-</a><a href=https://cuile.github.io/tags/lxc/ title=lxc class="post_tag button button_translucent">lxc
-</a><a href=https://cuile.github.io/tags/centos-7/ title="centos 7" class="post_tag button button_translucent">centos 7
-</a><a href=https://cuile.github.io/tags/linux/ title=linux class="post_tag button button_translucent">linux
-</a>
-</span>
-</div>
-</div>
-<div class=excerpt_footer>
-<div class=pale>
-<p>Proxmox VE 官方提供的 Centos 7 模板是有问题的无法正常使用，现在给出解决方案。 安装 安装完成后，容器可以启动，但无法关闭、网络无法使用、控制台无法使用，这些</p>
-<br>
-<a href=https://cuile.github.io/posts/proxmox/setup_ct_centos-7/ title=阅读更多 class="excerpt_more button">阅读更多</a>
-</div>
-</div>
-</div>
-</li>
-<li class=post_item>
-<div class=excerpt>
-<div class=excerpt_header>
-<h3 class=post_link>
-<a href=https://cuile.github.io/posts/proxmox/bbr/ title="Proxmox 配置 BBR">Proxmox 配置 BBR</a>
-</h3>
-<div class=post_meta>
-<span><svg class="icon"><title>calendar</title><use xlink:href="#calendar"/></svg>
-</span>
-<span class=post_date>
-2023-10-03</span>
-<span class=post_time> · 阅读时长 1 分钟</span><span>&nbsp;· <a href=https://cuile.github.io/tags/proxmox/ title=Proxmox class="post_tag button button_translucent">Proxmox
-</a><a href=https://cuile.github.io/tags/tcp/ title=tcp class="post_tag button button_translucent">tcp
-</a><a href=https://cuile.github.io/tags/bbr/ title=bbr class="post_tag button button_translucent">bbr
-</a>
-</span>
-</div>
-</div>
-<div class=excerpt_footer>
-<div class=pale>
-<p>查看系统内核 1$ uname -r kernel 4.9 及以上已支持 tcp_bbr，看内核版本是否大于等于4.9，否则要升级内核，或者安装bbr。 bbr2 效果要好于 bbr，相当原理</p>
-<br>
-<a href=https://cuile.github.io/posts/proxmox/bbr/ title=阅读更多 class="excerpt_more button">阅读更多</a>
-</div>
-</div>
-</div>
-</li>
-<li class=post_item>
-<div class=excerpt>
-<div class=excerpt_header>
-<h3 class=post_link>
-<a href=https://cuile.github.io/posts/proxmox/subscription/ title="Proxmox 关闭订阅提示">Proxmox 关闭订阅提示</a>
-</h3>
-<div class=post_meta>
-<span><svg class="icon"><title>calendar</title><use xlink:href="#calendar"/></svg>
-</span>
-<span class=post_date>
-2023-06-06</span>
-<span class=post_time> · 阅读时长 1 分钟</span><span>&nbsp;· <a href=https://cuile.github.io/tags/proxmox/ title=Proxmox class="post_tag button button_translucent">Proxmox
-</a><a href=https://cuile.github.io/tags/subscription/ title=subscription class="post_tag button button_translucent">subscription
-</a>
-</span>
-</div>
-</div>
-<div class=excerpt_footer>
-<div class=pale>
-<p>修改JS文件 1$ nano /usr/share/javascript/proxmox-widget-toolkit/proxmoxlib.js 6.0+ (380行) 1if (data.status !== 'Active') { 替换为 1if (false) { 重启服务 1$ systemctl restart pveproxy.service 参考文档 PVE 去掉登录后无效订阅提示</p>
-<br>
-<a href=https://cuile.github.io/posts/proxmox/subscription/ title=阅读更多 class="excerpt_more button">阅读更多</a>
-</div>
-</div>
-</div>
-</li>
-<li class=post_item>
-<div class=excerpt>
-<div class=excerpt_header>
-<h3 class=post_link>
-<a href=https://cuile.github.io/posts/proxmox/cli/ title="Proxmox 命令行">Proxmox 命令行</a>
-</h3>
-<div class=post_meta>
-<span><svg class="icon"><title>calendar</title><use xlink:href="#calendar"/></svg>
-</span>
-<span class=post_date>
-2022-12-27</span>
-<span class=post_time> · 阅读时长 2 分钟</span><span>&nbsp;· <a href=https://cuile.github.io/tags/proxmox/ title=Proxmox class="post_tag button button_translucent">Proxmox
-</a><a href=https://cuile.github.io/tags/cli/ title=CLI class="post_tag button button_translucent">CLI
-</a>
-</span>
-</div>
-</div>
-<div class=excerpt_footer>
-<div class=pale>
-<p>强制关闭虚拟机 1$ qm stop &lt;vmid> 2$ pct stop &lt;vmid> 3# 如果关闭失败 4$ qm list 5$ pct list 6# 找到 vm 对应的 pid 7$ kill &lt;pid> pve(proxmox ve)强制关闭虚拟机 强制删除虚拟机 1$ rm -f /etc/pve/nodes/<em>/</em>/&lt;vm_id>.conf 修復Proxmox</p>
-<br>
-<a href=https://cuile.github.io/posts/proxmox/cli/ title=阅读更多 class="excerpt_more button">阅读更多</a>
-</div>
-</div>
-</div>
-</li>
-<li class=post_item>
-<div class=excerpt>
-<div class=excerpt_header>
-<h3 class=post_link>
 <a href=https://cuile.github.io/posts/alpine_linux/install/ title="虚拟机安装 Alpine Linux 3.16">虚拟机安装 Alpine Linux 3.16</a>
 </h3>
 <div class=post_meta>
@@ -186,61 +78,6 @@
 </div>
 </div>
 </li>
-<li class=post_item>
-<div class=excerpt>
-<div class=excerpt_header>
-<h3 class=post_link>
-<a href=https://cuile.github.io/posts/proxmox/rrd_error/ title="修复 Proxmox RRD 错误">修复 Proxmox RRD 错误</a>
-</h3>
-<div class=post_meta>
-<span><svg class="icon"><title>calendar</title><use xlink:href="#calendar"/></svg>
-</span>
-<span class=post_date>
-2022-02-08</span>
-<span class=post_time> · 阅读时长 1 分钟</span><span>&nbsp;· <a href=https://cuile.github.io/tags/proxmox/ title=Proxmox class="post_tag button button_translucent">Proxmox
-</a><a href=https://cuile.github.io/tags/rrd/ title=rrd class="post_tag button button_translucent">rrd
-</a>
-</span>
-</div>
-</div>
-<div class=excerpt_footer>
-<div class=pale>
-<p>Proxmox系统安装后，日志报错 1rrdcached[4513]: handle_request_update: Could not read RRD file. 2pmxcfs[4527]: [status] notice: RRDC update error /var/lib/rrdcached/db/pve2-vm/85235: -1 3pmxcfs[4527]: [status] notice: RRD update error /var/lib/rrdcached/db/pve2-vm/85235: mmaping file '/var/lib/rrdcached/db/pve2-vm/85235': …</p>
-<br>
-<a href=https://cuile.github.io/posts/proxmox/rrd_error/ title=阅读更多 class="excerpt_more button">阅读更多</a>
-</div>
-</div>
-</div>
-</li>
-<li class=post_item>
-<div class=excerpt>
-<div class=excerpt_header>
-<h3 class=post_link>
-<a href=https://cuile.github.io/posts/proxmox/nat/ title="Proxmox 配置 NAT 网络">Proxmox 配置 NAT 网络</a>
-</h3>
-<div class=post_meta>
-<span><svg class="icon"><title>calendar</title><use xlink:href="#calendar"/></svg>
-</span>
-<span class=post_date>
-2022-02-07</span>
-<span class=post_time> · 阅读时长 1 分钟</span><span>&nbsp;· <a href=https://cuile.github.io/tags/proxmox/ title=Proxmox class="post_tag button button_translucent">Proxmox
-</a><a href=https://cuile.github.io/tags/nat/ title=NAT class="post_tag button button_translucent">NAT
-</a>
-</span>
-</div>
-</div>
-<div class=excerpt_footer>
-<div class=pale>
-<p><ol>
-<li>升级系统软件包 1$ apt-get update 2$ apt-get dist-upgrade 2. 安装 ifupdown2 使用 ifupdown2 网络管理软件包，还可以实时重新加载网络配置，而无需重新启动。 1$ apt install ifupdown2 3. 配置物理网卡 使用 PVE 的 WEB 管理界</li>
-</ol>
-</p>
-<br>
-<a href=https://cuile.github.io/posts/proxmox/nat/ title=阅读更多 class="excerpt_more button">阅读更多</a>
-</div>
-</div>
-</div>
-</li>
 <li>
 </li>
 </ul>
@@ -254,6 +91,9 @@
 </div>
 <h2 class=mt-4>最新文章</h2>
 <ul class=flex-column>
+<li>
+<a href=https://cuile.github.io/posts/proxmox/dhcp/ class=nav-link title="ProxmoxVE 配置 DHCP 网络">ProxmoxVE 配置 DHCP 网络</a>
+</li>
 <li>
 <a href=https://cuile.github.io/posts/windows/windows_firewall/ class=nav-link title=Windows防火墙配置>Windows防火墙配置</a>
 </li>
@@ -274,9 +114,6 @@
 </li>
 <li>
 <a href=https://cuile.github.io/posts/laravel/install_for_centos/ class=nav-link title="在CentOS中安装 Laravel 框架">在CentOS中安装 Laravel 框架</a>
-</li>
-<li>
-<a href=https://cuile.github.io/posts/laravel/install_for_virtualhost/ class=nav-link title="虚拟主机安装 Laravel 框架">虚拟主机安装 Laravel 框架</a>
 </li>
 </ul>
 <div>
@@ -331,8 +168,8 @@ DOCKER
 CENTOS
 <span class=button_tally>7</span>
 </a>
-<a href=https://cuile.github.io/tags/proxmox/ class="post_tag button button_translucent" title=proxmox>
-PROXMOX
+<a href=https://cuile.github.io/tags/proxmoxve/ class="post_tag button button_translucent" title=proxmoxve>
+PROXMOXVE
 <span class=button_tally>7</span>
 </a>
 <a href=https://cuile.github.io/tags/windows/ class="post_tag button button_translucent" title=windows>
@@ -397,6 +234,8 @@ VSCODE
 </a>
 <a href=https://cuile.github.io/tags/deepin/ class="post_tag button button_translucent" data-position=2 title=deepin>DEEPIN<span class=button_tally>2</span>
 </a>
+<a href=https://cuile.github.io/tags/dhcp/ class="post_tag button button_translucent" data-position=1 title=dhcp>DHCP<span class=button_tally>1</span>
+</a>
 <a href=https://cuile.github.io/tags/dns/ class="post_tag button button_translucent" data-position=1 title=dns>DNS<span class=button_tally>1</span>
 </a>
 <a href=https://cuile.github.io/tags/docker/ class="post_tag button button_translucent" data-position=9 title=docker>DOCKER<span class=button_tally>9</span>
@@ -425,7 +264,7 @@ VSCODE
 </a>
 <a href=https://cuile.github.io/tags/iptables/ class="post_tag button button_translucent" data-position=1 title=iptables>IPTABLES<span class=button_tally>1</span>
 </a>
-<a href=https://cuile.github.io/tags/ipv6/ class="post_tag button button_translucent" data-position=1 title=ipv6>IPV6<span class=button_tally>1</span>
+<a href=https://cuile.github.io/tags/ipv6/ class="post_tag button button_translucent" data-position=2 title=ipv6>IPV6<span class=button_tally>2</span>
 </a>
 <a href=https://cuile.github.io/tags/kernel/ class="post_tag button button_translucent" data-position=1 title=kernel>KERNEL<span class=button_tally>1</span>
 </a>
@@ -459,7 +298,9 @@ VSCODE
 </a>
 <a href=https://cuile.github.io/tags/postgresql/ class="post_tag button button_translucent" data-position=1 title=postgresql>POSTGRESQL<span class=button_tally>1</span>
 </a>
-<a href=https://cuile.github.io/tags/proxmox/ class="post_tag button button_translucent" data-position=7 title=proxmox>PROXMOX<span class=button_tally>7</span>
+<a href=https://cuile.github.io/tags/proxmox/ class="post_tag button button_translucent" data-position=1 title=proxmox>PROXMOX<span class=button_tally>1</span>
+</a>
+<a href=https://cuile.github.io/tags/proxmoxve/ class="post_tag button button_translucent" data-position=7 title=proxmoxve>PROXMOXVE<span class=button_tally>7</span>
 </a>
 <a href=https://cuile.github.io/tags/proxy/ class="post_tag button button_translucent" data-position=3 title=proxy>PROXY<span class=button_tally>3</span>
 </a>
