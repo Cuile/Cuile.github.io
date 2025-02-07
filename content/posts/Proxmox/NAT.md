@@ -1,9 +1,9 @@
 ---
-title: "Proxmox 配置 NAT 网络"
+title: "ProxmoxVE 配置 NAT 网络"
 date: 2022-02-07T14:07:32+08:00
 # draft: true
 tags:
-- Proxmox
+- proxmoxve
 - NAT
 series:
 categories:
@@ -34,7 +34,6 @@ $ apt install ifupdown2
 保存后应用配置
 
 ## 4. 配置虚拟网卡
-
 ### 4.1 修改虚拟网卡配置
 
 使用 PVE 提供管理界面进行配置。

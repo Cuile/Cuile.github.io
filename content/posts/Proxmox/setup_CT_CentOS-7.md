@@ -5,7 +5,7 @@ date: 2024-01-31T21:37:49+08:00
 
 # 标签
 tags:
-- proxmox
+- proxmoxve
 - CT Container
 - lxc
 - centos 7

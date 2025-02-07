@@ -1,11 +1,11 @@
 ---
-title: "Proxmox 命令行"
+title: "ProxmoxVE 命令行"
 date: 2022-12-27T16:51:54+08:00
 # draft: true
 
 # 标签
 tags:
-- Proxmox
+- ProxmoxVE
 - CLI
 # 专栏
 series:

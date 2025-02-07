@@ -1,9 +1,9 @@
 ---
-title: "修复 Proxmox RRD 错误"
+title: "修复 ProxmoxVE RRD 错误"
 date: 2022-02-08T10:42:35+08:00
 # draft: true
 tags:
-- Proxmox
+- proxmoxve
 - rrd
 series:
 categories:

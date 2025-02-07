@@ -1,11 +1,11 @@
 ---
-title: "Proxmox 关闭订阅提示"
+title: "ProxmoxVE 关闭订阅提示"
 date: 2023-06-06T20:20:04+08:00
 # draft: true
 
 # 标签
 tags:
-- Proxmox
+- proxmoxve
 - subscription
 # 专栏
 series:

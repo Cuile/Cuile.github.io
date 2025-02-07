@@ -1,11 +1,11 @@
 ---
-title: "Proxmox 配置 BBR"
+title: "ProxmoxVE 配置 BBR"
 date: 2023-10-03T13:04:09+08:00
 # draft: true
 
 # 标签
 tags:
-- Proxmox
+- proxmoxve
 - tcp
 - bbr
 # 专栏
