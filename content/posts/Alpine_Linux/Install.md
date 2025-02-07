@@ -5,7 +5,7 @@ date: 2022-06-19T11:46:55+08:00
 tags:
 - linux
 - Alpine linux
-- proxmox
+- proxmoxve
 - vm
 - qmue\kvm
 series:
