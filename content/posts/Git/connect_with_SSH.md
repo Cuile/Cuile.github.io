@@ -67,11 +67,15 @@ Hi <username>! You've successfully authenticated, but GitHub does not provide sh
 如果找不到软件，[直接下载安装](https://crpm.cn/keychain-2-8-5-1-el7-noarch-rpm/) 或 更换软件源 [Linux 版本库管理](../linux/Linux_repo_Manual.md)
 ```bash
 # 安装keychain
+# centos
 $ yum install -y keychain
-# or
-$ apk add keychain
 
-# ~/.bash_profile or ~/.bashrc
+# alpine linux
+$ apk add keychain
+```
+```ini
+# centos in ~/.bash_profile or ~/.bashrc
+# alpine linux in /etc/profile.d/30user.sh
 + eval `keychain --eval ~/.ssh/github.com.key`
 ```
 
