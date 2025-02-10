@@ -40,7 +40,7 @@ $ apk update
 ```bash
 $ apk add docker docker-cli-compose
 # 这里要特别注意，docker compose 的包名在 Alpine 里是 docker-cli-compose，不是 docker-compose-plugin。
-$ docker-compose 包是 compose 的独立安装包，官方已经不再支持这种安装方式。
+# docker-compose 包是 compose 的独立安装包，官方已经不再支持这种安装方式。
 ...
 $ docker -v
 Docker version 20.10.16, build aa7e414fdcb23a66e8fabbef0a560ef1769eace5
@@ -49,7 +49,7 @@ Docker Compose version v2.12.2
 ```
 
 ## 配置仓库镜像
-[CentOS 7 安装 Docker](https://blog.cuile.com/posts/docker/docker_install_centos/#7%E9%85%8D%E7%BD%AE%E4%BB%93%E5%BA%93%E9%95%9C%E5%83%8F)
+[CentOS 7 安装 Docker](./docker_install_centos/#7%E9%85%8D%E7%BD%AE%E4%BB%93%E5%BA%93%E9%95%9C%E5%83%8F)
 
 ## 启动 docker
 ```bash
