@@ -30,14 +30,10 @@ http://mirrors.tuna.tsinghua.edu.cn/alpine/v3.16/community
 
 ```
 
-```bash
-$ apk update
-
-```
-
 ## 安装 docker
 
 ```bash
+$ apk update
 $ apk add docker docker-cli-compose
 # 这里要特别注意，docker compose 的包名在 Alpine 里是 docker-cli-compose，不是 docker-compose-plugin。
 # docker-compose 包是 compose 的独立安装包，官方已经不再支持这种安装方式。
