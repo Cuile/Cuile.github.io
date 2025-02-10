@@ -6,7 +6,7 @@ tags:
 - git
 - ssh
 - keychain
-- github.com
+- github
 series:
 categories:
 
