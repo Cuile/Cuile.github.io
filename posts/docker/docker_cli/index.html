@@ -84,6 +84,11 @@
 </span><span class=ln>7</span><span class=se></span>    <span class=o>&amp;&amp;</span> <span class=nb>echo</span> <span class=s2>&#34;alias d-kill=&#39;_a(){ docker container kill </span><span class=nv>$1</span><span class=s2>; }; _a&#39;&#34;</span> &gt;&gt; ~/.bashrc
 <span class=ln>8</span>    
 <span class=ln>9</span>$ <span class=nb>source</span> ~/.bashrc
+</code></pre></div><h2 id=导入导出镜像>导入导出镜像</h2>
+<div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=ln>1</span><span class=c1># 导入</span>
+<span class=ln>2</span>$ docker load -i &lt;image&gt;.tar
+<span class=ln>3</span><span class=c1># 导出</span>
+<span class=ln>4</span>$ docker save -o &lt;image&gt;.tar &lt;image_name:label&gt;
 </code></pre></div>
 </div>
 <h2 class=post_related>相关专栏文章</h2>
