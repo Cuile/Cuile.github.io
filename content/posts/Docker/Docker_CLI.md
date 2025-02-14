@@ -51,3 +51,11 @@ $ echo "alias d-ll='docker image ls -a; echo; docker container ls -a'" >> ~/.bas
     
 $ source ~/.bashrc
 ```
+
+## 导入导出镜像
+```bash
+# 导入
+$ docker load -i <image>.tar
+# 导出
+$ docker save -o <image>.tar <image_name:label>
+```
