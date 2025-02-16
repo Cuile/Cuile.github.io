@@ -17,8 +17,8 @@ categories:
 
 记录系统初始化应操作的一系统步骤，也可以直接下载初始化脚本。
 ```bash
-$ wget -O init_setup.sh https://raw.githubusercontent.com/Cuile/Cuile.github.io/refs/heads/master/content/posts/Linux/init_setup.sh
-$ sh init_setup.sh
+wget -O init_setup.sh https://raw.githubusercontent.com/Cuile/Cuile.github.io/refs/heads/master/content/posts/Linux/init_setup.sh
+sh init_setup.sh
 ```
 
 ## 1. 系统更新
@@ -29,11 +29,11 @@ $ sh init_setup.sh
 # ~/.bash_profile
 
 # [HH:MM user@hostname path] 命令提示符
-$ echo "PS1='[\A \u@\H \w]\\$ '" >> ~/.bash_profile
+echo "PS1='[\A \u@\H \w]\\$ '" >> ~/.bash_profile
 
 # [yyyy-mm-dd HH:MM] path
 # [user@hostname] 命令提示符
-$ echo "PS1='\[\e[36;40m\][\D{%Y-%m-%d} \A] \[\e[0m\] \[\e[35;40m\]\w\[\e[0m\]\n\[\e[33;40m\][\u@\H]\[\e[0m\] \\$ '" >> ~/.bash_profile
+echo "PS1='\[\e[36;40m\][\D{%Y-%m-%d} \A] \[\e[0m\] \[\e[35;40m\]\w\[\e[0m\]\n\[\e[33;40m\][\u@\H]\[\e[0m\] \\$ '" >> ~/.bash_profile
 ```
 - [命令提示符设置参考](https://www.linuxidc.com/Linux/2017-10/147438.htm)
 
@@ -43,15 +43,15 @@ $ echo "PS1='\[\e[36;40m\][\D{%Y-%m-%d} \A] \[\e[0m\] \[\e[35;40m\]\w\[\e[0m\]\n
 ## 4. 远程公私钥登录
 ```bash
 # 生成公钥、私钥
-$ ssh-keygen -t rsa -b 4096 -C "your_email@example.com"
+ssh-keygen -t rsa -b 4096 -C "your_email@example.com"
 ...
 Enter a file in which to save the key (/home/you/.ssh/algorithm): <key_name>
 Enter passphrase (empty for no passphrase): [输入密码]
 Enter same passphrase again: [再次输入密码]
 # 设置访问权限
-$ chmod 600 <key_name>
+chmod 600 <key_name>
 # 将公钥追加到 authorized_keys 文件，可追加多个公钥
-$ cat <key.pub> >> authorized_keys
+cat <key.pub> >> authorized_keys
 # 私钥在 SSH 登录时使用
 ```
 
@@ -71,12 +71,12 @@ $ cat <key.pub> >> authorized_keys
 + ClientAliveCountMax 3
 ```
 ```bash
-$ systemctl restart sshd
+systemctl restart sshd
 ```
 
 ## 7. 配置 Git
 ```bash
-$ yum install git
+yum install git
 ```
 - [使用 SSH 连接 Github](../../git/connect_with_ssh/)
 
@@ -96,27 +96,27 @@ $ yum install git
 ```bash
 # 查看端口占用
 # 查看所有端口占用情况
-$ netstat -tlunp
+netstat -tlunp
 # 查看指定端口占用情况
-$ netstat -tlunp | grep <port>
+netstat -tlunp | grep <port>
 ```
 
 ### 查看系统版本
 ```bash
-$ lsb_release -a
-$ cat /etc/redhat-release
-$ cat /etc/issue
+lsb_release -a
+cat /etc/redhat-release
+cat /etc/issue
 ```
 
 ### 系统进程操作
 ```bash
 # 定位高CPU占用
-$ ps H -eo user,pid,ppid,tid,time,%cpu,cmd --sort=%cpu
+ps H -eo user,pid,ppid,tid,time,%cpu,cmd --sort=%cpu
 # 可视化显示CPU的使用状况的工具
-$ yum install -y htop
-$ htop
+yum install -y htop
+htop
 # 查看进程的启动目录
-$ ls -l /proc/<PID>/cwd
+ls -l /proc/<PID>/cwd
 ```
 - [查看CPU和内存使用情况](https://www.cnblogs.com/xd502djj/archive/2011/03/01/1968041.html)
 - [查看运行进程的启动目录](https://blog.csdn.net/CHEndorid/article/details/105775330)
@@ -125,17 +125,17 @@ $ ls -l /proc/<PID>/cwd
 ```bash
 # 修改硬盘挂载目录
 # 卸载硬盘
-$ umount -v /mnt/raid1-2disk-500G
+umount -v /mnt/raid1-2disk-500G
 # 修改挂载目录
-$ mv /mnt/raid1-2disk-500G /mnt/raid1-250G-2disk
+mv /mnt/raid1-2disk-500G /mnt/raid1-250G-2disk
 # 修改/etc/fstab文件里的挂载目录
-$ nano /etc/fstab
+nano /etc/fstab
 # 重装挂载
-$ mount -av /dev/md127 /mnt/raid1-250G-2disk
+mount -av /dev/md127 /mnt/raid1-250G-2disk
 ```
 - [查询并筛选 磁盘空间 统计 排序](https://blog.csdn.net/u013030100/article/details/79564378)
 
 ### 修改密码
 ```bash
-$ passwd <username>
+passwd <username>
 ```
