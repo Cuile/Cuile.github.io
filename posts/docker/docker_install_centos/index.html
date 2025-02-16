@@ -108,11 +108,9 @@
 </code></pre></div><h2 id=4-配置-docker>4. 配置 Docker</h2>
 <div class=highlight><pre tabindex=0 class=chroma><code class=language-json data-lang=json><span class=ln>1</span><span class=c1>// /etc/docker/daemon.json
 </span><span class=ln>2</span><span class=c1></span><span class=p>{</span>
-<span class=ln>3</span>  <span class=c1>// 添加官方仓库镜像地址
-</span><span class=ln>4</span><span class=c1></span>  <span class=nt>&#34;registry-mirrors&#34;</span><span class=p>:</span> <span class=p>[</span><span class=s2>&#34;https://registry.docker-cn.com&#34;</span><span class=p>],</span>
-<span class=ln>5</span>  <span class=c1>// 关闭docker iptables配置
-</span><span class=ln>6</span><span class=c1></span>  <span class=nt>&#34;iptables&#34;</span><span class=p>:</span> <span class=kc>false</span>
-<span class=ln>7</span><span class=p>}</span>
+<span class=ln>3</span>  <span class=c1>// 添加官方仓库镜像地址，其实也没什么用很慢
+</span><span class=ln>4</span><span class=c1></span>  <span class=nt>&#34;registry-mirrors&#34;</span><span class=p>:</span> <span class=p>[</span><span class=s2>&#34;https://registry.docker-cn.com&#34;</span><span class=p>]</span>
+<span class=ln>5</span><span class=p>}</span>
 </code></pre></div><ul>
 <li><a href="https://xuanyuan.me/blog/archives/1154?from=tencent">Docker/DockerHub 国内镜像源/加速列表（长期维护）</a>
 其实使用中仓库镜像的速度并不理想，还是设置代理更加实用</li>
