@@ -17,7 +17,7 @@ categories:
 
 记录系统初始化应操作的一系统步骤，也可以直接下载初始化脚本。
 ```bash
-$ wget -O init_setup.sh https://github.com/Cuile/Cuile.github.io/blob/master/content/posts/Linux/init_setup.sh
+$ wget -O init_setup.sh https://raw.githubusercontent.com/Cuile/Cuile.github.io/refs/heads/master/content/posts/Linux/init_setup.sh
 $ sh init_setup.sh
 ```
 
