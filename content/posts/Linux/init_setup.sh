@@ -8,12 +8,21 @@ echo "配置服务器时区" \
     && timedatectl set-timezone Asia/Shanghai \
     && echo "完成"
 
-echo "安装 iptables"
-systemctl stop firewalld \
+echo "安装 iptables" \
+    && PORT="28883" \
+    && systemctl stop firewalld \
     && yum -y erase firewalld \
     && yum -y install iptables iptables-services initscripts \
     && systemctl enable iptables \
     && systemctl start iptables \
+    && iptables -A INPUT -s 127.0.0.1 -d 127.0.0.1 -j ACCEPT \
+    && iptables -A INPUT -m state --state ESTABLISHED,RELATED -j ACCEPT \
+    && iptables -A INPUT -p icmp -j ACCEPT \
+    && iptables -A INPUT -p tcp -m tcp --dport ${PORT} -j ACCEPT \
+    && iptables -P OUTPUT ACCEPT \
+    && iptables -P INPUT DROP \
+    && iptables -P FORWARD DROP \
+    && service iptables save \
     && echo "完成"
 
 echo "配置 sshd"
