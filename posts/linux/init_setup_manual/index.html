@@ -6,14 +6,14 @@
 <meta http-equiv=x-ua-compatible content="IE=edge">
 <meta property="og:locale" content="zh-cn">
 <meta property="og:type" content="article">
-<meta name=description content="脚本基于Centos 7 记录系统初始化应操作的一系统步骤，也可以直接下载初始化脚本。 1$ wget -O init_setup.sh …">
+<meta name=description content="脚本基于Centos 7 记录系统初始化应操作的一系统步骤，也可以直接下载初始化脚本。 1wget -O init_setup.sh …">
 <meta name=twitter:card content="summary">
 <meta name=twitter:creator content>
 <meta name=twitter:title content="Linux 系统初始化配置">
 <meta name=twitter:image content="https://cuile.github.io/images/thumbnail.png">
 <meta property="og:url" content="https://cuile.github.io/posts/linux/init_setup_manual/">
 <meta property="og:title" content="Linux 系统初始化配置">
-<meta property="og:description" content="脚本基于Centos 7 记录系统初始化应操作的一系统步骤，也可以直接下载初始化脚本。 1$ wget -O init_setup.sh …">
+<meta property="og:description" content="脚本基于Centos 7 记录系统初始化应操作的一系统步骤，也可以直接下载初始化脚本。 1wget -O init_setup.sh …">
 <meta property="og:image" content="https://cuile.github.io/images/thumbnail.png">
 <link rel=apple-touch-icon sizes=180x180 href=https://cuile.github.io/icons/apple-touch-icon.png>
 <link rel=icon type=image/png sizes=32x32 href=https://cuile.github.io/icons/favicon-32x32.png>
@@ -64,8 +64,8 @@
 </div>
 <div class=post_body><p><strong><code>脚本基于Centos 7</code></strong></p>
 <p>记录系统初始化应操作的一系统步骤，也可以直接下载初始化脚本。</p>
-<div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=ln>1</span>$ wget -O init_setup.sh https://raw.githubusercontent.com/Cuile/Cuile.github.io/refs/heads/master/content/posts/Linux/init_setup.sh
-<span class=ln>2</span>$ sh init_setup.sh
+<div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=ln>1</span>wget -O init_setup.sh https://raw.githubusercontent.com/Cuile/Cuile.github.io/refs/heads/master/content/posts/Linux/init_setup.sh
+<span class=ln>2</span>sh init_setup.sh
 </code></pre></div><h2 id=1-系统更新>1. 系统更新</h2>
 <ul>
 <li><a href=../repo_manual/#%E6%9B%B4%E6%96%B0>Yum 版本库管理</a></li>
@@ -74,11 +74,11 @@
 <div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=ln>1</span><span class=c1># ~/.bash_profile</span>
 <span class=ln>2</span>
 <span class=ln>3</span><span class=c1># [HH:MM user@hostname path] 命令提示符</span>
-<span class=ln>4</span>$ <span class=nb>echo</span> <span class=s2>&#34;PS1=&#39;[\A \u@\H \w]\\</span>$<span class=s2> &#39;&#34;</span> &gt;&gt; ~/.bash_profile
+<span class=ln>4</span><span class=nb>echo</span> <span class=s2>&#34;PS1=&#39;[\A \u@\H \w]\\</span>$<span class=s2> &#39;&#34;</span> &gt;&gt; ~/.bash_profile
 <span class=ln>5</span>
 <span class=ln>6</span><span class=c1># [yyyy-mm-dd HH:MM] path</span>
 <span class=ln>7</span><span class=c1># [user@hostname] 命令提示符</span>
-<span class=ln>8</span>$ <span class=nb>echo</span> <span class=s2>&#34;PS1=&#39;\[\e[36;40m\][\D{%Y-%m-%d} \A] \[\e[0m\] \[\e[35;40m\]\w\[\e[0m\]\n\[\e[33;40m\][\u@\H]\[\e[0m\] \\</span>$<span class=s2> &#39;&#34;</span> &gt;&gt; ~/.bash_profile
+<span class=ln>8</span><span class=nb>echo</span> <span class=s2>&#34;PS1=&#39;\[\e[36;40m\][\D{%Y-%m-%d} \A] \[\e[0m\] \[\e[35;40m\]\w\[\e[0m\]\n\[\e[33;40m\][\u@\H]\[\e[0m\] \\</span>$<span class=s2> &#39;&#34;</span> &gt;&gt; ~/.bash_profile
 </code></pre></div><ul>
 <li><a href=https://www.linuxidc.com/Linux/2017-10/147438.htm>命令提示符设置参考</a></li>
 </ul>
@@ -88,15 +88,15 @@
 </ul>
 <h2 id=4-远程公私钥登录>4. 远程公私钥登录</h2>
 <div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=ln> 1</span><span class=c1># 生成公钥、私钥</span>
-<span class=ln> 2</span>$ ssh-keygen -t rsa -b <span class=m>4096</span> -C <span class=s2>&#34;your_email@example.com&#34;</span>
+<span class=ln> 2</span>ssh-keygen -t rsa -b <span class=m>4096</span> -C <span class=s2>&#34;your_email@example.com&#34;</span>
 <span class=ln> 3</span>...
 <span class=ln> 4</span>Enter a file in which to save the key <span class=o>(</span>/home/you/.ssh/algorithm<span class=o>)</span>: &lt;key_name&gt;
 <span class=ln> 5</span>Enter passphrase <span class=o>(</span>empty <span class=k>for</span> no passphrase<span class=o>)</span>: <span class=o>[</span>输入密码<span class=o>]</span>
 <span class=ln> 6</span>Enter same passphrase again: <span class=o>[</span>再次输入密码<span class=o>]</span>
 <span class=ln> 7</span><span class=c1># 设置访问权限</span>
-<span class=ln> 8</span>$ chmod <span class=m>600</span> &lt;key_name&gt;
+<span class=ln> 8</span>chmod <span class=m>600</span> &lt;key_name&gt;
 <span class=ln> 9</span><span class=c1># 将公钥追加到 authorized_keys 文件，可追加多个公钥</span>
-<span class=ln>10</span>$ cat &lt;key.pub&gt; &gt;&gt; authorized_keys
+<span class=ln>10</span>cat &lt;key.pub&gt; &gt;&gt; authorized_keys
 <span class=ln>11</span><span class=c1># 私钥在 SSH 登录时使用</span>
 </code></pre></div><h2 id=5-配置防火墙>5. 配置防火墙</h2>
 <ul>
@@ -112,9 +112,9 @@
 <span class=ln>7</span><span class=na>- #ClientAliveCountMax 3</span>
 <span class=ln>8</span><span class=na>+ ClientAliveInterval 60</span>
 <span class=ln>9</span><span class=na>+ ClientAliveCountMax 3</span>
-</code></pre></div><div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=ln>1</span>$ systemctl restart sshd
+</code></pre></div><div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=ln>1</span>systemctl restart sshd
 </code></pre></div><h2 id=7-配置-git>7. 配置 Git</h2>
-<div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=ln>1</span>$ yum install git
+<div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=ln>1</span>yum install git
 </code></pre></div><ul>
 <li><a href=../../git/connect_with_ssh/>使用 SSH 连接 Github</a></li>
 </ul>
@@ -133,21 +133,21 @@
 <h3 id=网络端口操作>网络端口操作</h3>
 <div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=ln>1</span><span class=c1># 查看端口占用</span>
 <span class=ln>2</span><span class=c1># 查看所有端口占用情况</span>
-<span class=ln>3</span>$ netstat -tlunp
+<span class=ln>3</span>netstat -tlunp
 <span class=ln>4</span><span class=c1># 查看指定端口占用情况</span>
-<span class=ln>5</span>$ netstat -tlunp <span class=p>|</span> grep &lt;port&gt;
+<span class=ln>5</span>netstat -tlunp <span class=p>|</span> grep &lt;port&gt;
 </code></pre></div><h3 id=查看系统版本>查看系统版本</h3>
-<div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=ln>1</span>$ lsb_release -a
-<span class=ln>2</span>$ cat /etc/redhat-release
-<span class=ln>3</span>$ cat /etc/issue
+<div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=ln>1</span>lsb_release -a
+<span class=ln>2</span>cat /etc/redhat-release
+<span class=ln>3</span>cat /etc/issue
 </code></pre></div><h3 id=系统进程操作>系统进程操作</h3>
 <div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=ln>1</span><span class=c1># 定位高CPU占用</span>
-<span class=ln>2</span>$ ps H -eo user,pid,ppid,tid,time,%cpu,cmd --sort<span class=o>=</span>%cpu
+<span class=ln>2</span>ps H -eo user,pid,ppid,tid,time,%cpu,cmd --sort<span class=o>=</span>%cpu
 <span class=ln>3</span><span class=c1># 可视化显示CPU的使用状况的工具</span>
-<span class=ln>4</span>$ yum install -y htop
-<span class=ln>5</span>$ htop
+<span class=ln>4</span>yum install -y htop
+<span class=ln>5</span>htop
 <span class=ln>6</span><span class=c1># 查看进程的启动目录</span>
-<span class=ln>7</span>$ ls -l /proc/&lt;PID&gt;/cwd
+<span class=ln>7</span>ls -l /proc/&lt;PID&gt;/cwd
 </code></pre></div><ul>
 <li><a href=https://www.cnblogs.com/xd502djj/archive/2011/03/01/1968041.html>查看CPU和内存使用情况</a></li>
 <li><a href=https://blog.csdn.net/CHEndorid/article/details/105775330>查看运行进程的启动目录</a></li>
@@ -155,18 +155,18 @@
 <h3 id=磁盘操作>磁盘操作</h3>
 <div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=ln>1</span><span class=c1># 修改硬盘挂载目录</span>
 <span class=ln>2</span><span class=c1># 卸载硬盘</span>
-<span class=ln>3</span>$ umount -v /mnt/raid1-2disk-500G
+<span class=ln>3</span>umount -v /mnt/raid1-2disk-500G
 <span class=ln>4</span><span class=c1># 修改挂载目录</span>
-<span class=ln>5</span>$ mv /mnt/raid1-2disk-500G /mnt/raid1-250G-2disk
+<span class=ln>5</span>mv /mnt/raid1-2disk-500G /mnt/raid1-250G-2disk
 <span class=ln>6</span><span class=c1># 修改/etc/fstab文件里的挂载目录</span>
-<span class=ln>7</span>$ nano /etc/fstab
+<span class=ln>7</span>nano /etc/fstab
 <span class=ln>8</span><span class=c1># 重装挂载</span>
-<span class=ln>9</span>$ mount -av /dev/md127 /mnt/raid1-250G-2disk
+<span class=ln>9</span>mount -av /dev/md127 /mnt/raid1-250G-2disk
 </code></pre></div><ul>
 <li><a href=https://blog.csdn.net/u013030100/article/details/79564378>查询并筛选 磁盘空间 统计 排序</a></li>
 </ul>
 <h3 id=修改密码>修改密码</h3>
-<div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=ln>1</span>$ passwd &lt;username&gt;
+<div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=ln>1</span>passwd &lt;username&gt;
 </code></pre></div>
 </div>
 <h2 class=post_related>相关专栏文章</h2>
