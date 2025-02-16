@@ -11,8 +11,8 @@ echo "配置服务器时区" \
 echo "安装 iptables" \
     && PORT="28883" \
     && systemctl stop firewalld \
-    && yum -y erase firewalld \
-    && yum -y install iptables iptables-services initscripts \
+    ; yum -y erase firewalld \
+    ; yum -y install iptables iptables-services initscripts \
     && systemctl enable iptables \
     && systemctl start iptables \
     && iptables -A INPUT -s 127.0.0.1 -d 127.0.0.1 -j ACCEPT \
