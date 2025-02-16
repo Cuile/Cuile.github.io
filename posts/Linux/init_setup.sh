@@ -23,6 +23,7 @@ echo "安装 iptables" \
     && iptables -P INPUT DROP \
     && iptables -P FORWARD DROP \
     && service iptables save \
+    && iptables -nL \
     && echo "完成"
 
 echo "配置 sshd"
