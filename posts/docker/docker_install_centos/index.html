@@ -87,7 +87,7 @@
 <span class=ln>22</span>$ yum install -y yum-utils <span class=se>\
 </span><span class=ln>23</span><span class=se></span>                device-mapper-persistent-data <span class=se>\
 </span><span class=ln>24</span><span class=se></span>                lvm2
-</code></pre></div><h2 id=1-添加-docker-软件源>1. 添加 Docker 软件源</h2>
+</code></pre></div><h2 id=2-添加-docker-软件源>2. 添加 Docker 软件源</h2>
 <div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=ln> 1</span><span class=c1># 如果系统已切换到阿里云镜像源地址，可跳过此步。</span>
 <span class=ln> 2</span><span class=c1># 阿里云镜像自带docker源</span>
 <span class=ln> 3</span>$ yum-config-manager <span class=se>\
@@ -102,16 +102,16 @@
 <span class=ln>12</span>$ yum makecache fast
 <span class=ln>13</span><span class=c1># CentOS 8 or Rocky 9 使用timer替换fast</span>
 <span class=ln>14</span>$ yum makecache timer
-</code></pre></div><h2 id=1-安装docker>1. 安装Docker</h2>
+</code></pre></div><h2 id=3-安装docker>3. 安装Docker</h2>
 <div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=ln>1</span><span class=c1># 如果在 Rocky 9 系统上，会提示containerd.io版本过低，或下载失败，需要独立安装containerd.io</span>
 <span class=ln>2</span><span class=c1># 可以重试几次</span>
 <span class=ln>3</span>$ yum install -y docker-ce docker-ce-cli containerd.io
-</code></pre></div><h2 id=1-配置-docker>1. 配置 Docker</h2>
+</code></pre></div><h2 id=4-配置-docker>4. 配置 Docker</h2>
 <div class=highlight><pre tabindex=0 class=chroma><code class=language-json data-lang=json><span class=ln>1</span><span class=c1>// /etc/docker/daemon.json
 </span><span class=ln>2</span><span class=c1></span><span class=p>{</span>
 <span class=ln>3</span>  <span class=c1>// 添加官方仓库镜像地址
 </span><span class=ln>4</span><span class=c1></span>  <span class=nt>&#34;registry-mirrors&#34;</span><span class=p>:</span> <span class=p>[</span><span class=s2>&#34;https://registry.docker-cn.com&#34;</span><span class=p>],</span>
-<span class=ln>5</span><span class=c1>//   关闭docker iptables配置
+<span class=ln>5</span>  <span class=c1>// 关闭docker iptables配置
 </span><span class=ln>6</span><span class=c1></span>  <span class=nt>&#34;iptables&#34;</span><span class=p>:</span> <span class=kc>false</span>
 <span class=ln>7</span><span class=p>}</span>
 </code></pre></div><ul>
@@ -121,12 +121,12 @@
 <ul>
 <li><a href=https://cloud.tencent.com/developer/article/1806455>如何优雅的给 Docker 配置网络代理</a></li>
 </ul>
-<h2 id=1-启动-docker>1. 启动 Docker</h2>
+<h2 id=5-启动-docker>5. 启动 Docker</h2>
 <div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=ln>1</span><span class=c1># 设为开机启动</span>
 <span class=ln>2</span>$ systemctl <span class=nb>enable</span> docker.service
 <span class=ln>3</span><span class=c1># 启动服务</span>
 <span class=ln>4</span>$ systemctl start docker.service
-</code></pre></div><h2 id=1-测试安装结果>1. 测试安装结果</h2>
+</code></pre></div><h2 id=6-测试安装结果>6. 测试安装结果</h2>
 <div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=ln> 1</span>$ docker run hello-world
 <span class=ln> 2</span>
 <span class=ln> 3</span>Unable to find image <span class=s1>&#39;hello-world:latest&#39;</span> locally
@@ -156,7 +156,7 @@
 <span class=ln>27</span>For more examples and ideas, visit:
 <span class=ln>28</span> https://docs.docker.com/get-started/
 </code></pre></div><p>若能正常输出以上信息，则说明安装成功。</p>
-<h2 id=1-安装-docker-compose>1. 安装 docker compose</h2>
+<h2 id=7-安装-docker-compose>7. 安装 docker compose</h2>
 <p>官方推荐使用插件方式安装</p>
 <div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=ln>1</span>$ yum install -y docker-compose-plugin
 <span class=ln>2</span>
