@@ -84,10 +84,9 @@
 </span><span class=ln>19</span><span class=se></span>            docker-engine
 <span class=ln>20</span>
 <span class=ln>21</span><span class=c1># 安装依赖包</span>
-<span class=ln>22</span>$ yum install -y yum-utils <span class=se>\
+<span class=ln>22</span>$ yum install -y yum-utils lvm2 <span class=se>\
 </span><span class=ln>23</span><span class=se></span>                device-mapper-persistent-data <span class=se>\
-</span><span class=ln>24</span><span class=se></span>                lvm2
-</code></pre></div><h2 id=2-添加-docker-软件源>2. 添加 Docker 软件源</h2>
+</span></code></pre></div><h2 id=2-添加-docker-软件源>2. 添加 Docker 软件源</h2>
 <div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=ln> 1</span><span class=c1># 如果系统已切换到阿里云镜像源地址，可跳过此步。</span>
 <span class=ln> 2</span><span class=c1># 阿里云镜像自带docker源</span>
 <span class=ln> 3</span>$ yum-config-manager <span class=se>\
@@ -105,7 +104,7 @@
 </code></pre></div><h2 id=3-安装docker>3. 安装Docker</h2>
 <div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=ln>1</span><span class=c1># 如果在 Rocky 9 系统上，会提示containerd.io版本过低，或下载失败，需要独立安装containerd.io</span>
 <span class=ln>2</span><span class=c1># 可以重试几次</span>
-<span class=ln>3</span>$ yum install -y docker-ce docker-ce-cli containerd.io
+<span class=ln>3</span>$ yum install -y docker-ce docker-ce-cli containerd.io docker-compose-plugin
 </code></pre></div><h2 id=4-配置-docker>4. 配置 Docker</h2>
 <div class=highlight><pre tabindex=0 class=chroma><code class=language-json data-lang=json><span class=ln>1</span><span class=c1>// /etc/docker/daemon.json
 </span><span class=ln>2</span><span class=c1></span><span class=p>{</span>
@@ -115,10 +114,8 @@
 </span><span class=ln>6</span><span class=c1></span>  <span class=nt>&#34;iptables&#34;</span><span class=p>:</span> <span class=kc>false</span>
 <span class=ln>7</span><span class=p>}</span>
 </code></pre></div><ul>
-<li><a href="https://xuanyuan.me/blog/archives/1154?from=tencent">Docker/DockerHub 国内镜像源/加速列表（长期维护）</a></li>
-</ul>
-<p>其实使用中仓库镜像的速度并不理想，还是设置代理更加实用</p>
-<ul>
+<li><a href="https://xuanyuan.me/blog/archives/1154?from=tencent">Docker/DockerHub 国内镜像源/加速列表（长期维护）</a>
+其实使用中仓库镜像的速度并不理想，还是设置代理更加实用</li>
 <li><a href=https://cloud.tencent.com/developer/article/1806455>如何优雅的给 Docker 配置网络代理</a></li>
 </ul>
 <h2 id=5-启动-docker>5. 启动 Docker</h2>
@@ -155,14 +152,10 @@
 <span class=ln>26</span>
 <span class=ln>27</span>For more examples and ideas, visit:
 <span class=ln>28</span> https://docs.docker.com/get-started/
+<span class=ln>29</span>
+<span class=ln>30</span>$ docker compose version
+<span class=ln>31</span>Docker Compose version vX.X.0
 </code></pre></div><p>若能正常输出以上信息，则说明安装成功。</p>
-<h2 id=7-安装-docker-compose>7. 安装 docker compose</h2>
-<p>官方推荐使用插件方式安装</p>
-<div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=ln>1</span>$ yum install -y docker-compose-plugin
-<span class=ln>2</span>
-<span class=ln>3</span>$ docker compose version
-<span class=ln>4</span>Docker Compose version v2.5.0
-</code></pre></div>
 </div>
 <h2 class=post_related>相关专栏文章</h2>
 <ul>
