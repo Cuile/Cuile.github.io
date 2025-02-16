@@ -45,6 +45,8 @@ $ systemctl status iptables
 $ systemctl restart iptables
 # 保存规则
 $ service iptables save
+# 如果报“-bash: service: command not found”，则需要安装initscripts
+$ yum install initscripts -y
 ```
 
 ## 基础规则
