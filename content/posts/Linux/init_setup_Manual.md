@@ -15,7 +15,11 @@ categories:
 
 **`脚本基于Centos 7`**
 
-记录系统初始化应操作的一系统步骤
+记录系统初始化应操作的一系统步骤，也可以直接下载初始化脚本。
+```bash
+$ wget -O init_setup.sh https://github.com/Cuile/Cuile.github.io/blob/master/content/posts/Linux/init_setup.sh
+$ sh init_setup.sh
+```
 
 ## 1. 系统更新
 - [Yum 版本库管理](../repo_manual/#更新)
