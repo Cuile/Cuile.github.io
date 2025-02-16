@@ -71,10 +71,8 @@ $ yum install -y docker-ce docker-ce-cli containerd.io docker-compose-plugin
 ```json
 // /etc/docker/daemon.json
 {
-  // 添加官方仓库镜像地址
-  "registry-mirrors": ["https://registry.docker-cn.com"],
-  // 关闭docker iptables配置
-  "iptables": false
+  // 添加官方仓库镜像地址，其实也没什么用很慢
+  "registry-mirrors": ["https://registry.docker-cn.com"]
 }
 ```
 - [Docker/DockerHub 国内镜像源/加速列表（长期维护）](https://xuanyuan.me/blog/archives/1154?from=tencent)
