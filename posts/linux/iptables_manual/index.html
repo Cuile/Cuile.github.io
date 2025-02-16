@@ -84,6 +84,8 @@
 <span class=ln> 8</span>$ systemctl restart iptables
 <span class=ln> 9</span><span class=c1># 保存规则</span>
 <span class=ln>10</span>$ service iptables save
+<span class=ln>11</span><span class=c1># 如果报“-bash: service: command not found”，则需要安装initscripts</span>
+<span class=ln>12</span>$ yum install initscripts -y
 </code></pre></div><h2 id=基础规则>基础规则</h2>
 <p>注意添加规则的先后顺序</p>
 <div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=ln> 1</span><span class=c1># 允许本地回环接口(即运行本机访问本机)</span>
