@@ -43,7 +43,7 @@ $ yum install -y yum-utils \
                 lvm2
 ```
 
-## 1. 添加 Docker 软件源
+## 2. 添加 Docker 软件源
 ```bash
 # 如果系统已切换到阿里云镜像源地址，可跳过此步。
 # 阿里云镜像自带docker源
@@ -61,20 +61,20 @@ $ yum makecache fast
 $ yum makecache timer
 ```
 
-## 1. 安装Docker
+## 3. 安装Docker
 ```bash
 # 如果在 Rocky 9 系统上，会提示containerd.io版本过低，或下载失败，需要独立安装containerd.io
 # 可以重试几次
 $ yum install -y docker-ce docker-ce-cli containerd.io
 ```
 
-## 1. 配置 Docker
+## 4. 配置 Docker
 ```json
 // /etc/docker/daemon.json
 {
   // 添加官方仓库镜像地址
   "registry-mirrors": ["https://registry.docker-cn.com"],
-//   关闭docker iptables配置
+  // 关闭docker iptables配置
   "iptables": false
 }
 ```
@@ -83,7 +83,7 @@ $ yum install -y docker-ce docker-ce-cli containerd.io
 其实使用中仓库镜像的速度并不理想，还是设置代理更加实用
 - [如何优雅的给 Docker 配置网络代理](https://cloud.tencent.com/developer/article/1806455)
 
-## 1. 启动 Docker
+## 5. 启动 Docker
 ```bash
 # 设为开机启动
 $ systemctl enable docker.service
@@ -91,7 +91,7 @@ $ systemctl enable docker.service
 $ systemctl start docker.service
 ```
 
-## 1. 测试安装结果
+## 6. 测试安装结果
 ```bash
 $ docker run hello-world
 
@@ -125,7 +125,7 @@ For more examples and ideas, visit:
 
 若能正常输出以上信息，则说明安装成功。
 
-## 1. 安装 docker compose
+## 7. 安装 docker compose
 官方推荐使用插件方式安装
 ```bash
 $ yum install -y docker-compose-plugin
