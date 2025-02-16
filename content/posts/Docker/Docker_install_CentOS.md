@@ -38,9 +38,8 @@ $ yum remove docker \
             docker-engine
 
 # 安装依赖包
-$ yum install -y yum-utils \
+$ yum install -y yum-utils lvm2 \
                 device-mapper-persistent-data \
-                lvm2
 ```
 
 ## 2. 添加 Docker 软件源
@@ -65,7 +64,7 @@ $ yum makecache timer
 ```bash
 # 如果在 Rocky 9 系统上，会提示containerd.io版本过低，或下载失败，需要独立安装containerd.io
 # 可以重试几次
-$ yum install -y docker-ce docker-ce-cli containerd.io
+$ yum install -y docker-ce docker-ce-cli containerd.io docker-compose-plugin
 ```
 
 ## 4. 配置 Docker
@@ -79,7 +78,6 @@ $ yum install -y docker-ce docker-ce-cli containerd.io
 }
 ```
 - [Docker/DockerHub 国内镜像源/加速列表（长期维护）](https://xuanyuan.me/blog/archives/1154?from=tencent)
-
 其实使用中仓库镜像的速度并不理想，还是设置代理更加实用
 - [如何优雅的给 Docker 配置网络代理](https://cloud.tencent.com/developer/article/1806455)
 
@@ -121,15 +119,8 @@ Share images, automate workflows, and more with a free Docker ID:
 
 For more examples and ideas, visit:
  https://docs.docker.com/get-started/
-```
-
-若能正常输出以上信息，则说明安装成功。
-
-## 7. 安装 docker compose
-官方推荐使用插件方式安装
-```bash
-$ yum install -y docker-compose-plugin
 
 $ docker compose version
-Docker Compose version v2.5.0
+Docker Compose version vX.X.0
 ```
+若能正常输出以上信息，则说明安装成功。
