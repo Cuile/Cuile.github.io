@@ -69,8 +69,7 @@
 <span class=ln>4</span><span class=c1>#http://mirrors.tuna.tsinghua.edu.cn/alpine/edge/main</span>
 <span class=ln>5</span><span class=c1>#http://mirrors.tuna.tsinghua.edu.cn/alpine/edge/community</span>
 <span class=ln>6</span><span class=c1>#http://mirrors.tuna.tsinghua.edu.cn/alpine/edge/testing</span>
-<span class=ln>7</span>
-</code></pre></div><h2 id=安装-docker>安装 docker</h2>
+</code></pre></div><h2 id=安装-docker>安装 Docker</h2>
 <div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=ln>1</span>$ apk update
 <span class=ln>2</span>$ apk add docker docker-cli-compose
 <span class=ln>3</span><span class=c1># 这里要特别注意，docker compose 的包名在 Alpine 里是 docker-cli-compose，不是 docker-compose-plugin。</span>
@@ -80,9 +79,9 @@
 <span class=ln>7</span>Docker version 20.10.16, build aa7e414fdcb23a66e8fabbef0a560ef1769eace5
 <span class=ln>8</span>$ docker compose version
 <span class=ln>9</span>Docker Compose version v2.12.2
-</code></pre></div><h2 id=配置仓库镜像>配置仓库镜像</h2>
-<p><a href=../docker_install_centos/#7%E9%85%8D%E7%BD%AE%E4%BB%93%E5%BA%93%E9%95%9C%E5%83%8F>CentOS 7 安装 Docker</a></p>
-<h2 id=启动-docker>启动 docker</h2>
+</code></pre></div><h2 id=配置-docker>配置 Docker</h2>
+<p><a href=../docker_install_centos/#4-%E9%85%8D%E7%BD%AE-docker>(CentOS 7 | Rocky 9) 安装 Docker</a></p>
+<h2 id=启动-docker>启动 Docker</h2>
 <div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=ln>1</span><span class=c1># 引导时启动</span>
 <span class=ln>2</span>$ rc-update add docker boot
 <span class=ln>3</span><span class=c1># 启动服务</span>
