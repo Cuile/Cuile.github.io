@@ -15,25 +15,17 @@ categories:
 
 本操作手册是官方手册与网上手册的结合版本，集两家之所长，亲自操作可用。
 
-## 1.系统准备
-
-- 查看系统版本
-
+## 1. 系统准备
 ```bash
+# 查看系统版本
 $ cat /etc/redhat-release
 > CentOS Linux release 7.6.1810 (Core) // CentOs 7 以上版本
-```
 
-- 查看系统内核版本
-
-```bash
+# 查看系统内核版本
 $ uname -r
 > 4.10.4-1.el7.elrepo.x86_64 // 内核版本要>3.10
-```
 
-## 2.卸载旧版本
-
-```bash
+# 卸载旧版本
 $ yum remove docker \
             docker-client \
             docker-client-latest \
@@ -44,18 +36,14 @@ $ yum remove docker \
             docker-selinux \
             docker-engine-selinux \
             docker-engine
-```
 
-## 3.安装依赖包
-
-```bash
+# 安装依赖包
 $ yum install -y yum-utils \
                 device-mapper-persistent-data \
                 lvm2
 ```
 
-## 4.添加 Docker 软件源
-
+## 1. 添加 Docker 软件源
 ```bash
 # 如果系统已切换到阿里云镜像源地址，可跳过此步。
 # 阿里云镜像自带docker源
@@ -73,32 +61,21 @@ $ yum makecache fast
 $ yum makecache timer
 ```
 
-## 5.安装Docker
-
+## 1. 安装Docker
 ```bash
 # 如果在 Rocky 9 系统上，会提示containerd.io版本过低，或下载失败，需要独立安装containerd.io
 # 可以重试几次
 $ yum install -y docker-ce docker-ce-cli containerd.io
 ```
 
-## 6.启动Docker服务
-
-```bash
-# 设为开机启动
-$ systemctl enable docker.service
-# 启动服务
-$ systemctl start docker.service
-```
-
-## 7.配置仓库镜像
-```bash
-$ mkdir /etc/docker/
-$ nano /etc/docker/daemon.json
-```
-添加官方仓库镜像地址
+## 1. 配置 Docker
 ```json
+// /etc/docker/daemon.json
 {
-  "registry-mirrors": ["https://registry.docker-cn.com"]
+  // 添加官方仓库镜像地址
+  "registry-mirrors": ["https://registry.docker-cn.com"],
+//   关闭docker iptables配置
+  "iptables": false
 }
 ```
 - [Docker/DockerHub 国内镜像源/加速列表（长期维护）](https://xuanyuan.me/blog/archives/1154?from=tencent)
@@ -106,8 +83,15 @@ $ nano /etc/docker/daemon.json
 其实使用中仓库镜像的速度并不理想，还是设置代理更加实用
 - [如何优雅的给 Docker 配置网络代理](https://cloud.tencent.com/developer/article/1806455)
 
-## 8.测试安装结果
+## 1. 启动 Docker
+```bash
+# 设为开机启动
+$ systemctl enable docker.service
+# 启动服务
+$ systemctl start docker.service
+```
 
+## 1. 测试安装结果
 ```bash
 $ docker run hello-world
 
@@ -141,8 +125,7 @@ For more examples and ideas, visit:
 
 若能正常输出以上信息，则说明安装成功。
 
-## 9.安装 docker compose
-
+## 1. 安装 docker compose
 官方推荐使用插件方式安装
 ```bash
 $ yum install -y docker-compose-plugin
