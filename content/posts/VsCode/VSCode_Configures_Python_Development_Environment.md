@@ -112,15 +112,20 @@ dependencies:
 ```powershell
 # 先激活 micromamba 环境
 PS "Your Project Path"> conda activate PyQt
-# 创建虚拟环境
+
+# 创建Python虚拟环境
+# --upgrade 参数是升级虚拟环境用的，新建虚拟环境时要去掉。
+(PyQt) PS "Your Project Path"> python -m venv --system-site-packages --prompt myproject --upgrade-deps --upgrade .venv
 # 查看项目资源管理器，看到 .venv 文件夹就成功了。
-(PyQt) PS "Your Project Path"> python -m venv .venv
-# 激活虚拟环境
+
+# 激活Python虚拟环境
 (PyQt) PS "Your Project Path"> Activate.ps1
+
 # 成功进入虚拟环境
-(.venv) (PyQt) PS "Your Project Path">
-# 重启 vscode 再次进入项目终端，不一定会看到项目前缀[^3]。
-# 使用时按此顺序激活环境，可保证环境设置正确。
+(myproject) (PyQt) PS "Your Project Path">
+
+# 重启 vscode 再次进入项目终端，不一定会看到项目前缀[^3]。VsCode已经自动修你激活了Python虚拟环境，不需要再操作。
+# 安装包里不需要激活 micromamba 环境，否则包将被安装到 micromamba 环境中。
 ```
 
 ## 其它配置
