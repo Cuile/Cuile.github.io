@@ -53,7 +53,7 @@
 </span>
 <span class=post_date>
 2023-11-25</span>
-<span class=post_time> · 阅读时长 2 分钟</span><span>&nbsp;· <a href=https://cuile.github.io/tags/micromamba/ title=micromamba class="post_tag button button_translucent">micromamba
+<span class=post_time> · 阅读时长 3 分钟</span><span>&nbsp;· <a href=https://cuile.github.io/tags/micromamba/ title=micromamba class="post_tag button button_translucent">micromamba
 </a><a href=https://cuile.github.io/tags/python/ title=python class="post_tag button button_translucent">python
 </a><a href=https://cuile.github.io/tags/venv/ title=venv class="post_tag button button_translucent">venv
 </a><a href=https://cuile.github.io/tags/vscode/ title=vscode class="post_tag button button_translucent">vscode
@@ -176,15 +176,20 @@
 </ol>
 <div class=highlight><pre tabindex=0 class=chroma><code class=language-powershell data-lang=powershell><span class=ln> 1</span><span class=c># 先激活 micromamba 环境</span>
 <span class=ln> 2</span><span class=nb>PS </span><span class=s2>&#34;Your Project Path&#34;</span><span class=p>&gt;</span> <span class=n>conda</span> <span class=n>activate</span> <span class=n>PyQt</span>
-<span class=ln> 3</span><span class=c># 创建虚拟环境</span>
-<span class=ln> 4</span><span class=c># 查看项目资源管理器，看到 .venv 文件夹就成功了。</span>
-<span class=ln> 5</span><span class=p>(</span><span class=n>PyQt</span><span class=p>)</span> <span class=nb>PS </span><span class=s2>&#34;Your Project Path&#34;</span><span class=p>&gt;</span> <span class=n>python</span> <span class=n>-m</span> <span class=n>venv</span> <span class=p>.</span><span class=n>venv</span>
-<span class=ln> 6</span><span class=c># 激活虚拟环境</span>
-<span class=ln> 7</span><span class=p>(</span><span class=n>PyQt</span><span class=p>)</span> <span class=nb>PS </span><span class=s2>&#34;Your Project Path&#34;</span><span class=p>&gt;</span> <span class=n>Activate</span><span class=p>.</span><span class=n>ps1</span>
-<span class=ln> 8</span><span class=c># 成功进入虚拟环境</span>
-<span class=ln> 9</span><span class=p>(.</span><span class=n>venv</span><span class=p>)</span> <span class=p>(</span><span class=n>PyQt</span><span class=p>)</span> <span class=nb>PS </span><span class=s2>&#34;Your Project Path&#34;</span><span class=p>&gt;</span>
-<span class=ln>10</span><span class=c># 重启 vscode 再次进入项目终端，不一定会看到项目前缀[^3]。</span>
-<span class=ln>11</span><span class=c># 使用时按此顺序激活环境，可保证环境设置正确。</span>
+<span class=ln> 3</span>
+<span class=ln> 4</span><span class=c># 创建Python虚拟环境</span>
+<span class=ln> 5</span><span class=c># --upgrade 参数是升级虚拟环境用的，新建虚拟环境时要去掉。</span>
+<span class=ln> 6</span><span class=p>(</span><span class=n>PyQt</span><span class=p>)</span> <span class=nb>PS </span><span class=s2>&#34;Your Project Path&#34;</span><span class=p>&gt;</span> <span class=n>python</span> <span class=n>-m</span> <span class=n>venv</span> <span class=p>-</span><span class=n>-system-site-packages</span> <span class=p>-</span><span class=n>-prompt</span> <span class=n>myproject</span> <span class=p>-</span><span class=n>-upgrade-deps</span> <span class=p>-</span><span class=n>-upgrade</span> <span class=p>.</span><span class=n>venv</span>
+<span class=ln> 7</span><span class=c># 查看项目资源管理器，看到 .venv 文件夹就成功了。</span>
+<span class=ln> 8</span>
+<span class=ln> 9</span><span class=c># 激活Python虚拟环境</span>
+<span class=ln>10</span><span class=p>(</span><span class=n>PyQt</span><span class=p>)</span> <span class=nb>PS </span><span class=s2>&#34;Your Project Path&#34;</span><span class=p>&gt;</span> <span class=n>Activate</span><span class=p>.</span><span class=n>ps1</span>
+<span class=ln>11</span>
+<span class=ln>12</span><span class=c># 成功进入虚拟环境</span>
+<span class=ln>13</span><span class=p>(</span><span class=n>myproject</span><span class=p>)</span> <span class=p>(</span><span class=n>PyQt</span><span class=p>)</span> <span class=nb>PS </span><span class=s2>&#34;Your Project Path&#34;</span><span class=p>&gt;</span>
+<span class=ln>14</span>
+<span class=ln>15</span><span class=c># 重启 vscode 再次进入项目终端，不一定会看到项目前缀[^3]。VsCode已经自动修你激活了Python虚拟环境，不需要再操作。</span>
+<span class=ln>16</span><span class=c># 安装包里不需要激活 micromamba 环境，否则包将被安装到 micromamba 环境中。</span>
 </code></pre></div><h2 id=其它配置>其它配置</h2>
 <table>
 <thead>
