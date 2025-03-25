@@ -53,6 +53,32 @@
 <div class=excerpt>
 <div class=excerpt_header>
 <h3 class=post_link>
+<a href=https://cuile.github.io/posts/snap/snap_proxy/ title="snap 设置代理">snap 设置代理</a>
+</h3>
+<div class=post_meta>
+<span><svg class="icon"><title>calendar</title><use xlink:href="#calendar"/></svg>
+</span>
+<span class=post_date>
+2024-01-19</span>
+<span class=post_time> · 阅读时长 1 分钟</span><span>&nbsp;· <a href=https://cuile.github.io/tags/snap/ title=snap class="post_tag button button_translucent">snap
+</a><a href=https://cuile.github.io/tags/proxy/ title=proxy class="post_tag button button_translucent">proxy
+</a>
+</span>
+</div>
+</div>
+<div class=excerpt_footer>
+<div class=pale>
+<p>使用snap 的过程中经常遇到无法链接的情况。 1$ sudo snap install code --classic 2error: unable to contact snap store 这是因为SnapCraft将软件包放在自己的海外服务器上，因为众所周知的</p>
+<br>
+<a href=https://cuile.github.io/posts/snap/snap_proxy/ title=阅读更多 class="excerpt_more button">阅读更多</a>
+</div>
+</div>
+</div>
+</li>
+<li class=post_item>
+<div class=excerpt>
+<div class=excerpt_header>
+<h3 class=post_link>
 <a href=https://cuile.github.io/posts/rime_setup/ title=Rime输入法设置>Rime输入法设置</a>
 </h3>
 <div class=post_meta>
@@ -293,32 +319,6 @@
 </div>
 </div>
 </li>
-<li class=post_item>
-<div class=excerpt>
-<div class=excerpt_header>
-<h3 class=post_link>
-<a href=https://cuile.github.io/posts/proxmox/subscription/ title="ProxmoxVE 关闭订阅提示">ProxmoxVE 关闭订阅提示</a>
-</h3>
-<div class=post_meta>
-<span><svg class="icon"><title>calendar</title><use xlink:href="#calendar"/></svg>
-</span>
-<span class=post_date>
-2023-06-06</span>
-<span class=post_time> · 阅读时长 1 分钟</span><span>&nbsp;· <a href=https://cuile.github.io/tags/proxmoxve/ title=proxmoxve class="post_tag button button_translucent">proxmoxve
-</a><a href=https://cuile.github.io/tags/subscription/ title=subscription class="post_tag button button_translucent">subscription
-</a>
-</span>
-</div>
-</div>
-<div class=excerpt_footer>
-<div class=pale>
-<p>修改JS文件 1$ nano /usr/share/javascript/proxmox-widget-toolkit/proxmoxlib.js 6.0+ (380行) 1if (data.status !== 'Active') { 替换为 1if (false) { 重启服务 1$ systemctl restart pveproxy.service 参考文档 PVE 去掉登录后无效订阅提示</p>
-<br>
-<a href=https://cuile.github.io/posts/proxmox/subscription/ title=阅读更多 class="excerpt_more button">阅读更多</a>
-</div>
-</div>
-</div>
-</li>
 <li>
 <ul class="pagination pagination-default">
 <li class=page-item>
@@ -362,6 +362,9 @@
 <h2 class=mt-4>最新文章</h2>
 <ul class=flex-column>
 <li>
+<a href=https://cuile.github.io/posts/python/nuitka/ class=nav-link title="Nuitka 使用手册">Nuitka 使用手册</a>
+</li>
+<li>
 <a href=https://cuile.github.io/posts/proxmox/dhcp/ class=nav-link title="ProxmoxVE 配置 DHCP 网络">ProxmoxVE 配置 DHCP 网络</a>
 </li>
 <li>
@@ -381,9 +384,6 @@
 </li>
 <li>
 <a href=https://cuile.github.io/posts/database/postgresql_for_centos/ class=nav-link title="Centos7 安装 Postgresql">Centos7 安装 Postgresql</a>
-</li>
-<li>
-<a href=https://cuile.github.io/posts/laravel/install_for_centos/ class=nav-link title="在CentOS中安装 Laravel 框架">在CentOS中安装 Laravel 框架</a>
 </li>
 </ul>
 <div>
@@ -458,12 +458,12 @@ ALPINE-LINUX
 HYPER-V
 <span class=button_tally>5</span>
 </a>
-<a href=https://cuile.github.io/tags/network/ class="post_tag button button_translucent" title=network>
-NETWORK
-<span class=button_tally>4</span>
-</a>
 <a href=https://cuile.github.io/tags/python/ class="post_tag button button_translucent" title=python>
 PYTHON
+<span class=button_tally>5</span>
+</a>
+<a href=https://cuile.github.io/tags/network/ class="post_tag button button_translucent" title=network>
+NETWORK
 <span class=button_tally>4</span>
 </a>
 <a href=https://cuile.github.io/tags/firewall/ class="post_tag button button_translucent" title=firewall>
@@ -560,6 +560,8 @@ VSCODE
 </a>
 <a href=https://cuile.github.io/tags/nmcli/ class="post_tag button button_translucent" data-position=1 title=nmcli>NMCLI<span class=button_tally>1</span>
 </a>
+<a href=https://cuile.github.io/tags/nuitka/ class="post_tag button button_translucent" data-position=1 title=nuitka>NUITKA<span class=button_tally>1</span>
+</a>
 <a href=https://cuile.github.io/tags/php/ class="post_tag button button_translucent" data-position=2 title=php>PHP<span class=button_tally>2</span>
 </a>
 <a href=https://cuile.github.io/tags/pip/ class="post_tag button button_translucent" data-position=1 title=pip>PIP<span class=button_tally>1</span>
@@ -572,7 +574,7 @@ VSCODE
 </a>
 <a href=https://cuile.github.io/tags/pypi/ class="post_tag button button_translucent" data-position=1 title=pypi>PYPI<span class=button_tally>1</span>
 </a>
-<a href=https://cuile.github.io/tags/python/ class="post_tag button button_translucent" data-position=4 title=python>PYTHON<span class=button_tally>4</span>
+<a href=https://cuile.github.io/tags/python/ class="post_tag button button_translucent" data-position=5 title=python>PYTHON<span class=button_tally>5</span>
 </a>
 <a href=https://cuile.github.io/tags/qmue%5Ckvm/ class="post_tag button button_translucent" data-position=1 title=qmue\kvm>QMUE\KVM<span class=button_tally>1</span>
 </a>

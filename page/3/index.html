@@ -56,6 +56,32 @@
 <div class=excerpt>
 <div class=excerpt_header>
 <h3 class=post_link>
+<a href=https://cuile.github.io/posts/proxmox/subscription/ title="ProxmoxVE 关闭订阅提示">ProxmoxVE 关闭订阅提示</a>
+</h3>
+<div class=post_meta>
+<span><svg class="icon"><title>calendar</title><use xlink:href="#calendar"/></svg>
+</span>
+<span class=post_date>
+2023-06-06</span>
+<span class=post_time> · 阅读时长 1 分钟</span><span>&nbsp;· <a href=https://cuile.github.io/tags/proxmoxve/ title=proxmoxve class="post_tag button button_translucent">proxmoxve
+</a><a href=https://cuile.github.io/tags/subscription/ title=subscription class="post_tag button button_translucent">subscription
+</a>
+</span>
+</div>
+</div>
+<div class=excerpt_footer>
+<div class=pale>
+<p>修改JS文件 1$ nano /usr/share/javascript/proxmox-widget-toolkit/proxmoxlib.js 6.0+ (380行) 1if (data.status !== 'Active') { 替换为 1if (false) { 重启服务 1$ systemctl restart pveproxy.service 参考文档 PVE 去掉登录后无效订阅提示</p>
+<br>
+<a href=https://cuile.github.io/posts/proxmox/subscription/ title=阅读更多 class="excerpt_more button">阅读更多</a>
+</div>
+</div>
+</div>
+</li>
+<li class=post_item>
+<div class=excerpt>
+<div class=excerpt_header>
+<h3 class=post_link>
 <a href=https://cuile.github.io/posts/linux/txt/ title="Linux 文本文件操作">Linux 文本文件操作</a>
 </h3>
 <div class=post_meta>
@@ -296,33 +322,6 @@
 </div>
 </div>
 </li>
-<li class=post_item>
-<div class=excerpt>
-<div class=excerpt_header>
-<h3 class=post_link>
-<a href=https://cuile.github.io/posts/linux/screen_manual/ title="screen 命令">screen 命令</a>
-</h3>
-<div class=post_meta>
-<span><svg class="icon"><title>calendar</title><use xlink:href="#calendar"/></svg>
-</span>
-<span class=post_date>
-2022-12-28</span>
-<span class=post_time> · 阅读时长 1 分钟</span><span>&nbsp;· <a href=https://cuile.github.io/tags/linux/ title=linux class="post_tag button button_translucent">linux
-</a><a href=https://cuile.github.io/tags/cli/ title=cli class="post_tag button button_translucent">cli
-</a><a href=https://cuile.github.io/tags/screen/ title=screen class="post_tag button button_translucent">screen
-</a>
-</span>
-</div>
-</div>
-<div class=excerpt_footer>
-<div class=pale>
-<p>已弃用，转到 tmux 创建屏幕 1# 离线方式创建屏幕，一般用在启动脚本 2$ screen -S &lt;screen_name> -d -m 查年屏幕 1$ screen -ls 执行命令 1# 在指定屏幕内输入cmd，注意\n代表回车 2$ screen -S</p>
-<br>
-<a href=https://cuile.github.io/posts/linux/screen_manual/ title=阅读更多 class="excerpt_more button">阅读更多</a>
-</div>
-</div>
-</div>
-</li>
 <li>
 <ul class="pagination pagination-default">
 <li class=page-item>
@@ -366,6 +365,9 @@
 <h2 class=mt-4>最新文章</h2>
 <ul class=flex-column>
 <li>
+<a href=https://cuile.github.io/posts/python/nuitka/ class=nav-link title="Nuitka 使用手册">Nuitka 使用手册</a>
+</li>
+<li>
 <a href=https://cuile.github.io/posts/proxmox/dhcp/ class=nav-link title="ProxmoxVE 配置 DHCP 网络">ProxmoxVE 配置 DHCP 网络</a>
 </li>
 <li>
@@ -385,9 +387,6 @@
 </li>
 <li>
 <a href=https://cuile.github.io/posts/database/postgresql_for_centos/ class=nav-link title="Centos7 安装 Postgresql">Centos7 安装 Postgresql</a>
-</li>
-<li>
-<a href=https://cuile.github.io/posts/laravel/install_for_centos/ class=nav-link title="在CentOS中安装 Laravel 框架">在CentOS中安装 Laravel 框架</a>
 </li>
 </ul>
 <div>
@@ -462,12 +461,12 @@ ALPINE-LINUX
 HYPER-V
 <span class=button_tally>5</span>
 </a>
-<a href=https://cuile.github.io/tags/network/ class="post_tag button button_translucent" title=network>
-NETWORK
-<span class=button_tally>4</span>
-</a>
 <a href=https://cuile.github.io/tags/python/ class="post_tag button button_translucent" title=python>
 PYTHON
+<span class=button_tally>5</span>
+</a>
+<a href=https://cuile.github.io/tags/network/ class="post_tag button button_translucent" title=network>
+NETWORK
 <span class=button_tally>4</span>
 </a>
 <a href=https://cuile.github.io/tags/firewall/ class="post_tag button button_translucent" title=firewall>
@@ -564,6 +563,8 @@ VSCODE
 </a>
 <a href=https://cuile.github.io/tags/nmcli/ class="post_tag button button_translucent" data-position=1 title=nmcli>NMCLI<span class=button_tally>1</span>
 </a>
+<a href=https://cuile.github.io/tags/nuitka/ class="post_tag button button_translucent" data-position=1 title=nuitka>NUITKA<span class=button_tally>1</span>
+</a>
 <a href=https://cuile.github.io/tags/php/ class="post_tag button button_translucent" data-position=2 title=php>PHP<span class=button_tally>2</span>
 </a>
 <a href=https://cuile.github.io/tags/pip/ class="post_tag button button_translucent" data-position=1 title=pip>PIP<span class=button_tally>1</span>
@@ -576,7 +577,7 @@ VSCODE
 </a>
 <a href=https://cuile.github.io/tags/pypi/ class="post_tag button button_translucent" data-position=1 title=pypi>PYPI<span class=button_tally>1</span>
 </a>
-<a href=https://cuile.github.io/tags/python/ class="post_tag button button_translucent" data-position=4 title=python>PYTHON<span class=button_tally>4</span>
+<a href=https://cuile.github.io/tags/python/ class="post_tag button button_translucent" data-position=5 title=python>PYTHON<span class=button_tally>5</span>
 </a>
 <a href=https://cuile.github.io/tags/qmue%5Ckvm/ class="post_tag button button_translucent" data-position=1 title=qmue\kvm>QMUE\KVM<span class=button_tally>1</span>
 </a>
