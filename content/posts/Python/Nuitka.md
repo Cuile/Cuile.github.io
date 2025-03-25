@@ -18,7 +18,7 @@ Usage: python.exe -m nuitka [--mode=compilation_mode] [--run] [options] main_mod
     Note: For general plugin help (they often have their own command line options too), consider the output of '--help-plugins'.
 
 
-|Options:                |                                 |   |
+|                        | Options:                        | 选项：   |
 |---                     |---                              |---|
 |--help                  | show this help message and exit 
 |--version               | Show version information and important details for bug reports, then exit. Defaults to off.
@@ -31,16 +31,54 @@ Usage: python.exe -m nuitka [--mode=compilation_mode] [--run] [options] main_mod
 |--python-for-scons=PATH | When compiling with Python 3.4 provide the path of a Python binary to use for Scons. Otherwise Nuitka can use what you run Nuitka with, or find Python installation, e.g. from Windows registry. On Windows, a Python 3.5 or higher is needed. On non-Windows, a Python 2.6 or 2.7 will do as well. | 使用 Python 3.4 编译时，请提供 Scons 使用的 Python 二进制文件的路径。否则，Nuitka 可以使用您运行 Nuitka 时所使用的路径，或者从 Windows 注册表中查找 Python 的安装路径。在 Windows 上，需要 Python 3.5 或更高版本。在非 Windows 下，Python 2.6 或 2.7 也可以。
 |--main=PATH             | If specified once, this takes the place of the positional argument, i.e. the filename to compile. When given multiple times, it enables "multidist" (see User Manual) it allows you to create binaries that depending on file name or invocation name. | 如果只指定一次，它将取代位置参数，即要编译的文件名。如果多次指定，则会启用 “multidist”（参见《用户手册》），允许根据文件名或调用名创建二进制文件。
   
-|Backend C compiler choice:     |   |   |
-|---                            |---|---|
-|--clang                        | Enforce the use of clang. On Windows this requires a working Visual Studio version to piggy back on. Defaults to off.
-|--mingw64                      | Enforce the use of MinGW64 on Windows. Defaults to off unless MSYS2 with MinGW Python is used.
-|--msvc=MSVC_VERSION            | Enforce the use of specific MSVC version on Windows. Allowed values are e.g. "14.3" (MSVC 2022) and other MSVC version numbers, specify "list" for a list of installed compilers, or use "latest".  Defaults to latest MSVC being used if installed, otherwise MinGW64 is used.
-|--jobs=N                       | Specify the allowed number of parallel C compiler jobs. Negative values are system CPU minus the given value. Defaults to the full system CPU count unless low memory mode is activated, then it defaults to 1.
-|--lto=choice                   | Use link time optimizations (MSVC, gcc, clang). Allowed values are "yes", "no", and "auto" (when it's known to work). Defaults to "auto".
-|--static-libpython=choice      | Use static link library of Python. Allowed values are "yes", "no", and "auto" (when it's known to work). Defaults to "auto".
-|--cf-protection=PROTECTION_MODE| This option is gcc specific. For the gcc compiler, select the "cf-protection" mode. Default "auto" is to use the gcc default value, but you can override it, e.g. to disable it with "none" value. Refer to gcc documentation for "-fcf-protection" for the details.
+|                               | Backend C compiler choice: | 后端 C 编译器选择： |
+|---                            |---                         |---                 |
+|--clang                        | Enforce the use of clang. On Windows this requires a working Visual Studio version to piggy back on. Defaults to off. | 强制使用 clang。在 Windows 环境下，这需要一个正常运行的 Visual Studio 版本作为辅助。默认为关闭。
+|--mingw64                      | Enforce the use of MinGW64 on Windows. Defaults to off unless MSYS2 with MinGW Python is used. | 强制在 Windows 上使用 MinGW64。默认为关闭，除非使用带有 MinGW Python 的 MSYS2。
+|--msvc=MSVC_VERSION            | Enforce the use of specific MSVC version on Windows. Allowed values are e.g. "14.3" (MSVC 2022) and other MSVC version numbers, specify "list" for a list of installed compilers, or use "latest".  Defaults to latest MSVC being used if installed, otherwise MinGW64 is used. | 强制在 Windows 上使用特定的 MSVC 版本。允许的值包括 “14.3”（MSVC 2022）和其他 MSVC 版本号，指定 “list ”表示已安装的编译器列表，或使用 “latest”。 如果已安装，默认使用最新的 MSVC，否则使用 MinGW64。
+|--jobs=N                       | Specify the allowed number of parallel C compiler jobs. Negative values are system CPU minus the given value. Defaults to the full system CPU count unless low memory mode is activated, then it defaults to 1. | 指定允许的 C 编译器并行作业数。负值为系统 CPU 减去给定值。默认为整个系统 CPU 数量，除非激活了低内存模式，否则默认为 1。
+|--lto=choice                   | Use link time optimizations (MSVC, gcc, clang). Allowed values are "yes", "no", and "auto" (when it's known to work). Defaults to "auto". | 使用链接时间优化（MSVC、gcc、clang）。允许的值有 “是”、“否 ”和 “自动”（已知有效时）。默认为 “自动”。
+|--static-libpython=choice      | Use static link library of Python. Allowed values are "yes", "no", and "auto" (when it's known to work). Defaults to "auto". | 使用 Python 的静态链接库。允许的值有 “yes”、“no ”和 “auto”（已知有效时）。默认为 “auto”。
+|--cf-protection=PROTECTION_MODE| This option is gcc specific. For the gcc compiler, select the "cf-protection" mode. Default "auto" is to use the gcc default value, but you can override it, e.g. to disable it with "none" value. Refer to gcc documentation for "-fcf-protection" for the details. | 该选项针对 gcc。对于 gcc 编译器，请选择 “cf-protection ”模式。默认值为 “auto”，即使用 gcc 的默认值，但也可以覆盖它，例如使用 “none ”值禁用它。详情请参阅 gcc 文档中的“-fcf-protection”。
+
+|                                           | Onefile options: | Onefile 选项： |
+|---                                        |---               |---            |
+|--onefile-tempdir-spec=ONEFILE_TEMPDIR_SPEC| Use this as a folder to unpack to in onefile mode. Defaults to '{TEMP}/onefile_{PID}_{TIME}', i.e. user temporary directory and being non-static it's removed. Use e.g. a string like '{CACHE_DIR}/{COMPANY}/{PRODUCT}/{VERSION}' which is a good static cache path, this will then not be removed.|在单文件模式下，将其作为解压到的文件夹。默认为“{TEMP}/onefile_{PID}_{TIME}”，即用户临时目录，非静态时会被移除。例如，使用类似“{CACHE_DIR}/{COMPANY}/{PRODUCT}/{VERSION}”的字符串，这是一个很好的静态缓存路径，因此不会被移除。
+--onefile-child-grace-time=GRACE_TIME_MS    | When stopping the child, e.g. due to CTRL-C or shutdown, etc. the Python code gets a "KeyboardInterrupt", that it may handle e.g. to flush data. This is the amount of time in ms, before the child it killed in the hard way. Unit is ms, and default 5000. | 当停止子进程时，例如，由于 CTRL-C 或关机等原因，Python 代码会收到一个 “KeyboardInterrupt”（键盘中断），它可以处理这个中断，例如，刷新数据。这是以毫秒为单位的时间量，在子进程被强制杀死之前。单位为 ms，默认为 5000。
+--onefile-no-compression                    | When creating the onefile, disable compression of the payload. This is mostly for debug purposes, or to save time. Default is off. | 创建 onefile 时，禁用对有效载荷的压缩。这主要是为了调试或节省时间。默认为关闭。
+--onefile-as-archive                        | When creating the onefile, use an archive format, that can be unpacked with nuitka-onefile-unpack" rather than a stream that only the onefile program itself unpacks. Default is off. | 创建 onefile 时，使用可以用 nuitka-onefile-unpack 解压的压缩包格式，而不是只能由 onefile 程序自己解压的流格式。默认为关闭。
+
+|                                       | Data files: | 数据文件： |
+|---                                    |---          |---        |
+|--include-package-data=PACKAGE         | Include data files for the given package name. DLLs and extension modules are not data files and never included like this. Can use patterns the filenames as indicated below. Data files of packages are not included by default, but package configuration can do it. This will only include non-DLL, non-extension modules, i.e. actual data files. After a ":" optionally a filename pattern can be given as well, selecting only matching files. Examples: "--include-package-data=package_name" (all files) "--include-package-data=package_name:*.txt" (only certain type) "--include-package-data=package_name:some_filename.dat" (concrete file) Default empty. | 包括指定软件包名称的数据文件。动态链接库和扩展模块不是数据文件，因此不会像这样被包含。可以使用如下所示的文件名模式。默认情况下不包含软件包的数据文件，但软件包配置可以这样做。这只会包含非 DLL、非扩展模块，即实际的数据文件。在“: ”后还可选择给出文件名模式，只选择匹配的文件。例如 “--include-package-data=package_name“（所有文件） ”--include-package-data=package_name:*.txt“（仅特定类型） ”--include-package-data=package_name:some_filename.dat"（具体文件） 默认为空。
+|--include-data-files=DESC              | Include data files by filenames in the distribution. There are many allowed forms. With '--include-data-files=/path/to/file/*.txt=folder_name/some.txt' it will copy a single file and complain if it's multiple. With '--include-data-files=/path/to/files/*.txt=folder_name/' it will put all matching files into that folder. For recursive copy there is a form with 3 values that '--include-data-files=/path/to/scan=folder_name/=**/*.txt' that will preserve directory structure. Default empty. | 按文件名将数据文件包含在分发文件中。允许的形式有很多种。如果使用“--include-data-files=/path/to/file/*.txt=folder_name/some.txt”，它将复制单个文件，如果是多个文件则会抱怨。如果使用“--include-data-files=/path/to/files/*.txt=folder_name/”，则会将所有匹配文件放入该文件夹。对于递归复制，“--include-data-files=/path/to/scan=folder_name/=**/*.txt ”表格包含 3 个值，将保留目录结构。默认为空。
+|--include-data-dir=DIRECTORY           | Include data files from complete directory in the distribution. This is recursive. Check '--include-data-files' with patterns if you want non-recursive inclusion. An example would be '--include-data-dir=/path/some_dir=data/some_dir' for plain copy, of the whole directory. All non-code files are copied, if you want to use '--noinclude-data-files' option to remove them. Default empty. | 包含发行版中完整目录下的数据文件。这是递归的。如果想要非递归包含，请勾选带有模式的“--include-data-files”。例如，“--include-data-dir=/path/some_dir=data/some_dir ”是对整个目录的纯复制。如果想使用“--noinclude-data-files ”选项删除非代码文件，则会复制所有非代码文件。默认为空。
+|--noinclude-data-files=PATTERN         | Do not include data files matching the filename pattern given. This is against the target filename, not source paths. So to ignore a file pattern from package data for 'package_name' should be matched as 'package_name/*.txt'. Or for the whole directory simply use 'package_name'. Default empty. | 不包含与给定文件名模式匹配的数据文件。这针对的是目标文件名，而不是源路径。因此，要忽略 “package_name ”的软件包数据中的文件模式，应匹配为 “package_name/*.txt”。或者，对于整个目录，只需使用 “package_name ”即可。默认为空。
+|--include-onefile-external-data=PATTERN| Include the specified data file patterns outside of the onefile binary, rather than on the inside. Makes only sense in case of '--onefile' compilation. First files have to be specified as included with other `--include-*data*` options, and then this refers to target paths inside the distribution. Default empty. | 将指定的数据文件模式包含在 onefile 二进制文件的外部，而不是内部。只有在“--onefile ”编译时才有意义。首先，必须使用其他 `--include-*data*`选项指定包含的文件，然后才会引用发行版内部的目标路径。默认为空。
+|--list-package-data=LIST_PACKAGE_DATA  | Output the data files found for a given package name.Default not done. | 输出为给定软件包名称找到的数据文件，默认为未完成。
+|--include-raw-dir=DIRECTORY            | Include raw directories completely in the distribution. This is recursive. Check '--include-data-dir' to use the sane option. Default empty. | 将原始目录完全包含在发行版中。这是递归的。选中“--include-data-dir ”以使用正常选项。默认为空。
+
+|                                                | Compilation choices: | 编译选择： |
+|---                                             |---                   |---        |
+|--user-package-configuration-file=YAML_FILENAME | User provided Yaml file with package configuration. You can include DLLs, remove bloat, add hidden dependencies. Check the Nuitka Package Configuration Manual for a complete description of the format to use. Can be given multiple times. Defaults to empty. | 用户提供的 Yaml 文件包含软件包配置。您可以包含 DLL、删除臃肿、添加隐藏的依赖关系。有关使用格式的完整说明，请查阅《Nuitka 软件包配置手册》。可多次给出。默认为空。
+|--full-compat                                   | Enforce absolute compatibility with CPython. Do not even allow minor deviations from CPython behavior, e.g. not having better tracebacks or exception messages which are not really incompatible, but only different or worse. This is intended for tests only and should *not* be used. | 确保与 CPython 绝对兼容。甚至不允许与 CPython 行为有细微的偏差，例如，不允许有更好的跟踪回溯或异常消息，这些并不是真正的不兼容，而只是不同或更糟而已。这仅用于测试，*不*应使用。
+|--file-reference-choice=FILE_MODE               | Select what value "__file__" is going to be. With "runtime" (default for standalone binary mode and module mode), the created binaries and modules, use the location of themselves to deduct the value of "__file__". Included packages pretend to be in directories below that location. This allows you to include data files in deployments. If you merely seek acceleration, it's better for you to use the "original" value, where the source files location will be used. With "frozen" a notation "<frozen module_name>" is used. For compatibility reasons, the "__file__" value will always have ".py" suffix independent of what it really is. | 选择“__file__”的值。如果使用 “runtime”（独立二进制文件模式和模块模式的默认值），创建的二进制文件和模块将使用自己的位置来扣除“__file__”的值。包含的软件包会假装位于该位置下方的目录中。这样就可以在部署中包含数据文件。如果只是为了加速，最好使用"original"值，即使用源文件的位置。在使用 “frozen ”时，会使用“<frozen module_name>”符号。出于兼容性考虑，“__file__”值的后缀始终是“.py”，与实际内容无关。
+|--module-name-choice=MODULE_NAME_MODE           | Select what value "__name__" and "__package__" are going to be. With "runtime" (default for module mode), the created module uses the parent package to deduce the value of "__package__", to be fully compatible. The value "original" (default for other modes) allows for more static optimization to happen, but is incompatible for modules that normally can be loaded into any package. | 选择“__name__”和“__package__”的值。如果使用 “runtime”（模块模式的默认值），创建的模块会使用父软件包来推断“__package__”的值，以实现完全兼容。"original"值（其他模式的默认值）允许进行更多的静态优化，但对于通常可以加载到任何软件包的模块来说是不兼容的。
+
+|                                      | General OS controls: | 一般操作系统控制： |
+|---                                   |---                   |---                |
+|--force-stdout-spec=FORCE_STDOUT_SPEC | Force standard output of the program to go to this location. Useful for programs with disabled console and programs using the Windows Services Plugin of Nuitka commercial. Defaults to not active, use e.g. '{PROGRAM_BASE}.out.txt', i.e. file near your program, check User Manual for full list of available values. | 强制程序的标准输出到此位置。对于禁用控制台的程序和使用 Nuitka 商业版 Windows 服务插件的程序非常有用。默认情况下不激活，例如使用“{PROGRAM_BASE}.out.txt”，即程序附近的文件，查看《用户手册》以获取可用值的完整列表。
+|--force-stderr-spec=FORCE_STDERR_SPEC | Force standard error of the program to go to this location. Useful for programs with disabled console and programs using the Windows Services Plugin of Nuitka commercial. Defaults to not active, use e.g. '{PROGRAM_BASE}.err.txt', i.e. file near your program, check User Manual for full list of available values. | 强制程序的标准错误转到此位置。对于禁用控制台的程序和使用 Nuitka commercial 的 Windows 服务插件的程序非常有用。默认值为 “未激活”，例如使用“{PROGRAM_BASE}.err.txt”，即程序附近的文件，查看《用户手册》以获取可用值的完整列表。
+
+|                                                   | Deployment control: | 发布控制： |
+|---                                                |---                  |---        |
+|--deployment                                       | Disable code aimed at making finding compatibility issues easier. This will e.g. prevent execution with "-c" argument, which is often used by code that attempts run a module, and causes a program to start itself over and over potentially. Disable once you deploy to end users, for finding typical issues, this is very helpful during development. Default off. | 禁用旨在更容易发现兼容性问题的代码。例如，这将阻止“-c ”参数的执行，“-c ”参数通常被试图运行模块的代码所使用，并可能导致程序一次又一次地自动启动。一旦部署给最终用户，则禁用该功能，以查找典型问题，这在开发过程中非常有用。默认关闭。
+|--no-deployment-flag=FLAG                          | Keep deployment mode, but disable selectively parts of it. Errors from deployment mode will output these identifiers. Default empty. | 保留部署模式，但有选择地禁用部分功能。部署模式下的错误将输出这些标识符。默认为空。
   
+|                                                   | Environment control: | 环境控制： |
+|---                                                |---                   |---        |
+|--force-runtime-environment-variable=VARIABLE_SPEC | Force an environment variables to a given value. Default empty. | 强制环境变量为给定值。默认为空。
+
   Control the inclusion of modules and packages in result:
     --include-package=PACKAGE
                         Include a whole package. Give as a Python namespace,
@@ -99,24 +137,6 @@ Usage: python.exe -m nuitka [--mode=compilation_mode] [--run] [options] main_mod
                         library. This will increase the compilation time by a
                         lot and is also not well tested at this time and
                         sometimes won't work. Defaults to off.
-
-|Onefile options:                           |   |   |
-|---                                        |---|---|
-|--onefile-tempdir-spec=ONEFILE_TEMPDIR_SPEC| Use this as a folder to unpack to in onefile mode. Defaults to '{TEMP}/onefile_{PID}_{TIME}', i.e. user temporary directory and being non-static it's removed. Use e.g. a string like '{CACHE_DIR}/{COMPANY}/{PRODUCT}/{VERSION}' which is a good static cache path, this will then not be removed.|在单文件模式下，将其作为解压到的文件夹。默认为“{TEMP}/onefile_{PID}_{TIME}”，即用户临时目录，非静态时会被移除。例如，使用类似“{CACHE_DIR}/{COMPANY}/{PRODUCT}/{VERSION}”的字符串，这是一个很好的静态缓存路径，因此不会被移除。
---onefile-child-grace-time=GRACE_TIME_MS    | When stopping the child, e.g. due to CTRL-C or shutdown, etc. the Python code gets a "KeyboardInterrupt", that it may handle e.g. to flush data. This is the amount of time in ms, before the child it killed in the hard way. Unit is ms, and default 5000. | 当停止子进程时，例如，由于 CTRL-C 或关机等原因，Python 代码会收到一个 “KeyboardInterrupt”（键盘中断），它可以处理这个中断，例如，刷新数据。这是以毫秒为单位的时间量，在子进程被强制杀死之前。单位为 ms，默认为 5000。
---onefile-no-compression                    | When creating the onefile, disable compression of the payload. This is mostly for debug purposes, or to save time. Default is off. | 创建 onefile 时，禁用对有效载荷的压缩。这主要是为了调试或节省时间。默认为关闭。
---onefile-as-archive                        | When creating the onefile, use an archive format, that can be unpacked with nuitka-onefile-unpack" rather than a stream that only the onefile program itself unpacks. Default is off. | 创建 onefile 时，使用可以用 nuitka-onefile-unpack 解压的压缩包格式，而不是只能由 onefile 程序自己解压的流格式。默认为关闭。
-
-|Data files:                            |   |   |
-|---                                    |---|---|
-|--include-package-data=PACKAGE         | Include data files for the given package name. DLLs and extension modules are not data files and never included like this. Can use patterns the filenames as indicated below. Data files of packages are not included by default, but package configuration can do it. This will only include non-DLL, non-extension modules, i.e. actual data files. After a ":" optionally a filename pattern can be given as well, selecting only matching files. Examples: "--include-package-data=package_name" (all files) "--include-package-data=package_name:*.txt" (only certain type) "--include-package-data=package_name:some_filename.dat" (concrete file) Default empty. | 包括指定软件包名称的数据文件。动态链接库和扩展模块不是数据文件，因此不会像这样被包含。可以使用如下所示的文件名模式。默认情况下不包含软件包的数据文件，但软件包配置可以这样做。这只会包含非 DLL、非扩展模块，即实际的数据文件。在“: ”后还可选择给出文件名模式，只选择匹配的文件。例如 “--include-package-data=package_name“（所有文件） ”--include-package-data=package_name:*.txt“（仅特定类型） ”--include-package-data=package_name:some_filename.dat"（具体文件） 默认为空。
-|--include-data-files=DESC              | Include data files by filenames in the distribution. There are many allowed forms. With '--include-data-files=/path/to/file/*.txt=folder_name/some.txt' it will copy a single file and complain if it's multiple. With '--include-data-files=/path/to/files/*.txt=folder_name/' it will put all matching files into that folder. For recursive copy there is a form with 3 values that '--include-data-files=/path/to/scan=folder_name/=**/*.txt' that will preserve directory structure. Default empty. | 按文件名将数据文件包含在分发文件中。允许的形式有很多种。如果使用“--include-data-files=/path/to/file/*.txt=folder_name/some.txt”，它将复制单个文件，如果是多个文件则会抱怨。如果使用“--include-data-files=/path/to/files/*.txt=folder_name/”，则会将所有匹配文件放入该文件夹。对于递归复制，“--include-data-files=/path/to/scan=folder_name/=**/*.txt ”表格包含 3 个值，将保留目录结构。默认为空。
-|--include-data-dir=DIRECTORY           | Include data files from complete directory in the distribution. This is recursive. Check '--include-data-files' with patterns if you want non-recursive inclusion. An example would be '--include-data-dir=/path/some_dir=data/some_dir' for plain copy, of the whole directory. All non-code files are copied, if you want to use '--noinclude-data-files' option to remove them. Default empty. | 包含发行版中完整目录下的数据文件。这是递归的。如果想要非递归包含，请勾选带有模式的“--include-data-files”。例如，“--include-data-dir=/path/some_dir=data/some_dir ”是对整个目录的纯复制。如果想使用“--noinclude-data-files ”选项删除非代码文件，则会复制所有非代码文件。默认为空。
-|--noinclude-data-files=PATTERN         | Do not include data files matching the filename pattern given. This is against the target filename, not source paths. So to ignore a file pattern from package data for 'package_name' should be matched as 'package_name/*.txt'. Or for the whole directory simply use 'package_name'. Default empty. | 不包含与给定文件名模式匹配的数据文件。这针对的是目标文件名，而不是源路径。因此，要忽略 “package_name ”的软件包数据中的文件模式，应匹配为 “package_name/*.txt”。或者，对于整个目录，只需使用 “package_name ”即可。默认为空。
-|--include-onefile-external-data=PATTERN| Include the specified data file patterns outside of the onefile binary, rather than on the inside. Makes only sense in case of '--onefile' compilation. First files have to be specified as included with other `--include-*data*` options, and then this refers to target paths inside the distribution. Default empty. | 将指定的数据文件模式包含在 onefile 二进制文件的外部，而不是内部。只有在“--onefile ”编译时才有意义。首先，必须使用其他 `--include-*data*`选项指定包含的文件，然后才会引用发行版内部的目标路径。默认为空。
-|--list-package-data=LIST_PACKAGE_DATA  | Output the data files found for a given package name.Default not done. | 输出为给定软件包名称找到的数据文件，默认为未完成。
-|--include-raw-dir=DIRECTORY            | Include raw directories completely in the distribution. This is recursive. Check '--include-data-dir' to use the sane option. Default empty. | 将原始目录完全包含在发行版中。这是递归的。选中“--include-data-dir ”以使用正常选项。默认为空。
-
   Metadata support:
     --include-distribution-metadata=DISTRIBUTION
                         Include metadata information for the given
@@ -165,42 +185,6 @@ Usage: python.exe -m nuitka [--mode=compilation_mode] [--run] [options] main_mod
     --run               Execute immediately the created binary (or import the compiled module). Defaults to off.
     --debugger          Execute inside a debugger, e.g. "gdb" or "lldb" to automatically get a stack trace. The debugger is automatically chosen unless specified by name with the NUITKA_DEBUGGER_CHOICE environment variable. Defaults to off.
 
-  Compilation choices:
-    --user-package-configuration-file=YAML_FILENAME
-                        User provided Yaml file with package configuration.
-                        You can include DLLs, remove bloat, add hidden
-                        dependencies. Check the Nuitka Package Configuration
-                        Manual for a complete description of the format to
-                        use. Can be given multiple times. Defaults to empty.
-    --full-compat       Enforce absolute compatibility with CPython. Do not
-                        even allow minor deviations from CPython behavior,
-                        e.g. not having better tracebacks or exception
-                        messages which are not really incompatible, but only
-                        different or worse. This is intended for tests only
-                        and should *not* be used.
-    --file-reference-choice=FILE_MODE
-                        Select what value "__file__" is going to be. With
-                        "runtime" (default for standalone binary mode and
-                        module mode), the created binaries and modules, use
-                        the location of themselves to deduct the value of
-                        "__file__". Included packages pretend to be in
-                        directories below that location. This allows you to
-                        include data files in deployments. If you merely seek
-                        acceleration, it's better for you to use the
-                        "original" value, where the source files location will
-                        be used. With "frozen" a notation "<frozen
-                        module_name>" is used. For compatibility reasons, the
-                        "__file__" value will always have ".py" suffix
-                        independent of what it really is.
-    --module-name-choice=MODULE_NAME_MODE
-                        Select what value "__name__" and "__package__" are
-                        going to be. With "runtime" (default for module mode),
-                        the created module uses the parent package to deduce
-                        the value of "__package__", to be fully compatible.
-                        The value "original" (default for other modes) allows
-                        for more static optimization to happen, but is
-                        incompatible for modules that normally can be loaded
-                        into any package.
 
   Output choices:
     --output-filename=FILENAME
@@ -224,23 +208,8 @@ Usage: python.exe -m nuitka [--mode=compilation_mode] [--run] [options] main_mod
                         extension modules created by Nuitka. They expose your
                         API, but stubgen may cause issues. Defaults to off.
 
-  Deployment control:
-    --deployment        Disable code aimed at making finding compatibility
-                        issues easier. This will e.g. prevent execution with
-                        "-c" argument, which is often used by code that
-                        attempts run a module, and causes a program to start
-                        itself over and over potentially. Disable once you
-                        deploy to end users, for finding typical issues, this
-                        is very helpful during development. Default off.
-    --no-deployment-flag=FLAG
-                        Keep deployment mode, but disable selectively parts of
-                        it. Errors from deployment mode will output these
-                        identifiers. Default empty.
+  
 
-  Environment control:
-    --force-runtime-environment-variable=VARIABLE_SPEC
-                        Force an environment variables to a given value.
-                        Default empty.
 
   Debug features:
     --debug             Executing all self checks possible to find errors in
@@ -301,8 +270,6 @@ Usage: python.exe -m nuitka [--mode=compilation_mode] [--run] [options] main_mod
                         Create graph of optimization process internals, do not
                         use for whole programs, but only for small test cases.
                         Defaults to off.
-
-  
 
   Cache Control:
     --disable-cache=DISABLED_CACHES
@@ -384,21 +351,7 @@ Usage: python.exe -m nuitka [--mode=compilation_mode] [--run] [options] main_mod
                         Where to output from '--verbose', should be a
                         filename. Default is standard output.
 
-  General OS controls:
-    --force-stdout-spec=FORCE_STDOUT_SPEC
-                        Force standard output of the program to go to this
-                        location. Useful for programs with disabled console
-                        and programs using the Windows Services Plugin of
-                        Nuitka commercial. Defaults to not active, use e.g.
-                        '{PROGRAM_BASE}.out.txt', i.e. file near your program,
-                        check User Manual for full list of available values.
-    --force-stderr-spec=FORCE_STDERR_SPEC
-                        Force standard error of the program to go to this
-                        location. Useful for programs with disabled console
-                        and programs using the Windows Services Plugin of
-                        Nuitka commercial. Defaults to not active, use e.g.
-                        '{PROGRAM_BASE}.err.txt', i.e. file near your program,
-                        check User Manual for full list of available values.
+  
 
   Windows specific controls:
     --windows-console-mode=CONSOLE_MODE
