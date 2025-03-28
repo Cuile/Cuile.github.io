@@ -79,6 +79,15 @@ Usage: python.exe -m nuitka [--mode=compilation_mode] [--run] [options] main_mod
 |---                                                |---                   |---        |
 |--force-runtime-environment-variable=VARIABLE_SPEC | Force an environment variables to a given value. Default empty. | 强制环境变量为给定值。默认为空。
 
+|                                                          | Windows specific controls: | Windows 专用控制： |
+|---                                                       |---                         |---                |
+|--windows-console-mode=CONSOLE_MODE                       | Select console mode to use. Default mode is 'force' and creates a console window unless the program was started from one. With 'disable' it doesn't create or use a console at all. With 'attach' an existing console will be used for outputs. With 'hide' a newly spawned console will be hidden and an already existing console will behave like 'force'. Default is 'force'. | 选择要使用的控制台模式。默认模式为 “force”，会创建一个控制台窗口，除非程序是从控制台窗口启动的。如果使用 “disable”模式，则根本不会创建或使用控制台。使用 “attach”时，将使用现有的控制台进行输出。如果使用 “hide”，新生成的控制台将被隐藏，而已经存在的控制台的行为与 “force ”类似。默认为 “force”。
+|--windows-icon-from-ico=ICON_PATH                         | Add executable icon. Can be given multiple times for different resolutions or files with multiple icons inside. In the later case, you may also suffix with #<n> where n is an integer index starting from 1, specifying a specific icon to be included, and all others to be ignored. | 添加可执行图标。对于不同分辨率或包含多个图标的文件，可以多次添加。在后一种情况下，还可以使用 #<n> 作为后缀，其中 n 是一个从 1 开始的整数索引，用于指定要包含的特定图标，而忽略其他所有图标。
+|--windows-icon-from-exe=ICON_EXE_PATH                     | Copy executable icons from this existing executable (Windows only). | 从现有可执行文件中复制可执行文件图标（仅限 Windows）。
+|--onefile-windows-splash-screen-image=SPLASH_SCREEN_IMAGE | When compiling for Windows and onefile, show this while loading the application. Defaults to off. | 为 Windows 和 onefile 编译时，在加载应用程序时显示此选项。默认为关闭。
+|--windows-uac-admin                                       | Request Windows User Control, to grant admin rights on execution. (Windows only). Defaults to off. | 请求 Windows 用户控制，授予执行管理权限。（仅限 Windows）。默认为关闭。
+|--windows-uac-uiaccess                                    | Request Windows User Control, to enforce running from a few folders only, remote desktop access. (Windows only). Defaults to off. | 请求 Windows 用户控制，以强制执行仅从少数文件夹运行的远程桌面访问。
+
   Control the inclusion of modules and packages in result:
     --include-package=PACKAGE
                         Include a whole package. Give as a Python namespace,
@@ -353,35 +362,7 @@ Usage: python.exe -m nuitka [--mode=compilation_mode] [--run] [options] main_mod
 
   
 
-  Windows specific controls:
-    --windows-console-mode=CONSOLE_MODE
-                        Select console mode to use. Default mode is 'force'
-                        and creates a console window unless the program was
-                        started from one. With 'disable' it doesn't create or
-                        use a console at all. With 'attach' an existing
-                        console will be used for outputs. With 'hide' a newly
-                        spawned console will be hidden and an already existing
-                        console will behave like 'force'. Default is 'force'.
-    --windows-icon-from-ico=ICON_PATH
-                        Add executable icon. Can be given multiple times for
-                        different resolutions or files with multiple icons
-                        inside. In the later case, you may also suffix with
-                        #<n> where n is an integer index starting from 1,
-                        specifying a specific icon to be included, and all
-                        others to be ignored.
-    --windows-icon-from-exe=ICON_EXE_PATH
-                        Copy executable icons from this existing executable
-                        (Windows only).
-    --onefile-windows-splash-screen-image=SPLASH_SCREEN_IMAGE
-                        When compiling for Windows and onefile, show this
-                        while loading the application. Defaults to off.
-    --windows-uac-admin
-                        Request Windows User Control, to grant admin rights on
-                        execution. (Windows only). Defaults to off.
-    --windows-uac-uiaccess
-                        Request Windows User Control, to enforce running from
-                        a few folders only, remote desktop access. (Windows
-                        only). Defaults to off.
+  
 
   macOS specific controls:
     --macos-create-app-bundle
