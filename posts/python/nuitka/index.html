@@ -334,6 +334,47 @@
 </tr>
 </tbody>
 </table>
+<table>
+<thead>
+<tr>
+<th></th>
+<th>Windows specific controls:</th>
+<th>Windows 专用控制：</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>--windows-console-mode=CONSOLE_MODE</td>
+<td>Select console mode to use. Default mode is 'force' and creates a console window unless the program was started from one. With 'disable' it doesn't create or use a console at all. With 'attach' an existing console will be used for outputs. With 'hide' a newly spawned console will be hidden and an already existing console will behave like 'force'. Default is 'force'.</td>
+<td>选择要使用的控制台模式。默认模式为 “force”，会创建一个控制台窗口，除非程序是从控制台窗口启动的。如果使用 “disable”模式，则根本不会创建或使用控制台。使用 “attach”时，将使用现有的控制台进行输出。如果使用 “hide”，新生成的控制台将被隐藏，而已经存在的控制台的行为与 “force ”类似。默认为 “force”。</td>
+</tr>
+<tr>
+<td>--windows-icon-from-ico=ICON_PATH</td>
+<td>Add executable icon. Can be given multiple times for different resolutions or files with multiple icons inside. In the later case, you may also suffix with #<n> where n is an integer index starting from 1, specifying a specific icon to be included, and all others to be ignored.</td>
+<td>添加可执行图标。对于不同分辨率或包含多个图标的文件，可以多次添加。在后一种情况下，还可以使用 #<n> 作为后缀，其中 n 是一个从 1 开始的整数索引，用于指定要包含的特定图标，而忽略其他所有图标。</td>
+</tr>
+<tr>
+<td>--windows-icon-from-exe=ICON_EXE_PATH</td>
+<td>Copy executable icons from this existing executable (Windows only).</td>
+<td>从现有可执行文件中复制可执行文件图标（仅限 Windows）。</td>
+</tr>
+<tr>
+<td>--onefile-windows-splash-screen-image=SPLASH_SCREEN_IMAGE</td>
+<td>When compiling for Windows and onefile, show this while loading the application. Defaults to off.</td>
+<td>为 Windows 和 onefile 编译时，在加载应用程序时显示此选项。默认为关闭。</td>
+</tr>
+<tr>
+<td>--windows-uac-admin</td>
+<td>Request Windows User Control, to grant admin rights on execution. (Windows only). Defaults to off.</td>
+<td>请求 Windows 用户控制，授予执行管理权限。（仅限 Windows）。默认为关闭。</td>
+</tr>
+<tr>
+<td>--windows-uac-uiaccess</td>
+<td>Request Windows User Control, to enforce running from a few folders only, remote desktop access. (Windows only). Defaults to off.</td>
+<td>请求 Windows 用户控制，以强制执行仅从少数文件夹运行的远程桌面访问。</td>
+</tr>
+</tbody>
+</table>
 <p>Control the inclusion of modules and packages in result:
 --include-package=PACKAGE
 Include a whole package. Give as a Python namespace,
@@ -591,35 +632,6 @@ optimizations. Can become a lot. Defaults to off.
 --verbose-output=PATH
 Where to output from '--verbose', should be a
 filename. Default is standard output.</p>
-<p>Windows specific controls:
---windows-console-mode=CONSOLE_MODE
-Select console mode to use. Default mode is 'force'
-and creates a console window unless the program was
-started from one. With 'disable' it doesn't create or
-use a console at all. With 'attach' an existing
-console will be used for outputs. With 'hide' a newly
-spawned console will be hidden and an already existing
-console will behave like 'force'. Default is 'force'.
---windows-icon-from-ico=ICON_PATH
-Add executable icon. Can be given multiple times for
-different resolutions or files with multiple icons
-inside. In the later case, you may also suffix with
-#<n> where n is an integer index starting from 1,
-specifying a specific icon to be included, and all
-others to be ignored.
---windows-icon-from-exe=ICON_EXE_PATH
-Copy executable icons from this existing executable
-(Windows only).
---onefile-windows-splash-screen-image=SPLASH_SCREEN_IMAGE
-When compiling for Windows and onefile, show this
-while loading the application. Defaults to off.
---windows-uac-admin
-Request Windows User Control, to grant admin rights on
-execution. (Windows only). Defaults to off.
---windows-uac-uiaccess
-Request Windows User Control, to enforce running from
-a few folders only, remote desktop access. (Windows
-only). Defaults to off.</p>
 <p>macOS specific controls:
 --macos-create-app-bundle
 When compiling for macOS, create a bundle rather than
