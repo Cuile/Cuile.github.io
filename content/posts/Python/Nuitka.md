@@ -1,5 +1,5 @@
 ---
-title: "Nuitka 使用手册"
+title: "Nuitka 参数列表"
 date: 2025-03-16T11:07:37+08:00
 # draft: true
 
