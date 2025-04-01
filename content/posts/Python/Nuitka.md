@@ -88,6 +88,14 @@ Usage: python.exe -m nuitka [--mode=compilation_mode] [--run] [options] main_mod
 |--windows-uac-admin                                       | Request Windows User Control, to grant admin rights on execution. (Windows only). Defaults to off. | 请求 Windows 用户控制，授予执行管理权限。（仅限 Windows）。默认为关闭。
 |--windows-uac-uiaccess                                    | Request Windows User Control, to enforce running from a few folders only, remote desktop access. (Windows only). Defaults to off. | 请求 Windows 用户控制，以强制执行仅从少数文件夹运行的远程桌面访问。
 
+|                                    | Control the following into imported modules: | 以下内容控制模块导入： |
+|---                                 |---                                           |---                   |
+|--follow-imports                    | Descend into all imported modules. Defaults to on in standalone mode, otherwise off. | 深入所有导入的模块。独立模式下默认开启，否则关闭。
+|--follow-import-to=MODULE/PACKAGE   | Follow to that module if used, or if a package, to the whole package. Can be given multiple times. Default empty. | 如果使用模块，则指向该模块；如果使用软件包，则指向整个软件包。可多次给出。默认为空。
+|--nofollow-import-to=MODULE/PACKAGE | Do not follow to that module name even if used, or if a package name, to the whole package in any case, overrides all other options. This can also contain patterns, e.g. "*.tests". Can be given multiple times. Default empty. | 即使使用了该模块名，也不要跟随；如果使用了软件包名，则无论如何都要跟随整个软件包，并优先于所有其他选项。也可以包含模式，如 “*.tests”。可多次输入。默认为空。
+|--nofollow-imports                  | Do not descend into any imported modules at all, overrides all other inclusion options and not usable for standalone mode. Defaults to off. | 完全不进入任何导入模块，优先于所有其他包含选项，不能用于独立模式。默认为关闭。
+|--follow-stdlib                     | Also descend into imported modules from standard library. This will increase the compilation time by a lot and is also not well tested at this time and sometimes won't work. Defaults to off. | 还可以从标准库中导入模块。这将大大增加编译时间，而且目前尚未经过充分测试，有时可能无法正常工作。默认为关闭。
+
   Control the inclusion of modules and packages in result:
     --include-package=PACKAGE
                         Include a whole package. Give as a Python namespace,
@@ -125,27 +133,7 @@ Usage: python.exe -m nuitka [--mode=compilation_mode] [--run] [options] main_mod
                         best performance. If not desired, there is --no-
                         prefer-source-code to disable warnings about it.
                         Default off.
-
-  Control the following into imported modules:
-    --follow-imports    Descend into all imported modules. Defaults to on in
-                        standalone mode, otherwise off.
-    --follow-import-to=MODULE/PACKAGE
-                        Follow to that module if used, or if a package, to the
-                        whole package. Can be given multiple times. Default
-                        empty.
-    --nofollow-import-to=MODULE/PACKAGE
-                        Do not follow to that module name even if used, or if
-                        a package name, to the whole package in any case,
-                        overrides all other options. This can also contain
-                        patterns, e.g. "*.tests". Can be given multiple times.
-                        Default empty.
-    --nofollow-imports  Do not descend into any imported modules at all,
-                        overrides all other inclusion options and not usable
-                        for standalone mode. Defaults to off.
-    --follow-stdlib     Also descend into imported modules from standard
-                        library. This will increase the compilation time by a
-                        lot and is also not well tested at this time and
-                        sometimes won't work. Defaults to off.
+  
   Metadata support:
     --include-distribution-metadata=DISTRIBUTION
                         Include metadata information for the given
