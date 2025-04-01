@@ -53,7 +53,7 @@
 </span>
 <span class=post_date>
 2025-03-16</span>
-<span class=post_time> · 阅读时长 17 分钟</span><span>&nbsp;· <a href=https://cuile.github.io/tags/nuitka/ title=nuitka class="post_tag button button_translucent">nuitka
+<span class=post_time> · 阅读时长 18 分钟</span><span>&nbsp;· <a href=https://cuile.github.io/tags/nuitka/ title=nuitka class="post_tag button button_translucent">nuitka
 </a><a href=https://cuile.github.io/tags/python/ title=python class="post_tag button button_translucent">python
 </a>
 </span>
@@ -375,6 +375,42 @@
 </tr>
 </tbody>
 </table>
+<table>
+<thead>
+<tr>
+<th></th>
+<th>Control the following into imported modules:</th>
+<th>以下内容控制模块导入：</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>--follow-imports</td>
+<td>Descend into all imported modules. Defaults to on in standalone mode, otherwise off.</td>
+<td>深入所有导入的模块。独立模式下默认开启，否则关闭。</td>
+</tr>
+<tr>
+<td>--follow-import-to=MODULE/PACKAGE</td>
+<td>Follow to that module if used, or if a package, to the whole package. Can be given multiple times. Default empty.</td>
+<td>如果使用模块，则指向该模块；如果使用软件包，则指向整个软件包。可多次给出。默认为空。</td>
+</tr>
+<tr>
+<td>--nofollow-import-to=MODULE/PACKAGE</td>
+<td>Do not follow to that module name even if used, or if a package name, to the whole package in any case, overrides all other options. This can also contain patterns, e.g. "*.tests". Can be given multiple times. Default empty.</td>
+<td>即使使用了该模块名，也不要跟随；如果使用了软件包名，则无论如何都要跟随整个软件包，并优先于所有其他选项。也可以包含模式，如 “*.tests”。可多次输入。默认为空。</td>
+</tr>
+<tr>
+<td>--nofollow-imports</td>
+<td>Do not descend into any imported modules at all, overrides all other inclusion options and not usable for standalone mode. Defaults to off.</td>
+<td>完全不进入任何导入模块，优先于所有其他包含选项，不能用于独立模式。默认为关闭。</td>
+</tr>
+<tr>
+<td>--follow-stdlib</td>
+<td>Also descend into imported modules from standard library. This will increase the compilation time by a lot and is also not well tested at this time and sometimes won't work. Defaults to off.</td>
+<td>还可以从标准库中导入模块。这将大大增加编译时间，而且目前尚未经过充分测试，有时可能无法正常工作。默认为关闭。</td>
+</tr>
+</tbody>
+</table>
 <p>Control the inclusion of modules and packages in result:
 --include-package=PACKAGE
 Include a whole package. Give as a Python namespace,
@@ -412,27 +448,7 @@ to compile the module from available source code for
 best performance. If not desired, there is --no-
 prefer-source-code to disable warnings about it.
 Default off.</p>
-<p>Control the following into imported modules:
---follow-imports Descend into all imported modules. Defaults to on in
-standalone mode, otherwise off.
---follow-import-to=MODULE/PACKAGE
-Follow to that module if used, or if a package, to the
-whole package. Can be given multiple times. Default
-empty.
---nofollow-import-to=MODULE/PACKAGE
-Do not follow to that module name even if used, or if
-a package name, to the whole package in any case,
-overrides all other options. This can also contain
-patterns, e.g. "*.tests". Can be given multiple times.
-Default empty.
---nofollow-imports Do not descend into any imported modules at all,
-overrides all other inclusion options and not usable
-for standalone mode. Defaults to off.
---follow-stdlib Also descend into imported modules from standard
-library. This will increase the compilation time by a
-lot and is also not well tested at this time and
-sometimes won't work. Defaults to off.
-Metadata support:
+<p>Metadata support:
 --include-distribution-metadata=DISTRIBUTION
 Include metadata information for the given
 distribution name. Some packages check metadata for
