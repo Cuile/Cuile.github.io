@@ -136,3 +136,8 @@ mount -av /dev/md127 /mnt/raid1-250G-2disk
 ```bash
 passwd <username>
 ```
+
+### 查看文件夹大小
+```bash
+du -h --max-depth=1 <path>
+```
