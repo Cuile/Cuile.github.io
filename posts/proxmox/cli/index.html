@@ -6,14 +6,14 @@
 <meta http-equiv=x-ua-compatible content="IE=edge">
 <meta property="og:locale" content="zh-cn">
 <meta property="og:type" content="article">
-<meta name=description content="强制关闭虚拟机 1$ qm stop <vmid> 2$ pct stop <vmid> 3# 如果关闭失败 4$ qm list 5$ pct list 6# 找到 vm 对应的 pid 7$ kill <pid> pve(proxmox ve)强制关闭虚拟机 强制删除虚拟机 1$ …">
+<meta name=description content="遇事不决，多读文档！ 虚拟机 创建 使用命令行创建 VM 非常方便，而且还可以使用各发行版的云镜像，快速创建速度又快，占用空间又小，非常方便。 调整硬盘大">
 <meta name=twitter:card content="summary">
 <meta name=twitter:creator content>
 <meta name=twitter:title content="ProxmoxVE 命令行">
 <meta name=twitter:image content="https://cuile.github.io/images/thumbnail.png">
 <meta property="og:url" content="https://cuile.github.io/posts/proxmox/cli/">
 <meta property="og:title" content="ProxmoxVE 命令行">
-<meta property="og:description" content="强制关闭虚拟机 1$ qm stop <vmid> 2$ pct stop <vmid> 3# 如果关闭失败 4$ qm list 5$ pct list 6# 找到 vm 对应的 pid 7$ kill <pid> pve(proxmox ve)强制关闭虚拟机 强制删除虚拟机 1$ …">
+<meta property="og:description" content="遇事不决，多读文档！ 虚拟机 创建 使用命令行创建 VM 非常方便，而且还可以使用各发行版的云镜像，快速创建速度又快，占用空间又小，非常方便。 调整硬盘大">
 <meta property="og:image" content="https://cuile.github.io/images/thumbnail.png">
 <link rel=apple-touch-icon sizes=180x180 href=https://cuile.github.io/icons/apple-touch-icon.png>
 <link rel=icon type=image/png sizes=32x32 href=https://cuile.github.io/icons/favicon-32x32.png>
@@ -53,99 +53,50 @@
 </span>
 <span class=post_date>
 2022-12-27</span>
-<span class=post_time> · 阅读时长 2 分钟</span><span>&nbsp;· <a href=https://cuile.github.io/tags/proxmoxve/ title=ProxmoxVE class="post_tag button button_translucent">ProxmoxVE
+<span class=post_time> · 阅读时长 1 分钟</span><span>&nbsp;· <a href=https://cuile.github.io/tags/proxmoxve/ title=ProxmoxVE class="post_tag button button_translucent">ProxmoxVE
 </a><a href=https://cuile.github.io/tags/cli/ title=CLI class="post_tag button button_translucent">CLI
 </a>
 </span>
 </div>
-<div class=post_body><h2 id=强制关闭虚拟机>强制关闭虚拟机</h2>
-<div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=ln>1</span>$ qm stop &lt;vmid&gt;
-<span class=ln>2</span>$ pct stop &lt;vmid&gt;
-<span class=ln>3</span><span class=c1># 如果关闭失败</span>
-<span class=ln>4</span>$ qm list
-<span class=ln>5</span>$ pct list
-<span class=ln>6</span><span class=c1># 找到 vm 对应的 pid</span>
-<span class=ln>7</span>$ <span class=nb>kill</span> &lt;pid&gt;
-</code></pre></div><ul>
-<li><a href=https://blog.csdn.net/hlz_07/article/details/122305983>pve(proxmox ve)强制关闭虚拟机</a></li>
-</ul>
+<div class=post_body><p><a href=https://pve.proxmox.com/pve-docs/index.html>遇事不决，多读文档！</a></p>
+<h2 id=虚拟机>虚拟机</h2>
+<h3 id=创建>创建</h3>
+<p>使用命令行创建 VM 非常方便，而且还可以使用各发行版的云镜像，快速创建速度又快，占用空间又小，非常方便。</p>
+<script src=https://gist.github.com/Cuile/6e42bea498355d5cafaacfa66981daf9.js></script>
 <hr>
-<h2 id=强制删除虚拟机>强制删除虚拟机</h2>
-<div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=ln>1</span>$ rm -f /etc/pve/nodes/*/*/&lt;vm_id&gt;.conf
-</code></pre></div><ul>
-<li><a href=https://blog.pulipuli.info/2014/08/proxmox-ve-fix-proxmox-ve-destroy.html#postcataproxmox-ve-fix-proxmox-ve-destroy.html0_anchor2>修復Proxmox VE：無法刪除虛擬機器</a></li>
-</ul>
-<hr>
-<h2 id=调整硬盘大小>调整硬盘大小</h2>
+<h3 id=调整硬盘大小>调整硬盘大小</h3>
 <div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=ln>1</span><span class=c1># 增加硬盘空间</span>
 <span class=ln>2</span><span class=c1># 建议从模板创建虚拟机后，再增加虚拟机硬盘的空间，保持模板的大小</span>
-<span class=ln>3</span>qm resize &lt;VM_ID&gt; scsi0 +30G
+<span class=ln>3</span>qm disk resize &lt;VM_ID&gt; scsi0 +30G
 </code></pre></div><p><em>注意不要对有系统的虚拟机硬盘进行操作</em></p>
 <ul>
 <li><a href=https://mayanpeng.cn/archives/158.html#google_vignette>ProxmoxVE(PVE) 减小缩减虚拟机硬盘设置的空间大小</a></li>
 </ul>
 <hr>
-<h2 id=创建-cloud-init-vm>创建 cloud-init VM</h2>
-<p>使用命令行创建 VM 非常方便，而且还可以使用各发行版的云镜像，快速创建速度又快，占用空间又小，非常方便。</p>
-<div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=ln> 1</span><span class=cp>#!/bin/bash
-</span><span class=ln> 2</span><span class=cp></span>
-<span class=ln> 3</span><span class=c1># 虚拟机ID</span>
-<span class=ln> 4</span><span class=nv>VM_ID</span><span class=o>=</span><span class=s2>&#34;666&#34;</span>
-<span class=ln> 5</span><span class=c1># 虚拟机名</span>
-<span class=ln> 6</span><span class=nv>VM_NAME</span><span class=o>=</span><span class=s2>&#34;test&#34;</span>
-<span class=ln> 7</span><span class=c1># 内存大小</span>
-<span class=ln> 8</span><span class=nv>MEM_SIZE</span><span class=o>=</span><span class=s2>&#34;2048&#34;</span>
-<span class=ln> 9</span><span class=c1># 存储空间名</span>
-<span class=ln>10</span><span class=nv>STORAGE_NAME</span><span class=o>=</span><span class=s2>&#34;local-lvm&#34;</span>
-<span class=ln>11</span><span class=c1># cloud-init 镜像路径</span>
-<span class=ln>12</span><span class=nv>UBUNTU_IMG</span><span class=o>=</span><span class=s2>&#34;/var/lib/vz/template/iso/ubuntu-20.04-minimal-cloudimg-amd64.img&#34;</span>
-<span class=ln>13</span>
-<span class=ln>14</span><span class=c1># 创建虚拟机，系统为linux 2.6~6.x，打开QEMU代理</span>
-<span class=ln>15</span>qm create <span class=si>${</span><span class=nv>VM_ID</span><span class=si>}</span> --name <span class=si>${</span><span class=nv>VM_NAME</span><span class=si>}</span> --ostype l26 --agent <span class=nv>enabled</span><span class=o>=</span><span class=m>1</span>
-<span class=ln>16</span>	
-<span class=ln>17</span><span class=c1># 设置硬件</span>
-<span class=ln>18</span><span class=c1># CPU 核心数，主板芯片组，内存大小，网口，串口，显示卡</span>
-<span class=ln>19</span><span class=c1># 一般 cloud-init 镜像，都是将显示转到串口输出，比如ubuntu，不这样配置系统启动不了</span>
-<span class=ln>20</span>qm <span class=nb>set</span> <span class=si>${</span><span class=nv>VM_ID</span><span class=si>}</span> --cores <span class=m>2</span> --machine q35 --memory <span class=si>${</span><span class=nv>MEM_SIZE</span><span class=si>}</span> --net0 virtio,bridge<span class=o>=</span>vmbr0 --serial0 socket --vga serial0
-<span class=ln>21</span>
-<span class=ln>22</span><span class=c1># 配置硬盘</span>
-<span class=ln>23</span><span class=c1># ubuntu 必须使用 virtio-scsi-pci 接口，将 ubuntu cloud-init 镜像直接转换为硬盘，打开 IO thread</span>
-<span class=ln>24</span>qm <span class=nb>set</span> <span class=si>${</span><span class=nv>VM_ID</span><span class=si>}</span>	--scsihw virtio-scsi-pci --scsi0 <span class=nv>file</span><span class=o>=</span><span class=si>${</span><span class=nv>STORAGE_NAME</span><span class=si>}</span>:0,import-from<span class=o>=</span><span class=si>${</span><span class=nv>UBUNTU_IMG</span><span class=si>}</span>,iothread<span class=o>=</span><span class=m>1</span>
-<span class=ln>25</span><span class=c1># pvesm path local-lvm:vm-8000-disk-0</span>
-<span class=ln>26</span>
-<span class=ln>27</span><span class=c1># 配置 BIOS</span>
-<span class=ln>28</span><span class=c1># 使用 uefi，设置 efi 磁盘</span>
-<span class=ln>29</span><span class=c1># 注意此命令必须在配置硬盘命令后执行，因为使用 import-from 导入镜像时，必须使用&#34;${STORAGE_NAME}:0&#34;作为虚拟磁盘</span>
-<span class=ln>30</span>qm <span class=nb>set</span> <span class=si>${</span><span class=nv>VM_ID</span><span class=si>}</span> --bios ovmf --efidisk0 <span class=nv>file</span><span class=o>=</span><span class=si>${</span><span class=nv>STORAGE_NAME</span><span class=si>}</span>:1,efitype<span class=o>=</span>4m
-<span class=ln>31</span>
-<span class=ln>32</span><span class=c1># 配置 Cloud-Init</span>
-<span class=ln>33</span><span class=c1># 指定用户名，密码，ip设置 </span>
-<span class=ln>34</span>qm <span class=nb>set</span> <span class=si>${</span><span class=nv>VM_ID</span><span class=si>}</span> --ciuser pyspider --cipassword <span class=m>123456</span>  --ipconfig0 <span class=nv>ip</span><span class=o>=</span>dhcp,ip6<span class=o>=</span>dhcp
-<span class=ln>35</span><span class=c1># qm set ${VM_ID} --ciuser pyspider --sshkey ~/.ssh/id_rsa.pub --ipconfig0 ip=10.10.10.222/24,gw=10.10.10.1</span>
-<span class=ln>36</span>
-<span class=ln>37</span><span class=c1># 配置 Cloud-Init 磁盘</span>
-<span class=ln>38</span><span class=c1># 网上都让使用 --ide2 来作为磁盘接口，但实际使用中不能正常启动，只能使用 --scsi1</span>
-<span class=ln>39</span>qm <span class=nb>set</span> <span class=si>${</span><span class=nv>VM_ID</span><span class=si>}</span> --scsi1 <span class=si>${</span><span class=nv>STORAGE_NAME</span><span class=si>}</span>:cloudinit 
-<span class=ln>40</span>
-<span class=ln>41</span><span class=c1># 配置引导顺序</span>
-<span class=ln>42</span><span class=c1># 从 scsi0 引导启动</span>
-<span class=ln>43</span>qm <span class=nb>set</span> <span class=si>${</span><span class=nv>VM_ID</span><span class=si>}</span> --boot <span class=nv>order</span><span class=o>=</span>scsi0
-<span class=ln>44</span>
-<span class=ln>45</span><span class=c1># 查看 cloud-init 配置项</span>
-<span class=ln>46</span>qm cloudinit dump <span class=si>${</span><span class=nv>VM_ID</span><span class=si>}</span> user
-<span class=ln>47</span>
-<span class=ln>48</span><span class=c1># 将虚拟转为模板，方便以后从模板创建虚拟机</span>
-<span class=ln>49</span><span class=c1># 创建虚拟机后先进行配置，起码配置完SSHD，再转模板</span>
-<span class=ln>50</span>qm template <span class=si>${</span><span class=nv>VM_ID</span><span class=si>}</span>
+<h2 id=关闭>关闭</h2>
+<div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=ln>1</span>qm stop &lt;vmid&gt;
+<span class=ln>2</span><span class=c1># 如果关闭失败</span>
+<span class=ln>3</span>qm list
+<span class=ln>4</span><span class=c1># 找到 vm 对应的 pid</span>
+<span class=ln>5</span><span class=nb>kill</span> &lt;pid&gt;
 </code></pre></div><ul>
-<li><a href=https://pve.proxmox.com/pve-docs/chapter-qm.html>https://pve.proxmox.com/pve-docs/chapter-qm.html</a></li>
-<li><a href=https://gist.github.com/chriswayg/b6421dcc69cb3b7e41f2998f1150e1df>https://gist.github.com/chriswayg/b6421dcc69cb3b7e41f2998f1150e1df</a></li>
-<li><a href=https://techbythenerd.com/posts/creating-an-ubuntu-cloud-image-in-proxmox/>https://techbythenerd.com/posts/creating-an-ubuntu-cloud-image-in-proxmox/</a></li>
-<li><a href=https://austinsnerdythings.com/2021/08/30/how-to-create-a-proxmox-ubuntu-cloud-init-image/>https://austinsnerdythings.com/2021/08/30/how-to-create-a-proxmox-ubuntu-cloud-init-image/</a></li>
-<li><a href=https://www.cpci.dev/pve-cloud-init-and-cloud-image/>https://www.cpci.dev/pve-cloud-init-and-cloud-image/</a></li>
-<li><a href=http://book.321jr.com/books/6974c/page/pve-cloud-init>http://book.321jr.com/books/6974c/page/pve-cloud-init</a></li>
-<li><a href=http://book.321jr.com/books/6974c/page/pve-cloud-init-centosubuntudebiancloud-images>http://book.321jr.com/books/6974c/page/pve-cloud-init-centosubuntudebiancloud-images</a></li>
+<li><a href=https://blog.csdn.net/hlz_07/article/details/122305983>pve(proxmox ve)强制关闭虚拟机</a></li>
 </ul>
+<hr>
+<h2 id=删除>删除</h2>
+<div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=ln>1</span>qm destroy &lt;vmid&gt; --destroy-unreferenced-disks <span class=m>1</span> --purge <span class=m>1</span> --skiplock <span class=m>1</span>
+</code></pre></div><hr>
+<h2 id=强制删除>强制删除</h2>
+<div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=ln>1</span>rm -f /etc/pve/nodes/*/*/&lt;vm_id&gt;.conf
+</code></pre></div><ul>
+<li><a href=https://blog.pulipuli.info/2014/08/proxmox-ve-fix-proxmox-ve-destroy.html#postcataproxmox-ve-fix-proxmox-ve-destroy.html0_anchor2>修復Proxmox VE：無法刪除虛擬機器</a></li>
+</ul>
+<hr>
+<h2 id=lxc容器>LXC容器</h2>
+<h3 id=关闭-1>关闭</h3>
+<div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=ln>1</span>pct stop &lt;vmid&gt;
+<span class=ln>2</span>pct list
+</code></pre></div><hr>
 </div>
 <h2 class=post_related>相关专栏文章</h2>
 <ul>
