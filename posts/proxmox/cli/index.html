@@ -66,7 +66,7 @@
 <hr>
 <h3 id=调整硬盘大小>调整硬盘大小</h3>
 <div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=ln>1</span><span class=c1># 增加硬盘空间</span>
-<span class=ln>2</span><span class=c1># 建议从模板创建虚拟机后，再增加虚拟机硬盘的空间，保持模板的大小</span>
+<span class=ln>2</span><span class=c1># 建议从模板创建虚拟机后，再增加虚拟机硬盘的空间，这样可以保持模板的大小</span>
 <span class=ln>3</span>qm disk resize &lt;VM_ID&gt; scsi0 +30G
 </code></pre></div><p><em>注意不要对有系统的虚拟机硬盘进行操作</em></p>
 <ul>
@@ -79,10 +79,7 @@
 <span class=ln>3</span>qm list
 <span class=ln>4</span><span class=c1># 找到 vm 对应的 pid</span>
 <span class=ln>5</span><span class=nb>kill</span> &lt;pid&gt;
-</code></pre></div><ul>
-<li><a href=https://blog.csdn.net/hlz_07/article/details/122305983>pve(proxmox ve)强制关闭虚拟机</a></li>
-</ul>
-<hr>
+</code></pre></div><hr>
 <h2 id=删除>删除</h2>
 <div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=ln>1</span>qm destroy &lt;vmid&gt; --destroy-unreferenced-disks <span class=m>1</span> --purge <span class=m>1</span> --skiplock <span class=m>1</span>
 </code></pre></div><hr>
