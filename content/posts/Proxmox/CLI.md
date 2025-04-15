@@ -25,7 +25,7 @@ categories:
 ### 调整硬盘大小
 ```bash
 # 增加硬盘空间
-# 建议从模板创建虚拟机后，再增加虚拟机硬盘的空间，保持模板的大小
+# 建议从模板创建虚拟机后，再增加虚拟机硬盘的空间，这样可以保持模板的大小
 qm disk resize <VM_ID> scsi0 +30G
 ```
 *注意不要对有系统的虚拟机硬盘进行操作*
@@ -40,7 +40,6 @@ qm list
 # 找到 vm 对应的 pid
 kill <pid>
 ```
-- [pve(proxmox ve)强制关闭虚拟机](https://blog.csdn.net/hlz_07/article/details/122305983)
 ---
 
 ## 删除
