@@ -20,7 +20,6 @@ categories:
 ### 创建
 使用命令行创建 VM 非常方便，而且还可以使用各发行版的云镜像，快速创建速度又快，占用空间又小，非常方便。
 <script src="https://gist.github.com/Cuile/6e42bea498355d5cafaacfa66981daf9.js"></script>
----
 
 ### 调整硬盘大小
 ```bash
@@ -30,9 +29,8 @@ qm disk resize <VM_ID> scsi0 +30G
 ```
 *注意不要对有系统的虚拟机硬盘进行操作*
 - [ProxmoxVE(PVE) 减小缩减虚拟机硬盘设置的空间大小](https://mayanpeng.cn/archives/158.html#google_vignette)
----
 
-## 关闭
+### 关闭
 ```bash
 qm stop <vmid>
 # 如果关闭失败
@@ -40,26 +38,52 @@ qm list
 # 找到 vm 对应的 pid
 kill <pid>
 ```
----
 
-## 删除
+### 删除
 ```bash
 qm destroy <vmid> --destroy-unreferenced-disks 1 --purge 1 --skiplock 1
 ```
----
 
-## 强制删除
+### 强制删除
 ```bash
 rm -f /etc/pve/nodes/*/*/<vm_id>.conf
 ```
 - [修復Proxmox VE：無法刪除虛擬機器](https://blog.pulipuli.info/2014/08/proxmox-ve-fix-proxmox-ve-destroy.html#postcataproxmox-ve-fix-proxmox-ve-destroy.html0_anchor2)
----
 
+---
 ## LXC容器
 
-### 关闭
 ```bash
+# 关闭
 pct stop <vmid>
 pct list
 ```
+
 ---
+## 存储
+
+```bash
+# 查看存储空间使用情况
+pvesm status
+
+# 查看存储内的文件
+pvesm list <storage>
+
+# 查看存储配置
+cat /etc/pve/storage.cfg
+
+# 给local存储添加存储类型
+pvesm set local --content snippets,rootdir,import,images,backup,vztmpl,iso
+# 注意！！！片段文件只能放在 /var/lib/vz/snippets/ 目录下，不支持子目录
+
+# 将local-lvm(LVM-Thin)合并到local
+# 移动虚拟机硬盘到local
+qm disk move <vmid> <disk> <storage> --format qcow2 --delete 1
+# 移动容器卷到local
+pct move-volume <vmid> <volume> <storage> --delete 1
+# 删除local-lvm存储
+lvremove pve/data
+# 空间合并到local
+lvextend -l +100%FREE -r pve/root
+# 在WebUI的“数据中心”-"存储"里，手动移除local-lvm
+```
