@@ -6,14 +6,14 @@
 <meta http-equiv=x-ua-compatible content="IE=edge">
 <meta property="og:locale" content="zh-cn">
 <meta property="og:type" content="article">
-<meta name=description content="遇事不决，多读文档！ 虚拟机 创建 使用命令行创建 VM 非常方便，而且还可以使用各发行版的云镜像，快速创建速度又快，占用空间又小，非常方便。 调整硬盘大">
+<meta name=description content="遇事不决，多读文档！ 虚拟机 创建 使用命令行创建 VM 非常方便，而且还可以使用各发行版的云镜像，快速创建速度又快，占用空间又小，非常方便。 1# 增加硬盘">
 <meta name=twitter:card content="summary">
 <meta name=twitter:creator content>
 <meta name=twitter:title content="ProxmoxVE 命令行">
 <meta name=twitter:image content="https://cuile.github.io/images/thumbnail.png">
 <meta property="og:url" content="https://cuile.github.io/posts/proxmox/cli/">
 <meta property="og:title" content="ProxmoxVE 命令行">
-<meta property="og:description" content="遇事不决，多读文档！ 虚拟机 创建 使用命令行创建 VM 非常方便，而且还可以使用各发行版的云镜像，快速创建速度又快，占用空间又小，非常方便。 调整硬盘大">
+<meta property="og:description" content="遇事不决，多读文档！ 虚拟机 创建 使用命令行创建 VM 非常方便，而且还可以使用各发行版的云镜像，快速创建速度又快，占用空间又小，非常方便。 1# 增加硬盘">
 <meta property="og:image" content="https://cuile.github.io/images/thumbnail.png">
 <link rel=apple-touch-icon sizes=180x180 href=https://cuile.github.io/icons/apple-touch-icon.png>
 <link rel=icon type=image/png sizes=32x32 href=https://cuile.github.io/icons/favicon-32x32.png>
@@ -53,7 +53,7 @@
 </span>
 <span class=post_date>
 2022-12-27</span>
-<span class=post_time> · 阅读时长 1 分钟</span><span>&nbsp;· <a href=https://cuile.github.io/tags/proxmoxve/ title=ProxmoxVE class="post_tag button button_translucent">ProxmoxVE
+<span class=post_time> · 阅读时长 2 分钟</span><span>&nbsp;· <a href=https://cuile.github.io/tags/proxmoxve/ title=ProxmoxVE class="post_tag button button_translucent">ProxmoxVE
 </a><a href=https://cuile.github.io/tags/cli/ title=CLI class="post_tag button button_translucent">CLI
 </a>
 </span>
@@ -63,37 +63,54 @@
 <h3 id=创建>创建</h3>
 <p>使用命令行创建 VM 非常方便，而且还可以使用各发行版的云镜像，快速创建速度又快，占用空间又小，非常方便。</p>
 <script src=https://gist.github.com/Cuile/6e42bea498355d5cafaacfa66981daf9.js></script>
-<hr>
-<h3 id=调整硬盘大小>调整硬盘大小</h3>
-<div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=ln>1</span><span class=c1># 增加硬盘空间</span>
-<span class=ln>2</span><span class=c1># 建议从模板创建虚拟机后，再增加虚拟机硬盘的空间，这样可以保持模板的大小</span>
-<span class=ln>3</span>qm disk resize &lt;VM_ID&gt; scsi0 +30G
-</code></pre></div><p><em>注意不要对有系统的虚拟机硬盘进行操作</em></p>
-<ul>
-<li><a href=https://mayanpeng.cn/archives/158.html#google_vignette>ProxmoxVE(PVE) 减小缩减虚拟机硬盘设置的空间大小</a></li>
-</ul>
-<hr>
-<h2 id=关闭>关闭</h2>
-<div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=ln>1</span>qm stop &lt;vmid&gt;
-<span class=ln>2</span><span class=c1># 如果关闭失败</span>
-<span class=ln>3</span>qm list
-<span class=ln>4</span><span class=c1># 找到 vm 对应的 pid</span>
-<span class=ln>5</span><span class=nb>kill</span> &lt;pid&gt;
+<div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=ln> 1</span><span class=c1># 增加硬盘空间</span>
+<span class=ln> 2</span><span class=c1># 建议从模板创建虚拟机后，再增加虚拟机硬盘的空间，这样可以保持模板的大小</span>
+<span class=ln> 3</span>qm disk resize &lt;VM_ID&gt; scsi0 +30G
+<span class=ln> 4</span>
+<span class=ln> 5</span><span class=c1># 关闭</span>
+<span class=ln> 6</span>qm stop &lt;vmid&gt;
+<span class=ln> 7</span><span class=c1># 如果关闭失败</span>
+<span class=ln> 8</span>qm list
+<span class=ln> 9</span><span class=c1># 找到 vm 对应的 pid</span>
+<span class=ln>10</span><span class=nb>kill</span> &lt;pid&gt;
+<span class=ln>11</span>
+<span class=ln>12</span><span class=c1># 删除</span>
+<span class=ln>13</span>qm destroy &lt;vmid&gt; --destroy-unreferenced-disks <span class=m>1</span> --purge <span class=m>1</span> --skiplock <span class=m>1</span>
+<span class=ln>14</span>
+<span class=ln>15</span><span class=c1># 强制删除</span>
+<span class=ln>16</span>rm -f /etc/pve/nodes/*/*/&lt;vm_id&gt;.conf
+<span class=ln>17</span><span class=c1># [修復Proxmox VE：無法刪除虛擬機器](https://blog.pulipuli.info/2014/08/proxmox-ve-fix-proxmox-ve-destroy.html#postcataproxmox-ve-fix-proxmox-ve-destroy.html0_anchor2)</span>
 </code></pre></div><hr>
-<h2 id=删除>删除</h2>
-<div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=ln>1</span>qm destroy &lt;vmid&gt; --destroy-unreferenced-disks <span class=m>1</span> --purge <span class=m>1</span> --skiplock <span class=m>1</span>
-</code></pre></div><hr>
-<h2 id=强制删除>强制删除</h2>
-<div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=ln>1</span>rm -f /etc/pve/nodes/*/*/&lt;vm_id&gt;.conf
-</code></pre></div><ul>
-<li><a href=https://blog.pulipuli.info/2014/08/proxmox-ve-fix-proxmox-ve-destroy.html#postcataproxmox-ve-fix-proxmox-ve-destroy.html0_anchor2>修復Proxmox VE：無法刪除虛擬機器</a></li>
-</ul>
-<hr>
 <h2 id=lxc容器>LXC容器</h2>
-<h3 id=关闭-1>关闭</h3>
-<div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=ln>1</span>pct stop &lt;vmid&gt;
-<span class=ln>2</span>pct list
+<div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=ln>1</span><span class=c1># 关闭</span>
+<span class=ln>2</span>pct stop &lt;vmid&gt;
+<span class=ln>3</span>pct list
 </code></pre></div><hr>
+<h2 id=存储>存储</h2>
+<div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=ln> 1</span><span class=c1># 查看存储空间使用情况</span>
+<span class=ln> 2</span>pvesm status
+<span class=ln> 3</span>
+<span class=ln> 4</span><span class=c1># 查看存储内的文件</span>
+<span class=ln> 5</span>pvesm list &lt;storage&gt;
+<span class=ln> 6</span>
+<span class=ln> 7</span><span class=c1># 查看存储配置</span>
+<span class=ln> 8</span>cat /etc/pve/storage.cfg
+<span class=ln> 9</span>
+<span class=ln>10</span><span class=c1># 给local存储添加存储类型</span>
+<span class=ln>11</span>pvesm <span class=nb>set</span> <span class=nb>local</span> --content snippets,rootdir,import,images,backup,vztmpl,iso
+<span class=ln>12</span><span class=c1># 注意！！！片段文件只能放在 /var/lib/vz/snippets/ 目录下，不支持子目录</span>
+<span class=ln>13</span>
+<span class=ln>14</span><span class=c1># 将local-lvm(LVM-Thin)合并到local</span>
+<span class=ln>15</span><span class=c1># 移动虚拟机硬盘到local</span>
+<span class=ln>16</span>qm disk move &lt;vmid&gt; &lt;disk&gt; &lt;storage&gt; --format qcow2 --delete <span class=m>1</span>
+<span class=ln>17</span><span class=c1># 移动容器卷到local</span>
+<span class=ln>18</span>pct move-volume &lt;vmid&gt; &lt;volume&gt; &lt;storage&gt; --delete <span class=m>1</span>
+<span class=ln>19</span><span class=c1># 删除local-lvm存储</span>
+<span class=ln>20</span>lvremove pve/data
+<span class=ln>21</span><span class=c1># 空间合并到local</span>
+<span class=ln>22</span>lvextend -l +100%FREE -r pve/root
+<span class=ln>23</span><span class=c1># 在WebUI的“数据中心”-&#34;存储&#34;里，手动移除local-lvm</span>
+</code></pre></div>
 </div>
 <h2 class=post_related>相关专栏文章</h2>
 <ul>
