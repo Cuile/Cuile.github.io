@@ -6,14 +6,14 @@
 <meta http-equiv=x-ua-compatible content="IE=edge">
 <meta property="og:locale" content="zh-cn">
 <meta property="og:type" content="article">
-<meta name=description content="生成新的 SSH Key 1$ ssh-keygen -t rsa -b 4096 -C &#34;your_email@example.com&#34; 2... 3Enter a file in which to save the key (/home/you/.ssh/algorithm): …">
+<meta name=description content="生成新的 SSH Key 1ssh-keygen -t rsa -b 4096 -C &#34;your_email@example.com&#34; 2... 3Enter a file in which to save the key (/home/you/.ssh/algorithm): …">
 <meta name=twitter:card content="summary">
 <meta name=twitter:creator content>
 <meta name=twitter:title content="使用 SSH 连接 Github">
 <meta name=twitter:image content="https://cuile.github.io/images/thumbnail.png">
 <meta property="og:url" content="https://cuile.github.io/posts/git/connect_with_ssh/">
 <meta property="og:title" content="使用 SSH 连接 Github">
-<meta property="og:description" content="生成新的 SSH Key 1$ ssh-keygen -t rsa -b 4096 -C &#34;your_email@example.com&#34; 2... 3Enter a file in which to save the key (/home/you/.ssh/algorithm): …">
+<meta property="og:description" content="生成新的 SSH Key 1ssh-keygen -t rsa -b 4096 -C &#34;your_email@example.com&#34; 2... 3Enter a file in which to save the key (/home/you/.ssh/algorithm): …">
 <meta property="og:image" content="https://cuile.github.io/images/thumbnail.png">
 <link rel=apple-touch-icon sizes=180x180 href=https://cuile.github.io/icons/apple-touch-icon.png>
 <link rel=icon type=image/png sizes=32x32 href=https://cuile.github.io/icons/favicon-32x32.png>
@@ -61,7 +61,7 @@
 </span>
 </div>
 <div class=post_body><h2 id=生成新的-ssh-key>生成新的 SSH Key</h2>
-<div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=ln>1</span>$ ssh-keygen -t rsa -b <span class=m>4096</span> -C <span class=s2>&#34;your_email@example.com&#34;</span>
+<div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=ln>1</span>ssh-keygen -t rsa -b <span class=m>4096</span> -C <span class=s2>&#34;your_email@example.com&#34;</span>
 <span class=ln>2</span>...
 <span class=ln>3</span>Enter a file in which to save the key <span class=o>(</span>/home/you/.ssh/algorithm<span class=o>)</span>: &lt;key_name&gt;
 <span class=ln>4</span>Enter passphrase <span class=o>(</span>empty <span class=k>for</span> no passphrase<span class=o>)</span>: <span class=o>[</span>输入密码<span class=o>]</span>
@@ -70,7 +70,7 @@
 <ol>
 <li>将公钥文件的内容COPY出来</li>
 </ol>
-<div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=ln>1</span>$ cat ~/.ssh/&lt;key_name&gt;.pub
+<div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=ln>1</span>cat ~/.ssh/&lt;key_name&gt;.pub
 </code></pre></div><ol start=2>
 <li>Github.com -> "Settings" -> "SSH and GPG keys" -> "New SSH key"</li>
 </ol>
@@ -86,7 +86,7 @@ Key : 粘贴COPY的公钥内容</p>
 <li>ssh config</li>
 </ol>
 <div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=ln>1</span><span class=c1># 设置访问权限</span>
-<span class=ln>2</span>$ chmod <span class=m>600</span> &lt;key_name&gt;
+<span class=ln>2</span>chmod <span class=m>600</span> &lt;key_name&gt;
 </code></pre></div><div class=highlight><pre tabindex=0 class=chroma><code class=language-ini data-lang=ini><span class=ln>1</span><span class=c1># ~/.ssh/config</span>
 <span class=ln>2</span>
 <span class=ln>3</span><span class=na>Host github.com</span>
@@ -101,22 +101,23 @@ Key : 粘贴COPY的公钥内容</p>
 <ol start=2>
 <li>连接测试</li>
 </ol>
-<div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=ln>1</span>$ ssh -T git@github.com
+<div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=ln>1</span>ssh -T git@github.com
 <span class=ln>2</span>...
 <span class=ln>3</span>Are you sure you want to <span class=k>continue</span> connecting <span class=o>(</span>yes/no<span class=o>)</span>? &lt;yes&gt;
 <span class=ln>4</span>...
 <span class=ln>5</span>Hi &lt;username&gt;! You<span class=err>&#39;</span>ve successfully authenticated, but GitHub does not provide shell access.
 </code></pre></div><h2 id=自动验证>自动验证</h2>
 <p>如果找不到软件，<a href=https://crpm.cn/keychain-2-8-5-1-el7-noarch-rpm/>直接下载安装</a> 或 更换软件源 <a href=../linux/Linux_repo_Manual.md>Linux 版本库管理</a></p>
-<div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=ln>1</span><span class=c1># 安装keychain</span>
-<span class=ln>2</span><span class=c1># centos</span>
-<span class=ln>3</span>$ yum install -y keychain
-<span class=ln>4</span>
-<span class=ln>5</span><span class=c1># alpine linux</span>
-<span class=ln>6</span>$ apk add keychain
-</code></pre></div><div class=highlight><pre tabindex=0 class=chroma><code class=language-ini data-lang=ini><span class=ln>1</span><span class=c1># centos in ~/.bash_profile or ~/.bashrc</span>
-<span class=ln>2</span><span class=c1># alpine linux in /etc/profile.d/30user.sh</span>
-<span class=ln>3</span><span class=na>+ eval `keychain --eval ~/.ssh/github.com.key`</span>
+<div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=ln> 1</span><span class=c1># debian</span>
+<span class=ln> 2</span>apt install -y keychain
+<span class=ln> 3</span><span class=c1># centos</span>
+<span class=ln> 4</span>yum install -y keychain
+<span class=ln> 5</span><span class=c1># alpine linux</span>
+<span class=ln> 6</span>apk add keychain
+<span class=ln> 7</span>
+<span class=ln> 8</span><span class=c1># debian or centos in ~/.bashrc or ~/.bash_profile</span>
+<span class=ln> 9</span><span class=c1># alpine linux in /etc/profile.d/30user.sh</span>
+<span class=ln>10</span><span class=nb>echo</span> <span class=s2>&#34;eval `keychain --eval ~/.ssh/&lt;key_name&gt;`&#34;</span> &gt;&gt; <span class=si>${</span><span class=nv>HOME</span><span class=si>}</span>/.bashrc
 </code></pre></div><ul>
 <li><a href=https://docs.github.com/cn/github-ae@latest/authentication/connecting-to-github-with-ssh/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent>Generating a new SSH key and adding it to the ssh-agent</a></li>
 <li><a href=https://www.funtoo.org/Funtoo:Keychain>Funtoo Keychain Project</a></li>
