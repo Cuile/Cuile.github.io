@@ -13,31 +13,13 @@ series:
 categories:
 ---
 
-**`脚本基于Centos 7`**
-
 记录系统初始化应操作的一系统步骤，也可以直接下载[初始化脚本](https://gist.github.com/Cuile/dfb148517568e6086029ea6b7595810d)。
 <script src="https://gist.github.com/Cuile/dfb148517568e6086029ea6b7595810d.js"></script>
 
 ## 1. 系统更新
 - [Yum 版本库管理](../repo_manual/#更新)
 
-## 2. 修改命令提示符
-```bash
-# ~/.bash_profile
-
-# [HH:MM user@hostname path] 命令提示符
-echo "PS1='[\A \u@\H \w]\\$ '" >> ~/.bash_profile
-
-# [yyyy-mm-dd HH:MM] path
-# [user@hostname] 命令提示符
-echo "PS1='\[\e[36;40m\][\D{%Y-%m-%d} \A] \[\e[0m\] \[\e[35;40m\]\w\[\e[0m\]\n\[\e[33;40m\][\u@\H]\[\e[0m\] \\$ '" >> ~/.bash_profile
-```
-- [命令提示符设置参考](https://www.linuxidc.com/Linux/2017-10/147438.htm)
-
-## 3. 修改时区
-- [Systemd 系统工具命令指南](../systemd/#修改服务器时区)
-
-## 4. 远程公私钥登录
+## 2. 远程公私钥登录
 ```bash
 # 生成公钥、私钥
 ssh-keygen -t rsa -b 4096 -C "your_email@example.com"
@@ -46,45 +28,21 @@ Enter a file in which to save the key (/home/you/.ssh/algorithm): <key_name>
 Enter passphrase (empty for no passphrase): [输入密码]
 Enter same passphrase again: [再次输入密码]
 # 设置访问权限
+cd ~/.ssh
 chmod 600 <key_name>
 # 将公钥追加到 authorized_keys 文件，可追加多个公钥
 cat <key.pub> >> authorized_keys
 # 私钥在 SSH 登录时使用
 ```
 
-## 5. 配置防火墙
+## 3. 配置防火墙
 - [iptables 配置](../iptables_manual/)
 
-## 6. 配置 sshd
-```ini
-# /etc/ssh/sshd_config
-
-- #PasswordAuthentication yes
-+ PasswordAuthentication yes
-
-- #ClientAliveInterval 0
-- #ClientAliveCountMax 3
-+ ClientAliveInterval 60
-+ ClientAliveCountMax 3
-```
-```bash
-systemctl restart sshd
-```
-
-## 7. 配置 Git
-```bash
-yum install git
-```
-- [使用 SSH 连接 Github](../../git/connect_with_ssh/)
-
-## 8. 配置 Docker
-- [CentOS 7 安装 Docker](../../docker/docker_install_centos)
 ---
-
 - [Ubuntu 22 环境初始化](https://blog.hellowood.dev/posts/ubuntu-22-%E7%8E%AF%E5%A2%83%E5%88%9D%E5%A7%8B%E5%8C%96/#%E4%BF%AE%E6%94%B9-apt-%E6%BA%90)
 ---
 
-## 9. 配置Samba
+## 4. 配置Samba
 为使用机器名快速连接
 
 ## 其它配置
