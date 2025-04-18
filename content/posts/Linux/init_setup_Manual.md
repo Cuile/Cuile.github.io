@@ -8,7 +8,6 @@ tags:
 - bash
 - ssh
 - top
-- centos
 series:
 categories:
 ---
@@ -37,7 +36,6 @@ cat <key.pub> >> authorized_keys
 
 ## 3. 配置防火墙
 - [iptables 配置](../iptables_manual/)
-
 ---
 - [Ubuntu 22 环境初始化](https://blog.hellowood.dev/posts/ubuntu-22-%E7%8E%AF%E5%A2%83%E5%88%9D%E5%A7%8B%E5%8C%96/#%E4%BF%AE%E6%94%B9-apt-%E6%BA%90)
 ---
