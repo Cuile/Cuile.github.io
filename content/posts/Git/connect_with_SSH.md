@@ -38,18 +38,19 @@ cat ~/.ssh/<key_name>.pub
 ## 使用 SSH 连接到 Github
 1. ssh config
 ```bash
+cd ~/.ssh
 # 设置访问权限
 chmod 600 <key_name>
-```
-```ini
-# ~/.ssh/config
-
+# 生成SSH配置文件
+cat > config << EOF
 Host github.com
   Hostname ssh.github.com
   Port 443
   IdentityFile ~/.ssh/<key_name>
   UpdateHostKeys yes
+  Compression yes
   User git
+EOF
 ```
 - [Improving Git protocol security on GitHub - The GitHub Blog](https://github.blog/2021-09-01-improving-git-protocol-security-github/#standard-git-client)
 
@@ -75,7 +76,10 @@ apk add keychain
 
 # debian or centos in ~/.bashrc or ~/.bash_profile
 # alpine linux in /etc/profile.d/30user.sh
-echo "eval `keychain --eval ~/.ssh/<key_name>`" >> ${HOME}/.bashrc
+echo "eval `keychain --eval ~/.ssh/<key_name>`" >> ~/.bashrc
+...
+ * Adding 1 ssh key(s): /home/<username>/.ssh/<key_name>
+ * ssh-add: Identities added: /home/<username>/.ssh/<key_name>
 ```
 
 - [Generating a new SSH key and adding it to the ssh-agent](https://docs.github.com/cn/github-ae@latest/authentication/connecting-to-github-with-ssh/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent)
