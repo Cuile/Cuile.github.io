@@ -85,16 +85,19 @@ Key : 粘贴COPY的公钥内容</p>
 <ol>
 <li>ssh config</li>
 </ol>
-<div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=ln>1</span><span class=c1># 设置访问权限</span>
-<span class=ln>2</span>chmod <span class=m>600</span> &lt;key_name&gt;
-</code></pre></div><div class=highlight><pre tabindex=0 class=chroma><code class=language-ini data-lang=ini><span class=ln>1</span><span class=c1># ~/.ssh/config</span>
-<span class=ln>2</span>
-<span class=ln>3</span><span class=na>Host github.com</span>
-<span class=ln>4</span>  <span class=na>Hostname ssh.github.com</span>
-<span class=ln>5</span>  <span class=na>Port 443</span>
-<span class=ln>6</span>  <span class=na>IdentityFile ~/.ssh/&lt;key_name&gt;</span>
-<span class=ln>7</span>  <span class=na>UpdateHostKeys yes</span>
-<span class=ln>8</span>  <span class=na>User git</span>
+<div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=ln> 1</span><span class=nb>cd</span> ~/.ssh
+<span class=ln> 2</span><span class=c1># 设置访问权限</span>
+<span class=ln> 3</span>chmod <span class=m>600</span> &lt;key_name&gt;
+<span class=ln> 4</span><span class=c1># 生成SSH配置文件</span>
+<span class=ln> 5</span>cat &gt; config <span class=s>&lt;&lt; EOF
+</span><span class=ln> 6</span><span class=s>Host github.com
+</span><span class=ln> 7</span><span class=s>  Hostname ssh.github.com
+</span><span class=ln> 8</span><span class=s>  Port 443
+</span><span class=ln> 9</span><span class=s>  IdentityFile ~/.ssh/&lt;key_name&gt;
+</span><span class=ln>10</span><span class=s>  UpdateHostKeys yes
+</span><span class=ln>11</span><span class=s>  Compression yes
+</span><span class=ln>12</span><span class=s>  User git
+</span><span class=ln>13</span><span class=s>EOF</span>
 </code></pre></div><ul>
 <li><a href=https://github.blog/2021-09-01-improving-git-protocol-security-github/#standard-git-client>Improving Git protocol security on GitHub - The GitHub Blog</a></li>
 </ul>
@@ -117,7 +120,10 @@ Key : 粘贴COPY的公钥内容</p>
 <span class=ln> 7</span>
 <span class=ln> 8</span><span class=c1># debian or centos in ~/.bashrc or ~/.bash_profile</span>
 <span class=ln> 9</span><span class=c1># alpine linux in /etc/profile.d/30user.sh</span>
-<span class=ln>10</span><span class=nb>echo</span> <span class=s2>&#34;eval `keychain --eval ~/.ssh/&lt;key_name&gt;`&#34;</span> &gt;&gt; <span class=si>${</span><span class=nv>HOME</span><span class=si>}</span>/.bashrc
+<span class=ln>10</span><span class=nb>echo</span> <span class=s2>&#34;eval `keychain --eval ~/.ssh/&lt;key_name&gt;`&#34;</span> &gt;&gt; ~/.bashrc
+<span class=ln>11</span>...
+<span class=ln>12</span> * Adding <span class=m>1</span> ssh key<span class=o>(</span>s<span class=o>)</span>: /home/&lt;username&gt;/.ssh/&lt;key_name&gt;
+<span class=ln>13</span> * ssh-add: Identities added: /home/&lt;username&gt;/.ssh/&lt;key_name&gt;
 </code></pre></div><ul>
 <li><a href=https://docs.github.com/cn/github-ae@latest/authentication/connecting-to-github-with-ssh/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent>Generating a new SSH key and adding it to the ssh-agent</a></li>
 <li><a href=https://www.funtoo.org/Funtoo:Keychain>Funtoo Keychain Project</a></li>
