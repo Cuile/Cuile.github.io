@@ -47,7 +47,7 @@ $ chmod 600 <key_name>
 Host github.com
   Hostname ssh.github.com
   Port 443
-  IdentityFile ~/.ssh/cuile.key
+  IdentityFile ~/.ssh/<key_name>
   UpdateHostKeys yes
   User git
 ```
