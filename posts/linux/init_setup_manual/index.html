@@ -6,14 +6,14 @@
 <meta http-equiv=x-ua-compatible content="IE=edge">
 <meta property="og:locale" content="zh-cn">
 <meta property="og:type" content="article">
-<meta name=description content="脚本基于Centos 7 记录系统初始化应操作的一系统步骤，也可以直接下载初始化脚本。 1. 系统更新 Yum 版本库管理 2. 修改命令提示符 1# ~/.bash_profile 2 3# [HH:MM user@hostname path] 命令提">
+<meta name=description content="记录系统初始化应操作的一系统步骤，也可以直接下载初始化脚本。 1. 系统更新 Yum 版本库管理 2. 远程公私钥登录 1# 生成公钥、私钥 2ssh-keygen -t rsa -b 4096 -C &#34;your_email@example.com&#34; 3... 4Enter a file in …">
 <meta name=twitter:card content="summary">
 <meta name=twitter:creator content>
 <meta name=twitter:title content="Linux 系统初始化配置">
 <meta name=twitter:image content="https://cuile.github.io/images/thumbnail.png">
 <meta property="og:url" content="https://cuile.github.io/posts/linux/init_setup_manual/">
 <meta property="og:title" content="Linux 系统初始化配置">
-<meta property="og:description" content="脚本基于Centos 7 记录系统初始化应操作的一系统步骤，也可以直接下载初始化脚本。 1. 系统更新 Yum 版本库管理 2. 修改命令提示符 1# ~/.bash_profile 2 3# [HH:MM user@hostname path] 命令提">
+<meta property="og:description" content="记录系统初始化应操作的一系统步骤，也可以直接下载初始化脚本。 1. 系统更新 Yum 版本库管理 2. 远程公私钥登录 1# 生成公钥、私钥 2ssh-keygen -t rsa -b 4096 -C &#34;your_email@example.com&#34; 3... 4Enter a file in …">
 <meta property="og:image" content="https://cuile.github.io/images/thumbnail.png">
 <link rel=apple-touch-icon sizes=180x180 href=https://cuile.github.io/icons/apple-touch-icon.png>
 <link rel=icon type=image/png sizes=32x32 href=https://cuile.github.io/icons/favicon-32x32.png>
@@ -53,7 +53,7 @@
 </span>
 <span class=post_date>
 2022-01-17</span>
-<span class=post_time> · 阅读时长 2 分钟</span><span>&nbsp;· <a href=https://cuile.github.io/tags/linux/ title=linux class="post_tag button button_translucent">linux
+<span class=post_time> · 阅读时长 1 分钟</span><span>&nbsp;· <a href=https://cuile.github.io/tags/linux/ title=linux class="post_tag button button_translucent">linux
 </a><a href=https://cuile.github.io/tags/cli/ title=CLI class="post_tag button button_translucent">CLI
 </a><a href=https://cuile.github.io/tags/bash/ title=bash class="post_tag button button_translucent">bash
 </a><a href=https://cuile.github.io/tags/ssh/ title=ssh class="post_tag button button_translucent">ssh
@@ -62,30 +62,13 @@
 </a>
 </span>
 </div>
-<div class=post_body><p><strong><code>脚本基于Centos 7</code></strong></p>
-<p>记录系统初始化应操作的一系统步骤，也可以直接下载<a href=https://gist.github.com/Cuile/dfb148517568e6086029ea6b7595810d>初始化脚本</a>。</p>
+<div class=post_body><p>记录系统初始化应操作的一系统步骤，也可以直接下载<a href=https://gist.github.com/Cuile/dfb148517568e6086029ea6b7595810d>初始化脚本</a>。</p>
 <script src=https://gist.github.com/Cuile/dfb148517568e6086029ea6b7595810d.js></script>
 <h2 id=1-系统更新>1. 系统更新</h2>
 <ul>
 <li><a href=../repo_manual/#%E6%9B%B4%E6%96%B0>Yum 版本库管理</a></li>
 </ul>
-<h2 id=2-修改命令提示符>2. 修改命令提示符</h2>
-<div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=ln>1</span><span class=c1># ~/.bash_profile</span>
-<span class=ln>2</span>
-<span class=ln>3</span><span class=c1># [HH:MM user@hostname path] 命令提示符</span>
-<span class=ln>4</span><span class=nb>echo</span> <span class=s2>&#34;PS1=&#39;[\A \u@\H \w]\\</span>$<span class=s2> &#39;&#34;</span> &gt;&gt; ~/.bash_profile
-<span class=ln>5</span>
-<span class=ln>6</span><span class=c1># [yyyy-mm-dd HH:MM] path</span>
-<span class=ln>7</span><span class=c1># [user@hostname] 命令提示符</span>
-<span class=ln>8</span><span class=nb>echo</span> <span class=s2>&#34;PS1=&#39;\[\e[36;40m\][\D{%Y-%m-%d} \A] \[\e[0m\] \[\e[35;40m\]\w\[\e[0m\]\n\[\e[33;40m\][\u@\H]\[\e[0m\] \\</span>$<span class=s2> &#39;&#34;</span> &gt;&gt; ~/.bash_profile
-</code></pre></div><ul>
-<li><a href=https://www.linuxidc.com/Linux/2017-10/147438.htm>命令提示符设置参考</a></li>
-</ul>
-<h2 id=3-修改时区>3. 修改时区</h2>
-<ul>
-<li><a href=../systemd/#%E4%BF%AE%E6%94%B9%E6%9C%8D%E5%8A%A1%E5%99%A8%E6%97%B6%E5%8C%BA>Systemd 系统工具命令指南</a></li>
-</ul>
-<h2 id=4-远程公私钥登录>4. 远程公私钥登录</h2>
+<h2 id=2-远程公私钥登录>2. 远程公私钥登录</h2>
 <div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=ln> 1</span><span class=c1># 生成公钥、私钥</span>
 <span class=ln> 2</span>ssh-keygen -t rsa -b <span class=m>4096</span> -C <span class=s2>&#34;your_email@example.com&#34;</span>
 <span class=ln> 3</span>...
@@ -93,40 +76,21 @@
 <span class=ln> 5</span>Enter passphrase <span class=o>(</span>empty <span class=k>for</span> no passphrase<span class=o>)</span>: <span class=o>[</span>输入密码<span class=o>]</span>
 <span class=ln> 6</span>Enter same passphrase again: <span class=o>[</span>再次输入密码<span class=o>]</span>
 <span class=ln> 7</span><span class=c1># 设置访问权限</span>
-<span class=ln> 8</span>chmod <span class=m>600</span> &lt;key_name&gt;
-<span class=ln> 9</span><span class=c1># 将公钥追加到 authorized_keys 文件，可追加多个公钥</span>
-<span class=ln>10</span>cat &lt;key.pub&gt; &gt;&gt; authorized_keys
-<span class=ln>11</span><span class=c1># 私钥在 SSH 登录时使用</span>
-</code></pre></div><h2 id=5-配置防火墙>5. 配置防火墙</h2>
+<span class=ln> 8</span><span class=nb>cd</span> ~/.ssh
+<span class=ln> 9</span>chmod <span class=m>600</span> &lt;key_name&gt;
+<span class=ln>10</span><span class=c1># 将公钥追加到 authorized_keys 文件，可追加多个公钥</span>
+<span class=ln>11</span>cat &lt;key.pub&gt; &gt;&gt; authorized_keys
+<span class=ln>12</span><span class=c1># 私钥在 SSH 登录时使用</span>
+</code></pre></div><h2 id=3-配置防火墙>3. 配置防火墙</h2>
 <ul>
 <li><a href=../iptables_manual/>iptables 配置</a></li>
-</ul>
-<h2 id=6-配置-sshd>6. 配置 sshd</h2>
-<div class=highlight><pre tabindex=0 class=chroma><code class=language-ini data-lang=ini><span class=ln>1</span><span class=c1># /etc/ssh/sshd_config</span>
-<span class=ln>2</span>
-<span class=ln>3</span><span class=na>- #PasswordAuthentication yes</span>
-<span class=ln>4</span><span class=na>+ PasswordAuthentication yes</span>
-<span class=ln>5</span>
-<span class=ln>6</span><span class=na>- #ClientAliveInterval 0</span>
-<span class=ln>7</span><span class=na>- #ClientAliveCountMax 3</span>
-<span class=ln>8</span><span class=na>+ ClientAliveInterval 60</span>
-<span class=ln>9</span><span class=na>+ ClientAliveCountMax 3</span>
-</code></pre></div><div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=ln>1</span>systemctl restart sshd
-</code></pre></div><h2 id=7-配置-git>7. 配置 Git</h2>
-<div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=ln>1</span>yum install git
-</code></pre></div><ul>
-<li><a href=../../git/connect_with_ssh/>使用 SSH 连接 Github</a></li>
-</ul>
-<h2 id=8-配置-docker>8. 配置 Docker</h2>
-<ul>
-<li><a href=../../docker/docker_install_centos>CentOS 7 安装 Docker</a></li>
 </ul>
 <hr>
 <ul>
 <li><a href=https://blog.hellowood.dev/posts/ubuntu-22-%E7%8E%AF%E5%A2%83%E5%88%9D%E5%A7%8B%E5%8C%96/#%E4%BF%AE%E6%94%B9-apt-%E6%BA%90>Ubuntu 22 环境初始化</a></li>
 </ul>
 <hr>
-<h2 id=9-配置samba>9. 配置Samba</h2>
+<h2 id=4-配置samba>4. 配置Samba</h2>
 <p>为使用机器名快速连接</p>
 <h2 id=其它配置>其它配置</h2>
 <h3 id=网络端口操作>网络端口操作</h3>
