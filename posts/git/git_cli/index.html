@@ -198,13 +198,11 @@
 <span class=ln> 5</span><span class=c1># 设置新的远程分支</span>
 <span class=ln> 6</span>git branch -u origin/new-branch-name
 <span class=ln> 7</span><span class=c1># or</span>
-<span class=ln> 8</span>git branch --set-upstream old-branch-name origin/new-branch-name
-<span class=ln> 9</span><span class=c1># or</span>
-<span class=ln>10</span>git branch --set-upstream-to<span class=o>=</span>origin/new-branch-name old-branch-name
-<span class=ln>11</span><span class=c1># 验证配置结果</span>
-<span class=ln>12</span>git branch -vv
-<span class=ln>13</span><span class=c1># 删除旧的远程跟踪分支</span>
-<span class=ln>14</span>git branch -dr origin/old-branch-name
+<span class=ln> 8</span>git branch --set-upstream-to<span class=o>=</span>origin/new-branch-name old-branch-name
+<span class=ln> 9</span><span class=c1># 验证配置结果</span>
+<span class=ln>10</span>git branch -vv
+<span class=ln>11</span><span class=c1># 删除旧的远程跟踪分支</span>
+<span class=ln>12</span>git branch -dr origin/old-branch-name
 </code></pre></div><hr>
 <h2 id=3标签>3、标签</h2>
 <div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=ln>1</span><span class=c1># 查看现有的标签</span>
