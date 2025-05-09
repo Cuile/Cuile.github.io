@@ -81,35 +81,19 @@ git archive --format zip -0 \                         # 使用zip格式，不压
 git fetch origin branch-name
 git pull origin branch-name
 
-# 拉取
-git pull
 # 强制覆盖本地分支
 git fetch --all
 git reset --hard origin/branch-name
 git pull
 
-# 推送
-# 查看本地项目状态
-git status -s
-# 添加文件 | 添加目录 | 添加所有内容
-git add  file | dir | . 
-# 删除 add 的文件
-git rm [-r] --cached file | .
-# 提交已修改的文件，但不提交未跟踪的文件
-git commit -m "message" --untracked-files=no
-# 提交已删除的文件
-git commit -m "message" -a
-# 推送到远程库
-git push
+# 查看分支
+git branch -a
 
 # 创建分支
 # 只创建一个分支
 git branch branch-name
 # 创建一个分支并切换到该分支
 git checkout -b branch-name
-
-# 查看分支
-git branch -a
 
 # 切换分支
 git checkout branch-name
@@ -124,6 +108,20 @@ git push 远程主机名 本地分支名:远程分支名
 # 将 a 分支合并到 b 分支
 git checkout b
 git merge a
+git push
+
+# 推送
+# 查看本地项目状态
+git status -s
+# 添加文件 | 添加目录 | 添加所有内容
+git add  file | dir | . 
+# 删除 add 的文件
+git rm [-r] --cached file | .
+# 提交已修改的文件，但不提交未跟踪的文件
+git commit -m "message" --untracked-files=no
+# 提交已删除的文件
+git commit -m "message" -a
+# 推送到远程库
 git push
 ```
 
@@ -154,7 +152,7 @@ git reset --hard origin/branch-name
 git pull
 ```
 
-### 2.4 重命名分支
+### 2.4 在本地修改分支名称
 ```bash
 # 查看本地分支
 git branch -a
