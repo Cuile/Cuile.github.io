@@ -175,8 +175,6 @@ git branch -m old-branch-name new-branch-name
 # 设置新的远程分支
 git branch -u origin/new-branch-name
 # or
-git branch --set-upstream old-branch-name origin/new-branch-name
-# or
 git branch --set-upstream-to=origin/new-branch-name old-branch-name
 # 验证配置结果
 git branch -vv
