@@ -116,50 +116,48 @@
 <span class=ln> 2</span>git fetch origin branch-name
 <span class=ln> 3</span>git pull origin branch-name
 <span class=ln> 4</span>
-<span class=ln> 5</span><span class=c1># 拉取</span>
-<span class=ln> 6</span>git pull
-<span class=ln> 7</span><span class=c1># 强制覆盖本地分支</span>
-<span class=ln> 8</span>git fetch --all
-<span class=ln> 9</span>git reset --hard origin/branch-name
-<span class=ln>10</span>git pull
-<span class=ln>11</span>
-<span class=ln>12</span><span class=c1># 推送</span>
-<span class=ln>13</span><span class=c1># 查看本地项目状态</span>
-<span class=ln>14</span>git status -s
-<span class=ln>15</span><span class=c1># 添加文件 | 添加目录 | 添加所有内容</span>
-<span class=ln>16</span>git add  file <span class=p>|</span> dir <span class=p>|</span> . 
-<span class=ln>17</span><span class=c1># 删除 add 的文件</span>
-<span class=ln>18</span>git rm <span class=o>[</span>-r<span class=o>]</span> --cached file <span class=p>|</span> .
-<span class=ln>19</span><span class=c1># 提交已修改的文件，但不提交未跟踪的文件</span>
-<span class=ln>20</span>git commit -m <span class=s2>&#34;message&#34;</span> --untracked-files<span class=o>=</span>no
-<span class=ln>21</span><span class=c1># 提交已删除的文件</span>
-<span class=ln>22</span>git commit -m <span class=s2>&#34;message&#34;</span> -a
-<span class=ln>23</span><span class=c1># 推送到远程库</span>
-<span class=ln>24</span>git push
-<span class=ln>25</span>
-<span class=ln>26</span><span class=c1># 创建分支</span>
-<span class=ln>27</span><span class=c1># 只创建一个分支</span>
-<span class=ln>28</span>git branch branch-name
-<span class=ln>29</span><span class=c1># 创建一个分支并切换到该分支</span>
-<span class=ln>30</span>git checkout -b branch-name
-<span class=ln>31</span>
-<span class=ln>32</span><span class=c1># 查看分支</span>
-<span class=ln>33</span>git branch -a
-<span class=ln>34</span>
-<span class=ln>35</span><span class=c1># 切换分支</span>
-<span class=ln>36</span>git checkout branch-name
-<span class=ln>37</span>
-<span class=ln>38</span><span class=c1># 删除分支</span>
-<span class=ln>39</span>git branch -d branch-name
-<span class=ln>40</span>
-<span class=ln>41</span><span class=c1># 发布本地分支</span>
-<span class=ln>42</span>git push 远程主机名 本地分支名:远程分支名
-<span class=ln>43</span>
-<span class=ln>44</span><span class=c1># 合并分支</span>
-<span class=ln>45</span><span class=c1># 将 a 分支合并到 b 分支</span>
-<span class=ln>46</span>git checkout b
-<span class=ln>47</span>git merge a
-<span class=ln>48</span>git push
+<span class=ln> 5</span><span class=c1># 强制覆盖本地分支</span>
+<span class=ln> 6</span>git fetch --all
+<span class=ln> 7</span>git reset --hard origin/branch-name
+<span class=ln> 8</span>git pull
+<span class=ln> 9</span>
+<span class=ln>10</span><span class=c1># 查看分支</span>
+<span class=ln>11</span>git branch -a
+<span class=ln>12</span>
+<span class=ln>13</span><span class=c1># 创建分支</span>
+<span class=ln>14</span><span class=c1># 只创建一个分支</span>
+<span class=ln>15</span>git branch branch-name
+<span class=ln>16</span><span class=c1># 创建一个分支并切换到该分支</span>
+<span class=ln>17</span>git checkout -b branch-name
+<span class=ln>18</span>
+<span class=ln>19</span><span class=c1># 切换分支</span>
+<span class=ln>20</span>git checkout branch-name
+<span class=ln>21</span>
+<span class=ln>22</span><span class=c1># 删除分支</span>
+<span class=ln>23</span>git branch -d branch-name
+<span class=ln>24</span>
+<span class=ln>25</span><span class=c1># 发布本地分支</span>
+<span class=ln>26</span>git push 远程主机名 本地分支名:远程分支名
+<span class=ln>27</span>
+<span class=ln>28</span><span class=c1># 合并分支</span>
+<span class=ln>29</span><span class=c1># 将 a 分支合并到 b 分支</span>
+<span class=ln>30</span>git checkout b
+<span class=ln>31</span>git merge a
+<span class=ln>32</span>git push
+<span class=ln>33</span>
+<span class=ln>34</span><span class=c1># 推送</span>
+<span class=ln>35</span><span class=c1># 查看本地项目状态</span>
+<span class=ln>36</span>git status -s
+<span class=ln>37</span><span class=c1># 添加文件 | 添加目录 | 添加所有内容</span>
+<span class=ln>38</span>git add  file <span class=p>|</span> dir <span class=p>|</span> . 
+<span class=ln>39</span><span class=c1># 删除 add 的文件</span>
+<span class=ln>40</span>git rm <span class=o>[</span>-r<span class=o>]</span> --cached file <span class=p>|</span> .
+<span class=ln>41</span><span class=c1># 提交已修改的文件，但不提交未跟踪的文件</span>
+<span class=ln>42</span>git commit -m <span class=s2>&#34;message&#34;</span> --untracked-files<span class=o>=</span>no
+<span class=ln>43</span><span class=c1># 提交已删除的文件</span>
+<span class=ln>44</span>git commit -m <span class=s2>&#34;message&#34;</span> -a
+<span class=ln>45</span><span class=c1># 推送到远程库</span>
+<span class=ln>46</span>git push
 </code></pre></div><h3 id=22-远程分支操作>2.2 远程分支操作</h3>
 <div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=ln>1</span><span class=c1># 查看远程仓库地址</span>
 <span class=ln>2</span>git remote -v
@@ -181,7 +179,7 @@
 <span class=ln> 9</span>git fetch --all
 <span class=ln>10</span>git reset --hard origin/branch-name
 <span class=ln>11</span>git pull
-</code></pre></div><h3 id=24-重命名分支>2.4 重命名分支</h3>
+</code></pre></div><h3 id=24-在本地修改分支名称>2.4 在本地修改分支名称</h3>
 <div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=ln> 1</span><span class=c1># 查看本地分支</span>
 <span class=ln> 2</span>git branch -a
 <span class=ln> 3</span><span class=c1># 切换到要重命名的分支</span>
