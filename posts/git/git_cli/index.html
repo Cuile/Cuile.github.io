@@ -6,14 +6,14 @@
 <meta http-equiv=x-ua-compatible content="IE=edge">
 <meta property="og:locale" content="zh-cn">
 <meta property="og:type" content="article">
-<meta name=description content="0、基础设置 1# 查看代理 2$ git config --global --get http.proxy 3$ git config --global --get https.proxy 4# 设置代理 5$ git config --global http.proxy …">
+<meta name=description content="0、基础设置 1# 查看代理 2git config --global --get http.proxy 3git config --global --get https.proxy 4# 设置代理 5git config --global http.proxy …">
 <meta name=twitter:card content="summary">
 <meta name=twitter:creator content>
 <meta name=twitter:title content="Git 命令行">
 <meta name=twitter:image content="https://cuile.github.io/images/thumbnail.png">
 <meta property="og:url" content="https://cuile.github.io/posts/git/git_cli/">
 <meta property="og:title" content="Git 命令行">
-<meta property="og:description" content="0、基础设置 1# 查看代理 2$ git config --global --get http.proxy 3$ git config --global --get https.proxy 4# 设置代理 5$ git config --global http.proxy …">
+<meta property="og:description" content="0、基础设置 1# 查看代理 2git config --global --get http.proxy 3git config --global --get https.proxy 4# 设置代理 5git config --global http.proxy …">
 <meta property="og:image" content="https://cuile.github.io/images/thumbnail.png">
 <link rel=apple-touch-icon sizes=180x180 href=https://cuile.github.io/icons/apple-touch-icon.png>
 <link rel=icon type=image/png sizes=32x32 href=https://cuile.github.io/icons/favicon-32x32.png>
@@ -53,31 +53,31 @@
 </span>
 <span class=post_date>
 2022-05-16</span>
-<span class=post_time> · 阅读时长 3 分钟</span><span>&nbsp;· <a href=https://cuile.github.io/tags/cli/ title=CLI class="post_tag button button_translucent">CLI
+<span class=post_time> · 阅读时长 2 分钟</span><span>&nbsp;· <a href=https://cuile.github.io/tags/cli/ title=CLI class="post_tag button button_translucent">CLI
 </a><a href=https://cuile.github.io/tags/git/ title=git class="post_tag button button_translucent">git
 </a>
 </span>
 </div>
 <div class=post_body><h2 id=0基础设置>0、基础设置</h2>
 <div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=ln> 1</span><span class=c1># 查看代理</span>
-<span class=ln> 2</span>$ git config --global --get http.proxy
-<span class=ln> 3</span>$ git config --global --get https.proxy
+<span class=ln> 2</span>git config --global --get http.proxy
+<span class=ln> 3</span>git config --global --get https.proxy
 <span class=ln> 4</span><span class=c1># 设置代理</span>
-<span class=ln> 5</span>$ git config --global http.proxy http://<span class=o>[</span>username:passwrod@<span class=o>]</span>&lt;ip or URL&gt;:port 
-<span class=ln> 6</span>$ git config --global https.proxy http://<span class=o>[</span>username:passwrod@<span class=o>]</span>&lt;ip or URL&gt;:port
+<span class=ln> 5</span>git config --global http.proxy http://<span class=o>[</span>username:passwrod@<span class=o>]</span>ip or URL:port 
+<span class=ln> 6</span>git config --global https.proxy http://<span class=o>[</span>username:passwrod@<span class=o>]</span>ip or URL:port
 <span class=ln> 7</span><span class=c1># 取消代理</span>
-<span class=ln> 8</span>$ git config --global --unset http.proxy
-<span class=ln> 9</span>$ git config --global --unset https.proxy
+<span class=ln> 8</span>git config --global --unset http.proxy
+<span class=ln> 9</span>git config --global --unset https.proxy
 <span class=ln>10</span>
 <span class=ln>11</span><span class=c1># 只代理github.com</span>
-<span class=ln>12</span>$ git config --global --get http.https://github.com.proxy
-<span class=ln>13</span>$ git config --global --get https.https://github.com.proxy
-<span class=ln>14</span>$ git config --global http.https://github.com.proxy http://<span class=o>[</span>username:passwrod@<span class=o>]</span>&lt;ip or URL&gt;:port
-<span class=ln>15</span>$ git config --global https.https://github.com.proxy http://<span class=o>[</span>username:passwrod@<span class=o>]</span>&lt;ip or URL&gt;:port
-<span class=ln>16</span>$ git config --global --unset http.https://github.com.proxy
-<span class=ln>17</span>$ git config --global --unset https.https://github.com.proxy
+<span class=ln>12</span>git config --global --get http.https://github.com.proxy
+<span class=ln>13</span>git config --global --get https.https://github.com.proxy
+<span class=ln>14</span>git config --global http.https://github.com.proxy http://<span class=o>[</span>username:passwrod@<span class=o>]</span>ip or URL:port
+<span class=ln>15</span>git config --global https.https://github.com.proxy http://<span class=o>[</span>username:passwrod@<span class=o>]</span>ip or URL:port
+<span class=ln>16</span>git config --global --unset http.https://github.com.proxy
+<span class=ln>17</span>git config --global --unset https.https://github.com.proxy
 <span class=ln>18</span><span class=c1># push设置</span>
-<span class=ln>19</span>$ git config --global push.default simple
+<span class=ln>19</span>git config --global push.default simple
 </code></pre></div><ul>
 <li><a href=https://www.jianshu.com/p/b7ba3d954eb0>【Git】git push.default 简析 - 简书</a></li>
 <li><a href=https://blog.csdn.net/ThinkWon/article/details/101447866>Git忽略文件.gitignore详解</a></li>
@@ -85,30 +85,27 @@
 <hr>
 <h2 id=1项目>1、项目</h2>
 <h3 id=11-克隆项目>1.1 克隆项目</h3>
-<div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=ln> 1</span>$ git clone https://xxxx@bitbucket.org/xxxx/xxxx.git
-<span class=ln> 2</span><span class=c1># or </span>
-<span class=ln> 3</span>$ git clone git@github.com:xxxxx/xxxxx.git
-<span class=ln> 4</span><span class=c1># 克隆指定分支，到指定目录</span>
-<span class=ln> 5</span>$ git clone -b &lt;branch&gt; &lt;repo&gt; &lt;path&gt;
-<span class=ln> 6</span>
-<span class=ln> 7</span>$ git config user.name <span class=s2>&#34;Your Name&#34;</span>
-<span class=ln> 8</span>$ git config user.email you@example.com
-<span class=ln> 9</span>
-<span class=ln>10</span>
-<span class=ln>11</span>
+<div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=ln>1</span>git clone https://xxxx@bitbucket.org/xxxx/xxxx.git
+<span class=ln>2</span><span class=c1># or </span>
+<span class=ln>3</span>git clone git@github.com:xxxxx/xxxxx.git
+<span class=ln>4</span><span class=c1># 克隆指定分支，到指定目录</span>
+<span class=ln>5</span>git clone -b branch-name repo path
+<span class=ln>6</span>
+<span class=ln>7</span>git config user.name <span class=s2>&#34;Your Name&#34;</span>
+<span class=ln>8</span>git config user.email you@example.com
 </code></pre></div><h3 id=12-推送新项目到github>1.2 推送新项目到github</h3>
 <p>先在githubh上创建好项目</p>
-<div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=ln>1</span>$ git init
-<span class=ln>2</span>$ git add .
-<span class=ln>3</span>$ git status -s
-<span class=ln>4</span>$ git config user.name <span class=s2>&#34;Your Name&#34;</span>
-<span class=ln>5</span>$ git config user.email you@example.com
-<span class=ln>6</span>$ git commit --amend --reset-author
-<span class=ln>7</span>$ git commit -m <span class=s2>&#34;first commit&#34;</span>
-<span class=ln>8</span>$ git remote add origin git@github.com:Youname/repo_name.git
-<span class=ln>9</span>$ git push -u origin master
+<div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=ln>1</span>git init
+<span class=ln>2</span>git add .
+<span class=ln>3</span>git status -s
+<span class=ln>4</span>git config user.name <span class=s2>&#34;Your Name&#34;</span>
+<span class=ln>5</span>git config user.email you@example.com
+<span class=ln>6</span>git commit --amend --reset-author
+<span class=ln>7</span>git commit -m <span class=s2>&#34;first commit&#34;</span>
+<span class=ln>8</span>git remote add origin git@github.com:Youname/repo_name.git
+<span class=ln>9</span>git push -u origin master
 </code></pre></div><h3 id=13-导出>1.3 导出</h3>
-<div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=ln>1</span>$ git archive --format zip -0 <span class=se>\ </span>                        <span class=c1># 使用zip格式，不压缩</span>
+<div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=ln>1</span>git archive --format zip -0 <span class=se>\ </span>                        <span class=c1># 使用zip格式，不压缩</span>
 <span class=ln>2</span>              --output output.zip <span class=se>\ </span>                    <span class=c1># 输出的文件名</span>
 <span class=ln>3</span>              --remote git@github.com:Cuile/NMP.git <span class=se>\ </span>  <span class=c1># 远程项目地址</span>
 <span class=ln>4</span>              master <span class=se>\ </span>                                 <span class=c1># 分支名</span>
@@ -116,101 +113,110 @@
 </code></pre></div><h2 id=2分支>2、分支</h2>
 <h3 id=21-本地分支操作>2.1 本地分支操作</h3>
 <div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=ln> 1</span><span class=c1># 拉取</span>
-<span class=ln> 2</span>$ git pull
-<span class=ln> 3</span><span class=c1># 强制覆盖本地分支</span>
-<span class=ln> 4</span>$ git fetch --all
-<span class=ln> 5</span>$ git reset --hard origin/&lt;branch&gt;
-<span class=ln> 6</span>$ git pull
-<span class=ln> 7</span>
-<span class=ln> 8</span><span class=c1># 推送</span>
-<span class=ln> 9</span><span class=c1># 查看本地项目状态</span>
-<span class=ln>10</span>$ git status -s
-<span class=ln>11</span><span class=c1># 添加文件 | 添加目录 | 添加所有内容</span>
-<span class=ln>12</span>$ git add &lt; file <span class=p>|</span> dir <span class=p>|</span> . &gt;
-<span class=ln>13</span><span class=c1># 删除 add 的文件</span>
-<span class=ln>14</span>$ git rm <span class=o>[</span>-r<span class=o>]</span> --cached &lt;file <span class=p>|</span> .&gt;
-<span class=ln>15</span><span class=c1># 提交已修改的文件，但不提交未跟踪的文件</span>
-<span class=ln>16</span>$ git commit -m &lt;<span class=s2>&#34;message&#34;</span>&gt; --untracked-files<span class=o>=</span>no
-<span class=ln>17</span><span class=c1># 提交已删除的文件</span>
-<span class=ln>18</span>$ git commit -m &lt;<span class=s2>&#34;message&#34;</span>&gt; -a
-<span class=ln>19</span><span class=c1># 推送到远程库</span>
-<span class=ln>20</span>$ git push
-<span class=ln>21</span>
-<span class=ln>22</span><span class=c1># 创建分支</span>
-<span class=ln>23</span><span class=c1># 只创建一个分支</span>
-<span class=ln>24</span>$ git branch &lt;branch-name&gt;
-<span class=ln>25</span><span class=c1># 创建一个分支并切换到该分支</span>
-<span class=ln>26</span>$ git checkout -b &lt;branch-name&gt;
-<span class=ln>27</span>
-<span class=ln>28</span><span class=c1># 查看分支</span>
-<span class=ln>29</span>$ git branch -a
-<span class=ln>30</span>
-<span class=ln>31</span><span class=c1># 切换分支</span>
-<span class=ln>32</span>$ git checkout &lt;branch name&gt;
-<span class=ln>33</span>
-<span class=ln>34</span><span class=c1># 删除分支</span>
-<span class=ln>35</span>$ git branch -d &lt;branch name&gt;
-<span class=ln>36</span>
-<span class=ln>37</span><span class=c1># 发布本地分支</span>
-<span class=ln>38</span>$ git push &lt;远程主机名&gt; &lt;本地分支名&gt;:&lt;远程分支名&gt;
-<span class=ln>39</span>
-<span class=ln>40</span><span class=c1># 合并分支</span>
-<span class=ln>41</span><span class=c1># 将 a 分支合并到 b 分支</span>
-<span class=ln>42</span>$ git checkout b
-<span class=ln>43</span>$ git merge a
-<span class=ln>44</span>$ git push
+<span class=ln> 2</span>git fetch origin branch-name
+<span class=ln> 3</span>git pull origin branch-name
+<span class=ln> 4</span>
+<span class=ln> 5</span><span class=c1># 拉取</span>
+<span class=ln> 6</span>git pull
+<span class=ln> 7</span><span class=c1># 强制覆盖本地分支</span>
+<span class=ln> 8</span>git fetch --all
+<span class=ln> 9</span>git reset --hard origin/branch-name
+<span class=ln>10</span>git pull
+<span class=ln>11</span>
+<span class=ln>12</span><span class=c1># 推送</span>
+<span class=ln>13</span><span class=c1># 查看本地项目状态</span>
+<span class=ln>14</span>git status -s
+<span class=ln>15</span><span class=c1># 添加文件 | 添加目录 | 添加所有内容</span>
+<span class=ln>16</span>git add  file <span class=p>|</span> dir <span class=p>|</span> . 
+<span class=ln>17</span><span class=c1># 删除 add 的文件</span>
+<span class=ln>18</span>git rm <span class=o>[</span>-r<span class=o>]</span> --cached file <span class=p>|</span> .
+<span class=ln>19</span><span class=c1># 提交已修改的文件，但不提交未跟踪的文件</span>
+<span class=ln>20</span>git commit -m <span class=s2>&#34;message&#34;</span> --untracked-files<span class=o>=</span>no
+<span class=ln>21</span><span class=c1># 提交已删除的文件</span>
+<span class=ln>22</span>git commit -m <span class=s2>&#34;message&#34;</span> -a
+<span class=ln>23</span><span class=c1># 推送到远程库</span>
+<span class=ln>24</span>git push
+<span class=ln>25</span>
+<span class=ln>26</span><span class=c1># 创建分支</span>
+<span class=ln>27</span><span class=c1># 只创建一个分支</span>
+<span class=ln>28</span>git branch branch-name
+<span class=ln>29</span><span class=c1># 创建一个分支并切换到该分支</span>
+<span class=ln>30</span>git checkout -b branch-name
+<span class=ln>31</span>
+<span class=ln>32</span><span class=c1># 查看分支</span>
+<span class=ln>33</span>git branch -a
+<span class=ln>34</span>
+<span class=ln>35</span><span class=c1># 切换分支</span>
+<span class=ln>36</span>git checkout branch-name
+<span class=ln>37</span>
+<span class=ln>38</span><span class=c1># 删除分支</span>
+<span class=ln>39</span>git branch -d branch-name
+<span class=ln>40</span>
+<span class=ln>41</span><span class=c1># 发布本地分支</span>
+<span class=ln>42</span>git push 远程主机名 本地分支名:远程分支名
+<span class=ln>43</span>
+<span class=ln>44</span><span class=c1># 合并分支</span>
+<span class=ln>45</span><span class=c1># 将 a 分支合并到 b 分支</span>
+<span class=ln>46</span>git checkout b
+<span class=ln>47</span>git merge a
+<span class=ln>48</span>git push
 </code></pre></div><h3 id=22-远程分支操作>2.2 远程分支操作</h3>
-<div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=ln> 1</span><span class=c1># 拉取</span>
-<span class=ln> 2</span>$ git fetch origin &lt;branch&gt;
-<span class=ln> 3</span>$ git checkout -b &lt;branch&gt; origin/&lt;branch&gt;
-<span class=ln> 4</span>$ git pull origin &lt;branch&gt;
-<span class=ln> 5</span>
-<span class=ln> 6</span><span class=c1># 查看远程仓库地址</span>
-<span class=ln> 7</span>$ git remote -v
-<span class=ln> 8</span>
-<span class=ln> 9</span><span class=c1># 更新远程分支列表</span>
-<span class=ln>10</span><span class=c1># 如果你的 remote branch 不是在 origin 下，把 origin 换成你的名字</span>
-<span class=ln>11</span><span class=c1># --prune 删除远程已经删除的分支</span>
-<span class=ln>12</span>$ git remote update origin --prune
+<div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=ln>1</span><span class=c1># 查看远程仓库地址</span>
+<span class=ln>2</span>git remote -v
+<span class=ln>3</span>
+<span class=ln>4</span><span class=c1># 更新远程分支列表</span>
+<span class=ln>5</span><span class=c1># 如果你的 remote branch 不是在 origin 下，把 origin 换成你的名字</span>
+<span class=ln>6</span><span class=c1># --prune 删除远程已经删除的分支</span>
+<span class=ln>7</span>git remote update origin --prune
 </code></pre></div><h3 id=23-删除本地文件后从远端重新拉取最新版本>2.3 删除本地文件后，从远端重新拉取最新版本</h3>
 <p>git提示： up-to-date. 但未从远端得到文件</p>
 <div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=ln> 1</span><span class=c1># 1 查看本地分支是否发生变化</span>
-<span class=ln> 2</span>$ git branch -a
+<span class=ln> 2</span>git branch -a
 <span class=ln> 3</span>
 <span class=ln> 4</span><span class=c1># 2 如本地库处于另一个分支中，需将本地分支重置回原分支</span>
-<span class=ln> 5</span>$ git checkout &lt;branch name&gt;
-<span class=ln> 6</span>$ git reset --hard
+<span class=ln> 5</span>git checkout branch-name
+<span class=ln> 6</span>git reset --hard
 <span class=ln> 7</span>
 <span class=ln> 8</span><span class=c1># 3 如本地分支没有变化，则强行 pull 覆盖本地文件</span>
-<span class=ln> 9</span>$ git fetch --all
-<span class=ln>10</span>$ git reset --hard origin/&lt;branch name&gt;
-<span class=ln>11</span>$ git pull
+<span class=ln> 9</span>git fetch --all
+<span class=ln>10</span>git reset --hard origin/branch-name
+<span class=ln>11</span>git pull
 </code></pre></div><h3 id=24-重命名分支>2.4 重命名分支</h3>
 <div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=ln> 1</span><span class=c1># 查看本地分支</span>
-<span class=ln> 2</span>$ git branch -a
+<span class=ln> 2</span>git branch -a
 <span class=ln> 3</span><span class=c1># 切换到要重命名的分支</span>
-<span class=ln> 4</span>$ git checkout &lt;branch-name&gt;
+<span class=ln> 4</span>git checkout branch-name
 <span class=ln> 5</span><span class=c1># 重命名分支</span>
-<span class=ln> 6</span>$ git branch -m &lt;new branch-name&gt;
+<span class=ln> 6</span>git branch -m new-branch-name
 <span class=ln> 7</span><span class=c1># 上传新分支</span>
-<span class=ln> 8</span>$ git push origin -u &lt;new branch-name&gt;
+<span class=ln> 8</span>git push origin -u new-branch-name
 <span class=ln> 9</span><span class=c1># 删除原分支</span>
-<span class=ln>10</span>$ git push origin --delete &lt;old branch-name&gt;
+<span class=ln>10</span>git push origin --delete old-branch-name
 </code></pre></div><h3 id=25-更改本地分支对应的远程分支>2.5 更改本地分支对应的远程分支</h3>
-<div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=ln>1</span><span class=c1># dev为本地分支，origin/master为远程分支</span>
-<span class=ln>2</span>$ git branch --set-upstream-to<span class=o>=</span>origin/master dev
-<span class=ln>3</span><span class=c1># or</span>
-<span class=ln>4</span>$ git branch --set-upstream dev origin/master 
+<div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=ln> 1</span><span class=c1># 拉取远程最新分支信息</span>
+<span class=ln> 2</span>git fetch origin
+<span class=ln> 3</span><span class=c1># 重命名本地分支</span>
+<span class=ln> 4</span>git branch -m old-branch-name new-branch-name
+<span class=ln> 5</span><span class=c1># 设置新的远程分支</span>
+<span class=ln> 6</span>git branch -u origin/new-branch-name
+<span class=ln> 7</span><span class=c1># or</span>
+<span class=ln> 8</span>git branch --set-upstream old-branch-name origin/new-branch-name
+<span class=ln> 9</span><span class=c1># or</span>
+<span class=ln>10</span>git branch --set-upstream-to<span class=o>=</span>origin/new-branch-name old-branch-name
+<span class=ln>11</span><span class=c1># 验证配置结果</span>
+<span class=ln>12</span>git branch -vv
+<span class=ln>13</span><span class=c1># 删除旧的远程跟踪分支</span>
+<span class=ln>14</span>git branch -dr origin/old-branch-name
 </code></pre></div><hr>
 <h2 id=3标签>3、标签</h2>
 <div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=ln>1</span><span class=c1># 查看现有的标签</span>
-<span class=ln>2</span>$ git tag
+<span class=ln>2</span>git tag
 <span class=ln>3</span>
 <span class=ln>4</span><span class=c1># 给最新的提交打标签</span>
-<span class=ln>5</span>$ git tag 1.0
+<span class=ln>5</span>git tag 1.0
 <span class=ln>6</span>
 <span class=ln>7</span><span class=c1># 推送所有标签</span>
-<span class=ln>8</span>$ git push --tags
+<span class=ln>8</span>git push --tags
 </code></pre></div><hr>
 </div>
 <h2 class=post_related>相关专栏文章</h2>
