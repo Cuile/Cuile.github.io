@@ -7,7 +7,7 @@ date: 2023-05-06T20:20:12+08:00
 tags:
 - deepin
 - Hyper-V
-- 系统配置
+- 配置
 # 专栏
 series:
 - windows

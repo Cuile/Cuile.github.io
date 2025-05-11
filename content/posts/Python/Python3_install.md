@@ -8,7 +8,6 @@ tags:
 series:
 - Python
 categories:
-- 编程
 ---
 ## 1、查看已安装的Python
 

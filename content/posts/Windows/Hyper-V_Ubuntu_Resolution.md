@@ -7,7 +7,7 @@ date: 2022-12-26T20:58:50+08:00
 tags:
 - Ubuntu
 - Hyper-V
-- 系统配置
+- 配置
 # 专栏
 series:
 - windows

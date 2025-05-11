@@ -6,7 +6,7 @@ tags:
 - HarmonyOS
 series:
 categories:
-- 系统配置
+- 配置
 ---
 
 ## 保持后台进程运行

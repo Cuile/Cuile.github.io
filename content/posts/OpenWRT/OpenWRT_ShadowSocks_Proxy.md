@@ -9,7 +9,7 @@ tags:
 series:
 - OpenWRT
 categories:
-- 系统配置
+- 配置
 ---
 
 本文记录OpenWrt设置透明代理的步骤及原理。

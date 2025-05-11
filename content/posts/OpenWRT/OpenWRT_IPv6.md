@@ -13,7 +13,7 @@ series:
 - openwrt
 # 分类
 categories:
-- 系统配置
+- 配置
 ---
 
 OpenWRT 配置 IPv6，在网上有许多教程，但大部分都说的不清不楚。

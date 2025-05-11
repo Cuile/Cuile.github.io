@@ -1,11 +1,11 @@
 ---
-title: "Windows系统配置"
+title: "Windows配置"
 date: 2024-01-08T11:49:59+08:00
 # draft: true
 
 # 标签
 tags:
-- 系统配置
+- 配置
 # 专栏
 series:
 - windows

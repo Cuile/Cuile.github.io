@@ -7,7 +7,7 @@ tags:
 series:
 - OpenWRT
 categories:
-- 系统配置
+- 配置
 ---
 
 ## 1. 使用自定义域名访问WEB管理界面

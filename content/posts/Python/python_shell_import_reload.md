@@ -11,7 +11,7 @@ series:
 - python
 # 分类
 categories:
-- 编程
+- 代码
 ---
 
 不同版本中，不同的表现形式：

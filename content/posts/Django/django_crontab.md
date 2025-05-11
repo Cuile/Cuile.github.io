@@ -12,7 +12,7 @@ series:
 - django
 # 分类
 categories:
-- 编程
+- 代码
 ---
 
 ### 参考文档

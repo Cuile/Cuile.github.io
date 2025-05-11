@@ -7,7 +7,7 @@ tags:
 series:
 - Python
 categories:
-- 编程
+- 代码
 ---
 
 > urllib.parse.urlencode(query, doseq=False, safe='', encoding=None, errors=None, quote_via=quote_plus)

@@ -11,7 +11,7 @@ series:
 - OpenWRT
 # 分类
 categories:
-- 系统配置
+- 配置
 ---
 
 ## x86

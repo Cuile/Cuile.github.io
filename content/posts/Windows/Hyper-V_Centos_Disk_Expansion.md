@@ -7,7 +7,7 @@ date: 2022-12-26T21:01:32+08:00
 tags:
 - CentOS
 - Hyper-V
-- 系统配置
+- 配置
 # 专栏
 series:
 - windows

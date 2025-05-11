@@ -7,7 +7,6 @@ tags:
 series:
 - OpenWRT
 categories:
-- 编译
 ---
 
 ## 1、准备环境
