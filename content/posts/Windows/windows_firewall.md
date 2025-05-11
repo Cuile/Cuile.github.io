@@ -10,7 +10,8 @@ tags:
 series:
 - windows
 # 分类
-# categories:
+categories:
+- 配置
 ---
 
 ## 参考

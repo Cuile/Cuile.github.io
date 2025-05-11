@@ -7,12 +7,12 @@ date: 2022-12-26T20:49:50+08:00
 tags:
 - network
 - Hyper-V
-- 配置
 # 专栏
 series:
 - windows
 # 分类
 categories:
+- 配置
 ---
 
 ## 1. 网络配置的方法

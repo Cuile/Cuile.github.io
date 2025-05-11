@@ -6,12 +6,12 @@ date: 2022-12-26T20:55:50+08:00
 # 标签
 tags:
 - Hyper-V
-- 配置
 # 专栏
 series:
 - Windows
 # 分类
 categories:
+- 配置
 ---
 
 一般新电脑买来都默认安排家庭版，相比专业版一个主要的区别就是没有Hpyer-V 功能。

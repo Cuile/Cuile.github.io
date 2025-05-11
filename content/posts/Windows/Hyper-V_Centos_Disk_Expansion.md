@@ -7,12 +7,12 @@ date: 2022-12-26T21:01:32+08:00
 tags:
 - CentOS
 - Hyper-V
-- 配置
 # 专栏
 series:
 - windows
 # 分类
 categories:
+- 配置
 ---
 
 使用Hyper-V安装CentOS虚拟机，使用起来非常方便。但遇到磁盘空间不够时，不像Windows虚拟机那样方便给磁盘空间扩容。

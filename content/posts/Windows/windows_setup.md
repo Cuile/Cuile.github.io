@@ -5,12 +5,13 @@ date: 2024-01-08T11:49:59+08:00
 
 # 标签
 tags:
-- 配置
+- 输入法
 # 专栏
 series:
 - windows
 # 分类
-# categories:
+categories:
+- 配置
 ---
 
 ## Windows 10 自带输入法，没有候选字栏
