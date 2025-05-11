@@ -5,11 +5,11 @@ date: 2023-10-03T13:04:09+08:00
 
 # 标签
 tags:
-- proxmoxve
 - tcp
 - bbr
 # 专栏
 series:
+- proxmoxve
 # 分类
 categories:
 ---

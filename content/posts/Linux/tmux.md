@@ -5,11 +5,11 @@ date: 2024-02-21T16:08:32+08:00
 
 # 标签
 tags:
-- linux
 - cli
 - tmux
 # 专栏
-# series:
+series:
+- linux
 # 分类
 # categories:
 ---

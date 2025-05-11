@@ -7,10 +7,10 @@ date: 2023-11-25T00:24:10+08:00
 tags:
 - python
 - venv
-- vscode
 - docker
 # 专栏
-# series:
+series:
+- vscode
 # 分类
 # categories:
 ---

@@ -4,10 +4,11 @@ date: 2022-05-13T14:30:22+08:00
 # draft: true
 tags:
 - 心得体会
-series:
 - 火炮
-categories:
 - 坦克世界
+series:
+- 游戏
+categories:
 ---
 
 ## 火炮

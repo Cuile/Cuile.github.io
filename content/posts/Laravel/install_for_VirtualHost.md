@@ -3,8 +3,9 @@ title: "虚拟主机安装 Laravel 框架"
 date: 2024-01-19T13:18:15+08:00
 tags:
 - php
-- laravel
 - docker
+series:
+- laravel
 ---
 
 因为阿里的弹性WEB托管，使用php 5.5.30版本，所以只能安装Laravel 5.2版本。

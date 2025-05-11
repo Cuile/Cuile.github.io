@@ -6,8 +6,8 @@ tags:
 - linux
 - CentOS
 - rocky
-- Docker
 series:
+- Docker
 categories:
 ---
 

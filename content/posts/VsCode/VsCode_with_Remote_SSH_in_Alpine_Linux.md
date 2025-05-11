@@ -7,9 +7,9 @@ date: 2023-01-03T20:42:02+08:00
 tags:
 - alpine linux
 - remote ssh
-- vscode
 # 专栏
 series:
+- vscode
 # 分类
 categories:
 ---

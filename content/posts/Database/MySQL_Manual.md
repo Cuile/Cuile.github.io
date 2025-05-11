@@ -3,6 +3,8 @@ title: "MySQL 数据操作"
 date: 2022-01-18T14:50:28+08:00
 # draft: true
 tags: ["mysql"]
+series:
+- database
 ---
 
 ## 1. 复制

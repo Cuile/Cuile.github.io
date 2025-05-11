@@ -5,11 +5,11 @@ date: 2022-12-28T14:24:08+08:00
 
 # 标签
 tags:
-- linux
 - cli
 - screen
 # 专栏
 series:
+- linux
 # 分类
 categories:
 ---

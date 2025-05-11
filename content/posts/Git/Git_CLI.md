@@ -4,8 +4,8 @@ date: 2022-05-16T14:32:27+08:00
 # draft: true
 tags:
 - CLI
-- git
 series:
+- git
 categories:
 ---
 

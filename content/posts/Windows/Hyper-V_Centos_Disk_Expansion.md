@@ -7,10 +7,10 @@ date: 2022-12-26T21:01:32+08:00
 tags:
 - CentOS
 - Hyper-V
-- windows
 - 系统配置
 # 专栏
 series:
+- windows
 # 分类
 categories:
 ---

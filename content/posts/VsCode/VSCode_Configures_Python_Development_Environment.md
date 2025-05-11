@@ -8,9 +8,9 @@ tags:
 - micromamba
 - python
 - venv
-- vscode
 # 专栏
-# series:
+series:
+- vscode
 # 分类
 # categories:
 ---

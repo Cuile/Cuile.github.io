@@ -3,9 +3,9 @@ title: "ProxmoxVE 配置 NAT 网络"
 date: 2022-02-07T14:07:32+08:00
 # draft: true
 tags:
-- proxmoxve
 - NAT
 series:
+- proxmoxve
 categories:
 ---
 

@@ -3,9 +3,10 @@ title: "在CentOS中安装 Laravel 框架"
 date: 2024-01-19T13:26:15+08:00
 tags:
 - php
-- laravel
 - docker
 - centos
+series:
+- laravel
 ---
 
 ## 1、安装Composer镜像

@@ -3,8 +3,9 @@ title: "FFmpeg脚本"
 date: 2022-02-08T10:31:15+08:00
 # draft: true
 tags:
-- FFmpeg
 - Windwos 10
+series:
+- FFmpeg
 ---
 
 *脚本基于Windows10系统设计*

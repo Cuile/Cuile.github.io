@@ -6,10 +6,10 @@ date: 2025-02-07T09:44:39+08:00
 # 标签
 tags:
 - ipv6
-- proxmoxve
 - DHCP
 # 专栏
-# series:
+series:
+- proxmoxve
 # 分类
 # categories:
 ---

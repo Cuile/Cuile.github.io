@@ -3,10 +3,10 @@ title: "frp安装配置"
 date: 2022-12-28T17:15:15+08:00
 # draft: true
 tags: 
-- linux
 - frp
 - proxy
 series:
+- linux
 categories:
 ---
 

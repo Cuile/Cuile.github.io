@@ -6,9 +6,10 @@ date: 2022-07-19T11:31:21+08:00
 # 标签
 tags:
 - docker compose
-- Docker
+- cli
 # 专栏
 series:
+- Docker
 # 分类
 categories:
 ---

@@ -5,10 +5,10 @@ date: 2024-01-08T11:49:59+08:00
 
 # 标签
 tags:
-- windows
 - 系统配置
 # 专栏
-# series:
+series:
+- windows
 # 分类
 # categories:
 ---

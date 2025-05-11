@@ -5,10 +5,10 @@ date: 2024-10-23T16:49:42+08:00
 
 # 标签
 tags:
-- windows
 - firewall
 # 专栏
-# series:
+series:
+- windows
 # 分类
 # categories:
 ---

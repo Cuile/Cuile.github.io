@@ -8,9 +8,9 @@ tags:
 - deepin
 - Hyper-V
 - 系统配置
-- windows
 # 专栏
 series:
+- windows
 # 分类
 categories:
 ---

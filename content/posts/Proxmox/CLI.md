@@ -5,10 +5,10 @@ date: 2022-12-27T16:51:54+08:00
 
 # 标签
 tags:
-- ProxmoxVE
 - CLI
 # 专栏
 series:
+- ProxmoxVE
 # 分类
 categories:
 ---

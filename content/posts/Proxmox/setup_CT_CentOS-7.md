@@ -5,13 +5,13 @@ date: 2024-01-31T21:37:49+08:00
 
 # 标签
 tags:
-- proxmoxve
 - CT Container
 - lxc
 - centos 7
 - linux
 # 专栏
-# series:
+series:
+- proxmoxve
 # 分类
 # categories:
 ---

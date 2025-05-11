@@ -5,11 +5,11 @@ date: 2022-12-26T20:55:50+08:00
 
 # 标签
 tags:
-- Windows
 - Hyper-V
 - 系统配置
 # 专栏
 series:
+- Windows
 # 分类
 categories:
 ---

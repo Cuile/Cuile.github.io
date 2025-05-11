@@ -3,10 +3,10 @@ title: "iptables 配置"
 date: 2022-02-08T10:09:48+08:00
 # draft: true
 tags:
-- linux
 - iptables
 - Firewall
 series:
+- linux
 categories:
 ---
 

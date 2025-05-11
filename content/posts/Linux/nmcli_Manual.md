@@ -3,11 +3,11 @@ title: "使用 nmcli 配置网络"
 date: 2022-01-17T15:17:58+08:00
 # draft: true
 tags:
-- Linux
 - CLI
 - nmcli
 - network
 series:
+- Linux
 categories:
 ---
 

@@ -8,9 +8,9 @@ tags:
 - wins
 - netbios
 - centos
-- linux
 # 专栏
-# series:
+series:
+- linux
 # 分类
 # categories:
 ---

@@ -5,10 +5,10 @@ date: 2023-06-06T20:20:04+08:00
 
 # 标签
 tags:
-- proxmoxve
 - subscription
 # 专栏
 series:
+- proxmoxve
 # 分类
 categories:
 ---

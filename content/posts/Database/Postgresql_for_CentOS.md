@@ -4,6 +4,8 @@ date: 2024-01-19T13:37:15+08:00
 tags:
 - postgresql
 - centos
+series:
+- database
 ---
 
 ## 安装

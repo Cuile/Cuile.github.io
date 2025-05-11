@@ -6,9 +6,9 @@ date: 2025-03-16T11:07:37+08:00
 # 标签
 tags:
 - nuitka
-- python
 # 专栏
-# series:
+series:
+- python
 # 分类
 # categories:
 ---

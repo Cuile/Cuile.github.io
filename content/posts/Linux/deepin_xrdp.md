@@ -5,11 +5,11 @@ date: 2023-05-06T21:04:06+08:00
 
 # 标签
 tags:
-- linux
 - deepin
 - rdp
 # 专栏
 series:
+- linux
 # 分类
 categories:
 ---
