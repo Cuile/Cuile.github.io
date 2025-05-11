@@ -53,141 +53,6 @@
 <div class=excerpt>
 <div class=excerpt_header>
 <h3 class=post_link>
-<a href=https://cuile.github.io/posts/proxmox/dhcp/ title="ProxmoxVE 配置 DHCP 网络">ProxmoxVE 配置 DHCP 网络</a>
-</h3>
-<div class=post_meta>
-<span><svg class="icon"><title>calendar</title><use xlink:href="#calendar"/></svg>
-</span>
-<span class=post_date>
-2025-02-07</span>
-<span class=post_time> · 阅读时长 1 分钟</span><span>&nbsp;· <a href=https://cuile.github.io/tags/ipv6/ title=ipv6 class="post_tag button button_translucent">ipv6
-</a><a href=https://cuile.github.io/tags/proxmoxve/ title=proxmoxve class="post_tag button button_translucent">proxmoxve
-</a><a href=https://cuile.github.io/tags/dhcp/ title=DHCP class="post_tag button button_translucent">DHCP
-</a>
-</span>
-</div>
-</div>
-<div class=excerpt_footer>
-<div class=pale>
-<p>PVE 节点的网络配置，在 WebUI 里只能设置为静态地址，想设置DHCP的话需要使用以下方法。 方法一 1$ cp /etc/network/interfaces /etc/network/interfaces.new 1# /etc/network/interfaces.new 2... 3# IPv4 4iface vmbr0 inet dhcp 5 # address 192.168.1.66/24 6 # gateway 192.168.1.1 7 bridge-ports enp1s0 8 bridge-stp off</p>
-<br>
-<a href=https://cuile.github.io/posts/proxmox/dhcp/ title=阅读更多 class="excerpt_more button">阅读更多</a>
-</div>
-</div>
-</div>
-</li>
-<li class=post_item>
-<div class=excerpt>
-<div class=excerpt_header>
-<h3 class=post_link>
-<a href=https://cuile.github.io/posts/proxmox/setup_ct_centos-7/ title="配置 CentOS 7 的 CT 容器">配置 CentOS 7 的 CT 容器</a>
-</h3>
-<div class=post_meta>
-<span><svg class="icon"><title>calendar</title><use xlink:href="#calendar"/></svg>
-</span>
-<span class=post_date>
-2024-01-31</span>
-<span class=post_time> · 阅读时长 1 分钟</span><span>&nbsp;· <a href=https://cuile.github.io/tags/proxmoxve/ title=proxmoxve class="post_tag button button_translucent">proxmoxve
-</a><a href=https://cuile.github.io/tags/ct-container/ title="CT Container" class="post_tag button button_translucent">CT Container
-</a><a href=https://cuile.github.io/tags/lxc/ title=lxc class="post_tag button button_translucent">lxc
-</a><a href=https://cuile.github.io/tags/centos-7/ title="centos 7" class="post_tag button button_translucent">centos 7
-</a><a href=https://cuile.github.io/tags/linux/ title=linux class="post_tag button button_translucent">linux
-</a>
-</span>
-</div>
-</div>
-<div class=excerpt_footer>
-<div class=pale>
-<p>Proxmox VE 官方提供的 Centos 7 模板是有问题的无法正常使用，现在给出解决方案。 安装 安装完成后，容器可以启动，但无法关闭、网络无法使用、控制台无法使用，这些</p>
-<br>
-<a href=https://cuile.github.io/posts/proxmox/setup_ct_centos-7/ title=阅读更多 class="excerpt_more button">阅读更多</a>
-</div>
-</div>
-</div>
-</li>
-<li class=post_item>
-<div class=excerpt>
-<div class=excerpt_header>
-<h3 class=post_link>
-<a href=https://cuile.github.io/posts/proxmox/bbr/ title="ProxmoxVE 配置 BBR">ProxmoxVE 配置 BBR</a>
-</h3>
-<div class=post_meta>
-<span><svg class="icon"><title>calendar</title><use xlink:href="#calendar"/></svg>
-</span>
-<span class=post_date>
-2023-10-03</span>
-<span class=post_time> · 阅读时长 1 分钟</span><span>&nbsp;· <a href=https://cuile.github.io/tags/proxmoxve/ title=proxmoxve class="post_tag button button_translucent">proxmoxve
-</a><a href=https://cuile.github.io/tags/tcp/ title=tcp class="post_tag button button_translucent">tcp
-</a><a href=https://cuile.github.io/tags/bbr/ title=bbr class="post_tag button button_translucent">bbr
-</a>
-</span>
-</div>
-</div>
-<div class=excerpt_footer>
-<div class=pale>
-<p>查看系统内核 1$ uname -r kernel 4.9 及以上已支持 tcp_bbr，看内核版本是否大于等于4.9，否则要升级内核，或者安装bbr。 bbr2 效果要好于 bbr，相当原理</p>
-<br>
-<a href=https://cuile.github.io/posts/proxmox/bbr/ title=阅读更多 class="excerpt_more button">阅读更多</a>
-</div>
-</div>
-</div>
-</li>
-<li class=post_item>
-<div class=excerpt>
-<div class=excerpt_header>
-<h3 class=post_link>
-<a href=https://cuile.github.io/posts/proxmox/subscription/ title="ProxmoxVE 关闭订阅提示">ProxmoxVE 关闭订阅提示</a>
-</h3>
-<div class=post_meta>
-<span><svg class="icon"><title>calendar</title><use xlink:href="#calendar"/></svg>
-</span>
-<span class=post_date>
-2023-06-06</span>
-<span class=post_time> · 阅读时长 1 分钟</span><span>&nbsp;· <a href=https://cuile.github.io/tags/proxmoxve/ title=proxmoxve class="post_tag button button_translucent">proxmoxve
-</a><a href=https://cuile.github.io/tags/subscription/ title=subscription class="post_tag button button_translucent">subscription
-</a>
-</span>
-</div>
-</div>
-<div class=excerpt_footer>
-<div class=pale>
-<p>修改JS文件 1$ nano /usr/share/javascript/proxmox-widget-toolkit/proxmoxlib.js 6.0+ (380行) 1if (data.status !== 'Active') { 替换为 1if (false) { 重启服务 1$ systemctl restart pveproxy.service 参考文档 PVE 去掉登录后无效订阅提示</p>
-<br>
-<a href=https://cuile.github.io/posts/proxmox/subscription/ title=阅读更多 class="excerpt_more button">阅读更多</a>
-</div>
-</div>
-</div>
-</li>
-<li class=post_item>
-<div class=excerpt>
-<div class=excerpt_header>
-<h3 class=post_link>
-<a href=https://cuile.github.io/posts/proxmox/cli/ title="ProxmoxVE 命令行">ProxmoxVE 命令行</a>
-</h3>
-<div class=post_meta>
-<span><svg class="icon"><title>calendar</title><use xlink:href="#calendar"/></svg>
-</span>
-<span class=post_date>
-2022-12-27</span>
-<span class=post_time> · 阅读时长 2 分钟</span><span>&nbsp;· <a href=https://cuile.github.io/tags/proxmoxve/ title=ProxmoxVE class="post_tag button button_translucent">ProxmoxVE
-</a><a href=https://cuile.github.io/tags/cli/ title=CLI class="post_tag button button_translucent">CLI
-</a>
-</span>
-</div>
-</div>
-<div class=excerpt_footer>
-<div class=pale>
-<p>遇事不决，多读文档！ 虚拟机 创建 使用命令行创建 VM 非常方便，而且还可以使用各发行版的云镜像，快速创建速度又快，占用空间又小，非常方便。 1# 增加硬盘</p>
-<br>
-<a href=https://cuile.github.io/posts/proxmox/cli/ title=阅读更多 class="excerpt_more button">阅读更多</a>
-</div>
-</div>
-</div>
-</li>
-<li class=post_item>
-<div class=excerpt>
-<div class=excerpt_header>
-<h3 class=post_link>
 <a href=https://cuile.github.io/posts/alpine_linux/install/ title="虚拟机安装 Alpine Linux 3.16">虚拟机安装 Alpine Linux 3.16</a>
 </h3>
 <div class=post_meta>
@@ -208,61 +73,6 @@
 <p>特点： 小巧：基于musl libc 和 busybox，和 busybox一样小巧，最小的Docker镜像只有5MB。 安全：面向安全的轻量发行版 简单：提供</p>
 <br>
 <a href=https://cuile.github.io/posts/alpine_linux/install/ title=阅读更多 class="excerpt_more button">阅读更多</a>
-</div>
-</div>
-</div>
-</li>
-<li class=post_item>
-<div class=excerpt>
-<div class=excerpt_header>
-<h3 class=post_link>
-<a href=https://cuile.github.io/posts/proxmox/rrd_error/ title="修复 ProxmoxVE RRD 错误">修复 ProxmoxVE RRD 错误</a>
-</h3>
-<div class=post_meta>
-<span><svg class="icon"><title>calendar</title><use xlink:href="#calendar"/></svg>
-</span>
-<span class=post_date>
-2022-02-08</span>
-<span class=post_time> · 阅读时长 1 分钟</span><span>&nbsp;· <a href=https://cuile.github.io/tags/proxmoxve/ title=proxmoxve class="post_tag button button_translucent">proxmoxve
-</a><a href=https://cuile.github.io/tags/rrd/ title=rrd class="post_tag button button_translucent">rrd
-</a>
-</span>
-</div>
-</div>
-<div class=excerpt_footer>
-<div class=pale>
-<p>Proxmox系统安装后，日志报错 1rrdcached[4513]: handle_request_update: Could not read RRD file. 2pmxcfs[4527]: [status] notice: RRDC update error /var/lib/rrdcached/db/pve2-vm/85235: -1 3pmxcfs[4527]: [status] notice: RRD update error /var/lib/rrdcached/db/pve2-vm/85235: mmaping file '/var/lib/rrdcached/db/pve2-vm/85235': …</p>
-<br>
-<a href=https://cuile.github.io/posts/proxmox/rrd_error/ title=阅读更多 class="excerpt_more button">阅读更多</a>
-</div>
-</div>
-</div>
-</li>
-<li class=post_item>
-<div class=excerpt>
-<div class=excerpt_header>
-<h3 class=post_link>
-<a href=https://cuile.github.io/posts/proxmox/nat/ title="ProxmoxVE 配置 NAT 网络">ProxmoxVE 配置 NAT 网络</a>
-</h3>
-<div class=post_meta>
-<span><svg class="icon"><title>calendar</title><use xlink:href="#calendar"/></svg>
-</span>
-<span class=post_date>
-2022-02-07</span>
-<span class=post_time> · 阅读时长 1 分钟</span><span>&nbsp;· <a href=https://cuile.github.io/tags/proxmoxve/ title=proxmoxve class="post_tag button button_translucent">proxmoxve
-</a><a href=https://cuile.github.io/tags/nat/ title=NAT class="post_tag button button_translucent">NAT
-</a>
-</span>
-</div>
-</div>
-<div class=excerpt_footer>
-<div class=pale>
-<p><ol>
-<li>升级系统软件包 1$ apt-get update 2$ apt-get dist-upgrade 2. 安装 ifupdown2 使用 ifupdown2 网络管理软件包，还可以实时重新加载网络配置，而无需重新启动。 1$ apt install ifupdown2 3. 配置物理网卡 使用 PVE 的 WEB 管理界</li>
-</ol>
-</p>
-<br>
-<a href=https://cuile.github.io/posts/proxmox/nat/ title=阅读更多 class="excerpt_more button">阅读更多</a>
 </div>
 </div>
 </div>
@@ -308,53 +118,114 @@
 <div>
 <h2 class="mt-4 taxonomy" id=series-section>专栏</h2>
 <nav class=tags_nav>
+<a href=https://cuile.github.io/series/linux/ class="post_tag button button_translucent" title=linux>
+LINUX
+<span class=button_tally>14</span>
+</a>
 <a href=https://cuile.github.io/series/tips/ class="post_tag button button_translucent" title=tips>
 TIPS
 <span class=button_tally>10</span>
+</a>
+<a href=https://cuile.github.io/series/proxmoxve/ class="post_tag button button_translucent" title=proxmoxve>
+PROXMOXVE
+<span class=button_tally>7</span>
+</a>
+<a href=https://cuile.github.io/series/windows/ class="post_tag button button_translucent" title=windows>
+WINDOWS
+<span class=button_tally>7</span>
 </a>
 <a href=https://cuile.github.io/series/openwrt/ class="post_tag button button_translucent" title=openwrt>
 OPENWRT
 <span class=button_tally>6</span>
 </a>
+<a href=https://cuile.github.io/series/python/ class="post_tag button button_translucent" title=python>
+PYTHON
+<span class=button_tally>5</span>
+</a>
 <a href=https://cuile.github.io/series/alpine-linux/ class="post_tag button button_translucent" title=alpine-linux>
 ALPINE-LINUX
 <span class=button_tally>4</span>
 </a>
-<a href=https://cuile.github.io/series/python/ class="post_tag button button_translucent" title=python>
-PYTHON
+<a href=https://cuile.github.io/series/docker/ class="post_tag button button_translucent" title=docker>
+DOCKER
 <span class=button_tally>4</span>
+</a>
+<a href=https://cuile.github.io/series/vscode/ class="post_tag button button_translucent" title=vscode>
+VSCODE
+<span class=button_tally>3</span>
+</a>
+<a href=https://cuile.github.io/series/database/ class="post_tag button button_translucent" title=database>
+DATABASE
+<span class=button_tally>2</span>
 </a>
 <a href=https://cuile.github.io/series/django/ class="post_tag button button_translucent" title=django>
 DJANGO
 <span class=button_tally>2</span>
 </a>
-<a href=https://cuile.github.io/series/%E7%81%AB%E7%82%AE/ class="post_tag button button_translucent" title=火炮>
-火炮
-<span class=button_tally>1</span>
+<a href=https://cuile.github.io/series/git/ class="post_tag button button_translucent" title=git>
+GIT
+<span class=button_tally>2</span>
 </a>
+<a href=https://cuile.github.io/series/laravel/ class="post_tag button button_translucent" title=laravel>
+LARAVEL
+<span class=button_tally>2</span>
+</a>
+<a href=https://cuile.github.io/series/snap/ class="post_tag button button_translucent" title=snap>
+SNAP
+<span class=button_tally>2</span>
+</a>
+<br>
+<div class="post_tags_toggle button">所有专栏</div>
+<div class=post_tags>
+<div class=tags_list>
+<a href=https://cuile.github.io/series/alpine-linux/ class="post_tag button button_translucent" data-position=4 title=alpine-linux>ALPINE-LINUX<span class=button_tally>4</span>
+</a>
+<a href=https://cuile.github.io/series/database/ class="post_tag button button_translucent" data-position=2 title=database>DATABASE<span class=button_tally>2</span>
+</a>
+<a href=https://cuile.github.io/series/django/ class="post_tag button button_translucent" data-position=2 title=django>DJANGO<span class=button_tally>2</span>
+</a>
+<a href=https://cuile.github.io/series/docker/ class="post_tag button button_translucent" data-position=4 title=docker>DOCKER<span class=button_tally>4</span>
+</a>
+<a href=https://cuile.github.io/series/ffmpeg/ class="post_tag button button_translucent" data-position=1 title=ffmpeg>FFMPEG<span class=button_tally>1</span>
+</a>
+<a href=https://cuile.github.io/series/git/ class="post_tag button button_translucent" data-position=2 title=git>GIT<span class=button_tally>2</span>
+</a>
+<a href=https://cuile.github.io/series/laravel/ class="post_tag button button_translucent" data-position=2 title=laravel>LARAVEL<span class=button_tally>2</span>
+</a>
+<a href=https://cuile.github.io/series/linux/ class="post_tag button button_translucent" data-position=14 title=linux>LINUX<span class=button_tally>14</span>
+</a>
+<a href=https://cuile.github.io/series/openwrt/ class="post_tag button button_translucent" data-position=6 title=openwrt>OPENWRT<span class=button_tally>6</span>
+</a>
+<a href=https://cuile.github.io/series/proxmoxve/ class="post_tag button button_translucent" data-position=7 title=proxmoxve>PROXMOXVE<span class=button_tally>7</span>
+</a>
+<a href=https://cuile.github.io/series/python/ class="post_tag button button_translucent" data-position=5 title=python>PYTHON<span class=button_tally>5</span>
+</a>
+<a href=https://cuile.github.io/series/snap/ class="post_tag button button_translucent" data-position=2 title=snap>SNAP<span class=button_tally>2</span>
+</a>
+<a href=https://cuile.github.io/series/tips/ class="post_tag button button_translucent" data-position=10 title=tips>TIPS<span class=button_tally>10</span>
+</a>
+<a href=https://cuile.github.io/series/vscode/ class="post_tag button button_translucent" data-position=3 title=vscode>VSCODE<span class=button_tally>3</span>
+</a>
+<a href=https://cuile.github.io/series/windows/ class="post_tag button button_translucent" data-position=7 title=windows>WINDOWS<span class=button_tally>7</span>
+</a>
+<a href=https://cuile.github.io/series/%E6%B8%B8%E6%88%8F/ class="post_tag button button_translucent" data-position=1 title=游戏>游戏<span class=button_tally>1</span>
+</a>
+<div class=tags_sort><span title="sort alphabetically">[A~Z]</span><span title="sort by count">[0~9]</span>
+</div>
+<span class=tags_hide><svg class="icon"><use xlink:href="#closeme"/></svg></span>
+</div>
+</div>
 </nav>
 </div>
 <div>
 <h2 class="mt-4 taxonomy" id=tags-section>标签</h2>
 <nav class=tags_nav>
-<a href=https://cuile.github.io/tags/linux/ class="post_tag button button_translucent" title=linux>
-LINUX
-<span class=button_tally>21</span>
-</a>
 <a href=https://cuile.github.io/tags/cli/ class="post_tag button button_translucent" title=cli>
 CLI
-<span class=button_tally>11</span>
+<span class=button_tally>12</span>
 </a>
-<a href=https://cuile.github.io/tags/docker/ class="post_tag button button_translucent" title=docker>
-DOCKER
-<span class=button_tally>9</span>
-</a>
-<a href=https://cuile.github.io/tags/proxmoxve/ class="post_tag button button_translucent" title=proxmoxve>
-PROXMOXVE
-<span class=button_tally>8</span>
-</a>
-<a href=https://cuile.github.io/tags/windows/ class="post_tag button button_translucent" title=windows>
-WINDOWS
+<a href=https://cuile.github.io/tags/linux/ class="post_tag button button_translucent" title=linux>
+LINUX
 <span class=button_tally>7</span>
 </a>
 <a href=https://cuile.github.io/tags/centos/ class="post_tag button button_translucent" title=centos>
@@ -365,16 +236,20 @@ CENTOS
 系统配置
 <span class=button_tally>6</span>
 </a>
+<a href=https://cuile.github.io/tags/docker/ class="post_tag button button_translucent" title=docker>
+DOCKER
+<span class=button_tally>5</span>
+</a>
 <a href=https://cuile.github.io/tags/hyper-v/ class="post_tag button button_translucent" title=hyper-v>
 HYPER-V
 <span class=button_tally>5</span>
 </a>
-<a href=https://cuile.github.io/tags/python/ class="post_tag button button_translucent" title=python>
-PYTHON
-<span class=button_tally>5</span>
-</a>
 <a href=https://cuile.github.io/tags/network/ class="post_tag button button_translucent" title=network>
 NETWORK
+<span class=button_tally>4</span>
+</a>
+<a href=https://cuile.github.io/tags/python/ class="post_tag button button_translucent" title=python>
+PYTHON
 <span class=button_tally>4</span>
 </a>
 <a href=https://cuile.github.io/tags/firewall/ class="post_tag button button_translucent" title=firewall>
@@ -385,12 +260,20 @@ FIREWALL
 PROXY
 <span class=button_tally>3</span>
 </a>
-<a href=https://cuile.github.io/tags/vscode/ class="post_tag button button_translucent" title=vscode>
-VSCODE
-<span class=button_tally>3</span>
-</a>
 <a href=https://cuile.github.io/tags/alpine-linux/ class="post_tag button button_translucent" title=alpine-linux>
 ALPINE-LINUX
+<span class=button_tally>2</span>
+</a>
+<a href=https://cuile.github.io/tags/bash/ class="post_tag button button_translucent" title=bash>
+BASH
+<span class=button_tally>2</span>
+</a>
+<a href=https://cuile.github.io/tags/centos-7/ class="post_tag button button_translucent" title=centos-7>
+CENTOS-7
+<span class=button_tally>2</span>
+</a>
+<a href=https://cuile.github.io/tags/deepin/ class="post_tag button button_translucent" title=deepin>
+DEEPIN
 <span class=button_tally>2</span>
 </a>
 <br>
@@ -411,7 +294,7 @@ ALPINE-LINUX
 </a>
 <a href=https://cuile.github.io/tags/centos-7/ class="post_tag button button_translucent" data-position=2 title=centos-7>CENTOS-7<span class=button_tally>2</span>
 </a>
-<a href=https://cuile.github.io/tags/cli/ class="post_tag button button_translucent" data-position=11 title=cli>CLI<span class=button_tally>11</span>
+<a href=https://cuile.github.io/tags/cli/ class="post_tag button button_translucent" data-position=12 title=cli>CLI<span class=button_tally>12</span>
 </a>
 <a href=https://cuile.github.io/tags/crontab/ class="post_tag button button_translucent" data-position=1 title=crontab>CRONTAB<span class=button_tally>1</span>
 </a>
@@ -423,19 +306,15 @@ ALPINE-LINUX
 </a>
 <a href=https://cuile.github.io/tags/dns/ class="post_tag button button_translucent" data-position=1 title=dns>DNS<span class=button_tally>1</span>
 </a>
-<a href=https://cuile.github.io/tags/docker/ class="post_tag button button_translucent" data-position=9 title=docker>DOCKER<span class=button_tally>9</span>
+<a href=https://cuile.github.io/tags/docker/ class="post_tag button button_translucent" data-position=5 title=docker>DOCKER<span class=button_tally>5</span>
 </a>
 <a href=https://cuile.github.io/tags/docker-compose/ class="post_tag button button_translucent" data-position=1 title=docker-compose>DOCKER-COMPOSE<span class=button_tally>1</span>
-</a>
-<a href=https://cuile.github.io/tags/ffmpeg/ class="post_tag button button_translucent" data-position=1 title=ffmpeg>FFMPEG<span class=button_tally>1</span>
 </a>
 <a href=https://cuile.github.io/tags/firewall/ class="post_tag button button_translucent" data-position=3 title=firewall>FIREWALL<span class=button_tally>3</span>
 </a>
 <a href=https://cuile.github.io/tags/frp/ class="post_tag button button_translucent" data-position=1 title=frp>FRP<span class=button_tally>1</span>
 </a>
 <a href=https://cuile.github.io/tags/ftp/ class="post_tag button button_translucent" data-position=2 title=ftp>FTP<span class=button_tally>2</span>
-</a>
-<a href=https://cuile.github.io/tags/git/ class="post_tag button button_translucent" data-position=2 title=git>GIT<span class=button_tally>2</span>
 </a>
 <a href=https://cuile.github.io/tags/github/ class="post_tag button button_translucent" data-position=2 title=github>GITHUB<span class=button_tally>2</span>
 </a>
@@ -455,9 +334,7 @@ ALPINE-LINUX
 </a>
 <a href=https://cuile.github.io/tags/keychain/ class="post_tag button button_translucent" data-position=1 title=keychain>KEYCHAIN<span class=button_tally>1</span>
 </a>
-<a href=https://cuile.github.io/tags/laravel/ class="post_tag button button_translucent" data-position=2 title=laravel>LARAVEL<span class=button_tally>2</span>
-</a>
-<a href=https://cuile.github.io/tags/linux/ class="post_tag button button_translucent" data-position=21 title=linux>LINUX<span class=button_tally>21</span>
+<a href=https://cuile.github.io/tags/linux/ class="post_tag button button_translucent" data-position=7 title=linux>LINUX<span class=button_tally>7</span>
 </a>
 <a href=https://cuile.github.io/tags/lxc/ class="post_tag button button_translucent" data-position=1 title=lxc>LXC<span class=button_tally>1</span>
 </a>
@@ -485,13 +362,13 @@ ALPINE-LINUX
 </a>
 <a href=https://cuile.github.io/tags/postgresql/ class="post_tag button button_translucent" data-position=1 title=postgresql>POSTGRESQL<span class=button_tally>1</span>
 </a>
-<a href=https://cuile.github.io/tags/proxmoxve/ class="post_tag button button_translucent" data-position=8 title=proxmoxve>PROXMOXVE<span class=button_tally>8</span>
+<a href=https://cuile.github.io/tags/proxmoxve/ class="post_tag button button_translucent" data-position=1 title=proxmoxve>PROXMOXVE<span class=button_tally>1</span>
 </a>
 <a href=https://cuile.github.io/tags/proxy/ class="post_tag button button_translucent" data-position=3 title=proxy>PROXY<span class=button_tally>3</span>
 </a>
 <a href=https://cuile.github.io/tags/pypi/ class="post_tag button button_translucent" data-position=1 title=pypi>PYPI<span class=button_tally>1</span>
 </a>
-<a href=https://cuile.github.io/tags/python/ class="post_tag button button_translucent" data-position=5 title=python>PYTHON<span class=button_tally>5</span>
+<a href=https://cuile.github.io/tags/python/ class="post_tag button button_translucent" data-position=4 title=python>PYTHON<span class=button_tally>4</span>
 </a>
 <a href=https://cuile.github.io/tags/qmue%5Ckvm/ class="post_tag button button_translucent" data-position=1 title=qmue\kvm>QMUE\KVM<span class=button_tally>1</span>
 </a>
@@ -514,8 +391,6 @@ ALPINE-LINUX
 <a href=https://cuile.github.io/tags/sed/ class="post_tag button button_translucent" data-position=1 title=sed>SED<span class=button_tally>1</span>
 </a>
 <a href=https://cuile.github.io/tags/shadowsocks/ class="post_tag button button_translucent" data-position=1 title=shadowsocks>SHADOWSOCKS<span class=button_tally>1</span>
-</a>
-<a href=https://cuile.github.io/tags/snap/ class="post_tag button button_translucent" data-position=2 title=snap>SNAP<span class=button_tally>2</span>
 </a>
 <a href=https://cuile.github.io/tags/ssh/ class="post_tag button button_translucent" data-position=2 title=ssh>SSH<span class=button_tally>2</span>
 </a>
@@ -547,10 +422,6 @@ ALPINE-LINUX
 </a>
 <a href=https://cuile.github.io/tags/vm/ class="post_tag button button_translucent" data-position=1 title=vm>VM<span class=button_tally>1</span>
 </a>
-<a href=https://cuile.github.io/tags/vscode/ class="post_tag button button_translucent" data-position=3 title=vscode>VSCODE<span class=button_tally>3</span>
-</a>
-<a href=https://cuile.github.io/tags/windows/ class="post_tag button button_translucent" data-position=7 title=windows>WINDOWS<span class=button_tally>7</span>
-</a>
 <a href=https://cuile.github.io/tags/windwos-10/ class="post_tag button button_translucent" data-position=1 title=windwos-10>WINDWOS-10<span class=button_tally>1</span>
 </a>
 <a href=https://cuile.github.io/tags/wins/ class="post_tag button button_translucent" data-position=1 title=wins>WINS<span class=button_tally>1</span>
@@ -559,11 +430,15 @@ ALPINE-LINUX
 </a>
 <a href=https://cuile.github.io/tags/%E5%8A%A8%E6%BC%AB/ class="post_tag button button_translucent" data-position=2 title=动漫>动漫<span class=button_tally>2</span>
 </a>
+<a href=https://cuile.github.io/tags/%E5%9D%A6%E5%85%8B%E4%B8%96%E7%95%8C/ class="post_tag button button_translucent" data-position=1 title=坦克世界>坦克世界<span class=button_tally>1</span>
+</a>
 <a href=https://cuile.github.io/tags/%E5%BF%83%E5%BE%97%E4%BD%93%E4%BC%9A/ class="post_tag button button_translucent" data-position=1 title=心得体会>心得体会<span class=button_tally>1</span>
 </a>
 <a href=https://cuile.github.io/tags/%E6%95%85%E4%BA%8B/ class="post_tag button button_translucent" data-position=2 title=故事>故事<span class=button_tally>2</span>
 </a>
 <a href=https://cuile.github.io/tags/%E7%81%8C%E7%AF%AE%E9%AB%98%E6%89%8B/ class="post_tag button button_translucent" data-position=2 title=灌篮高手>灌篮高手<span class=button_tally>2</span>
+</a>
+<a href=https://cuile.github.io/tags/%E7%81%AB%E7%82%AE/ class="post_tag button button_translucent" data-position=1 title=火炮>火炮<span class=button_tally>1</span>
 </a>
 <a href=https://cuile.github.io/tags/%E7%AF%AE%E7%90%83/ class="post_tag button button_translucent" data-position=2 title=篮球>篮球<span class=button_tally>2</span>
 </a>
