@@ -7,10 +7,9 @@ date: 2022-07-17T15:24:19+08:00
 tags:
 # 专栏
 series:
-- life tips
+- tips
 # 分类
 categories:
-- tips
 ---
 
 ## 观物

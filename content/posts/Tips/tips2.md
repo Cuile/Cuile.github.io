@@ -4,9 +4,8 @@ date: 2022-05-10T17:18:14+08:00
 # draft: true
 tags:
 series:
-- work tips
-categories:
 - tips
+categories:
 ---
 
 - 见微知著，是对事物发展规律的洞察。

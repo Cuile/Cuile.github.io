@@ -7,10 +7,9 @@ date: 2022-07-13T10:51:49+08:00
 tags:
 # 专栏
 series:
-- life tips
+- tips
 # 分类
 categories:
-- tips
 ---
 
 - 明拍马屁 - 先明夸

@@ -7,10 +7,9 @@ date: 2022-07-17T15:45:54+08:00
 tags:
 # 专栏
 series:
-- life tips
+- tips
 # 分类
 categories:
-- tips
 ---
 
 ## 做朋友式的情人

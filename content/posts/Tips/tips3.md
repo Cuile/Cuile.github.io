@@ -4,9 +4,8 @@ date: 2022-05-10T17:28:52+08:00
 # draft: true
 tags:
 series:
-- work tips
-categories:
 - tips
+categories:
 ---
 
 ### 1 能力是否特殊？
