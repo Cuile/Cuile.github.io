@@ -6,10 +6,10 @@ date: 2023-01-03T20:08:42+08:00
 # 标签
 tags:
 - linux
-- alpine linux
 - bash
 # 专栏
 series:
+- alpine linux
 # 分类
 categories:
 ---
