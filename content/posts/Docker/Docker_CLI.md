@@ -11,37 +11,38 @@ categories:
 
 ## 镜像列表
 ```bash
-$ docker image ls -a
+docker image ls -a
 # or
-$ docker images
+docker images
 ```
 
 ## 容器列表
 ```bash
-$ docker container ls -a
+docker container ls -a
 # or
-$ docker ps
+docker ps
 ```
 
 ## 查看输出
 ```bash
-$ docker compose -f <yml file> logs [-f] [service name]
+docker compose -f <yml file> logs [-f] [service name]
 # or
-$ docker logs [-f] [container id]
+docker logs [-f] [container id]
 ```
+
 ## 删除冗余镜像
 ```bash
-$ docker system prune
+echo 'y' | docker system prune
 ```
 
 ## 创建桥接网络
 ```bash
-$ docker network create [name]
+docker network create [name]
 ```
 
 ## Docker快捷命令
 ```bash
-$ echo "alias d-ll='docker image ls -a; echo; docker container ls -a'" >> ~/.bashrc \
+echo "alias d-ll='docker image ls -a; echo; docker container ls -a'" >> ~/.bashrc \
     && echo "alias d-ps='docker ps'" >> ~/.bashrc \
     && echo "alias d-clean='docker system prune -f'" >> ~/.bashrc \
     && echo "alias d-rm='_a(){ docker image rm $1; echo; docker container rm $1; }; _a'" >> ~/.bashrc \
@@ -49,13 +50,23 @@ $ echo "alias d-ll='docker image ls -a; echo; docker container ls -a'" >> ~/.bas
     && echo "alias d-stop='_a(){ docker container stop $1; }; _a'" >> ~/.bashrc \
     && echo "alias d-kill='_a(){ docker container kill $1; }; _a'" >> ~/.bashrc
     
-$ source ~/.bashrc
+source ~/.bashrc
 ```
 
 ## 导入导出镜像
 ```bash
 # 导入
-$ docker load -i <image>.tar
+docker load -i <image>.tar
 # 导出
-$ docker save -o <image>.tar <image_name:label>
+docker save -o <image>.tar <image_name:label>
+```
+
+## 不启动镜像，查看镜像内的文件
+```bash
+# 创建临时容器
+docker conatiner create --name <container_name> <image_name>
+# 从容器复制文件到宿主机
+docker conatiner cp <container_name>:<file_path> <dest_path>
+# 清理临时窗口
+docker container rm <container_name>
 ```
