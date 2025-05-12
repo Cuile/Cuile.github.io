@@ -6,14 +6,14 @@
 <meta http-equiv=x-ua-compatible content="IE=edge">
 <meta property="og:locale" content="zh-cn">
 <meta property="og:type" content="article">
-<meta name=description content="镜像列表 1$ docker image ls -a 2# or 3$ docker images 容器列表 1$ docker container ls -a 2# or 3$ docker ps 查看输出 1$ docker compose -f <yml file> logs [-f] …">
+<meta name=description content="镜像列表 1docker image ls -a 2# or 3docker images 容器列表 1docker container ls -a 2# or 3docker ps 查看输出 1docker compose -f <yml file> logs [-f] [service name] 2# …">
 <meta name=twitter:card content="summary">
 <meta name=twitter:creator content>
 <meta name=twitter:title content="Docker使用命令">
 <meta name=twitter:image content="https://cuile.github.io/images/thumbnail.png">
 <meta property="og:url" content="https://cuile.github.io/posts/docker/docker_cli/">
 <meta property="og:title" content="Docker使用命令">
-<meta property="og:description" content="镜像列表 1$ docker image ls -a 2# or 3$ docker images 容器列表 1$ docker container ls -a 2# or 3$ docker ps 查看输出 1$ docker compose -f <yml file> logs [-f] …">
+<meta property="og:description" content="镜像列表 1docker image ls -a 2# or 3docker images 容器列表 1docker container ls -a 2# or 3docker ps 查看输出 1docker compose -f <yml file> logs [-f] [service name] 2# …">
 <meta property="og:image" content="https://cuile.github.io/images/thumbnail.png">
 <link rel=apple-touch-icon sizes=180x180 href=https://cuile.github.io/icons/apple-touch-icon.png>
 <link rel=icon type=image/png sizes=32x32 href=https://cuile.github.io/icons/favicon-32x32.png>
@@ -58,23 +58,23 @@
 </span>
 </div>
 <div class=post_body><h2 id=镜像列表>镜像列表</h2>
-<div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=ln>1</span>$ docker image ls -a
+<div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=ln>1</span>docker image ls -a
 <span class=ln>2</span><span class=c1># or</span>
-<span class=ln>3</span>$ docker images
+<span class=ln>3</span>docker images
 </code></pre></div><h2 id=容器列表>容器列表</h2>
-<div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=ln>1</span>$ docker container ls -a
+<div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=ln>1</span>docker container ls -a
 <span class=ln>2</span><span class=c1># or</span>
-<span class=ln>3</span>$ docker ps
+<span class=ln>3</span>docker ps
 </code></pre></div><h2 id=查看输出>查看输出</h2>
-<div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=ln>1</span>$ docker compose -f &lt;yml file&gt; logs <span class=o>[</span>-f<span class=o>]</span> <span class=o>[</span>service name<span class=o>]</span>
+<div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=ln>1</span>docker compose -f &lt;yml file&gt; logs <span class=o>[</span>-f<span class=o>]</span> <span class=o>[</span>service name<span class=o>]</span>
 <span class=ln>2</span><span class=c1># or</span>
-<span class=ln>3</span>$ docker logs <span class=o>[</span>-f<span class=o>]</span> <span class=o>[</span>container id<span class=o>]</span>
+<span class=ln>3</span>docker logs <span class=o>[</span>-f<span class=o>]</span> <span class=o>[</span>container id<span class=o>]</span>
 </code></pre></div><h2 id=删除冗余镜像>删除冗余镜像</h2>
-<div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=ln>1</span>$ docker system prune
+<div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=ln>1</span><span class=nb>echo</span> <span class=s1>&#39;y&#39;</span> <span class=p>|</span> docker system prune
 </code></pre></div><h2 id=创建桥接网络>创建桥接网络</h2>
-<div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=ln>1</span>$ docker network create <span class=o>[</span>name<span class=o>]</span>
+<div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=ln>1</span>docker network create <span class=o>[</span>name<span class=o>]</span>
 </code></pre></div><h2 id=docker快捷命令>Docker快捷命令</h2>
-<div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=ln>1</span>$ <span class=nb>echo</span> <span class=s2>&#34;alias d-ll=&#39;docker image ls -a; echo; docker container ls -a&#39;&#34;</span> &gt;&gt; ~/.bashrc <span class=se>\
+<div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=ln>1</span><span class=nb>echo</span> <span class=s2>&#34;alias d-ll=&#39;docker image ls -a; echo; docker container ls -a&#39;&#34;</span> &gt;&gt; ~/.bashrc <span class=se>\
 </span><span class=ln>2</span><span class=se></span>    <span class=o>&amp;&amp;</span> <span class=nb>echo</span> <span class=s2>&#34;alias d-ps=&#39;docker ps&#39;&#34;</span> &gt;&gt; ~/.bashrc <span class=se>\
 </span><span class=ln>3</span><span class=se></span>    <span class=o>&amp;&amp;</span> <span class=nb>echo</span> <span class=s2>&#34;alias d-clean=&#39;docker system prune -f&#39;&#34;</span> &gt;&gt; ~/.bashrc <span class=se>\
 </span><span class=ln>4</span><span class=se></span>    <span class=o>&amp;&amp;</span> <span class=nb>echo</span> <span class=s2>&#34;alias d-rm=&#39;_a(){ docker image rm </span><span class=nv>$1</span><span class=s2>; echo; docker container rm </span><span class=nv>$1</span><span class=s2>; }; _a&#39;&#34;</span> &gt;&gt; ~/.bashrc <span class=se>\
@@ -82,12 +82,19 @@
 </span><span class=ln>6</span><span class=se></span>    <span class=o>&amp;&amp;</span> <span class=nb>echo</span> <span class=s2>&#34;alias d-stop=&#39;_a(){ docker container stop </span><span class=nv>$1</span><span class=s2>; }; _a&#39;&#34;</span> &gt;&gt; ~/.bashrc <span class=se>\
 </span><span class=ln>7</span><span class=se></span>    <span class=o>&amp;&amp;</span> <span class=nb>echo</span> <span class=s2>&#34;alias d-kill=&#39;_a(){ docker container kill </span><span class=nv>$1</span><span class=s2>; }; _a&#39;&#34;</span> &gt;&gt; ~/.bashrc
 <span class=ln>8</span>    
-<span class=ln>9</span>$ <span class=nb>source</span> ~/.bashrc
+<span class=ln>9</span><span class=nb>source</span> ~/.bashrc
 </code></pre></div><h2 id=导入导出镜像>导入导出镜像</h2>
 <div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=ln>1</span><span class=c1># 导入</span>
-<span class=ln>2</span>$ docker load -i &lt;image&gt;.tar
+<span class=ln>2</span>docker load -i &lt;image&gt;.tar
 <span class=ln>3</span><span class=c1># 导出</span>
-<span class=ln>4</span>$ docker save -o &lt;image&gt;.tar &lt;image_name:label&gt;
+<span class=ln>4</span>docker save -o &lt;image&gt;.tar &lt;image_name:label&gt;
+</code></pre></div><h2 id=不启动镜像查看镜像内的文件>不启动镜像，查看镜像内的文件</h2>
+<div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=ln>1</span><span class=c1># 创建临时容器</span>
+<span class=ln>2</span>docker conatiner create --name &lt;container_name&gt; &lt;image_name&gt;
+<span class=ln>3</span><span class=c1># 从容器复制文件到宿主机</span>
+<span class=ln>4</span>docker conatiner cp &lt;container_name&gt;:&lt;file_path&gt; &lt;dest_path&gt;
+<span class=ln>5</span><span class=c1># 清理临时窗口</span>
+<span class=ln>6</span>docker container rm &lt;container_name&gt;
 </code></pre></div>
 </div>
 <h2 class=post_related>相关专栏文章</h2>
