@@ -130,6 +130,9 @@
 <div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=ln>1</span>passwd &lt;username&gt;
 </code></pre></div><h3 id=查看文件夹大小>查看文件夹大小</h3>
 <div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=ln>1</span>du -h --max-depth<span class=o>=</span><span class=m>1</span> &lt;path&gt;
+</code></pre></div><h3 id=实时查看文件变化>实时查看文件变化</h3>
+<div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=ln>1</span>apt install inotify-tools
+<span class=ln>2</span>inotifywait -m -r -e modify,create,delete &lt;path&gt;
 </code></pre></div>
 </div>
 <h2 class=post_related>相关专栏文章</h2>
