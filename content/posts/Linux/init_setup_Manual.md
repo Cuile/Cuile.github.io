@@ -97,3 +97,9 @@ passwd <username>
 ```bash
 du -h --max-depth=1 <path>
 ```
+
+### 实时查看文件变化
+```bash
+apt install inotify-tools
+inotifywait -m -r -e modify,create,delete <path>
+```
