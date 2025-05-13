@@ -25,32 +25,19 @@ docker ps
 
 ## 查看输出
 ```bash
-docker compose -f <yml file> logs [-f] [service name]
+docker compose -f <yaml_file> logs [-f] [service name]
 # or
 docker logs [-f] [container id]
+```
+
+## 验证配置文件
+```bash
+docker compose -f <yaml_file> config
 ```
 
 ## 删除冗余镜像
 ```bash
 echo 'y' | docker system prune
-```
-
-## 创建桥接网络
-```bash
-docker network create [name]
-```
-
-## Docker快捷命令
-```bash
-echo "alias d-ll='docker image ls -a; echo; docker container ls -a'" >> ~/.bashrc \
-    && echo "alias d-ps='docker ps'" >> ~/.bashrc \
-    && echo "alias d-clean='docker system prune -f'" >> ~/.bashrc \
-    && echo "alias d-rm='_a(){ docker image rm $1; echo; docker container rm $1; }; _a'" >> ~/.bashrc \
-    && echo "alias d-exec='_a(){ docker exec -it $1 /bin/bash; }; _a'" >> ~/.bashrc \
-    && echo "alias d-stop='_a(){ docker container stop $1; }; _a'" >> ~/.bashrc \
-    && echo "alias d-kill='_a(){ docker container kill $1; }; _a'" >> ~/.bashrc
-    
-source ~/.bashrc
 ```
 
 ## 导入导出镜像
@@ -69,4 +56,22 @@ docker conatiner create --name <container_name> <image_name>
 docker conatiner cp <container_name>:<file_path> <dest_path>
 # 清理临时窗口
 docker container rm <container_name>
+```
+
+## 创建桥接网络
+```bash
+docker network create [name]
+```
+
+## Docker快捷命令
+```bash
+echo "alias d-ll='docker image ls -a; echo; docker container ls -a'" >> ~/.bashrc \
+    && echo "alias d-ps='docker ps'" >> ~/.bashrc \
+    && echo "alias d-clean='docker system prune -f'" >> ~/.bashrc \
+    && echo "alias d-rm='_a(){ docker image rm $1; echo; docker container rm $1; }; _a'" >> ~/.bashrc \
+    && echo "alias d-exec='_a(){ docker exec -it $1 /bin/bash; }; _a'" >> ~/.bashrc \
+    && echo "alias d-stop='_a(){ docker container stop $1; }; _a'" >> ~/.bashrc \
+    && echo "alias d-kill='_a(){ docker container kill $1; }; _a'" >> ~/.bashrc
+    
+source ~/.bashrc
 ```
