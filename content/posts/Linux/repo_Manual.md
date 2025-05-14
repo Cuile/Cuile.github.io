@@ -42,15 +42,14 @@ Done.
 
 # debian bookworm
 rm -f sources.list
-echo 'http://mirrors.bfsu.edu.cn/debian/' | sudo tee /etc/apt/mirrors/debian.list
-echo 'http://mirrors.bfsu.edu.cn/debian-security/' | sudo tee -a /etc/apt/mirrors/debian-security.list
+# echo 'http://mirrors.bfsu.edu.cn/debian/' | sudo tee /etc/apt/mirrors/debian.list
+# echo 'http://mirrors.bfsu.edu.cn/debian-security/' | sudo tee -a /etc/apt/mirrors/debian-security.list
+sed -i -e "s/deb.debian.org/mirrors.bfsu.edu.cn/" /etc/apt/mirrors/debian.list
+sed -i -e "s/deb.debian.org/mirrors.bfsu.edu.cn/" /etc/apt/mirrors/debian-security.list
 
 # docker imaage debian:12
-# https://deb.debian.org/
-apt-get install -y netselect-apt \
-&& netselect-apt -o /etc/apt/sources.list \
-&& apt-get autoremove -y netselect-apt \
-&& sed -i -e "s/security.debian.org/deb.debian.org\/debian-security/" /etc/apt/sources.list
+sed -i -e "s/deb.debian.org/mirrors.bfsu.edu.cn/" /etc/apt/sources.list.d/debian.sources \
+    && apt-get update
 
 ```
 ---
