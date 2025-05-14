@@ -1,5 +1,5 @@
 ---
-title: "Docker使用命令"
+title: "Docker 命令"
 date: 2022-01-13T22:20:52+08:00
 # draft: true
 tags: 
@@ -61,6 +61,21 @@ docker container rm <container_name>
 ## 创建桥接网络
 ```bash
 docker network create [name]
+```
+
+## 配置DockerHub镜像
+```json
+// /etc/docker/daemon.json 
+{
+  "registry-mirrors": [
+  	"https://docker.1ms.run",
+  	"https://docker.xuanyuan.me"
+  	]
+}
+```
+```bash
+systemctl daemon-reload
+systemctl restart docker
 ```
 
 ## Docker快捷命令
