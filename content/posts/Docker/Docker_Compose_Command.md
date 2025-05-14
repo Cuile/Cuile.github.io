@@ -12,6 +12,7 @@ series:
 - Docker
 # 分类
 categories:
+- 配置
 ---
 
 ## command 指令

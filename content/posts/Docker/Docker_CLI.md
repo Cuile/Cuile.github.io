@@ -7,6 +7,7 @@ tags:
 series:
 - Docker
 categories:
+- 配置
 ---
 
 ## 镜像列表

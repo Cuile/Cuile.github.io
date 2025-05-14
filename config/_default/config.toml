@@ -18,8 +18,8 @@ hasCJKLanguage = true
 # config/_default/menus/menu.xx.toml
 
 [taxonomies]
-category = "categories"
-series = "series"
+# category = "categories"
+# series = "series"
 tag = "tags"
 
 [outputs]
