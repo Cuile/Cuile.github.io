@@ -1,19 +1,19 @@
 <!doctype html><html lang=zh-cn data-figures class=page>
 <head>
-<title>Yum 版本库管理 | 瘦了就帅了</title>
+<title>软件库管理 | 瘦了就帅了</title>
 <meta charset=utf-8>
 <meta name=viewport content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
 <meta http-equiv=x-ua-compatible content="IE=edge">
 <meta property="og:locale" content="zh-cn">
 <meta property="og:type" content="article">
-<meta name=description content="APT Debian 全球镜像站 查询镜像 1# 查找延迟最小的镜像 2sudo apt install -y netselect-apt && sudo netselect-apt YUM 查询仓库 1yum repolist 2# 显示所有仓库 3yum repolist all 4# 显示所有启动 …">
+<meta name=description content="APT Debian 全球镜像站 修改仓库 1# 查找延迟最小的镜像 2sudo apt install -y netselect-apt && sudo netselect-apt 3... 4The fastest 10 servers seem to be: 5 6 …">
 <meta name=twitter:card content="summary">
 <meta name=twitter:creator content>
-<meta name=twitter:title content="Yum 版本库管理">
+<meta name=twitter:title content="软件库管理">
 <meta name=twitter:image content="https://cuile.github.io/images/thumbnail.png">
 <meta property="og:url" content="https://cuile.github.io/posts/linux/repo_manual/">
-<meta property="og:title" content="Yum 版本库管理">
-<meta property="og:description" content="APT Debian 全球镜像站 查询镜像 1# 查找延迟最小的镜像 2sudo apt install -y netselect-apt && sudo netselect-apt YUM 查询仓库 1yum repolist 2# 显示所有仓库 3yum repolist all 4# 显示所有启动 …">
+<meta property="og:title" content="软件库管理">
+<meta property="og:description" content="APT Debian 全球镜像站 修改仓库 1# 查找延迟最小的镜像 2sudo apt install -y netselect-apt && sudo netselect-apt 3... 4The fastest 10 servers seem to be: 5 6 …">
 <meta property="og:image" content="https://cuile.github.io/images/thumbnail.png">
 <link rel=apple-touch-icon sizes=180x180 href=https://cuile.github.io/icons/apple-touch-icon.png>
 <link rel=icon type=image/png sizes=32x32 href=https://cuile.github.io/icons/favicon-32x32.png>
@@ -47,25 +47,51 @@
 <main>
 <div class="grid-inverse wrap content">
 <article class=post_content>
-<h1 class=post_title>Yum 版本库管理</h1>
+<h1 class=post_title>软件库管理</h1>
 <div class=post_meta>
 <span><svg class="icon"><title>calendar</title><use xlink:href="#calendar"/></svg>
 </span>
 <span class=post_date>
 2022-02-08</span>
 <span class=post_time> · 阅读时长 1 分钟</span><span>&nbsp;· <a href=https://cuile.github.io/tags/centos/ title=CentOS class="post_tag button button_translucent">CentOS
+</a><a href=https://cuile.github.io/tags/debian/ title=debian class="post_tag button button_translucent">debian
 </a><a href=https://cuile.github.io/tags/repo/ title=repo class="post_tag button button_translucent">repo
 </a><a href=https://cuile.github.io/tags/yum/ title=yum class="post_tag button button_translucent">yum
+</a><a href=https://cuile.github.io/tags/apt/ title=apt class="post_tag button button_translucent">apt
 </a><a href=https://cuile.github.io/tags/linux/ title=Linux class="post_tag button button_translucent">Linux
 </a>
 </span>
 </div>
 <div class=post_body><h2 id=apt>APT</h2>
 <p><a href=https://www.debian.org/mirror/list#per-country>Debian 全球镜像站</a></p>
-<h3 id=查询镜像>查询镜像</h3>
-<div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=ln>1</span><span class=c1># 查找延迟最小的镜像</span>
-<span class=ln>2</span>sudo apt install -y netselect-apt <span class=o>&amp;&amp;</span> sudo netselect-apt
-</code></pre></div><h2 id=yum>YUM</h2>
+<h3 id=修改仓库>修改仓库</h3>
+<div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=ln> 1</span><span class=c1># 查找延迟最小的镜像</span>
+<span class=ln> 2</span>sudo apt install -y netselect-apt <span class=o>&amp;&amp;</span> sudo netselect-apt
+<span class=ln> 3</span>...
+<span class=ln> 4</span>The fastest <span class=m>10</span> servers seem to be:
+<span class=ln> 5</span>
+<span class=ln> 6</span>        http://mirrors.bfsu.edu.cn/debian/
+<span class=ln> 7</span>        http://mirrors.tuna.tsinghua.edu.cn/debian/
+<span class=ln> 8</span>        http://mirrors.neusoft.edu.cn/debian/
+<span class=ln> 9</span>        http://mirrors.jlu.edu.cn/debian/
+<span class=ln>10</span>        http://ftp.cn.debian.org/debian/
+<span class=ln>11</span>        http://debian.cs.nycu.edu.tw/debian/
+<span class=ln>12</span>        http://mirror.i3d.net/debian/
+<span class=ln>13</span>        http://mirrors.163.com/debian/
+<span class=ln>14</span>        http://mirror.bizflycloud.vn/debian/
+<span class=ln>15</span>        http://ftp.kaist.ac.kr/debian/
+<span class=ln>16</span>
+<span class=ln>17</span>Of the hosts tested we choose the fastest valid <span class=k>for</span> http:
+<span class=ln>18</span>        http://mirrors.bfsu.edu.cn/debian/
+<span class=ln>19</span>
+<span class=ln>20</span>Writing sources.list.
+<span class=ln>21</span>Done.
+<span class=ln>22</span>
+<span class=ln>23</span><span class=nb>echo</span> <span class=s1>&#39;http://mirrors.bfsu.edu.cn/debian/&#39;</span> <span class=p>|</span> sudo tee /etc/apt/mirrors/debian.list
+<span class=ln>24</span><span class=nb>echo</span> <span class=s1>&#39;http://mirrors.bfsu.edu.cn/debian-security/&#39;</span> <span class=p>|</span> sudo tee /etc/apt/mirrors/debian-security.list
+<span class=ln>25</span>sudo apt autoremove -y netselect-apt
+</code></pre></div><hr>
+<h2 id=yum>YUM</h2>
 <h3 id=查询仓库>查询仓库</h3>
 <div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=ln>1</span>yum repolist
 <span class=ln>2</span><span class=c1># 显示所有仓库</span>
@@ -74,7 +100,7 @@
 <span class=ln>5</span>yum repolist enabled
 <span class=ln>6</span><span class=c1># 显示所有禁用的仓库</span>
 <span class=ln>7</span>yum repolist disabled
-</code></pre></div><h3 id=修改仓库>修改仓库</h3>
+</code></pre></div><h3 id=修改仓库-1>修改仓库</h3>
 <p>最常用的修改操作就是启动和停用, 可以使用以下命令实现:</p>
 <div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=ln>1</span>yum-config-manager --enable repository…
 <span class=ln>2</span>yum-config-manager --disable repository…
@@ -117,7 +143,7 @@
 <li><a href=https://cuile.github.io/posts/slam_dunk_1/ class=nav-link title="灌篮高手大结局(全国大赛后) 上">灌篮高手大结局(全国大赛后) 上</a></li>
 <li><a href=https://cuile.github.io/posts/ups/ups_install/ class=nav-link title="山克 UPS 安装手册">山克 UPS 安装手册</a></li>
 <li><a href=https://cuile.github.io/posts/harmonyos_optimization/ class=nav-link title=鸿蒙系统优化>鸿蒙系统优化</a></li>
-<li><a href=https://cuile.github.io/posts/linux/repo_manual/ class=nav-link title="Yum 版本库管理">Yum 版本库管理</a></li>
+<li><a href=https://cuile.github.io/posts/linux/repo_manual/ class=nav-link title=软件库管理>软件库管理</a></li>
 <li><a href=https://cuile.github.io/posts/linux/configure_manual/ class=nav-link title="Linux 系统配置">Linux 系统配置</a></li>
 <li><a href=https://cuile.github.io/posts/hugo_setup_for_github/ class=nav-link title=Github使用Hugo生成Blog>Github使用Hugo生成Blog</a></li>
 <li><a href=https://cuile.github.io/archives/ class=nav-link title></a></li>
@@ -151,7 +177,7 @@
 <a href=https://cuile.github.io/posts/harmonyos_optimization/ class=nav-link title=鸿蒙系统优化>鸿蒙系统优化</a>
 </li>
 <li>
-<a href=https://cuile.github.io/posts/linux/repo_manual/ class=nav-link title="Yum 版本库管理">Yum 版本库管理</a>
+<a href=https://cuile.github.io/posts/linux/repo_manual/ class=nav-link title=软件库管理>软件库管理</a>
 </li>
 <li>
 <a href=https://cuile.github.io/posts/linux/configure_manual/ class=nav-link title="Linux 系统配置">Linux 系统配置</a>
@@ -263,6 +289,8 @@ FTP
 </a>
 <a href=https://cuile.github.io/tags/alpine-linux/ class="post_tag button button_translucent" data-position=2 title=alpine-linux>ALPINE-LINUX<span class=button_tally>2</span>
 </a>
+<a href=https://cuile.github.io/tags/apt/ class="post_tag button button_translucent" data-position=1 title=apt>APT<span class=button_tally>1</span>
+</a>
 <a href=https://cuile.github.io/tags/bash/ class="post_tag button button_translucent" data-position=2 title=bash>BASH<span class=button_tally>2</span>
 </a>
 <a href=https://cuile.github.io/tags/bbr/ class="post_tag button button_translucent" data-position=1 title=bbr>BBR<span class=button_tally>1</span>
@@ -278,6 +306,8 @@ FTP
 <a href=https://cuile.github.io/tags/crontab/ class="post_tag button button_translucent" data-position=1 title=crontab>CRONTAB<span class=button_tally>1</span>
 </a>
 <a href=https://cuile.github.io/tags/ct-container/ class="post_tag button button_translucent" data-position=1 title=ct-container>CT-CONTAINER<span class=button_tally>1</span>
+</a>
+<a href=https://cuile.github.io/tags/debian/ class="post_tag button button_translucent" data-position=1 title=debian>DEBIAN<span class=button_tally>1</span>
 </a>
 <a href=https://cuile.github.io/tags/deepin/ class="post_tag button button_translucent" data-position=2 title=deepin>DEEPIN<span class=button_tally>2</span>
 </a>
