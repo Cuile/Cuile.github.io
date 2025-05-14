@@ -12,14 +12,13 @@ tags:
 ---
 
 ## APT
-*debian bookworm*
 
 [Debian 全球镜像站](https://www.debian.org/mirror/list#per-country)
 
 ### 修改仓库
 ```bash
 # 查找延迟最小的镜像
-sudo apt install -y netselect-apt && sudo netselect-apt
+sudo apt install -y netselect-apt && sudo netselect-apt && sudo apt autoremove -y netselect-apt
 ...
 The fastest 10 servers seem to be:
 
@@ -40,9 +39,19 @@ Of the hosts tested we choose the fastest valid for http:
 Writing sources.list.
 Done.
 
+
+# debian bookworm
+rm -f sources.list
 echo 'http://mirrors.bfsu.edu.cn/debian/' | sudo tee /etc/apt/mirrors/debian.list
-echo 'http://mirrors.bfsu.edu.cn/debian-security/' | sudo tee /etc/apt/mirrors/debian-security.list
-sudo apt autoremove -y netselect-apt
+echo 'http://mirrors.bfsu.edu.cn/debian-security/' | sudo tee -a /etc/apt/mirrors/debian-security.list
+
+# docker imaage debian:12
+# https://deb.debian.org/
+apt-get install -y netselect-apt \
+&& netselect-apt -o /etc/apt/sources.list \
+&& apt-get autoremove -y netselect-apt \
+&& sed -i -e "s/security.debian.org/deb.debian.org\/debian-security/" /etc/apt/sources.list
+
 ```
 ---
 
