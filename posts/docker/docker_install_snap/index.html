@@ -1,24 +1,24 @@
 <!doctype html><html lang=zh-cn data-figures class=page>
 <head>
-<title>Docker Compose 指令 | 瘦了就帅了</title>
+<title>使用 Snap 安装 Docker | 瘦了就帅了</title>
 <meta charset=utf-8>
 <meta name=viewport content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
 <meta http-equiv=x-ua-compatible content="IE=edge">
 <meta property="og:locale" content="zh-cn">
 <meta property="og:type" content="article">
-<meta name=description content="command 指令 字符串方式 1command:/bin/bash -c &#34;cp /app/dtest/config.default.yml /app/config.yml && python -u /app/dtest/tcc.py&#34;2# 另一种方 …">
+<meta name=description content="尝试使用 Ubuntu 的 Snap 后，发现真的非常方便。 看过Snap的介绍以后，发现Snap的沙盒理念非常先进，在存储基本不成问题背景下，会系统环境的影响更小。">
 <meta name=twitter:card content="summary">
 <meta name=twitter:creator content>
-<meta name=twitter:title content="Docker Compose 指令">
+<meta name=twitter:title content="使用 Snap 安装 Docker">
 <meta name=twitter:image content="https://cuile.github.io/images/thumbnail.png">
-<meta property="og:url" content="https://cuile.github.io/posts/docker/docker_compose/">
-<meta property="og:title" content="Docker Compose 指令">
-<meta property="og:description" content="command 指令 字符串方式 1command:/bin/bash -c &#34;cp /app/dtest/config.default.yml /app/config.yml && python -u /app/dtest/tcc.py&#34;2# 另一种方 …">
+<meta property="og:url" content="https://cuile.github.io/posts/docker/docker_install_snap/">
+<meta property="og:title" content="使用 Snap 安装 Docker">
+<meta property="og:description" content="尝试使用 Ubuntu 的 Snap 后，发现真的非常方便。 看过Snap的介绍以后，发现Snap的沙盒理念非常先进，在存储基本不成问题背景下，会系统环境的影响更小。">
 <meta property="og:image" content="https://cuile.github.io/images/thumbnail.png">
 <link rel=apple-touch-icon sizes=180x180 href=https://cuile.github.io/icons/apple-touch-icon.png>
 <link rel=icon type=image/png sizes=32x32 href=https://cuile.github.io/icons/favicon-32x32.png>
 <link rel=manifest href=https://cuile.github.io/icons/site.webmanifest>
-<link rel=canonical href=https://cuile.github.io/posts/docker/docker_compose/>
+<link rel=canonical href=https://cuile.github.io/posts/docker/docker_install_snap/>
 <link rel=preload href=https://cuile.github.io/css/styles.367129801480fead578d7a356a98fcb3bce794981ff18cee55868d198d0d2bf1eb4feac97319d0871c6255183b9fd27a7059e4632c785951f4c4f6953559c4d0.css integrity="sha512-NnEpgBSA/q1XjXo1apj8s7znlJgf8YzuVYaNGY0NK/HrT+rJcxnQhxxiVRg7n9J6cFnkYyx4WVH0xPaVNVnE0A==" as=style crossorigin=anonymous>
 <link rel=preload href=https://cuile.github.io/zh-cn/js/bundle.4e04b93422786398f3502d560bd5acb3d3f99b2e942c8c11e0fd926ab6ec3ccbd020d4294d58c0825ecb606ef221b34edc81586f1832489816a57ae8f0276615.js as=script integrity="sha512-TgS5NCJ4Y5jzUC1WC9Wss9P5my6ULIwR4P2SarbsPMvQINQpTVjAgl7LYG7yIbNO3IFYbxgySJgWpXro8CdmFQ==" crossorigin=anonymous>
 <link rel=stylesheet type=text/css href=https://cuile.github.io/css/styles.367129801480fead578d7a356a98fcb3bce794981ff18cee55868d198d0d2bf1eb4feac97319d0871c6255183b9fd27a7059e4632c785951f4c4f6953559c4d0.css integrity="sha512-NnEpgBSA/q1XjXo1apj8s7znlJgf8YzuVYaNGY0NK/HrT+rJcxnQhxxiVRg7n9J6cFnkYyx4WVH0xPaVNVnE0A==" crossorigin=anonymous>
@@ -47,32 +47,41 @@
 <main>
 <div class="grid-inverse wrap content">
 <article class=post_content>
-<h1 class=post_title>Docker Compose 指令</h1>
+<h1 class=post_title>使用 Snap 安装 Docker</h1>
 <div class=post_meta>
 <span><svg class="icon"><title>calendar</title><use xlink:href="#calendar"/></svg>
 </span>
 <span class=post_date>
-2022-07-19</span>
-<span class=post_time> · 阅读时长 1 分钟</span><span>&nbsp;· <a href=https://cuile.github.io/tags/docker-compose/ title="docker compose" class="post_tag button button_translucent">docker compose
-</a><a href=https://cuile.github.io/tags/cli/ title=cli class="post_tag button button_translucent">cli
+2022-05-11</span>
+<span class=post_time> · 阅读时长 1 分钟</span><span>&nbsp;· <a href=https://cuile.github.io/tags/snap/ title=Snap class="post_tag button button_translucent">Snap
 </a>
 </span>
 </div>
-<div class=post_body><h2 id=command-指令>command 指令</h2>
-<h3 id=字符串方式>字符串方式</h3>
-<div class=highlight><pre tabindex=0 class=chroma><code class=language-yml data-lang=yml><span class=ln>1</span><span class=w>    </span><span class=nt>command</span><span class=p>:</span><span class=w> </span><span class=l>/bin/bash -c &#34;cp /app/dtest/config.default.yml /app/config.yml &amp;&amp; python -u /app/dtest/tcc.py&#34;</span><span class=w>
-</span><span class=ln>2</span><span class=w>    </span><span class=c># 另一种方式</span><span class=w>
-</span><span class=ln>3</span><span class=w>    </span><span class=nt>command</span><span class=p>:</span><span class=w> </span><span class=l>/bin/bash -c &#34; while true; do sleep 1; done&#34;</span><span class=w>
-</span></code></pre></div><ul>
-<li><a href=https://blog.csdn.net/whatday/article/details/108863389>docker compose command 执行多条指令</a></li>
-</ul>
-<h3 id=配置文件方式>配置文件方式</h3>
-<p>......</p>
-<h2 id=tty-指令>tty 指令</h2>
-<p>启动后停在cli，等待登录</p>
-<div class=highlight><pre tabindex=0 class=chroma><code class=language-yml data-lang=yml><span class=ln>1</span><span class=w>    </span><span class=nt>stdin_open</span><span class=p>:</span><span class=w> </span><span class=kc>true</span><span class=w> </span><span class=c># 对应 docker run 中的 -i</span><span class=w>
-</span><span class=ln>2</span><span class=w>    </span><span class=nt>tty</span><span class=p>:</span><span class=w> </span><span class=kc>true</span><span class=w>        </span><span class=c># 对应 docker run 中的 -t</span><span class=w>
-</span></code></pre></div>
+<div class=post_body><p>尝试使用 Ubuntu 的 Snap 后，发现真的非常方便。</p>
+<p>看过Snap的介绍以后，发现Snap的沙盒理念非常先进，在存储基本不成问题背景下，会系统环境的影响更小。</p>
+<p>而且docker-compose命令也会一起安装，更是方便。</p>
+<h2 id=1安装>1.安装</h2>
+<div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=ln>1</span>$ sudo snap install docker
+</code></pre></div><h2 id=2设置>2.设置</h2>
+<div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=ln>1</span><span class=c1># 设置开机启动</span>
+<span class=ln>2</span>$ sudo snap start docker --enable
+<span class=ln>3</span><span class=c1># 确认服务状态</span>
+<span class=ln>4</span>$ sudo snap services docker
+<span class=ln>5</span><span class=c1># 查看服务详情</span>
+<span class=ln>6</span>$ service snap.docker.dockerd status
+</code></pre></div><p>使用sudo安装后要注意以后调用时，都要使用sudo命令前缀。</p>
+<h2 id=3其它>3.其它</h2>
+<div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=ln>1</span><span class=c1># 安装目录</span>
+<span class=ln>2</span>/snap/docker/current         
+<span class=ln>3</span><span class=c1># 服务启动配置文件</span>
+<span class=ln>4</span>/etc/systemd/system/snap.docker.dockerd.service
+<span class=ln>5</span><span class=c1># 配套 AppArmor 配置文件</span>
+<span class=ln>6</span>/var/lib/snapd/apparmor/profiles/snap.docker.docker
+<span class=ln>7</span>/var/lib/snapd/apparmor/profiles/snap.docker.dockerd
+<span class=ln>8</span><span class=c1># 默认 Unix Socket 文件路径</span>
+<span class=ln>9</span>unix:///var/snap/docker/current/run/docker/libcontainerd/docker-containerd.sock
+</code></pre></div><h2 id=4参考文献>4.参考文献</h2>
+<p><a href=https://www.moha.online/en/node/111#Snap%E5%AE%89%E8%A3%85>Docker 安装指南</a></p>
 </div>
 <h2 class=post_related>相关专栏文章</h2>
 <ul>
@@ -148,6 +157,10 @@ PROXMOXVE
 WINDOWS
 <span class=button_tally>7</span>
 </a>
+<a href=https://cuile.github.io/series/docker/ class="post_tag button button_translucent" title=docker>
+DOCKER
+<span class=button_tally>6</span>
+</a>
 <a href=https://cuile.github.io/series/openwrt/ class="post_tag button button_translucent" title=openwrt>
 OPENWRT
 <span class=button_tally>6</span>
@@ -155,10 +168,6 @@ OPENWRT
 <a href=https://cuile.github.io/series/python/ class="post_tag button button_translucent" title=python>
 PYTHON
 <span class=button_tally>6</span>
-</a>
-<a href=https://cuile.github.io/series/docker/ class="post_tag button button_translucent" title=docker>
-DOCKER
-<span class=button_tally>5</span>
 </a>
 <a href=https://cuile.github.io/series/alpine-linux/ class="post_tag button button_translucent" title=alpine-linux>
 ALPINE-LINUX
@@ -184,9 +193,9 @@ GIT
 LARAVEL
 <span class=button_tally>2</span>
 </a>
-<a href=https://cuile.github.io/series/snap/ class="post_tag button button_translucent" title=snap>
-SNAP
-<span class=button_tally>2</span>
+<a href=https://cuile.github.io/series/ffmpeg/ class="post_tag button button_translucent" title=ffmpeg>
+FFMPEG
+<span class=button_tally>1</span>
 </a>
 <br>
 <div class="post_tags_toggle button">所有专栏</div>
@@ -198,7 +207,7 @@ SNAP
 </a>
 <a href=https://cuile.github.io/series/django/ class="post_tag button button_translucent" data-position=2 title=django>DJANGO<span class=button_tally>2</span>
 </a>
-<a href=https://cuile.github.io/series/docker/ class="post_tag button button_translucent" data-position=5 title=docker>DOCKER<span class=button_tally>5</span>
+<a href=https://cuile.github.io/series/docker/ class="post_tag button button_translucent" data-position=6 title=docker>DOCKER<span class=button_tally>6</span>
 </a>
 <a href=https://cuile.github.io/series/ffmpeg/ class="post_tag button button_translucent" data-position=1 title=ffmpeg>FFMPEG<span class=button_tally>1</span>
 </a>
@@ -214,7 +223,7 @@ SNAP
 </a>
 <a href=https://cuile.github.io/series/python/ class="post_tag button button_translucent" data-position=6 title=python>PYTHON<span class=button_tally>6</span>
 </a>
-<a href=https://cuile.github.io/series/snap/ class="post_tag button button_translucent" data-position=2 title=snap>SNAP<span class=button_tally>2</span>
+<a href=https://cuile.github.io/series/snap/ class="post_tag button button_translucent" data-position=1 title=snap>SNAP<span class=button_tally>1</span>
 </a>
 <a href=https://cuile.github.io/series/tips/ class="post_tag button button_translucent" data-position=10 title=tips>TIPS<span class=button_tally>10</span>
 </a>
@@ -250,13 +259,13 @@ LINUX
 HYPER-V
 <span class=button_tally>5</span>
 </a>
-<a href=https://cuile.github.io/tags/docker/ class="post_tag button button_translucent" title=docker>
-DOCKER
-<span class=button_tally>4</span>
-</a>
 <a href=https://cuile.github.io/tags/network/ class="post_tag button button_translucent" title=network>
 NETWORK
 <span class=button_tally>4</span>
+</a>
+<a href=https://cuile.github.io/tags/docker/ class="post_tag button button_translucent" title=docker>
+DOCKER
+<span class=button_tally>3</span>
 </a>
 <a href=https://cuile.github.io/tags/firewall/ class="post_tag button button_translucent" title=firewall>
 FIREWALL
@@ -320,7 +329,7 @@ FTP
 </a>
 <a href=https://cuile.github.io/tags/dns/ class="post_tag button button_translucent" data-position=1 title=dns>DNS<span class=button_tally>1</span>
 </a>
-<a href=https://cuile.github.io/tags/docker/ class="post_tag button button_translucent" data-position=4 title=docker>DOCKER<span class=button_tally>4</span>
+<a href=https://cuile.github.io/tags/docker/ class="post_tag button button_translucent" data-position=3 title=docker>DOCKER<span class=button_tally>3</span>
 </a>
 <a href=https://cuile.github.io/tags/docker-compose/ class="post_tag button button_translucent" data-position=1 title=docker-compose>DOCKER-COMPOSE<span class=button_tally>1</span>
 </a>
@@ -403,6 +412,8 @@ FTP
 <a href=https://cuile.github.io/tags/sed/ class="post_tag button button_translucent" data-position=1 title=sed>SED<span class=button_tally>1</span>
 </a>
 <a href=https://cuile.github.io/tags/shadowsocks/ class="post_tag button button_translucent" data-position=1 title=shadowsocks>SHADOWSOCKS<span class=button_tally>1</span>
+</a>
+<a href=https://cuile.github.io/tags/snap/ class="post_tag button button_translucent" data-position=1 title=snap>SNAP<span class=button_tally>1</span>
 </a>
 <a href=https://cuile.github.io/tags/ssh/ class="post_tag button button_translucent" data-position=2 title=ssh>SSH<span class=button_tally>2</span>
 </a>

@@ -53,7 +53,7 @@
 <div class=excerpt>
 <div class=excerpt_header>
 <h3 class=post_link>
-<a href=https://cuile.github.io/posts/docker/docker_compose/ title="Docker Compose 指令">Docker Compose 指令</a>
+<a href=https://cuile.github.io/posts/docker/docker_compose_command/ title="Docker Compose 指令">Docker Compose 指令</a>
 </h3>
 <div class=post_meta>
 <span><svg class="icon"><title>calendar</title><use xlink:href="#calendar"/></svg>
@@ -68,9 +68,9 @@
 </div>
 <div class=excerpt_footer>
 <div class=pale>
-<p>command 指令 字符串方式 1command:/bin/bash -c "cp /app/dtest/config.default.yml /app/config.yml && python -u /app/dtest/tcc.py"2# 另一种方式3command:/bin/bash -c " while true; do sleep 1; done" docker compose command 执行多条指令 配置文件方式 ...... tty 指令 启动后</p>
+<p>command 指令 1# 字符串方式2command:/bin/bash -c "cp /app/dtest/config.default.yml /app/config.yml && python -u /app/dtest/tcc.py"3# 另一种方式4command:["/bin/bash",</p>
 <br>
-<a href=https://cuile.github.io/posts/docker/docker_compose/ title=阅读更多 class="excerpt_more button">阅读更多</a>
+<a href=https://cuile.github.io/posts/docker/docker_compose_command/ title=阅读更多 class="excerpt_more button">阅读更多</a>
 </div>
 </div>
 </div>
@@ -97,6 +97,31 @@
 <p>在 Alpine 上安装 Docker 真是一件让人感觉非常愉快的事情，因为过程非常简单。 修改 apk 源 1$ nano /etc/apk/repositories 因为 docker 在社区的库里，所以要打开 community 的源。 1#/media/cdrom/apks 2http://mirrors.tuna.tsinghua.edu.cn/alpine/v3.16/main 3http://mirrors.tuna.tsinghua.edu.cn/alpine/v3.16/community 4#http://mirrors.tuna.tsinghua.edu.cn/alpine/edge/main …</p>
 <br>
 <a href=https://cuile.github.io/posts/docker/docker_install_alpine_linux/ title=阅读更多 class="excerpt_more button">阅读更多</a>
+</div>
+</div>
+</div>
+</li>
+<li class=post_item>
+<div class=excerpt>
+<div class=excerpt_header>
+<h3 class=post_link>
+<a href=https://cuile.github.io/posts/docker/docker_install_snap/ title="使用 Snap 安装 Docker">使用 Snap 安装 Docker</a>
+</h3>
+<div class=post_meta>
+<span><svg class="icon"><title>calendar</title><use xlink:href="#calendar"/></svg>
+</span>
+<span class=post_date>
+2022-05-11</span>
+<span class=post_time> · 阅读时长 1 分钟</span><span>&nbsp;· <a href=https://cuile.github.io/tags/snap/ title=Snap class="post_tag button button_translucent">Snap
+</a>
+</span>
+</div>
+</div>
+<div class=excerpt_footer>
+<div class=pale>
+<p>尝试使用 Ubuntu 的 Snap 后，发现真的非常方便。 看过Snap的介绍以后，发现Snap的沙盒理念非常先进，在存储基本不成问题背景下，会系统环境的影响更小。</p>
+<br>
+<a href=https://cuile.github.io/posts/docker/docker_install_snap/ title=阅读更多 class="excerpt_more button">阅读更多</a>
 </div>
 </div>
 </div>
@@ -249,6 +274,10 @@ PROXMOXVE
 WINDOWS
 <span class=button_tally>7</span>
 </a>
+<a href=https://cuile.github.io/series/docker/ class="post_tag button button_translucent" title=docker>
+DOCKER
+<span class=button_tally>6</span>
+</a>
 <a href=https://cuile.github.io/series/openwrt/ class="post_tag button button_translucent" title=openwrt>
 OPENWRT
 <span class=button_tally>6</span>
@@ -256,10 +285,6 @@ OPENWRT
 <a href=https://cuile.github.io/series/python/ class="post_tag button button_translucent" title=python>
 PYTHON
 <span class=button_tally>6</span>
-</a>
-<a href=https://cuile.github.io/series/docker/ class="post_tag button button_translucent" title=docker>
-DOCKER
-<span class=button_tally>5</span>
 </a>
 <a href=https://cuile.github.io/series/alpine-linux/ class="post_tag button button_translucent" title=alpine-linux>
 ALPINE-LINUX
@@ -285,9 +310,9 @@ GIT
 LARAVEL
 <span class=button_tally>2</span>
 </a>
-<a href=https://cuile.github.io/series/snap/ class="post_tag button button_translucent" title=snap>
-SNAP
-<span class=button_tally>2</span>
+<a href=https://cuile.github.io/series/ffmpeg/ class="post_tag button button_translucent" title=ffmpeg>
+FFMPEG
+<span class=button_tally>1</span>
 </a>
 <br>
 <div class="post_tags_toggle button">所有专栏</div>
@@ -299,7 +324,7 @@ SNAP
 </a>
 <a href=https://cuile.github.io/series/django/ class="post_tag button button_translucent" data-position=2 title=django>DJANGO<span class=button_tally>2</span>
 </a>
-<a href=https://cuile.github.io/series/docker/ class="post_tag button button_translucent" data-position=5 title=docker>DOCKER<span class=button_tally>5</span>
+<a href=https://cuile.github.io/series/docker/ class="post_tag button button_translucent" data-position=6 title=docker>DOCKER<span class=button_tally>6</span>
 </a>
 <a href=https://cuile.github.io/series/ffmpeg/ class="post_tag button button_translucent" data-position=1 title=ffmpeg>FFMPEG<span class=button_tally>1</span>
 </a>
@@ -315,7 +340,7 @@ SNAP
 </a>
 <a href=https://cuile.github.io/series/python/ class="post_tag button button_translucent" data-position=6 title=python>PYTHON<span class=button_tally>6</span>
 </a>
-<a href=https://cuile.github.io/series/snap/ class="post_tag button button_translucent" data-position=2 title=snap>SNAP<span class=button_tally>2</span>
+<a href=https://cuile.github.io/series/snap/ class="post_tag button button_translucent" data-position=1 title=snap>SNAP<span class=button_tally>1</span>
 </a>
 <a href=https://cuile.github.io/series/tips/ class="post_tag button button_translucent" data-position=10 title=tips>TIPS<span class=button_tally>10</span>
 </a>
@@ -351,13 +376,13 @@ LINUX
 HYPER-V
 <span class=button_tally>5</span>
 </a>
-<a href=https://cuile.github.io/tags/docker/ class="post_tag button button_translucent" title=docker>
-DOCKER
-<span class=button_tally>4</span>
-</a>
 <a href=https://cuile.github.io/tags/network/ class="post_tag button button_translucent" title=network>
 NETWORK
 <span class=button_tally>4</span>
+</a>
+<a href=https://cuile.github.io/tags/docker/ class="post_tag button button_translucent" title=docker>
+DOCKER
+<span class=button_tally>3</span>
 </a>
 <a href=https://cuile.github.io/tags/firewall/ class="post_tag button button_translucent" title=firewall>
 FIREWALL
@@ -421,7 +446,7 @@ FTP
 </a>
 <a href=https://cuile.github.io/tags/dns/ class="post_tag button button_translucent" data-position=1 title=dns>DNS<span class=button_tally>1</span>
 </a>
-<a href=https://cuile.github.io/tags/docker/ class="post_tag button button_translucent" data-position=4 title=docker>DOCKER<span class=button_tally>4</span>
+<a href=https://cuile.github.io/tags/docker/ class="post_tag button button_translucent" data-position=3 title=docker>DOCKER<span class=button_tally>3</span>
 </a>
 <a href=https://cuile.github.io/tags/docker-compose/ class="post_tag button button_translucent" data-position=1 title=docker-compose>DOCKER-COMPOSE<span class=button_tally>1</span>
 </a>
@@ -504,6 +529,8 @@ FTP
 <a href=https://cuile.github.io/tags/sed/ class="post_tag button button_translucent" data-position=1 title=sed>SED<span class=button_tally>1</span>
 </a>
 <a href=https://cuile.github.io/tags/shadowsocks/ class="post_tag button button_translucent" data-position=1 title=shadowsocks>SHADOWSOCKS<span class=button_tally>1</span>
+</a>
+<a href=https://cuile.github.io/tags/snap/ class="post_tag button button_translucent" data-position=1 title=snap>SNAP<span class=button_tally>1</span>
 </a>
 <a href=https://cuile.github.io/tags/ssh/ class="post_tag button button_translucent" data-position=2 title=ssh>SSH<span class=button_tally>2</span>
 </a>
