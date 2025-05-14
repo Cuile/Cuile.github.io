@@ -6,69 +6,71 @@ tags:
 - CentOS
 - repo
 - yum
-series:
 - Linux
+series:
 categories:
 ---
 
-**`脚本基于Centos 7`**
+## APT
 
-## 更换阿里云软件安装源
+[Debian 全球镜像站](https://www.debian.org/mirror/list#per-country)
 
+### 查询镜像
+```bash
+# 查找延迟最小的镜像
+sudo apt install -y netselect-apt && sudo netselect-apt
+```
+## YUM
+
+### 查询仓库
+```bash
+yum repolist
+# 显示所有仓库
+yum repolist all
+# 显示所有启动的仓库
+yum repolist enabled
+# 显示所有禁用的仓库
+yum repolist disabled
+```
+
+### 修改仓库
+最常用的修改操作就是启动和停用, 可以使用以下命令实现:
+```bash
+yum-config-manager --enable repository…
+yum-config-manager --disable repository…
+```
+
+### 更换阿里云软件安装源
 ```bash
 # 备份原镜像文件，以免出错后可以恢复。
-$ mv /etc/yum.repos.d/CentOS-Base.repo /etc/yum.repos.d/CentOS-Base.repo.backup \
+mv /etc/yum.repos.d/CentOS-Base.repo /etc/yum.repos.d/CentOS-Base.repo.backup \
 && mv /etc/yum.repos.d/epel.repo /etc/yum.repos.d/epel.repo.backup \
 && mv /etc/yum.repos.d/epel-testing.repo /etc/yum.repos.d/epel-testing.repo.backup
 
 # 下载新的CentOS-Base.repo 到/etc/yum.repos.d/
-$ curl -o /etc/yum.repos.d/CentOS-Base.repo http://mirrors.aliyun.com/repo/Centos-7.repo \
+curl -o /etc/yum.repos.d/CentOS-Base.repo http://mirrors.aliyun.com/repo/Centos-7.repo \
 && curl -o /etc/yum.repos.d/epel.repo http://mirrors.aliyun.com/repo/epel-7.repo \
 && curl -o /etc/yum.repos.d/epel-testing.repo http://mirrors.aliyun.com/repo/epel-testing.repo
 
 # 运行yum makecache生成缓存
-$ yum clean all && yum makecache
+yum clean all && yum makecache
 ```
 
-## 查看已安装软件
-
+### 查看已安装软件
 ```bash
-$ yum list installed
+yum list installed
 ```
 
-## 更新
-
+### 更新软件
 ```bash
 # 升级所有包同时也升级软件和系统内核
-$ yum -y update
+yum -y update
 
 # 只升级所有包，不升级软件和系统内核
-$ yum -y upgrade
+yum -y upgrade
 ```
 
-## 查询仓库
-
-```bash
-$ yum repolist
-# 显示所有仓库
-$ yum repolist all
-# 显示所有启动的仓库
-$ yum repolist enabled
-# 显示所有禁用的仓库
-$ yum repolist disabled
-```
-
-## 修改仓库
-
-最常用的修改操作就是启动和停用, 可以使用以下命令实现:
-
-```bash
-$ yum-config-manager --enable repository…
-$ yum-config-manager --disable repository…
-```
-
-##  参考文档
-
+###  参考文档
 - [查RPM](https://crpm.cn/) <sup>找不到包的时候，可以在这上面查查，非常有帮助</sup>
 - [阿里巴巴开源镜像站](https://developer.aliyun.com/mirror/)
     - [centos](https://developer.aliyun.com/mirror/centos)

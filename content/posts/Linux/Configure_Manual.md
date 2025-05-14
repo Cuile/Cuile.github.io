@@ -1,5 +1,5 @@
 ---
-title: "Linux 系统初始化配置"
+title: "Linux 系统配置"
 date: 2022-01-17T11:07:07+08:00
 # draft: true
 tags: 
@@ -7,8 +7,8 @@ tags:
 - bash
 - ssh
 - top
-series:
 - linux
+series:
 categories:
 ---
 
