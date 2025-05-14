@@ -1,11 +1,13 @@
 ---
-title: "Yum 版本库管理"
+title: "软件库管理"
 date: 2022-02-08T10:28:50+08:00
 # draft: true
 tags:
 - CentOS
+- debian
 - repo
 - yum
+- apt 
 - Linux
 series:
 categories:
@@ -15,11 +17,37 @@ categories:
 
 [Debian 全球镜像站](https://www.debian.org/mirror/list#per-country)
 
-### 查询镜像
+### 修改仓库
 ```bash
 # 查找延迟最小的镜像
 sudo apt install -y netselect-apt && sudo netselect-apt
+...
+The fastest 10 servers seem to be:
+
+        http://mirrors.bfsu.edu.cn/debian/
+        http://mirrors.tuna.tsinghua.edu.cn/debian/
+        http://mirrors.neusoft.edu.cn/debian/
+        http://mirrors.jlu.edu.cn/debian/
+        http://ftp.cn.debian.org/debian/
+        http://debian.cs.nycu.edu.tw/debian/
+        http://mirror.i3d.net/debian/
+        http://mirrors.163.com/debian/
+        http://mirror.bizflycloud.vn/debian/
+        http://ftp.kaist.ac.kr/debian/
+
+Of the hosts tested we choose the fastest valid for http:
+        http://mirrors.bfsu.edu.cn/debian/
+
+Writing sources.list.
+Done.
+
+echo 'http://mirrors.bfsu.edu.cn/debian/' | sudo tee /etc/apt/mirrors/debian.list
+echo 'http://mirrors.bfsu.edu.cn/debian-security/' | sudo tee /etc/apt/mirrors/debian-security.list
+sudo apt autoremove -y netselect-apt
 ```
+
+---
+
 ## YUM
 
 ### 查询仓库
