@@ -1,6 +1,6 @@
 <!doctype html><html lang=zh-cn data-figures class=page>
 <head>
-<title>Docker使用命令 | 瘦了就帅了</title>
+<title>Docker 命令 | 瘦了就帅了</title>
 <meta charset=utf-8>
 <meta name=viewport content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
 <meta http-equiv=x-ua-compatible content="IE=edge">
@@ -9,10 +9,10 @@
 <meta name=description content="镜像列表 1docker image ls -a 2# or 3docker images 容器列表 1docker container ls -a 2# or 3docker ps 查看输出 1docker compose -f <yaml_file> logs [-f] [service name] …">
 <meta name=twitter:card content="summary">
 <meta name=twitter:creator content>
-<meta name=twitter:title content="Docker使用命令">
+<meta name=twitter:title content="Docker 命令">
 <meta name=twitter:image content="https://cuile.github.io/images/thumbnail.png">
 <meta property="og:url" content="https://cuile.github.io/posts/docker/docker_cli/">
-<meta property="og:title" content="Docker使用命令">
+<meta property="og:title" content="Docker 命令">
 <meta property="og:description" content="镜像列表 1docker image ls -a 2# or 3docker images 容器列表 1docker container ls -a 2# or 3docker ps 查看输出 1docker compose -f <yaml_file> logs [-f] [service name] …">
 <meta property="og:image" content="https://cuile.github.io/images/thumbnail.png">
 <link rel=apple-touch-icon sizes=180x180 href=https://cuile.github.io/icons/apple-touch-icon.png>
@@ -47,7 +47,7 @@
 <main>
 <div class="grid-inverse wrap content">
 <article class=post_content>
-<h1 class=post_title>Docker使用命令</h1>
+<h1 class=post_title>Docker 命令</h1>
 <div class=post_meta>
 <span><svg class="icon"><title>calendar</title><use xlink:href="#calendar"/></svg>
 </span>
@@ -87,6 +87,16 @@
 <span class=ln>6</span>docker container rm &lt;container_name&gt;
 </code></pre></div><h2 id=创建桥接网络>创建桥接网络</h2>
 <div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=ln>1</span>docker network create <span class=o>[</span>name<span class=o>]</span>
+</code></pre></div><h2 id=配置dockerhub镜像>配置DockerHub镜像</h2>
+<div class=highlight><pre tabindex=0 class=chroma><code class=language-json data-lang=json><span class=ln>1</span><span class=c1>// /etc/docker/daemon.json 
+</span><span class=ln>2</span><span class=c1></span><span class=p>{</span>
+<span class=ln>3</span>  <span class=nt>&#34;registry-mirrors&#34;</span><span class=p>:</span> <span class=p>[</span>
+<span class=ln>4</span>  	<span class=s2>&#34;https://docker.1ms.run&#34;</span><span class=p>,</span>
+<span class=ln>5</span>  	<span class=s2>&#34;https://docker.xuanyuan.me&#34;</span>
+<span class=ln>6</span>  	<span class=p>]</span>
+<span class=ln>7</span><span class=p>}</span>
+</code></pre></div><div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=ln>1</span>systemctl daemon-reload
+<span class=ln>2</span>systemctl restart docker
 </code></pre></div><h2 id=docker快捷命令>Docker快捷命令</h2>
 <div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=ln>1</span><span class=nb>echo</span> <span class=s2>&#34;alias d-ll=&#39;docker image ls -a; echo; docker container ls -a&#39;&#34;</span> &gt;&gt; ~/.bashrc <span class=se>\
 </span><span class=ln>2</span><span class=se></span>    <span class=o>&amp;&amp;</span> <span class=nb>echo</span> <span class=s2>&#34;alias d-ps=&#39;docker ps&#39;&#34;</span> &gt;&gt; ~/.bashrc <span class=se>\
