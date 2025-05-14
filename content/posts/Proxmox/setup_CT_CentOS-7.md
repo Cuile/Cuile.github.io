@@ -3,19 +3,13 @@ title: "配置 CentOS 7 的 CT 容器"
 date: 2024-01-31T21:37:49+08:00
 # draft: true
 
-# 标签
 tags:
 - CT Container
 - lxc
 - centos 7
 - linux
-# 专栏
-series:
 - proxmoxve
-# 分类
-# categories:
 ---
-
 Proxmox VE 官方提供的 Centos 7 模板是有问题的无法正常使用，现在给出解决方案。
 
 ## 安装
@@ -50,6 +44,5 @@ $ systemctl enable sshd.service
 $ exit
 $ pct stop <VMID>
 ```
-5. 重新启动 CT 容器，一切正常
----
+5. 重新启动 CT 容器，一切正常---
 - [[SOLVED] - PVE 7 won't start CentOS 7 container | Proxmox Support Forum](https://forum.proxmox.com/threads/pve-7-wont-start-centos-7-container.97834/#post-425419)

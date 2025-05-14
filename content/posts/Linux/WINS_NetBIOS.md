@@ -3,16 +3,11 @@ title: "在 CentOS 上部署 NetBIOS"
 date: 2024-10-23T13:04:27+08:00
 # draft: true
 
-# 标签
 tags:
 - wins
 - netbios
 - centos
-# 专栏
-series:
 - linux
-# 分类
-# categories:
 ---
 
 **`基于 CentOS 7`**

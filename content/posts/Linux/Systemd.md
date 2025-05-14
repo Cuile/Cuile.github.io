@@ -3,15 +3,10 @@ title: "Systemd 系统工具命令指南"
 date: 2022-12-27T17:29:08+08:00
 # draft: true
 
-# 标签
 tags:
 - CLI
 - Systemd
-# 专栏
-series:
 - Linux
-# 分类
-categories:
 ---
 
 ## systemctl命令

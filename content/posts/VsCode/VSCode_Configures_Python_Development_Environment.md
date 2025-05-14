@@ -3,18 +3,12 @@ title: "VSCode 配置 Python 开发环境"
 date: 2023-11-25T00:24:10+08:00
 # draft: true
 
-# 标签
 tags:
 - micromamba
 - python
 - venv
-# 专栏
-series:
 - vscode
-# 分类
-# categories:
 ---
-
 使用 VSCode 开发 Python 是替代 PyCharm 的一个很好选择，有丰富的扩展和第三方工具可以使用，安装配置好它们，会让开发工作事半功倍。下面列举推荐安装的扩展和工具：
 
 扩展

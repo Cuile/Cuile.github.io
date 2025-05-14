@@ -3,13 +3,8 @@ title: "如何不尬聊"
 date: 2022-07-13T10:51:49+08:00
 # draft: true
 
-# 标签
 tags:
-# 专栏
-series:
 - tips
-# 分类
-categories:
 ---
 
 - 明拍马屁 - 先明夸

@@ -3,9 +3,7 @@ title: "七态为品"
 date: 2022-05-10T17:09:59+08:00
 # draft: true
 tags:
-series:
 - tips
-categories:
 ---
 
 - 交浅语深，动机不良。

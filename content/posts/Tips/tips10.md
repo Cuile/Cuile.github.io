@@ -3,13 +3,8 @@ title: "情人"
 date: 2022-07-17T15:45:54+08:00
 # draft: true
 
-# 标签
 tags:
-# 专栏
-series:
 - tips
-# 分类
-categories:
 ---
 
 ## 做朋友式的情人

@@ -3,9 +3,7 @@ title: "俗话说"
 date: 2022-06-27T10:38:38+08:00
 # draft: true
 tags:
-series:
 - tips
-categories:
 ---
 
 仗义每多屠狗辈，负心多是读书人。[<sup>1</sup>]

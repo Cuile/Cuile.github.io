@@ -4,9 +4,7 @@ date: 2022-05-16T14:32:27+08:00
 # draft: true
 tags:
 - CLI
-series:
 - git
-categories:
 ---
 
 ## 0、基础设置
@@ -33,8 +31,7 @@ git config --global --unset https.https://github.com.proxy
 git config --global push.default simple
 ```
 - [【Git】git push.default 简析 - 简书](https://www.jianshu.com/p/b7ba3d954eb0)
-- [Git忽略文件.gitignore详解](https://blog.csdn.net/ThinkWon/article/details/101447866)
----
+- [Git忽略文件.gitignore详解](https://blog.csdn.net/ThinkWon/article/details/101447866)---
 
 ## 1、项目
 
@@ -180,8 +177,7 @@ git branch --set-upstream-to=origin/new-branch-name old-branch-name
 git branch -vv
 # 删除旧的远程跟踪分支
 git branch -dr origin/old-branch-name
-```
----
+```---
 
 ## 3、标签
 
@@ -194,5 +190,4 @@ git tag 1.0
 
 # 推送所有标签
 git push --tags
-```
----
+```---

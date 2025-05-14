@@ -6,10 +6,7 @@ tags:
 - ssh
 - keychain
 - github
-series:
 - git
-categories:
-
 ---
 
 ## 生成新的 SSH Key

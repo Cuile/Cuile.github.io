@@ -5,9 +5,7 @@ date: 2022-06-19T15:25:18+08:00
 tags: 
 - linux
 - network
-series:
 - Alpine linux
-categories:
 ---
 
 ## 网卡静态地址

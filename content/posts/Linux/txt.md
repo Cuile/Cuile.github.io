@@ -3,15 +3,10 @@ title: "Linux 文本文件操作"
 date: 2023-05-31T11:18:52+08:00
 # draft: true
 
-# 标签
 tags:
 - cli
 - txt
-# 专栏
-series:
 - linux
-# 分类
-categories:
 ---
 
 ## 文件合并

@@ -4,9 +4,7 @@ date: 2022-02-07T14:07:32+08:00
 # draft: true
 tags:
 - NAT
-series:
 - proxmoxve
-categories:
 ---
 
 ## 1. 升级系统软件包

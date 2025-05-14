@@ -3,17 +3,11 @@ title: "ProxmoxVE 配置 DHCP 网络"
 date: 2025-02-07T09:44:39+08:00
 # draft: true
 
-# 标签
 tags:
 - ipv6
 - DHCP
-# 专栏
-series:
 - proxmoxve
-# 分类
-# categories:
 ---
-
 PVE 节点的网络配置，在 WebUI 里只能设置为静态地址，想设置DHCP的话需要使用以下方法。
 
 ## 方法一

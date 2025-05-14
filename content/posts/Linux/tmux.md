@@ -3,15 +3,10 @@ title: "Tmux 命令"
 date: 2024-02-21T16:08:32+08:00
 # draft: true
 
-# 标签
 tags:
 - cli
 - tmux
-# 专栏
-series:
 - linux
-# 分类
-# categories:
 ---
 
 ## 使用命令

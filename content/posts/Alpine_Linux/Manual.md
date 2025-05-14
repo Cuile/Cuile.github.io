@@ -2,16 +2,10 @@
 title: "Alpine Linux 配置"
 date: 2022-12-28T16:27:00+08:00
 # draft: true
-
-# 标签
 tags:
 - linux
 - cli
-# 专栏
-series:
 - alpine linux
-# 分类
-categories:
 ---
 
 ## WindTerm 无法认证

@@ -3,13 +3,8 @@ title: "渔樵问对"
 date: 2022-07-17T15:24:19+08:00
 # draft: true
 
-# 标签
 tags:
-# 专栏
-series:
 - tips
-# 分类
-categories:
 ---
 
 ## 观物

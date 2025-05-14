@@ -4,9 +4,7 @@ date: 2022-02-08T10:17:48+08:00
 # draft: true
 tags:
 - kernel
-series:
 - Linux
-categories:
 ---
 
 **`脚本基于Centos 7`**

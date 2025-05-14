@@ -3,12 +3,9 @@ title: "坦克使用手册"
 date: 2022-05-13T14:30:22+08:00
 # draft: true
 tags:
-- 心得体会
 - 火炮
 - 坦克世界
-series:
 - 游戏
-categories:
 ---
 
 ## 火炮

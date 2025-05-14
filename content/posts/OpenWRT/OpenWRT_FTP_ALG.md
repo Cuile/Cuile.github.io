@@ -5,10 +5,7 @@ date: 2022-02-07T10:08:02+08:00
 tags: 
 - FTP
 - ALG
-series:
 - OpenWRT
-categories:
-- 配置
 ---
 
 ## 1. 安装软件包

@@ -3,8 +3,7 @@ title: "FFmpeg脚本"
 date: 2022-02-08T10:31:15+08:00
 # draft: true
 tags:
-- Windwos 10
-series:
+- Windwos
 - FFmpeg
 ---
 

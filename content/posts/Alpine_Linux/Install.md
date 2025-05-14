@@ -5,11 +5,9 @@ date: 2022-06-19T11:46:55+08:00
 tags:
 - vm
 - qmue\kvm
-series:
 - linux
 - proxmoxve
 - Alpine linux
-categories:
 ---
 
 特点：

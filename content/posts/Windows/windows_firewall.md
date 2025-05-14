@@ -3,15 +3,9 @@ title: "Windows防火墙配置"
 date: 2024-10-23T16:49:42+08:00
 # draft: true
 
-# 标签
 tags:
 - firewall
-# 专栏
-series:
 - windows
-# 分类
-categories:
-- 配置
 ---
 
 ## 参考

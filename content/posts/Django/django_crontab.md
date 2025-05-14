@@ -3,16 +3,10 @@ title: "Django crontab 使用说明"
 date: 2023-01-22T16:35:36+08:00
 # draft: true
 
-# 标签
 tags:
 - crontab
 - python
-# 专栏
-series:
 - django
-# 分类
-categories:
-- 代码
 ---
 
 ### 参考文档

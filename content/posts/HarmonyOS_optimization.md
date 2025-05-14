@@ -4,9 +4,6 @@ date: 2022-05-16T11:09:59+08:00
 # draft: true
 tags:
 - HarmonyOS
-series:
-categories:
-- 配置
 ---
 
 ## 保持后台进程运行

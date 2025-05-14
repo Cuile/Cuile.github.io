@@ -3,15 +3,10 @@ title: "Ncftp 使用手册"
 date: 2024-01-26T11:30:57+08:00
 # draft: true
 
-# 标签
 tags:
 - ftp
 - ncftp
-# 专栏
-series:
 - linux
-# 分类
-# categories:
 ---
 
 NcFTP 是 Linux 上常用的 FTP客户端工具，非常好用，这里记录它的常见用法。

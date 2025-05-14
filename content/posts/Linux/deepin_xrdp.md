@@ -3,15 +3,10 @@ title: "Deepin 使用远程桌面"
 date: 2023-05-06T21:04:06+08:00
 # draft: true
 
-# 标签
 tags:
 - deepin
 - rdp
-# 专栏
-series:
 - linux
-# 分类
-categories:
 ---
 
 安装 xrdp

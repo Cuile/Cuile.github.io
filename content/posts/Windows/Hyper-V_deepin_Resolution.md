@@ -3,16 +3,10 @@ title: "Hyper-V 下设置 Deepin 分辨率"
 date: 2023-05-06T20:20:12+08:00
 # draft: true
 
-# 标签
 tags:
 - deepin
 - Hyper-V
-# 专栏
-series:
 - windows
-# 分类
-categories:
-- 配置
 ---
 
 ## 在hyper-v虚拟机下调节分辨率

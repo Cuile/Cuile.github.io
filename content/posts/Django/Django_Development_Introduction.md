@@ -5,12 +5,9 @@ date: 2022-05-10T16:30:13+08:00
 tags:
 - gunicorn
 - Supervisor
-series:
 - Python
 - docker
 - Django
-categories:
-- 代码
 ---
 
 ## 1 准备环境

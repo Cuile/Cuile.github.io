@@ -5,9 +5,7 @@ date: 2022-01-17T11:18:47+08:00
 tags: 
 - sed
 - CLI
-series:
 - Linux
-categories:
 ---
 
 ##  删除冗余信息

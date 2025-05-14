@@ -5,9 +5,7 @@ date: 2022-06-19T16:08:06+08:00
 tags:
 - linux
 - Alpine linux
-series:
 - Docker
-categories:
 ---
 
 在 Alpine 上安装 Docker 真是一件让人感觉非常愉快的事情，因为过程非常简单。

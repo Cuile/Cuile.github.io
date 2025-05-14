@@ -4,10 +4,7 @@ date: 2022-02-07T13:17:39+08:00
 # draft: true
 tags: 
 - DNS
-series:
 - OpenWRT
-categories:
-- 配置
 ---
 
 ## 1. 使用自定义域名访问WEB管理界面

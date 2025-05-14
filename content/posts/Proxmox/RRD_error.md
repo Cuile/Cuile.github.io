@@ -4,9 +4,7 @@ date: 2022-02-08T10:42:35+08:00
 # draft: true
 tags:
 - rrd
-series:
 - proxmoxve
-categories:
 ---
 
 Proxmox系统安装后，日志报错

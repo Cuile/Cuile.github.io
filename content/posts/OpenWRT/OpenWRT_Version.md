@@ -3,15 +3,9 @@ title: "OpenWRT 版本区别"
 date: 2023-10-04T14:10:17+08:00
 # draft: true
 
-# 标签
 tags:
 - version
-# 专栏
-series:
 - OpenWRT
-# 分类
-categories:
-- 配置
 ---
 
 ## x86

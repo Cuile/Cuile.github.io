@@ -5,9 +5,7 @@ date: 2022-02-08T10:09:48+08:00
 tags:
 - iptables
 - Firewall
-series:
 - linux
-categories:
 ---
 
 **`基于Centos 7`**

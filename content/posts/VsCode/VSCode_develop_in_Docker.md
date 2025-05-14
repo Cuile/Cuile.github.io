@@ -3,18 +3,12 @@ title: "VScode 在 Docker 容器内开发"
 date: 2023-11-25T00:24:10+08:00
 # draft: true
 
-# 标签
 tags:
 - python
 - venv
 - docker
-# 专栏
-series:
 - vscode
-# 分类
-# categories:
 ---
-
 在 Docker 的容器内开发，相当于使用VSCode的远程开发能力，好处非常多。
 
 - 开发环境统一、可维护性强

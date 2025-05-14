@@ -3,16 +3,10 @@ title: "Nuitka 参数列表"
 date: 2025-03-16T11:07:37+08:00
 # draft: true
 
-# 标签
 tags:
 - nuitka
-# 专栏
-series:
 - python
-# 分类
-# categories:
 ---
-
 Usage: python.exe -m nuitka [--mode=compilation_mode] [--run] [options] main_module.py
 
     Note: For general plugin help (they often have their own command line options too), consider the output of '--help-plugins'.

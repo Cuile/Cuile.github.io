@@ -2,7 +2,10 @@
 title: "Github使用Hugo生成Blog"
 date: 2022-01-14T17:15:06+08:00
 # draft: true
-tags: ["Hugo","Github","Blog"]
+tags: 
+- Hugo
+- Github
+- Blog
 ---
 
 ## 设置流程

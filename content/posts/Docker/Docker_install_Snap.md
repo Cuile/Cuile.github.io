@@ -4,10 +4,7 @@ date: 2022-05-11T18:41:48+08:00
 # draft: true
 tags:
 - Snap
-series:
 - Docker
-categories:
-- 配置
 ---
 
 

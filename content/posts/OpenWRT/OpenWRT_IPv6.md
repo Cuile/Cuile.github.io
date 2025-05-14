@@ -3,17 +3,11 @@ title: "OpenWRT 配置 IPv6"
 date: 2023-10-04T19:48:18+08:00
 # draft: true
 
-# 标签
 tags:
 - firewall
 - network
 - ipv6
-# 专栏
-series:
 - openwrt
-# 分类
-categories:
-- 配置
 ---
 
 OpenWRT 配置 IPv6，在网上有许多教程，但大部分都说的不清不楚。

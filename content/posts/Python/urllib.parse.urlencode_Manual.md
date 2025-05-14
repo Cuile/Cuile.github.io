@@ -4,10 +4,7 @@ date: 2022-01-17T15:24:58+08:00
 # draft: true
 tags: 
 - url编码
-series:
 - Python
-categories:
-- 代码
 ---
 
 > urllib.parse.urlencode(query, doseq=False, safe='', encoding=None, errors=None, quote_via=quote_plus)

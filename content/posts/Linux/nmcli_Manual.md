@@ -6,9 +6,7 @@ tags:
 - CLI
 - nmcli
 - network
-series:
 - Linux
-categories:
 ---
 
 **`基于Centos 7`**

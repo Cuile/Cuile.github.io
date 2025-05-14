@@ -5,9 +5,7 @@ date: 2022-05-06T13:11:27+08:00
 tags:
 - pip
 - CentOS 7
-series:
 - Python
-categories:
 ---
 ## 1、查看已安装的Python
 

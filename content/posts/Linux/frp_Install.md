@@ -5,9 +5,7 @@ date: 2022-12-28T17:15:15+08:00
 tags: 
 - frp
 - proxy
-series:
 - linux
-categories:
 ---
 
 ## 1. 使用手册

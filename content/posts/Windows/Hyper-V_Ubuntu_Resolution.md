@@ -3,16 +3,10 @@ title: "Hyper-V 下设置 Ubuntu 分辨率"
 date: 2022-12-26T20:58:50+08:00
 # draft: true
 
-# 标签
 tags:
 - Ubuntu
 - Hyper-V
-# 专栏
-series:
 - windows
-# 分类
-categories:
-- 配置
 ---
 
 Hyper-V 环境下安装 Linux 是无法调节分辨率的，但可以通过设置指定分辨率，不过最大只能支持1920x1080

@@ -3,15 +3,10 @@ title: "screen 命令"
 date: 2022-12-28T14:24:08+08:00
 # draft: true
 
-# 标签
 tags:
 - cli
 - screen
-# 专栏
-series:
 - linux
-# 分类
-categories:
 ---
 
 ***已弃用，转到 [tmux](../tmux/)***

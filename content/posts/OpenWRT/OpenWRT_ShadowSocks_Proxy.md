@@ -6,10 +6,7 @@ tags:
 - v2ray
 - proxy
 - ShadowSocks
-series:
 - OpenWRT
-categories:
-- 配置
 ---
 
 本文记录OpenWrt设置透明代理的步骤及原理。

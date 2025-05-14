@@ -5,7 +5,6 @@ tags:
 - php
 - docker
 - centos
-series:
 - laravel
 ---
 

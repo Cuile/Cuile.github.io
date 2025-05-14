@@ -9,8 +9,6 @@ tags:
 - yum
 - apt 
 - Linux
-series:
-categories:
 ---
 
 ## APT
@@ -46,7 +44,6 @@ echo 'http://mirrors.bfsu.edu.cn/debian/' | sudo tee /etc/apt/mirrors/debian.lis
 echo 'http://mirrors.bfsu.edu.cn/debian-security/' | sudo tee /etc/apt/mirrors/debian-security.list
 sudo apt autoremove -y netselect-apt
 ```
-
 ---
 
 ## YUM

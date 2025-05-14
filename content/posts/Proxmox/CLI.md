@@ -3,14 +3,9 @@ title: "ProxmoxVE 命令行"
 date: 2022-12-27T16:51:54+08:00
 # draft: true
 
-# 标签
 tags:
 - CLI
-# 专栏
-series:
 - ProxmoxVE
-# 分类
-categories:
 ---
 
 [遇事不决，多读文档！](https://pve.proxmox.com/pve-docs/index.html)
@@ -40,7 +35,6 @@ qm destroy <vmid> --destroy-unreferenced-disks 1 --purge 1 --skiplock 1
 rm -f /etc/pve/nodes/*/*/<vm_id>.conf
 # [修復Proxmox VE：無法刪除虛擬機器](https://blog.pulipuli.info/2014/08/proxmox-ve-fix-proxmox-ve-destroy.html#postcataproxmox-ve-fix-proxmox-ve-destroy.html0_anchor2)
 ```
-
 ---
 ## LXC容器
 
@@ -49,7 +43,6 @@ rm -f /etc/pve/nodes/*/*/<vm_id>.conf
 pct stop <vmid>
 pct list
 ```
-
 ---
 ## 存储
 
