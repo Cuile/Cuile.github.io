@@ -14,6 +14,7 @@ categories:
 ---
 
 ## APT
+*debian bookworm*
 
 [Debian 全球镜像站](https://www.debian.org/mirror/list#per-country)
 
