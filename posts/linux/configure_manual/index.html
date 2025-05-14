@@ -1,6 +1,6 @@
 <!doctype html><html lang=zh-cn data-figures class=page>
 <head>
-<title>Linux 系统初始化配置 | 瘦了就帅了</title>
+<title>Linux 系统配置 | 瘦了就帅了</title>
 <meta charset=utf-8>
 <meta name=viewport content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
 <meta http-equiv=x-ua-compatible content="IE=edge">
@@ -9,16 +9,16 @@
 <meta name=description content="记录系统初始化应操作的一系统步骤，也可以直接下载初始化脚本。 1. 系统更新 Yum 版本库管理 2. 远程公私钥登录 1# 生成公钥、私钥 2ssh-keygen -t rsa -b 4096 -C &#34;your_email@example.com&#34; 3... 4Enter a file in …">
 <meta name=twitter:card content="summary">
 <meta name=twitter:creator content>
-<meta name=twitter:title content="Linux 系统初始化配置">
+<meta name=twitter:title content="Linux 系统配置">
 <meta name=twitter:image content="https://cuile.github.io/images/thumbnail.png">
-<meta property="og:url" content="https://cuile.github.io/posts/linux/init_setup_manual/">
-<meta property="og:title" content="Linux 系统初始化配置">
+<meta property="og:url" content="https://cuile.github.io/posts/linux/configure_manual/">
+<meta property="og:title" content="Linux 系统配置">
 <meta property="og:description" content="记录系统初始化应操作的一系统步骤，也可以直接下载初始化脚本。 1. 系统更新 Yum 版本库管理 2. 远程公私钥登录 1# 生成公钥、私钥 2ssh-keygen -t rsa -b 4096 -C &#34;your_email@example.com&#34; 3... 4Enter a file in …">
 <meta property="og:image" content="https://cuile.github.io/images/thumbnail.png">
 <link rel=apple-touch-icon sizes=180x180 href=https://cuile.github.io/icons/apple-touch-icon.png>
 <link rel=icon type=image/png sizes=32x32 href=https://cuile.github.io/icons/favicon-32x32.png>
 <link rel=manifest href=https://cuile.github.io/icons/site.webmanifest>
-<link rel=canonical href=https://cuile.github.io/posts/linux/init_setup_manual/>
+<link rel=canonical href=https://cuile.github.io/posts/linux/configure_manual/>
 <link rel=preload href=https://cuile.github.io/css/styles.367129801480fead578d7a356a98fcb3bce794981ff18cee55868d198d0d2bf1eb4feac97319d0871c6255183b9fd27a7059e4632c785951f4c4f6953559c4d0.css integrity="sha512-NnEpgBSA/q1XjXo1apj8s7znlJgf8YzuVYaNGY0NK/HrT+rJcxnQhxxiVRg7n9J6cFnkYyx4WVH0xPaVNVnE0A==" as=style crossorigin=anonymous>
 <link rel=preload href=https://cuile.github.io/zh-cn/js/bundle.4e04b93422786398f3502d560bd5acb3d3f99b2e942c8c11e0fd926ab6ec3ccbd020d4294d58c0825ecb606ef221b34edc81586f1832489816a57ae8f0276615.js as=script integrity="sha512-TgS5NCJ4Y5jzUC1WC9Wss9P5my6ULIwR4P2SarbsPMvQINQpTVjAgl7LYG7yIbNO3IFYbxgySJgWpXro8CdmFQ==" crossorigin=anonymous>
 <link rel=stylesheet type=text/css href=https://cuile.github.io/css/styles.367129801480fead578d7a356a98fcb3bce794981ff18cee55868d198d0d2bf1eb4feac97319d0871c6255183b9fd27a7059e4632c785951f4c4f6953559c4d0.css integrity="sha512-NnEpgBSA/q1XjXo1apj8s7znlJgf8YzuVYaNGY0NK/HrT+rJcxnQhxxiVRg7n9J6cFnkYyx4WVH0xPaVNVnE0A==" crossorigin=anonymous>
@@ -47,7 +47,7 @@
 <main>
 <div class="grid-inverse wrap content">
 <article class=post_content>
-<h1 class=post_title>Linux 系统初始化配置</h1>
+<h1 class=post_title>Linux 系统配置</h1>
 <div class=post_meta>
 <span><svg class="icon"><title>calendar</title><use xlink:href="#calendar"/></svg>
 </span>
@@ -57,6 +57,7 @@
 </a><a href=https://cuile.github.io/tags/bash/ title=bash class="post_tag button button_translucent">bash
 </a><a href=https://cuile.github.io/tags/ssh/ title=ssh class="post_tag button button_translucent">ssh
 </a><a href=https://cuile.github.io/tags/top/ title=top class="post_tag button button_translucent">top
+</a><a href=https://cuile.github.io/tags/linux/ title=linux class="post_tag button button_translucent">linux
 </a>
 </span>
 </div>
@@ -137,6 +138,17 @@
 </div>
 <h2 class=post_related>相关专栏文章</h2>
 <ul>
+<li><a href=https://cuile.github.io/posts/rime_setup/ class=nav-link title=Rime输入法设置>Rime输入法设置</a></li>
+<li><a href=https://cuile.github.io/posts/slam_dunk_2/ class=nav-link title="灌篮高手大结局(全国大赛后) 下">灌篮高手大结局(全国大赛后) 下</a></li>
+<li><a href=https://cuile.github.io/posts/slam_dunk_1/ class=nav-link title="灌篮高手大结局(全国大赛后) 上">灌篮高手大结局(全国大赛后) 上</a></li>
+<li><a href=https://cuile.github.io/posts/ups/ups_install/ class=nav-link title="山克 UPS 安装手册">山克 UPS 安装手册</a></li>
+<li><a href=https://cuile.github.io/posts/harmonyos_optimization/ class=nav-link title=鸿蒙系统优化>鸿蒙系统优化</a></li>
+<li><a href=https://cuile.github.io/posts/linux/repo_manual/ class=nav-link title="Yum 版本库管理">Yum 版本库管理</a></li>
+<li><a href=https://cuile.github.io/posts/linux/configure_manual/ class=nav-link title="Linux 系统配置">Linux 系统配置</a></li>
+<li><a href=https://cuile.github.io/posts/hugo_setup_for_github/ class=nav-link title=Github使用Hugo生成Blog>Github使用Hugo生成Blog</a></li>
+<li><a href=https://cuile.github.io/archives/ class=nav-link title></a></li>
+<li><a href=https://cuile.github.io/about/ class=nav-link title=About>About</a></li>
+<li><a href=https://cuile.github.io/search/ class=nav-link title=Search>Search</a></li>
 </ul>
 <div class=post_comments>
 </div>
@@ -149,6 +161,39 @@
 产品里的技术、一眼看不出来的胖子
 </div>
 <ul>
+<li>
+<a href=https://cuile.github.io/posts/rime_setup/ class=nav-link title=Rime输入法设置>Rime输入法设置</a>
+</li>
+<li>
+<a href=https://cuile.github.io/posts/slam_dunk_2/ class=nav-link title="灌篮高手大结局(全国大赛后) 下">灌篮高手大结局(全国大赛后) 下</a>
+</li>
+<li>
+<a href=https://cuile.github.io/posts/slam_dunk_1/ class=nav-link title="灌篮高手大结局(全国大赛后) 上">灌篮高手大结局(全国大赛后) 上</a>
+</li>
+<li>
+<a href=https://cuile.github.io/posts/ups/ups_install/ class=nav-link title="山克 UPS 安装手册">山克 UPS 安装手册</a>
+</li>
+<li>
+<a href=https://cuile.github.io/posts/harmonyos_optimization/ class=nav-link title=鸿蒙系统优化>鸿蒙系统优化</a>
+</li>
+<li>
+<a href=https://cuile.github.io/posts/linux/repo_manual/ class=nav-link title="Yum 版本库管理">Yum 版本库管理</a>
+</li>
+<li>
+<a href=https://cuile.github.io/posts/linux/configure_manual/ class=nav-link title="Linux 系统配置">Linux 系统配置</a>
+</li>
+<li>
+<a href=https://cuile.github.io/posts/hugo_setup_for_github/ class=nav-link title=Github使用Hugo生成Blog>Github使用Hugo生成Blog</a>
+</li>
+<li>
+<a href=https://cuile.github.io/archives/ class=nav-link title></a>
+</li>
+<li>
+<a href=https://cuile.github.io/about/ class=nav-link title=About>About</a>
+</li>
+<li>
+<a href=https://cuile.github.io/search/ class=nav-link title=Search>Search</a>
+</li>
 </ul>
 <h2 class=mt-4>最新文章</h2>
 <ul class=flex-column>
@@ -184,12 +229,12 @@
 CLI
 <span class=button_tally>12</span>
 </a>
-<a href=https://cuile.github.io/tags/centos/ class="post_tag button button_translucent" title=centos>
-CENTOS
-<span class=button_tally>6</span>
-</a>
 <a href=https://cuile.github.io/tags/linux/ class="post_tag button button_translucent" title=linux>
 LINUX
+<span class=button_tally>8</span>
+</a>
+<a href=https://cuile.github.io/tags/centos/ class="post_tag button button_translucent" title=centos>
+CENTOS
 <span class=button_tally>6</span>
 </a>
 <a href=https://cuile.github.io/tags/hyper-v/ class="post_tag button button_translucent" title=hyper-v>
@@ -294,7 +339,7 @@ FTP
 </a>
 <a href=https://cuile.github.io/tags/keychain/ class="post_tag button button_translucent" data-position=1 title=keychain>KEYCHAIN<span class=button_tally>1</span>
 </a>
-<a href=https://cuile.github.io/tags/linux/ class="post_tag button button_translucent" data-position=6 title=linux>LINUX<span class=button_tally>6</span>
+<a href=https://cuile.github.io/tags/linux/ class="post_tag button button_translucent" data-position=8 title=linux>LINUX<span class=button_tally>8</span>
 </a>
 <a href=https://cuile.github.io/tags/lxc/ class="post_tag button button_translucent" data-position=1 title=lxc>LXC<span class=button_tally>1</span>
 </a>
