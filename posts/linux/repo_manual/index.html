@@ -90,16 +90,15 @@
 <span class=ln>23</span>
 <span class=ln>24</span><span class=c1># debian bookworm</span>
 <span class=ln>25</span>rm -f sources.list
-<span class=ln>26</span><span class=nb>echo</span> <span class=s1>&#39;http://mirrors.bfsu.edu.cn/debian/&#39;</span> <span class=p>|</span> sudo tee /etc/apt/mirrors/debian.list
-<span class=ln>27</span><span class=nb>echo</span> <span class=s1>&#39;http://mirrors.bfsu.edu.cn/debian-security/&#39;</span> <span class=p>|</span> sudo tee -a /etc/apt/mirrors/debian-security.list
-<span class=ln>28</span>
-<span class=ln>29</span><span class=c1># docker imaage debian:12</span>
-<span class=ln>30</span><span class=c1># https://deb.debian.org/</span>
-<span class=ln>31</span>apt-get install -y netselect-apt <span class=se>\
-</span><span class=ln>32</span><span class=se></span><span class=o>&amp;&amp;</span> netselect-apt -o /etc/apt/sources.list <span class=se>\
-</span><span class=ln>33</span><span class=se></span><span class=o>&amp;&amp;</span> apt-get autoremove -y netselect-apt <span class=se>\
-</span><span class=ln>34</span><span class=se></span><span class=o>&amp;&amp;</span> sed -i -e <span class=s2>&#34;s/security.debian.org/deb.debian.org\/debian-security/&#34;</span> /etc/apt/sources.list
-<span class=ln>35</span>
+<span class=ln>26</span><span class=c1># echo &#39;http://mirrors.bfsu.edu.cn/debian/&#39; | sudo tee /etc/apt/mirrors/debian.list</span>
+<span class=ln>27</span><span class=c1># echo &#39;http://mirrors.bfsu.edu.cn/debian-security/&#39; | sudo tee -a /etc/apt/mirrors/debian-security.list</span>
+<span class=ln>28</span>sed -i -e <span class=s2>&#34;s/deb.debian.org/mirrors.bfsu.edu.cn/&#34;</span> /etc/apt/mirrors/debian.list
+<span class=ln>29</span>sed -i -e <span class=s2>&#34;s/deb.debian.org/mirrors.bfsu.edu.cn/&#34;</span> /etc/apt/mirrors/debian-security.list
+<span class=ln>30</span>
+<span class=ln>31</span><span class=c1># docker imaage debian:12</span>
+<span class=ln>32</span>sed -i -e <span class=s2>&#34;s/deb.debian.org/mirrors.bfsu.edu.cn/&#34;</span> /etc/apt/sources.list.d/debian.sources <span class=se>\
+</span><span class=ln>33</span><span class=se></span>    <span class=o>&amp;&amp;</span> apt-get update
+<span class=ln>34</span>
 </code></pre></div><hr>
 <h2 id=yum>YUM</h2>
 <h3 id=查询仓库>查询仓库</h3>
