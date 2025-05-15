@@ -15,11 +15,14 @@ tags:
 
 [Debian 全球镜像站](https://www.debian.org/mirror/list#per-country)
 
-### 修改仓库
+### 查找延迟最小的镜像
 ```bash
-# 查找延迟最小的镜像
-sudo apt install -y netselect-apt && sudo netselect-apt && sudo apt autoremove -y netselect-apt
-...
+sudo apt install -y netselect-apt \
+    && sudo netselect-apt \
+    && sudo apt autoremove -y netselect-apt \
+    && rm -f sources.list
+```
+```bash
 The fastest 10 servers seem to be:
 
         http://mirrors.bfsu.edu.cn/debian/
@@ -38,20 +41,27 @@ Of the hosts tested we choose the fastest valid for http:
 
 Writing sources.list.
 Done.
+```
 
-
-# debian bookworm
-rm -f sources.list
+### 修改仓库
+```bash
+# PVE QEMU debian-12-generic-amd64.qcow2
 # echo 'http://mirrors.bfsu.edu.cn/debian/' | sudo tee /etc/apt/mirrors/debian.list
 # echo 'http://mirrors.bfsu.edu.cn/debian-security/' | sudo tee -a /etc/apt/mirrors/debian-security.list
 sed -i -e "s/deb.debian.org/mirrors.bfsu.edu.cn/" /etc/apt/mirrors/debian.list
 sed -i -e "s/deb.debian.org/mirrors.bfsu.edu.cn/" /etc/apt/mirrors/debian-security.list
 
-# docker imaage debian:12
-sed -i -e "s/deb.debian.org/mirrors.bfsu.edu.cn/" /etc/apt/sources.list.d/debian.sources \
-    && apt-get update
+# PVE LXC debian-12-standard_12.7-1_amd64.tar.zst
+sed -i -e "s/deb.debian.org/mirrors.bfsu.edu.cn/" /etc/apt/sources.list
+sed -i -e "s/security.debian.org/mirrors.bfsu.edu.cn\/debian-serurity/" /etc/apt/sources.list
 
+# Docker imaage debian:12
+sed -i -e "s/deb.debian.org/mirrors.bfsu.edu.cn/" /etc/apt/sources.list.d/debian.sources
+
+# update    
+apt update
 ```
+
 ---
 
 ## YUM
