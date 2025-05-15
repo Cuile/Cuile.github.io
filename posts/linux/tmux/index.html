@@ -6,14 +6,14 @@
 <meta http-equiv=x-ua-compatible content="IE=edge">
 <meta property="og:locale" content="zh-cn">
 <meta property="og:type" content="article">
-<meta name=description content="使用命令 1# 开启新session 2$ tmux 3# 开启新session并命名 4$ tmux new -s my_session 5# 重命名会话 6$ tmux rename-session -t 0 <new-name> 7 8# 显示所有session 9$ tmux ls 10 11# 使 …">
+<meta name=description content="使用命令 1# 开启新会话 2tmux 3# 开启新会话并命名 4tmux new -s my_session 5# 重命名会话 6tmux rename-session -t 0 <new-name> 7 8# 显示所有会话 9tmux ls 10# 显示会话的窗口 11tmux list-window …">
 <meta name=twitter:card content="summary">
 <meta name=twitter:creator content>
 <meta name=twitter:title content="Tmux 命令">
 <meta name=twitter:image content="https://cuile.github.io/images/thumbnail.png">
 <meta property="og:url" content="https://cuile.github.io/posts/linux/tmux/">
 <meta property="og:title" content="Tmux 命令">
-<meta property="og:description" content="使用命令 1# 开启新session 2$ tmux 3# 开启新session并命名 4$ tmux new -s my_session 5# 重命名会话 6$ tmux rename-session -t 0 <new-name> 7 8# 显示所有session 9$ tmux ls 10 11# 使 …">
+<meta property="og:description" content="使用命令 1# 开启新会话 2tmux 3# 开启新会话并命名 4tmux new -s my_session 5# 重命名会话 6tmux rename-session -t 0 <new-name> 7 8# 显示所有会话 9tmux ls 10# 显示会话的窗口 11tmux list-window …">
 <meta property="og:image" content="https://cuile.github.io/images/thumbnail.png">
 <link rel=apple-touch-icon sizes=180x180 href=https://cuile.github.io/icons/apple-touch-icon.png>
 <link rel=icon type=image/png sizes=32x32 href=https://cuile.github.io/icons/favicon-32x32.png>
@@ -60,42 +60,61 @@
 </span>
 </div>
 <div class=post_body><h2 id=使用命令>使用命令</h2>
-<div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=ln> 1</span><span class=c1># 开启新session</span>
-<span class=ln> 2</span>$ tmux
-<span class=ln> 3</span><span class=c1># 开启新session并命名</span>
-<span class=ln> 4</span>$ tmux new -s my_session
+<div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=ln> 1</span><span class=c1># 开启新会话</span>
+<span class=ln> 2</span>tmux
+<span class=ln> 3</span><span class=c1># 开启新会话并命名</span>
+<span class=ln> 4</span>tmux new -s my_session
 <span class=ln> 5</span><span class=c1># 重命名会话</span>
-<span class=ln> 6</span>$ tmux rename-session -t <span class=m>0</span> &lt;new-name&gt;
+<span class=ln> 6</span>tmux rename-session -t <span class=m>0</span> &lt;new-name&gt;
 <span class=ln> 7</span>
-<span class=ln> 8</span><span class=c1># 显示所有session</span>
-<span class=ln> 9</span>$ tmux ls
-<span class=ln>10</span>
-<span class=ln>11</span><span class=c1># 使用session编号接入</span>
-<span class=ln>12</span>$ tmux attach -t <span class=m>0</span>
-<span class=ln>13</span><span class=c1># 使用session名称接入</span>
-<span class=ln>14</span>$ tmux attach -t &lt;session-name&gt;
-<span class=ln>15</span>$ tmux a -t name <span class=c1>#简写</span>
-<span class=ln>16</span>
-<span class=ln>17</span><span class=c1># 使用session编号切换</span>
-<span class=ln>18</span>$ tmux switch -t <span class=m>0</span>
-<span class=ln>19</span><span class=c1># 使用session名称切换</span>
-<span class=ln>20</span>$ tmux switch -t &lt;session-name&gt;
-<span class=ln>21</span>
-<span class=ln>22</span><span class=c1># 使用session编号kill</span>
-<span class=ln>23</span>$ tmux kill-session -t <span class=m>0</span>
-<span class=ln>24</span><span class=c1># 使用session名称kill</span>
-<span class=ln>25</span>$ tmux kill-session -t &lt;session-name&gt;
-</code></pre></div><h2 id=session快捷键>session快捷键</h2>
-<p>需要提醒大家的是，所有的快捷键都是ctrl + b，按完松开，再去按下一个功能键！，不是一下子全按上。</p>
-<p><strong>选择需要跳转的session</strong></p>
+<span class=ln> 8</span><span class=c1># 显示所有会话</span>
+<span class=ln> 9</span>tmux ls
+<span class=ln>10</span><span class=c1># 显示会话的窗口</span>
+<span class=ln>11</span>tmux list-window -t &lt;session-name&gt;
+<span class=ln>12</span><span class=c1># 显示会话窗口的栅格</span>
+<span class=ln>13</span>tmux list-pane -t &lt;session-name&gt;:&lt;window-index&gt;
+<span class=ln>14</span>
+<span class=ln>15</span><span class=c1># 使用会话编号接入</span>
+<span class=ln>16</span>tmux attach -t <span class=m>0</span>
+<span class=ln>17</span><span class=c1># 使用会话名称接入</span>
+<span class=ln>18</span>tmux attach -t &lt;session-name&gt;
+<span class=ln>19</span>tmux a -t name <span class=c1>#简写</span>
+<span class=ln>20</span>
+<span class=ln>21</span><span class=c1># 切换会话</span>
+<span class=ln>22</span>tmux switch -t <span class=m>0</span>
+<span class=ln>23</span>tmux switch -t &lt;session-name&gt;
+<span class=ln>24</span>
+<span class=ln>25</span><span class=c1># 关闭会话</span>
+<span class=ln>26</span>tmux kill-session -t <span class=m>0</span>
+<span class=ln>27</span>tmux kill-session -t &lt;session-name&gt;
+<span class=ln>28</span><span class=c1># 关闭会话窗口</span>
+<span class=ln>29</span>tmux kill-window -t &lt;session-name&gt;:&lt;window-index&gt;
+<span class=ln>30</span><span class=c1># 修改会话窗口栅格标题</span>
+<span class=ln>31</span>tmux <span class=k>select</span>-pane -T <span class=s2>&#34;new-title&#34;</span> -t &lt;session-name&gt;:&lt;window-index&gt;.&lt;pane-index&gt;
+</code></pre></div><h2 id=配置文件>配置文件</h2>
+<div class=highlight><pre tabindex=0 class=chroma><code class=language-ini data-lang=ini><span class=ln>1</span><span class=c1>; ~/.tmux.conf</span>
+<span class=ln>2</span><span class=c1># 启用鼠标支持</span>
+<span class=ln>3</span><span class=na>set -g mouse on</span>
+<span class=ln>4</span><span class=c1># 显示状态栏信息（会话名、窗口索引、时间等）</span>
+<span class=ln>5</span><span class=na>set -g status-right &#39;#[fg</span><span class=o>=</span><span class=s>green]#H #[fg=blue]%d %b %R&#39;</span>
+<span class=ln>6</span><span class=c1># 在窗格边框显示窗格索引和当前命令</span>
+<span class=ln>7</span><span class=na>set -g pane-border-format &#34;#{pane_index} #{pane_title}&#34;</span>
+<span class=ln>8</span><span class=c1># 将窗格边框状态信息显示在顶部</span>
+<span class=ln>9</span><span class=na>set -g pane-border-status top</span>
+</code></pre></div><div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=ln>1</span>tmux source-file ~/.tmux.conf
+</code></pre></div><h2 id=会话快捷键>会话快捷键</h2>
+<p><em>所有的快捷键都是ctrl + b按完松开，再去按下一个功能键！，不是一下子全按上。</em></p>
+<p><em>所有的快捷键都是ctrl + b按完松开，再去按下一个功能键！，不是一下子全按上。</em></p>
+<p><em>所有的快捷键都是ctrl + b按完松开，再去按下一个功能键！，不是一下子全按上。</em></p>
+<p><strong>选择需要跳转的会话</strong></p>
 <blockquote>
 <p>Ctrl + b s</p>
 </blockquote>
-<p><strong>重命名当前session</strong></p>
+<p><strong>重命名当前会话</strong></p>
 <blockquote>
 <p>Ctrl + b $</p>
 </blockquote>
-<p><strong>断开当前session</strong></p>
+<p><strong>断开当前会话</strong></p>
 <blockquote>
 <p>Ctrl + b d</p>
 </blockquote>
@@ -105,32 +124,32 @@
 进入翻屏模式后PgUp PgDn 实现上下翻页（mac可以用fn + ↑ ↓实现上下翻页）</p>
 <p>q 退出翻屏模式</p>
 </blockquote>
-<h2 id=window快捷键>window快捷键</h2>
-<p><strong>在当前session中多加一个window</strong></p>
+<h2 id=窗口快捷键>窗口快捷键</h2>
+<p><strong>在当前会话中多加一个窗口</strong></p>
 <blockquote>
 <p>Ctrl + b c</p>
 </blockquote>
-<p><strong>在一个session中的多个window中作出选择</strong></p>
+<p><strong>在一个会话中的多个窗口中作出选择</strong></p>
 <blockquote>
 <p>Ctrl + b w</p>
 </blockquote>
-<p><strong>关闭当前session中的当前window</strong></p>
+<p><strong>关闭当前会话中的当前窗口</strong></p>
 <blockquote>
 <p>Ctrl + b x</p>
 </blockquote>
-<p><strong>关闭一个session中所有window</strong></p>
+<p><strong>关闭一个会话中所有窗口</strong></p>
 <blockquote>
 <p>Ctrl + b !</p>
 </blockquote>
-<p><strong>将当前window分成左右两分</strong></p>
+<p><strong>将当前窗口分成左右两分</strong></p>
 <blockquote>
 <p>Ctrl + b %</p>
 </blockquote>
-<p><strong>将当前window分成上下两分</strong></p>
+<p><strong>将当前窗口分成上下两分</strong></p>
 <blockquote>
 <p>Ctrl + b "</p>
 </blockquote>
-<p><strong>让光标在不同的window中跳转</strong></p>
+<p><strong>让光标在不同的窗口中跳转</strong></p>
 <blockquote>
 <p>Ctrl + b 方向键</p>
 </blockquote>
@@ -138,8 +157,10 @@
 <blockquote>
 <p>按住 Ctrl + b 不放，同时按住方向键</p>
 </blockquote>
+<h2 id=参考文档>参考文档</h2>
 <ul>
-<li><a href=https://zhuanlan.zhihu.com/p/386085431>$ tmux使用指南：比screen好用n倍！ - 知乎</a></li>
+<li><a href=https://www.ruanyifeng.com/blog/2019/10/tmux.html>Tmux 使用教程</a></li>
+<li><a href=http://man.openbsd.org/OpenBSD-current/man1/tmux.1>tmux(1) - OpenBSD manual pages</a></li>
 </ul>
 </div>
 <div class=post_comments>
