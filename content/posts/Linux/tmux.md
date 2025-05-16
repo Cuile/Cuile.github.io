@@ -20,10 +20,11 @@ tmux rename-session -t 0 <new-name>
 
 # 显示所有会话
 tmux ls
+tmux list-sessions
 # 显示会话的窗口
-tmux list-window -t <session-name>
-# 显示会话窗口的栅格
-tmux list-pane -t <session-name>:<window-index>
+tmux list-windows -t <session-name>
+# 显示会话窗口的面板
+tmux list-panes -t <session-name>:<window-index>
 
 # 使用会话编号接入
 tmux attach -t 0
@@ -40,7 +41,7 @@ tmux kill-session -t 0
 tmux kill-session -t <session-name>
 # 关闭会话窗口
 tmux kill-window -t <session-name>:<window-index>
-# 修改会话窗口栅格标题
+# 修改会话窗口面板标题
 tmux select-pane -T "new-title" -t <session-name>:<window-index>.<pane-index>
 ```
 
@@ -75,6 +76,7 @@ tmux source-file ~/.tmux.conf
 | 重命名会话 | Ctrl + b , $ |      |
 | 断开会话   | Ctrl + b , d |      |
 | 翻屏模式   | Ctrl + b , [ | PgUp, PgDn 实现上下翻页（mac可以用 fn + ↑ ↓实现上下翻页）<br> q 退出翻屏模式 |
+| 命令模式   | Ctrl + b , : |      |
 
 ### 窗口操作
 
@@ -85,7 +87,7 @@ tmux source-file ~/.tmux.conf
 | 关闭当前会话的当前窗口     | Ctrl + b , x               |       |
 | 关闭当前会话的所有窗口     | Ctrl + b , !               |       |
 
-### 栅格操作
+### 面板操作
 | 操作                     | 快捷键                      | 备注  |
 | :---:                    | :---:                      | :---: |
 | 将当前窗口分成左右两份     | Ctrl + b , %               |       |
