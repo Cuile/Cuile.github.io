@@ -102,61 +102,106 @@
 <span class=ln>8</span><span class=c1># 将窗格边框状态信息显示在顶部</span>
 <span class=ln>9</span><span class=na>set -g pane-border-status top</span>
 </code></pre></div><div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=ln>1</span>tmux source-file ~/.tmux.conf
-</code></pre></div><h2 id=会话快捷键>会话快捷键</h2>
+</code></pre></div><h2 id=操作>操作</h2>
 <p><em>所有的快捷键都是ctrl + b按完松开，再去按下一个功能键！，不是一下子全按上。</em></p>
 <p><em>所有的快捷键都是ctrl + b按完松开，再去按下一个功能键！，不是一下子全按上。</em></p>
 <p><em>所有的快捷键都是ctrl + b按完松开，再去按下一个功能键！，不是一下子全按上。</em></p>
-<p><strong>选择需要跳转的会话</strong></p>
-<blockquote>
-<p>Ctrl + b s</p>
-</blockquote>
-<p><strong>重命名当前会话</strong></p>
-<blockquote>
-<p>Ctrl + b $</p>
-</blockquote>
-<p><strong>断开当前会话</strong></p>
-<blockquote>
-<p>Ctrl + b d</p>
-</blockquote>
-<p><strong>进入tmux翻屏模式</strong></p>
-<blockquote>
-<p>Ctrl + b [<br>
-进入翻屏模式后PgUp PgDn 实现上下翻页（mac可以用fn + ↑ ↓实现上下翻页）</p>
-<p>q 退出翻屏模式</p>
-</blockquote>
-<h2 id=窗口快捷键>窗口快捷键</h2>
-<p><strong>在当前会话中多加一个窗口</strong></p>
-<blockquote>
-<p>Ctrl + b c</p>
-</blockquote>
-<p><strong>在一个会话中的多个窗口中作出选择</strong></p>
-<blockquote>
-<p>Ctrl + b w</p>
-</blockquote>
-<p><strong>关闭当前会话中的当前窗口</strong></p>
-<blockquote>
-<p>Ctrl + b x</p>
-</blockquote>
-<p><strong>关闭一个会话中所有窗口</strong></p>
-<blockquote>
-<p>Ctrl + b !</p>
-</blockquote>
-<p><strong>将当前窗口分成左右两分</strong></p>
-<blockquote>
-<p>Ctrl + b %</p>
-</blockquote>
-<p><strong>将当前窗口分成上下两分</strong></p>
-<blockquote>
-<p>Ctrl + b "</p>
-</blockquote>
-<p><strong>让光标在不同的窗口中跳转</strong></p>
-<blockquote>
-<p>Ctrl + b 方向键</p>
-</blockquote>
-<p><strong>调节光标所在窗口的大小</strong></p>
-<blockquote>
-<p>按住 Ctrl + b 不放，同时按住方向键</p>
-</blockquote>
+<h3 id=会话操作>会话操作</h3>
+<table>
+<thead>
+<tr>
+<th style=text-align:center>操作</th>
+<th style=text-align:center>快捷键</th>
+<th style=text-align:center>备注</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style=text-align:center>跳转会话</td>
+<td style=text-align:center>Ctrl + b , s</td>
+<td style=text-align:center></td>
+</tr>
+<tr>
+<td style=text-align:center>重命名会话</td>
+<td style=text-align:center>Ctrl + b , $</td>
+<td style=text-align:center></td>
+</tr>
+<tr>
+<td style=text-align:center>断开会话</td>
+<td style=text-align:center>Ctrl + b , d</td>
+<td style=text-align:center></td>
+</tr>
+<tr>
+<td style=text-align:center>翻屏模式</td>
+<td style=text-align:center>Ctrl + b , [</td>
+<td style=text-align:center>PgUp, PgDn 实现上下翻页（mac可以用 fn + ↑ ↓实现上下翻页）<br> q 退出翻屏模式</td>
+</tr>
+</tbody>
+</table>
+<h3 id=窗口操作>窗口操作</h3>
+<table>
+<thead>
+<tr>
+<th style=text-align:center>操作</th>
+<th style=text-align:center>快捷键</th>
+<th style=text-align:center>备注</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style=text-align:center>在当前会话添加一个窗口</td>
+<td style=text-align:center>Ctrl + b , c</td>
+<td style=text-align:center></td>
+</tr>
+<tr>
+<td style=text-align:center>在当前会话的多个窗口中选择</td>
+<td style=text-align:center>Ctrl + b , w</td>
+<td style=text-align:center></td>
+</tr>
+<tr>
+<td style=text-align:center>关闭当前会话的当前窗口</td>
+<td style=text-align:center>Ctrl + b , x</td>
+<td style=text-align:center></td>
+</tr>
+<tr>
+<td style=text-align:center>关闭当前会话的所有窗口</td>
+<td style=text-align:center>Ctrl + b , !</td>
+<td style=text-align:center></td>
+</tr>
+</tbody>
+</table>
+<h3 id=栅格操作>栅格操作</h3>
+<table>
+<thead>
+<tr>
+<th style=text-align:center>操作</th>
+<th style=text-align:center>快捷键</th>
+<th style=text-align:center>备注</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style=text-align:center>将当前窗口分成左右两份</td>
+<td style=text-align:center>Ctrl + b , %</td>
+<td style=text-align:center></td>
+</tr>
+<tr>
+<td style=text-align:center>将当前窗口分成上下两份</td>
+<td style=text-align:center>Ctrl + b ，"</td>
+<td style=text-align:center></td>
+</tr>
+<tr>
+<td style=text-align:center>光标在不同的窗口中跳转</td>
+<td style=text-align:center>Ctrl + b , 方向键</td>
+<td style=text-align:center></td>
+</tr>
+<tr>
+<td style=text-align:center>调节光标所在窗口的大小</td>
+<td style=text-align:center>按住 Ctrl + b ，同时按方向键</td>
+<td style=text-align:center></td>
+</tr>
+</tbody>
+</table>
 <h2 id=参考文档>参考文档</h2>
 <ul>
 <li><a href=https://www.ruanyifeng.com/blog/2019/10/tmux.html>Tmux 使用教程</a></li>
