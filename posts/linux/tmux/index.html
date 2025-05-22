@@ -83,20 +83,22 @@
 <span class=ln>21</span>tmux kill-session -t &lt;session-name&gt;
 <span class=ln>22</span><span class=c1># 关闭会话窗口</span>
 <span class=ln>23</span>tmux kill-window -t &lt;session-name&gt;:&lt;window-index&gt;
-<span class=ln>24</span>
-<span class=ln>25</span><span class=c1>## Window</span>
-<span class=ln>26</span><span class=c1># 显示会话的窗口</span>
-<span class=ln>27</span>tmux list-windows -t &lt;session-name&gt;
-<span class=ln>28</span>
-<span class=ln>29</span><span class=c1>## Pane</span>
-<span class=ln>30</span><span class=c1># 显示会话窗口的面板</span>
-<span class=ln>31</span>tmux list-panes -t &lt;session-name&gt;:&lt;window-index&gt;
-<span class=ln>32</span><span class=c1># 修改会话窗口面板标题</span>
-<span class=ln>33</span>tmux <span class=k>select</span>-pane -T <span class=s2>&#34;new-title&#34;</span> -t &lt;session-name&gt;:&lt;window-index&gt;.&lt;pane-index&gt;
-<span class=ln>34</span><span class=c1># 移动面板到窗口</span>
-<span class=ln>35</span>tmux move-pane -t &lt;session-name&gt;:&lt;window-index&gt;
-<span class=ln>36</span><span class=c1># 交换面板内容</span>
-<span class=ln>37</span>tmux swap-pane -s &lt;source-pane-index&gt; -t &lt;target-pane-index&gt;
+<span class=ln>24</span><span class=c1># 断开会话，在后台运行</span>
+<span class=ln>25</span>tmux detach
+<span class=ln>26</span>
+<span class=ln>27</span><span class=c1>## Window</span>
+<span class=ln>28</span><span class=c1># 显示会话的窗口</span>
+<span class=ln>29</span>tmux list-windows -t &lt;session-name&gt;
+<span class=ln>30</span>
+<span class=ln>31</span><span class=c1>## Pane</span>
+<span class=ln>32</span><span class=c1># 显示会话窗口的面板</span>
+<span class=ln>33</span>tmux list-panes -t &lt;session-name&gt;:&lt;window-index&gt;
+<span class=ln>34</span><span class=c1># 修改会话窗口面板标题</span>
+<span class=ln>35</span>tmux <span class=k>select</span>-pane -T <span class=s2>&#34;new-title&#34;</span> -t &lt;session-name&gt;:&lt;window-index&gt;.&lt;pane-index&gt;
+<span class=ln>36</span><span class=c1># 移动面板到窗口</span>
+<span class=ln>37</span>tmux move-pane -t &lt;session-name&gt;:&lt;window-index&gt;
+<span class=ln>38</span><span class=c1># 交换面板内容</span>
+<span class=ln>39</span>tmux swap-pane -s &lt;source-pane-index&gt; -t &lt;target-pane-index&gt;
 </code></pre></div><h2 id=配置文件>配置文件</h2>
 <div class=highlight><pre tabindex=0 class=chroma><code class=language-ini data-lang=ini><span class=ln>1</span><span class=c1>; ~/.tmux.conf</span>
 <span class=ln>2</span><span class=c1># 启用鼠标支持</span>
@@ -113,42 +115,13 @@
 <p><em>所有的快捷键都是ctrl + b按完松开，再去按下一个功能键！，不是一下子全按上。</em></p>
 <p><em>所有的快捷键都是ctrl + b按完松开，再去按下一个功能键！，不是一下子全按上。</em></p>
 <h3 id=会话操作>会话操作</h3>
-<table>
-<thead>
-<tr>
-<th style=text-align:center>操作</th>
-<th style=text-align:center>快捷键</th>
-<th style=text-align:left>备注</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style=text-align:center>跳转会话</td>
-<td style=text-align:center>Ctrl + b , s</td>
-<td style=text-align:left></td>
-</tr>
-<tr>
-<td style=text-align:center>重命名会话</td>
-<td style=text-align:center>Ctrl + b , $</td>
-<td style=text-align:left></td>
-</tr>
-<tr>
-<td style=text-align:center>断开会话</td>
-<td style=text-align:center>Ctrl + b , d</td>
-<td style=text-align:left></td>
-</tr>
-<tr>
-<td style=text-align:center>翻屏模式</td>
-<td style=text-align:center>Ctrl + b , [</td>
-<td style=text-align:left>PgUp, PgDn 实现上下翻页（mac可以用 fn + ↑ ↓实现上下翻页）<br> q 退出翻屏模式</td>
-</tr>
-<tr>
-<td style=text-align:center>命令模式</td>
-<td style=text-align:center>Ctrl + b , :</td>
-<td style=text-align:left>参考 [Tmux命令] 章节，去掉命令的"tmux"前缀，基本可以直接使用 <br> 参考 [脚本操作] 章节</td>
-</tr>
-</tbody>
-</table>
+<p>| 操作 | 快捷键 | 命令 | 备注 |
+| :---: | :---: | :--- | |
+| 命令模式 | Ctrl + b , : | | 参考 [Tmux命令] 章节，去掉命令的"tmux"前缀，基本可以直接使用 <br> 参考 [脚本操作] 章节 |
+| 跳转会话 | Ctrl + b , s | | |
+| 重命名会话 | Ctrl + b , $ | | |
+| 断开会话 | Ctrl + b , d | detach | |
+| 翻屏模式 | Ctrl + b , [ | | PgUp, PgDn 实现上下翻页（mac可以用 fn + ↑ ↓实现上下翻页）<br> q 退出翻屏模式 |</p>
 <h3 id=窗口操作>窗口操作</h3>
 <table>
 <thead>
