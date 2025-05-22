@@ -16,7 +16,7 @@ tags:
 
 ## 1. 安装 Docker
 
-各系统安装 Docker 的教程很多，这里略过。
+[Docker 安装](../docker/docker_install)
 
 ## 2. 安装 Visual Stuido Code
 
