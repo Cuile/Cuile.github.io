@@ -1,10 +1,11 @@
 ---
-title: "(CentOS 7 | Rocky 9) 安装 Docker"
+title: "Docker 安装 "
 date: 2022-05-06T11:05:23+08:00
 # draft: true
 tags: 
 - linux
 - CentOS
+- Debian
 - rocky
 - Docker
 ---
