@@ -50,6 +50,10 @@ tmux select-pane -T "new-title" -t <session-name>:<window-index>.<pane-index>
 tmux move-pane -t <session-name>:<window-index>
 # 交换面板内容
 tmux swap-pane -s <source-pane-index> -t <target-pane-index>
+# 所有面板水平排列
+tmux select-layout even-horizontal
+# 所有面板垂直排列
+tmux select-layout even-vertical
 ```
 
 ## 配置文件
@@ -69,6 +73,8 @@ tmux source-file ~/.tmux.conf
 ```
 
 ## 快捷键操作
+Prefix = Ctrl + b
+
 *所有的快捷键都是ctrl + b按完松开，再去按下一个功能键！，不是一下子全按上。*
 
 *所有的快捷键都是ctrl + b按完松开，再去按下一个功能键！，不是一下子全按上。*
@@ -79,33 +85,39 @@ tmux source-file ~/.tmux.conf
 
 | 操作      | 快捷键       | 命令    | 备注  |
 | :---:     | :---:        | :---   | :--- |
-| 命令模式   | Ctrl + b , : |        | 参考 [Tmux命令] 章节，去掉命令的"tmux"前缀，基本可以直接使用 <br> 参考 [脚本操作] 章节 |
-| 跳转会话   | Ctrl + b , s |        |     |
-| 重命名会话 | Ctrl + b , $ |        |     |
-| 断开会话   | Ctrl + b , d | detach |     |
-| 翻屏模式   | Ctrl + b , [ |        | PgUp, PgDn 实现上下翻页（mac可以用 fn + ↑ ↓实现上下翻页）<br> q 退出翻屏模式 |
+| 命令模式   | Prefix , : |        | 参考 [Tmux命令] 章节，去掉命令的"tmux"前缀，基本可以直接使用 <br> 参考 [脚本操作] 章节 |
+| 跳转会话   | Prefix , s |        |     |
+| 重命名会话 | Prefix , $ |        |     |
+| 断开会话   | Prefix , d | detach |     |
+| 翻屏模式   | Prefix , [ |        | PgUp, PgDn 实现上下翻页（mac可以用 fn + ↑ ↓实现上下翻页）<br> q 退出翻屏模式 |
 
 ### 窗口操作
 
 | 操作                     | 快捷键            | 备注  |
 | :---:                    | :---:            | :---: |
-| 在当前会话添加一个窗口     | Ctrl + b , c     |       |
-| 在当前会话的多个窗口中选择 | Ctrl + b , w     |       |
-| 关闭当前会话的当前窗口     | Ctrl + b , x     |       |
-| 关闭当前会话的所有窗口     | Ctrl + b , !     |       |
-| 切换窗口顺序              | Ctrl + b , 数字键 |       |
-| 窗口导航                  | Ctrl + b , n/p |       |
+| 在当前会话添加一个窗口     | Prefix , c     |       |
+| 在当前会话的多个窗口中选择 | Prefix , w     |       |
+| 关闭当前会话的当前窗口     | Prefix , x     |       |
+| 关闭当前会话的所有窗口     | Prefix , !     |       |
+| 切换窗口顺序              | Prefix , 数字键 |       |
+| 窗口导航                  | Prefix , n/p |       |
 
 ### 面板操作
-| 操作                     | 快捷键                  | 备注  |
-| :---:                    | :---:                  | :---: |
-| 展示面板编号              | Ctrl + b , q           |       |
-| 将当前窗口分成左右两份     | Ctrl + b , %           |       |
-| 将当前窗口分成上下两份     | Ctrl + b ，"           |       |
-| 光标在不同的窗口中跳转     | Ctrl + b , ↑ ↓ ← →     |       |
-| 调节光标所在窗口的大小     | 按住 Ctrl + b , ↑ ↓ ← → |       |
-| 水平排列改为垂直排列       | 按住 Ctrl + b , -       |       |
-| 垂直排列改为水平排列       | 按住 Ctrl + b , \|      |       |
+| 操作                       | 快捷键                  | 备注  |
+| :---:                      | :---:                  | :---: |
+| 展示面板编号                | Prefix , q            |       |
+| 将当前窗口分成左右两份       | Prefix , %            |       |
+| 将当前窗口分成上下两份       | Prefix ，"            |       |
+| 光标在不同的窗口中跳转       | Prefix , ↑ ↓ ← →      |       |
+| 调节光标所在窗口的大小       | 按住 Prefix , ↑ ↓ ← → |       |
+| 水平排列改为垂直排列         | 按住 Prefix , -       |       |
+| 垂直排列改为水平排列         | 按住 Prefix , \       |       |
+| 针旋转面板	              | Prefix + Ctrl+o       | 所有面板位置顺时针轮换
+| 逆时针旋转面板	          | Prefix + Alt+o        | 所有面板位置逆时针轮换
+| 交换当前面板与上一个活动面板 | Prefix + {            | 与左侧/上方面板交换
+| 交换当前面板与下一个活动面板 | Prefix + }            | 与右侧/下方面板交换
+| 当前面板改为水平分割	       | Prefix + Space        | 切换当前窗格的布局方向
+| 切换预设布局	              | Prefix + Alt+1~5      |	循环切换 5 种预设布局
 
 ## 脚本操作
 
