@@ -30,9 +30,6 @@ tags:
 ```html
 <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
 ```
-
-** 参考文档 **
-
 - [https请求报错block:mixed-content问题的解决办法](https://blog.csdn.net/qq_39390545/article/details/105550949)
 
 1.2. 确保config.toml文件内，"baseUrl"的值与实际地址一致。
@@ -59,7 +56,18 @@ tags:
   with:
     hugo-version: 'latest'
 ```
-
-**参考文档**
-
 - [GitHub Actions for Hugo](https://github.com/peaceiris/actions-hugo#options)
+
+### 4. 自定义域名
+4.1. 在"theme/\<YouThemeName\>/static"目录下，添加CNAME文件，里面放自定义的域名
+```
+blog.cuile.com
+```
+上传后，Settings -> Pages -> Custom domain 设置中会出现自定义的域名
+
+4.2. 修改 baseurl 
+```toml
+...
+baseurl = "https://blog.cuile.com/"
+...
+```
