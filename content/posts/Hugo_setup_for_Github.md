@@ -4,7 +4,7 @@ date: 2022-01-14T17:15:06+08:00
 # draft: true
 tags: 
 - Hugo
-- Github
+- Github Action
 - Blog
 ---
 
@@ -43,16 +43,16 @@ tags:
 
 "Setup Hugo"项目里，标准版本与扩展版本的参数写法不一样。
 
-```yml
+```yaml
 # 使用扩展版本
 - name: Setup Hugo
   uses: peaceiris/actions-hugo@v2
   with:
-    hugo-version: '0.91.2'
+    hugo-version: '0.92.0'
     extended: true
 ```
 
-```yml
+```yaml
 # 使用标准版本
 - name: Setup Hugo
   uses: peaceiris/actions-hugo@v2
