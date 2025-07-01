@@ -1,2 +1,51 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>micromamba on 瘦了就帅了</title><link>https://cuile.github.io/tags/micromamba/</link><description>Recent content in micromamba on 瘦了就帅了</description><generator>Hugo -- gohugo.io</generator><copyright>Copyright © 2008–2018, Steve Francia and the Hugo Authors; all rights reserved.</copyright><lastBuildDate>Sat, 25 Nov 2023 00:24:10 +0800</lastBuildDate><atom:link href="https://cuile.github.io/tags/micromamba/index.xml" rel="self" type="application/rss+xml"/><item><title>VSCode 配置 Python 开发环境</title><link>https://cuile.github.io/posts/vscode/vscode_configures_python_development_environment/</link><pubDate>Sat, 25 Nov 2023 00:24:10 +0800</pubDate><guid>https://cuile.github.io/posts/vscode/vscode_configures_python_development_environment/</guid><description>
-使用 VSCode 开发 Python 是替代 PyCharm 的一个很好选择，有丰富的扩展和第三方工具可以使用，安装配置好它们，会让开发工作事半功倍。下面列举推荐安装的扩展和工具： 扩</description></item></channel></rss>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Micromamba on 瘦了就帅了</title><link>https://blog.cuile.com/tags/micromamba/</link><description>Recent content in Micromamba on 瘦了就帅了</description><generator>Hugo</generator><language>zh-cn</language><lastBuildDate>Tue, 01 Jul 2025 05:36:31 +0000</lastBuildDate><atom:link href="https://blog.cuile.com/tags/micromamba/index.xml" rel="self" type="application/rss+xml"/><item><title>VSCode 配置 Python 开发环境</title><link>https://blog.cuile.com/post/vscode/vscode_configures_python_development_environment/</link><pubDate>Sat, 25 Nov 2023 00:24:10 +0800</pubDate><guid>https://blog.cuile.com/post/vscode/vscode_configures_python_development_environment/</guid><description>&lt;p>使用 VSCode 开发 Python 是替代 PyCharm 的一个很好选择，有丰富的扩展和第三方工具可以使用，安装配置好它们，会让开发工作事半功倍。下面列举推荐安装的扩展和工具：&lt;/p>
+&lt;p>扩展&lt;/p>
+&lt;ul>
+&lt;li>Material Icon There
+&lt;ul>
+&lt;li>VSCode图标，很好看&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>Python
+&lt;ul>
+&lt;li>微软官方扩展，一定要装&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>Pylance
+&lt;ul>
+&lt;li>微软官方扩展，一定要装&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>autoDocstring&lt;/li>
+&lt;li>Python Environment Manager&lt;/li>
+&lt;li>Ruff&lt;/li>
+&lt;li>Code Runner&lt;/li>
+&lt;li>Qt for Python&lt;/li>
+&lt;/ul>
+&lt;p>工具&lt;/p>
+&lt;ul>
+&lt;li>Micromamba
+&lt;ul>
+&lt;li>使用 Micromamba 来配置 Python 开发环境有几个好处：
+&lt;ul>
+&lt;li>micromamba 是一个包管理器，可方便的同时安装几个软件，形成一个独立的开发环境，与其它项目的开发环境完全隔离。&lt;/li>
+&lt;li>micromamba 安装的软件，不会在系统留下痕迹，不会污染本地系统。&lt;/li>
+&lt;li>micromamba 只配置 python 基础环境，不影响 python 虚拟环境，同一个基础环境可提供给多个虚拟环境使用。&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ul>
+&lt;h2 id="配置-micromamba">配置 Micromamba&lt;/h2>
+&lt;h3 id="windows环境">Windows环境&lt;/h3>
+&lt;h4 id="下载">下载&lt;/h4>
+&lt;p>推荐使用 PowerShell&lt;sup id="fnref:1">&lt;a href="#fn:1" class="footnote-ref" role="doc-noteref">1&lt;/a>&lt;/sup>&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-powershell" data-lang="powershell">&lt;span style="display:flex;">&lt;span>&amp;gt; Invoke-Webrequest -URI https&lt;span style="color:#960050;background-color:#1e0010">:&lt;/span>//micro.mamba.pm/api/micromamba/win-&lt;span style="color:#ae81ff">64&lt;/span>/latest -OutFile micromamba.tar.bz2
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&amp;gt; tar xf micromamba.tar.bz2
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&amp;gt; MOVE -Force Library\bin\micromamba.exe micromamba.exe
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&amp;gt;.\micromamba.exe --help
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e"># 查看输出&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h4 id="安装">安装&lt;sup id="fnref:2">&lt;a href="#fn:2" class="footnote-ref" role="doc-noteref">2&lt;/a>&lt;/sup>&lt;/h4>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-powershell" data-lang="powershell">&lt;span style="display:flex;">&lt;span>&amp;gt; .\micromamba.exe shell init -s powershell
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>默认位置为 $HOME/micromamba，也就是 C:\Users\username\micromamba 。
+如果想自己指定位置，可以加上 “-p &amp;lt;path&amp;gt;” 参数。&lt;/p></description></item></channel></rss>
