@@ -1,26 +1,36 @@
-# set `baseurl` to your root domain
-# if you set it to "/" share icons won't work properly on production
-baseurl = "https://blog.cuile.com/"  # Include trailing slash
-# title = "瘦了就帅了"  # Edit directly from config/_default/languages.toml # alternatively, uncomment this and remove `title` entry from the aforemention file.
-copyright = "Copyright © 2008–2018, Steve Francia and the Hugo Authors; all rights reserved."
-# canonifyurls = true
-paginate = 10
-theme = "hugo-clarity"
-disqusShortname = ""
+baseurl = "https://blog.cuile.com/"
+title = "瘦了就帅了"  # Edit directly from config/_default/languages.toml # alternatively, uncomment this and remove `title` entry from the aforemention file.
+theme = "github-style"
+languageCode = "zh-cn"
+pygmentsCodeFences = true
+pygmentsUseClasses = true
 
-DefaultContentLanguage = "zh-cn"
-# [languages]
-# config/_default/languages.toml
-disableLanguages = ['pt', 'en']
-hasCJKLanguage = true
 
-# [menus]
-# config/_default/menus/menu.xx.toml
+[params]
+author = "瘦了就帅了"
+description = "凡战者，以正合，以奇胜。"
+location = "China Beijing"
+email = "i@cuile.com"
+github = "Cuile"
+url = "https://blog.cuile.com"
 
-[taxonomies]
-# category = "categories"
-# series = "series"
-tag = "tags"
+avatar = "/images/avatar.jpg"
+favicon = "/images/avatar.jpg"
+headerIcon = "/images/avatar.jpg"
+enableSearch = true
+lastmod = true
+
+[[params.links]]
+title = "个人简历"
+href = "./_崔乐.pdf"
+
+[frontmatter]
+lastmod = ["lastmod", ":fileModTime", ":default"]
 
 [outputs]
-home = ["HTML", "RSS", "JSON"]
+  home = ["html", "json"]
+
+[outputFormats.json]
+  mediaType = "application/json"
+  baseName = "index"
+  isPlainText = false

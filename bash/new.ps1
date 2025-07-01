@@ -1,1 +1,1 @@
-.\hugo.exe new --source ../ --contentDir content/posts/ $args
+.\hugo.exe new --source ../ --contentDir content/post/ $args
