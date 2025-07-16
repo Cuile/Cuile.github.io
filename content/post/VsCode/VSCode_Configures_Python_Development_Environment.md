@@ -36,10 +36,18 @@ tags:
 #### 下载
 推荐使用 PowerShell[^1]
 ```powershell
+# 下载并安装 VC++ Redistributable
+> Invoke-WebRequest -Uri "https://aka.ms/vs/17/release/vc_redist.x64.exe" -OutFile "$env:TEMP\vc_redist.x64.exe"
+> Start-Process -Wait -FilePath "$env:TEMP\vc_redist.x64.exe" -ArgumentList "/install", "/quiet", "/norestart"
+# 下载micromamba
 > Invoke-Webrequest -URI https://micro.mamba.pm/api/micromamba/win-64/latest -OutFile micromamba.tar.bz2
-> tar xf micromamba.tar.bz2
-> MOVE -Force Library\bin\micromamba.exe micromamba.exe
->.\micromamba.exe --help
+# 使用7z解压
+> & "C:\Program Files\7-Zip\7z.exe" x "micromamba.tar.bz2" -o"tmp"
+# 使用tar解压，系统内置不用安装
+> mkdir micromamba
+> tar -xvf .\tmp\micromamba.tar -C .\micromamba\
+# > MOVE -Force Library\bin\micromamba.exe micromamba.exe
+>.\micromamba\micromamba.exe --help
 # 查看输出
 ```
 
