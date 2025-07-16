@@ -46,8 +46,7 @@ tags:
 # 使用tar解压，系统内置不用安装
 > mkdir micromamba
 > tar -xvf .\tmp\micromamba.tar -C .\micromamba\
-# > MOVE -Force Library\bin\micromamba.exe micromamba.exe
->.\micromamba\micromamba.exe --help
+>.\micromamba\Library\bin\micromamba.exe --help
 # 查看输出
 ```
 
