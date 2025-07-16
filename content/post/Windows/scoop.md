@@ -32,10 +32,19 @@ tags:
 # 默认安装到 C:\Users\<user>\scoop
 # 验证安装
 > scoop help
+# 安装aria2，提升下载速度
+> scoop install aria2
+# 安装7zip，提升解压成功率
+> scoop install 7zip
+```
+强制使用7zip解压
+```json
+// ~\.config\scoop\config.json
+{
+  "7ZIPEXTRACT_USE_EXTERNAL": true
+}
 ```
 
 ### 3. 使用
 ```powershell
-# 下载速度慢，安装aria2
-> scoop install aria2
 ```
