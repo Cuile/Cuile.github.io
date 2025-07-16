@@ -28,7 +28,7 @@ tags:
 # 使用tar解压，系统内置不用安装
 > mkdir micromamba
 > tar -xvf .\tmp\micromamba.tar -C .\micromamba\
->.\micromamba\Library\bin\micromamba.exe --help
+> .\micromamba\Library\bin\micromamba.exe --help
 # 查看输出
 ```
 
