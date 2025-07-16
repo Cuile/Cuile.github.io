@@ -6,6 +6,7 @@ date: 2025-07-17T01:18:10+08:00
 tags:
 - micromamba
 - python
+- windows
 # series:
 # categories:
 ---
