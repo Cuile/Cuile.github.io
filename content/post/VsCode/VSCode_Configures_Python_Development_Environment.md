@@ -36,7 +36,7 @@ tags:
 #### 下载
 推荐使用 PowerShell[^1]
 ```powershell
-# 下载并安装 VC++ Redistributable
+# 下载并安装 VC++ Redistributable，需要管理员模式
 > Invoke-WebRequest -Uri "https://aka.ms/vs/17/release/vc_redist.x64.exe" -OutFile "$env:TEMP\vc_redist.x64.exe"
 > Start-Process -Wait -FilePath "$env:TEMP\vc_redist.x64.exe" -ArgumentList "/install", "/quiet", "/norestart"
 # 下载micromamba
