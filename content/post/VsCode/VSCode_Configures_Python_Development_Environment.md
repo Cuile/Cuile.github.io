@@ -32,7 +32,7 @@ tags:
     - micromamba 只配置 python 基础环境，不影响 python 虚拟环境，同一个基础环境可提供给多个虚拟环境使用。
 
 ## 配置 Micromamba
-[Micromamba的安装与使用](../Windows/micromamba.md)
+[Micromamba的安装与使用](../../Windows/micromamba.md)
 
 ## 配置 VSCode[^1]
 配置 Venv 路径
