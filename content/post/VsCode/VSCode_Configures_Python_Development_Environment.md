@@ -54,7 +54,8 @@ PS "Your Project Path"> conda activate PyQt
 
 # 创建Python虚拟环境
 # --upgrade 参数是升级虚拟环境用的，新建虚拟环境时要去掉。
-(PyQt) PS "Your Project Path"> python -m venv --system-site-packages --prompt myproject --upgrade-deps --upgrade .venv
+# --system-site-packages 会降低环境隔离性，生产环境慎用。
+(PyQt) PS "Your Project Path"> python -m venv --prompt <myproject> --upgrade-deps .venv --symlinks --upgrade --system-site-packages
 # 查看项目资源管理器，看到 .venv 文件夹就成功了。
 
 # 激活Python虚拟环境
