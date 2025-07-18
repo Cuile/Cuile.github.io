@@ -17,7 +17,7 @@ tags:
 - [我用的win10自带输入法，最近不知道为什么没有候选字栏，只能用空格选定输入，怎么解决？](https://www.zhihu.com/question/427491064)
 
 ## 卸载预装应用
-```pwoershell
+```powershell
 # 查看所有预装应用
 > Get-AppxPackage | Select Name, PackageFullName
 
@@ -29,4 +29,9 @@ tags:
 
 # 彻底禁用自动安装（防止更新后恢复）
 > Set-Content -Path "HKLM:\SOFTWARE\Policies\Microsoft\Windows\CloudContent" -Name "DisableWindowsConsumerFeatures" -Value 1 -Type DWord
+```
+
+## 自定义命令
+```powershell
+Set-Alias -name ll -value Get-ChildItem -Force
 ```

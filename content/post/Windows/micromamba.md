@@ -34,10 +34,9 @@ tags:
 
 #### 2. 安装[^2]
 ```powershell
-> .\micromamba.exe shell init -s powershell
+> .\micromamba\Library\bin\micromamba.exe shell init -s powershell -r C:\Your\Root\Prefix
 ```
 默认位置为 $HOME/micromamba，也就是 C:\Users\username\micromamba 。
-如果想自己指定位置，可以加上 “-p \<path\>” 参数。
 
 同时会在 PowerShell 的 Profile 文件中（相当于 Bash 的 .bashrc）添加以下代码，保证每次启动 PowerShell 时，都会自动初始化 Micromamba 。
 
@@ -46,7 +45,7 @@ tags:
 #region mamba initialize
 # !! Contents within this block are managed by 'mamba shell init' !!
 $Env:MAMBA_ROOT_PREFIX = "C:\Users\username\micromamba"
-$Env:MAMBA_EXE = "C:\Users\username\.micromamba\Library\bin\micromamba.exe"
+$Env:MAMBA_EXE = "C:\Users\username\micromamba\Library\bin\micromamba.exe"
 (& $Env:MAMBA_EXE 'shell' 'hook' -s 'powershell' -p $Env:MAMBA_ROOT_PREFIX) | Out-String | Invoke-Expression
 #endregion
 
@@ -54,33 +53,49 @@ $Env:MAMBA_EXE = "C:\Users\username\.micromamba\Library\bin\micromamba.exe"
 # 设置别名后，即方便使用，也可配合 VSCode 的配置，实现自动启动开发环境。
 Set-Alias -name conda -value micromamba
 ```
+重新启动PowerShell
 ```powershell
 # 配置包通道
 > conda config append channels conda-forge
 > conda config append channels free
-
+> conda config append channels defaults
+# 配置包目录
+> conda config append pkgs_dirs $Env:MAMBA_ROOT_PREFIX\pkgs
+# 关闭SSL验证
+> conda config set ssl_verify false
 # 查看 micromamba 设置
 > conda info
+# 初始化base环境
+> conda env update -n base
 ```
 
-#### 创建 Python 版本
-```powershell
-> cd ~/micromamba
-```
+#### 3. 创建Python环境
 ```yml
 # env.yml
-name: PyQt
+name: py3.12
 channels:
   - conda-forge
   - free
 dependencies:
-  - python 3.11
-  - mingw 4.7
+  - python=3.12
 ```
 ```powershell
 > conda create -f env.yml
+# or
+> conda create -n py3.12 python=3.12 -c conda-forge -c free
 ```
 
+#### 4. 操作环境
+```powershell
+# 导出
+> conda env export -n py3.12 --from-history > py3.12.yaml
+# 导入
+> conda env create -f py3.12.yaml
+# 克隆
+> conda create -n py3.12 --clone py3.12_new
+# 删除
+> conda env remove -n py3.12
+```
 ---
 [^1]:[Micromamba Installation](https://mamba.readthedocs.io/en/latest/installation/micromamba-installation.html#operating-system-package-managers)
 [^2]:[使用 Micromamba 替换 Miniconda 更快配置 Python 环境](https://zhuanlan.zhihu.com/p/622346839?utm_id=0)
