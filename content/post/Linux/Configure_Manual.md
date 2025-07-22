@@ -99,3 +99,11 @@ du -h --max-depth=1 <path>
 apt install inotify-tools
 inotifywait -m -r -e modify,create,delete <path>
 ```
+
+### 启动ssh跳转
+```bash
+ssh -4CN -p 2222 -L localhost:5432:<proxy service>:8888 -i ~/.ssh/<name>.key <user>@<name>.cuile.com
+# 测试代码网络
+curl -x http://localhost:5432 ifconfig.me
+# 返回代理服务器的IP，即为成功。
+```

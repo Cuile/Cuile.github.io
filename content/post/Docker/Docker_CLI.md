@@ -61,21 +61,6 @@ docker container rm <container_name>
 docker network create [name]
 ```
 
-## 配置DockerHub镜像
-```json
-// /etc/docker/daemon.json 
-{
-  "registry-mirrors": [
-  	"https://docker.1ms.run",
-  	"https://docker.xuanyuan.me"
-  	]
-}
-```
-```bash
-systemctl daemon-reload
-systemctl restart docker
-```
-
 ## Docker快捷命令
 ```bash
 echo "alias d-ll='docker image ls -a; echo; docker container ls -a'" >> ~/.bashrc \

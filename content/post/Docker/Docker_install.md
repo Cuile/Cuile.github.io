@@ -154,6 +154,12 @@ docker compose version
   "registry-mirrors": ["https://registry.docker-cn.com"]
 }
 ```
+```bash
+systemctl daemon-reload
+systemctl restart docker
+```
+- [Docker / Podman 安装与换源](https://wcbing.top/linux/containers/install/)
+- [国内 Docker 服务状态 & 镜像加速监控](https://status.1panel.top/status/docker)
 - [Docker/DockerHub 国内镜像源/加速列表（长期维护）](https://xuanyuan.me/blog/archives/1154?from=tencent)
 其实使用中仓库镜像的速度并不理想，还是设置代理更加实用
 - [如何优雅的给 Docker 配置网络代理](https://cloud.tencent.com/developer/article/1806455)

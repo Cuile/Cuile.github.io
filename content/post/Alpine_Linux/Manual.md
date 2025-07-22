@@ -57,8 +57,6 @@ $ rc-update del sshd
 # [HH:MM] path
 # [user@hostname] 命令提示符
 + export PS1='\[\e[36;40m\][\A] \[\e[0m\] \[\e[35;40m\]\w\[\e[0m\]\n\[\e[33;40m\][\u@\H]\[\e[0m\] \\$ '
-# keychain
-+ eval `keychain --eval ~/.ssh/github.com`
 ```
 - [busybox：ash：PS1：支持的内部替换变量](https://www.cnblogs.com/jinzhenshui/p/16358242.html)
 
@@ -67,11 +65,11 @@ $ rc-update del sshd
 # 查看当时时间
 $ date -R
 # 修改到 +8 时区
-$ apk add tzdata
-$ cp /usr/share/zoneinfo/Asia/Shanghai /etc/localtime
-$ echo "Asia/Shanghai" > /etc/timezone
-$ apk del tzdata
+$ apk add apk add alpine-conf && \
+    setup-timezone -z Asia/Shanghai && \
+    apk del alpine-conf
 ```
+- [alpine 镜像时区调为 Asia/Shanghai 后因 TZ 与 apk del tzdata 导致不生效 ](https://www.cnblogs.com/flipped/p/15808681.html)
 
 ## 修改主机名
 ```ini
