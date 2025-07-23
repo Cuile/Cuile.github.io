@@ -1,2 +1,57 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>tmux on 瘦了就帅了</title><link>https://cuile.github.io/tags/tmux/</link><description>Recent content in tmux on 瘦了就帅了</description><generator>Hugo -- gohugo.io</generator><copyright>Copyright © 2008–2018, Steve Francia and the Hugo Authors; all rights reserved.</copyright><lastBuildDate>Wed, 21 Feb 2024 16:08:32 +0800</lastBuildDate><atom:link href="https://cuile.github.io/tags/tmux/index.xml" rel="self" type="application/rss+xml"/><item><title>Tmux 命令</title><link>https://cuile.github.io/posts/linux/tmux/</link><pubDate>Wed, 21 Feb 2024 16:08:32 +0800</pubDate><guid>https://cuile.github.io/posts/linux/tmux/</guid><description>
-Tmux命令 1## Session 2# 开启新会话 3tmux 4# 开启新会话并命名 5tmux new -s my_session 6# 重命名会话 7tmux rename-session -t 0 &amp;lt;new-name&amp;gt; 8# 显示所有会话 9tmux ls 10tmux list-sessions 11# 使用会话编号接入 12tmux attach -t 0 13# 使用会话名称</description></item></channel></rss>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Tmux on 瘦了就帅了</title><link>https://blog.cuile.com/tags/tmux/</link><description>Recent content in Tmux on 瘦了就帅了</description><generator>Hugo</generator><language>zh-cn</language><lastBuildDate>Wed, 23 Jul 2025 03:14:36 +0000</lastBuildDate><atom:link href="https://blog.cuile.com/tags/tmux/index.xml" rel="self" type="application/rss+xml"/><item><title>Tmux 命令</title><link>https://blog.cuile.com/post/linux/tmux/</link><pubDate>Wed, 21 Feb 2024 16:08:32 +0800</pubDate><guid>https://blog.cuile.com/post/linux/tmux/</guid><description>&lt;h2 id="tmux命令">Tmux命令&lt;/h2>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e">## Session&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e"># 开启新会话&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>tmux
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e"># 开启新会话并命名&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>tmux new -s my_session
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e"># 重命名会话&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>tmux rename-session -t &lt;span style="color:#ae81ff">0&lt;/span> &amp;lt;new-name&amp;gt;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e"># 显示所有会话&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>tmux ls
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>tmux list-sessions
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e"># 使用会话编号接入&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>tmux attach -t &lt;span style="color:#ae81ff">0&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e"># 使用会话名称接入&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>tmux attach -t &amp;lt;session-name&amp;gt;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>tmux a -t name &lt;span style="color:#75715e">#简写&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e"># 切换会话&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>tmux switch -t &lt;span style="color:#ae81ff">0&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>tmux switch -t &amp;lt;session-name&amp;gt;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e"># 关闭会话&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>tmux kill-session -t &lt;span style="color:#ae81ff">0&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>tmux kill-session -t &amp;lt;session-name&amp;gt;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e"># 关闭会话窗口&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>tmux kill-window -t &amp;lt;session-name&amp;gt;:&amp;lt;window-index&amp;gt;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e"># 断开会话，在后台运行&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>tmux detach
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e">## Window&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e"># 显示会话的窗口&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>tmux list-windows -t &amp;lt;session-name&amp;gt;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e">## Pane&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e"># 显示会话窗口的面板&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>tmux list-panes -t &amp;lt;session-name&amp;gt;:&amp;lt;window-index&amp;gt;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e"># 修改会话窗口面板标题&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>tmux &lt;span style="color:#66d9ef">select&lt;/span>-pane -T &lt;span style="color:#e6db74">&amp;#34;new-title&amp;#34;&lt;/span> -t &amp;lt;session-name&amp;gt;:&amp;lt;window-index&amp;gt;.&amp;lt;pane-index&amp;gt;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e"># 移动面板到窗口&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>tmux move-pane -t &amp;lt;session-name&amp;gt;:&amp;lt;window-index&amp;gt;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e"># 交换面板内容&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>tmux swap-pane -s &amp;lt;source-pane-index&amp;gt; -t &amp;lt;target-pane-index&amp;gt;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e"># 所有面板水平排列&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>tmux &lt;span style="color:#66d9ef">select&lt;/span>-layout even-horizontal
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e"># 所有面板垂直排列&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>tmux &lt;span style="color:#66d9ef">select&lt;/span>-layout even-vertical
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="配置文件">配置文件&lt;/h2>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-ini" data-lang="ini">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e">; ~/.tmux.conf&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e"># 启用鼠标支持&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#a6e22e">set -g mouse on&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e"># 显示状态栏信息（会话名、窗口索引、时间等）&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#a6e22e">set -g status-right &amp;#39;#[fg&lt;/span>&lt;span style="color:#f92672">=&lt;/span>&lt;span style="color:#e6db74">green]#H #[fg=blue]%d %b %R&amp;#39;&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e"># 在窗格边框显示窗格索引和当前命令&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#a6e22e">set -g pane-border-format &amp;#34;#{pane_index} #{pane_title}&amp;#34;&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e"># 将窗格边框状态信息显示在顶部&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#a6e22e">set -g pane-border-status top&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span>tmux source-file ~/.tmux.conf
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="快捷键操作">快捷键操作&lt;/h2>
+&lt;p>Prefix = Ctrl + b&lt;/p></description></item></channel></rss>
