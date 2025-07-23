@@ -22,7 +22,11 @@ lastmod = true
 
 [[params.links]]
 title = "个人简历"
+href = "https://gitee.com/lecui"
+[[params.links]]
+title = "个人简历"
 href = "attachments/pdfs/_崔乐.pdf"
+
 
 [frontmatter]
 lastmod = ["lastmod", ":fileModTime", ":default"]
