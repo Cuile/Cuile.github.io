@@ -229,10 +229,10 @@ Usage: python.exe -m nuitka [--mode=compilation_mode] [--run] [options] main_mod
 | --noinclude-default-mode=NOINCLUDE_DEFAULT_MODE       | This actually provides the default "warning" value for above options, and can be used to turn all of these on.                                                                                                  |
 | --noinclude-custom-mode=CUSTOM_CHOICES                | What to do if a specific import is encountered. Format is module name, which can and should be a top level package and then one choice, "error", "warning", "nofollow", e.g. PyQt5:error.                       |
 ---
-|                                               | Plugin options of 'playwright' (categories: package-support)                                                                                               |     |
-| ---                                           | ---                                                                                                                                                        | --- |
-| --playwright-include-browser=INCLUDE_BROWSERS | Playwright browser to include by name. Can be specified multiple times. Use "all" to include all installed browsers or use "none" to exclude all browsers. |
+|                                               | Plugin options of 'playwright' (categories: package-support) | “playwright”插件选项（分类：包支持）|
+| ---                                           | ---                                                          | ---                               |
+| --playwright-include-browser=INCLUDE_BROWSERS | Playwright browser to include by name. Can be specified multiple times. Use "all" to include all installed browsers or use "none" to exclude all browsers. | Playwright浏览器按名称包含。可多次指定。使用“all”包含所有已安装的浏览器，或使用“none”排除所有浏览器。
 ---
-|                                                | Plugin options of 'spacy' (categories: package-support)                                                    |     |
-| ---                                            | ---                                                                                                        | --- |
-| --spacy-language-model=INCLUDE_LANGUAGE_MODELS | Spacy language models to use. Can be specified multiple times. Use 'all' to include all downloaded models. |
+|                                                | Plugin options of 'spacy' (categories: package-support) | 'spacy' 插件选项（分类：包支持）|
+| ---                                            | ---                                                     | ---                           |
+| --spacy-language-model=INCLUDE_LANGUAGE_MODELS | Spacy language models to use. Can be specified multiple times. Use 'all' to include all downloaded models. | 可用的Spacy语言模型。可以多次指定。使用'all'以包含所有已下载的模型。
