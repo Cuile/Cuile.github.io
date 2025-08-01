@@ -9,53 +9,6 @@ tags:
 - linux
 ---
 
-## Tmux命令
-```bash
-## Session
-# 开启新会话
-tmux
-# 开启新会话并命名
-tmux new -s my_session
-# 重命名会话
-tmux rename-session -t 0 <new-name>
-# 显示所有会话
-tmux ls
-tmux list-sessions
-# 使用会话编号接入
-tmux attach -t 0
-# 使用会话名称接入
-tmux attach -t <session-name>
-tmux a -t name #简写
-# 切换会话
-tmux switch -t 0
-tmux switch -t <session-name>
-# 关闭会话
-tmux kill-session -t 0
-tmux kill-session -t <session-name>
-# 关闭会话窗口
-tmux kill-window -t <session-name>:<window-index>
-# 断开会话，在后台运行
-tmux detach
-
-## Window
-# 显示会话的窗口
-tmux list-windows -t <session-name>
-
-## Pane
-# 显示会话窗口的面板
-tmux list-panes -t <session-name>:<window-index>
-# 修改会话窗口面板标题
-tmux select-pane -T "new-title" -t <session-name>:<window-index>.<pane-index>
-# 移动面板到窗口
-tmux move-pane -t <session-name>:<window-index>
-# 交换面板内容
-tmux swap-pane -s <source-pane-index> -t <target-pane-index>
-# 所有面板水平排列
-tmux select-layout even-horizontal
-# 所有面板垂直排列
-tmux select-layout even-vertical
-```
-
 ## 配置文件
 ```ini
 ; ~/.tmux.conf
@@ -83,42 +36,54 @@ Prefix = Ctrl + b
 
 ### 会话操作
 
-| 操作      | 快捷键       | 命令    | 备注  |
-| :---:     | :---:        | :---   | :--- |
-| 命令模式   | Prefix , : |        | 参考 [Tmux命令] 章节，去掉命令的"tmux"前缀，基本可以直接使用 <br> 参考 [脚本操作] 章节 |
-| 跳转会话   | Prefix , s |        |     |
-| 重命名会话 | Prefix , $ |        |     |
-| 断开会话   | Prefix , d | detach |     |
-| 翻屏模式   | Prefix , [ |        | PgUp, PgDn 实现上下翻页（mac可以用 fn + ↑ ↓实现上下翻页）<br> q 退出翻屏模式 |
+| 操作          | 快捷键      | 命令                                                     | 备注  |
+| :---:         | :---:      | :---                                                     | :--- |
+| 启动会话      |            | tmux new -s <session_name>                               |
+| 进入会话      |            | tmux <attach \| a> -t <session_name \| session_index>    |
+| 退出会话      | Prefix , d | detach                                                   |     
+| 关闭会话      |            | tmux kill-session -t <session_name \| session_index>     |
+| **命令模式** | Prefix , : |                                                          | 参考 [Tmux命令] 章节，去掉命令的"tmux"前缀，基本可以直接使用 <br> 参考 [脚本操作] 章节 
+| 会话列表      |            | list-session                                             |
+| 跳转会话      | Prefix , s | switch -t <session_name \| session_index>                |     
+| 重命名会话    | Prefix , $ | rename-session -t <old_name \| session_index> <new_name> |     
+| 翻屏模式      | Prefix , [ |                                                          | PgUp, PgDn 实现上下翻页（mac可以用 fn + ↑ ↓实现上下翻页）<br> q 退出翻屏模式 
 
 ### 窗口操作
 
-| 操作                     | 快捷键            | 备注  |
-| :---:                    | :---:            | :---: |
-| 在当前会话添加一个窗口     | Prefix , c     |       |
-| 在当前会话的多个窗口中选择 | Prefix , w     |       |
-| 关闭当前会话的当前窗口     | Prefix , x     |       |
-| 关闭当前会话的所有窗口     | Prefix , !     |       |
-| 切换窗口顺序              | Prefix , 数字键 |       |
-| 窗口导航                  | Prefix , < n \| p > |       |
+| 操作                     | 快捷键               | 命令                                                         | 备注  |
+| :---:                    | :---:               | :---                                                         | :---: |
+| 窗口列表                 |                     | list-window [-t <session_name>]                               |
+| 在当前会话添加一个窗口     | Prefix , c          |                                                              |
+| 在当前会话的多个窗口中选择 | Prefix , w          |                                                               |
+| 关闭当前会话的当前窗口    | Prefix , x          |                                                               |
+| 关闭当前会话的所有窗口    | Prefix , !          |                                                               |
+| 关闭会话窗口             |                     | kill-window -t <session_name \| session_index>:<window-index> |
+| 切换窗口顺序             | Prefix , 数字键      |                                                               |
+| 窗口导航                 | Prefix , < n \| p > |                                                               |
 
 ### 面板操作
-| 操作                       | 快捷键                  | 备注  |
-| :---:                      | :---:                  | :---: |
-| 展示面板编号                | Prefix , q            |       |
-| 将当前窗口分成左右两份       | Prefix , %            |       |
-| 将当前窗口分成上下两份       | Prefix ，"            |       |
-| 光标在不同的窗口中跳转       | Prefix , < ↑ \| ↓ \| ← \| → >      |       |
-| 调节光标所在窗口的大小       | 按住 Prefix , < ↑ \| ↓ \| ← \| → > |       |
-| 水平排列改为垂直排列         | 按住 Prefix , -       |       |
-| 垂直排列改为水平排列         | 按住 Prefix , \       |       |
-| 针旋转面板	              | Prefix , Ctrl + o       | 所有面板位置顺时针轮换
-| 逆时针旋转面板	          | Prefix , Alt + o        | 所有面板位置逆时针轮换
-| 交换当前面板与上一个活动面板 | Prefix , {            | 与左侧/上方面板交换
-| 交换当前面板与下一个活动面板 | Prefix , }            | 与右侧/下方面板交换
-| 当前面板改为水平分割	       | Prefix , Space        | 切换当前窗格的布局方向
-| 切换预设布局	              | Prefix , Alt + [1~5]  |	循环切换 5 种预设布局
-| 关闭当前面板                | Prefix , x            |
+| 操作                      | 快捷键                              | 命令                                                                     | 备注  |
+| :---:                     | :---:                              | :---                                                                     |:---: |
+| 面板列表                   |                                    | list-panes -t <session_name \| session_index>:<window-index>             |
+| 修改面板标题               |                                    | select-pane -T "new-title" -t <session-name>:<window-index>.<pane-index> |
+| 展示面板编号               | Prefix , q                         |                                                                          |
+| 面板移动到窗口             |                                    | move-pane -t <session-name>:<window-index>                               |
+| 将当前窗口分成左右两份      | Prefix , %                         |                                                                          |
+| 将当前窗口分成上下两份      | Prefix ，"                         |                                                                          |
+| 水平排列改为垂直排列        | 按住 Prefix , -                    |                                                                          |
+| 垂直排列改为水平排列        | 按住 Prefix , \                    |                                                                          |
+| 所有面板水平排列            |                                   | select-layout even-horizontal                                            |
+| 所有面板垂直排列            |                                   | select-layout even-verticalc                                             |
+| 所有面板位置顺时针轮换      | Prefix , Ctrl + o                  |                                                                          |
+| 所有面板位置逆时针轮换      | Prefix , Alt + o                   |                                                                          |
+| 当前面板与左侧/上方面板交换 | Prefix , {                         |                                                                          |
+| 当前面板与右侧/下方面板交换 | Prefix , }                         |                                                                          |
+| 交换面板                   |                                    | swap-pane -s <source-pane-index> -t <target-pane-index>                 |
+| 切换当前面板的布局方向      | Prefix , Space                     |                                                                         | 
+| 循环切换 5 种预设布局       | Prefix , Alt + [1~5]               |                                                                         | 
+| 关闭当前面板               | Prefix , x                         |                                                                         |
+| 光标在不同的窗口中跳转      | Prefix , < ↑ \| ↓ \| ← \| → >      |                                                                         |
+| 调节光标所在窗口的大小      | 按住 Prefix , < ↑ \| ↓ \| ← \| → > |                                                                         |
 
 ## 脚本操作
 
