@@ -32,7 +32,7 @@ tags:
     - micromamba 只配置 python 基础环境，不影响 python 虚拟环境，同一个基础环境可提供给多个虚拟环境使用。
 
 ## 配置 Micromamba
-[Micromamba的安装与使用](../../Windows/micromamba)
+[Micromamba的安装与使用](../../Python/micromamba)
 
 ## 配置 VSCode[^1]
 配置 Venv 路径
@@ -55,7 +55,7 @@ PS "Your Project Path"> conda activate PyQt
 # 创建Python虚拟环境
 # --upgrade 参数是升级虚拟环境用的，新建虚拟环境时要去掉。
 # --system-site-packages 会降低环境隔离性，生产环境慎用。
-(PyQt) PS "Your Project Path"> python -m venv --prompt <myproject> --upgrade-deps .venv --symlinks --upgrade --system-site-packages
+(PyQt) PS "Your Project Path"> python -m venv --prompt "<myproject>" --upgrade-deps .venv --symlinks --upgrade --system-site-packages
 # 查看项目资源管理器，看到 .venv 文件夹就成功了。
 
 # 激活Python虚拟环境
