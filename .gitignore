@@ -3,4 +3,5 @@ _hugo/err.log
 
 # 暂时不处理除文章以外的所有内容
 /public
-
+*.log
+bash/err.log
