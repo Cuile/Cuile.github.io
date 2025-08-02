@@ -8,6 +8,33 @@ tags:
 - Linux
 ---
 
+## 读取指定行
+```bash
+sed -n '1,2p' file
+```
+
+## 删除行
+```bash
+# 删除空行
+sed -i '/^\s*$/d' merge1.log
+sed -i '/^$/d' filename.txt  # `^$` 匹配空行
+# 按行号删除
+sed -i '5d' filename.txt  # 删除第5行
+# 删除最后一行
+sed -i '$d' filename.txt  # `$` 表示最后一行
+# 删除连续行
+sed -i '10,20d' filename.txt  # 删除第10到20行
+# 删除不连续的行
+sed -i '5d;10d;15d' filename.txt  # 删除第5、10、15行
+# 删除包含特定文本的行
+sed -i '/pattern/d' filename.txt  # 删除含"pattern"的行
+# 删除不匹配的行（保留匹配行）
+sed -i '/pattern/!d' filename.txt  # `!` 表示取反
+# 删除以某文本开头/结尾的行
+sed -i '/^prefix/d' filename.txt  # 删除以"prefix"开头的行
+sed -i '/suffix$/d' filename.txt  # 删除以"suffix"结尾的行
+```
+
 ##  删除冗余信息
 ```bash
 sed -i 's/.*a2p_replyclient_log.*[infoerror].[0-9].log.gz://' merge.log \
@@ -17,12 +44,6 @@ sed -i 's/.*a2p_replyclient_log.*[infoerror].[0-9].log.gz://' merge.log \
 
 sed -i '/>>>>.* retry:2/d' 2021.8.log
 sed -i 's/the content of the url:.*receiveStatusReportResultChinaMobile.shtml //' 2021.8.log
-```
-
-## 统计
-```bash
-sed -n '/ status:DELIVRD,/p' result.log | wc -l
-sed -n '/"originalStatus":"DELIVRD"/p' merge.log | wc -l
 ```
 
 ## 删除毫秒
@@ -43,39 +64,35 @@ sed -i 's/error for the url//' merge.log
 sed -i 's/can not read content from the url//' merge.log
 ```
 
-## 去重复
+## 统计
 ```bash
-$ awk '!x[$0]++' merge.log
-$ sort -n merge.log | uniq
+sed -n '/ status:DELIVRD,/p' result.log | wc -l
+sed -n '/"originalStatus":"DELIVRD"/p' merge.log | wc -l
 ```
 
-## 删除空行
+## 去重复
 ```bash
-$ sed -i '/^\s*$/d' merge1.log
+awk '!x[$0]++' merge.log
+sort -n merge.log | uniq
 ```
 
 ## 修改Ubuntu源地址
 ```bash
-$ sudo sed -i 's/\(archive\|security\).ubuntu/mirrors.aliyun/' /etc/apt/sources.list
+sudo sed -i 's/\(archive\|security\).ubuntu/mirrors.aliyun/' /etc/apt/sources.list
 ```
 
 ## SSH连接不自动断开
 ```bash
-$ sed -i 's|^#\(ClientAliveInterval\) 0$|\1 60|g' /etc/ssh/sshd_config
-$ sed -i 's|^#\(ClientAliveCountMax\) 3$|\1 5|g' /etc/ssh/sshd_config
-$ systemctl restart sshd
+sed -i 's|^#\(ClientAliveInterval\) 0$|\1 60|g' /etc/ssh/sshd_config
+sed -i 's|^#\(ClientAliveCountMax\) 3$|\1 5|g' /etc/ssh/sshd_config
+systemctl restart sshd
 ```
 
 ## /etc/hosts
 ```bash
 # sed 参考 http://man.linuxde.net/sed
         #  https://www.cnblogs.com/ggjucheng/archive/2013/01/13/2856901.html
-$ sed ......
-```
-
-## 读取指定行
-```bash
-$ sed -n '1,2p' file
+sed ......
 ```
 
 ## 参考文档
