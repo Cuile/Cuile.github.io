@@ -1,2 +1,300 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>tmux on 瘦了就帅了</title><link>https://cuile.github.io/tags/tmux/</link><description>Recent content in tmux on 瘦了就帅了</description><generator>Hugo -- gohugo.io</generator><copyright>Copyright © 2008–2018, Steve Francia and the Hugo Authors; all rights reserved.</copyright><lastBuildDate>Wed, 21 Feb 2024 16:08:32 +0800</lastBuildDate><atom:link href="https://cuile.github.io/tags/tmux/index.xml" rel="self" type="application/rss+xml"/><item><title>Tmux 命令</title><link>https://cuile.github.io/posts/linux/tmux/</link><pubDate>Wed, 21 Feb 2024 16:08:32 +0800</pubDate><guid>https://cuile.github.io/posts/linux/tmux/</guid><description>
-Tmux命令 1## Session 2# 开启新会话 3tmux 4# 开启新会话并命名 5tmux new -s my_session 6# 重命名会话 7tmux rename-session -t 0 &amp;lt;new-name&amp;gt; 8# 显示所有会话 9tmux ls 10tmux list-sessions 11# 使用会话编号接入 12tmux attach -t 0 13# 使用会话名称</description></item></channel></rss>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Tmux on 瘦了就帅了</title><link>https://blog.cuile.com/tags/tmux/</link><description>Recent content in Tmux on 瘦了就帅了</description><generator>Hugo</generator><language>zh-cn</language><lastBuildDate>Sat, 02 Aug 2025 12:06:43 +0000</lastBuildDate><atom:link href="https://blog.cuile.com/tags/tmux/index.xml" rel="self" type="application/rss+xml"/><item><title>Tmux 命令</title><link>https://blog.cuile.com/post/linux/tmux/</link><pubDate>Wed, 21 Feb 2024 16:08:32 +0800</pubDate><guid>https://blog.cuile.com/post/linux/tmux/</guid><description>&lt;h2 id="配置文件">配置文件&lt;/h2>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-ini" data-lang="ini">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e">; ~/.tmux.conf&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e"># 启用鼠标支持&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#a6e22e">set -g mouse on&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e"># 显示状态栏信息（会话名、窗口索引、时间等）&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#a6e22e">set -g status-right &amp;#39;#[fg&lt;/span>&lt;span style="color:#f92672">=&lt;/span>&lt;span style="color:#e6db74">green]#H #[fg=blue]%d %b %R&amp;#39;&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e"># 在窗格边框显示窗格索引和当前命令&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#a6e22e">set -g pane-border-format &amp;#34;#{pane_index} #{pane_title}&amp;#34;&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e"># 将窗格边框状态信息显示在顶部&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#a6e22e">set -g pane-border-status top&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span>tmux source-file ~/.tmux.conf
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="快捷键操作">快捷键操作&lt;/h2>
+&lt;p>Prefix = Ctrl + b&lt;/p>
+&lt;p>&lt;em>所有的快捷键都是ctrl + b按完松开，再去按下一个功能键！，不是一下子全按上。&lt;/em>&lt;/p>
+&lt;p>&lt;em>所有的快捷键都是ctrl + b按完松开，再去按下一个功能键！，不是一下子全按上。&lt;/em>&lt;/p>
+&lt;p>&lt;em>所有的快捷键都是ctrl + b按完松开，再去按下一个功能键！，不是一下子全按上。&lt;/em>&lt;/p>
+&lt;h3 id="会话操作">会话操作&lt;/h3>
+&lt;table>
+ &lt;thead>
+ &lt;tr>
+ &lt;th style="text-align: center">操作&lt;/th>
+ &lt;th style="text-align: center">快捷键&lt;/th>
+ &lt;th style="text-align: left">命令&lt;/th>
+ &lt;th style="text-align: left">备注&lt;/th>
+ &lt;/tr>
+ &lt;/thead>
+ &lt;tbody>
+ &lt;tr>
+ &lt;td style="text-align: center">启动会话&lt;/td>
+ &lt;td style="text-align: center">&lt;/td>
+ &lt;td style="text-align: left">&lt;code>tmux new -s &amp;lt;session_name&amp;gt;&lt;/code>&lt;/td>
+ &lt;td>&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td style="text-align: center">进入会话&lt;/td>
+ &lt;td style="text-align: center">&lt;/td>
+ &lt;td style="text-align: left">&lt;code>tmux &amp;lt;attach | a&amp;gt; -t &amp;lt;session_name | session_index&amp;gt;&lt;/code>&lt;/td>
+ &lt;td>&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td style="text-align: center">退出会话&lt;/td>
+ &lt;td style="text-align: center">&lt;code>Prefix , d&lt;/code>&lt;/td>
+ &lt;td style="text-align: left">&lt;code>detach&lt;/code>&lt;/td>
+ &lt;td>&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td style="text-align: center">关闭会话&lt;/td>
+ &lt;td style="text-align: center">&lt;/td>
+ &lt;td style="text-align: left">&lt;code>tmux kill-session -t &amp;lt;session_name | session_index&amp;gt;&lt;/code>&lt;/td>
+ &lt;td>&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td style="text-align: center">&lt;strong>命令模式&lt;/strong>&lt;/td>
+ &lt;td style="text-align: center">&lt;code>Prefix , :&lt;/code>&lt;/td>
+ &lt;td style="text-align: left">&lt;/td>
+ &lt;td>&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td style="text-align: center">会话列表&lt;/td>
+ &lt;td style="text-align: center">&lt;/td>
+ &lt;td style="text-align: left">&lt;code>list-session&lt;/code>&lt;/td>
+ &lt;td>&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td style="text-align: center">跳转会话&lt;/td>
+ &lt;td style="text-align: center">&lt;code>Prefix , s&lt;/code>&lt;/td>
+ &lt;td style="text-align: left">&lt;code>switch -t &amp;lt;session_name | session_index&amp;gt;&lt;/code>&lt;/td>
+ &lt;td>&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td style="text-align: center">重命名会话&lt;/td>
+ &lt;td style="text-align: center">&lt;code>Prefix , $&lt;/code>&lt;/td>
+ &lt;td style="text-align: left">&lt;code>rename-session -t &amp;lt;old_name | session_index&amp;gt; &amp;lt;new_name&amp;gt;&lt;/code>&lt;/td>
+ &lt;td>&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td style="text-align: center">翻屏模式&lt;/td>
+ &lt;td style="text-align: center">&lt;code>Prefix , [&lt;/code>&lt;/td>
+ &lt;td style="text-align: left">&lt;/td>
+ &lt;td style="text-align: left">PgUp, PgDn 实现上下翻页（mac可以用 fn + ↑ ↓实现上下翻页）&lt;!-- raw HTML omitted --> q 退出翻屏模式&lt;/td>
+ &lt;/tr>
+ &lt;/tbody>
+&lt;/table>
+&lt;h3 id="窗口操作">窗口操作&lt;/h3>
+&lt;table>
+ &lt;thead>
+ &lt;tr>
+ &lt;th style="text-align: center">操作&lt;/th>
+ &lt;th style="text-align: center">快捷键&lt;/th>
+ &lt;th style="text-align: left">命令&lt;/th>
+ &lt;/tr>
+ &lt;/thead>
+ &lt;tbody>
+ &lt;tr>
+ &lt;td style="text-align: center">窗口列表&lt;/td>
+ &lt;td style="text-align: center">&lt;/td>
+ &lt;td style="text-align: left">&lt;code>list-window [-t &amp;lt;session_name&amp;gt;]&lt;/code>&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td style="text-align: center">在当前会话添加一个窗口&lt;/td>
+ &lt;td style="text-align: center">&lt;code>Prefix , c&lt;/code>&lt;/td>
+ &lt;td style="text-align: left">&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td style="text-align: center">在当前会话的多个窗口中选择&lt;/td>
+ &lt;td style="text-align: center">&lt;code>Prefix , w&lt;/code>&lt;/td>
+ &lt;td style="text-align: left">&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td style="text-align: center">关闭当前会话的当前窗口&lt;/td>
+ &lt;td style="text-align: center">&lt;code>Prefix , x&lt;/code>&lt;/td>
+ &lt;td style="text-align: left">&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td style="text-align: center">关闭当前会话的所有窗口&lt;/td>
+ &lt;td style="text-align: center">&lt;code>Prefix , !&lt;/code>&lt;/td>
+ &lt;td style="text-align: left">&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td style="text-align: center">关闭会话窗口&lt;/td>
+ &lt;td style="text-align: center">&lt;/td>
+ &lt;td style="text-align: left">&lt;code>kill-window -t &amp;lt;session_name | session_index&amp;gt;:&amp;lt;window-index&amp;gt;&lt;/code>&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td style="text-align: center">切换窗口顺序&lt;/td>
+ &lt;td style="text-align: center">&lt;code>Prefix , 数字键&lt;/code>&lt;/td>
+ &lt;td style="text-align: left">&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td style="text-align: center">窗口导航&lt;/td>
+ &lt;td style="text-align: center">&lt;code>Prefix , &amp;lt; n | p &amp;gt;&lt;/code>&lt;/td>
+ &lt;td style="text-align: left">&lt;/td>
+ &lt;/tr>
+ &lt;/tbody>
+&lt;/table>
+&lt;h3 id="面板操作">面板操作&lt;/h3>
+&lt;table>
+ &lt;thead>
+ &lt;tr>
+ &lt;th style="text-align: center">操作&lt;/th>
+ &lt;th style="text-align: center">快捷键&lt;/th>
+ &lt;th style="text-align: left">命令&lt;/th>
+ &lt;/tr>
+ &lt;/thead>
+ &lt;tbody>
+ &lt;tr>
+ &lt;td style="text-align: center">面板列表&lt;/td>
+ &lt;td style="text-align: center">&lt;/td>
+ &lt;td style="text-align: left">&lt;code>list-panes -t &amp;lt;session_name | session_index&amp;gt;:&amp;lt;window-index&amp;gt;&lt;/code>&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td style="text-align: center">修改面板标题&lt;/td>
+ &lt;td style="text-align: center">&lt;/td>
+ &lt;td style="text-align: left">&lt;code>select-pane -T &amp;quot;new-title&amp;quot; -t &amp;lt;session-name&amp;gt;:&amp;lt;window-index&amp;gt;.&amp;lt;pane-index&amp;gt;&lt;/code>&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td style="text-align: center">展示面板编号&lt;/td>
+ &lt;td style="text-align: center">&lt;code>Prefix , q&lt;/code>&lt;/td>
+ &lt;td style="text-align: left">&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td style="text-align: center">面板移动到窗口&lt;/td>
+ &lt;td style="text-align: center">&lt;/td>
+ &lt;td style="text-align: left">&lt;code>move-pane -t &amp;lt;session-name&amp;gt;:&amp;lt;window-index&amp;gt;&lt;/code>&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td style="text-align: center">将当前窗口分成左右两份&lt;/td>
+ &lt;td style="text-align: center">&lt;code>Prefix , %&lt;/code>&lt;/td>
+ &lt;td style="text-align: left">&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td style="text-align: center">将当前窗口分成上下两份&lt;/td>
+ &lt;td style="text-align: center">&lt;code>Prefix ，&amp;quot;&lt;/code>&lt;/td>
+ &lt;td style="text-align: left">&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td style="text-align: center">水平排列改为垂直排列&lt;/td>
+ &lt;td style="text-align: center">&lt;code>按住 Prefix , -&lt;/code>&lt;/td>
+ &lt;td style="text-align: left">&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td style="text-align: center">垂直排列改为水平排列&lt;/td>
+ &lt;td style="text-align: center">&lt;code>按住 Prefix , \&lt;/code>&lt;/td>
+ &lt;td style="text-align: left">&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td style="text-align: center">所有面板水平排列&lt;/td>
+ &lt;td style="text-align: center">&lt;/td>
+ &lt;td style="text-align: left">&lt;code>select-layout even-horizontal &lt;/code>&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td style="text-align: center">所有面板垂直排列&lt;/td>
+ &lt;td style="text-align: center">&lt;/td>
+ &lt;td style="text-align: left">&lt;code>select-layout even-verticalc&lt;/code>&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td style="text-align: center">所有面板位置顺时针轮换&lt;/td>
+ &lt;td style="text-align: center">&lt;code>Prefix , Ctrl + o&lt;/code>&lt;/td>
+ &lt;td style="text-align: left">&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td style="text-align: center">所有面板位置逆时针轮换&lt;/td>
+ &lt;td style="text-align: center">&lt;code>Prefix , Alt + o&lt;/code>&lt;/td>
+ &lt;td style="text-align: left">&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td style="text-align: center">当前面板与左侧/上方面板交换&lt;/td>
+ &lt;td style="text-align: center">&lt;code>Prefix , {&lt;/code>&lt;/td>
+ &lt;td style="text-align: left">&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td style="text-align: center">当前面板与右侧/下方面板交换&lt;/td>
+ &lt;td style="text-align: center">&lt;code>Prefix , }&lt;/code>&lt;/td>
+ &lt;td style="text-align: left">&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td style="text-align: center">交换面板&lt;/td>
+ &lt;td style="text-align: center">&lt;/td>
+ &lt;td style="text-align: left">&lt;code>swap-pane -s &amp;lt;source-pane-index&amp;gt; -t &amp;lt;target-pane-index&amp;gt;&lt;/code>&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td style="text-align: center">切换当前面板的布局方向&lt;/td>
+ &lt;td style="text-align: center">&lt;code>Prefix , Space&lt;/code>&lt;/td>
+ &lt;td style="text-align: left">&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td style="text-align: center">循环切换 5 种预设布局&lt;/td>
+ &lt;td style="text-align: center">&lt;code>Prefix , Alt + [1~5]&lt;/code>&lt;/td>
+ &lt;td style="text-align: left">&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td style="text-align: center">关闭当前面板&lt;/td>
+ &lt;td style="text-align: center">&lt;code>Prefix , x&lt;/code>&lt;/td>
+ &lt;td style="text-align: left">&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td style="text-align: center">光标在不同的窗口中跳转&lt;/td>
+ &lt;td style="text-align: center">&lt;code>Prefix , &amp;lt; ↑ | ↓ | ← | → &amp;gt;&lt;/code>&lt;/td>
+ &lt;td style="text-align: left">&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td style="text-align: center">调节光标所在窗口的大小&lt;/td>
+ &lt;td style="text-align: center">&lt;code>按住 Prefix , &amp;lt; ↑ | ↓ | ← | → &amp;gt;&lt;/code>&lt;/td>
+ &lt;td style="text-align: left">&lt;/td>
+ &lt;/tr>
+ &lt;/tbody>
+&lt;/table>
+&lt;h2 id="脚本操作">脚本操作&lt;/h2>
+&lt;h3 id="tmux格式">Tmux格式&lt;/h3>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span>tmux new-session -s &lt;span style="color:#e6db74">&amp;#34;&lt;/span>&lt;span style="color:#e6db74">${&lt;/span>MY_SESSION&lt;span style="color:#e6db74">}&lt;/span>&lt;span style="color:#e6db74">&amp;#34;&lt;/span> -d &lt;span style="color:#ae81ff">\;&lt;/span> &lt;span style="color:#ae81ff">\
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#ae81ff">&lt;/span> split-window -v &lt;span style="color:#ae81ff">\;&lt;/span> &lt;span style="color:#ae81ff">\
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#ae81ff">&lt;/span> split-window -v -t &lt;span style="color:#ae81ff">0&lt;/span> &lt;span style="color:#ae81ff">\;&lt;/span> &lt;span style="color:#ae81ff">\
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#ae81ff">&lt;/span> split-window -v -t &lt;span style="color:#ae81ff">2&lt;/span> &lt;span style="color:#ae81ff">\;&lt;/span> &lt;span style="color:#ae81ff">\
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#ae81ff">&lt;/span> split-window -h -t &lt;span style="color:#ae81ff">3&lt;/span> &lt;span style="color:#ae81ff">\;&lt;/span> &lt;span style="color:#ae81ff">\
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#ae81ff">&lt;/span> &lt;span style="color:#66d9ef">select&lt;/span>-layout &lt;span style="color:#e6db74">&amp;#39;e1ef,267x50,0,0[267x9,0,0,0,267x9,0,10,2,267x9,0,20,1,267x20,0,30{153x20,0,30,3,113x20,154,30,4}]&amp;#39;&lt;/span> &lt;span style="color:#ae81ff">\;&lt;/span> &lt;span style="color:#ae81ff">\
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#ae81ff">&lt;/span> &lt;span style="color:#66d9ef">select&lt;/span>-pane -T &lt;span style="color:#e6db74">&amp;#34;1step&amp;#34;&lt;/span> -t &lt;span style="color:#ae81ff">0&lt;/span> &lt;span style="color:#ae81ff">\;&lt;/span> &lt;span style="color:#ae81ff">\
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#ae81ff">&lt;/span> &lt;span style="color:#66d9ef">select&lt;/span>-pane -T &lt;span style="color:#e6db74">&amp;#34;2step&amp;#34;&lt;/span> -t &lt;span style="color:#ae81ff">1&lt;/span> &lt;span style="color:#ae81ff">\;&lt;/span> &lt;span style="color:#ae81ff">\
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#ae81ff">&lt;/span> &lt;span style="color:#66d9ef">select&lt;/span>-pane -T &lt;span style="color:#e6db74">&amp;#34;check&amp;#34;&lt;/span> -t &lt;span style="color:#ae81ff">2&lt;/span> &lt;span style="color:#ae81ff">\;&lt;/span> &lt;span style="color:#ae81ff">\
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#ae81ff">&lt;/span> &lt;span style="color:#66d9ef">select&lt;/span>-pane -T &lt;span style="color:#e6db74">&amp;#34;submit&amp;#34;&lt;/span> -t &lt;span style="color:#ae81ff">3&lt;/span> &lt;span style="color:#ae81ff">\;&lt;/span> &lt;span style="color:#ae81ff">\
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#ae81ff">&lt;/span> &lt;span style="color:#66d9ef">select&lt;/span>-pane -T &lt;span style="color:#e6db74">&amp;#34;check submitable&amp;#34;&lt;/span> -t &lt;span style="color:#ae81ff">4&lt;/span> &lt;span style="color:#ae81ff">\;&lt;/span> &lt;span style="color:#ae81ff">\
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#ae81ff">&lt;/span> send-keys -t &lt;span style="color:#ae81ff">0&lt;/span> &lt;span style="color:#e6db74">&amp;#34;&lt;/span>&lt;span style="color:#e6db74">${&lt;/span>ACTIVATE&lt;span style="color:#e6db74">}${&lt;/span>COMMAND_1STEP&lt;span style="color:#e6db74">}&lt;/span>&lt;span style="color:#e6db74">&amp;#34;&lt;/span> Enter &lt;span style="color:#ae81ff">\;&lt;/span> &lt;span style="color:#ae81ff">\
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#ae81ff">&lt;/span> send-keys -t &lt;span style="color:#ae81ff">1&lt;/span> &lt;span style="color:#e6db74">&amp;#34;&lt;/span>&lt;span style="color:#e6db74">${&lt;/span>ACTIVATE&lt;span style="color:#e6db74">}${&lt;/span>COMMAND_2STEP&lt;span style="color:#e6db74">}&lt;/span>&lt;span style="color:#e6db74">&amp;#34;&lt;/span> Enter &lt;span style="color:#ae81ff">\;&lt;/span> &lt;span style="color:#ae81ff">\
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#ae81ff">&lt;/span> send-keys -t &lt;span style="color:#ae81ff">2&lt;/span> &lt;span style="color:#e6db74">&amp;#34;&lt;/span>&lt;span style="color:#e6db74">${&lt;/span>ACTIVATE&lt;span style="color:#e6db74">}${&lt;/span>COMMAND_CHECK&lt;span style="color:#e6db74">}&lt;/span>&lt;span style="color:#e6db74">&amp;#34;&lt;/span> Enter &lt;span style="color:#ae81ff">\;&lt;/span> &lt;span style="color:#ae81ff">\
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#ae81ff">&lt;/span> send-keys -t &lt;span style="color:#ae81ff">3&lt;/span> &lt;span style="color:#e6db74">&amp;#34;&lt;/span>&lt;span style="color:#e6db74">${&lt;/span>ACTIVATE&lt;span style="color:#e6db74">}${&lt;/span>COMMAND_SUBMIT&lt;span style="color:#e6db74">}&lt;/span>&lt;span style="color:#e6db74">&amp;#34;&lt;/span> Enter &lt;span style="color:#ae81ff">\;&lt;/span> &lt;span style="color:#ae81ff">\
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#ae81ff">&lt;/span> send-keys -t &lt;span style="color:#ae81ff">4&lt;/span> &lt;span style="color:#e6db74">&amp;#34;&lt;/span>&lt;span style="color:#e6db74">${&lt;/span>ACTIVATE&lt;span style="color:#e6db74">}${&lt;/span>COMMAND_OTHER&lt;span style="color:#e6db74">}&lt;/span>&lt;span style="color:#e6db74">&amp;#34;&lt;/span> Enter &lt;span style="color:#ae81ff">\;&lt;/span> &lt;span style="color:#ae81ff">\
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#ae81ff">&lt;/span> attach-session -t &lt;span style="color:#e6db74">&amp;#34;&lt;/span>&lt;span style="color:#e6db74">${&lt;/span>MY_SESSION&lt;span style="color:#e6db74">}&lt;/span>&lt;span style="color:#e6db74">&amp;#34;&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h3 id="shell格式">Shell格式&lt;/h3>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e"># 在后台创建新的会话&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>tmux new-session -s &lt;span style="color:#e6db74">&amp;#34;&lt;/span>&lt;span style="color:#e6db74">${&lt;/span>MY_SESSION&lt;span style="color:#e6db74">}&lt;/span>&lt;span style="color:#e6db74">&amp;#34;&lt;/span> -d
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e"># 在会话中创建窗口&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e"># tmux new-window -t &amp;#34;${MY_SESSION}&amp;#34; -n &amp;#34;main&amp;#34;&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e"># 在窗口中创建面板&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>tmux split-window -v -t &lt;span style="color:#e6db74">&amp;#34;&lt;/span>&lt;span style="color:#e6db74">${&lt;/span>MY_SESSION&lt;span style="color:#e6db74">}&lt;/span>&lt;span style="color:#e6db74">&amp;#34;&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>tmux split-window -v -t &lt;span style="color:#e6db74">&amp;#34;&lt;/span>&lt;span style="color:#e6db74">${&lt;/span>MY_SESSION&lt;span style="color:#e6db74">}&lt;/span>&lt;span style="color:#e6db74">&amp;#34;&lt;/span>:0.0
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>tmux split-window -v -t &lt;span style="color:#e6db74">&amp;#34;&lt;/span>&lt;span style="color:#e6db74">${&lt;/span>MY_SESSION&lt;span style="color:#e6db74">}&lt;/span>&lt;span style="color:#e6db74">&amp;#34;&lt;/span>:0.2
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>tmux split-window -h -t &lt;span style="color:#e6db74">&amp;#34;&lt;/span>&lt;span style="color:#e6db74">${&lt;/span>MY_SESSION&lt;span style="color:#e6db74">}&lt;/span>&lt;span style="color:#e6db74">&amp;#34;&lt;/span>:0.3
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e"># 调整面板大小&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e"># tmux resize-pane -t &amp;#34;${MY_SESSION}&amp;#34;:0.0 -y 9&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e"># tmux resize-pane -t &amp;#34;${MY_SESSION}&amp;#34;:0.1 -y 9&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e"># tmux resize-pane -t &amp;#34;${MY_SESSION}&amp;#34;:0.2 -y 9&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e"># 使用select-layout更方便&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>tmux &lt;span style="color:#66d9ef">select&lt;/span>-layout -t &lt;span style="color:#e6db74">&amp;#34;&lt;/span>&lt;span style="color:#e6db74">${&lt;/span>MY_SESSION&lt;span style="color:#e6db74">}&lt;/span>&lt;span style="color:#e6db74">&amp;#34;&lt;/span> &lt;span style="color:#e6db74">&amp;#39;9a1d,267x50,0,0[267x9,0,0,17,267x9,0,10,19,267x9,0,20,18,267x20,0,30{134x20,0,30,20,132x20,135,30,21}]&amp;#39;&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e"># 给面板命名&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>tmux &lt;span style="color:#66d9ef">select&lt;/span>-pane -T &lt;span style="color:#e6db74">&amp;#34;1step&amp;#34;&lt;/span> -t &lt;span style="color:#e6db74">&amp;#34;&lt;/span>&lt;span style="color:#e6db74">${&lt;/span>MY_SESSION&lt;span style="color:#e6db74">}&lt;/span>&lt;span style="color:#e6db74">&amp;#34;&lt;/span>:0.0
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>tmux &lt;span style="color:#66d9ef">select&lt;/span>-pane -T &lt;span style="color:#e6db74">&amp;#34;2step&amp;#34;&lt;/span> -t &lt;span style="color:#e6db74">&amp;#34;&lt;/span>&lt;span style="color:#e6db74">${&lt;/span>MY_SESSION&lt;span style="color:#e6db74">}&lt;/span>&lt;span style="color:#e6db74">&amp;#34;&lt;/span>:0.1
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>tmux &lt;span style="color:#66d9ef">select&lt;/span>-pane -T &lt;span style="color:#e6db74">&amp;#34;check&amp;#34;&lt;/span> -t &lt;span style="color:#e6db74">&amp;#34;&lt;/span>&lt;span style="color:#e6db74">${&lt;/span>MY_SESSION&lt;span style="color:#e6db74">}&lt;/span>&lt;span style="color:#e6db74">&amp;#34;&lt;/span>:0.2
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>tmux &lt;span style="color:#66d9ef">select&lt;/span>-pane -T &lt;span style="color:#e6db74">&amp;#34;submit&amp;#34;&lt;/span> -t &lt;span style="color:#e6db74">&amp;#34;&lt;/span>&lt;span style="color:#e6db74">${&lt;/span>MY_SESSION&lt;span style="color:#e6db74">}&lt;/span>&lt;span style="color:#e6db74">&amp;#34;&lt;/span>:0.3
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e"># 面板执行命令&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>tmux send-keys -t &lt;span style="color:#e6db74">&amp;#34;&lt;/span>&lt;span style="color:#e6db74">${&lt;/span>MY_SESSION&lt;span style="color:#e6db74">}&lt;/span>&lt;span style="color:#e6db74">&amp;#34;&lt;/span>:0.0 &lt;span style="color:#e6db74">&amp;#34;&lt;/span>&lt;span style="color:#e6db74">${&lt;/span>ACTIVATE&lt;span style="color:#e6db74">}${&lt;/span>COMMAND_1STEP&lt;span style="color:#e6db74">}&lt;/span>&lt;span style="color:#e6db74">&amp;#34;&lt;/span> Enter
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>tmux send-keys -t &lt;span style="color:#e6db74">&amp;#34;&lt;/span>&lt;span style="color:#e6db74">${&lt;/span>MY_SESSION&lt;span style="color:#e6db74">}&lt;/span>&lt;span style="color:#e6db74">&amp;#34;&lt;/span>:0.1 &lt;span style="color:#e6db74">&amp;#34;&lt;/span>&lt;span style="color:#e6db74">${&lt;/span>ACTIVATE&lt;span style="color:#e6db74">}${&lt;/span>COMMAND_2STEP&lt;span style="color:#e6db74">}&lt;/span>&lt;span style="color:#e6db74">&amp;#34;&lt;/span> Enter
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>tmux send-keys -t &lt;span style="color:#e6db74">&amp;#34;&lt;/span>&lt;span style="color:#e6db74">${&lt;/span>MY_SESSION&lt;span style="color:#e6db74">}&lt;/span>&lt;span style="color:#e6db74">&amp;#34;&lt;/span>:0.2 &lt;span style="color:#e6db74">&amp;#34;&lt;/span>&lt;span style="color:#e6db74">${&lt;/span>ACTIVATE&lt;span style="color:#e6db74">}${&lt;/span>COMMAND_CHECK&lt;span style="color:#e6db74">}&lt;/span>&lt;span style="color:#e6db74">&amp;#34;&lt;/span> Enter
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>tmux send-keys -t &lt;span style="color:#e6db74">&amp;#34;&lt;/span>&lt;span style="color:#e6db74">${&lt;/span>MY_SESSION&lt;span style="color:#e6db74">}&lt;/span>&lt;span style="color:#e6db74">&amp;#34;&lt;/span>:0.3 &lt;span style="color:#e6db74">&amp;#34;&lt;/span>&lt;span style="color:#e6db74">${&lt;/span>ACTIVATE&lt;span style="color:#e6db74">}${&lt;/span>COMMAND_SUBMIT&lt;span style="color:#e6db74">}&lt;/span>&lt;span style="color:#e6db74">&amp;#34;&lt;/span> Enter
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>tmux send-keys -t &lt;span style="color:#e6db74">&amp;#34;&lt;/span>&lt;span style="color:#e6db74">${&lt;/span>MY_SESSION&lt;span style="color:#e6db74">}&lt;/span>&lt;span style="color:#e6db74">&amp;#34;&lt;/span>:0.4 &lt;span style="color:#e6db74">&amp;#34;&lt;/span>&lt;span style="color:#e6db74">${&lt;/span>ACTIVATE&lt;span style="color:#e6db74">}${&lt;/span>COMMAND_OTHER&lt;span style="color:#e6db74">}&lt;/span>&lt;span style="color:#e6db74">&amp;#34;&lt;/span> Enter
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e"># 连接会话&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>tmux attach-session -t &lt;span style="color:#e6db74">&amp;#34;&lt;/span>&lt;span style="color:#e6db74">${&lt;/span>MY_SESSION&lt;span style="color:#e6db74">}&lt;/span>&lt;span style="color:#e6db74">&amp;#34;&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="参考文档">参考文档&lt;/h2>
+&lt;ul>
+&lt;li>&lt;a href="https://www.ruanyifeng.com/blog/2019/10/tmux.html">Tmux 使用教程&lt;/a>&lt;/li>
+&lt;li>&lt;a href="http://man.openbsd.org/OpenBSD-current/man1/tmux.1">tmux(1) - OpenBSD manual pages&lt;/a>&lt;/li>
+&lt;/ul></description></item></channel></rss>
