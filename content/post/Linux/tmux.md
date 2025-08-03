@@ -61,22 +61,24 @@ Prefix = Ctrl + b
 
 ### 会话操作
 
-| 操作           | 快捷键            | 命令                                                          | 备注  |
-| :---:         | :---:            | :---                                                          | :--- |
+| 操作           | 快捷键            | 命令                                                          | 
+| :---          | :---             | :---                                                          | 
 | 启动，会话     |                  | ```tmux new -s <session_name>```                               |
 | 进入，会话     |                  | ```tmux <attach \| a> -t <session_name \| session_index>```    |
 | 展示，会话列表 |                  | ```list-session```                                             |
 | 跳转，会话     | ```Prefix + s``` | ```switch -t <session_name \| session_index>```                |     
 | 修改，会话标题 | ```Prefix + $``` | ```rename-session -t <old_name \| session_index> <new_name>``` |     
-| 翻屏模式       | ```Prefix + [``` |                                                                | PgUp, PgDn 实现上下翻页（mac可以用 fn + ↑ ↓实现上下翻页）<br> q 退出翻屏模式 
+| 翻屏模式[^1]   | ```Prefix + [``` |                                                                | 
 | **命令模式**  | ```Prefix + :``` |                                                                | 
 | 退出，会话     | ```Prefix + d``` | ```detach```                                                   |     
 | 关闭，会话     |                  | ```tmux kill-session -t <session_name \| session_index>```     |
 
+[^1]: PgUp, PgDn 实现上下翻页（mac可以用 fn + ↑ ↓实现上下翻页），q 退出翻屏模式。
+
 ### 窗口操作
 
 | 操作                  | 快捷键                    | 命令                                                                 |
-| :---:                | :---:                    | :---                                                                 |
+| :---                 | :---                     | :---                                                                 |
 | 展示，窗口列表         |                           | ```list-window [-t <session_name>]```                               |
 | 修改，窗口标题         | ```Prefix + ,```          | ```rename-window <newp_name>
 | 添加，当前会话         | ```Prefix + c```          |                                                                      |
@@ -90,7 +92,7 @@ Prefix = Ctrl + b
 
 ### 面板操作
 | 操作                        | 快捷键                                    | 命令                                                                           |
-| :---:                       | :---:                                    | :---                                                                           |
+| :---                        | :---                                     | :---                                                                           |
 | 展示，面板列表               |                                          | ```list-panes -t <session_name \| session_index>:<window-index>```             |
 | 展示，面板编号               | ```Prefix + q```                         |                                                                                |
 | 修改，面板标题               |                                          | ```select-pane -T "new-title" -t <session-name>:<window-index>.<pane-index>``` |
