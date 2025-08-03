@@ -9,7 +9,7 @@ tags:
 - linux
 ---
 
-***已弃用，转到 [tmux](../tmux/)***
+***已弃用，转到 [Tmux 命令]({{< ref "tmux.md">}})***
 
 ## 创建屏幕
 ```bash
