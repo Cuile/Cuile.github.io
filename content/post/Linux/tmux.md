@@ -12,16 +12,38 @@ tags:
 ## 配置文件
 ```ini
 ; ~/.tmux.conf
-# 启用鼠标支持
+# 启动鼠标支持
 set -g mouse on
-# 显示状态栏信息（会话名、窗口索引、时间等）
-set -g status-right '#[fg=green]#H #[fg=blue]%d %b %R'
-# 在窗格边框显示窗格索引和当前命令
-set -g pane-border-format "#{pane_index} #{pane_title}"
-# 将窗格边框状态信息显示在顶部
+set -g mode-keys vi
+
+# WindTerm需在 会话 --> 首选项 --> 设置 --> 终端 --> 鼠标追踪 --> 追踪事件
+# 取消勾选：
+# - 移动事件
+# - 点击事件
+# - 右键单击事件
+
+# 禁用 WindTerm 的默认鼠标行为（防止冲突）
+set -g terminal-overrides 'xterm*:smcup@:rmcup@'
+# 1. 禁用左键释放自动复制（改为仅选择）
+bind -T copy-mode-vi MouseDragEnd1Pane send-keys -X copy-selection-and-cancel
+# 2. 右键复制已选文本（需先左键选择）
+bind -T copy-mode-vi MouseDown3Pane send-keys -X copy-pipe-and-cancel \
+  "xclip -i -selection clipboard 2>/dev/null || \
+   pbpaste 2>/dev/null || \
+   win32yank.exe -i 2>/dev/null"
+# 3. 右键直接粘贴系统剪贴板内容（跨系统支持）
+bind -n MouseDown3Pane run-shell \
+  "tmux set-buffer -- \"$(xclip -o -selection clipboard 2>/dev/null || \
+                          pbpaste 2>/dev/null || \
+                          win32yank.exe -o 2>/dev/null)\"; \
+   tmux paste-buffer"
+
+set -g pane-border-format "#{pane_title}, #{pane_index}"
 set -g pane-border-status top
+set -g history-limit 10000
 ```
 ```bash
+# 更新配置，不需要关闭tmux，直接运行马上生效
 tmux source-file ~/.tmux.conf
 ```
 
@@ -50,16 +72,16 @@ Prefix = Ctrl + b
 
 ### 窗口操作
 
-| 操作                     | 快捷键                    | 命令                                                                |
-| :---:                    | :---:                    | :---                                                                |
-| 窗口列表                 |                           | ```list-window [-t <session_name>]```                               |
-| 在当前会话添加一个窗口     | ```Prefix , c```         |                                                                     |
-| 在当前会话的多个窗口中选择 | ```Prefix , w```         |                                                                     |
-| 关闭当前会话的当前窗口    | ```Prefix , x```          |                                                                     |
-| 关闭当前会话的所有窗口    | ```Prefix , !```          |                                                                     |
-| 关闭会话窗口             |                           | ```kill-window -t <session_name \| session_index>:<window-index>``` |
-| 切换窗口顺序             | ```Prefix , 数字键```      |                                                                     |
-| 窗口导航                 | ```Prefix , < n \| p >``` |                                                                     |
+| 操作                  | 快捷键                    | 命令                                                                 |
+| :---:                 | :---:                    | :---                                                                 |
+| 窗口列表              |                           | ```list-window [-t <session_name>]```                               |
+| 在当前会话添加一个窗口 | ```Prefix , c```          |                                                                     |
+| 关闭当前会话窗口       | ```Ctrl + d```            | ```kill-window -t <session_name \| session_index>:<window-index>``` |
+| 关闭当前会话的所有窗口 | ```Prefix , !```          |                                                                      |
+| 使用列表跳转窗口       | ```Prefix , w```          |                                                                     |
+| 快速跳转窗口          | ```Prefix , 数字键```      |                                                                     |
+| 窗口导航              | ```Prefix , < n \| p >``` |                                                                     |
+| 修改窗口顺序          |                            | ```swap-window -s <source-pane-index> -t <target-pane-index>```    |
 
 ### 面板操作
 | 操作                      | 快捷键                                    | 命令                                                                           |
