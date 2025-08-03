@@ -21,6 +21,7 @@ set -g mode-keys vi
 # - 移动事件
 # - 点击事件
 # - 右键单击事件
+# WindTerm使用鼠标修改面板大小，受WindTerm限制无法实现
 
 # 禁用 WindTerm 的默认鼠标行为（防止冲突）
 set -g terminal-overrides 'xterm*:smcup@:rmcup@'
@@ -60,56 +61,56 @@ Prefix = Ctrl + b
 
 ### 会话操作
 
-| 操作          | 快捷键            | 命令                                                          | 备注  |
+| 操作           | 快捷键            | 命令                                                          | 备注  |
 | :---:         | :---:            | :---                                                          | :--- |
-| 启动会话      |                  | ```tmux new -s <session_name>```                               |
-| 进入会话      |                  | ```tmux <attach \| a> -t <session_name \| session_index>```    |
-| 退出会话      | ```Prefix + d``` | ```detach```                                                   |     
-| 关闭会话      |                  | ```tmux kill-session -t <session_name \| session_index>```     |
-| **命令模式** | ```Prefix + :``` |                                                                | 
-| 会话列表      |                  | ```list-session```                                             |
-| 跳转会话      | ```Prefix + s``` | ```switch -t <session_name \| session_index>```                |     
-| 重命名会话    | ```Prefix + $``` | ```rename-session -t <old_name \| session_index> <new_name>``` |     
-| 翻屏模式      | ```Prefix + [``` |                                                                | PgUp, PgDn 实现上下翻页（mac可以用 fn + ↑ ↓实现上下翻页）<br> q 退出翻屏模式 
+| 启动，会话     |                  | ```tmux new -s <session_name>```                               |
+| 进入，会话     |                  | ```tmux <attach \| a> -t <session_name \| session_index>```    |
+| 展示，会话列表 |                  | ```list-session```                                             |
+| 跳转，会话     | ```Prefix + s``` | ```switch -t <session_name \| session_index>```                |     
+| 修改，会话标题 | ```Prefix + $``` | ```rename-session -t <old_name \| session_index> <new_name>``` |     
+| 翻屏模式       | ```Prefix + [``` |                                                                | PgUp, PgDn 实现上下翻页（mac可以用 fn + ↑ ↓实现上下翻页）<br> q 退出翻屏模式 
+| **命令模式**  | ```Prefix + :``` |                                                                | 
+| 退出，会话     | ```Prefix + d``` | ```detach```                                                   |     
+| 关闭，会话     |                  | ```tmux kill-session -t <session_name \| session_index>```     |
 
 ### 窗口操作
 
 | 操作                  | 快捷键                    | 命令                                                                 |
-| :---:                 | :---:                    | :---                                                                 |
-| 窗口列表              |                           | ```list-window [-t <session_name>]```                               |
-| 修改窗口标题          | ```Prefix + ,```          | ```rename-window <newp_name>
-| 在当前会话添加一个窗口 | ```Prefix + c```          |                                                                      |
-| 关闭当前会话窗口       | ```Ctrl + d```            | ```kill-window -t <session_name \| session_index>:<window-index>``` |
-| 关闭当前会话的所有窗口 | ```Prefix + !```          |                                                                      |
-| 使用列表跳转窗口       | ```Prefix + w```          |                                                                     |
-| 快速跳转窗口          | ```Prefix + 数字键```      |                                                                      |
-| 窗口导航              | ```Prefix + < n \| p >``` |                                                                      |
-| 交换窗口位置          |                            | ```swap-window -s <source-window-index> -t <target-window-index>``` |
-| 移动窗口位置          |                            | ```move-window -t <new-window-index>```                             |
+| :---:                | :---:                    | :---                                                                 |
+| 展示，窗口列表         |                           | ```list-window [-t <session_name>]```                               |
+| 修改，窗口标题         | ```Prefix + ,```          | ```rename-window <newp_name>
+| 添加，当前会话         | ```Prefix + c```          |                                                                      |
+| 跳转，使用列表         | ```Prefix + w```          |                                                                     |
+| 跳转，快速            | ```Prefix + 数字键```      |                                                                      |
+| 跳转，顺序            | ```Prefix + < n \| p >``` |                                                                      |
+| 交换，窗口位置         |                           | ```swap-window -s <source-window-index> -t <target-window-index>``` |
+| 移动，窗口位置         |                           | ```move-window -t <new-window-index>```                             |
+| 关闭，当前窗口         | ```Ctrl + d```            | ```kill-window -t <session_name \| session_index>:<window-index>``` |
+| 关闭，当前会话所有窗口 | ```Prefix + !```          |                                                                      |
 
 ### 面板操作
-| 操作                      | 快捷键                                    | 命令                                                                           |
-| :---:                     | :---:                                    | :---                                                                           |
-| 面板列表                   |                                          | ```list-panes -t <session_name \| session_index>:<window-index>```             |
-| 修改面板标题               |                                          | ```select-pane -T "new-title" -t <session-name>:<window-index>.<pane-index>``` |
-| 展示面板编号               | ```Prefix + q```                         |                                                                                |
-| 面板移动到窗口             |                                          | ```move-pane -t <session-name>:<window-index>```                               |
-| 将当前窗口分成左右两份      | ```Prefix + %```                         |                                                                                |
-| 将当前窗口分成上下两份      | ```Prefix + "```                         |                                                                                |
-| 水平排列改为垂直排列        | ```按住 Prefix + -```                    |                                                                                |
-| 垂直排列改为水平排列        | ```按住 Prefix + \```                    |                                                                                |
-| 所有面板水平排列            |                                         | ```select-layout even-horizontal ```                                           |
-| 所有面板垂直排列            |                                         | ```select-layout even-verticalc```                                             |
-| 所有面板位置顺时针轮换      | ```Prefix + Ctrl + o```                  |                                                                                |
-| 所有面板位置逆时针轮换      | ```Prefix + Alt + o```                   |                                                                                |
-| 当前面板与左侧/上方面板交换 | ```Prefix + {```                         |                                                                                |
-| 当前面板与右侧/下方面板交换 | ```Prefix + }```                         |                                                                                |
-| 交换面板                   |                                          | ```swap-pane -s <source-pane-index> -t <target-pane-index>```                 |
-| 切换当前面板的布局方向      | ```Prefix + Space```                     |                                                                               | 
-| 循环切换 5 种预设布局       | ```Prefix + Alt + [1~5]```               |                                                                               | 
-| 关闭当前面板               | ```Prefix + x```                         |                                                                                |
-| 光标在不同的窗口中跳转      | ```Prefix + < ↑ \| ↓ \| ← \| → >```      |                                                                                |
-| 调节光标所在窗口的大小      | ```按住 Prefix + < ↑ \| ↓ \| ← \| → >``` |                                                                                |
+| 操作                        | 快捷键                                    | 命令                                                                           |
+| :---:                       | :---:                                    | :---                                                                           |
+| 展示，面板列表               |                                          | ```list-panes -t <session_name \| session_index>:<window-index>```             |
+| 展示，面板编号               | ```Prefix + q```                         |                                                                                |
+| 修改，面板标题               |                                          | ```select-pane -T "new-title" -t <session-name>:<window-index>.<pane-index>``` |
+| 拆分，将当前窗口分成左右两份  | ```Prefix + %```                         |                                                                                |
+| 拆分，将当前窗口分成上下两份  | ```Prefix + "```                         |                                                                                |
+| 排列，水平改为垂直           | ```按住 Prefix + -```                    |                                                                                |
+| 排列，垂直改为水平           | ```按住 Prefix + \```                    |                                                                                |
+| 排列，所有面板水平           |                                         | ```select-layout even-horizontal ```                                           |
+| 排列，所有面板垂直           |                                         | ```select-layout even-verticalc```                                             |
+| 移动，面板到窗口             |                                          | ```move-pane -t <session-name>:<window-index>```                               |
+| 移动，所有面板位置顺时针移动  | ```Prefix + Ctrl + o```                  |                                                                                |
+| 移动，所有面板位置逆时针移动  | ```Prefix + Alt + o```                   |                                                                                |
+| 交换，当前面板与左侧/上方面板 | ```Prefix + {```                         |                                                                                |
+| 交换，当前面板与右侧/下方面板 | ```Prefix + }```                         |                                                                                |
+| 交换，指定面板               |                                          | ```swap-pane -s <source-pane-index> -t <target-pane-index>```                 |
+| 布局，切换当前面板的布局方向  | ```Prefix + Space```                     |                                                                               | 
+| 布局，循环切换5种预设布局     | ```Prefix + Alt + [1~5]```               |                                                                               | 
+| 选中，当前窗口中的不同面板    | ```Prefix + < ↑ \| ↓ \| ← \| → >```      |                                                                                |
+| 调节，光标所在面板的大小      | ```按住 Prefix + < ↑ \| ↓ \| ← \| → >``` |                                                                                |
+| 关闭，当前面板               | ```Prefix + x```                         |                                                                                |
 
 ## 脚本操作
 
