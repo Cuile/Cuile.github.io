@@ -78,12 +78,12 @@ Prefix = Ctrl + b
 ### 窗口操作
 
 | 操作                  | 快捷键                    | 命令                                                                 |
-| :---                 | :---                     | :---                                                                 |
+| :---                 | :---                      | :---                                                                 |
 | 展示，窗口列表         |                           | ```list-window [-t <session_name>]```                               |
-| 修改，窗口标题         | ```Prefix + ,```          | ```rename-window <newp_name>
-| 添加，当前会话         | ```Prefix + c```          |                                                                      |
+| 修改，窗口标题         | ```Prefix + ,```          | ```rename-window <newp_name>```                                     |
+| 添加，当前会话         | ```Prefix + c```          |                                                                     |
 | 跳转，使用列表         | ```Prefix + w```          |                                                                     |
-| 跳转，快速            | ```Prefix + 数字键```      |                                                                      |
+| 跳转，快速            | ```Prefix + 数字键```      |                                                                     |
 | 跳转，顺序            | ```Prefix + < n \| p >``` |                                                                      |
 | 交换，窗口位置         |                           | ```swap-window -s <source-window-index> -t <target-window-index>``` |
 | 移动，窗口位置         |                           | ```move-window -t <new-window-index>```                             |
