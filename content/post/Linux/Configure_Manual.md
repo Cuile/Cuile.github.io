@@ -10,8 +10,9 @@ tags:
 - linux
 ---
 
-记录系统初始化应操作的一系统步骤，也可以直接下载[初始化脚本](https://gist.github.com/Cuile/dfb148517568e6086029ea6b7595810d)。
-<script src="https://gist.github.com/Cuile/dfb148517568e6086029ea6b7595810d.js"></script>
+可直接下载初始化脚本使用
+- [debian bookworm](https://blog.cuile.com/attachments/scripts/init_setup_debian_bookworm.sh)
+- [rocky](https://blog.cuile.com/attachments/scripts/init_setup_rocky.sh)
 
 ## 1. 系统更新
 - [Yum 版本库管理](../repo_manual/#更新)

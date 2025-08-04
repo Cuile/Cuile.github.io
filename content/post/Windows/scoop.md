@@ -25,9 +25,9 @@ tags:
 ```powershell
 > Set-ExecutionPolicy -ExecutionPolicy RemoteSigned -Scope CurrentUser
 # 普通用户安装
-> Invoke-RestMethod -Uri https://blog.cuile.com/post/Windows/scoop_install.ps1 | Invoke-Expression
+> Invoke-RestMethod -Uri https://blog.cuile.com/attachments/scripts/scoop_install.ps1 | Invoke-Expression
 # 管理员用户安装
-> irm blog.cuile.com/post/Windows/scoop_install.ps1 -outfile 'install.ps1'
+> irm blog.cuile.com/attachments/scripts/scoop_install.ps1 -outfile 'install.ps1'
 > .\install.ps1 -RunAsAdmin
 # 默认安装到 C:\Users\<user>\scoop
 # 验证安装
