@@ -1,3 +1,95 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>bash on 瘦了就帅了</title><link>https://cuile.github.io/tags/bash/</link><description>Recent content in bash on 瘦了就帅了</description><generator>Hugo -- gohugo.io</generator><copyright>Copyright © 2008–2018, Steve Francia and the Hugo Authors; all rights reserved.</copyright><lastBuildDate>Tue, 03 Jan 2023 20:08:42 +0800</lastBuildDate><atom:link href="https://cuile.github.io/tags/bash/index.xml" rel="self" type="application/rss+xml"/><item><title>Alpine Linux 安装 Bash</title><link>https://cuile.github.io/posts/alpine_linux/bash/</link><pubDate>Tue, 03 Jan 2023 20:08:42 +0800</pubDate><guid>https://cuile.github.io/posts/alpine_linux/bash/</guid><description>
-Alpine Linux 原始安装的是 busybox，小巧精干，但毕竟与主流的 Bash 还是有区别，特别是与其它系统联动时会比较麻烦，所以还是安装 Bash，统一 Shell 环境，方</description></item><item><title>Linux 系统配置</title><link>https://cuile.github.io/posts/linux/configure_manual/</link><pubDate>Mon, 17 Jan 2022 11:07:07 +0800</pubDate><guid>https://cuile.github.io/posts/linux/configure_manual/</guid><description>
-记录系统初始化应操作的一系统步骤，也可以直接下载初始化脚本。 1. 系统更新 Yum 版本库管理 2. 远程公私钥登录 1# 生成公钥、私钥 2ssh-keygen -t rsa -b 4096 -C &amp;#34;your_email@example.com&amp;#34; 3... 4Enter a file in which</description></item></channel></rss>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Bash on 瘦了就帅了</title><link>https://blog.cuile.com/tags/bash/</link><description>Recent content in Bash on 瘦了就帅了</description><generator>Hugo</generator><language>zh-cn</language><lastBuildDate>Thu, 07 Aug 2025 08:50:32 +0000</lastBuildDate><atom:link href="https://blog.cuile.com/tags/bash/index.xml" rel="self" type="application/rss+xml"/><item><title>Alpine Linux 安装 Bash</title><link>https://blog.cuile.com/post/alpine_linux/bash/</link><pubDate>Tue, 03 Jan 2023 20:08:42 +0800</pubDate><guid>https://blog.cuile.com/post/alpine_linux/bash/</guid><description>&lt;p>Alpine Linux 原始安装的是 busybox，小巧精干，但毕竟与主流的 Bash 还是有区别，特别是与其它系统联动时会比较麻烦，所以还是安装 Bash，统一 Shell 环境，方便日后使用。&lt;/p>
+&lt;p>而且基本网上的安装教程都有问题，所以这里给出正确的安装步骤。&lt;/p>
+&lt;h2 id="安装">安装&lt;/h2>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span>$ apk add bash libuser
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="配置">配置&lt;/h2>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span>$ touch /etc/login.defs
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>$ mkdir /etc/default
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>$ touch /etc/default/useradd
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>$ lchsh &amp;lt;root&amp;gt;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>Changing shell &lt;span style="color:#66d9ef">for&lt;/span> root.
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>Password: &amp;lt;root password&amp;gt;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>New Shell &lt;span style="color:#f92672">[&lt;/span>/bin/ash&lt;span style="color:#f92672">]&lt;/span>: /bin/bash
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>Shell changed.
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h3 id="参考文档">参考文档：&lt;/h3>
+&lt;ul>
+&lt;li>&lt;a href="https://www.reddit.com/r/vscode/comments/smw8tn/working_with_remote_ssh_in_alpine/">Working with Remote SSH in Alpine&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://blog.csdn.net/liaowenxiong/article/details/120494681">Linux命令之 chsh &amp;ndash; 用来更换登录系统时使用的shell&lt;/a>&lt;/li>
+&lt;/ul></description></item><item><title>Linux 系统配置</title><link>https://blog.cuile.com/post/linux/configure_manual/</link><pubDate>Mon, 17 Jan 2022 11:07:07 +0800</pubDate><guid>https://blog.cuile.com/post/linux/configure_manual/</guid><description>&lt;p>可直接下载初始化脚本使用&lt;/p>
+&lt;ul>
+&lt;li>&lt;a href="https://blog.cuile.com/attachments/scripts/init_setup_debian_bookworm.sh">debian bookworm&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://blog.cuile.com/attachments/scripts/init_setup_rocky.sh">rocky&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;h2 id="1-系统更新">1. 系统更新&lt;/h2>
+&lt;ul>
+&lt;li>&lt;a href="../repo_manual/#%E6%9B%B4%E6%96%B0">Yum 版本库管理&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;h2 id="2-远程公私钥登录">2. 远程公私钥登录&lt;/h2>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e"># 生成公钥、私钥&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>ssh-keygen -t rsa -b &lt;span style="color:#ae81ff">4096&lt;/span> -C &lt;span style="color:#e6db74">&amp;#34;your_email@example.com&amp;#34;&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>...
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>Enter a file in which to save the key &lt;span style="color:#f92672">(&lt;/span>/home/you/.ssh/algorithm&lt;span style="color:#f92672">)&lt;/span>: &amp;lt;key_name&amp;gt;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>Enter passphrase &lt;span style="color:#f92672">(&lt;/span>empty &lt;span style="color:#66d9ef">for&lt;/span> no passphrase&lt;span style="color:#f92672">)&lt;/span>: &lt;span style="color:#f92672">[&lt;/span>输入密码&lt;span style="color:#f92672">]&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>Enter same passphrase again: &lt;span style="color:#f92672">[&lt;/span>再次输入密码&lt;span style="color:#f92672">]&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e"># 设置访问权限&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>cd ~/.ssh
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>chmod &lt;span style="color:#ae81ff">600&lt;/span> &amp;lt;key_name&amp;gt;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e"># 将公钥追加到 authorized_keys 文件，可追加多个公钥&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>cat &amp;lt;key.pub&amp;gt; &amp;gt;&amp;gt; authorized_keys
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e"># 私钥在 SSH 登录时使用&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="3-配置防火墙">3. 配置防火墙&lt;/h2>
+&lt;ul>
+&lt;li>&lt;a href="../iptables_manual/">iptables 配置&lt;/a>&amp;mdash;&lt;/li>
+&lt;li>&lt;a href="https://blog.hellowood.dev/posts/ubuntu-22-%E7%8E%AF%E5%A2%83%E5%88%9D%E5%A7%8B%E5%8C%96/#%E4%BF%AE%E6%94%B9-apt-%E6%BA%90">Ubuntu 22 环境初始化&lt;/a>&amp;mdash;&lt;/li>
+&lt;/ul>
+&lt;h2 id="4-配置samba">4. 配置Samba&lt;/h2>
+&lt;p>为使用机器名快速连接&lt;/p>
+&lt;h2 id="其它配置">其它配置&lt;/h2>
+&lt;h3 id="网络端口操作">网络端口操作&lt;/h3>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e"># 查看端口占用&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e"># 查看所有端口占用情况&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>netstat -tlunp
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e"># 查看指定端口占用情况&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>netstat -tlunp | grep &amp;lt;port&amp;gt;
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h3 id="查看系统版本">查看系统版本&lt;/h3>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span>lsb_release -a
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>cat /etc/redhat-release
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>cat /etc/issue
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h3 id="系统进程操作">系统进程操作&lt;/h3>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e"># 定位高CPU占用&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>ps H -eo user,pid,ppid,tid,time,%cpu,cmd --sort&lt;span style="color:#f92672">=&lt;/span>%cpu
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e"># 可视化显示CPU的使用状况的工具&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>yum install -y htop
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>htop
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e"># 查看进程的启动目录&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>ls -l /proc/&amp;lt;PID&amp;gt;/cwd
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;ul>
+&lt;li>&lt;a href="https://www.cnblogs.com/xd502djj/archive/2011/03/01/1968041.html">查看CPU和内存使用情况&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://blog.csdn.net/CHEndorid/article/details/105775330">查看运行进程的启动目录&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;h3 id="磁盘操作">磁盘操作&lt;/h3>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e"># 修改硬盘挂载目录&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e"># 卸载硬盘&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>umount -v /mnt/raid1-2disk-500G
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e"># 修改挂载目录&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>mv /mnt/raid1-2disk-500G /mnt/raid1-250G-2disk
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e"># 修改/etc/fstab文件里的挂载目录&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>nano /etc/fstab
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e"># 重装挂载&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>mount -av /dev/md127 /mnt/raid1-250G-2disk
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;ul>
+&lt;li>&lt;a href="https://blog.csdn.net/u013030100/article/details/79564378">查询并筛选 磁盘空间 统计 排序&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;h3 id="修改密码">修改密码&lt;/h3>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span>passwd &amp;lt;username&amp;gt;
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h3 id="查看文件夹大小">查看文件夹大小&lt;/h3>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span>du -h --max-depth&lt;span style="color:#f92672">=&lt;/span>&lt;span style="color:#ae81ff">1&lt;/span> &amp;lt;path&amp;gt;
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h3 id="实时查看文件变化">实时查看文件变化&lt;/h3>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span>apt install inotify-tools
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>inotifywait -m -r -e modify,create,delete &amp;lt;path&amp;gt;
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h3 id="启动ssh跳转">启动ssh跳转&lt;/h3>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span>ssh -4CN -p &lt;span style="color:#ae81ff">2222&lt;/span> -L localhost:5432:&amp;lt;proxy service&amp;gt;:8888 -i ~/.ssh/&amp;lt;name&amp;gt;.key &amp;lt;user&amp;gt;@&amp;lt;name&amp;gt;.cuile.com
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e"># 测试代码网络&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>curl -x http://localhost:5432 ifconfig.me
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e"># 返回代理服务器的IP，即为成功。&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div></description></item></channel></rss>
