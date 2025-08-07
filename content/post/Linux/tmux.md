@@ -39,11 +39,29 @@ bind -n MouseDown3Pane run-shell \
                           win32yank.exe -o 2>/dev/null)\"; \
    tmux paste-buffer"
 
-set -g pane-border-format "#{pane_title}, #{pane_index}"
+# 解除默认的鼠标调整绑定（可选）
+unbind-key -T root MouseDrag1Border
+# 重新绑定鼠标拖动调整大小
+bind -n MouseDrag1Border resize-pane -M
+
+# status line
+set -g status-justify centre
+set -g status-left "#{session_name}"
+set -g status-right "%F %R"
+# 窗口编号自动重新排序
+set -g renumber-windows on
+
+# status line > window list
+set -g window-status-format "#{window_index}:#{window_name}"
+set -g window-status-separator " | "
+set -g window-status-current-format "#{window_index}:#{window_name}"
+set -g window-status-current-style bold
+set -g window-status-current-style italics
+
+# pane
+set -g pane-border-format " #{pane_index}:#{pane_title} $ #{pane_current_command} "
 set -g pane-border-status top
 set -g history-limit 10000
-# 关闭窗口后，编号自动重新排序
-set -g renumber-windows on
 ```
 ```bash
 # 更新配置，不需要关闭tmux，直接运行马上生效
