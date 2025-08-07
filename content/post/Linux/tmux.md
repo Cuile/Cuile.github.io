@@ -55,8 +55,7 @@ set -g renumber-windows on
 set -g window-status-format "#{window_index}:#{window_name}"
 set -g window-status-separator " | "
 set -g window-status-current-format "#{window_index}:#{window_name}"
-set -g window-status-current-style bold
-set -g window-status-current-style italics
+set -g window-status-current-style bold,italics
 
 # pane
 set -g pane-border-format " #{pane_index}:#{pane_title} $ #{pane_current_command} "
