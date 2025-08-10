@@ -20,7 +20,8 @@ tags:
 # .NET Framework：≥4.5
 > $PSVersionTable.CLRVersion
 ```
-[在 Windows 上安装 .NET](https://learn.microsoft.com/zh-cn/dotnet/core/install/windows)
+- [下载 .NET Framework](https://dotnet.microsoft.com/zh-cn/download/dotnet-framework)
+- [在 Windows 上安装 .NET](https://learn.microsoft.com/zh-cn/dotnet/core/install/windows)
 
 ### 2. 安装
 ```powershell
