@@ -20,7 +20,7 @@ tags:
 # .NET Framework：≥4.5
 > $PSVersionTable.CLRVersion
 ```
-- [下载 .NET Framework](https://dotnet.microsoft.com/zh-cn/download/dotnet-framework)
+- [下载 .NET Framework](https://dotnet.microsoft.com/zh-cn/download/dotnet-framework) *注意下载“脱机安装程序”和“语言包”*
 - [在 Windows 上安装 .NET](https://learn.microsoft.com/zh-cn/dotnet/core/install/windows)
 
 ### 2. 安装
