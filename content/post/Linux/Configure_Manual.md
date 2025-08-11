@@ -8,16 +8,45 @@ tags:
 - ssh
 - top
 - linux
+- setup
 ---
 
-可直接下载初始化脚本使用
-- [debian bookworm](https://blog.cuile.com/attachments/scripts/init_setup_debian_bookworm.sh)
-- [rocky](https://blog.cuile.com/attachments/scripts/init_setup_rocky.sh)
+## 初始化配置
+```bash
+# 配置时区
+timedatectl set-timezone Asia/Shanghai
 
-## 1. 系统更新
-- [Yum 版本库管理](../repo_manual/#更新)
+# 关闭邮件服务
+systemctl stop postfix@-.service
+systemctl disable postfix@-.service
 
-## 2. 远程公私钥登录
+# 配置Shell提示符
+echo "PS1='\[\e[36;40m\][\D{%Y-%m-%d} \A] \[\e[0m\] \[\e[35;40m\]\w\[\e[0m\]\n\[\e[33;40m\][\u@\H]\[\e[0m\] \\$ '" >> .bashrc
+# 打开自定义命令
+sed -i -e"s/#alias ll='ls -l'/alias ll='ls -l'/" .bashrc
+. .bashrc
+
+# 配置 sshd
+sed -i -e"s/#Port 22/Port 22/" /etc/ssh/sshd_config
+# 允许密码登录
+sed -i -e"s/#PasswordAuthentication yes/PasswordAuthentication yes/" /etc/ssh/sshd_config
+# 解决SSH自动断开问题
+sed -i -e"s/#ClientAliveInterval 0/ClientAliveInterval 60/" /etc/ssh/sshd_config
+sed -i -e"s/#ClientAliveCountMax 3/ClientAliveCountMax 3/" /etc/ssh/sshd_config
+systemctl restart sshd.service
+```
+<!-- 可直接下载初始化脚本使用
+- [debian bookworm](/attachments/scripts/init_setup_debian_bookworm.sh)
+- [rocky](/attachments/scripts/init_setup_rocky.sh) -->
+
+## 系统更新
+[软件库管理]({{< ref "repo_Manual.md">}})
+
+## 配置防火墙
+[iptables 配置]({{< ref "iptables_Manual.md">}})
+- [Ubuntu 22 环境初始化](https://blog.hellowood.dev/posts/ubuntu-22-%E7%8E%AF%E5%A2%83%E5%88%9D%E5%A7%8B%E5%8C%96/#%E4%BF%AE%E6%94%B9-apt-%E6%BA%90)
+
+## 远程公私钥登录
 ```bash
 # 生成公钥、私钥
 ssh-keygen -t rsa -b 4096 -C "your_email@example.com"
@@ -33,16 +62,7 @@ cat <key.pub> >> authorized_keys
 # 私钥在 SSH 登录时使用
 ```
 
-## 3. 配置防火墙
-- [iptables 配置](../iptables_manual/)---
-- [Ubuntu 22 环境初始化](https://blog.hellowood.dev/posts/ubuntu-22-%E7%8E%AF%E5%A2%83%E5%88%9D%E5%A7%8B%E5%8C%96/#%E4%BF%AE%E6%94%B9-apt-%E6%BA%90)---
-
-## 4. 配置Samba
-为使用机器名快速连接
-
-## 其它配置
-
-### 网络端口操作
+## 网络端口操作
 ```bash
 # 查看端口占用
 # 查看所有端口占用情况
@@ -51,14 +71,14 @@ netstat -tlunp
 netstat -tlunp | grep <port>
 ```
 
-### 查看系统版本
+## 查看系统版本
 ```bash
 lsb_release -a
 cat /etc/redhat-release
 cat /etc/issue
 ```
 
-### 系统进程操作
+## 系统进程操作
 ```bash
 # 定位高CPU占用
 ps H -eo user,pid,ppid,tid,time,%cpu,cmd --sort=%cpu
@@ -71,7 +91,7 @@ ls -l /proc/<PID>/cwd
 - [查看CPU和内存使用情况](https://www.cnblogs.com/xd502djj/archive/2011/03/01/1968041.html)
 - [查看运行进程的启动目录](https://blog.csdn.net/CHEndorid/article/details/105775330)
 
-### 磁盘操作
+## 磁盘操作
 ```bash
 # 修改硬盘挂载目录
 # 卸载硬盘
@@ -85,17 +105,17 @@ mount -av /dev/md127 /mnt/raid1-250G-2disk
 ```
 - [查询并筛选 磁盘空间 统计 排序](https://blog.csdn.net/u013030100/article/details/79564378)
 
-### 修改密码
+## 修改密码
 ```bash
 passwd <username>
 ```
 
-### 查看文件夹大小
+## 查看文件夹大小
 ```bash
 du -h --max-depth=1 <path>
 ```
 
-### 实时查看文件变化
+## 实时查看文件变化
 ```bash
 apt install inotify-tools
 inotifywait -m -r -e modify,create,delete <path>
