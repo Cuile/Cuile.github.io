@@ -34,6 +34,9 @@ sed -i -e"s/#PasswordAuthentication yes/PasswordAuthentication yes/" /etc/ssh/ss
 sed -i -e"s/#ClientAliveInterval 0/ClientAliveInterval 60/" /etc/ssh/sshd_config
 sed -i -e"s/#ClientAliveCountMax 3/ClientAliveCountMax 3/" /etc/ssh/sshd_config
 systemctl restart sshd.service
+
+# 查看内核提示的缺失驱动
+dmesg | grep -i "firmware\|error"  
 ```
 <!-- 可直接下载初始化脚本使用
 - [debian bookworm](/attachments/scripts/init_setup_debian_bookworm.sh)

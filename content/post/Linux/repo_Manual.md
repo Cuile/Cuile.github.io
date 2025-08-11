@@ -58,6 +58,9 @@ sed -i -e "s/security.debian.org/mirrors.bfsu.edu.cn\/debian-serurity/" /etc/apt
 # Docker imaage debian:12
 sed -i -e "s/deb.debian.org/mirrors.bfsu.edu.cn/" /etc/apt/sources.list.d/debian.sources
 
+# 启用非自由仓库
+sed -i 's/main$/main contrib non-free non-free-firmware/' /etc/apt/sources.list
+
 # update    
 apt update
 ```
