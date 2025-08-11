@@ -34,15 +34,12 @@ sed -i -e"s/#PasswordAuthentication yes/PasswordAuthentication yes/" /etc/ssh/ss
 sed -i -e"s/#ClientAliveInterval 0/ClientAliveInterval 60/" /etc/ssh/sshd_config
 sed -i -e"s/#ClientAliveCountMax 3/ClientAliveCountMax 3/" /etc/ssh/sshd_config
 systemctl restart sshd.service
-
-# 查看内核提示的缺失驱动
-dmesg | grep -i "firmware\|error"  
 ```
 <!-- 可直接下载初始化脚本使用
 - [debian bookworm](/attachments/scripts/init_setup_debian_bookworm.sh)
 - [rocky](/attachments/scripts/init_setup_rocky.sh) -->
 
-## 系统更新
+## 软件更新
 [软件库管理]({{< ref "repo_Manual.md">}})
 
 ## 配置防火墙
@@ -93,6 +90,14 @@ ls -l /proc/<PID>/cwd
 ```
 - [查看CPU和内存使用情况](https://www.cnblogs.com/xd502djj/archive/2011/03/01/1968041.html)
 - [查看运行进程的启动目录](https://blog.csdn.net/CHEndorid/article/details/105775330)
+
+## 硬件
+```bash
+# 查看硬件信息
+hwinfo --short
+# 查看内核提示的缺失驱动
+dmesg | grep -i "firmware\|error"  
+```
 
 ## 磁盘操作
 ```bash
