@@ -28,6 +28,8 @@ sed -i -e"s/#alias ll='ls -l'/alias ll='ls -l'/" .bashrc
 
 # 配置 sshd
 sed -i -e"s/#Port 22/Port 22/" /etc/ssh/sshd_config
+# 允许root密码登录
+sed -i -e "s/#PermitRootLogin prohibit-password/PermitRootLogin yes/" /etc/ssh/sshd_config
 # 允许密码登录
 sed -i -e"s/#PasswordAuthentication yes/PasswordAuthentication yes/" /etc/ssh/sshd_config
 # 解决SSH自动断开问题
