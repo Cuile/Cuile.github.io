@@ -79,33 +79,33 @@ Prefix = Ctrl + b
 ### 会话操作
 
 | 操作           | 快捷键            | 命令                                                          | 
-| :---          | :---             | :---                                                          | 
-| 启动，会话     |                  | ```tmux new -s <session_name>```                               |
-| 进入，会话     |                  | ```tmux <attach \| a> -t <session_name \| session_index>```    |
-| 展示，会话列表 |                  | ```list-session```                                             |
-| 跳转，会话     | ```Prefix + s``` | ```switch -t <session_name \| session_index>```                |     
-| 修改，会话标题 | ```Prefix + $``` | ```rename-session -t <old_name \| session_index> <new_name>``` |     
-| 翻屏模式[^1]   | ```Prefix + [``` |                                                                | 
-| **命令模式**  | ```Prefix + :``` |                                                                | 
-| 退出，会话     | ```Prefix + d``` | ```detach```                                                   |     
-| 关闭，会话     |                  | ```tmux kill-session -t <session_name \| session_index>```     |
+| :---           | :---             | :---                                                          | 
+| 启动，会话      |                  | ```tmux new -s <session_name>```                               |
+| 进入，会话      |                  | ```tmux <attach \| a> -t <session_name \| session_index>```    |
+| 展示，会话列表  |                  | ```list-session```                                             |
+| 跳转，会话      | ```Prefix + s``` | ```switch -t <session_name \| session_index>```                |     
+| 修改，会话标题  | ```Prefix + $``` | ```rename-session -t <old_name \| session_index> <new_name>``` |     
+| 翻屏模式[^1]    | ```Prefix + [``` |                                                                | 
+| **命令模式**   | ```Prefix + :``` |                                                                | 
+| 退出，会话      | ```Prefix + d``` | ```detach```                                                   |     
+| 关闭，会话      |                  | ```tmux kill-session -t <session_name \| session_index>```     |
 
 [^1]: PgUp, PgDn 实现上下翻页（mac可以用 fn + ↑ ↓实现上下翻页），q 退出翻屏模式。
 
 ### 窗口操作
 
 | 操作                  | 快捷键                    | 命令                                                                 |
-| :---                 | :---                      | :---                                                                 |
+| :---                  | :---                      | :---                                                                |
 | 展示，窗口列表         |                           | ```list-window [-t <session_name>]```                               |
 | 修改，窗口标题         | ```Prefix + ,```          | ```rename-window <newp_name>```                                     |
 | 添加，当前会话         | ```Prefix + c```          |                                                                     |
 | 跳转，使用列表         | ```Prefix + w```          |                                                                     |
-| 跳转，快速            | ```Prefix + 数字键```      |                                                                     |
-| 跳转，顺序            | ```Prefix + < n \| p >``` |                                                                      |
+| 跳转，快速             | ```Prefix + 数字键```     |                                                                     |
+| 跳转，顺序             | ```Prefix + < n \| p >``` |                                                                     |
 | 交换，窗口位置         |                           | ```swap-window -s <source-window-index> -t <target-window-index>``` |
 | 移动，窗口位置         |                           | ```move-window -t <new-window-index>```                             |
 | 关闭，当前窗口         | ```Ctrl + d```            | ```kill-window -t <session_name \| session_index>:<window-index>``` |
-| 关闭，当前会话所有窗口 | ```Prefix + !```          |                                                                      |
+| 关闭，当前会话所有窗口  | ```Prefix + !```          |                                                                     |
 
 ### 面板操作
 | 操作                        | 快捷键                                    | 命令                                                                           |
@@ -117,8 +117,8 @@ Prefix = Ctrl + b
 | 拆分，将当前面板分成上下两份  | ```Prefix + "```                         |                                                                                |
 | 排列，水平改为垂直           | ```按住 Prefix + -```                    |                                                                                |
 | 排列，垂直改为水平           | ```按住 Prefix + \```                    |                                                                                |
-| 排列，所有面板水平           |                                         | ```select-layout even-horizontal ```                                           |
-| 排列，所有面板垂直           |                                         | ```select-layout even-verticalc```                                             |
+| 排列，所有面板水平           |                                          | ```select-layout even-horizontal ```                                           |
+| 排列，所有面板垂直           |                                          | ```select-layout even-verticalc```                                             |
 | 移动，面板到窗口             |                                          | ```move-pane -t <session-name>:<window-index>```                               |
 | 移动，所有面板位置顺时针移动  | ```Prefix + Ctrl + o```                  |                                                                                |
 | 移动，所有面板位置逆时针移动  | ```Prefix + Alt + o```                   |                                                                                |
@@ -186,6 +186,16 @@ tmux send-keys -t "${MY_SESSION}":0.4 "${ACTIVATE}${COMMAND_OTHER}" Enter
 tmux attach-session -t "${MY_SESSION}"
 ```
 
-## 参考文档
+### 参考文档
 - [Tmux 使用教程](https://www.ruanyifeng.com/blog/2019/10/tmux.html)
 - [tmux(1) - OpenBSD manual pages](http://man.openbsd.org/OpenBSD-current/man1/tmux.1)
+
+## 备份与恢复
+```bash
+apt install tmuxp
+# 备份
+tmuxp freeze -f yaml -o <backup_name>.yaml <session_name>
+# 恢复
+tmuxp load -s <new_session_name> <backup_name>.yaml 
+```
+- [tmuxp](https://tmuxp.git-pull.com/)
