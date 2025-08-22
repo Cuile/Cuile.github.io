@@ -34,10 +34,16 @@ chown -R root:root ~/.ssh
 
 ## 安装
 ```bash
-# 安装 Podman, podman-compose
-apt install -y podman slirp4netns fuse-overlayfs podman-compose
+apt update
+# 安装 Podman
+apt install podman pipx
+# 安装 podman-compose
+apt install pipx \
+    && pipx install podman-compose \
+    && echo 'export PATH="$HOME/.local/bin:$PATH"' >> ~/.bashrc \
+    && . ~/.bashrc
 # 验证安装
-podman --version ; podman-compose --version
+podman version ; podman-compose version
 ```
 
 ## 配置
