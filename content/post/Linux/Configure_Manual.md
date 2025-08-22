@@ -23,28 +23,27 @@ systemctl stop postfix@-.service \
 # 配置Shell提示符
 echo "PS1='\[\e[36;40m\][\D{%Y-%m-%d} \A] \[\e[0m\] \[\e[35;40m\]\w\[\e[0m\]\n\[\e[33;40m\][\u@\H]\[\e[0m\] \\$ '" >> .bashrc
 # 打开自定义命令
-sed -i \
-    -e "s/# export LS_OPTIONS='--color=auto'/export LS_OPTIONS='--color=auto'/" \
-    -e 's/# eval "$(dircolors)"/eval "$(dircolors)"/' \
-    -e "s/# alias ls='ls \$LS_OPTIONS'/alias ls='ls \$LS_OPTIONS'/" \
-    -e "s/# alias ll='ls \$LS_OPTIONS -l'/alias ll='ls \$LS_OPTIONS -l'/" \
-    -e "s/# alias l='ls \$LS_OPTIONS -lA'/alias l='ls \$LS_OPTIONS -lA'/" \
-    -e "s/# alias rm='rm -i'/alias rm='rm -i'/" \
-    -e "s/# alias cp='cp -i'/alias cp='cp -i'/" \
-    -e "s/# alias mv='mv -i'/alias mv='mv -i'/" \
-    .bashrc \
-&& . .bashrc
+sed -E -i.bak \
+    -e "s|^# (export LS_OPTIONS='--color=auto')|\1|" \
+    -e 's|^# (eval "$(dircolors)")|\1|' \
+    -e "s|^# (alias ls='ls \$LS_OPTIONS')|\1|" \
+    -e "s|^# (alias ll='ls \$LS_OPTIONS -l')|\1|" \
+    -e "s|^# (alias l='ls \$LS_OPTIONS -lA')|\1|" \
+    -e "s|^# (alias rm='rm -i')|\1|" \
+    -e "s|^# (alias cp='cp -i')|\1|" \
+    -e "s|^# (alias mv='mv -i')|\1|" \
+    .bashrc && . .bashrc
 
 # 配置 sshd
-sed -i "s/#Port 22/Port 22/" /etc/ssh/sshd_config
+sed -i "s|#(Port 22)|\1|" /etc/ssh/sshd_config
 # 允许root密码登录
-sed -i "s/#PermitRootLogin prohibit-password/PermitRootLogin yes/" /etc/ssh/sshd_config
+sed -i "s|#(PermitRootLogin) prohibit-password|\1 yes|" /etc/ssh/sshd_config
 # 允许密码登录
-sed -i "s/#PasswordAuthentication yes/PasswordAuthentication yes/" /etc/ssh/sshd_config
+sed -i "s|#(PasswordAuthentication yes)|\1|" /etc/ssh/sshd_config
 # 解决SSH自动断开问题
 sed -i \
-    -e "s/#ClientAliveInterval 0/ClientAliveInterval 60/" /etc/ssh/sshd_config \
-    -e "s/#ClientAliveCountMax 3/ClientAliveCountMax 3/" /etc/ssh/sshd_config
+    -e "s|#(ClientAliveInterval) 0|\1 60|" /etc/ssh/sshd_config \
+    -e "s|#(ClientAliveCountMax) 3|\1 3|" /etc/ssh/sshd_config
 systemctl restart sshd.service
 ```
 <!-- 可直接下载初始化脚本使用

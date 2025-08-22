@@ -34,23 +34,26 @@ chown -R root:root ~/.ssh
 
 ## 安装
 ```bash
-# 安装 Podman
-apt install -y podman slirp4netns fuse-overlayfs
+# 安装 Podman, podman-compose
+apt install -y podman slirp4netns fuse-overlayfs podman-compose
 # 验证安装
-podman --version
-
-# 安装 podman-compose
-python3 -m venv <path>
-. <path>/bin/activate
-python -m pip install podman-compose -y
+podman --version ; podman-compose --version
 ```
 
-## 运行
+## 配置
 ```bash
 # 配置国内镜像源
-nano /etc/containers/registries.conf
+sed -E -i.bak \
+    -e 's|^# (unqualified-search-registries = ).+$|\1["docker.io"]|' \
+    -e 's|^# (\[\[registry\]\])$|\1|' \
+    -e 's|^# (prefix = ).+"$|\1"docker.io"|' \
+    -e '0,\|^# (location = ).+"$|s||\1"docker.1ms.run"|' \
+    -e '0,\|^# (\[\[registry.mirror\]\])$|s||\1|' \
+    -e '0,\|^# (location = ).*"$|s||\1"registry.cn-hangzhou.aliyuncs.com"|' \
+    /etc/containers/registries.conf
 ```
 ```toml
+# nano /etc/containers/registries.conf
 unqualified-search-registries = ["docker.io"]
 
 [[registry]]

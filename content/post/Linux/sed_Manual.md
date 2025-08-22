@@ -8,6 +8,27 @@ tags:
 - Linux
 ---
 
+## 
+```bash
+sed [OPTION] [expression] file
+
+[OPTION]
+  -n 打印匹配内容
+  -i 替换模式
+  -i.bak 替换前先备份文件
+  -E 使用扩展正则表达式，语法更接近现代正则表达式（如 Perl、Python、JavaScript），代码更清晰易读（去掉了很多反斜杠），减少转义错误
+  -e 使用表达式，可使用多个表达式
+
+[expression]
+  s|regular|replace| 替换命令
+  \|regular|replace|g 匹配整行，默认只匹配一次
+  \|regular|replace|d 删除行
+  \|regular|replace|p 打印行
+  0,\|regular|s||replace| 仅替换从文件开头（第 0 行）首次匹配regular成功的内容，只用GNU版本的sed
+
+
+```
+
 ## 读取指定行
 ```bash
 sed -n '1,2p' file
