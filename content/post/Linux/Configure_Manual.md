@@ -37,8 +37,8 @@ sed -E -i.bak \
     -e 's/#(PasswordAuthentication yes)/\1/' \
     -e 's/#(ClientAliveInterval) 0/\1 60/' \
     -e 's/#(ClientAliveCountMax) 3/\1 3/' \
-    /etc/ssh/sshd_config
-systemctl restart sshd.service
+    /etc/ssh/sshd_config \
+    && systemctl restart sshd.service
 ```
 <!-- 可直接下载初始化脚本使用
 - [debian bookworm](/attachments/scripts/init_setup_debian_bookworm.sh)
