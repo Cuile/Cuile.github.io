@@ -28,13 +28,13 @@ sed -E -i.bak \
     && . ~/.bashrc
 
 # 配置 sshd
-sed -i "s/#(Port 22)/\1/" /etc/ssh/sshd_config
+sed -E -i "s/#(Port 22)/\1/" /etc/ssh/sshd_config
 # 允许root密码登录
-sed -i "s/#(PermitRootLogin) prohibit-password/\1 yes/" /etc/ssh/sshd_config
+sed -E -i "s/#(PermitRootLogin) prohibit-password/\1 yes/" /etc/ssh/sshd_config
 # 允许密码登录
-sed -i "s/#(PasswordAuthentication yes)/\1/" /etc/ssh/sshd_config
+sed -E -i "s/#(PasswordAuthentication yes)/\1/" /etc/ssh/sshd_config
 # 解决SSH自动断开问题
-sed -i \
+sed -E -i \
     -e "s/#(ClientAliveInterval) 0/\1 60/" /etc/ssh/sshd_config \
     -e "s/#(ClientAliveCountMax) 3/\1 3/" /etc/ssh/sshd_config
 systemctl restart sshd.service
