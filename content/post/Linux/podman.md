@@ -50,12 +50,12 @@ podman version ; podman-compose version
 ```bash
 # 配置国内镜像源
 sed -E -i.bak \
-    -e 's|^# (unqualified-search-registries = ).+$|\1["docker.io"]|' \
-    -e 's|^# (\[\[registry\]\])$|\1|' \
-    -e 's|^# (prefix = ).+"$|\1"docker.io"|' \
-    -e '0,\|^# (location = ).+"$|s||\1"docker.1ms.run"|' \
-    -e '0,\|^# (\[\[registry.mirror\]\])$|s||\1|' \
-    -e '0,\|^# (location = ).*"$|s||\1"registry.cn-hangzhou.aliyuncs.com"|' \
+    -e 's/^# (unqualified-search-registries = ).+$/\1["docker.io"]/' \
+    -e 's/^# (\[\[registry\]\])$/\1/' \
+    -e 's/^# (prefix = ).+"$/\1"docker.io"/' \
+    -e '0,\/^# (location = ).+"$/s//\1"docker.1ms.run"/' \
+    -e '0,\/^# (\[\[registry.mirror\]\])$/s//\1/' \
+    -e '0,\/^# (location = ).*"$/s//\1"registry.cn-hangzhou.aliyuncs.com"/' \
     /etc/containers/registries.conf
 ```
 ```toml
