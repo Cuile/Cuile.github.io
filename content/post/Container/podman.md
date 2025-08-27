@@ -37,7 +37,7 @@ chown -R root:root ~/.ssh
 ```bash
 apt update
 # 安装 Podman
-apt install podman pipx
+apt install podman pipx iptables # iptables必须安装，否则netavark无法运行
 # 安装 podman-compose
 apt install pipx \
     && pipx install podman-compose \

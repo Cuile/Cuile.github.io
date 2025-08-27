@@ -64,6 +64,14 @@ sed -i 's/main$/main contrib non-free non-free-firmware/' /etc/apt/sources.list
 # update    
 apt update
 ```
+```bash
+# 查询软件包版本信息、优先级和来源
+apt policy <package_name>
+apt-cache policy <package_name>
+
+# 安装指定版本的包
+apt install <package_name>=<version_number>
+```
 
 ---
 
