@@ -51,6 +51,29 @@ sed -E -i.bak \
 [iptables 配置]({{< ref "iptables_Manual.md">}})
 - [Ubuntu 22 环境初始化](https://blog.hellowood.dev/posts/ubuntu-22-%E7%8E%AF%E5%A2%83%E5%88%9D%E5%A7%8B%E5%8C%96/#%E4%BF%AE%E6%94%B9-apt-%E6%BA%90)
 
+## 关闭IPv6
+```ini
+# /etc/sysctl.conf
+
+# 禁用所有接口的IPv6
+net.ipv6.conf.all.disable_ipv6 = 1
+# 禁用默认接口的IPv6
+net.ipv6.conf.default.disable_ipv6 = 1
+# 禁用特定接口（如eth0）的IPv6，将eth0替换为你的实际接口名
+net.ipv6.conf.eth0.disable_ipv6 = 1
+```
+```bash
+sysctl -p
+```
+```ini
+# /etc/hosts
+
+# ::1   ......
+```
+```bash
+reboot
+```
+
 ## 远程公私钥登录
 ```bash
 # 生成公钥、私钥
@@ -142,25 +165,3 @@ curl -x http://localhost:5432 ifconfig.me
 # 返回代理服务器的IP，即为成功。
 ```
 
-## 关闭IPv6
-```ini
-# /etc/sysctl.conf
-
-# 禁用所有接口的IPv6
-net.ipv6.conf.all.disable_ipv6 = 1
-# 禁用默认接口的IPv6
-net.ipv6.conf.default.disable_ipv6 = 1
-# 禁用特定接口（如eth0）的IPv6，将eth0替换为你的实际接口名
-net.ipv6.conf.eth0.disable_ipv6 = 1
-```
-```bash
-sysctl -p
-```
-```ini
-# /etc/hosts
-
-# ::1   ......
-```
-```bash
-reboot
-```
