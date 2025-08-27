@@ -173,3 +173,15 @@ curl -x http://localhost:5432 ifconfig.me
 # 返回代理服务器的IP，即为成功。
 ```
 
+## 传输文件
+```bash
+# 拉取文件
+scp -i ~/.ssh/cuile.key \
+    -P 28883 \
+    root@dev.cuile.com:~/Container-SmartDNS/smartdns.tar /root/Container-SmartDNS/
+
+# 推送文件
+scp -i ~/.ssh/cuile.key \
+    -P 28883 \
+    /root/Container-SmartDNS/ root@dev.cuile.com:~/Container-SmartDNS/smartdns.tar
+```
