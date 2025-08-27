@@ -159,7 +159,15 @@ inotifywait -m -r -e modify,create,delete <path>
 
 ## 使用ssh跳转
 ```bash
-ssh -4CN -p 2222 -L localhost:5432:<proxy service>:8888 -i ~/.ssh/<name>.key <user>@<name>.cuile.com
+ssh -p 2222 \
+    -i ~/.ssh/cuile.key \
+    -L localhost:5432:169.254.0.4:8888 \
+    -o StrictHostKeyChecking=accept-new \
+    -o SessionType=none \
+    -o Compression=yes \
+    -o BatchMode=yes \
+    -o AddressFamily=inet \
+    cuile@pro.cuile.com
 # 测试代码网络
 curl -x http://localhost:5432 ifconfig.me
 # 返回代理服务器的IP，即为成功。
