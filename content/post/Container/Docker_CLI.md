@@ -45,7 +45,7 @@ echo 'y' | [docker|podman] system prune
 # 导入
 [docker|podman] load -i <image>.tar
 # 导出
-[docker|podman] save -o <image>.tar <image_name:label>
+[docker|podman] save -o <image>.tar <image_name:label | image_id>
 ```
 
 ## 不启动镜像，查看镜像内的文件
