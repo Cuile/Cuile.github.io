@@ -134,10 +134,33 @@ apt install inotify-tools
 inotifywait -m -r -e modify,create,delete <path>
 ```
 
-### 启动ssh跳转
+## 使用ssh跳转
 ```bash
 ssh -4CN -p 2222 -L localhost:5432:<proxy service>:8888 -i ~/.ssh/<name>.key <user>@<name>.cuile.com
 # 测试代码网络
 curl -x http://localhost:5432 ifconfig.me
 # 返回代理服务器的IP，即为成功。
+```
+
+## 关闭IPv6
+```ini
+# /etc/sysctl.conf
+
+# 禁用所有接口的IPv6
+net.ipv6.conf.all.disable_ipv6 = 1
+# 禁用默认接口的IPv6
+net.ipv6.conf.default.disable_ipv6 = 1
+# 禁用特定接口（如eth0）的IPv6，将eth0替换为你的实际接口名
+net.ipv6.conf.eth0.disable_ipv6 = 1
+```
+```bash
+sysctl -p
+```
+```ini
+# /etc/hosts
+
+# ::1   ......
+```
+```bash
+reboot
 ```
