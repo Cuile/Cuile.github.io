@@ -34,7 +34,11 @@ sed -E -i.bak \
 sed -E -i.bak \
     -e 's/#(Port 22)/\1/' \
     -e 's/#(PermitRootLogin) prohibit-password/\1 yes/' \
+    -e 's/#(PubkeyAuthentication yes)/\1/' \
     -e 's/#(PasswordAuthentication yes)/\1/' \
+    -e 's/#(AllowTcpForwarding yes)/\1/' \
+    -e 's/(X11Forwarding yes)/#\1/' \
+    -e 's/#(Compression delayed)/\1/' \
     -e 's/#(ClientAliveInterval) 0/\1 60/' \
     -e 's/#(ClientAliveCountMax) 3/\1 3/' \
     /etc/ssh/sshd_config \
