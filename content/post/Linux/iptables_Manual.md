@@ -58,11 +58,12 @@ iptables -A INPUT -p tcp -m tcp --dport 28124 -j ACCEPT
 iptables -A INPUT -i lo -j ACCEPT
 # 允许ping
 iptables -A INPUT -p icmp -m icmp --icmp-type 8 -j ACCEPT
-# 禁止其他未允许的规则访问
+# 禁止所有本机入站访问
 iptables -P INPUT DROP      // 默认入站规则为拒绝
-iptables -P FORWARD DROP    // 默认转发规则为拒绝
-# 允许所有本机向外的访问
+# 允许所有本机出站访问
 iptables -P OUTPUT ACCEPT
+# 允许所有本机转发访问
+iptables -P FORWARD ACCEPT  # 禁止的话podman桥接网络不无正常工作，或者要配置相应的podman规则
 ```
 
 ## 其它规则
