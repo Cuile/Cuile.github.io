@@ -19,25 +19,12 @@ nano /etc/pve/lxc/<CTID>.conf
 ```
 - 删除或注释掉 unprivileged: 1 这一行。
 - 确保没有 lxc.idmap 相关的UID/GID映射配置（如有则删除）。
-### 修改sshd设置
-```bash
-nano /etc/ssh/sshd_config
-```
-- PermitRootLogin 设置为 yes 或 prohibit-password（允许密钥登录）。
-- PubkeyAuthentication 设置为 yes。
-- PasswordAuthentication 设置为 no（推荐禁用密码登录以提高安全性）。
-### 修复SSH密钥权限
-```bash
-chmod 700 ~/.ssh
-chmod 600 ~/.ssh/authorized_keys
-chown -R root:root ~/.ssh
-```
 
 ## 安装
 ```bash
 apt update
 # 安装 Podman
-apt install podman pipx iptables # iptables必须安装，否则netavark无法运行
+apt install -y podman pipx iptables # iptables必须安装，否则netavark无法运行
 # 安装 podman-compose
 apt install pipx \
     && pipx install podman-compose \

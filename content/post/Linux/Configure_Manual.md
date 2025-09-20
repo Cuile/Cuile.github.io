@@ -17,8 +17,7 @@ tags:
 timedatectl set-timezone Asia/Shanghai
 
 # 关闭邮件服务
-systemctl stop postfix@-.service \
-; systemctl disable postfix@-.service
+systemctl stop 'postfix@*' ; systemctl disable 'postfix@\x2a' ; apt purge postfix
 
 # 配置Shell提示符
 echo "PS1='\[\e[36;40m\][\D{%Y-%m-%d} \A] \[\e[0m\] \[\e[35;40m\]\w\[\e[0m\]\n\[\e[33;40m\][\u@\H]\[\e[0m\] \\$ '" >> ~/.bashrc
