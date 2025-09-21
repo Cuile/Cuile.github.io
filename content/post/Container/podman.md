@@ -30,8 +30,11 @@ apt install pipx \
     && pipx install podman-compose \
     && echo 'export PATH="$HOME/.local/bin:$PATH"' >> ~/.bashrc \
     && . ~/.bashrc
+
 # 验证安装
 podman version ; podman-compose version
+# 防火墙一定要加这条，否则容器之间的名称解析无法工作
+iptables -A INPUT -p udp -m udp --dport 53 -j ACCEPT
 ```
 
 ## 配置
