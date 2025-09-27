@@ -1,2 +1,36 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Rime on 瘦了就帅了</title><link>https://cuile.github.io/tags/rime/</link><description>Recent content in Rime on 瘦了就帅了</description><generator>Hugo -- gohugo.io</generator><copyright>Copyright © 2008–2018, Steve Francia and the Hugo Authors; all rights reserved.</copyright><lastBuildDate>Fri, 19 Jan 2024 13:11:15 +0800</lastBuildDate><atom:link href="https://cuile.github.io/tags/rime/index.xml" rel="self" type="application/rss+xml"/><item><title>Rime输入法设置</title><link>https://cuile.github.io/posts/rime_setup/</link><pubDate>Fri, 19 Jan 2024 13:11:15 +0800</pubDate><guid>https://cuile.github.io/posts/rime_setup/</guid><description>
-1.安装五笔 输入法设定-获取更多输入方案-在打开的命令行窗口 输入 &amp;quot;wubi&amp;quot; 回车 2.配置P站风格配色主题 用户文件夹-weasel.custom.yam</description></item></channel></rss>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Rime on 瘦了就帅了</title><link>https://blog.cuile.com/tags/rime/</link><description>Recent content in Rime on 瘦了就帅了</description><generator>Hugo</generator><language>zh-cn</language><lastBuildDate>Sat, 27 Sep 2025 12:10:05 +0000</lastBuildDate><atom:link href="https://blog.cuile.com/tags/rime/index.xml" rel="self" type="application/rss+xml"/><item><title>Rime输入法设置</title><link>https://blog.cuile.com/post/rime_setup/</link><pubDate>Fri, 19 Jan 2024 13:11:15 +0800</pubDate><guid>https://blog.cuile.com/post/rime_setup/</guid><description>&lt;h2 id="1安装五笔">1.安装五笔&lt;/h2>
+&lt;ul>
+&lt;li>&lt;code>输入法设定&lt;/code>-&lt;code>获取更多输入方案&lt;/code>-&lt;code>在打开的命令行窗口&lt;/code>&lt;/li>
+&lt;li>输入 &amp;ldquo;wubi&amp;rdquo; 回车&lt;/li>
+&lt;/ul>
+&lt;h2 id="2配置p站风格配色主题">2.配置P站风格配色主题&lt;/h2>
+&lt;ul>
+&lt;li>&lt;code>用户文件夹&lt;/code>-&lt;code>weasel.custom.yaml&lt;/code>&lt;/li>
+&lt;li>在 &amp;ldquo;patch:&amp;rdquo; 项目下加入：&lt;/li>
+&lt;/ul>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-yaml" data-lang="yaml">&lt;span style="display:flex;">&lt;span> &lt;span style="color:#75715e"># P站风格配色主题&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#f92672">&amp;#34;style/color_scheme&amp;#34;: &lt;/span>&lt;span style="color:#e6db74">&amp;#34;Pornhub&amp;#34;&lt;/span> 
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#e6db74">&amp;#34;preset_color_schemes/Pornhub&amp;#34;&lt;/span>:
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#f92672">author&lt;/span>: &lt;span style="color:#e6db74">&amp;#34;周庸生&amp;#34;&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#f92672">back_color&lt;/span>: &lt;span style="color:#ae81ff">0x000000&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#f92672">border_color&lt;/span>: &lt;span style="color:#ae81ff">0x000000&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#f92672">candidate_text_color&lt;/span>: &lt;span style="color:#ae81ff">0xffffff&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#f92672">comment_text_color&lt;/span>: &lt;span style="color:#ae81ff">0xffffff&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#f92672">hilited_back_color&lt;/span>: &lt;span style="color:#ae81ff">0x009bff&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#f92672">hilited_candidate_back_color&lt;/span>: &lt;span style="color:#ae81ff">0x009bff&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#f92672">hilited_candidate_text_color&lt;/span>: &lt;span style="color:#ae81ff">0x000000&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#f92672">hilited_comment_text_color&lt;/span>: &lt;span style="color:#ae81ff">0x000000&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#f92672">hilited_lable_color&lt;/span>: &lt;span style="color:#ae81ff">0x000000&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#f92672">hilited_text_color&lt;/span>: &lt;span style="color:#ae81ff">0x000000&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#f92672">label_color&lt;/span>: &lt;span style="color:#ae81ff">0xffffff&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#f92672">name&lt;/span>: &lt;span style="color:#ae81ff">Pornhub&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#f92672">text_color&lt;/span>: &lt;span style="color:#ae81ff">0xffffff&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;ul>
+&lt;li>注意格式缩进&lt;/li>
+&lt;/ul>
+&lt;h2 id="参考文档">参考文档&lt;/h2>
+&lt;ul>
+&lt;li>&lt;a href="https://www.thisfaner.com/p/rime/">Rime输入法安装与配置&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://www.jianshu.com/p/7eb4a2ac0b69">Rime默认英文状态&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://www.zybuluo.com/eternity/note/81763">致第一次安装RIME的你&lt;/a>&lt;/li>
+&lt;/ul></description></item></channel></rss>
