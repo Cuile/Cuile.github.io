@@ -20,6 +20,8 @@ nano /etc/pve/lxc/<CTID>.conf
 - 删除或注释掉 unprivileged: 1 这一行。
 - 确保没有 lxc.idmap 相关的UID/GID映射配置（如有则删除）。
 
+> **CT虚拟机必须是特权容器，但创建CT虚拟机时，默认为非特权容器，要特别注意！！！**
+
 ## 安装
 ```bash
 apt update
