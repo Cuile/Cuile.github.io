@@ -50,21 +50,21 @@ REINDEX INDEX CONCURRENTLY your_index_name;
 ## 📅 推荐维护计划
 
 ### 每日维护
-```bash
-# 自动VACUUM通常足够，但可以补充
+```sql
+-- 自动VACUUM通常足够，但可以补充
 VACUUM ANALYZE;
 ```
 
 ### 每周维护
-```bash
-# 更彻底的维护
+```sql
+-- 更彻底的维护
 VACUUM FULL ANALYZE;
 CHECKPOINT;
 ```
 
 ### 每月维护
-```bash
-# 全面维护
+```sql
+-- 全面维护
 REINDEX DATABASE your_database;
 VACUUM FULL VERBOSE;
 ANALYZE VERBOSE;
