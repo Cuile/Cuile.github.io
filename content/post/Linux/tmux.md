@@ -115,8 +115,6 @@ Prefix = Ctrl + b
 | 修改，面板标题               |                                          | ```select-pane -T "new-title" -t <session-name>:<window-index>.<pane-index>``` |
 | 拆分，将当前面板分成左右两份  | ```Prefix + %```                         |                                                                                |
 | 拆分，将当前面板分成上下两份  | ```Prefix + "```                         |                                                                                |
-| 排列，水平改为垂直           | ```按住 Prefix + -```                    |                                                                                |
-| 排列，垂直改为水平           | ```按住 Prefix + \```                    |                                                                                |
 | 排列，所有面板水平           |                                          | ```select-layout even-horizontal ```                                           |
 | 排列，所有面板垂直           |                                          | ```select-layout even-verticalc```                                             |
 | 移动，面板到窗口             |                                          | ```move-pane -t <session-name>:<window-index>```                               |
