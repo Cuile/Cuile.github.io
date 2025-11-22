@@ -107,6 +107,13 @@ conda self-update
 
 ## 使用
 ### 1. 创建Python环境
+使用命令行
+```bash
+conda create -f env.yml
+# or
+conda create -n py3.12 python=3.12 -c conda-forge -c free
+```
+使用配置文件
 ```yaml
 # env.yml
 name: py3.12
@@ -115,11 +122,6 @@ channels:
   - free
 dependencies:
   - python=3.12
-```
-```bash
-conda create -f env.yml
-# or
-conda create -n py3.12 python=3.12 -c conda-forge -c free
 ```
 
 ### 2. 操作环境
