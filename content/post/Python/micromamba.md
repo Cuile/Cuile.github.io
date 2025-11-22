@@ -67,29 +67,7 @@ micromamba/micromamba --help
 ```
 > ~/.bashrc
 ```bash
-
-# ~/.bashrc: executed by bash(1) for non-login shells.
-
-# Note: PS1 and umask are already set in /etc/profile. You should not
-# need this unless you want different defaults for root.
-# PS1='${debian_chroot:+($debian_chroot)}\h:\w\$ '
-# umask 022
-
-# You may uncomment the following lines if you want `ls' to be colorized:
-export LS_OPTIONS='--color=auto'
-eval "$(dircolors)"
-alias ls='ls $LS_OPTIONS'
-alias ll='ls $LS_OPTIONS -l'
-alias l='ls $LS_OPTIONS -lA'
-#
-# Some more alias to avoid making mistakes:
-# alias rm='rm -i'
-# alias cp='cp -i'
-# alias mv='mv -i'
-PS1='\[\e[36;40m\][\D{%Y-%m-%d} \A] \[\e[0m\] \[\e[35;40m\]\w\[\e[0m\]\n\[\e[33;40m\][\u@\H]\[\e[0m\] \$ '
-eval SSH_AUTH_SOCK=/tmp/ssh-XXXXXXFcYYOW/agent.55612; export SSH_AUTH_SOCK;
-SSH_AGENT_PID=55613; export SSH_AGENT_PID;
-
+......
 # >>> mamba initialize >>>
 # !! Contents within this block are managed by 'micromamba shell init' !!
 export MAMBA_EXE='/root/micromamba/micromamba';
@@ -101,10 +79,8 @@ else
     alias micromamba="$MAMBA_EXE"  # Fallback on help from micromamba activate
 fi
 unset __mamba_setup
+alias conda='micromamba'
 # <<< mamba initialize <<<
-```
-```bash
-echo "alias conda='micromamba'" >> ~/.bashrc
 ```
 
 ## 配置
@@ -131,7 +107,7 @@ conda self-update
 
 ## 使用
 ### 1. 创建Python环境
-```yml
+```yaml
 # env.yml
 name: py3.12
 channels:
@@ -140,14 +116,14 @@ channels:
 dependencies:
   - python=3.12
 ```
-```shell
+```bash
 conda create -f env.yml
 # or
 conda create -n py3.12 python=3.12 -c conda-forge -c free
 ```
 
 ### 2. 操作环境
-```shell
+```bash
 # 导出
 conda env export -n py3.12 --from-history py3.12.yaml
 # 导入
