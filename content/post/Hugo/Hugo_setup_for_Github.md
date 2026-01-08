@@ -10,7 +10,28 @@ tags:
 
 ## 设置流程
 
-不过多说明了，网上教程非常多，可以找来看。
+### 1. 自定义域名
+- 在"theme/\<YouThemeName\>/static"目录下，添加CNAME文件，里面放自定义的域名
+```
+blog.cuile.com
+```
+上传后，Settings > Pages > Custom domain 设置中会出现自定义的域名
+
+- 修改 baseurl 
+```toml
+# config/_default/config.toml
+...
+baseurl = "https://blog.cuile.com/"
+...
+```
+
+### 2. GitHub Pages 设置
+- Settings > Pages > Build and deployment > Source
+  - 选择 "Deploy from a branch"
+- Settings > Pages > Build and deployment > Branch
+  - 选择 "gh-pages" & "/(root)"
+
+其它不过多说明了，网上教程非常多，可以找来看。
 
 **参考文档**
 
@@ -25,20 +46,20 @@ tags:
 
 解决这个问题，可以从以下2点入手：
 
-1.1. 在"theme/\<YouThemeName\>/layouts/partials/head.html"文件内，添加代码
+- 在"theme/\<YouThemeName\>/layouts/partials/head.html"文件内，添加代码
 
 ```html
 <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
 ```
-- [https请求报错block:mixed-content问题的解决办法](https://blog.csdn.net/qq_39390545/article/details/105550949)
+> [https请求报错block:mixed-content问题的解决办法](https://blog.csdn.net/qq_39390545/article/details/105550949)
 
-1.2. 确保config.toml文件内，"baseUrl"的值与实际地址一致。
+- 确保config.toml文件内，"baseUrl"的值与实际地址一致。
 
 ### 2. config.toml 里的 theme 值，要与主题文档夹名一致，不然可能会导致主题无法应用的问题。
 
-### 3. Github Actions 设置里的 gh-pages.yml 写法要注意
+### 3. Github Actions 设置
 
-"Setup Hugo"项目里，标准版本与扩展版本的参数写法不一样。
+- "Setup Hugo"项目里，标准版本与扩展版本的参数写法不一样。
 
 ```yaml
 # 使用扩展版本
@@ -56,18 +77,7 @@ tags:
   with:
     hugo-version: 'latest'
 ```
-- [GitHub Actions for Hugo](https://github.com/peaceiris/actions-hugo#options)
+> [GitHub Actions for Hugo](https://github.com/peaceiris/actions-hugo#options)
 
-### 4. 自定义域名
-4.1. 在"theme/\<YouThemeName\>/static"目录下，添加CNAME文件，里面放自定义的域名
-```
-blog.cuile.com
-```
-上传后，Settings -> Pages -> Custom domain 设置中会出现自定义的域名
+- workflows里"pages-build-deployment"是系统自动生成的，不用管。
 
-4.2. 修改 baseurl 
-```toml
-...
-baseurl = "https://blog.cuile.com/"
-...
-```
