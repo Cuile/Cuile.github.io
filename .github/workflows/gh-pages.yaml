@@ -20,7 +20,13 @@ defaults:
 # 不会取消正在进行的部署，确保生产环境部署的完整性
 concurrency:
   group: "pages"
-  cancel-in-progress: false    
+  cancel-in-progress: false
+
+# 设置 GITHUB_TOKEN 的权限，以允许部署到 GitHub Pages
+permissions:
+  contents: read  # 仓库内容的读取权限
+  pages: write    # GitHub Pages 的写入权限
+  id-token: write # token 的写入权限
 
 jobs:
   deploy:
