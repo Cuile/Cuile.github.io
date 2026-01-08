@@ -4,13 +4,13 @@ on:
   push:
     branches:
       - master  # Set a branch to deploy
-  pull_request:
+  workflow_dispatch:
 
 jobs:
   deploy:
     runs-on: ubuntu-24.04
     steps:
-      - name: Checkout Source code
+      - name: Checkout
         uses: actions/checkout@v3
         with:
           submodules: true  # Fetch Hugo themes (true OR recursive)
@@ -22,10 +22,10 @@ jobs:
           hugo-version: '0.147.9'
           extended: true
 
-      - name: Build
+      - name: Build Web
         run: hugo --minify
         
-      - name: Deploy
+      - name: Deploy Web
         uses: peaceiris/actions-gh-pages@v3
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
