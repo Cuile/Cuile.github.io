@@ -46,7 +46,7 @@ tags:
 
 2. 重启VSCode，进入 Python 项目，就可以看到右下角的 Python 环境了，如果创建了多个环境，可以通过这里切换。这里需要注意 vscode 可以识别多个 Python 版本，但无法正确配置它们。所以创建不同的 Python 版本后，还要为项目选择解释器。
 
-### 使用 Python 虚拟环境
+### 配置 Python 项目环境
 1. 使用项目终端界面，创建虚拟环境。
 ```powershell
 # 先激活 micromamba 环境
