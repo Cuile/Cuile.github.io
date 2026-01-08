@@ -33,9 +33,9 @@ git config --global push.default simple
 - [【Git】git push.default 简析 - 简书](https://www.jianshu.com/p/b7ba3d954eb0)
 - [Git忽略文件.gitignore详解](https://blog.csdn.net/ThinkWon/article/details/101447866)---
 
-## 1、项目
+## 1、仓库
 
-### 1.1 克隆项目
+### 1.1 克隆仓库
 ```bash
 git clone https://xxxx@bitbucket.org/xxxx/xxxx.git
 # or 
@@ -47,7 +47,7 @@ git config user.name "Your Name"
 git config user.email you@example.com
 ```
 
-### 1.2 推送新项目到github
+### 1.2 推送新内容到github
 先在githubh上创建好项目
 ```bash
 git init
@@ -61,13 +61,22 @@ git remote add origin git@github.com:Youname/repo_name.git
 git push -u origin master
 ```
 
-### 1.3 导出
+### 1.3 导出仓库
 ```bash
 git archive --format zip -0 \                         # 使用zip格式，不压缩
               --output output.zip \                     # 输出的文件名
               --remote git@github.com:Cuile/NMP.git \   # 远程项目地址
               master \                                  # 分支名
               ./                                        # 输出到当前目录
+```
+
+### 1.4 修改仓库URL
+```bash
+# 查看当前的仓库URL
+git remote -v
+
+# 修改ssh url
+git remote set-url origin git@github.com:用户名/仓库名.git
 ```
 
 ## 2、分支
