@@ -1,10 +1,26 @@
 name: Deploy Github Pages
 
 on:
+  # 当推送到默认分支（master）时触发
   push:
     branches:
       - master  # Set a branch to deploy
+  
+  # 允许从 GitHub Actions 页面手动触发
   workflow_dispatch:
+
+# 设置默认 shell 为 bash
+defaults:
+  run:
+    shell: bash
+
+# 并发控制
+# 同一时间只允许一个部署任务运行
+# 如果有新的部署请求，会排队等待当前任务完成
+# 不会取消正在进行的部署，确保生产环境部署的完整性
+concurrency:
+  group: "pages"
+  cancel-in-progress: false    
 
 jobs:
   deploy:
@@ -23,11 +39,11 @@ jobs:
           extended: true
 
       - name: Build Web
-        run: hugo --minify
+        run: hugo --minify --gc
         
       - name: Deploy Web
         uses: peaceiris/actions-gh-pages@v3
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_dir: ./public
-          destination_branch: gh-pages
+          publish_branch: gh-pages
