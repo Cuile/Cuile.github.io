@@ -129,3 +129,10 @@ iptables -P FORWARD ACCEPT
 iptables -P OUTPUT ACCEPT
 ```
 
+## 备份恢复
+```bash
+# 备份
+iptables-save > ~/iptables.rules
+# 恢复
+iptables-restore < ~/iptables.rules
+```
