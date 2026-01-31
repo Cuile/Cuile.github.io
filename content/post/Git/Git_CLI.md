@@ -41,7 +41,7 @@ git clone https://xxxx@bitbucket.org/xxxx/xxxx.git
 # or 
 git clone git@github.com:xxxxx/xxxxx.git
 # 克隆指定分支，到指定目录
-git clone -b branch-name repo path
+git clone -b branch_name repo path
 
 git config user.name "Your Name"
 git config user.email you@example.com
@@ -84,28 +84,41 @@ git remote set-url origin git@github.com:用户名/仓库名.git
 ### 2.1 本地分支操作
 ```bash
 # 拉取
-git fetch origin branch-name
-git pull origin branch-name
+git fetch origin branch_name
+git pull origin branch_name
 
 # 强制覆盖本地分支
 git fetch --all
-git reset --hard origin/branch-name
+git reset --hard origin/branch_name
 git pull
 
 # 查看分支
 git branch -a
 
-# 创建分支
-# 只创建一个分支
-git branch branch-name
-# 创建一个分支并切换到该分支
-git checkout -b branch-name
+# 基于现有分支创建新分支
+# 查看当前分支
+git status
+# 基于现有分支创建一个分支，不切换到该分支
+git branch new_branch_name
+# 基于现有分支创建一个分支，并切换到该分支
+git switch -c new_branch_name
+git checkout -b new_branch_name
+
+# 创建孤儿分支
+# 创建并切换到孤儿分支
+git checkout --orphan new_branch_name
+# 清空暂存区和工作区
+git rm -rf .
+# 创建初始提交
+git commit --alow-empty -m "init commit"
+# 推送分支到运程
+git push origin new_branch_name
 
 # 切换分支
-git checkout branch-name
+git checkout branch_name
 
 # 删除分支
-git branch -d branch-name
+git branch -d branch_name
 
 # 发布本地分支
 git push 远程主机名 本地分支名:远程分支名
@@ -149,12 +162,12 @@ git提示： up-to-date. 但未从远端得到文件
 git branch -a
 
 # 2 如本地库处于另一个分支中，需将本地分支重置回原分支
-git checkout branch-name
+git checkout branch_name
 git reset --hard
 
 # 3 如本地分支没有变化，则强行 pull 覆盖本地文件
 git fetch --all
-git reset --hard origin/branch-name
+git reset --hard origin/branch_name
 git pull
 ```
 
@@ -163,13 +176,13 @@ git pull
 # 查看本地分支
 git branch -a
 # 切换到要重命名的分支
-git checkout branch-name
+git checkout branch_name
 # 重命名分支
-git branch -m new-branch-name
+git branch -m new_branch_name
 # 上传新分支
-git push origin -u new-branch-name
+git push origin -u new_branch_name
 # 删除原分支
-git push origin --delete old-branch-name
+git push origin --delete old_branch_name
 ```
 
 ### 2.5 更改本地分支对应的远程分支
@@ -177,15 +190,15 @@ git push origin --delete old-branch-name
 # 拉取远程最新分支信息
 git fetch origin
 # 重命名本地分支
-git branch -m old-branch-name new-branch-name
+git branch -m old_branch_name new_branch_name
 # 设置新的远程分支
-git branch -u origin/new-branch-name
+git branch -u origin/new_branch_name
 # or
-git branch --set-upstream-to=origin/new-branch-name old-branch-name
+git branch --set-upstream-to=origin/new_branch_name old_branch_name
 # 验证配置结果
 git branch -vv
 # 删除旧的远程跟踪分支
-git branch -dr origin/old-branch-name
+git branch -dr origin/old_branch_name
 ```---
 
 ## 3、标签

@@ -37,6 +37,8 @@ apt install pipx \
 podman version ; podman-compose version
 # 防火墙一定要加这条，否则容器之间的名称解析无法工作
 iptables -A INPUT -p udp -m udp --dport 53 -j ACCEPT
+# 测试podman是否安装成功
+podman run --rm hello-world
 ```
 
 ## 配置
