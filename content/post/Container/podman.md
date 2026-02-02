@@ -1,5 +1,5 @@
 ---
-title: "PVE CT虚拟机环境下Podman的安装"
+title: "Podman的安装"
 date: 2025-07-22T18:49:39+08:00
 # draft: true
 
@@ -11,27 +11,11 @@ tags:
 # categories:
 ---
 
-## 修改CT虚拟机
-
-### 修改特权容器
-```bash
-nano /etc/pve/lxc/<CTID>.conf
-```
-- 删除或注释掉 unprivileged: 1 这一行。
-- 确保没有 lxc.idmap 相关的UID/GID映射配置（如有则删除）。
-
-> **CT虚拟机必须是特权容器，但创建CT虚拟机时，默认为非特权容器，要特别注意！！！**
-
 ## 安装
 ```bash
 apt update
-# 安装 Podman
-apt install -y podman pipx iptables # iptables必须安装，否则netavark无法运行
-# 安装 podman-compose
-apt install pipx \
-    && pipx install podman-compose \
-    && echo 'export PATH="$HOME/.local/bin:$PATH"' >> ~/.bashrc \
-    && . ~/.bashrc
+# 安装 Podman & podman-compose
+apt install -y podman podman-compose iptables # iptables必须安装，否则netavark无法运行
 
 # 验证安装
 podman version ; podman-compose version
@@ -67,3 +51,14 @@ location = "registry.cn-hangzhou.aliyuncs.com"  # 可选备用
 其实命令与Docker一致，非常方便好用。
 - [Docker / Podman 安装与换源](https://wcbing.top/linux/containers/install/)
 - [国内 Docker 服务状态 & 镜像加速监控](https://status.1panel.top/status/docker)
+
+## 在CT虚拟机下安装
+
+### 修改特权容器
+```bash
+nano /etc/pve/lxc/<CTID>.conf
+```
+- 删除或注释掉 unprivileged: 1 这一行。
+- 确保没有 lxc.idmap 相关的UID/GID映射配置（如有则删除）。
+
+> **CT虚拟机必须是特权容器，但创建CT虚拟机时，默认为非特权容器，要特别注意！！！**
