@@ -70,7 +70,11 @@ curl -fsSL https://raw.githubusercontent.com/rime/plum/master/rime-install | rim
 # ~/.local/share/fcitx5/rime/default.custom.yaml
 patch:
   schema_list:
-    - schema: wubi_pinyin
+    - schema: wubi_pinyin # 添加五笔拼音混合输入法
+  switches:
+    - name: ascii_mode
+      reset: 1 # 每次初始化时，强制英文模式
+      states: [中文,西文]
 ```
 - [在方案選單中添加五筆、雙拼](https://github.com/rime/home/wiki/CustomizationGuide#%E5%9C%A8%E6%96%B9%E6%A1%88%E9%81%B8%E5%96%AE%E4%B8%AD%E6%B7%BB%E5%8A%A0%E4%BA%94%E7%AD%86%E9%9B%99%E6%8B%BC)
 
@@ -82,5 +86,4 @@ patch:
 ## 参考文档
 - [RIME | 中州韻輸入法引擎](https://rime.im/)
 - [Rime输入法安装与配置](https://www.thisfaner.com/p/rime/)
-- [Rime默认英文状态](https://www.jianshu.com/p/7eb4a2ac0b69)
 - [致第一次安装RIME的你](https://www.zybuluo.com/eternity/note/81763)
