@@ -1,2 +1,133 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Windwos on 瘦了就帅了</title><link>https://cuile.github.io/tags/windwos/</link><description>Recent content in Windwos on 瘦了就帅了</description><generator>Hugo -- gohugo.io</generator><copyright>Copyright © 2008–2018, Steve Francia and the Hugo Authors; all rights reserved.</copyright><lastBuildDate>Tue, 08 Feb 2022 10:31:15 +0800</lastBuildDate><atom:link href="https://cuile.github.io/tags/windwos/index.xml" rel="self" type="application/rss+xml"/><item><title>FFmpeg脚本</title><link>https://cuile.github.io/posts/ffmpeg/ffmpeg_manual/</link><pubDate>Tue, 08 Feb 2022 10:31:15 +0800</pubDate><guid>https://cuile.github.io/posts/ffmpeg/ffmpeg_manual/</guid><description>
-脚本基于Windows10系统设计 查看软件版本 1D:\ffmpeg\bin&amp;gt;ver 2 3Microsoft Windows [版本 10.0.18362.356] 4 5D:\ffmpeg\bin&amp;gt;ffmpeg.exe -version 6 7ffmpeg version N-94600-g661a9b274b Copyright (c) 2000-2019 the FFmpeg developers 8built with gcc 9.1.1 (GCC) 20190807 9configuration: --enable-gpl --enable-version3 --enable-sdl2 --enable-fontconfig --enable-gnutls --enable-iconv --enable-libass --enable-libdav1d --enable-libbluray --enable-li 10bfreetype --enable-libmp3lame --enable-libopencore-amrnb --enable-libopencore-amrwb --enable-libopenjpeg --enable-libopus --enable-libshine --enable-libsnappy --enable-libsoxr</description></item></channel></rss>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Windwos on 瘦了就帅了</title><link>https://blog.cuile.com/tags/windwos/</link><description>Recent content in Windwos on 瘦了就帅了</description><generator>Hugo</generator><language>zh-cn</language><lastBuildDate>Thu, 26 Feb 2026 02:59:37 +0000</lastBuildDate><atom:link href="https://blog.cuile.com/tags/windwos/index.xml" rel="self" type="application/rss+xml"/><item><title>FFmpeg脚本</title><link>https://blog.cuile.com/post/ffmpeg/ffmpeg_manual/</link><pubDate>Tue, 08 Feb 2022 10:31:15 +0800</pubDate><guid>https://blog.cuile.com/post/ffmpeg/ffmpeg_manual/</guid><description>&lt;p>&lt;em>脚本基于Windows10系统设计&lt;/em>&lt;/p>
+&lt;h2 id="查看软件版本">查看软件版本&lt;/h2>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-batch" data-lang="batch">&lt;span style="display:flex;">&lt;span>D:\ffmpeg\bin&lt;span style="color:#75715e">&amp;gt;ver&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>Microsoft Windows [版本 10.0.18362.356]
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>D:\ffmpeg\bin&lt;span style="color:#75715e">&amp;gt;ffmpeg.exe -version&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>ffmpeg version N-94600-g661a9b274b Copyright (c) 2000-2019 the FFmpeg developers
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>built with gcc 9.1.1 (GCC) 20190807
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>configuration: --enable-gpl --enable-version3 --enable-sdl2 --enable-fontconfig --enable-gnutls --enable-iconv --enable-libass --enable-libdav1d --enable-libbluray --enable-li
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>bfreetype --enable-libmp3lame --enable-libopencore-amrnb --enable-libopencore-amrwb --enable-libopenjpeg --enable-libopus --enable-libshine --enable-libsnappy --enable-libsoxr
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> --enable-libtheora --enable-libtwolame --enable-libvpx --enable-libwavpack --enable-libwebp --enable-libx264 --enable-libx265 --enable-libxml2 --enable-libzimg --enable-lzma 
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>--enable-zlib --enable-gmp --enable-libvidstab --enable-libvorbis --enable-libvo-amrwbenc --enable-libmysofa --enable-libspeex --enable-libxvid --enable-libaom --enable-libmfx
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> --enable-amf --enable-ffnvcodec --enable-cuvid --enable-d3d11va --enable-nvenc --enable-nvdec --enable-dxva2 --enable-avisynth --enable-libopenmpt
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>libavutil 56. 33.100 / 56. 33.100
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>libavcodec 58. 55.100 / 58. 55.100
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>libavformat 58. 31.101 / 58. 31.101
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>libavdevice 58. 9.100 / 58. 9.100
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>libavfilter 7. 58.100 / 7. 58.100
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>libswscale 5. 6.100 / 5. 6.100
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>libswresample 3. 6.100 / 3. 6.100
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>libpostproc 55. 6.100 / 55. 6.100
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="添加logo">添加LOGO&lt;/h2>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-batch" data-lang="batch">&lt;span style="display:flex;">&lt;span>D:\ffmpeg\bin\ffmpeg&lt;span style="color:#75715e"> ^&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> -c:v h264_qsv &lt;span style="color:#ae81ff">^
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#ae81ff"> &lt;/span> -i %1 &lt;span style="color:#ae81ff">^
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#ae81ff"> &lt;/span> -i F:\\电教馆\\logo.png &lt;span style="color:#ae81ff">^
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#ae81ff"> &lt;/span> -c:v h264_qsv &lt;span style="color:#ae81ff">^
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#ae81ff"> &lt;/span> -b:v 1894k &lt;span style="color:#ae81ff">^
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#ae81ff"> &lt;/span> -filter_complex [1:v]scale=125:125[logo];[0:v][logo]overlay=30:25 &lt;span style="color:#ae81ff">^
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#ae81ff"> &lt;/span> -c:a copy &lt;span style="color:#ae81ff">^
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#ae81ff"> &lt;/span> -y &lt;span style="color:#ae81ff">^
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#ae81ff"> &lt;/span> %2
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="去掉logo">去掉LOGO&lt;/h2>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-batch" data-lang="batch">&lt;span style="display:flex;">&lt;span>D:\ffmpeg\bin\ffmpeg&lt;span style="color:#75715e"> ^&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> -c:v h264_qsv &lt;span style="color:#ae81ff">^
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#ae81ff"> &lt;/span> -i %1 &lt;span style="color:#ae81ff">^
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#ae81ff"> &lt;/span> -c:v h264_qsv &lt;span style="color:#ae81ff">^
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#ae81ff"> &lt;/span> -b:v 1894k &lt;span style="color:#ae81ff">^
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#ae81ff"> &lt;/span> -filter_complex [0:v]split[split_main][split_delogo];[split_delogo]trim=start=1:end=5,delogo=x=270:y=820:w=1420:h=50:show=0[delogoed];[split_main][delogoed]overlay=eof_action=pass &lt;span style="color:#ae81ff">^
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#ae81ff"> &lt;/span> -c:a copy &lt;span style="color:#ae81ff">^
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#ae81ff"> &lt;/span> -y &lt;span style="color:#ae81ff">^
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#ae81ff"> &lt;/span> %2
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="合并操作">合并操作&lt;/h2>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-batch" data-lang="batch">&lt;span style="display:flex;">&lt;span>D:\ffmpeg\bin\ffmpeg&lt;span style="color:#75715e"> ^&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> -c:v h264_qsv &lt;span style="color:#ae81ff">^
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#ae81ff"> &lt;/span> -i %1 &lt;span style="color:#ae81ff">^
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#ae81ff"> &lt;/span> -i F:\\电教馆\\logo.png &lt;span style="color:#ae81ff">^
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#ae81ff"> &lt;/span> -c:v h264_qsv &lt;span style="color:#ae81ff">^
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#ae81ff"> &lt;/span> -b:v 1894k &lt;span style="color:#ae81ff">^
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#ae81ff"> &lt;/span> -filter_complex [1:v]scale=125:125[logo];[0:v][logo]overlay=30:25[tmp_video];[tmp_video]split[main][delogo];[delogo]trim=start=1:end=5,delogo=x=270:y=820:w=1420:h=50:show=0[delogoed];[main][delogoed]overlay=eof_action=pass &lt;span style="color:#ae81ff">^
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#ae81ff"> &lt;/span> -c:a copy &lt;span style="color:#ae81ff">^
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#ae81ff"> &lt;/span> -y &lt;span style="color:#ae81ff">^
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#ae81ff"> &lt;/span> %2
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="遍历文件夹下的mp4文件打水印去字幕截图验证效果">遍历文件夹下的MP4文件，打水印、去字幕、截图验证效果&lt;/h2>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-batch" data-lang="batch">&lt;span style="display:flex;">&lt;span>@&lt;span style="color:#66d9ef">echo&lt;/span> off &amp;amp; &lt;span style="color:#66d9ef">setlocal&lt;/span> enabledelayedexpansion
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#66d9ef">echo&lt;/span> #################################################
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#66d9ef">echo&lt;/span> 开始处理视频文件
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#66d9ef">echo&lt;/span>. 
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>:&lt;span style="color:#75715e">: 指定起始文件夹&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#66d9ef">set&lt;/span> DIR=&lt;span style="color:#e6db74">&amp;#34;E:\六年级\&amp;#34;&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e">REM set DIR=&amp;#34;E:\六年级\第一学期\sx6s01001\&amp;#34;&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#66d9ef">echo&lt;/span> DIR=%DIR%
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e">REM 指定运行参数&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#66d9ef">set&lt;/span> scale=&lt;span style="color:#e6db74">&amp;#34;scale=90:90&amp;#34;&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#66d9ef">set&lt;/span> overlay=&lt;span style="color:#e6db74">&amp;#34;overlay=50:15&amp;#34;&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#66d9ef">set&lt;/span> trim=&lt;span style="color:#e6db74">&amp;#34;trim=start=2:end=6&amp;#34;&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#66d9ef">set&lt;/span> delogo=&lt;span style="color:#e6db74">&amp;#34;delogo=x=190:y=545:w=930:h=30:show=0&amp;#34;&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>:&lt;span style="color:#75715e">: 参数 /R 表示需要遍历子文件夹,去掉表示不遍历子文件夹&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>:&lt;span style="color:#75715e">: %%f 是一个变量,类似于迭代器,但是这个变量只能由一个字母组成,前面带上%%&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>:&lt;span style="color:#75715e">: 括号中是通配符,可以指定后缀名,*.*表示所有文件&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#66d9ef">for&lt;/span> /R %DIR% &lt;span style="color:#ae81ff">%%&lt;/span>f &lt;span style="color:#66d9ef">in&lt;/span> (*.mp4) &lt;span style="color:#66d9ef">do&lt;/span> (
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>	&lt;span style="color:#66d9ef">echo&lt;/span> f=&lt;span style="color:#ae81ff">%%&lt;/span>f
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>	&lt;span style="color:#66d9ef">call&lt;/span> :check_info &lt;span style="color:#e6db74">&amp;#34;&lt;/span>&lt;span style="color:#ae81ff">%%&lt;/span>&lt;span style="color:#e6db74">f&amp;#34;&lt;/span> &lt;span style="color:#ae81ff">^
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#ae81ff">	&lt;/span>&amp;amp;&amp;amp; &lt;span style="color:#66d9ef">echo&lt;/span> ################################################# &lt;span style="color:#ae81ff">^
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#ae81ff">	&lt;/span>&amp;amp;&amp;amp; &lt;span style="color:#66d9ef">echo&lt;/span> bit_rate=!bit_rate! &lt;span style="color:#ae81ff">^
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#ae81ff">	&lt;/span>&amp;amp;&amp;amp; &lt;span style="color:#66d9ef">call&lt;/span> :process_mpeg4 &lt;span style="color:#e6db74">&amp;#34;&lt;/span>&lt;span style="color:#ae81ff">%%&lt;/span>&lt;span style="color:#e6db74">f&amp;#34;&lt;/span>,&lt;span style="color:#e6db74">&amp;#34;&lt;/span>&lt;span style="color:#ae81ff">%%&lt;/span>&lt;span style="color:#e6db74">~df&lt;/span>&lt;span style="color:#ae81ff">%%&lt;/span>&lt;span style="color:#e6db74">~pf&lt;/span>&lt;span style="color:#ae81ff">%%&lt;/span>&lt;span style="color:#e6db74">~nf_out&lt;/span>&lt;span style="color:#ae81ff">%%&lt;/span>&lt;span style="color:#e6db74">~xf&amp;#34;&lt;/span>,!bit_rate!,%scale%,%overlay%,%trim%,%delogo% &lt;span style="color:#ae81ff">^
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#ae81ff">	&lt;/span>&amp;amp;&amp;amp; &lt;span style="color:#66d9ef">call&lt;/span> :screenshot &lt;span style="color:#e6db74">&amp;#34;&lt;/span>&lt;span style="color:#ae81ff">%%&lt;/span>&lt;span style="color:#e6db74">~df&lt;/span>&lt;span style="color:#ae81ff">%%&lt;/span>&lt;span style="color:#e6db74">~pf&lt;/span>&lt;span style="color:#ae81ff">%%&lt;/span>&lt;span style="color:#e6db74">~nf_out&lt;/span>&lt;span style="color:#ae81ff">%%&lt;/span>&lt;span style="color:#e6db74">~xf&amp;#34;&lt;/span>,&lt;span style="color:#e6db74">&amp;#34;&lt;/span>&lt;span style="color:#ae81ff">%%&lt;/span>&lt;span style="color:#e6db74">~df&lt;/span>&lt;span style="color:#ae81ff">%%&lt;/span>&lt;span style="color:#e6db74">~pf&lt;/span>&lt;span style="color:#ae81ff">%%&lt;/span>&lt;span style="color:#e6db74">~nf_out&amp;#34;&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>)
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#66d9ef">exit&lt;/span> /b
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>:check_info
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>	&lt;span style="color:#66d9ef">echo&lt;/span> #################################################
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>	&lt;span style="color:#66d9ef">echo&lt;/span> check_info
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>	&lt;span style="color:#66d9ef">for&lt;/span> &lt;span style="color:#66d9ef">/F&lt;/span> &lt;span style="color:#ae81ff">%%&lt;/span>s &lt;span style="color:#66d9ef">in&lt;/span> (&lt;span style="color:#e6db74">&amp;#39;D:\ffmpeg\bin\ffprobe -hide_banner ^
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#e6db74">											-unit -prefix -byte_binary_prefix ^
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#e6db74">											-print_format flat ^
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#e6db74">											-show_format -show_streams ^
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#e6db74">											-i &lt;/span>%1&lt;span style="color:#e6db74"> ^| find &amp;#34;streams.stream.0.bit_rate&amp;#34;&amp;#39;&lt;/span>) &lt;span style="color:#66d9ef">do&lt;/span> (&lt;span style="color:#66d9ef">set&lt;/span> bit_rate=&lt;span style="color:#ae81ff">%%&lt;/span>s)
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>	&lt;span style="color:#66d9ef">set&lt;/span> bit_rate=%bit_rate:~27,5%
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>	&lt;span style="color:#66d9ef">set&lt;/span> bit_rate=%bit_rate:.=%
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#66d9ef">goto&lt;/span> :eof
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>:process_mpeg4
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>	&lt;span style="color:#66d9ef">echo&lt;/span> #################################################
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>	&lt;span style="color:#66d9ef">echo&lt;/span> process_mpeg4
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>	D:\ffmpeg\bin\ffmpeg -hide_banner &lt;span style="color:#ae81ff">^
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#ae81ff">	&lt;/span>						-vcodec mpeg4 &lt;span style="color:#ae81ff">^
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#ae81ff">	&lt;/span>						-i %1 -i F:\\电教馆\\logo.png &lt;span style="color:#ae81ff">^
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#ae81ff">	&lt;/span>						-vcodec h264_qsv -b:v %3k &lt;span style="color:#ae81ff">^
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#ae81ff">	&lt;/span>						-filter_complex [1:v]%4[logo];[0:v][logo]%5[tmp_video];[tmp_video]split[main][delogo];[delogo]%6,%7[delogoed];[main][delogoed]overlay=eof_action=pass &lt;span style="color:#ae81ff">^
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#ae81ff">	&lt;/span>						-acodec copy &lt;span style="color:#ae81ff">^
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#ae81ff">	&lt;/span>						-y %2
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#66d9ef">goto&lt;/span> :eof
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>:process_h264_qsv
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>	&lt;span style="color:#66d9ef">echo&lt;/span> #################################################
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>	&lt;span style="color:#66d9ef">echo&lt;/span> process_h264_qsv
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>	D:\ffmpeg\bin\ffmpeg -hide_banner &lt;span style="color:#ae81ff">^
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#ae81ff">	&lt;/span>						-vcodec h264_qsv &lt;span style="color:#ae81ff">^
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#ae81ff">	&lt;/span>						-i %1 -i F:\\电教馆\\logo.png &lt;span style="color:#ae81ff">^
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#ae81ff">	&lt;/span>						-vcodec h264_qsv -b:v %3k &lt;span style="color:#ae81ff">^
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#ae81ff">	&lt;/span>						-filter_complex [1:v]%4[logo];[0:v][logo]%5[tmp_video];[tmp_video]split[main][delogo];[delogo]%6,%7[delogoed];[main][delogoed]overlay=eof_action=pass &lt;span style="color:#ae81ff">^
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#ae81ff">	&lt;/span>						-acodec copy &lt;span style="color:#ae81ff">^
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#ae81ff">	&lt;/span>						-y %2
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#66d9ef">goto&lt;/span> :eof
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>:screenshot
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>	&lt;span style="color:#66d9ef">echo&lt;/span> #################################################
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>	&lt;span style="color:#66d9ef">echo&lt;/span> screenshot
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>	&lt;span style="color:#66d9ef">for&lt;/span> &lt;span style="color:#66d9ef">/L&lt;/span> &lt;span style="color:#ae81ff">%%&lt;/span>i &lt;span style="color:#66d9ef">in&lt;/span> (&lt;span style="color:#ae81ff">3&lt;/span>,&lt;span style="color:#ae81ff">1&lt;/span>,&lt;span style="color:#ae81ff">5&lt;/span>) &lt;span style="color:#66d9ef">do&lt;/span> (
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>		D:\ffmpeg\bin\ffmpeg -hide_banner &lt;span style="color:#ae81ff">^
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#ae81ff">	&lt;/span>							-ss 00:0&lt;span style="color:#ae81ff">%%&lt;/span>i -vcodec h264_qsv &lt;span style="color:#ae81ff">^
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#ae81ff">	&lt;/span>							-i %1 &lt;span style="color:#ae81ff">^
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#ae81ff">	&lt;/span>							-vframes 1 -f image2 &lt;span style="color:#ae81ff">^
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#ae81ff">	&lt;/span>							-y %2_&lt;span style="color:#ae81ff">%%&lt;/span>is_screenshot.jpg
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>	)
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#66d9ef">goto&lt;/span> :eof
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div></description></item></channel></rss>

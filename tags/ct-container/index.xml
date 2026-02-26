@@ -1,2 +1,36 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>CT Container on 瘦了就帅了</title><link>https://cuile.github.io/tags/ct-container/</link><description>Recent content in CT Container on 瘦了就帅了</description><generator>Hugo -- gohugo.io</generator><copyright>Copyright © 2008–2018, Steve Francia and the Hugo Authors; all rights reserved.</copyright><lastBuildDate>Wed, 31 Jan 2024 21:37:49 +0800</lastBuildDate><atom:link href="https://cuile.github.io/tags/ct-container/index.xml" rel="self" type="application/rss+xml"/><item><title>配置 CentOS 7 的 CT 容器</title><link>https://cuile.github.io/posts/proxmox/setup_ct_centos-7/</link><pubDate>Wed, 31 Jan 2024 21:37:49 +0800</pubDate><guid>https://cuile.github.io/posts/proxmox/setup_ct_centos-7/</guid><description>
-Proxmox VE 官方提供的 Centos 7 模板是有问题的无法正常使用，现在给出解决方案。 安装 安装完成后，容器可以启动，但无法关闭、网络无法使用、控制台无法使用，这些</description></item></channel></rss>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>CT Container on 瘦了就帅了</title><link>https://blog.cuile.com/tags/ct-container/</link><description>Recent content in CT Container on 瘦了就帅了</description><generator>Hugo</generator><language>zh-cn</language><lastBuildDate>Thu, 26 Feb 2026 02:59:37 +0000</lastBuildDate><atom:link href="https://blog.cuile.com/tags/ct-container/index.xml" rel="self" type="application/rss+xml"/><item><title>配置 CentOS 7 的 CT 容器</title><link>https://blog.cuile.com/post/proxmox/setup_ct_centos-7/</link><pubDate>Wed, 31 Jan 2024 21:37:49 +0800</pubDate><guid>https://blog.cuile.com/post/proxmox/setup_ct_centos-7/</guid><description>&lt;p>Proxmox VE 官方提供的 Centos 7 模板是有问题的无法正常使用，现在给出解决方案。&lt;/p>
+&lt;h2 id="安装">安装&lt;/h2>
+&lt;p>安装完成后，容器可以启动，但无法关闭、网络无法使用、控制台无法使用，这些都是我们要解决的问题。&lt;/p>
+&lt;h2 id="解决方法">解决方法&lt;/h2>
+&lt;ol>
+&lt;li>ssh登录进入PVE主机&lt;/li>
+&lt;/ol>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e"># 查看 CT 容器列表&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>$ pct list
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e"># 进入 CT 容器&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>$ pct enter &amp;lt;VMID&amp;gt;
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;ol start="2">
+&lt;li>打开网络&lt;/li>
+&lt;/ol>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e"># 启动网络，从DHCP拿IP地址&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>$ ifup eth0
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;ol start="3">
+&lt;li>更新 yum 库&lt;/li>
+&lt;/ol>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span>$ curl -o /etc/yum.repos.d/jsynacek-systemd-backports-for-centos-7-epel-7.repo https://copr.fedorainfracloud.org/coprs/jsynacek/systemd-backports-for-centos-7/repo/epel-7/jsynacek-systemd-backports-for-centos-7-epel-7.repo
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>$ yum update
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e"># 安装 sshd&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>$ yum install -y openssh-server
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>$ systemctl start sshd.service
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>$ systemctl enable sshd.service
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;ol start="4">
+&lt;li>退出 CT 容器&lt;/li>
+&lt;/ol>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span>$ exit
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>$ pct stop &amp;lt;VMID&amp;gt;
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;ol start="5">
+&lt;li>重新启动 CT 容器，一切正常&amp;mdash;&lt;/li>
+&lt;/ol>
+&lt;ul>
+&lt;li>&lt;a href="https://forum.proxmox.com/threads/pve-7-wont-start-centos-7-container.97834/#post-425419">[SOLVED] - PVE 7 won&amp;rsquo;t start CentOS 7 container | Proxmox Support Forum&lt;/a>&lt;/li>
+&lt;/ul></description></item></channel></rss>

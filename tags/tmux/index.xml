@@ -1,2 +1,55 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>tmux on 瘦了就帅了</title><link>https://cuile.github.io/tags/tmux/</link><description>Recent content in tmux on 瘦了就帅了</description><generator>Hugo -- gohugo.io</generator><copyright>Copyright © 2008–2018, Steve Francia and the Hugo Authors; all rights reserved.</copyright><lastBuildDate>Wed, 21 Feb 2024 16:08:32 +0800</lastBuildDate><atom:link href="https://cuile.github.io/tags/tmux/index.xml" rel="self" type="application/rss+xml"/><item><title>Tmux 命令</title><link>https://cuile.github.io/posts/linux/tmux/</link><pubDate>Wed, 21 Feb 2024 16:08:32 +0800</pubDate><guid>https://cuile.github.io/posts/linux/tmux/</guid><description>
-Tmux命令 1## Session 2# 开启新会话 3tmux 4# 开启新会话并命名 5tmux new -s my_session 6# 重命名会话 7tmux rename-session -t 0 &amp;lt;new-name&amp;gt; 8# 显示所有会话 9tmux ls 10tmux list-sessions 11# 使用会话编号接入 12tmux attach -t 0 13# 使用会话名称</description></item></channel></rss>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Tmux on 瘦了就帅了</title><link>https://blog.cuile.com/tags/tmux/</link><description>Recent content in Tmux on 瘦了就帅了</description><generator>Hugo</generator><language>zh-cn</language><lastBuildDate>Thu, 26 Feb 2026 02:59:37 +0000</lastBuildDate><atom:link href="https://blog.cuile.com/tags/tmux/index.xml" rel="self" type="application/rss+xml"/><item><title>Tmux 命令</title><link>https://blog.cuile.com/post/linux/tmux/</link><pubDate>Wed, 21 Feb 2024 16:08:32 +0800</pubDate><guid>https://blog.cuile.com/post/linux/tmux/</guid><description>&lt;h2 id="配置文件">配置文件&lt;/h2>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-ini" data-lang="ini">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e">; ~/.tmux.conf&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e"># 启动鼠标支持&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#a6e22e">set -g mouse on&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#a6e22e">set -g mode-keys vi&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e"># WindTerm需在 会话 --&amp;gt; 首选项 --&amp;gt; 设置 --&amp;gt; 终端 --&amp;gt; 鼠标追踪 --&amp;gt; 追踪事件&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e"># 取消勾选：&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e"># - 移动事件&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e"># - 点击事件&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e"># - 右键单击事件&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e"># WindTerm使用鼠标修改面板大小，受WindTerm限制无法实现&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e"># 禁用 WindTerm 的默认鼠标行为（防止冲突）&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#a6e22e">set -g terminal-overrides &amp;#39;xterm*:smcup@:rmcup@&amp;#39;&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e"># 1. 禁用左键释放自动复制（改为仅选择）&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#a6e22e">bind -T copy-mode-vi MouseDragEnd1Pane send-keys -X copy-selection-and-cancel&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e"># 2. 右键复制已选文本（需先左键选择）&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#a6e22e">bind -T copy-mode-vi MouseDown3Pane send-keys -X copy-pipe-and-cancel \&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#a6e22e">&amp;#34;xclip -i -selection clipboard 2&amp;gt;/dev/null || \&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#a6e22e">pbpaste 2&amp;gt;/dev/null || \&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#a6e22e">win32yank.exe -i 2&amp;gt;/dev/null&amp;#34;&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e"># 3. 右键直接粘贴系统剪贴板内容（跨系统支持）&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#a6e22e">bind -n MouseDown3Pane run-shell \&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#a6e22e">&amp;#34;tmux set-buffer -- \&amp;#34;$(xclip -o -selection clipboard 2&amp;gt;/dev/null || \&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#a6e22e">pbpaste 2&amp;gt;/dev/null || \&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#a6e22e">win32yank.exe -o 2&amp;gt;/dev/null)\&amp;#34;; \&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#a6e22e">tmux paste-buffer&amp;#34;&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e"># 解除默认的鼠标调整绑定（可选）&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#a6e22e">unbind-key -T root MouseDrag1Border&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e"># 重新绑定鼠标拖动调整大小&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#a6e22e">bind -n MouseDrag1Border resize-pane -M&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e"># status line&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#a6e22e">set -g status-justify centre&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#a6e22e">set -g status-left &amp;#34;#{session_name}&amp;#34;&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#a6e22e">set -g status-right &amp;#34;%F %R&amp;#34;&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e"># 窗口编号自动重新排序&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#a6e22e">set -g renumber-windows on&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e"># status line &amp;gt; window list&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#a6e22e">set -g window-status-format &amp;#34;#{window_index}:#{window_name}&amp;#34;&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#a6e22e">set -g window-status-separator &amp;#34; | &amp;#34;&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#a6e22e">set -g window-status-current-format &amp;#34;#{window_index}:#{window_name}&amp;#34;&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#a6e22e">set -g window-status-current-style bold,italics&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e"># pane&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#a6e22e">set -g pane-border-format &amp;#34; #{pane_index}:#{pane_title} $ #{pane_current_command} &amp;#34;&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#a6e22e">set -g pane-border-status top&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#a6e22e">set -g history-limit 10000&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e"># 更新配置，不需要关闭tmux，直接运行马上生效&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>tmux source-file ~/.tmux.conf
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="快捷键操作">快捷键操作&lt;/h2>
+&lt;p>Prefix = Ctrl + b&lt;/p></description></item></channel></rss>

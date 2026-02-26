@@ -1,7 +1,289 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>OpenWRT on 瘦了就帅了</title><link>https://cuile.github.io/tags/openwrt/</link><description>Recent content in OpenWRT on 瘦了就帅了</description><generator>Hugo -- gohugo.io</generator><copyright>Copyright © 2008–2018, Steve Francia and the Hugo Authors; all rights reserved.</copyright><lastBuildDate>Wed, 04 Oct 2023 19:48:18 +0800</lastBuildDate><atom:link href="https://cuile.github.io/tags/openwrt/index.xml" rel="self" type="application/rss+xml"/><item><title>OpenWRT 配置 IPv6</title><link>https://cuile.github.io/posts/openwrt/openwrt_ipv6/</link><pubDate>Wed, 04 Oct 2023 19:48:18 +0800</pubDate><guid>https://cuile.github.io/posts/openwrt/openwrt_ipv6/</guid><description>
-OpenWRT 配置 IPv6，在网上有许多教程，但大部分都说的不清不楚。 所以我从 OpenWRT 配置文件的角度，给出一个肯定能用的配置。 相关配置原理不详述，可自行上网查</description></item><item><title>OpenWRT 版本区别</title><link>https://cuile.github.io/posts/openwrt/openwrt_version/</link><pubDate>Wed, 04 Oct 2023 14:10:17 +0800</pubDate><guid>https://cuile.github.io/posts/openwrt/openwrt_version/</guid><description>
-x86 版本 说明 64 用于现代PC硬件（大约在2007年以后的产品），它是为具有64位功能的计算机而构建的，并支持现代CPU功能。除非有充分的理由，否</description></item><item><title>编译x86_64版本的OpenWrt</title><link>https://cuile.github.io/posts/openwrt/openwrt_make/</link><pubDate>Tue, 08 Feb 2022 10:05:20 +0800</pubDate><guid>https://cuile.github.io/posts/openwrt/openwrt_make/</guid><description>
-1、准备环境 建议使用纯linux系统进行编译，如 Ubuntu 20.04 LTS，这样环境比较简单，兼容问题也少。 用WSL环境编译，可参考 使用 Windows 子系统 ( WSL ) 编译 OpenWrt</description></item><item><title>OpenWRT 配置透明代理</title><link>https://cuile.github.io/posts/openwrt/openwrt_shadowsocks_proxy/</link><pubDate>Mon, 07 Feb 2022 13:37:19 +0800</pubDate><guid>https://cuile.github.io/posts/openwrt/openwrt_shadowsocks_proxy/</guid><description>
-本文记录OpenWrt设置透明代理的步骤及原理。 1. 系统环境 硬件环境：Windows 10 Hyper-V虚拟机，单核处理器，256M内存 固件版本：</description></item><item><title>OpenWRT DNS设置</title><link>https://cuile.github.io/posts/openwrt/openwrt_dns/</link><pubDate>Mon, 07 Feb 2022 13:17:39 +0800</pubDate><guid>https://cuile.github.io/posts/openwrt/openwrt_dns/</guid><description>
-1. 使用自定义域名访问WEB管理界面 网络-DHCP/DNS-常规设置-DNS转发：/openwrt.lan/192.168.xxx.xxx 网络</description></item><item><title>OpenWRT 启用 ALG 功能</title><link>https://cuile.github.io/posts/openwrt/openwrt_ftp_alg/</link><pubDate>Mon, 07 Feb 2022 10:08:02 +0800</pubDate><guid>https://cuile.github.io/posts/openwrt/openwrt_ftp_alg/</guid><description>
-1. 安装软件包 1# opkg install kmod-nf-nathelper-extra 2# opkg install kmod-nf-ipvs-ftp 2. 添加配置 1# nano /etc/sysctl.d/11-nf-conntrack.conf 增加&amp;quot;net.netfilter.nf_conntrack_helper=1&amp;quot</description></item></channel></rss>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>OpenWRT on 瘦了就帅了</title><link>https://blog.cuile.com/tags/openwrt/</link><description>Recent content in OpenWRT on 瘦了就帅了</description><generator>Hugo</generator><language>zh-cn</language><lastBuildDate>Thu, 26 Feb 2026 02:59:37 +0000</lastBuildDate><atom:link href="https://blog.cuile.com/tags/openwrt/index.xml" rel="self" type="application/rss+xml"/><item><title>OpenWRT 配置 IPv6</title><link>https://blog.cuile.com/post/openwrt/openwrt_ipv6/</link><pubDate>Wed, 04 Oct 2023 19:48:18 +0800</pubDate><guid>https://blog.cuile.com/post/openwrt/openwrt_ipv6/</guid><description>&lt;p>OpenWRT 配置 IPv6，在网上有许多教程，但大部分都说的不清不楚。
+所以我从 OpenWRT 配置文件的角度，给出一个肯定能用的配置。
+相关配置原理不详述，可自行上网查找。&lt;/p>
+&lt;h2 id="系统环境">系统环境&lt;/h2>
+&lt;ul>
+&lt;li>北京联通 300M 家宽 （客服说100元/月，可提供公网IPv4/IPv6地址，其实IPv6是免费给的）&lt;/li>
+&lt;li>OpenWRT（PVE虚机，非直通网卡）
+&lt;ul>
+&lt;li>目标平台：x86/64&lt;/li>
+&lt;li>固件版本：OpenWrt 21.02.0 r16279-5cc0535800 / LuCI openwrt-21.02 branch git-23.093.57360-e98243e&lt;/li>
+&lt;li>内核版本：5.4.143&lt;/li>
+&lt;li>DHCPv6 客户端 (odhcp6c)&lt;/li>
+&lt;li>RA &amp;amp; DHCPv6 服务器 (odhcpd)&lt;/li>
+&lt;li>IPv6 防火墙 (ip6tables)&lt;/li>
+&lt;li>Luci网页配置 (luci-proto-ipv6)&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ul>
+&lt;h2 id="配置流程">配置流程&lt;/h2>
+&lt;ol>
+&lt;li>光猫桥接（电话联通，远程搞定）&lt;/li>
+&lt;li>OpenWRT WAN IPv6 配置&lt;/li>
+&lt;/ol>
+&lt;blockquote>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-yaml" data-lang="yaml">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e"># /etc/config/network&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>...
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#ae81ff">config interface &amp;#39;lan&amp;#39;&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#ae81ff">option proto &amp;#39;static&amp;#39;&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#ae81ff">option ipaddr &amp;#39;192.168.10.10&amp;#39;&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#ae81ff">option netmask &amp;#39;255.255.255.0&amp;#39;&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#ae81ff">option device &amp;#39;eth0&amp;#39;&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#ae81ff">option ip6assign &amp;#39;64&amp;#39;&lt;/span> &lt;span style="color:#75715e"># IPv6分配长度。要与 wan 口一致。&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#ae81ff">config interface &amp;#39;wan&amp;#39;&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#ae81ff">option proto &amp;#39;pppoe&amp;#39;&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#ae81ff">option username &amp;#39;***********&amp;#39;&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#ae81ff">option password &amp;#39;***********&amp;#39;&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#ae81ff">option device &amp;#39;eth1&amp;#39;&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#ae81ff">option ipv6 &amp;#39;auto&amp;#39;&lt;/span> &lt;span style="color:#75715e"># 自动获取IPv6地址，使用这个选项后，会自动创建一个虚拟动态接口(WAN_6)，不用配置。&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#ae81ff">option ip6assign &amp;#39;64&amp;#39;&lt;/span> &lt;span style="color:#75715e"># IPv6分配长度。参考 WAN_6 接口 IPv6-PD 的掩码长度，一般为“60”，比它大即可，系统默认为64。&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>...
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;/blockquote>
+&lt;ol start="3">
+&lt;li>OpenWRT 防火墙配置&lt;/li>
+&lt;/ol>
+&lt;blockquote>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-yaml" data-lang="yaml">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e"># /etc/config/firewall&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>...
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#ae81ff">config zone&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#ae81ff">option name &amp;#39;lan&amp;#39;&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#ae81ff">list network &amp;#39;lan&amp;#39;&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#ae81ff">option input &amp;#39;ACCEPT&amp;#39;&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#ae81ff">option output &amp;#39;ACCEPT&amp;#39;&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#ae81ff">option forward &amp;#39;ACCEPT&amp;#39;&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#ae81ff">config zone&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#ae81ff">option name &amp;#39;wan&amp;#39;&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#ae81ff">list network &amp;#39;wan&amp;#39;&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#ae81ff">option input &amp;#39;DROP&amp;#39;&lt;/span> &lt;span style="color:#75715e"># 关闭 wan 口输入流量&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#ae81ff">option output &amp;#39;ACCEPT&amp;#39;&lt;/span> &lt;span style="color:#75715e"># 只出不进&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#ae81ff">option forward &amp;#39;REJECT&amp;#39;&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#ae81ff">option masq &amp;#39;1&amp;#39;&lt;/span> &lt;span style="color:#75715e"># 打开 NAT 功能&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#ae81ff">option mtu_fix &amp;#39;1&amp;#39;&lt;/span> &lt;span style="color:#75715e"># 路由器直接拨号时使用&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>...
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e"># 转发规划很重要&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#ae81ff">config forwarding&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#ae81ff">option src &amp;#39;lan&amp;#39;&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#ae81ff">option dest &amp;#39;wan&amp;#39;&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>...
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e"># 允许外网IPv6协议下，任意地址的547端口的UDP包通过wan口，访问本机546端口&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#ae81ff">config rule&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#ae81ff">option name &amp;#39;Allow-DHCPv6&amp;#39;&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#ae81ff">option proto &amp;#39;udp&amp;#39;&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#ae81ff">option src &amp;#39;wan&amp;#39;&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#ae81ff">option src_port &amp;#39;547&amp;#39;&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#ae81ff">option dest_port &amp;#39;546&amp;#39;&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#ae81ff">option target &amp;#39;ACCEPT&amp;#39;&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#ae81ff">option family &amp;#39;ipv6&amp;#39;&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;/blockquote>
+&lt;ol start="4">
+&lt;li>OpenWRT DHCP 配置&lt;/li>
+&lt;/ol>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-yaml" data-lang="yaml">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e"># /etc/config/dhcp&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>...
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#ae81ff">config dhcp &amp;#39;lan&amp;#39;&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#ae81ff">option interface &amp;#39;lan&amp;#39;&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#ae81ff">option start &amp;#39;100&amp;#39;&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#ae81ff">option dhcpv4 &amp;#39;server&amp;#39;&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#ae81ff">option limit &amp;#39;200&amp;#39;&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#ae81ff">option force &amp;#39;1&amp;#39;&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#ae81ff">option leasetime &amp;#39;2h&amp;#39;&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#ae81ff">option ra &amp;#39;server&amp;#39;&lt;/span> &lt;span style="color:#75715e"># RA服务 服务器模式&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#ae81ff">option dhcpv6 &amp;#39;server&amp;#39;&lt;/span> &lt;span style="color:#75715e"># DHCPv6服务 服务器模式&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#ae81ff">list ra_flags &amp;#39;none&amp;#39;&lt;/span> &lt;span style="color:#75715e"># RA标记 无&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#ae81ff">config dhcp &amp;#39;wan&amp;#39;&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#ae81ff">option interface &amp;#39;wan&amp;#39;&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#ae81ff">option ignore &amp;#39;1&amp;#39;&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#ae81ff">list ra_flags &amp;#39;none&amp;#39;&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#ae81ff">config odhcpd &amp;#39;odhcpd&amp;#39;&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#ae81ff">option maindhcp &amp;#39;0&amp;#39;&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#ae81ff">option leasefile &amp;#39;/tmp/hosts/odhcpd&amp;#39;&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#ae81ff">option leasetrigger &amp;#39;/usr/sbin/odhcpd-update&amp;#39;&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#ae81ff">option loglevel &amp;#39;4&amp;#39;&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;ol start="5">
+&lt;li>重启OpenWRT&lt;/li>
+&lt;li>查看 Luci -&amp;gt; 网络 -&amp;gt; 接口 -&amp;gt; LAN，已拿到的IPv6地址&lt;/li>
+&lt;li>测试本机外网IPv6地址，与 LAN 的 IPv6地址一致即可&lt;/li>
+&lt;/ol>
+&lt;blockquote>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span>$ curl 6.ipw.cn
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;/blockquote>
+&lt;h2 id="参考文档">参考文档&lt;/h2>
+&lt;ul>
+&lt;li>&lt;a href="https://openwrt.org/docs/guide-user/network/ipv6/configuration">IPv6 configuration&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://vicfree.com/2023/02/ipv6-explained-and-setup-in-openwrt/">IPv6 原理及如何设置 OpenWrt&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://openwrt.org/zh-cn/doc/uci/firewall">如何配置防火墙&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://openwrt.org/docs/guide-user/network/ipv6/start">IPv6&lt;/a>&lt;/li>
+&lt;/ul></description></item><item><title>OpenWRT 版本区别</title><link>https://blog.cuile.com/post/openwrt/openwrt_version/</link><pubDate>Wed, 04 Oct 2023 14:10:17 +0800</pubDate><guid>https://blog.cuile.com/post/openwrt/openwrt_version/</guid><description>&lt;h2 id="x86">x86&lt;/h2>
+&lt;table>
+ &lt;thead>
+ &lt;tr>
+ &lt;th style="text-align: center">版本&lt;/th>
+ &lt;th style="text-align: left">说明&lt;/th>
+ &lt;/tr>
+ &lt;/thead>
+ &lt;tbody>
+ &lt;tr>
+ &lt;td style="text-align: center">64&lt;/td>
+ &lt;td style="text-align: left">用于现代PC硬件（大约在2007年以后的产品），它是为具有64位功能的计算机而构建的，并支持现代CPU功能。除非有充分的理由，否则请选择此选项。&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td style="text-align: center">Generic&lt;/td>
+ &lt;td style="text-align: left">仅适用于32位硬件（旧硬件或某些Atom处理器），应为i586 Linux体系结构，将在Pentium 4及更高版本上运行。仅当您的硬件无法运行64位版本时才使用此功能。&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td style="text-align: center">Legacy&lt;/td>
+ &lt;td style="text-align: left">用于奔腾4之前的非常旧的PC硬件，在Linux体系结构支持中称为i386。它会错过许多现代硬件上想要/需要的功能，例如多核支持以及对超过1GB RAM的支持，但实际上会在较旧的硬件上运行，而其他版本则不会。&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td style="text-align: center">Geode&lt;/td>
+ &lt;td style="text-align: left">是为Geode SoC定制的自定义旧版目标，Geode SoC仍在许多（老化的）网络设备中使用，例如PCEngines的较旧Alix板。&lt;/td>
+ &lt;/tr>
+ &lt;/tbody>
+&lt;/table>
+&lt;table>
+ &lt;thead>
+ &lt;tr>
+ &lt;th style="text-align: center">文件名&lt;/th>
+ &lt;th style="text-align: left">说明&lt;/th>
+ &lt;/tr>
+ &lt;/thead>
+ &lt;tbody>
+ &lt;tr>
+ &lt;td style="text-align: center">Combined&lt;/td>
+ &lt;td style="text-align: left">组合的，包括bootloader、kernel、rootfs&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td style="text-align: center">squashfs&lt;/td>
+ &lt;td style="text-align: left">该磁盘映像使用传统的OpenWrt布局，一个squashfs只读根文件系统和一个读写分区，在其中存储您安装的设置和软件包。由于此映像的组装方式，您只有230 兆MB的空间来存储其他程序包和配置，而Extroot不起作用。squashfs适用于直接编译带有软件包的openwrt系统，方便重置路由器，不必从安装包重新刷机。&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td style="text-align: center">ext4&lt;/td>
+ &lt;td style="text-align: left">此磁盘映像使用单个读写ext4分区，没有只读squashfs根文件系统，因此可以扩大分区。故障安全模式或出厂重置等功能将不可用，因为它们需要只读的squashfs分区才能起作用。选择64的情况下，ext4适合我们扩容，并安装软件包。&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td style="text-align: center">efi&lt;/td>
+ &lt;td style="text-align: left">指的是UEFI，可以使用GPT分区列表，是较新的技术，性能和可扩展性上更好，不带efi的则是使用Legacy。&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td style="text-align: center">bootloader&lt;/td>
+ &lt;td style="text-align: left">引导程序&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td style="text-align: center">kernel&lt;/td>
+ &lt;td style="text-align: left">Linux内核&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td style="text-align: center">rootfs&lt;/td>
+ &lt;td style="text-align: left">openwrt根系统&lt;/td>
+ &lt;/tr>
+ &lt;/tbody>
+&lt;/table>
+&lt;h3 id="参考文档">参考文档&lt;/h3>
+&lt;ul>
+&lt;li>&lt;a href="https://openwrt.org/docs/guide-user/installation/openwrt_x86">OpenWrt on x86 hardware (PC / VM / server)&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://blog.csdn.net/WTCLLB/article/details/131094724">安装OpenWrt到电脑，安装包选哪个？&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://www.right.com.cn/forum/forum.php?mod=viewthread&amp;amp;tid=193351&amp;amp;page=1&amp;amp;authorid=227980">openwrt x86版本&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://www.bilibili.com/read/cv21254550/">原版Openwrt在x86平台上的安装和配置以及常用插件安装&lt;/a>&lt;/li>
+&lt;/ul></description></item><item><title>编译x86_64版本的OpenWrt</title><link>https://blog.cuile.com/post/openwrt/openwrt_make/</link><pubDate>Tue, 08 Feb 2022 10:05:20 +0800</pubDate><guid>https://blog.cuile.com/post/openwrt/openwrt_make/</guid><description>&lt;h2 id="1准备环境">1、准备环境&lt;/h2>
+&lt;p>建议使用纯linux系统进行编译，如 Ubuntu 20.04 LTS，这样环境比较简单，兼容问题也少。&lt;/p>
+&lt;blockquote>
+&lt;p>用WSL环境编译，可参考&lt;/p>
+&lt;ul>
+&lt;li>&lt;a href="https://p3terx.com/archives/compiling-openwrt-with-wsl.html">使用 Windows 子系统 ( WSL ) 编译 OpenWrt&lt;/a>&lt;/li>
+&lt;/ul>&lt;/blockquote>
+&lt;p>为提高编译的成功率，采用国内大神Lean的版本。&lt;/p>
+&lt;p>官方版本因编译过程中，下载、兼容等等太多问题，建议不要使用。&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span>sudo apt-get update
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>sudo apt-get -y install build-essential asciidoc binutils bzip2 gawk gettext git libncurses5-dev libz-dev patch python3 python2.7 unzip zlib1g-dev lib32gcc1 libc6-dev-i386 subversion flex uglifyjs git-core gcc-multilib p7zip p7zip-full msmtp libssl-dev texinfo libglib2.0-dev xmlto qemu-utils upx libelf-dev autoconf automake libtool autopoint device-tree-compiler g++-multilib antlr3 gperf wget curl swig rsync
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="2下载代码">2、下载代码&lt;/h2>
+&lt;p>国内用户请准备好梯子&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span>git clone https://github.com/coolsnowwolf/lede
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>cd lede
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>./scripts/feeds update -a
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>./scripts/feeds install -a
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="3配置组件">3、配置组件&lt;/h2>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span>make menuconfig
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;blockquote>
+&lt;p>Hyper-V平台配置，可参考&lt;/p></description></item><item><title>OpenWRT 配置透明代理</title><link>https://blog.cuile.com/post/openwrt/openwrt_shadowsocks_proxy/</link><pubDate>Mon, 07 Feb 2022 13:37:19 +0800</pubDate><guid>https://blog.cuile.com/post/openwrt/openwrt_shadowsocks_proxy/</guid><description>&lt;p>本文记录OpenWrt设置透明代理的步骤及原理。&lt;/p>
+&lt;h2 id="1-系统环境">1. 系统环境&lt;/h2>
+&lt;ul>
+&lt;li>硬件环境：Windows 10 Hyper-V虚拟机，单核处理器，256M内存&lt;/li>
+&lt;li>固件版本：OpenWrt 19.07.6 r11278-8055e38794 / LuCI openwrt-19.07 branch git-21.101.59933-c56d9f2&lt;/li>
+&lt;li>&lt;a href="https://github.com/shadowsocks/openwrt-shadowsocks/releases">shadowsocks-libev：3.3.5&lt;/a>&lt;/li>
+&lt;li>luci-app-shadowsocks：2.0.2&lt;/li>
+&lt;li>&lt;a href="https://github.com/honwen/openwrt-v2ray-plugin/releases">v2ray-plugin：4.37.3-20210413&lt;/a>&lt;/li>
+&lt;li>ChinaDNS：1.3.3&lt;/li>
+&lt;li>luci-app-chinadns：1.6.2&lt;/li>
+&lt;li>https-dns-proxy：2021-01-17-5&lt;/li>
+&lt;li>luci-app-https-dns-proxy：git-21.062.76689-a607f9c-1&lt;/li>
+&lt;li>luci-i18n-https-dns-proxy-zh-cn：git-21.062.76689-a607f9c-1&lt;/li>
+&lt;/ul>
+&lt;h2 id="2-运行流程">2. 运行流程&lt;/h2>
+&lt;p>透明代理的运行原理主要由&lt;code>DNS访问流程&lt;/code>、&lt;code>IP访问流程&lt;/code>两部分组成组成&lt;/p>
+&lt;h3 id="21-dns访问流程">2.1 DNS访问流程&lt;/h3>
+&lt;pre tabindex="0">&lt;code class="language-mermaid" data-lang="mermaid">flowchart LR
+ lh((localhost));
+ dm(Dnsmasq);
+ cd(ChinaDNS);
+ hdp(https-dns-proxy);
+ ss(Shadowsocks);
+ fd(国外DNS);
+ dd(国内DNS);
+
+ lh -- 1 udp:53 --&amp;gt; dm;
+ dm -- 2 udp:5555 --&amp;gt; cd;
+ cd -- 3.1 udp:5353--&amp;gt; hdp;
+ cd -- 3.2 udp --&amp;gt; dd;
+ hdp -- 4 tcp --&amp;gt; ss;
+ ss -- 5 tcp --&amp;gt; fd;
+
+ fd -. 6 .-&amp;gt; ss;
+ ss -. 7 .-&amp;gt; hdp;
+ hdp -. 8.1 .-&amp;gt; cd;
+ dd -. 8.2 .-&amp;gt; cd;
+ cd -. 9 缓存 .-&amp;gt; dm;
+ dm -. 10 IP地址 .-&amp;gt; lh;
+&lt;/code>&lt;/pre>&lt;h3 id="22-ip访问流程">2.2 IP访问流程&lt;/h3>
+&lt;pre tabindex="0">&lt;code class="language-mermaid" data-lang="mermaid">flowchart LR
+ fs(国外服务器);
+ ds(国内服务器);
+ lh((localhost));
+ route{chinadns_chnroute.txt};
+ ss(Shadowsocks);
+
+ lh -- 1 --&amp;gt; route;
+ route -- 2.1 国内IP --&amp;gt; ds;
+ route -- 2.2 国外IP --&amp;gt; ss;
+ ss -- 3 加密访问 --&amp;gt; fs;
+
+ fs -. 4 返回加密数据 .-&amp;gt; ss;
+ ds -. 5.1 返回数据 .-&amp;gt; lh;
+ ss -. 5.2 返回解密数据 .-&amp;gt; lh;
+&lt;/code>&lt;/pre>&lt;h2 id="3-配置">3. 配置&lt;/h2>
+&lt;h3 id="31-shadowsocks-libev--v2ray-plugin">3.1 Shadowsocks-libev + v2ray-plugin&lt;/h3>
+&lt;ul>
+&lt;li>&lt;code>服务器管理&lt;/code>-&lt;code>编辑服务器&lt;/code>-&lt;code>插件参数&lt;/code>：一定要加上&amp;quot;loglevel=none&amp;quot;，如果不加v2ray-plugin插件几分钟就会被系统杀死&lt;/li>
+&lt;li>&lt;code>访问控制&lt;/code>-&lt;code>被忽略IP列表&lt;/code>：/etc/chinadns_chnroute.txt&lt;/li>
+&lt;/ul>
+&lt;h3 id="32-https-dns-proxy">3.2 https-dns-proxy&lt;/h3>
+&lt;p>由于使用了v2ray-plugin 插件，导致Shadowsocks不再支持UDP包，所以使用TCP的方式查询DNS&lt;/p></description></item><item><title>OpenWRT DNS设置</title><link>https://blog.cuile.com/post/openwrt/openwrt_dns/</link><pubDate>Mon, 07 Feb 2022 13:17:39 +0800</pubDate><guid>https://blog.cuile.com/post/openwrt/openwrt_dns/</guid><description>&lt;h2 id="1-使用自定义域名访问web管理界面">1. 使用自定义域名访问WEB管理界面&lt;/h2>
+&lt;ul>
+&lt;li>&lt;code>网络&lt;/code>-&lt;code>DHCP/DNS&lt;/code>-&lt;code>常规设置&lt;/code>-&lt;code>DNS转发&lt;/code>：/openwrt.lan/192.168.xxx.xxx&lt;/li>
+&lt;li>&lt;code>网络&lt;/code>-&lt;code>DHCP/DNS&lt;/code>-&lt;code>常规设置&lt;/code>-&lt;code>重绑定保护&lt;/code>：不勾选&lt;/li>
+&lt;li>&lt;code>/etc/config/uhttpd&lt;/code>-&lt;code>option redirect_https&lt;/code>：&amp;lsquo;1&amp;rsquo; &lt;em>不强制跳转https&lt;/em>&lt;/li>
+&lt;/ul></description></item><item><title>OpenWRT 启用 ALG 功能</title><link>https://blog.cuile.com/post/openwrt/openwrt_ftp_alg/</link><pubDate>Mon, 07 Feb 2022 10:08:02 +0800</pubDate><guid>https://blog.cuile.com/post/openwrt/openwrt_ftp_alg/</guid><description>&lt;h2 id="1-安装软件包">1. 安装软件包&lt;/h2>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e"># opkg install kmod-nf-nathelper-extra&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e"># opkg install kmod-nf-ipvs-ftp&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="2-添加配置">2. 添加配置&lt;/h2>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e"># nano /etc/sysctl.d/11-nf-conntrack.conf&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>增加&amp;quot;net.netfilter.nf_conntrack_helper=1&amp;quot;&lt;/p>
+&lt;p>在使用FTP的主动模式时，要注意关闭网关上的ALG功能（如Windows ALG服务），同时使用可能引起失败&lt;/p>
+&lt;p>&lt;strong>参考文档&lt;/strong>&lt;/p>
+&lt;ul>
+&lt;li>&lt;a href="https://vnf.cc/2021/02/openwrt-ftp-alg/">原版OpenWRT启用FTP ALG功能&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://blog.moper.net/2210.html">防火墙设置了NAT ALG功能导致FTP数据连接故障&lt;/a>&lt;/li>
+&lt;/ul></description></item></channel></rss>

@@ -1,2 +1,72 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>version on 瘦了就帅了</title><link>https://cuile.github.io/tags/version/</link><description>Recent content in version on 瘦了就帅了</description><generator>Hugo -- gohugo.io</generator><copyright>Copyright © 2008–2018, Steve Francia and the Hugo Authors; all rights reserved.</copyright><lastBuildDate>Wed, 04 Oct 2023 14:10:17 +0800</lastBuildDate><atom:link href="https://cuile.github.io/tags/version/index.xml" rel="self" type="application/rss+xml"/><item><title>OpenWRT 版本区别</title><link>https://cuile.github.io/posts/openwrt/openwrt_version/</link><pubDate>Wed, 04 Oct 2023 14:10:17 +0800</pubDate><guid>https://cuile.github.io/posts/openwrt/openwrt_version/</guid><description>
-x86 版本 说明 64 用于现代PC硬件（大约在2007年以后的产品），它是为具有64位功能的计算机而构建的，并支持现代CPU功能。除非有充分的理由，否</description></item></channel></rss>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Version on 瘦了就帅了</title><link>https://blog.cuile.com/tags/version/</link><description>Recent content in Version on 瘦了就帅了</description><generator>Hugo</generator><language>zh-cn</language><lastBuildDate>Thu, 26 Feb 2026 02:59:37 +0000</lastBuildDate><atom:link href="https://blog.cuile.com/tags/version/index.xml" rel="self" type="application/rss+xml"/><item><title>OpenWRT 版本区别</title><link>https://blog.cuile.com/post/openwrt/openwrt_version/</link><pubDate>Wed, 04 Oct 2023 14:10:17 +0800</pubDate><guid>https://blog.cuile.com/post/openwrt/openwrt_version/</guid><description>&lt;h2 id="x86">x86&lt;/h2>
+&lt;table>
+ &lt;thead>
+ &lt;tr>
+ &lt;th style="text-align: center">版本&lt;/th>
+ &lt;th style="text-align: left">说明&lt;/th>
+ &lt;/tr>
+ &lt;/thead>
+ &lt;tbody>
+ &lt;tr>
+ &lt;td style="text-align: center">64&lt;/td>
+ &lt;td style="text-align: left">用于现代PC硬件（大约在2007年以后的产品），它是为具有64位功能的计算机而构建的，并支持现代CPU功能。除非有充分的理由，否则请选择此选项。&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td style="text-align: center">Generic&lt;/td>
+ &lt;td style="text-align: left">仅适用于32位硬件（旧硬件或某些Atom处理器），应为i586 Linux体系结构，将在Pentium 4及更高版本上运行。仅当您的硬件无法运行64位版本时才使用此功能。&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td style="text-align: center">Legacy&lt;/td>
+ &lt;td style="text-align: left">用于奔腾4之前的非常旧的PC硬件，在Linux体系结构支持中称为i386。它会错过许多现代硬件上想要/需要的功能，例如多核支持以及对超过1GB RAM的支持，但实际上会在较旧的硬件上运行，而其他版本则不会。&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td style="text-align: center">Geode&lt;/td>
+ &lt;td style="text-align: left">是为Geode SoC定制的自定义旧版目标，Geode SoC仍在许多（老化的）网络设备中使用，例如PCEngines的较旧Alix板。&lt;/td>
+ &lt;/tr>
+ &lt;/tbody>
+&lt;/table>
+&lt;table>
+ &lt;thead>
+ &lt;tr>
+ &lt;th style="text-align: center">文件名&lt;/th>
+ &lt;th style="text-align: left">说明&lt;/th>
+ &lt;/tr>
+ &lt;/thead>
+ &lt;tbody>
+ &lt;tr>
+ &lt;td style="text-align: center">Combined&lt;/td>
+ &lt;td style="text-align: left">组合的，包括bootloader、kernel、rootfs&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td style="text-align: center">squashfs&lt;/td>
+ &lt;td style="text-align: left">该磁盘映像使用传统的OpenWrt布局，一个squashfs只读根文件系统和一个读写分区，在其中存储您安装的设置和软件包。由于此映像的组装方式，您只有230 兆MB的空间来存储其他程序包和配置，而Extroot不起作用。squashfs适用于直接编译带有软件包的openwrt系统，方便重置路由器，不必从安装包重新刷机。&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td style="text-align: center">ext4&lt;/td>
+ &lt;td style="text-align: left">此磁盘映像使用单个读写ext4分区，没有只读squashfs根文件系统，因此可以扩大分区。故障安全模式或出厂重置等功能将不可用，因为它们需要只读的squashfs分区才能起作用。选择64的情况下，ext4适合我们扩容，并安装软件包。&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td style="text-align: center">efi&lt;/td>
+ &lt;td style="text-align: left">指的是UEFI，可以使用GPT分区列表，是较新的技术，性能和可扩展性上更好，不带efi的则是使用Legacy。&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td style="text-align: center">bootloader&lt;/td>
+ &lt;td style="text-align: left">引导程序&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td style="text-align: center">kernel&lt;/td>
+ &lt;td style="text-align: left">Linux内核&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td style="text-align: center">rootfs&lt;/td>
+ &lt;td style="text-align: left">openwrt根系统&lt;/td>
+ &lt;/tr>
+ &lt;/tbody>
+&lt;/table>
+&lt;h3 id="参考文档">参考文档&lt;/h3>
+&lt;ul>
+&lt;li>&lt;a href="https://openwrt.org/docs/guide-user/installation/openwrt_x86">OpenWrt on x86 hardware (PC / VM / server)&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://blog.csdn.net/WTCLLB/article/details/131094724">安装OpenWrt到电脑，安装包选哪个？&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://www.right.com.cn/forum/forum.php?mod=viewthread&amp;amp;tid=193351&amp;amp;page=1&amp;amp;authorid=227980">openwrt x86版本&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://www.bilibili.com/read/cv21254550/">原版Openwrt在x86平台上的安装和配置以及常用插件安装&lt;/a>&lt;/li>
+&lt;/ul></description></item></channel></rss>

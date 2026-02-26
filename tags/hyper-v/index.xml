@@ -1,6 +1,299 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Hyper-V on 瘦了就帅了</title><link>https://cuile.github.io/tags/hyper-v/</link><description>Recent content in Hyper-V on 瘦了就帅了</description><generator>Hugo -- gohugo.io</generator><copyright>Copyright © 2008–2018, Steve Francia and the Hugo Authors; all rights reserved.</copyright><lastBuildDate>Sat, 06 May 2023 20:20:12 +0800</lastBuildDate><atom:link href="https://cuile.github.io/tags/hyper-v/index.xml" rel="self" type="application/rss+xml"/><item><title>Hyper-V 下设置 Deepin 分辨率</title><link>https://cuile.github.io/posts/windows/hyper-v_deepin_resolution/</link><pubDate>Sat, 06 May 2023 20:20:12 +0800</pubDate><guid>https://cuile.github.io/posts/windows/hyper-v_deepin_resolution/</guid><description>
-在hyper-v虚拟机下调节分辨率 1$ sudo nano /etc/default/grub 修改配置项 1GRUB_CMDLINE_LINUX_DEFAULT=&amp;#34;quiet splash video=hyperv_fb:1366x768&amp;#34; 更新 grub 1$ sudo /usr/lib/deepin-api/adjust-grub-theme 2$ sudo update-grub 注意：这种方法最高只能支持 1920×1080 的分辨率，对于大显示</description></item><item><title>Hyper-V 环境下给 CentOS 磁盘扩容</title><link>https://cuile.github.io/posts/windows/hyper-v_centos_disk_expansion/</link><pubDate>Mon, 26 Dec 2022 21:01:32 +0800</pubDate><guid>https://cuile.github.io/posts/windows/hyper-v_centos_disk_expansion/</guid><description>
-使用Hyper-V安装CentOS虚拟机，使用起来非常方便。但遇到磁盘空间不够时，不像Windows虚拟机那样方便给磁盘空间扩容。 总体两分二</description></item><item><title>Hyper-V 下设置 Ubuntu 分辨率</title><link>https://cuile.github.io/posts/windows/hyper-v_ubuntu_resolution/</link><pubDate>Mon, 26 Dec 2022 20:58:50 +0800</pubDate><guid>https://cuile.github.io/posts/windows/hyper-v_ubuntu_resolution/</guid><description>
-Hyper-V 环境下安装 Linux 是无法调节分辨率的，但可以通过设置指定分辨率，不过最大只能支持1920x1080 1. 修改配置文件 1$ sudo nano /etc/default/grub 将配置 1GRUB_CMDLINE_LINUX_DEFAULT=&amp;#34;quiet splash &amp;#34; 修改为 1GRUB_CMDLINE_LINUX_DEFAULT=&amp;#34;quiet splash video=hyperv_fb:1920x1080&amp;#34;</description></item><item><title>Windows 10 家庭版安装 Hyper-V</title><link>https://cuile.github.io/posts/windows/hyper-v_windows10/</link><pubDate>Mon, 26 Dec 2022 20:55:50 +0800</pubDate><guid>https://cuile.github.io/posts/windows/hyper-v_windows10/</guid><description>
-一般新电脑买来都默认安排家庭版，相比专业版一个主要的区别就是没有Hpyer-V 功能。 Hpyer-V 功能支持虚拟机，Windows原生的虚拟机在资源占用方</description></item><item><title>Hyper-V 网络设置</title><link>https://cuile.github.io/posts/windows/hyper-v_network/</link><pubDate>Mon, 26 Dec 2022 20:49:50 +0800</pubDate><guid>https://cuile.github.io/posts/windows/hyper-v_network/</guid><description>
-1. 网络配置的方法 1.1 Hyper-V 安装完后，将自动创建一个“默认虚拟交换机”，并同时创建一个同名的虚拟网卡。 此交换机名及虚拟网卡都无法修改，虚拟机直接填加</description></item></channel></rss>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Hyper-V on 瘦了就帅了</title><link>https://blog.cuile.com/tags/hyper-v/</link><description>Recent content in Hyper-V on 瘦了就帅了</description><generator>Hugo</generator><language>zh-cn</language><lastBuildDate>Thu, 26 Feb 2026 02:59:37 +0000</lastBuildDate><atom:link href="https://blog.cuile.com/tags/hyper-v/index.xml" rel="self" type="application/rss+xml"/><item><title>Hyper-V 下设置 Deepin 分辨率</title><link>https://blog.cuile.com/post/windows/hyper-v_deepin_resolution/</link><pubDate>Sat, 06 May 2023 20:20:12 +0800</pubDate><guid>https://blog.cuile.com/post/windows/hyper-v_deepin_resolution/</guid><description>&lt;h2 id="在hyper-v虚拟机下调节分辨率">在hyper-v虚拟机下调节分辨率&lt;/h2>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span>$ sudo nano /etc/default/grub
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>修改配置项&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-ini" data-lang="ini">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#a6e22e">GRUB_CMDLINE_LINUX_DEFAULT&lt;/span>&lt;span style="color:#f92672">=&lt;/span>&lt;span style="color:#e6db74">&amp;#34;quiet splash video=hyperv_fb:1366x768&amp;#34;&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>更新 grub&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span>$ sudo /usr/lib/deepin-api/adjust-grub-theme
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>$ sudo update-grub
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>&lt;em>注意：这种方法最高只能支持 1920×1080 的分辨率，对于大显示器，高 DPI 的童鞋，可以考虑用 RDP，VNC 等方式来用上更高的分辨率。&lt;/em>&lt;/p>
+&lt;h3 id="参考文档">参考文档&lt;/h3>
+&lt;ul>
+&lt;li>&lt;a href="https://www.jianshu.com/p/f7fd7b708a65">https://www.jianshu.com/p/f7fd7b708a65&lt;/a>&lt;/li>
+&lt;/ul></description></item><item><title>Hyper-V 环境下给 CentOS 磁盘扩容</title><link>https://blog.cuile.com/post/windows/hyper-v_centos_disk_expansion/</link><pubDate>Mon, 26 Dec 2022 21:01:32 +0800</pubDate><guid>https://blog.cuile.com/post/windows/hyper-v_centos_disk_expansion/</guid><description>&lt;p>使用Hyper-V安装CentOS虚拟机，使用起来非常方便。但遇到磁盘空间不够时，不像Windows虚拟机那样方便给磁盘空间扩容。
+总体两分二步：&lt;/p>
+&lt;h2 id="1-vhdx扩容">1. vhdx扩容&lt;/h2>
+&lt;p>关闭虚拟机，然后给磁盘扩容，操作方便网上教程多，这里不再赘述。&lt;/p>
+&lt;h2 id="2-centos扩容">2. CentOS扩容&lt;/h2>
+&lt;h3 id="21-查看分区表">2.1 查看分区表&lt;/h3>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span>$ lsblk
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>NAME MAJ:MIN RM SIZE RO TYPE MOUNTPOINT
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>sda 8:0 &lt;span style="color:#ae81ff">0&lt;/span> 20G &lt;span style="color:#ae81ff">0&lt;/span> disk 
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>├─sda1 8:1 &lt;span style="color:#ae81ff">0&lt;/span> 200M &lt;span style="color:#ae81ff">0&lt;/span> part /boot/efi
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>├─sda2 8:2 &lt;span style="color:#ae81ff">0&lt;/span> 1G &lt;span style="color:#ae81ff">0&lt;/span> part /boot
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>└─sda3 8:3 &lt;span style="color:#ae81ff">0&lt;/span> 8.8G &lt;span style="color:#ae81ff">0&lt;/span> part 
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> ├─centos-root 253:0 &lt;span style="color:#ae81ff">0&lt;/span> 7.8G &lt;span style="color:#ae81ff">0&lt;/span> lvm /
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> └─centos-swap 253:1 &lt;span style="color:#ae81ff">0&lt;/span> 1G &lt;span style="color:#ae81ff">0&lt;/span> lvm &lt;span style="color:#f92672">[&lt;/span>SWAP&lt;span style="color:#f92672">]&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>以上内容可以看出，sda已经扩容到20G，但sda1+sda2+sda3只有10G说明vhdx扩容成功。&lt;/p>
+&lt;h3 id="22-建立新分区">2.2 建立新分区&lt;/h3>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span>$ fdisk /dev/sda
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>The device presents a logical sector size that is smaller than
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>the physical sector size. Aligning to a physical sector &lt;span style="color:#f92672">(&lt;/span>or optimal
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>I/O&lt;span style="color:#f92672">)&lt;/span> size boundary is recommended, or performance may be impacted.
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>欢迎使用 fdisk &lt;span style="color:#f92672">(&lt;/span>util-linux 2.23.2&lt;span style="color:#f92672">)&lt;/span>。
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>更改将停留在内存中，直到您决定将更改写入磁盘。
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>使用写入命令前请三思。
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>命令&lt;span style="color:#f92672">(&lt;/span>输入 m 获取帮助&lt;span style="color:#f92672">)&lt;/span>：n
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>Partition type:
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> p primary &lt;span style="color:#f92672">(&lt;/span>&lt;span style="color:#ae81ff">1&lt;/span> primary, &lt;span style="color:#ae81ff">0&lt;/span> extended, &lt;span style="color:#ae81ff">3&lt;/span> free&lt;span style="color:#f92672">)&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> e extended
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>Select &lt;span style="color:#f92672">(&lt;/span>default p&lt;span style="color:#f92672">)&lt;/span>: 
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>Using default response p
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>分区号 &lt;span style="color:#f92672">(&lt;/span>2-4，默认 2&lt;span style="color:#f92672">)&lt;/span>：
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>起始 扇区 &lt;span style="color:#f92672">(&lt;/span>20971520-41943039，默认为 20971520&lt;span style="color:#f92672">)&lt;/span>：
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>将使用默认值 &lt;span style="color:#ae81ff">20971520&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>Last 扇区, +扇区 or +size&lt;span style="color:#f92672">{&lt;/span>K,M,G&lt;span style="color:#f92672">}&lt;/span> &lt;span style="color:#f92672">(&lt;/span>20971520-41943039，默认为 41943039&lt;span style="color:#f92672">)&lt;/span>：+10G
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>值超出范围。
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>Last 扇区, +扇区 or +size&lt;span style="color:#f92672">{&lt;/span>K,M,G&lt;span style="color:#f92672">}&lt;/span> &lt;span style="color:#f92672">(&lt;/span>20971520-41943039，默认为 41943039&lt;span style="color:#f92672">)&lt;/span>：+9.9G
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>不支持的后缀：“.9G”。
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>支持：10^N: KB &lt;span style="color:#f92672">(&lt;/span>千字节&lt;span style="color:#f92672">)&lt;/span>, MB &lt;span style="color:#f92672">(&lt;/span>兆字节&lt;span style="color:#f92672">)&lt;/span>, GB &lt;span style="color:#f92672">(&lt;/span>吉字节&lt;span style="color:#f92672">)&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> 2^N: K &lt;span style="color:#f92672">(&lt;/span>约千字节&lt;span style="color:#f92672">)&lt;/span>, M &lt;span style="color:#f92672">(&lt;/span>约兆字节&lt;span style="color:#f92672">)&lt;/span>, G &lt;span style="color:#f92672">(&lt;/span>约吉字节&lt;span style="color:#f92672">)&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>Last 扇区, +扇区 or +size&lt;span style="color:#f92672">{&lt;/span>K,M,G&lt;span style="color:#f92672">}&lt;/span> &lt;span style="color:#f92672">(&lt;/span>20971520-41943039，默认为 41943039&lt;span style="color:#f92672">)&lt;/span>：+9G 
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>分区 &lt;span style="color:#ae81ff">2&lt;/span> 已设置为 Linux 类型，大小设为 &lt;span style="color:#ae81ff">9&lt;/span> GiB
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>命令&lt;span style="color:#f92672">(&lt;/span>输入 m 获取帮助&lt;span style="color:#f92672">)&lt;/span>：w
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>The partition table has been altered!
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>Calling ioctl&lt;span style="color:#f92672">()&lt;/span> to re-read partition table.
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>WARNING: Re-reading the partition table failed with error 16: 设备或资源忙.
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>The kernel still uses the old table. The new table will be used at
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>the next reboot or after you run partprobe&lt;span style="color:#f92672">(&lt;/span>8&lt;span style="color:#f92672">)&lt;/span> or kpartx&lt;span style="color:#f92672">(&lt;/span>8&lt;span style="color:#f92672">)&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>正在同步磁盘。
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h4 id="重读分区表时发生错误">重读分区表时，发生错误&lt;/h4>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span>$ partprobe
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>Error: 备份 GPT 表不像应该的那样出现在磁盘的末尾。这可能意味这其它操作系统相信磁盘小一些。通过将备份移动到末尾 &lt;span style="color:#f92672">(&lt;/span>并删除旧备份&lt;span style="color:#f92672">)&lt;/span> 来修正？
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>Warning: Not all of the space available to /dev/sda appears to be used, you can fix the GPT to use all of the space &lt;span style="color:#f92672">(&lt;/span>an extra &lt;span style="color:#ae81ff">20971520&lt;/span> blocks&lt;span style="color:#f92672">)&lt;/span> or &lt;span style="color:#66d9ef">continue&lt;/span> with the current setting? 
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h4 id="查看分区表时发现新分区未创建成功">查看分区表时，发现新分区未创建成功&lt;/h4>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span>$ lsblk
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>NAME MAJ:MIN RM SIZE RO TYPE MOUNTPOINT
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>sda 8:0 &lt;span style="color:#ae81ff">0&lt;/span> 20G &lt;span style="color:#ae81ff">0&lt;/span> disk 
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>├─sda1 8:1 &lt;span style="color:#ae81ff">0&lt;/span> 200M &lt;span style="color:#ae81ff">0&lt;/span> part /boot/efi
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>├─sda2 8:2 &lt;span style="color:#ae81ff">0&lt;/span> 1G &lt;span style="color:#ae81ff">0&lt;/span> part /boot
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>└─sda3 8:3 &lt;span style="color:#ae81ff">0&lt;/span> 8.8G &lt;span style="color:#ae81ff">0&lt;/span> part 
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> ├─centos-root 253:0 &lt;span style="color:#ae81ff">0&lt;/span> 7.8G &lt;span style="color:#ae81ff">0&lt;/span> lvm /
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> └─centos-swap 253:1 &lt;span style="color:#ae81ff">0&lt;/span> 1G &lt;span style="color:#ae81ff">0&lt;/span> lvm &lt;span style="color:#f92672">[&lt;/span>SWAP&lt;span style="color:#f92672">]&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h4 id="使用-parted-修复分区表">使用 parted 修复分区表&lt;/h4>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span>$ parted /dev/sda
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>GNU Parted 3.1
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>使用 /dev/sda
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>Welcome to GNU Parted! Type &lt;span style="color:#e6db74">&amp;#39;help&amp;#39;&lt;/span> to view a list of commands.
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#f92672">(&lt;/span>parted&lt;span style="color:#f92672">)&lt;/span> p 
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>错误: 备份 GPT 表不像应该的那样出现在磁盘的末尾。这可能意味这其它操作系统相信磁盘小一些。通过将备份移动到末尾 &lt;span style="color:#f92672">(&lt;/span>并删除旧备份&lt;span style="color:#f92672">)&lt;/span> 来修正？
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>修正/Fix/忽略/Ignore/放弃/Cancel? fix 
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>警告: Not all of the space available to /dev/sda appears to be used, you can fix the GPT to use all of the space &lt;span style="color:#f92672">(&lt;/span>an extra &lt;span style="color:#ae81ff">20971520&lt;/span> blocks&lt;span style="color:#f92672">)&lt;/span> or &lt;span style="color:#66d9ef">continue&lt;/span> with the current
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>setting? 
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>修正/Fix/忽略/Ignore? fix 
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>Model: Msft Virtual Disk &lt;span style="color:#f92672">(&lt;/span>scsi&lt;span style="color:#f92672">)&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>Disk /dev/sda: 21.5GB
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>Sector size &lt;span style="color:#f92672">(&lt;/span>logical/physical&lt;span style="color:#f92672">)&lt;/span>: 512B/4096B
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>Partition Table: gpt
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>Disk Flags: 
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>Number Start End Size File system Name 标志
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#ae81ff">1&lt;/span> 1049kB 211MB 210MB fat16 EFI System Partition 启动
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#ae81ff">2&lt;/span> 211MB 1285MB 1074MB xfs
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#ae81ff">3&lt;/span> 1285MB 10.7GB 9452MB lvm
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#f92672">(&lt;/span>parted&lt;span style="color:#f92672">)&lt;/span> p 
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>Model: Msft Virtual Disk &lt;span style="color:#f92672">(&lt;/span>scsi&lt;span style="color:#f92672">)&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>Disk /dev/sda: 21.5GB
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>Sector size &lt;span style="color:#f92672">(&lt;/span>logical/physical&lt;span style="color:#f92672">)&lt;/span>: 512B/4096B
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>Partition Table: gpt
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>Disk Flags: 
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>Number Start End Size File system Name 标志
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#ae81ff">1&lt;/span> 1049kB 211MB 210MB fat16 EFI System Partition 启动
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#ae81ff">2&lt;/span> 211MB 1285MB 1074MB xfs
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#ae81ff">3&lt;/span> 1285MB 10.7GB 9452MB lvm
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#f92672">(&lt;/span>parted&lt;span style="color:#f92672">)&lt;/span> quit 
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h4 id="再次建立新分区">再次建立新分区&lt;/h4>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span>$ fdisk /dev/sda
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>WARNING: fdisk GPT support is currently new, and therefore in an experimental phase. Use at your own discretion.
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>欢迎使用 fdisk &lt;span style="color:#f92672">(&lt;/span>util-linux 2.23.2&lt;span style="color:#f92672">)&lt;/span>。
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>更改将停留在内存中，直到您决定将更改写入磁盘。
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>使用写入命令前请三思。
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>命令&lt;span style="color:#f92672">(&lt;/span>输入 m 获取帮助&lt;span style="color:#f92672">)&lt;/span>：n
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>分区号 &lt;span style="color:#f92672">(&lt;/span>4-128，默认 4&lt;span style="color:#f92672">)&lt;/span>：
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>第一个扇区 &lt;span style="color:#f92672">(&lt;/span>34-41943006，默认 20969472&lt;span style="color:#f92672">)&lt;/span>：
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>Last sector, +sectors or +size&lt;span style="color:#f92672">{&lt;/span>K,M,G,T,P&lt;span style="color:#f92672">}&lt;/span> &lt;span style="color:#f92672">(&lt;/span>20969472-41943006，默认 41943006&lt;span style="color:#f92672">)&lt;/span>：+10G
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>已创建分区 &lt;span style="color:#ae81ff">4&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>命令&lt;span style="color:#f92672">(&lt;/span>输入 m 获取帮助&lt;span style="color:#f92672">)&lt;/span>：w
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>The partition table has been altered!
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>Calling ioctl&lt;span style="color:#f92672">()&lt;/span> to re-read partition table.
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>WARNING: Re-reading the partition table failed with error 16: 设备或资源忙.
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>The kernel still uses the old table. The new table will be used at
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>the next reboot or after you run partprobe&lt;span style="color:#f92672">(&lt;/span>8&lt;span style="color:#f92672">)&lt;/span> or kpartx&lt;span style="color:#f92672">(&lt;/span>8&lt;span style="color:#f92672">)&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>正在同步磁盘。
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h3 id="23-重读分区表">2.3 重读分区表&lt;/h3>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span>$ partprobe
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>重读分区表，正常不会有任何输出&lt;/p></description></item><item><title>Hyper-V 下设置 Ubuntu 分辨率</title><link>https://blog.cuile.com/post/windows/hyper-v_ubuntu_resolution/</link><pubDate>Mon, 26 Dec 2022 20:58:50 +0800</pubDate><guid>https://blog.cuile.com/post/windows/hyper-v_ubuntu_resolution/</guid><description>&lt;p>Hyper-V 环境下安装 Linux 是无法调节分辨率的，但可以通过设置指定分辨率，不过最大只能支持1920x1080&lt;/p>
+&lt;h2 id="1-修改配置文件">1. 修改配置文件&lt;/h2>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span>$ sudo nano /etc/default/grub
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>将配置&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-ini" data-lang="ini">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#a6e22e">GRUB_CMDLINE_LINUX_DEFAULT&lt;/span>&lt;span style="color:#f92672">=&lt;/span>&lt;span style="color:#e6db74">&amp;#34;quiet splash &amp;#34;&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>修改为&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-ini" data-lang="ini">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#a6e22e">GRUB_CMDLINE_LINUX_DEFAULT&lt;/span>&lt;span style="color:#f92672">=&lt;/span>&lt;span style="color:#e6db74">&amp;#34;quiet splash video=hyperv_fb:1920x1080&amp;#34;&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>这里要注意屏幕的实际分辨率，在15寸的笔记本上，适合的分辨率为1600x900&lt;/p>
+&lt;h2 id="2-更新-grub">2. 更新 Grub&lt;/h2>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span>$ sudo update-grub
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="3-重启">3. 重启&lt;/h2>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span>$ reboot
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="参考文档">参考文档&lt;/h2>
+&lt;p>&lt;a href="https://www.pcoic.com/system/743.html">Hyper-V 下 Ubuntu/Deepin 如何设置分辨率&lt;/a>&lt;/p></description></item><item><title>Windows 10 家庭版安装 Hyper-V</title><link>https://blog.cuile.com/post/windows/hyper-v_windows10/</link><pubDate>Mon, 26 Dec 2022 20:55:50 +0800</pubDate><guid>https://blog.cuile.com/post/windows/hyper-v_windows10/</guid><description>&lt;p>一般新电脑买来都默认安排家庭版，相比专业版一个主要的区别就是没有Hpyer-V 功能。
+Hpyer-V 功能支持虚拟机，Windows原生的虚拟机在资源占用方便很有优势，不只是对开发人员有用，对日常办公也非常方便。&lt;/p>
+&lt;ul>
+&lt;li>常用的办公软件环境统一&lt;/li>
+&lt;li>迁移方便&lt;/li>
+&lt;li>控制流氓软件占用资源&lt;/li>
+&lt;li>可随时通过还原点，还原系统&lt;/li>
+&lt;/ul>
+&lt;h2 id="1-安装脚本">1. 安装脚本&lt;/h2>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span>pushd &lt;span style="color:#e6db74">&amp;#34;%~dp0&amp;#34;&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> 
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>dir /b %SystemRoot%&lt;span style="color:#ae81ff">\s&lt;/span>ervicing&lt;span style="color:#ae81ff">\P&lt;/span>ackages&lt;span style="color:#ae81ff">\*&lt;/span>Hyper-V*.mum &amp;gt;hyper-v.txt
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> 
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#66d9ef">for&lt;/span> /f %%i in &lt;span style="color:#f92672">(&lt;/span>&lt;span style="color:#e6db74">&amp;#39;findstr /i . hyper-v.txt 2^&amp;gt;nul&amp;#39;&lt;/span>&lt;span style="color:#f92672">)&lt;/span> &lt;span style="color:#66d9ef">do&lt;/span> dism /online /norestart /add-package:&lt;span style="color:#e6db74">&amp;#34;%SystemRoot%\servicing\Packages\%%i&amp;#34;&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> 
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>del hyper-v.txt
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> 
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>Dism /online /enable-feature /featurename:Microsoft-Hyper-V-All /LimitAccess /ALL
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>保存为Hyper-V.cmd&lt;/p>
+&lt;h2 id="2-运行脚本">2. 运行脚本&lt;/h2>
+&lt;p>将脚本放到桌面，右键“以管理员身份运行”，等待安装结束后，就可以使用 Hyper-V 功能了。&lt;/p>
+&lt;h2 id="3-其它">3. 其它&lt;/h2>
+&lt;ul>
+&lt;li>&lt;a href="https://learn.microsoft.com/zh-cn/windows-server/virtualization/hyper-v/deploy/upgrade-virtual-machine-version-in-hyper-v-on-windows-or-windows-server">在 Windows 或 Windows Server 的 Hyper-V 中升级虚拟机版本&lt;/a>&lt;/li>
+&lt;/ul></description></item><item><title>Hyper-V 网络设置</title><link>https://blog.cuile.com/post/windows/hyper-v_network/</link><pubDate>Mon, 26 Dec 2022 20:49:50 +0800</pubDate><guid>https://blog.cuile.com/post/windows/hyper-v_network/</guid><description>&lt;h2 id="1-网络配置的方法">1. 网络配置的方法&lt;/h2>
+&lt;ul>
+&lt;li>1.1 Hyper-V 安装完后，将自动创建一个“默认虚拟交换机”，并同时创建一个同名的虚拟网卡。
+&lt;ul>
+&lt;li>此交换机名及虚拟网卡都无法修改，虚拟机直接填加即可使用网络。&lt;/li>
+&lt;li>虚拟机之间互联，再创建一个“内部交换机”，添加到虚拟机并设置同一网段即可。&lt;/li>
+&lt;li>缺点：速度较慢&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>1.2 将宿主机物理网卡直接共享给“默认虚拟交换机”创建的虚拟网卡，是比较省事、且高效的方法，相当于在物理网卡上做了一个NAT转换。
+&lt;ul>
+&lt;li>优点：“默认虚拟交换机”创建的虚拟网卡IP地址会自动固定为192.168.137.1，所有虚拟机的网段会固定为192.168.137.0。网速较快。&lt;/li>
+&lt;li>缺点：
+&lt;ul>
+&lt;li>在多个物理网卡之间切换时非常不方便；&lt;/li>
+&lt;li>在ReviOS等第三方精简系统中，运作不稳定。&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>1.3 在宿主机使用无线网卡时，由于Hyper-V对无线网卡支持的不好，需要做以下操作：
+&lt;ul>
+&lt;li>新建“外部虚拟交换机”：
+&lt;ul>
+&lt;li>选择宿主机网卡。
+&lt;ul>
+&lt;li>勾选“允许管理操作系统共享此网络适配器”。
+&lt;ul>
+&lt;li>网速较快。&lt;/li>
+&lt;li>会在宿主机上创建一个网桥，一个虚拟网卡，且宿主机可同时上网。&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>反之，则只会添加一个网桥，且宿主机无法同时上网。
+&lt;ul>
+&lt;li>这是 Hyper-V 对无线网卡支持不够好的表现，而且网速很慢，慢到什么程度呢？慢到微信连文件都发不出去！&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>新建“内部虚拟交换机”：
+&lt;ul>
+&lt;li>会在宿主机上创建一个虚拟网卡。&lt;/li>
+&lt;li>将所有虚拟机都接入自建的“内部虚拟交换机”，可以解决IP变化的问题。&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>在宿主机上，将“外部虚拟交换机”创建的虚拟网卡，共享给“内部虚拟交换机”创建的虚拟网卡。
+&lt;ul>
+&lt;li>“内部虚拟交换机”创建的虚拟网卡IP地址会自动固定为192.168.137.1，所有虚拟机的网段会固定为192.168.137.0。&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>在ReviOS等第三方精简系统中，运作不稳定。&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ul>
+&lt;h3 id="ps">PS:&lt;/h3>
+&lt;ul>
+&lt;li>如在宿主机同时安装了“Windows沙盒”功能，则沙盒会给每个物理网卡和虚拟网卡，都自动的再创建一个对应的虚拟网卡，容易造成混乱，使用中要注意。&lt;/li>
+&lt;li>Windows 网络共享重启会失效，这个BUG一直没有解决，需要如此解决：
+&lt;ul>
+&lt;li>找到“Internet Connection Sharing”服务
+&lt;ul>
+&lt;li>启动类型：自动&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>找到注册表中“HKEY_LOCAL_MACHINE\Software\Microsoft\Windows\CurrentVersion\SharedAccess”
+&lt;ul>
+&lt;li>新建“DWORD(32位)值(D)”：EnableRebootPersistConnection&lt;/li>
+&lt;li>值（十六进制）：1&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>重启电脑&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>最好给每个虚拟机都设置外网DNS，比如1.2.4.8，因为hyper-v的DNS服务不是很稳定。&lt;/li>
+&lt;/ul>
+&lt;h2 id="2-网络拓扑">2. 网络拓扑&lt;/h2>
+&lt;p>使用以下拓扑结构来，解决多个物理网卡随时切换的问题：
+宿主机直连路由器，宿主机上创建一个虚拟路由器，和一个虚拟机，宿主机与虚拟机都通过虚拟路由器来上网。&lt;/p>
+&lt;table>
+ &lt;thead>
+ &lt;tr>
+ &lt;th>&lt;/th>
+ &lt;th>TP Route&lt;/th>
+ &lt;th>宿主机&lt;/th>
+ &lt;th>OpenWRT&lt;/th>
+ &lt;th>虚拟机&lt;/th>
+ &lt;/tr>
+ &lt;/thead>
+ &lt;tbody>
+ &lt;tr>
+ &lt;td>WLAN&lt;/td>
+ &lt;td>&amp;gt;DHCP&lt;!-- raw HTML omitted -->IP: 192.168.10.113&lt;!-- raw HTML omitted -->IP: 192.168.10.114&lt;!-- raw HTML omitted -->mac: ac-8f&lt;/td>
+ &lt;td>&amp;gt;Bridge&lt;!-- raw HTML omitted -->IP: -&lt;!-- raw HTML omitted -->mac: ac-8f&lt;/td>
+ &lt;td>-&lt;/td>
+ &lt;td>-&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>外部网络&lt;/td>
+ &lt;td>-&lt;/td>
+ &lt;td>&amp;gt;WLAN&lt;!-- raw HTML omitted -->IP: 192.168.10.113&lt;!-- raw HTML omitted -->mac: ac-8f&lt;/td>
+ &lt;td>&amp;gt;WLAN&lt;!-- raw HTML omitted -->IP: 192.168.10.114&lt;!-- raw HTML omitted -->mac: 01-36&lt;/td>
+ &lt;td>-&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>内部网络&lt;/td>
+ &lt;td>-&lt;/td>
+ &lt;td>&amp;gt;DHCP&lt;!-- raw HTML omitted -->IP: 192.168.123.100&lt;!-- raw HTML omitted -->mac: 01-28&lt;/td>
+ &lt;td>&amp;gt;Static&lt;!-- raw HTML omitted -->IP: 192.168.123.1&lt;!-- raw HTML omitted -->mac: 01-29&lt;/td>
+ &lt;td>&amp;gt;DHCP&lt;!-- raw HTML omitted -->IP: 192.168.123.102&lt;!-- raw HTML omitted -->mac: 01-2c&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>网桥&lt;/td>
+ &lt;td>-&lt;/td>
+ &lt;td>&amp;gt;Switch&lt;!-- raw HTML omitted -->IP: -&lt;!-- raw HTML omitted -->mac: ac-8f&lt;/td>
+ &lt;td>-&lt;/td>
+ &lt;td>-&lt;/td>
+ &lt;/tr>
+ &lt;/tbody>
+&lt;/table>
+&lt;p>可以尝试使用网桥功能，解决多物理网卡切换的问题&lt;/p></description></item></channel></rss>

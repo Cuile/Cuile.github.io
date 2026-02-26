@@ -1,2 +1,70 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Rime on 瘦了就帅了</title><link>https://cuile.github.io/tags/rime/</link><description>Recent content in Rime on 瘦了就帅了</description><generator>Hugo -- gohugo.io</generator><copyright>Copyright © 2008–2018, Steve Francia and the Hugo Authors; all rights reserved.</copyright><lastBuildDate>Fri, 19 Jan 2024 13:11:15 +0800</lastBuildDate><atom:link href="https://cuile.github.io/tags/rime/index.xml" rel="self" type="application/rss+xml"/><item><title>Rime输入法设置</title><link>https://cuile.github.io/posts/rime_setup/</link><pubDate>Fri, 19 Jan 2024 13:11:15 +0800</pubDate><guid>https://cuile.github.io/posts/rime_setup/</guid><description>
-1.安装五笔 输入法设定-获取更多输入方案-在打开的命令行窗口 输入 &amp;quot;wubi&amp;quot; 回车 2.配置P站风格配色主题 用户文件夹-weasel.custom.yam</description></item></channel></rss>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Rime on 瘦了就帅了</title><link>https://blog.cuile.com/tags/rime/</link><description>Recent content in Rime on 瘦了就帅了</description><generator>Hugo</generator><language>zh-cn</language><lastBuildDate>Thu, 26 Feb 2026 02:59:37 +0000</lastBuildDate><atom:link href="https://blog.cuile.com/tags/rime/index.xml" rel="self" type="application/rss+xml"/><item><title>Rime/中州韵 输入法安装设置</title><link>https://blog.cuile.com/post/rime_setup/</link><pubDate>Fri, 19 Jan 2024 13:11:15 +0800</pubDate><guid>https://blog.cuile.com/post/rime_setup/</guid><description>&lt;p>Rime/中州韵 输入法是一个跨平台的输入引擎，非常强大优秀。
+它在不同的平台有不同的名字：&lt;/p>
+&lt;ul>
+&lt;li>Windows: 小狼毫 Weasel&lt;/li>
+&lt;li>MacOS: 鼠鬚管 Squirrel, 小企鹅 fcitx5-macos&lt;/li>
+&lt;li>Linux: ibus-rime, fcitx5-rime&lt;/li>
+&lt;/ul>
+&lt;h2 id="windows">Windows&lt;/h2>
+&lt;h3 id="配置输入法">配置输入法&lt;/h3>
+&lt;ul>
+&lt;li>&lt;code>输入法设定&lt;/code>&amp;gt;&lt;code>获取更多输入方案&lt;/code>&amp;gt;&lt;code>在打开的命令行窗口&lt;/code>&lt;/li>
+&lt;li>输入 &amp;ldquo;wubi_pinyin&amp;rdquo; 回车&lt;/li>
+&lt;/ul>
+&lt;h3 id="配置p站风格配色主题">配置P站风格配色主题&lt;/h3>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-yaml" data-lang="yaml">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e"># weasel.custom.yaml&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#f92672">patch&lt;/span>:
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#75715e"># P站风格配色主题&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#f92672">&amp;#34;style/color_scheme&amp;#34;: &lt;/span>&lt;span style="color:#e6db74">&amp;#34;Pornhub&amp;#34;&lt;/span> 
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#e6db74">&amp;#34;preset_color_schemes/Pornhub&amp;#34;&lt;/span>:
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#f92672">author&lt;/span>: &lt;span style="color:#e6db74">&amp;#34;周庸生&amp;#34;&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#f92672">back_color&lt;/span>: &lt;span style="color:#ae81ff">0x000000&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#f92672">border_color&lt;/span>: &lt;span style="color:#ae81ff">0x000000&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#f92672">candidate_text_color&lt;/span>: &lt;span style="color:#ae81ff">0xffffff&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#f92672">comment_text_color&lt;/span>: &lt;span style="color:#ae81ff">0xffffff&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#f92672">hilited_back_color&lt;/span>: &lt;span style="color:#ae81ff">0x009bff&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#f92672">hilited_candidate_back_color&lt;/span>: &lt;span style="color:#ae81ff">0x009bff&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#f92672">hilited_candidate_text_color&lt;/span>: &lt;span style="color:#ae81ff">0x000000&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#f92672">hilited_comment_text_color&lt;/span>: &lt;span style="color:#ae81ff">0x000000&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#f92672">hilited_lable_color&lt;/span>: &lt;span style="color:#ae81ff">0x000000&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#f92672">hilited_text_color&lt;/span>: &lt;span style="color:#ae81ff">0x000000&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#f92672">label_color&lt;/span>: &lt;span style="color:#ae81ff">0xffffff&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#f92672">name&lt;/span>: &lt;span style="color:#ae81ff">Pornhub&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#f92672">text_color&lt;/span>: &lt;span style="color:#ae81ff">0xffffff&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="debian">Debian&lt;/h2>
+&lt;h3 id="安装-fcitx5">安装 fcitx5&lt;/h3>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span>killall ibus-daemon &lt;span style="color:#ae81ff">\
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#ae81ff">&lt;/span>&lt;span style="color:#f92672">&amp;amp;&amp;amp;&lt;/span> apt remove ibus &lt;span style="color:#ae81ff">\
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#ae81ff">&lt;/span>&lt;span style="color:#f92672">&amp;amp;&amp;amp;&lt;/span> apt update &lt;span style="color:#ae81ff">\
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#ae81ff">&lt;/span>&lt;span style="color:#f92672">&amp;amp;&amp;amp;&lt;/span> apt install -y fcitx5 fcitx5-config-qt fcitx5-chinese-addons fcitx5-rime fcitx5-material-color
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h3 id="安装-东风破plum-配置工具">安装 东风破/plum/ 配置工具&lt;/h3>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e"># 因为fcitx5-rime是fcitx5团队带为开发的，所以要指定第三方Rime发行版本&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e"># 注意：此命令会默认配置所有预设置项&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>curl -fsSL https://raw.githubusercontent.com/rime/plum/master/rime-install | rime_frontend&lt;span style="color:#f92672">=&lt;/span>fcitx5-rime bash
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e"># 后续使用&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>cd ~/plum/
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>rime_frontend&lt;span style="color:#f92672">=&lt;/span>fcitx5-rime bash rime-install
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e"># 更新&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>rime_frontend&lt;span style="color:#f92672">=&lt;/span>fcitx5-rime bash rime-install plum
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e"># 也可以直接安装输入法，不配置预设置项&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e"># 这里是直接安装五笔拼音混合输入法&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>curl -fsSL https://raw.githubusercontent.com/rime/plum/master/rime-install | rime_frontend&lt;span style="color:#f92672">=&lt;/span>fcitx5-rime bash -s -- wubi pinyin-simp
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;ul>
+&lt;li>&lt;a href="https://github.com/rime/plum?tab=readme-ov-file#advanced-usage">rime/plum: 東風破 /plum/: Rime configuration manager and input schema repository&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://github.com/rime/rime-wubi">rime/rime-wubi: 【五筆字型】輸入方案&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;h3 id="配置输入法-1">配置输入法&lt;/h3>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-yaml" data-lang="yaml">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e"># ~/.local/share/fcitx5/rime/default.custom.yaml&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#f92672">patch&lt;/span>:
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#f92672">schema_list&lt;/span>:
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> - &lt;span style="color:#f92672">schema&lt;/span>: &lt;span style="color:#ae81ff">wubi_pinyin&lt;/span> &lt;span style="color:#75715e"># 添加五笔拼音混合输入法&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#f92672">switches&lt;/span>:
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> - &lt;span style="color:#f92672">name&lt;/span>: &lt;span style="color:#ae81ff">ascii_mode&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#f92672">reset&lt;/span>: &lt;span style="color:#ae81ff">1&lt;/span> &lt;span style="color:#75715e"># 每次初始化时，强制英文模式&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#f92672">states&lt;/span>: [&lt;span style="color:#ae81ff">中文,西文]&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;ul>
+&lt;li>&lt;a href="https://github.com/rime/home/wiki/CustomizationGuide#%E5%9C%A8%E6%96%B9%E6%A1%88%E9%81%B8%E5%96%AE%E4%B8%AD%E6%B7%BB%E5%8A%A0%E4%BA%94%E7%AD%86%E9%9B%99%E6%8B%BC">在方案選單中添加五筆、雙拼&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;blockquote>
+&lt;p>可惜Linux版本无法配置自定义样式&lt;/p></description></item></channel></rss>

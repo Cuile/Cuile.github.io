@@ -1,2 +1,21 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>make on 瘦了就帅了</title><link>https://cuile.github.io/tags/make/</link><description>Recent content in make on 瘦了就帅了</description><generator>Hugo -- gohugo.io</generator><copyright>Copyright © 2008–2018, Steve Francia and the Hugo Authors; all rights reserved.</copyright><lastBuildDate>Tue, 08 Feb 2022 10:05:20 +0800</lastBuildDate><atom:link href="https://cuile.github.io/tags/make/index.xml" rel="self" type="application/rss+xml"/><item><title>编译x86_64版本的OpenWrt</title><link>https://cuile.github.io/posts/openwrt/openwrt_make/</link><pubDate>Tue, 08 Feb 2022 10:05:20 +0800</pubDate><guid>https://cuile.github.io/posts/openwrt/openwrt_make/</guid><description>
-1、准备环境 建议使用纯linux系统进行编译，如 Ubuntu 20.04 LTS，这样环境比较简单，兼容问题也少。 用WSL环境编译，可参考 使用 Windows 子系统 ( WSL ) 编译 OpenWrt</description></item></channel></rss>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Make on 瘦了就帅了</title><link>https://blog.cuile.com/tags/make/</link><description>Recent content in Make on 瘦了就帅了</description><generator>Hugo</generator><language>zh-cn</language><lastBuildDate>Thu, 26 Feb 2026 02:59:37 +0000</lastBuildDate><atom:link href="https://blog.cuile.com/tags/make/index.xml" rel="self" type="application/rss+xml"/><item><title>编译x86_64版本的OpenWrt</title><link>https://blog.cuile.com/post/openwrt/openwrt_make/</link><pubDate>Tue, 08 Feb 2022 10:05:20 +0800</pubDate><guid>https://blog.cuile.com/post/openwrt/openwrt_make/</guid><description>&lt;h2 id="1准备环境">1、准备环境&lt;/h2>
+&lt;p>建议使用纯linux系统进行编译，如 Ubuntu 20.04 LTS，这样环境比较简单，兼容问题也少。&lt;/p>
+&lt;blockquote>
+&lt;p>用WSL环境编译，可参考&lt;/p>
+&lt;ul>
+&lt;li>&lt;a href="https://p3terx.com/archives/compiling-openwrt-with-wsl.html">使用 Windows 子系统 ( WSL ) 编译 OpenWrt&lt;/a>&lt;/li>
+&lt;/ul>&lt;/blockquote>
+&lt;p>为提高编译的成功率，采用国内大神Lean的版本。&lt;/p>
+&lt;p>官方版本因编译过程中，下载、兼容等等太多问题，建议不要使用。&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span>sudo apt-get update
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>sudo apt-get -y install build-essential asciidoc binutils bzip2 gawk gettext git libncurses5-dev libz-dev patch python3 python2.7 unzip zlib1g-dev lib32gcc1 libc6-dev-i386 subversion flex uglifyjs git-core gcc-multilib p7zip p7zip-full msmtp libssl-dev texinfo libglib2.0-dev xmlto qemu-utils upx libelf-dev autoconf automake libtool autopoint device-tree-compiler g++-multilib antlr3 gperf wget curl swig rsync
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="2下载代码">2、下载代码&lt;/h2>
+&lt;p>国内用户请准备好梯子&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span>git clone https://github.com/coolsnowwolf/lede
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>cd lede
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>./scripts/feeds update -a
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>./scripts/feeds install -a
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="3配置组件">3、配置组件&lt;/h2>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span>make menuconfig
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;blockquote>
+&lt;p>Hyper-V平台配置，可参考&lt;/p></description></item></channel></rss>

@@ -1,3 +1,67 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>laravel on 瘦了就帅了</title><link>https://cuile.github.io/tags/laravel/</link><description>Recent content in laravel on 瘦了就帅了</description><generator>Hugo -- gohugo.io</generator><copyright>Copyright © 2008–2018, Steve Francia and the Hugo Authors; all rights reserved.</copyright><lastBuildDate>Fri, 19 Jan 2024 13:26:15 +0800</lastBuildDate><atom:link href="https://cuile.github.io/tags/laravel/index.xml" rel="self" type="application/rss+xml"/><item><title>在CentOS中安装 Laravel 框架</title><link>https://cuile.github.io/posts/laravel/install_for_centos/</link><pubDate>Fri, 19 Jan 2024 13:26:15 +0800</pubDate><guid>https://cuile.github.io/posts/laravel/install_for_centos/</guid><description>
-1、安装Composer镜像 1$ docker pull composer:1.9.0 2、安装laravel 1# 启动Composer镜像 2$ docker run --rm \ 3 -it \ 4 -v ${PWD}:/app \ 5 composer:1.9.0 /bin/bash 6 7# 创建composer.</description></item><item><title>虚拟主机安装 Laravel 框架</title><link>https://cuile.github.io/posts/laravel/install_for_virtualhost/</link><pubDate>Fri, 19 Jan 2024 13:18:15 +0800</pubDate><guid>https://cuile.github.io/posts/laravel/install_for_virtualhost/</guid><description>
-因为阿里的弹性WEB托管，使用php 5.5.30版本，所以只能安装Laravel 5.2版本。 本教程使用WSL + docker环境安装，除完整的</description></item></channel></rss>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Laravel on 瘦了就帅了</title><link>https://blog.cuile.com/tags/laravel/</link><description>Recent content in Laravel on 瘦了就帅了</description><generator>Hugo</generator><language>zh-cn</language><lastBuildDate>Thu, 26 Feb 2026 02:59:37 +0000</lastBuildDate><atom:link href="https://blog.cuile.com/tags/laravel/index.xml" rel="self" type="application/rss+xml"/><item><title>在CentOS中安装 Laravel 框架</title><link>https://blog.cuile.com/post/laravel/install_for_centos/</link><pubDate>Fri, 19 Jan 2024 13:26:15 +0800</pubDate><guid>https://blog.cuile.com/post/laravel/install_for_centos/</guid><description>&lt;h2 id="1安装composer镜像">1、安装Composer镜像&lt;/h2>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span>$ docker pull composer:1.9.0
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="2安装laravel">2、安装laravel&lt;/h2>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e"># 启动Composer镜像&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>$ docker run --rm &lt;span style="color:#ae81ff">\
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#ae81ff">&lt;/span> -it &lt;span style="color:#ae81ff">\
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#ae81ff">&lt;/span> -v &lt;span style="color:#e6db74">${&lt;/span>PWD&lt;span style="color:#e6db74">}&lt;/span>:/app &lt;span style="color:#ae81ff">\
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#ae81ff">&lt;/span> composer:1.9.0 /bin/bash
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e"># 创建composer.json文件&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>$ composer init -n
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e"># 使用国内 Packagist镜像&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>$ composer config repo.packagist composer https://mirrors.aliyun.com/composer/
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e"># 添加laravel包&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>$ composer require -vvv &lt;span style="color:#ae81ff">\
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#ae81ff">&lt;/span> --prefer-dist &lt;span style="color:#ae81ff">\
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#ae81ff">&lt;/span> --prefer-stable &lt;span style="color:#ae81ff">\
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#ae81ff">&lt;/span> laravel/installer
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e"># 看到以下输出，说明添加成功。&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>Writing lock file
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>Generating autoload files
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e"># 在当前目录覆盖安装laravel&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>$ ./vendor/bin/laravel new
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e"># 看到以下输出，说明安装成功。&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>Package manifest generated successfully.
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>Application ready! Build something amazing.
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e"># 退出Composer镜像&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>$ exit 
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>将当前目录下的storage目录权限，设为757&lt;/p></description></item><item><title>虚拟主机安装 Laravel 框架</title><link>https://blog.cuile.com/post/laravel/install_for_virtualhost/</link><pubDate>Fri, 19 Jan 2024 13:18:15 +0800</pubDate><guid>https://blog.cuile.com/post/laravel/install_for_virtualhost/</guid><description>&lt;p>因为阿里的弹性WEB托管，使用php 5.5.30版本，所以只能安装Laravel 5.2版本。&lt;/p>
+&lt;p>本教程使用WSL + docker环境安装，除完整的laravel环境外，不会在本地留下任何痕迹。&lt;/p>
+&lt;h2 id="1本地安装composer镜像">1、本地安装Composer镜像&lt;/h2>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span>$ docker pull composer:1.9.0
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="2配置composer镜像">2、配置Composer镜像&lt;/h2>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e"># 启动Composer镜像&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>$ docker run --rm &lt;span style="color:#ae81ff">\
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#ae81ff">&lt;/span> -it &lt;span style="color:#ae81ff">\
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#ae81ff">&lt;/span> -v &lt;span style="color:#e6db74">${&lt;/span>PWD&lt;span style="color:#e6db74">}&lt;/span>:/app &lt;span style="color:#ae81ff">\
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#ae81ff">&lt;/span> composer:1.9.0 /bin/bash
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e"># 使用国内 Packagist镜像&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>$ composer config -g repo.packagist composer https://mirrors.aliyun.com/composer/
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>$ composer create-project -vvv &lt;span style="color:#ae81ff">\
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#ae81ff">&lt;/span> --prefer-dist &lt;span style="color:#ae81ff">\
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#ae81ff">&lt;/span> --no-scripts &lt;span style="color:#ae81ff">\
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#ae81ff">&lt;/span> --keep-vcs &lt;span style="color:#ae81ff">\
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#ae81ff">&lt;/span> laravel/laravel:5.2.31 &lt;span style="color:#ae81ff">\
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#ae81ff">&lt;/span> YSME
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e"># 看到以下输出，说明安装完成。&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>Writing lock file
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>Generating autoload files
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e"># 退出Composer镜像&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>$ exit 
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="4安装到虚拟主机">4、安装到虚拟主机&lt;/h2>
+&lt;p>copy YSME目录下的全部内容，到虚拟主机的目录下即可。&lt;/p>
+&lt;h2 id="5测试">5、测试&lt;/h2>
+&lt;p>访问 http://你的域名/YSME/public/
+如果显示 Laravel 5 字样，说明安装成功！&lt;/p></description></item></channel></rss>

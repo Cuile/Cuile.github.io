@@ -1,2 +1,147 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>postgresql on 瘦了就帅了</title><link>https://cuile.github.io/tags/postgresql/</link><description>Recent content in postgresql on 瘦了就帅了</description><generator>Hugo -- gohugo.io</generator><copyright>Copyright © 2008–2018, Steve Francia and the Hugo Authors; all rights reserved.</copyright><lastBuildDate>Fri, 19 Jan 2024 13:37:15 +0800</lastBuildDate><atom:link href="https://cuile.github.io/tags/postgresql/index.xml" rel="self" type="application/rss+xml"/><item><title>Centos7 安装 Postgresql</title><link>https://cuile.github.io/posts/database/postgresql_for_centos/</link><pubDate>Fri, 19 Jan 2024 13:37:15 +0800</pubDate><guid>https://cuile.github.io/posts/database/postgresql_for_centos/</guid><description>
-安装 1$ yum install https://download.postgresql.org/pub/repos/yum/10/redhat/rhel-7-x86_64/pgdg-centos10-10-2.noarch.rpm 2 3# 安装服务端包 4$ yum install postgresql10-server postgresql10 配置 1# 初始化数据库，设置自启动 2$ /usr/pgsql-10/bin/postgresql-10-setup initdb 3$ systemctl enable postgresql-10 4$ systemctl start postgresql-10 5 6# 设置防火墙规则 7$ iptables -A INPUT -p tcp -m tcp --dport 5432 -j ACCEPT #开放P</description></item></channel></rss>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Postgresql on 瘦了就帅了</title><link>https://blog.cuile.com/tags/postgresql/</link><description>Recent content in Postgresql on 瘦了就帅了</description><generator>Hugo</generator><language>zh-cn</language><lastBuildDate>Thu, 26 Feb 2026 02:59:37 +0000</lastBuildDate><atom:link href="https://blog.cuile.com/tags/postgresql/index.xml" rel="self" type="application/rss+xml"/><item><title>PostgreSQL维护手册</title><link>https://blog.cuile.com/post/database/postgresql_manual/</link><pubDate>Sat, 20 Sep 2025 22:26:06 +0800</pubDate><guid>https://blog.cuile.com/post/database/postgresql_manual/</guid><description>&lt;h1 id="postgresql-频繁读写数据库的定期维护">PostgreSQL 频繁读写数据库的定期维护&lt;/h1>
+&lt;p>&lt;strong>是的，频繁读写的 PostgreSQL 数据库绝对需要定期维护&lt;/strong>。这是保证数据库长期稳定运行、维持高性能和避免数据损坏的关键措施。&lt;/p>
+&lt;h2 id="-必须的定期维护任务">🔧 必须的定期维护任务&lt;/h2>
+&lt;h3 id="1-vacuum-维护最重要">1. &lt;strong>VACUUM 维护（最重要）&lt;/strong>&lt;/h3>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-sql" data-lang="sql">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e">-- 常规VACUUM（推荐每日执行）
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e">&lt;/span>&lt;span style="color:#66d9ef">VACUUM&lt;/span> &lt;span style="color:#66d9ef">ANALYZE&lt;/span>;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e">-- 针对特定表的VACUUM
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e">&lt;/span>&lt;span style="color:#66d9ef">VACUUM&lt;/span> &lt;span style="color:#66d9ef">ANALYZE&lt;/span> your_busiest_table;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e">-- 彻底的VACUUM（建议每周或每月）
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e">&lt;/span>&lt;span style="color:#66d9ef">VACUUM&lt;/span> &lt;span style="color:#66d9ef">FULL&lt;/span> &lt;span style="color:#66d9ef">VERBOSE&lt;/span>;
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h3 id="2-analyze-统计信息更新">2. &lt;strong>ANALYZE 统计信息更新&lt;/strong>&lt;/h3>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-sql" data-lang="sql">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e">-- 更新统计信息（查询优化器需要）
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e">&lt;/span>&lt;span style="color:#66d9ef">ANALYZE&lt;/span> &lt;span style="color:#66d9ef">VERBOSE&lt;/span>;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e">-- 针对特定表
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e">&lt;/span>&lt;span style="color:#66d9ef">ANALYZE&lt;/span> &lt;span style="color:#66d9ef">VERBOSE&lt;/span> your_busiest_table;
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h3 id="3-索引维护">3. &lt;strong>索引维护&lt;/strong>&lt;/h3>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-sql" data-lang="sql">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e">-- 重建碎片化严重的索引
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e">&lt;/span>&lt;span style="color:#66d9ef">REINDEX&lt;/span> &lt;span style="color:#66d9ef">INDEX&lt;/span> your_index_name;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#66d9ef">REINDEX&lt;/span> &lt;span style="color:#66d9ef">TABLE&lt;/span> your_table_name;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e">-- 并发重建（PostgreSQL 12+）
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e">&lt;/span>&lt;span style="color:#66d9ef">REINDEX&lt;/span> &lt;span style="color:#66d9ef">INDEX&lt;/span> CONCURRENTLY your_index_name;
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="-推荐维护计划">📅 推荐维护计划&lt;/h2>
+&lt;h3 id="每日维护">每日维护&lt;/h3>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-sql" data-lang="sql">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e">-- 自动VACUUM通常足够，但可以补充
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e">&lt;/span>&lt;span style="color:#66d9ef">VACUUM&lt;/span> &lt;span style="color:#66d9ef">ANALYZE&lt;/span>;
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h3 id="每周维护">每周维护&lt;/h3>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-sql" data-lang="sql">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e">-- 更彻底的维护
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e">&lt;/span>&lt;span style="color:#66d9ef">VACUUM&lt;/span> &lt;span style="color:#66d9ef">FULL&lt;/span> &lt;span style="color:#66d9ef">ANALYZE&lt;/span>;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#66d9ef">CHECKPOINT&lt;/span>;
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h3 id="每月维护">每月维护&lt;/h3>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-sql" data-lang="sql">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e">-- 全面维护
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e">&lt;/span>&lt;span style="color:#66d9ef">REINDEX&lt;/span> &lt;span style="color:#66d9ef">DATABASE&lt;/span> your_database;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#66d9ef">VACUUM&lt;/span> &lt;span style="color:#66d9ef">FULL&lt;/span> &lt;span style="color:#66d9ef">VERBOSE&lt;/span>;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#66d9ef">ANALYZE&lt;/span> &lt;span style="color:#66d9ef">VERBOSE&lt;/span>;
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="-自动化维护配置">⚙️ 自动化维护配置&lt;/h2>
+&lt;h3 id="1-调整-autovacuum-设置postgresqlconf">1. 调整 autovacuum 设置（postgresql.conf）&lt;/h3>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-ini" data-lang="ini">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e"># 针对频繁读写数据库的优化设置&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#a6e22e">autovacuum&lt;/span> &lt;span style="color:#f92672">=&lt;/span> &lt;span style="color:#e6db74">on&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#a6e22e">autovacuum_vacuum_scale_factor&lt;/span> &lt;span style="color:#f92672">=&lt;/span> &lt;span style="color:#e6db74">0.1&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#a6e22e">autovacuum_analyze_scale_factor&lt;/span> &lt;span style="color:#f92672">=&lt;/span> &lt;span style="color:#e6db74">0.05&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#a6e22e">autovacuum_vacuum_cost_delay&lt;/span> &lt;span style="color:#f92672">=&lt;/span> &lt;span style="color:#e6db74">10ms&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#a6e22e">autovacuum_vacuum_cost_limit&lt;/span> &lt;span style="color:#f92672">=&lt;/span> &lt;span style="color:#e6db74">1000&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h3 id="2-使用-pg_cron-扩展定时任务">2. 使用 pg_cron 扩展定时任务&lt;/h3>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-sql" data-lang="sql">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e">-- 安装pg_cron
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e">&lt;/span>&lt;span style="color:#66d9ef">CREATE&lt;/span> EXTENSION pg_cron;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e">-- 每天凌晨3点执行VACUUM
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e">&lt;/span>&lt;span style="color:#66d9ef">SELECT&lt;/span> cron.schedule(&lt;span style="color:#e6db74">&amp;#39;0 3 * * *&amp;#39;&lt;/span>, &lt;span style="color:#e6db74">&amp;#39;VACUUM ANALYZE&amp;#39;&lt;/span>);
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e">-- 每周日凌晨2点执行维护
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e">&lt;/span>&lt;span style="color:#66d9ef">SELECT&lt;/span> cron.schedule(&lt;span style="color:#e6db74">&amp;#39;0 2 * * 0&amp;#39;&lt;/span>, &lt;span style="color:#e6db74">&amp;#39;VACUUM FULL ANALYZE&amp;#39;&lt;/span>);
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h3 id="3-操作系统定时任务crontab">3. 操作系统定时任务（crontab）&lt;/h3>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e"># 每天执行维护&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#ae81ff">0&lt;/span> &lt;span style="color:#ae81ff">2&lt;/span> * * * psql -d your_db -c &lt;span style="color:#e6db74">&amp;#34;VACUUM ANALYZE&amp;#34;&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e"># 每周执行全面维护&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#ae81ff">0&lt;/span> &lt;span style="color:#ae81ff">3&lt;/span> * * &lt;span style="color:#ae81ff">0&lt;/span> psql -d your_db -c &lt;span style="color:#e6db74">&amp;#34;VACUUM FULL ANALYZE; REINDEX DATABASE your_db&amp;#34;&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="-监控和维护检查">📊 监控和维护检查&lt;/h2>
+&lt;h3 id="1-监控数据库状态">1. 监控数据库状态&lt;/h3>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-sql" data-lang="sql">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e">-- 检查表膨胀情况
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e">&lt;/span>&lt;span style="color:#66d9ef">SELECT&lt;/span> schemaname, tablename, 
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> n_dead_tup, n_live_tup,
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> round(n_dead_tup::numeric&lt;span style="color:#f92672">/&lt;/span>n_live_tup::numeric&lt;span style="color:#f92672">*&lt;/span>&lt;span style="color:#ae81ff">100&lt;/span>, &lt;span style="color:#ae81ff">2&lt;/span>) &lt;span style="color:#66d9ef">as&lt;/span> dead_ratio
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#66d9ef">FROM&lt;/span> pg_stat_user_tables
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#66d9ef">ORDER&lt;/span> &lt;span style="color:#66d9ef">BY&lt;/span> dead_ratio &lt;span style="color:#66d9ef">DESC&lt;/span>;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e">-- 检查索引状态
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e">&lt;/span>&lt;span style="color:#66d9ef">SELECT&lt;/span> schemaname, tablename, indexname,
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> idx_scan, idx_tup_read, idx_tup_fetch
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#66d9ef">FROM&lt;/span> pg_stat_user_indexes;
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h3 id="2-检查-autovacuum-效果">2. 检查 autovacuum 效果&lt;/h3>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-sql" data-lang="sql">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e">-- 查看autovacuum统计信息
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e">&lt;/span>&lt;span style="color:#66d9ef">SELECT&lt;/span> relname, last_vacuum, last_autovacuum, 
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> last_analyze, last_autoanalyze
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#66d9ef">FROM&lt;/span> pg_stat_user_tables;
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="-维护注意事项">🚨 维护注意事项&lt;/h2>
+&lt;ol>
+&lt;li>&lt;strong>维护时间窗口&lt;/strong>：选择业务低峰期进行&lt;/li>
+&lt;li>&lt;strong>VACUUM FULL 谨慎使用&lt;/strong>：会锁表，影响业务&lt;/li>
+&lt;li>&lt;strong>监控维护影响&lt;/strong>：使用 &lt;code>VERBOSE&lt;/code> 选项查看详细情况&lt;/li>
+&lt;li>&lt;strong>备份优先&lt;/strong>：重要维护前先备份数据&lt;/li>
+&lt;/ol>
+&lt;h2 id="-针对频繁读写数据库的特殊维护">🎯 针对频繁读写数据库的特殊维护&lt;/h2>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-sql" data-lang="sql">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e">-- 针对热点表增加维护频率
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e">&lt;/span>&lt;span style="color:#66d9ef">ALTER&lt;/span> &lt;span style="color:#66d9ef">TABLE&lt;/span> your_busy_table &lt;span style="color:#66d9ef">SET&lt;/span> (
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> autovacuum_vacuum_scale_factor &lt;span style="color:#f92672">=&lt;/span> &lt;span style="color:#ae81ff">0&lt;/span>.&lt;span style="color:#ae81ff">05&lt;/span>,
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> autovacuum_analyze_scale_factor &lt;span style="color:#f92672">=&lt;/span> &lt;span style="color:#ae81ff">0&lt;/span>.&lt;span style="color:#ae81ff">02&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>);
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e">-- 监控长事务和锁
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e">&lt;/span>&lt;span style="color:#66d9ef">SELECT&lt;/span> &lt;span style="color:#f92672">*&lt;/span> &lt;span style="color:#66d9ef">FROM&lt;/span> pg_locks &lt;span style="color:#66d9ef">WHERE&lt;/span> &lt;span style="color:#66d9ef">granted&lt;/span> &lt;span style="color:#f92672">=&lt;/span> &lt;span style="color:#66d9ef">false&lt;/span>;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#66d9ef">SELECT&lt;/span> &lt;span style="color:#f92672">*&lt;/span> &lt;span style="color:#66d9ef">FROM&lt;/span> pg_stat_activity &lt;span style="color:#66d9ef">WHERE&lt;/span> &lt;span style="color:#66d9ef">state&lt;/span> &lt;span style="color:#f92672">&amp;lt;&amp;gt;&lt;/span> &lt;span style="color:#e6db74">&amp;#39;idle&amp;#39;&lt;/span>;
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="-维护最佳实践">💡 维护最佳实践&lt;/h2>
+&lt;ol>
+&lt;li>&lt;strong>定期检查&lt;/strong>：每周检查数据库状态&lt;/li>
+&lt;li>&lt;strong>自动化&lt;/strong>：尽可能自动化维护任务&lt;/li>
+&lt;li>&lt;strong>文档化&lt;/strong>：记录维护历史和问题&lt;/li>
+&lt;li>&lt;strong>测试&lt;/strong>：在测试环境验证维护脚本&lt;/li>
+&lt;li>&lt;strong>容量规划&lt;/strong>：定期评估存储增长趋势&lt;/li>
+&lt;/ol>
+&lt;p>&lt;strong>总结&lt;/strong>：对于频繁读写的 PostgreSQL 数据库，定期维护不是可选项，而是必需品。通过合理的维护计划，可以确保数据库的性能稳定性和数据完整性。&lt;/p></description></item><item><title>Centos7 安装 Postgresql</title><link>https://blog.cuile.com/post/database/postgresql_for_centos/</link><pubDate>Fri, 19 Jan 2024 13:37:15 +0800</pubDate><guid>https://blog.cuile.com/post/database/postgresql_for_centos/</guid><description>&lt;h2 id="安装">安装&lt;/h2>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span>$ yum install https://download.postgresql.org/pub/repos/yum/10/redhat/rhel-7-x86_64/pgdg-centos10-10-2.noarch.rpm
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e"># 安装服务端包&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>$ yum install postgresql10-server postgresql10
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="配置">配置&lt;/h2>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e"># 初始化数据库，设置自启动&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>$ /usr/pgsql-10/bin/postgresql-10-setup initdb
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>$ systemctl enable postgresql-10
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>$ systemctl start postgresql-10
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e"># 设置防火墙规则&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>$ iptables -A INPUT -p tcp -m tcp --dport &lt;span style="color:#ae81ff">5432&lt;/span> -j ACCEPT &lt;span style="color:#75715e">#开放Postgresql 5432端口&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>$ service iptables save &lt;span style="color:#75715e"># 保存防火墙规则&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="配置远程访问">配置远程访问&lt;/h2>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e"># 切换至用户&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>$ su - postgres
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-ini" data-lang="ini">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e">; ./10/data/postgres.conf&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#a6e22e">- #listen_address&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#a6e22e">+ listen_address&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e">; ./10/data/pg_hba.conf&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e">; 允许所有IPv4地址&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#a6e22e">+ host all all 0.0.0.0/0 scram-sha-256&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h3 id="登录数据库">登录数据库&lt;/h3>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span>$ psql -U postgres
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-sql" data-lang="sql">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e">-- 设置数据运行参数
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e">&lt;/span>&lt;span style="color:#66d9ef">ALTER&lt;/span> &lt;span style="color:#66d9ef">SYSTEM&lt;/span> &lt;span style="color:#66d9ef">SET&lt;/span> listen_addresses &lt;span style="color:#f92672">=&lt;/span> &lt;span style="color:#e6db74">&amp;#39;*&amp;#39;&lt;/span>;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#66d9ef">ALTER&lt;/span> &lt;span style="color:#66d9ef">SYSTEM&lt;/span> &lt;span style="color:#66d9ef">SET&lt;/span> port &lt;span style="color:#f92672">=&lt;/span> &lt;span style="color:#ae81ff">5432&lt;/span>;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#66d9ef">ALTER&lt;/span> &lt;span style="color:#66d9ef">SYSTEM&lt;/span> &lt;span style="color:#66d9ef">SET&lt;/span> password_encryption &lt;span style="color:#f92672">=&lt;/span> &lt;span style="color:#e6db74">&amp;#39;scram-sha-256&amp;#39;&lt;/span>;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e">-- 修改默认用户密码
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e">&lt;/span>&lt;span style="color:#66d9ef">ALTER&lt;/span> &lt;span style="color:#66d9ef">USER&lt;/span> postgres &lt;span style="color:#66d9ef">with&lt;/span> &lt;span style="color:#66d9ef">encrypted&lt;/span> password &lt;span style="color:#e6db74">&amp;#39;你的密码&amp;#39;&lt;/span>;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e">-- 退出数据库
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e">&lt;/span>&lt;span style="color:#960050;background-color:#1e0010">\&lt;/span>q
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e">-- 退出用户
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e">&lt;/span>exit 
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h3 id="重启服务">重启服务&lt;/h3>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span>systemctl restart postgresql-10
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div></description></item></channel></rss>

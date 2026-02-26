@@ -1,9 +1,311 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>proxmoxve on 瘦了就帅了</title><link>https://cuile.github.io/tags/proxmoxve/</link><description>Recent content in proxmoxve on 瘦了就帅了</description><generator>Hugo -- gohugo.io</generator><copyright>Copyright © 2008–2018, Steve Francia and the Hugo Authors; all rights reserved.</copyright><lastBuildDate>Fri, 07 Feb 2025 09:44:39 +0800</lastBuildDate><atom:link href="https://cuile.github.io/tags/proxmoxve/index.xml" rel="self" type="application/rss+xml"/><item><title>ProxmoxVE 配置 DHCP 网络</title><link>https://cuile.github.io/posts/proxmox/dhcp/</link><pubDate>Fri, 07 Feb 2025 09:44:39 +0800</pubDate><guid>https://cuile.github.io/posts/proxmox/dhcp/</guid><description>
-PVE 节点的网络配置，在 WebUI 里只能设置为静态地址，想设置DHCP的话需要使用以下方法。 方法一 1$ cp /etc/network/interfaces /etc/network/interfaces.new 1# /etc/network/interfaces.new 2... 3# IPv4 4iface vmbr0 inet dhcp 5 # address 192.168.1.66/24 6 # gateway 192.168.1.1 7 bridge-ports enp1s0 8 bridge-stp off</description></item><item><title>配置 CentOS 7 的 CT 容器</title><link>https://cuile.github.io/posts/proxmox/setup_ct_centos-7/</link><pubDate>Wed, 31 Jan 2024 21:37:49 +0800</pubDate><guid>https://cuile.github.io/posts/proxmox/setup_ct_centos-7/</guid><description>
-Proxmox VE 官方提供的 Centos 7 模板是有问题的无法正常使用，现在给出解决方案。 安装 安装完成后，容器可以启动，但无法关闭、网络无法使用、控制台无法使用，这些</description></item><item><title>ProxmoxVE 配置 BBR</title><link>https://cuile.github.io/posts/proxmox/bbr/</link><pubDate>Tue, 03 Oct 2023 13:04:09 +0800</pubDate><guid>https://cuile.github.io/posts/proxmox/bbr/</guid><description>
-查看系统内核 1$ uname -r kernel 4.9 及以上已支持 tcp_bbr，看内核版本是否大于等于4.9，否则要升级内核，或者安装bbr。 bbr2 效果要好于 bbr，相当原理</description></item><item><title>ProxmoxVE 关闭订阅提示</title><link>https://cuile.github.io/posts/proxmox/subscription/</link><pubDate>Tue, 06 Jun 2023 20:20:04 +0800</pubDate><guid>https://cuile.github.io/posts/proxmox/subscription/</guid><description>
-修改JS文件 1$ nano /usr/share/javascript/proxmox-widget-toolkit/proxmoxlib.js 6.0+ (380行) 1if (data.status !== &amp;#39;Active&amp;#39;) { 替换为 1if (false) { 重启服务 1$ systemctl restart pveproxy.service 参考文档 PVE 去掉登录后无效订阅提示</description></item><item><title>ProxmoxVE 命令行</title><link>https://cuile.github.io/posts/proxmox/cli/</link><pubDate>Tue, 27 Dec 2022 16:51:54 +0800</pubDate><guid>https://cuile.github.io/posts/proxmox/cli/</guid><description>
-遇事不决，多读文档！ 虚拟机 创建 使用命令行创建 VM 非常方便，而且还可以使用各发行版的云镜像，快速创建速度又快，占用空间又小，非常方便。 1# 增加硬盘</description></item><item><title>虚拟机安装 Alpine Linux 3.16</title><link>https://cuile.github.io/posts/alpine_linux/install/</link><pubDate>Sun, 19 Jun 2022 11:46:55 +0800</pubDate><guid>https://cuile.github.io/posts/alpine_linux/install/</guid><description>
-特点： 小巧：基于musl libc 和 busybox，和 busybox一样小巧，最小的Docker镜像只有5MB。 安全：面向安全的轻量发行版 简单：提供</description></item><item><title>修复 ProxmoxVE RRD 错误</title><link>https://cuile.github.io/posts/proxmox/rrd_error/</link><pubDate>Tue, 08 Feb 2022 10:42:35 +0800</pubDate><guid>https://cuile.github.io/posts/proxmox/rrd_error/</guid><description>
-Proxmox系统安装后，日志报错 1rrdcached[4513]: handle_request_update: Could not read RRD file. 2pmxcfs[4527]: [status] notice: RRDC update error /var/lib/rrdcached/db/pve2-vm/85235: -1 3pmxcfs[4527]: [status] notice: RRD update error /var/lib/rrdcached/db/pve2-vm/85235: mmaping file &amp;#39;/var/lib/rrdcached/db/pve2-vm/85235&amp;#39;: Invalid argument 修复命令 1$ rm -r /var/lib/rrdcached/db 2$ systemctl restart rrdcached.service 参考文档 Strange RRD error</description></item><item><title>ProxmoxVE 配置 NAT 网络</title><link>https://cuile.github.io/posts/proxmox/nat/</link><pubDate>Mon, 07 Feb 2022 14:07:32 +0800</pubDate><guid>https://cuile.github.io/posts/proxmox/nat/</guid><description>
-1. 升级系统软件包 1$ apt-get update 2$ apt-get dist-upgrade 2. 安装 ifupdown2 使用 ifupdown2 网络管理软件包，还可以实时重新加载网络配置，而无需重新启动。 1$ apt install ifupdown2 3. 配置物理网卡 使用 PVE 的 WEB 管理界</description></item></channel></rss>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Proxmoxve on 瘦了就帅了</title><link>https://blog.cuile.com/tags/proxmoxve/</link><description>Recent content in Proxmoxve on 瘦了就帅了</description><generator>Hugo</generator><language>zh-cn</language><lastBuildDate>Thu, 26 Feb 2026 02:59:37 +0000</lastBuildDate><atom:link href="https://blog.cuile.com/tags/proxmoxve/index.xml" rel="self" type="application/rss+xml"/><item><title>ProxmoxVE 配置 DHCP 网络</title><link>https://blog.cuile.com/post/proxmox/dhcp/</link><pubDate>Fri, 07 Feb 2025 09:44:39 +0800</pubDate><guid>https://blog.cuile.com/post/proxmox/dhcp/</guid><description>&lt;p>PVE 节点的网络配置，在 WebUI 里只能设置为静态地址，想设置DHCP的话需要使用以下方法。&lt;/p>
+&lt;h2 id="方法一">方法一&lt;/h2>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span>$ cp /etc/network/interfaces /etc/network/interfaces.new
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-ini" data-lang="ini">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e"># /etc/network/interfaces.new&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#a6e22e">...&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e"># IPv4&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#a6e22e">iface vmbr0 inet dhcp&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#75715e"># address 192.168.1.66/24&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#75715e"># gateway 192.168.1.1&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#a6e22e">bridge-ports enp1s0&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#a6e22e">bridge-stp off&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#a6e22e">bridge-fd 0&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e"># IPv6&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#a6e22e">iface vmbr0 inet6 dhcp&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#a6e22e">request_prefix 1&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>在 PVE 的 WebUI 里 “系统 &amp;gt; 网络” 处，刷新后点击“应用配置”即可生效，等待几分钟后即可获取到IPv6地址。&lt;/p>
+&lt;h2 id="方法二">方法二&lt;/h2>
+&lt;p>直接修改 /etc/network/interfaces 文件也可以，修改完获取新地址。&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span>$ systemctl restart networking
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="查看新地址">查看新地址&lt;/h2>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span>$ ip addr show vmbr0
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;ul>
+&lt;li>&lt;a href="https://blog.csdn.net/weixin_47054353/article/details/130452673">PVE设置动态获取ip地址&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://www.icn.ink/pve/57.html">Proxmox VE 使用IPv6&lt;/a>&lt;/li>
+&lt;/ul></description></item><item><title>配置 CentOS 7 的 CT 容器</title><link>https://blog.cuile.com/post/proxmox/setup_ct_centos-7/</link><pubDate>Wed, 31 Jan 2024 21:37:49 +0800</pubDate><guid>https://blog.cuile.com/post/proxmox/setup_ct_centos-7/</guid><description>&lt;p>Proxmox VE 官方提供的 Centos 7 模板是有问题的无法正常使用，现在给出解决方案。&lt;/p>
+&lt;h2 id="安装">安装&lt;/h2>
+&lt;p>安装完成后，容器可以启动，但无法关闭、网络无法使用、控制台无法使用，这些都是我们要解决的问题。&lt;/p>
+&lt;h2 id="解决方法">解决方法&lt;/h2>
+&lt;ol>
+&lt;li>ssh登录进入PVE主机&lt;/li>
+&lt;/ol>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e"># 查看 CT 容器列表&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>$ pct list
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e"># 进入 CT 容器&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>$ pct enter &amp;lt;VMID&amp;gt;
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;ol start="2">
+&lt;li>打开网络&lt;/li>
+&lt;/ol>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e"># 启动网络，从DHCP拿IP地址&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>$ ifup eth0
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;ol start="3">
+&lt;li>更新 yum 库&lt;/li>
+&lt;/ol>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span>$ curl -o /etc/yum.repos.d/jsynacek-systemd-backports-for-centos-7-epel-7.repo https://copr.fedorainfracloud.org/coprs/jsynacek/systemd-backports-for-centos-7/repo/epel-7/jsynacek-systemd-backports-for-centos-7-epel-7.repo
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>$ yum update
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e"># 安装 sshd&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>$ yum install -y openssh-server
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>$ systemctl start sshd.service
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>$ systemctl enable sshd.service
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;ol start="4">
+&lt;li>退出 CT 容器&lt;/li>
+&lt;/ol>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span>$ exit
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>$ pct stop &amp;lt;VMID&amp;gt;
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;ol start="5">
+&lt;li>重新启动 CT 容器，一切正常&amp;mdash;&lt;/li>
+&lt;/ol>
+&lt;ul>
+&lt;li>&lt;a href="https://forum.proxmox.com/threads/pve-7-wont-start-centos-7-container.97834/#post-425419">[SOLVED] - PVE 7 won&amp;rsquo;t start CentOS 7 container | Proxmox Support Forum&lt;/a>&lt;/li>
+&lt;/ul></description></item><item><title>ProxmoxVE 配置 BBR</title><link>https://blog.cuile.com/post/proxmox/bbr/</link><pubDate>Tue, 03 Oct 2023 13:04:09 +0800</pubDate><guid>https://blog.cuile.com/post/proxmox/bbr/</guid><description>&lt;h2 id="查看系统内核">查看系统内核&lt;/h2>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span>$ uname -r
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>kernel 4.9 及以上已支持 tcp_bbr，看内核版本是否大于等于4.9，否则要升级内核，或者安装bbr。&lt;/p>
+&lt;p>bbr2 效果要好于 bbr，相当原理可查看参考文档&lt;/p>
+&lt;h2 id="配置拥塞算法">配置拥塞算法&lt;/h2>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e"># 查看可用的拥塞算法&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>$ sysctl net.ipv4.tcp_available_congestion_control
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e"># 查看使用的拥塞算法&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>$ sysctl net.ipv4.tcp_congestion_control
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e"># 设置拥塞算法&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>$ sysctl -w net.core.default_qdisc&lt;span style="color:#f92672">=&lt;/span>fq
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>$ sysctl -w net.ipv4.tcp_congestion_control&lt;span style="color:#f92672">=&lt;/span>bbr
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e"># 查看设置结果&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>$ lsmod | grep bbr
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="配置持久化">配置持久化&lt;/h2>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span>$ echo &lt;span style="color:#e6db74">&amp;#34;net.core.default_qdisc=fq&amp;#34;&lt;/span> &amp;gt;&amp;gt; /etc/sysctl.conf
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>$ echo &lt;span style="color:#e6db74">&amp;#34;net.ipv4.tcp_congestion_control=bbr&amp;#34;&lt;/span> &amp;gt;&amp;gt; /etc/sysctl.conf
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>$ sysctl -p
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="参考文档">参考文档&lt;/h2>
+&lt;ul>
+&lt;li>&lt;a href="https://aws.amazon.com/cn/blogs/china/talking-about-network-optimization-from-the-flow-control-algorithm/">从流量控制算法谈网络优化 – 从 CUBIC 到 BBRv2 算法&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://www.jianshu.com/p/2dd5132b37b4">linux手动配置BBR&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://www.starduster.me/2020/03/02/linux-network-tuning-kernel-parameter/#netcoredefault_qdisc">Linux 网络调优：内核网络栈参数篇 net.core.default_qdisc&lt;/a>&lt;/li>
+&lt;/ul></description></item><item><title>ProxmoxVE 关闭订阅提示</title><link>https://blog.cuile.com/post/proxmox/subscription/</link><pubDate>Tue, 06 Jun 2023 20:20:04 +0800</pubDate><guid>https://blog.cuile.com/post/proxmox/subscription/</guid><description>&lt;h2 id="修改js文件">修改JS文件&lt;/h2>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span>$ nano /usr/share/javascript/proxmox-widget-toolkit/proxmoxlib.js
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>&lt;em>6.0+ (380行)&lt;/em>&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-javascript" data-lang="javascript">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#66d9ef">if&lt;/span> (&lt;span style="color:#a6e22e">data&lt;/span>.&lt;span style="color:#a6e22e">status&lt;/span> &lt;span style="color:#f92672">!==&lt;/span> &lt;span style="color:#e6db74">&amp;#39;Active&amp;#39;&lt;/span>) {
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>&lt;em>替换为&lt;/em>&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-javascript" data-lang="javascript">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#66d9ef">if&lt;/span> (&lt;span style="color:#66d9ef">false&lt;/span>) {
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>&lt;em>重启服务&lt;/em>&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span>$ systemctl restart pveproxy.service
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="参考文档">参考文档&lt;/h2>
+&lt;ul>
+&lt;li>&lt;a href="https://blog.csdn.net/qq_34667723/article/details/108151518">PVE 去掉登录后无效订阅提示&lt;/a>&lt;/li>
+&lt;/ul></description></item><item><title>ProxmoxVE 命令</title><link>https://blog.cuile.com/post/proxmox/cli/</link><pubDate>Tue, 27 Dec 2022 16:51:54 +0800</pubDate><guid>https://blog.cuile.com/post/proxmox/cli/</guid><description>&lt;p>&lt;a href="https://pve.proxmox.com/pve-docs/index.html">遇事不决，多读文档！&lt;/a>&lt;/p>
+&lt;h2 id="虚拟机">虚拟机&lt;/h2>
+&lt;h3 id="创建">创建&lt;/h3>
+&lt;p>使用命令行创建 VM 非常方便，而且还可以使用各发行版的云镜像，快速创建速度又快，占用空间又小，非常方便。&lt;/p>
+&lt;!-- raw HTML omitted -->
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e"># 增加硬盘空间&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e"># 建议从模板创建虚拟机后，再增加虚拟机硬盘的空间，这样可以保持模板的大小&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>qm disk resize &amp;lt;VM_ID&amp;gt; scsi0 +30G
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e"># 关闭&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>qm stop &amp;lt;vmid&amp;gt;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e"># 如果关闭失败&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>qm list
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e"># 找到 vm 对应的 pid&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>kill &amp;lt;pid&amp;gt;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e"># 删除&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>qm destroy &amp;lt;vmid&amp;gt; --destroy-unreferenced-disks &lt;span style="color:#ae81ff">1&lt;/span> --purge &lt;span style="color:#ae81ff">1&lt;/span> --skiplock &lt;span style="color:#ae81ff">1&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e"># 强制删除&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>rm -f /etc/pve/nodes/*/*/&amp;lt;vm_id&amp;gt;.conf
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e"># [修復Proxmox VE：無法刪除虛擬機器](https://blog.pulipuli.info/2014/08/proxmox-ve-fix-proxmox-ve-destroy.html#postcataproxmox-ve-fix-proxmox-ve-destroy.html0_anchor2)&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;hr>
+&lt;h2 id="lxc容器">LXC容器&lt;/h2>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e"># 关闭&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>pct stop &amp;lt;vmid&amp;gt;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>pct list
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;hr>
+&lt;h2 id="存储">存储&lt;/h2>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e"># 查看存储空间使用情况&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>pvesm status
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e"># 查看存储内的文件&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>pvesm list &amp;lt;storage&amp;gt;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e"># 查看存储配置&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>cat /etc/pve/storage.cfg
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e"># 给local存储添加存储类型&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>pvesm set local --content snippets,rootdir,import,images,backup,vztmpl,iso
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e"># 注意！！！片段文件只能放在 /var/lib/vz/snippets/ 目录下，不支持子目录&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e"># 将local-lvm(LVM-Thin)合并到local&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e"># 移动虚拟机硬盘到local&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>qm disk move &amp;lt;vmid&amp;gt; &amp;lt;disk&amp;gt; &amp;lt;storage&amp;gt; --format qcow2 --delete &lt;span style="color:#ae81ff">1&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e"># 移动容器卷到local&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>pct move-volume &amp;lt;vmid&amp;gt; &amp;lt;volume&amp;gt; &amp;lt;storage&amp;gt; --delete &lt;span style="color:#ae81ff">1&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e"># 删除local-lvm存储&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>lvremove pve/data
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e"># 空间合并到local&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>lvextend -l +100%FREE -r pve/root
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e"># 在WebUI的“数据中心”-&amp;#34;存储&amp;#34;里，手动移除local-lvm&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div></description></item><item><title>虚拟机安装 Alpine Linux 3.16</title><link>https://blog.cuile.com/post/alpine_linux/install/</link><pubDate>Sun, 19 Jun 2022 11:46:55 +0800</pubDate><guid>https://blog.cuile.com/post/alpine_linux/install/</guid><description>&lt;p>特点：&lt;/p>
+&lt;ol>
+&lt;li>小巧：基于musl libc 和 busybox，和 busybox一样小巧，最小的Docker镜像只有5MB。&lt;/li>
+&lt;li>安全：面向安全的轻量发行版&lt;/li>
+&lt;li>简单：提供APK包管理工具，软件的搜索、安装、删除、升级都非常方便。&lt;/li>
+&lt;li>适合容器使用：由于小巧、功能完备，非常适合作为容器的基础镜像。&lt;/li>
+&lt;/ol>
+&lt;p>不同版本：&lt;/p>
+&lt;ul>
+&lt;li>STANDARD：最小的可启动镜像，需要网络才能安装。带有Intel, AMD等CPU的微代码。&lt;/li>
+&lt;li>VIRTUAL：与STANDARD类似，但更小，更适合虚拟系统使用。&lt;/li>
+&lt;li>EXTENDED：包括最常用的软件包。适用于路由器和服务器。从RAM运行。扩展版本，带有更多软件包。&lt;/li>
+&lt;li>XEN：内置XEN Hypervisor支持。&lt;/li>
+&lt;li>NETBOOT：netboot的内核、initramfs和modloop。&lt;/li>
+&lt;li>RASPBERRY PI：带有树莓派内核的版本。&lt;/li>
+&lt;li>GENERIC ARM：带有ARM内核，带有uboot加载器。&lt;/li>
+&lt;li>MINI ROOT FILESYSTEM：最小系统版本，仅包含内核，只用于构建Docker镜像。&lt;/li>
+&lt;/ul>
+&lt;h2 id="1-准备系统">1. 准备系统&lt;/h2>
+&lt;p>Alpine 有许多版本，其中 VIRTUAL 是专门针对虚拟环境优化过的，所以主要使用这个版本来安装。&lt;/p>
+&lt;p>&lt;a href="https://www.alpinelinux.org/downloads/">https://www.alpinelinux.org/downloads/&lt;/a>&lt;/p>
+&lt;h2 id="2-登录">2. 登录&lt;/h2>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span>...
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e"># 使用启动盘启动后，直接使用 root 登录系统&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>localhost login: root
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="3-安装">3. 安装&lt;/h2>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span>...
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>localhost:~# setup-alpine
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e"># 选择键盘布局&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e"># 这里两个都选 cn 或都不选&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>...
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>Select keyboard layout: &lt;span style="color:#f92672">[&lt;/span>none&lt;span style="color:#f92672">]&lt;/span> cn
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>...
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>Select variant &lt;span style="color:#f92672">(&lt;/span>or &lt;span style="color:#e6db74">&amp;#39;abort&amp;#39;&lt;/span>&lt;span style="color:#f92672">)&lt;/span>: cn
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e"># 设置主机名&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>...
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>Enter system hostname &lt;span style="color:#f92672">(&lt;/span>fully qualified form, e.g. &lt;span style="color:#e6db74">&amp;#39;foo.example.org&amp;#39;&lt;/span>&lt;span style="color:#f92672">)&lt;/span> &lt;span style="color:#f92672">[&lt;/span>localhost&lt;span style="color:#f92672">]&lt;/span> home
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e"># 设置网络&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>...
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>Which one &lt;span style="color:#66d9ef">do&lt;/span> you want to initialize? &lt;span style="color:#f92672">(&lt;/span>or &lt;span style="color:#e6db74">&amp;#39;?&amp;#39;&lt;/span> or &lt;span style="color:#e6db74">&amp;#39;done&amp;#39;&lt;/span>&lt;span style="color:#f92672">)&lt;/span> &lt;span style="color:#f92672">[&lt;/span>eth0&lt;span style="color:#f92672">]&lt;/span> eth0
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>Ip address &lt;span style="color:#66d9ef">for&lt;/span> eth0? &lt;span style="color:#f92672">(&lt;/span>or &lt;span style="color:#e6db74">&amp;#39;dhcp&amp;#39;&lt;/span>, &lt;span style="color:#e6db74">&amp;#39;none&amp;#39;&lt;/span>, &lt;span style="color:#e6db74">&amp;#39;?&amp;#39;&lt;/span>&lt;span style="color:#f92672">)&lt;/span> &lt;span style="color:#f92672">[&lt;/span>dhcp&lt;span style="color:#f92672">]&lt;/span> dhcp
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>Do you want to &lt;span style="color:#66d9ef">do&lt;/span> any manual network configuration? &lt;span style="color:#f92672">(&lt;/span>y/n&lt;span style="color:#f92672">)&lt;/span> &lt;span style="color:#f92672">[&lt;/span>n&lt;span style="color:#f92672">]&lt;/span> n
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e"># or 手动输入IP地址&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>Ip address &lt;span style="color:#66d9ef">for&lt;/span> eth0? &lt;span style="color:#f92672">(&lt;/span>or &lt;span style="color:#e6db74">&amp;#39;dhcp&amp;#39;&lt;/span>, &lt;span style="color:#e6db74">&amp;#39;none&amp;#39;&lt;/span>, &lt;span style="color:#e6db74">&amp;#39;?&amp;#39;&lt;/span>&lt;span style="color:#f92672">)&lt;/span> &lt;span style="color:#f92672">[&lt;/span>dhcp&lt;span style="color:#f92672">]&lt;/span> 192.168.10.16/24
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>Gateway? &lt;span style="color:#f92672">(&lt;/span>or &lt;span style="color:#e6db74">&amp;#39;none&amp;#39;&lt;/span>&lt;span style="color:#f92672">)&lt;/span> &lt;span style="color:#f92672">[&lt;/span>none&lt;span style="color:#f92672">]&lt;/span> 192.168.10.10
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>Do you want to &lt;span style="color:#66d9ef">do&lt;/span> any manual network configuration? &lt;span style="color:#f92672">(&lt;/span>y/n&lt;span style="color:#f92672">)&lt;/span> &lt;span style="color:#f92672">[&lt;/span>n&lt;span style="color:#f92672">]&lt;/span> n
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>DNS domain name? &lt;span style="color:#f92672">(&lt;/span>e.g &lt;span style="color:#e6db74">&amp;#39;bar.com&amp;#39;&lt;/span>&lt;span style="color:#f92672">)&lt;/span> 
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>DNS nameserver&lt;span style="color:#f92672">(&lt;/span>s&lt;span style="color:#f92672">)&lt;/span>? 114.114.114.114
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e"># 设置密码&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>...
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>New password: 
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>...
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>Retype password:
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e"># 设置时区&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e"># PRC 代理中国，也可以输入 Asia/，再输入 Shanghai&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>...
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>Which timezone are you in? &lt;span style="color:#f92672">(&lt;/span>&lt;span style="color:#e6db74">&amp;#39;?&amp;#39;&lt;/span> &lt;span style="color:#66d9ef">for&lt;/span> list&lt;span style="color:#f92672">)&lt;/span> &lt;span style="color:#f92672">[&lt;/span>UTC&lt;span style="color:#f92672">]&lt;/span> PRC
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e"># 设备代理&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>...
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>HTTP/FTP proxy URL? &lt;span style="color:#f92672">(&lt;/span>e.g. &lt;span style="color:#e6db74">&amp;#39;http://proxy:8080&amp;#39;&lt;/span>, or &lt;span style="color:#e6db74">&amp;#39;none&amp;#39;&lt;/span>&lt;span style="color:#f92672">)&lt;/span> &lt;span style="color:#f92672">[&lt;/span>none&lt;span style="color:#f92672">]&lt;/span> none
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e"># 设置更新源&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e"># f 是自动测试并选择最快的源，建议使用&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>...
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>Enter mirror number &lt;span style="color:#f92672">(&lt;/span>1-74&lt;span style="color:#f92672">)&lt;/span> or URL to add &lt;span style="color:#f92672">(&lt;/span>or r/f/e/done&lt;span style="color:#f92672">)&lt;/span> &lt;span style="color:#f92672">[&lt;/span>1&lt;span style="color:#f92672">]&lt;/span> f
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e"># &lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>Setup a user? &lt;span style="color:#f92672">(&lt;/span>enter a lower-case loginname, or &lt;span style="color:#e6db74">&amp;#39;no&amp;#39;&lt;/span>&lt;span style="color:#f92672">)&lt;/span> &lt;span style="color:#f92672">[&lt;/span>no&lt;span style="color:#f92672">]&lt;/span> no
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e"># 设置ssh服务&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>Which ssh server? &lt;span style="color:#f92672">(&lt;/span>&lt;span style="color:#e6db74">&amp;#39;openssh&amp;#39;&lt;/span>, &lt;span style="color:#e6db74">&amp;#39;dropbear&amp;#39;&lt;/span>, or &lt;span style="color:#e6db74">&amp;#39;none&amp;#39;&lt;/span>&lt;span style="color:#f92672">)&lt;/span> &lt;span style="color:#f92672">[&lt;/span>openssh&lt;span style="color:#f92672">]&lt;/span> openssh
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e"># 这里一定要输入 yes &lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e"># 许多教程都说 Alpine 默认没有远程登录，都上手动修改，其实是可以在安装时就设备好的&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>Allow root ssh login? &lt;span style="color:#f92672">(&lt;/span>&lt;span style="color:#e6db74">&amp;#39;?&amp;#39;&lt;/span> &lt;span style="color:#66d9ef">for&lt;/span> help&lt;span style="color:#f92672">)&lt;/span> &lt;span style="color:#f92672">[&lt;/span>prohibit-password&lt;span style="color:#f92672">]&lt;/span> yes
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>Enter ssh key or URL &lt;span style="color:#66d9ef">for&lt;/span> root &lt;span style="color:#f92672">(&lt;/span>or &lt;span style="color:#e6db74">&amp;#39;none&amp;#39;&lt;/span>&lt;span style="color:#f92672">)&lt;/span> &lt;span style="color:#f92672">[&lt;/span>none&lt;span style="color:#f92672">]&lt;/span> none
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e"># 设置磁盘&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>...
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>Which disk&lt;span style="color:#f92672">(&lt;/span>s&lt;span style="color:#f92672">)&lt;/span> would you like to use? &lt;span style="color:#f92672">(&lt;/span>or &lt;span style="color:#e6db74">&amp;#39;?&amp;#39;&lt;/span> &lt;span style="color:#66d9ef">for&lt;/span> help or &lt;span style="color:#e6db74">&amp;#39;none&amp;#39;&lt;/span>&lt;span style="color:#f92672">)&lt;/span> &lt;span style="color:#f92672">[&lt;/span>none&lt;span style="color:#f92672">]&lt;/span> sda
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>...
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>How would you like to use it? &lt;span style="color:#f92672">(&lt;/span>&lt;span style="color:#e6db74">&amp;#39;sys&amp;#39;&lt;/span>, &lt;span style="color:#e6db74">&amp;#39;data&amp;#39;&lt;/span>, &lt;span style="color:#e6db74">&amp;#39;crypt&amp;#39;&lt;/span>, &lt;span style="color:#e6db74">&amp;#39;lvm&amp;#39;&lt;/span> or &lt;span style="color:#e6db74">&amp;#39;?&amp;#39;&lt;/span> &lt;span style="color:#66d9ef">for&lt;/span> help&lt;span style="color:#f92672">)&lt;/span> &lt;span style="color:#f92672">[&lt;/span>?&lt;span style="color:#f92672">]&lt;/span> sys
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>...
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>WARNING: Erase the aboue disk&lt;span style="color:#f92672">(&lt;/span>s&lt;span style="color:#f92672">)&lt;/span> and &lt;span style="color:#66d9ef">continue&lt;/span>? &lt;span style="color:#f92672">(&lt;/span>y/n&lt;span style="color:#f92672">)&lt;/span> &lt;span style="color:#f92672">[&lt;/span>n&lt;span style="color:#f92672">]&lt;/span> y
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>...
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>Installation is complete. Please reboot.
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e"># 到这里安装全部完成&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h3 id="31-自动安装">3.1. 自动安装&lt;/h3>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e"># 准备应答文件&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;ul>
+&lt;li>&lt;a href="https://docs.alpinelinux.org/user-handbook/0.1a/Installing/setup_alpine.html#_answer_files">Answer Files&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;h2 id="4-命令重启电脑">4. 命令重启电脑&lt;/h2>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span>home:~# reboot
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="5-关闭防火墙">5. 关闭防火墙&lt;/h2>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span>home:~# rc-service iptables stop
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>home:~# rc-update del iptables
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div></description></item><item><title>修复 ProxmoxVE RRD 错误</title><link>https://blog.cuile.com/post/proxmox/rrd_error/</link><pubDate>Tue, 08 Feb 2022 10:42:35 +0800</pubDate><guid>https://blog.cuile.com/post/proxmox/rrd_error/</guid><description>&lt;p>Proxmox系统安装后，日志报错&lt;/p>
+&lt;pre tabindex="0">&lt;code class="language-log" data-lang="log">rrdcached[4513]: handle_request_update: Could not read RRD file.
+pmxcfs[4527]: [status] notice: RRDC update error /var/lib/rrdcached/db/pve2-vm/85235: -1
+pmxcfs[4527]: [status] notice: RRD update error /var/lib/rrdcached/db/pve2-vm/85235: mmaping file &amp;#39;/var/lib/rrdcached/db/pve2-vm/85235&amp;#39;: Invalid argument
+&lt;/code>&lt;/pre>&lt;p>修复命令&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span>$ rm -r /var/lib/rrdcached/db
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>$ systemctl restart rrdcached.service
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="参考文档">参考文档&lt;/h2>
+&lt;ul>
+&lt;li>&lt;a href="https://forum.proxmox.com/threads/strange-rrd-error.102139/post-441801">Strange RRD error&lt;/a>&lt;/li>
+&lt;/ul></description></item><item><title>ProxmoxVE 配置 NAT 网络</title><link>https://blog.cuile.com/post/proxmox/nat/</link><pubDate>Mon, 07 Feb 2022 14:07:32 +0800</pubDate><guid>https://blog.cuile.com/post/proxmox/nat/</guid><description>&lt;h2 id="1-升级系统软件包">1. 升级系统软件包&lt;/h2>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span>$ apt-get update
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>$ apt-get dist-upgrade
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="2-安装-ifupdown2">2. 安装 ifupdown2&lt;/h2>
+&lt;p>使用 ifupdown2 网络管理软件包，还可以实时重新加载网络配置，而无需重新启动。&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span>$ apt install ifupdown2
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="3-配置物理网卡">3. 配置物理网卡&lt;/h2>
+&lt;p>使用 PVE 的 WEB 管理界面，设置物理网卡的配置。&lt;/p>
+&lt;p>&lt;em>注意：一定要分配一个静态的IP地址，否则无法正常登录 PVE&lt;/em>&lt;/p>
+&lt;p>节点 &amp;gt; 系统 &amp;gt; 网络：&lt;/p>
+&lt;ul>
+&lt;li>address：192.168.10.66/24&lt;/li>
+&lt;li>gateway：192.168.10.1&lt;/li>
+&lt;/ul>
+&lt;p>保存后应用配置&lt;/p>
+&lt;h2 id="4-配置虚拟网卡">4. 配置虚拟网卡&lt;/h2>
+&lt;h3 id="41-修改虚拟网卡配置">4.1 修改虚拟网卡配置&lt;/h3>
+&lt;p>使用 PVE 提供管理界面进行配置。
+删除 vmbr0 设备的所有配置内容。&lt;/p>
+&lt;p>编辑 /etc/network/interfaces&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span>$ nano /etc/network/interfaces
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>加入&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-ini" data-lang="ini">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#a6e22e">source /etc/network/interfaces.d/*&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-ini" data-lang="ini">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e"># network interface settings; autogenerated&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e"># Please do NOT modify this file directly, unless you know what&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e"># you&amp;#39;re doing.&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e">#&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e"># If you want to manage parts of the network configuration manually,&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e"># please utilize the &amp;#39;source&amp;#39; or &amp;#39;source-directory&amp;#39; directives to do&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e"># so.&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e"># PVE will preserve these directives, but will NOT read its network&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e"># configuration from sourced files, so do not attempt to move any of&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e"># the PVE managed interfaces into external files!&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#a6e22e">source /etc/network/interfaces.d/*&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#a6e22e">auto lo&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#a6e22e">iface lo inet loopback&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#a6e22e">auto enp1s0&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#a6e22e">iface enp1s0 inet static&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#a6e22e">address 192.168.10.66/24&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#a6e22e">gateway 192.168.10.1&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#a6e22e">iface vmbr0 inet manual&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#a6e22e">bridge-ports none&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#a6e22e">bridge-stp off&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#a6e22e">brideg-fd&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h3 id="42-新建虚拟网卡配置">4.2 新建虚拟网卡配置&lt;/h3>
+&lt;p>创建新的虚拟网卡配置&lt;/p></description></item></channel></rss>

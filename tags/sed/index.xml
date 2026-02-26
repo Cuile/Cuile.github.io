@@ -1,2 +1,76 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>sed on 瘦了就帅了</title><link>https://cuile.github.io/tags/sed/</link><description>Recent content in sed on 瘦了就帅了</description><generator>Hugo -- gohugo.io</generator><copyright>Copyright © 2008–2018, Steve Francia and the Hugo Authors; all rights reserved.</copyright><lastBuildDate>Mon, 17 Jan 2022 11:18:47 +0800</lastBuildDate><atom:link href="https://cuile.github.io/tags/sed/index.xml" rel="self" type="application/rss+xml"/><item><title>使用 sed 命令操作</title><link>https://cuile.github.io/posts/linux/sed_manual/</link><pubDate>Mon, 17 Jan 2022 11:18:47 +0800</pubDate><guid>https://cuile.github.io/posts/linux/sed_manual/</guid><description>
-删除冗余信息 1sed -i &amp;#39;s/.*a2p_replyclient_log.*[infoerror].[0-9].log.gz://&amp;#39; merge.log \ 2&amp;amp;&amp;amp; sed -i &amp;#39;s/org.springframework.amqp.rabbit.RabbitListenerEndpointContainer.* - //&amp;#39; merge.log \ 3&amp;amp;&amp;amp; sed -i &amp;#39;/.*send 1 time for the url is .*/d&amp;#39; merge.log \ 4&amp;amp;&amp;amp; sed -i &amp;#39;/.*redis key:[0-9]*,value:.*/d&amp;#39; merge.log 5 6sed -i &amp;#39;/&amp;gt;&amp;gt;&amp;gt;&amp;gt;.* retry:2/d&amp;#39; 2021.8.log 7sed -i &amp;#39;s/the content of the url:.*receiveStatusReportResultChinaMobile.shtml //&amp;#39; 2021.8.log 统计 1sed -n &amp;#39;/ status:DELIVRD,/p&amp;#39; result.log | wc -l 2sed -n &amp;#39;/&amp;#34;originalStatus&amp;#34;:&amp;#34;DELIVRD&amp;#34;/p&amp;#39; merge.log | wc -l</description></item></channel></rss>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Sed on 瘦了就帅了</title><link>https://blog.cuile.com/tags/sed/</link><description>Recent content in Sed on 瘦了就帅了</description><generator>Hugo</generator><language>zh-cn</language><lastBuildDate>Thu, 26 Feb 2026 02:59:37 +0000</lastBuildDate><atom:link href="https://blog.cuile.com/tags/sed/index.xml" rel="self" type="application/rss+xml"/><item><title>使用 sed 命令操作</title><link>https://blog.cuile.com/post/linux/sed_manual/</link><pubDate>Mon, 17 Jan 2022 11:18:47 +0800</pubDate><guid>https://blog.cuile.com/post/linux/sed_manual/</guid><description>&lt;h2>&lt;/h2>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span>sed &lt;span style="color:#f92672">[&lt;/span>OPTION&lt;span style="color:#f92672">]&lt;/span> &lt;span style="color:#f92672">[&lt;/span>expression&lt;span style="color:#f92672">]&lt;/span> file
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#f92672">[&lt;/span>OPTION&lt;span style="color:#f92672">]&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> -n 屏蔽输出
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> -i 替换模式
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> -i.bak 替换前先备份文件
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> -E 使用扩展正则表达式，语法更接近现代正则表达式（如 Perl、Python、JavaScript），代码更清晰易读（去掉了很多反斜杠），减少转义错误
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> -e 使用表达式，可使用多个表达式
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#f92672">[&lt;/span>expression&lt;span style="color:#f92672">]&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> s/regular/replace/ 替换命令
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> 
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> 0,/regular/s//replace/ 仅替换从文件开头（第 &lt;span style="color:#ae81ff">0&lt;/span> 行）首次匹配regular成功的内容，只用GNU版本的sed
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> 
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> /regular/replace/g 匹配整行，默认只匹配一次
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> /regular/replace/d 删除行
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> /regular/replace/p 打印匹配的行
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="读取指定行">读取指定行&lt;/h2>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span>sed -n &lt;span style="color:#e6db74">&amp;#39;1,2p&amp;#39;&lt;/span> file
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="删除行">删除行&lt;/h2>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e"># 删除空行&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>sed -i &lt;span style="color:#e6db74">&amp;#39;/^\s*$/d&amp;#39;&lt;/span> merge1.log
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>sed -i &lt;span style="color:#e6db74">&amp;#39;/^$/d&amp;#39;&lt;/span> filename.txt &lt;span style="color:#75715e"># `^$` 匹配空行&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e"># 按行号删除&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>sed -i &lt;span style="color:#e6db74">&amp;#39;5d&amp;#39;&lt;/span> filename.txt &lt;span style="color:#75715e"># 删除第5行&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e"># 删除最后一行&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>sed -i &lt;span style="color:#e6db74">&amp;#39;$d&amp;#39;&lt;/span> filename.txt &lt;span style="color:#75715e"># `$` 表示最后一行&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e"># 删除连续行&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>sed -i &lt;span style="color:#e6db74">&amp;#39;10,20d&amp;#39;&lt;/span> filename.txt &lt;span style="color:#75715e"># 删除第10到20行&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e"># 删除不连续的行&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>sed -i &lt;span style="color:#e6db74">&amp;#39;5d;10d;15d&amp;#39;&lt;/span> filename.txt &lt;span style="color:#75715e"># 删除第5、10、15行&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e"># 删除包含特定文本的行&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>sed -i &lt;span style="color:#e6db74">&amp;#39;/pattern/d&amp;#39;&lt;/span> filename.txt &lt;span style="color:#75715e"># 删除含&amp;#34;pattern&amp;#34;的行&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e"># 删除不匹配的行（保留匹配行）&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>sed -i &lt;span style="color:#e6db74">&amp;#39;/pattern/!d&amp;#39;&lt;/span> filename.txt &lt;span style="color:#75715e"># `!` 表示取反&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e"># 删除以某文本开头/结尾的行&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>sed -i &lt;span style="color:#e6db74">&amp;#39;/^prefix/d&amp;#39;&lt;/span> filename.txt &lt;span style="color:#75715e"># 删除以&amp;#34;prefix&amp;#34;开头的行&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>sed -i &lt;span style="color:#e6db74">&amp;#39;/suffix$/d&amp;#39;&lt;/span> filename.txt &lt;span style="color:#75715e"># 删除以&amp;#34;suffix&amp;#34;结尾的行&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="删除冗余信息">删除冗余信息&lt;/h2>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span>sed -i &lt;span style="color:#e6db74">&amp;#39;s/.*a2p_replyclient_log.*[infoerror].[0-9].log.gz://&amp;#39;&lt;/span> merge.log &lt;span style="color:#ae81ff">\
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#ae81ff">&lt;/span>&lt;span style="color:#f92672">&amp;amp;&amp;amp;&lt;/span> sed -i &lt;span style="color:#e6db74">&amp;#39;s/org.springframework.amqp.rabbit.RabbitListenerEndpointContainer.* - //&amp;#39;&lt;/span> merge.log &lt;span style="color:#ae81ff">\
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#ae81ff">&lt;/span>&lt;span style="color:#f92672">&amp;amp;&amp;amp;&lt;/span> sed -i &lt;span style="color:#e6db74">&amp;#39;/.*send 1 time for the url is .*/d&amp;#39;&lt;/span> merge.log &lt;span style="color:#ae81ff">\
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#ae81ff">&lt;/span>&lt;span style="color:#f92672">&amp;amp;&amp;amp;&lt;/span> sed -i &lt;span style="color:#e6db74">&amp;#39;/.*redis key:[0-9]*,value:.*/d&amp;#39;&lt;/span> merge.log
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>sed -i &lt;span style="color:#e6db74">&amp;#39;/&amp;gt;&amp;gt;&amp;gt;&amp;gt;.* retry:2/d&amp;#39;&lt;/span> 2021.8.log
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>sed -i &lt;span style="color:#e6db74">&amp;#39;s/the content of the url:.*receiveStatusReportResultChinaMobile.shtml //&amp;#39;&lt;/span> 2021.8.log
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="删除毫秒">删除毫秒&lt;/h2>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span>sed -i &lt;span style="color:#e6db74">&amp;#39;s/\.[0-9]\{0,3\}\( \[\)/\1/&amp;#39;&lt;/span> merge.log
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="删除时间">删除时间&lt;/h2>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span>sed -i &lt;span style="color:#e6db74">&amp;#39;s/.*\(\[INFO\]\)/\1/&amp;#39;&lt;/span> 2021.8.log
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>sed -i &lt;span style="color:#e6db74">&amp;#39;s/.*\(\[ERROR\]\)/\1/&amp;#39;&lt;/span> 2021.8.log
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>sed -i &lt;span style="color:#e6db74">&amp;#39;s/time:.*,\(is_china_mobile\)/\1/&amp;#39;&lt;/span> 2021.8.log
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="删除冗余字符">删除冗余字符&lt;/h2>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span>sed -i &lt;span style="color:#e6db74">&amp;#39;s/error for the url//&amp;#39;&lt;/span> merge.log
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>sed -i &lt;span style="color:#e6db74">&amp;#39;s/can not read content from the url//&amp;#39;&lt;/span> merge.log
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="统计">统计&lt;/h2>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span>sed -n &lt;span style="color:#e6db74">&amp;#39;/ status:DELIVRD,/p&amp;#39;&lt;/span> result.log | wc -l
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>sed -n &lt;span style="color:#e6db74">&amp;#39;/&amp;#34;originalStatus&amp;#34;:&amp;#34;DELIVRD&amp;#34;/p&amp;#39;&lt;/span> merge.log | wc -l
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="去重复">去重复&lt;/h2>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span>awk &lt;span style="color:#e6db74">&amp;#39;!x[$0]++&amp;#39;&lt;/span> merge.log
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>sort -n merge.log | uniq
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="修改ubuntu源地址">修改Ubuntu源地址&lt;/h2>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span>sudo sed -i &lt;span style="color:#e6db74">&amp;#39;s/\(archive\|security\).ubuntu/mirrors.aliyun/&amp;#39;&lt;/span> /etc/apt/sources.list
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="ssh连接不自动断开">SSH连接不自动断开&lt;/h2>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span>sed -i &lt;span style="color:#e6db74">&amp;#39;s/^#\(ClientAliveInterval\) 0$/\1 60/g&amp;#39;&lt;/span> /etc/ssh/sshd_config
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>sed -i &lt;span style="color:#e6db74">&amp;#39;s/^#\(ClientAliveCountMax\) 3$/\1 5/g&amp;#39;&lt;/span> /etc/ssh/sshd_config
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>systemctl restart sshd
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="etchosts">/etc/hosts&lt;/h2>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e"># sed 参考 http://man.linuxde.net/sed&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#75715e"># https://www.cnblogs.com/ggjucheng/archive/2013/01/13/2856901.html&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>sed ......
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="参考文档">参考文档&lt;/h2>
+&lt;ul>
+&lt;li>&lt;a href="https://developer.aliyun.com/article/623030">sed入门详解教程&lt;/a>&lt;/li>
+&lt;/ul></description></item></channel></rss>

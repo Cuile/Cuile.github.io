@@ -1,3 +1,42 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Snap on 瘦了就帅了</title><link>https://cuile.github.io/tags/snap/</link><description>Recent content in Snap on 瘦了就帅了</description><generator>Hugo -- gohugo.io</generator><copyright>Copyright © 2008–2018, Steve Francia and the Hugo Authors; all rights reserved.</copyright><lastBuildDate>Fri, 19 Jan 2024 13:15:15 +0800</lastBuildDate><atom:link href="https://cuile.github.io/tags/snap/index.xml" rel="self" type="application/rss+xml"/><item><title>snap 设置代理</title><link>https://cuile.github.io/posts/snap/snap_proxy/</link><pubDate>Fri, 19 Jan 2024 13:15:15 +0800</pubDate><guid>https://cuile.github.io/posts/snap/snap_proxy/</guid><description>
-使用snap 的过程中经常遇到无法链接的情况。 1$ sudo snap install code --classic 2error: unable to contact snap store 这是因为SnapCraft将软件包放在自己的海外服务器上，因为众所周知的</description></item><item><title>使用 Snap 安装 Docker</title><link>https://cuile.github.io/posts/docker/docker_install_snap/</link><pubDate>Wed, 11 May 2022 18:41:48 +0800</pubDate><guid>https://cuile.github.io/posts/docker/docker_install_snap/</guid><description>
-尝试使用 Ubuntu 的 Snap 后，发现真的非常方便。 看过Snap的介绍以后，发现Snap的沙盒理念非常先进，在存储基本不成问题背景下，会系统环境的影响更小。</description></item></channel></rss>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Snap on 瘦了就帅了</title><link>https://blog.cuile.com/tags/snap/</link><description>Recent content in Snap on 瘦了就帅了</description><generator>Hugo</generator><language>zh-cn</language><lastBuildDate>Thu, 26 Feb 2026 02:59:37 +0000</lastBuildDate><atom:link href="https://blog.cuile.com/tags/snap/index.xml" rel="self" type="application/rss+xml"/><item><title>snap 设置代理</title><link>https://blog.cuile.com/post/snap/snap_proxy/</link><pubDate>Fri, 19 Jan 2024 13:15:15 +0800</pubDate><guid>https://blog.cuile.com/post/snap/snap_proxy/</guid><description>&lt;p>使用snap 的过程中经常遇到无法链接的情况。&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span>$ sudo snap install code --classic
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>error: unable to contact snap store
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>这是因为SnapCraft将软件包放在自己的海外服务器上，因为众所周知的原因，访问速度异常缓慢，不加代理的情况下，基本无法使用。&lt;/p>
+&lt;p>Linux上的一些应用程序会通过读取环境变量 http_proxy 和 https_proxy 来应用代理服务器设置，典型的有Chrome。&lt;/p>
+&lt;p>然而，Snap比较特别，它不会从环境变量中上述环境变量中读取代理服务器设置，因此直接使用&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-ini" data-lang="ini">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#a6e22e">export http_proxy&lt;/span>&lt;span style="color:#f92672">=&lt;/span>&lt;span style="color:#e6db74">[代理服务器地址]&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#a6e22e">export https_proxy&lt;/span>&lt;span style="color:#f92672">=&lt;/span>&lt;span style="color:#e6db74">[代理服务器地址]&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>是不起作用的。&lt;/p>
+&lt;p>网上有一些修改配置文件的方法，个人觉得很麻烦，也容易出错，所以选了最简单可靠的命令行模式。&lt;/p>
+&lt;h2 id="1-设置命令">1. 设置命令&lt;/h2>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span>$ sudo snap set system proxy.https&lt;span style="color:#f92672">=&lt;/span>&lt;span style="color:#e6db74">&amp;#34;http://代理服务器地址:代理端口&amp;#34;&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>$ sudo snap set system proxy.http&lt;span style="color:#f92672">=&lt;/span>&lt;span style="color:#e6db74">&amp;#34;http://代理服务器地址:代理端口&amp;#34;&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="参考文档">参考文档&lt;/h2>
+&lt;ul>
+&lt;li>&lt;a href="https://www.cnblogs.com/brep/p/14643507.html">ubuntu snap install 代理设置&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://www.jianshu.com/p/0891648b657a">为Snapd设置代理&lt;/a>&lt;/li>
+&lt;/ul></description></item><item><title>使用 Snap 安装 Docker</title><link>https://blog.cuile.com/post/container/docker_install_snap/</link><pubDate>Wed, 11 May 2022 18:41:48 +0800</pubDate><guid>https://blog.cuile.com/post/container/docker_install_snap/</guid><description>&lt;p>尝试使用 Ubuntu 的 Snap 后，发现真的非常方便。&lt;/p>
+&lt;p>看过Snap的介绍以后，发现Snap的沙盒理念非常先进，在存储基本不成问题背景下，会系统环境的影响更小。&lt;/p>
+&lt;p>而且docker-compose命令也会一起安装，更是方便。&lt;/p>
+&lt;h2 id="1安装">1.安装&lt;/h2>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span>$ sudo snap install docker
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="2设置">2.设置&lt;/h2>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e"># 设置开机启动&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>$ sudo snap start docker --enable
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e"># 确认服务状态&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>$ sudo snap services docker
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e"># 查看服务详情&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>$ service snap.docker.dockerd status
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>使用sudo安装后要注意以后调用时，都要使用sudo命令前缀。&lt;/p>
+&lt;h2 id="3其它">3.其它&lt;/h2>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e"># 安装目录&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>/snap/docker/current 
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e"># 服务启动配置文件&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>/etc/systemd/system/snap.docker.dockerd.service
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e"># 配套 AppArmor 配置文件&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>/var/lib/snapd/apparmor/profiles/snap.docker.docker
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>/var/lib/snapd/apparmor/profiles/snap.docker.dockerd
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e"># 默认 Unix Socket 文件路径&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>unix:///var/snap/docker/current/run/docker/libcontainerd/docker-containerd.sock
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="4参考文献">4.参考文献&lt;/h2>
+&lt;p>&lt;a href="https://www.moha.online/en/node/111#Snap%E5%AE%89%E8%A3%85">Docker 安装指南&lt;/a>&lt;/p></description></item></channel></rss>

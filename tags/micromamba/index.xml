@@ -1,2 +1,119 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>micromamba on 瘦了就帅了</title><link>https://cuile.github.io/tags/micromamba/</link><description>Recent content in micromamba on 瘦了就帅了</description><generator>Hugo -- gohugo.io</generator><copyright>Copyright © 2008–2018, Steve Francia and the Hugo Authors; all rights reserved.</copyright><lastBuildDate>Sat, 25 Nov 2023 00:24:10 +0800</lastBuildDate><atom:link href="https://cuile.github.io/tags/micromamba/index.xml" rel="self" type="application/rss+xml"/><item><title>VSCode 配置 Python 开发环境</title><link>https://cuile.github.io/posts/vscode/vscode_configures_python_development_environment/</link><pubDate>Sat, 25 Nov 2023 00:24:10 +0800</pubDate><guid>https://cuile.github.io/posts/vscode/vscode_configures_python_development_environment/</guid><description>
-使用 VSCode 开发 Python 是替代 PyCharm 的一个很好选择，有丰富的扩展和第三方工具可以使用，安装配置好它们，会让开发工作事半功倍。下面列举推荐安装的扩展和工具： 扩</description></item></channel></rss>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Micromamba on 瘦了就帅了</title><link>https://blog.cuile.com/tags/micromamba/</link><description>Recent content in Micromamba on 瘦了就帅了</description><generator>Hugo</generator><language>zh-cn</language><lastBuildDate>Thu, 26 Feb 2026 02:59:37 +0000</lastBuildDate><atom:link href="https://blog.cuile.com/tags/micromamba/index.xml" rel="self" type="application/rss+xml"/><item><title>Micromamba的安装与使用</title><link>https://blog.cuile.com/post/python/micromamba/</link><pubDate>Thu, 17 Jul 2025 01:18:10 +0800</pubDate><guid>https://blog.cuile.com/post/python/micromamba/</guid><description>&lt;h2 id="安装">安装&lt;/h2>
+&lt;h3 id="windows">Windows&lt;/h3>
+&lt;h4 id="1-下载">1. 下载&lt;/h4>
+&lt;p>推荐使用 PowerShell&lt;sup id="fnref:1">&lt;a href="#fn:1" class="footnote-ref" role="doc-noteref">1&lt;/a>&lt;/sup>&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-powershell" data-lang="powershell">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e"># 下载并安装 VC++ Redistributable，需要管理员模式&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>Invoke-WebRequest -Uri &lt;span style="color:#e6db74">&amp;#34;https://aka.ms/vs/17/release/vc_redist.x64.exe&amp;#34;&lt;/span> -OutFile &lt;span style="color:#e6db74">&amp;#34;&lt;/span>$env:TEMP&lt;span style="color:#e6db74">\vc_redist.x64.exe&amp;#34;&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>Start-Process -Wait -FilePath &lt;span style="color:#e6db74">&amp;#34;&lt;/span>$env:TEMP&lt;span style="color:#e6db74">\vc_redist.x64.exe&amp;#34;&lt;/span> -ArgumentList &lt;span style="color:#e6db74">&amp;#34;/install&amp;#34;&lt;/span>, &lt;span style="color:#e6db74">&amp;#34;/quiet&amp;#34;&lt;/span>, &lt;span style="color:#e6db74">&amp;#34;/norestart&amp;#34;&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e"># 下载micromamba&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>Invoke-Webrequest -URI https&lt;span style="color:#960050;background-color:#1e0010">:&lt;/span>//micro.mamba.pm/api/micromamba/win-&lt;span style="color:#ae81ff">64&lt;/span>/latest -OutFile micromamba.tar.bz2
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e"># 使用7z解压&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&amp;amp; &lt;span style="color:#e6db74">&amp;#34;C:\Program Files\7-Zip\7z.exe&amp;#34;&lt;/span> x &lt;span style="color:#e6db74">&amp;#34;micromamba.tar.bz2&amp;#34;&lt;/span> -o&lt;span style="color:#e6db74">&amp;#34;tmp&amp;#34;&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e"># 使用tar解压，系统内置不用安装&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>mkdir micromamba
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>tar -xvf .\tmp\micromamba.tar -C .\micromamba\
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>.\micromamba\Library\bin\micromamba.exe --help
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e"># 查看输出&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h4 id="2-安装">2. 安装&lt;sup id="fnref:2">&lt;a href="#fn:2" class="footnote-ref" role="doc-noteref">2&lt;/a>&lt;/sup>&lt;/h4>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-powershell" data-lang="powershell">&lt;span style="display:flex;">&lt;span>.\micromamba\Library\bin\micromamba.exe shell init -s powershell -r C:\Your\Root\Prefix
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>默认位置为 $HOME/micromamba，也就是 C:\Users\username\micromamba 。&lt;/p>
+&lt;p>同时会在 PowerShell 的 Profile 文件中（相当于 Bash 的 .bashrc）添加以下代码，保证每次启动 PowerShell 时，都会自动初始化 Micromamba 。&lt;/p>
+&lt;blockquote>
+&lt;p>$HOME/Documents/WindowsPowerShell/profile.ps1&lt;/p>&lt;/blockquote>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-powershell" data-lang="powershell">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e">#region mamba initialize&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e"># !! Contents within this block are managed by &amp;#39;mamba shell init&amp;#39; !!&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>$Env:MAMBA_ROOT_PREFIX = &lt;span style="color:#e6db74">&amp;#34;C:\Users\username\micromamba&amp;#34;&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>$Env:MAMBA_EXE = &lt;span style="color:#e6db74">&amp;#34;C:\Users\username\micromamba\Library\bin\micromamba.exe&amp;#34;&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>(&amp;amp; $Env:MAMBA_EXE &lt;span style="color:#e6db74">&amp;#39;shell&amp;#39;&lt;/span> &lt;span style="color:#e6db74">&amp;#39;hook&amp;#39;&lt;/span> -s &lt;span style="color:#e6db74">&amp;#39;powershell&amp;#39;&lt;/span> -p $Env:MAMBA_ROOT_PREFIX) | Out-String | Invoke-Expression
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e">#endregion&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>加入设置 micromamba 别名的命令。
+设置别名后，即方便使用，也可配合 VSCode 的配置，实现自动启动开发环境。&lt;/p></description></item><item><title>VSCode 配置 Python 开发环境</title><link>https://blog.cuile.com/post/vscode/vscode_configures_python_development_environment/</link><pubDate>Sat, 25 Nov 2023 00:24:10 +0800</pubDate><guid>https://blog.cuile.com/post/vscode/vscode_configures_python_development_environment/</guid><description>&lt;p>使用 VSCode 开发 Python 是替代 PyCharm 的一个很好选择，有丰富的扩展和第三方工具可以使用，安装配置好它们，会让开发工作事半功倍。下面列举推荐安装的扩展和工具：&lt;/p>
+&lt;p>&lt;em>扩展&lt;/em>&lt;/p>
+&lt;ul>
+&lt;li>Material Icon There
+&lt;ul>
+&lt;li>VSCode图标，很好看&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>Python
+&lt;ul>
+&lt;li>微软官方扩展，一定要装&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>Pylance
+&lt;ul>
+&lt;li>微软官方扩展，一定要装&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>autoDocstring&lt;/li>
+&lt;li>Python Environment Manager&lt;/li>
+&lt;li>Ruff&lt;/li>
+&lt;li>Code Runner&lt;/li>
+&lt;li>Qt for Python&lt;/li>
+&lt;/ul>
+&lt;p>&lt;em>工具&lt;/em>&lt;/p>
+&lt;ul>
+&lt;li>Micromamba
+&lt;ul>
+&lt;li>使用 Micromamba 来配置 Python 开发环境有几个好处：
+&lt;ul>
+&lt;li>micromamba 是一个包管理器，可方便的同时安装几个软件，形成一个独立的开发环境，与其它项目的开发环境完全隔离。&lt;/li>
+&lt;li>micromamba 安装的软件，不会在系统留下痕迹，不会污染本地系统。&lt;/li>
+&lt;li>micromamba 只配置 python 基础环境，不影响 python 虚拟环境，同一个基础环境可提供给多个虚拟环境使用。&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ul>
+&lt;h2 id="配置-micromamba">配置 Micromamba&lt;/h2>
+&lt;p>&lt;a href="https://blog.cuile.com/post/python/micromamba/">Micromamba的安装与使用&lt;/a>&lt;/p>
+&lt;h2 id="配置-vscode">配置 VSCode&lt;sup id="fnref:1">&lt;a href="#fn:1" class="footnote-ref" role="doc-noteref">1&lt;/a>&lt;/sup>&lt;/h2>
+&lt;p>配置 Venv 路径&lt;/p>
+&lt;ol>
+&lt;li>使用 “ctrl+,” 打开设置界面，搜索 venv ，出现两个结果：&lt;/li>
+&lt;/ol>
+&lt;table>
+ &lt;thead>
+ &lt;tr>
+ &lt;th style="text-align: left">选项&lt;/th>
+ &lt;th style="text-align: left">值&lt;/th>
+ &lt;/tr>
+ &lt;/thead>
+ &lt;tbody>
+ &lt;tr>
+ &lt;td style="text-align: left">Python: Venv Folders&lt;/td>
+ &lt;td style="text-align: left">如果安装时使用默认位置，就填写 micromamba，下面的不用设置&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td style="text-align: left">Python: Venv Path&lt;/td>
+ &lt;td style="text-align: left">如果安装时没有使用默认位置，就填写安装位置，上面的不用设置&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td style="text-align: left">Python: Conda Path&lt;/td>
+ &lt;td style="text-align: left">直接输入conda 即可&lt;/td>
+ &lt;/tr>
+ &lt;/tbody>
+&lt;/table>
+&lt;ol start="2">
+&lt;li>重启VSCode，进入 Python 项目，就可以看到右下角的 Python 环境了，如果创建了多个环境，可以通过这里切换。这里需要注意 vscode 可以识别多个 Python 版本，但无法正确配置它们。所以创建不同的 Python 版本后，还要为项目选择解释器。&lt;/li>
+&lt;/ol>
+&lt;h3 id="配置-python-项目环境">配置 Python 项目环境&lt;/h3>
+&lt;ol>
+&lt;li>使用项目终端界面，创建虚拟环境。&lt;/li>
+&lt;/ol>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-powershell" data-lang="powershell">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e"># 先激活 micromamba 环境&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>PS &lt;span style="color:#e6db74">&amp;#34;Your Project Path&amp;#34;&lt;/span>&amp;gt; conda activate PyQt
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e"># 创建Python虚拟环境&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e"># --upgrade 参数是升级虚拟环境用的，新建虚拟环境时要去掉。&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e"># --system-site-packages 会降低环境隔离性，生产环境慎用。&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>(PyQt) PS &lt;span style="color:#e6db74">&amp;#34;Your Project Path&amp;#34;&lt;/span>&amp;gt; python -m venv --prompt &lt;span style="color:#e6db74">&amp;#34;&amp;lt;myproject&amp;gt;&amp;#34;&lt;/span> --upgrade-deps .venv --symlinks --upgrade --system-site-packages
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e"># 查看项目资源管理器，看到 .venv 文件夹就成功了。&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e"># 激活Python虚拟环境&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>(PyQt) PS &lt;span style="color:#e6db74">&amp;#34;Your Project Path&amp;#34;&lt;/span>&amp;gt; Activate.ps1
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e"># 成功进入虚拟环境&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>(myproject) (PyQt) PS &lt;span style="color:#e6db74">&amp;#34;Your Project Path&amp;#34;&lt;/span>&amp;gt;
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>重启 vscode 再次进入项目终端，不一定会看到项目前缀&lt;sup id="fnref:2">&lt;a href="#fn:2" class="footnote-ref" role="doc-noteref">2&lt;/a>&lt;/sup>。VsCode已经自动修你激活了Python虚拟环境，不需要再操作。
+安装包里不需要激活 micromamba 环境，否则包将被安装到 micromamba 环境中。&lt;/p></description></item></channel></rss>

@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Scoop on 瘦了就帅了</title><link>https://blog.cuile.com/tags/scoop/</link><description>Recent content in Scoop on 瘦了就帅了</description><generator>Hugo</generator><language>zh-cn</language><lastBuildDate>Thu, 26 Feb 2026 02:59:37 +0000</lastBuildDate><atom:link href="https://blog.cuile.com/tags/scoop/index.xml" rel="self" type="application/rss+xml"/><item><title>Scoop的安装与使用</title><link>https://blog.cuile.com/post/windows/scoop/</link><pubDate>Wed, 16 Jul 2025 18:10:23 +0800</pubDate><guid>https://blog.cuile.com/post/windows/scoop/</guid><description>&lt;h2 id="安装">安装&lt;/h2>
+&lt;h3 id="1-环境准备">1. 环境准备&lt;/h3>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-powershell" data-lang="powershell">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e"># PowerShell 版本：≥5.0&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&amp;gt; $PSVersionTable.PSVersion
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e"># .NET Framework：≥4.5&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&amp;gt; $PSVersionTable.CLRVersion
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;ul>
+&lt;li>&lt;a href="https://dotnet.microsoft.com/zh-cn/download/dotnet-framework">下载 .NET Framework&lt;/a> &lt;em>注意下载“脱机安装程序”和“语言包”&lt;/em>&lt;/li>
+&lt;li>&lt;a href="https://learn.microsoft.com/zh-cn/dotnet/core/install/windows">在 Windows 上安装 .NET&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;h3 id="2-安装">2. 安装&lt;/h3>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-powershell" data-lang="powershell">&lt;span style="display:flex;">&lt;span>&amp;gt; Set-ExecutionPolicy -ExecutionPolicy RemoteSigned -Scope CurrentUser
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e"># 普通用户安装&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&amp;gt; Invoke-RestMethod -Uri https&lt;span style="color:#960050;background-color:#1e0010">:&lt;/span>//blog.cuile.com/attachments/scripts/scoop_install.ps1 | Invoke-Expression
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e"># 管理员用户安装&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&amp;gt; irm blog.cuile.com/attachments/scripts/scoop_install.ps1 -outfile &lt;span style="color:#e6db74">&amp;#39;install.ps1&amp;#39;&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&amp;gt; .\install.ps1 -RunAsAdmin
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e"># 默认安装到 C:\Users\&amp;lt;user&amp;gt;\scoop&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e"># 验证安装&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&amp;gt; scoop help
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e"># 安装aria2，提升下载速度&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&amp;gt; scoop install aria2
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e"># 安装7zip，提升解压成功率&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&amp;gt; scoop install 7zip
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>强制使用7zip解压&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-json" data-lang="json">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e">// ~\.config\scoop\config.json
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e">&lt;/span>{
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#f92672">&amp;#34;7ZIPEXTRACT_USE_EXTERNAL&amp;#34;&lt;/span>: &lt;span style="color:#66d9ef">true&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>}
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h3 id="3-使用">3. 使用&lt;/h3>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-powershell" data-lang="powershell">&lt;/code>&lt;/pre>&lt;/div></description></item></channel></rss>

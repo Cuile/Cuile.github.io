@@ -1,4 +1,152 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Firewall on 瘦了就帅了</title><link>https://cuile.github.io/tags/firewall/</link><description>Recent content in Firewall on 瘦了就帅了</description><generator>Hugo -- gohugo.io</generator><copyright>Copyright © 2008–2018, Steve Francia and the Hugo Authors; all rights reserved.</copyright><lastBuildDate>Wed, 23 Oct 2024 16:49:42 +0800</lastBuildDate><atom:link href="https://cuile.github.io/tags/firewall/index.xml" rel="self" type="application/rss+xml"/><item><title>Windows防火墙配置</title><link>https://cuile.github.io/posts/windows/windows_firewall/</link><pubDate>Wed, 23 Oct 2024 16:49:42 +0800</pubDate><guid>https://cuile.github.io/posts/windows/windows_firewall/</guid><description>
-参考 Windows通过netsh控制安全中心防火墙和网络保护策略 使用命令行管理 Windows 防火墙</description></item><item><title>OpenWRT 配置 IPv6</title><link>https://cuile.github.io/posts/openwrt/openwrt_ipv6/</link><pubDate>Wed, 04 Oct 2023 19:48:18 +0800</pubDate><guid>https://cuile.github.io/posts/openwrt/openwrt_ipv6/</guid><description>
-OpenWRT 配置 IPv6，在网上有许多教程，但大部分都说的不清不楚。 所以我从 OpenWRT 配置文件的角度，给出一个肯定能用的配置。 相关配置原理不详述，可自行上网查</description></item><item><title>iptables 配置</title><link>https://cuile.github.io/posts/linux/iptables_manual/</link><pubDate>Tue, 08 Feb 2022 10:09:48 +0800</pubDate><guid>https://cuile.github.io/posts/linux/iptables_manual/</guid><description>
-基于Centos 7 注意：CentOS 7默认的防火墙不是iptables,而是firewalld 停止firewalld服务 1# 停止firewal</description></item></channel></rss>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Firewall on 瘦了就帅了</title><link>https://blog.cuile.com/tags/firewall/</link><description>Recent content in Firewall on 瘦了就帅了</description><generator>Hugo</generator><language>zh-cn</language><lastBuildDate>Thu, 26 Feb 2026 02:59:37 +0000</lastBuildDate><atom:link href="https://blog.cuile.com/tags/firewall/index.xml" rel="self" type="application/rss+xml"/><item><title>Windows防火墙配置</title><link>https://blog.cuile.com/post/windows/windows_firewall/</link><pubDate>Wed, 23 Oct 2024 16:49:42 +0800</pubDate><guid>https://blog.cuile.com/post/windows/windows_firewall/</guid><description>&lt;h2 id="参考">参考&lt;/h2>
+&lt;ul>
+&lt;li>&lt;a href="https://blog.csdn.net/mageriletu2012/article/details/143108382">Windows通过netsh控制安全中心防火墙和网络保护策略&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://learn.microsoft.com/zh-cn/windows/security/operating-system-security/network-security/windows-firewall/configure-with-command-line?tabs=cmd">使用命令行管理 Windows 防火墙&lt;/a>&lt;/li>
+&lt;/ul></description></item><item><title>OpenWRT 配置 IPv6</title><link>https://blog.cuile.com/post/openwrt/openwrt_ipv6/</link><pubDate>Wed, 04 Oct 2023 19:48:18 +0800</pubDate><guid>https://blog.cuile.com/post/openwrt/openwrt_ipv6/</guid><description>&lt;p>OpenWRT 配置 IPv6，在网上有许多教程，但大部分都说的不清不楚。
+所以我从 OpenWRT 配置文件的角度，给出一个肯定能用的配置。
+相关配置原理不详述，可自行上网查找。&lt;/p>
+&lt;h2 id="系统环境">系统环境&lt;/h2>
+&lt;ul>
+&lt;li>北京联通 300M 家宽 （客服说100元/月，可提供公网IPv4/IPv6地址，其实IPv6是免费给的）&lt;/li>
+&lt;li>OpenWRT（PVE虚机，非直通网卡）
+&lt;ul>
+&lt;li>目标平台：x86/64&lt;/li>
+&lt;li>固件版本：OpenWrt 21.02.0 r16279-5cc0535800 / LuCI openwrt-21.02 branch git-23.093.57360-e98243e&lt;/li>
+&lt;li>内核版本：5.4.143&lt;/li>
+&lt;li>DHCPv6 客户端 (odhcp6c)&lt;/li>
+&lt;li>RA &amp;amp; DHCPv6 服务器 (odhcpd)&lt;/li>
+&lt;li>IPv6 防火墙 (ip6tables)&lt;/li>
+&lt;li>Luci网页配置 (luci-proto-ipv6)&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ul>
+&lt;h2 id="配置流程">配置流程&lt;/h2>
+&lt;ol>
+&lt;li>光猫桥接（电话联通，远程搞定）&lt;/li>
+&lt;li>OpenWRT WAN IPv6 配置&lt;/li>
+&lt;/ol>
+&lt;blockquote>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-yaml" data-lang="yaml">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e"># /etc/config/network&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>...
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#ae81ff">config interface &amp;#39;lan&amp;#39;&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#ae81ff">option proto &amp;#39;static&amp;#39;&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#ae81ff">option ipaddr &amp;#39;192.168.10.10&amp;#39;&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#ae81ff">option netmask &amp;#39;255.255.255.0&amp;#39;&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#ae81ff">option device &amp;#39;eth0&amp;#39;&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#ae81ff">option ip6assign &amp;#39;64&amp;#39;&lt;/span> &lt;span style="color:#75715e"># IPv6分配长度。要与 wan 口一致。&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#ae81ff">config interface &amp;#39;wan&amp;#39;&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#ae81ff">option proto &amp;#39;pppoe&amp;#39;&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#ae81ff">option username &amp;#39;***********&amp;#39;&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#ae81ff">option password &amp;#39;***********&amp;#39;&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#ae81ff">option device &amp;#39;eth1&amp;#39;&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#ae81ff">option ipv6 &amp;#39;auto&amp;#39;&lt;/span> &lt;span style="color:#75715e"># 自动获取IPv6地址，使用这个选项后，会自动创建一个虚拟动态接口(WAN_6)，不用配置。&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#ae81ff">option ip6assign &amp;#39;64&amp;#39;&lt;/span> &lt;span style="color:#75715e"># IPv6分配长度。参考 WAN_6 接口 IPv6-PD 的掩码长度，一般为“60”，比它大即可，系统默认为64。&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>...
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;/blockquote>
+&lt;ol start="3">
+&lt;li>OpenWRT 防火墙配置&lt;/li>
+&lt;/ol>
+&lt;blockquote>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-yaml" data-lang="yaml">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e"># /etc/config/firewall&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>...
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#ae81ff">config zone&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#ae81ff">option name &amp;#39;lan&amp;#39;&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#ae81ff">list network &amp;#39;lan&amp;#39;&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#ae81ff">option input &amp;#39;ACCEPT&amp;#39;&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#ae81ff">option output &amp;#39;ACCEPT&amp;#39;&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#ae81ff">option forward &amp;#39;ACCEPT&amp;#39;&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#ae81ff">config zone&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#ae81ff">option name &amp;#39;wan&amp;#39;&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#ae81ff">list network &amp;#39;wan&amp;#39;&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#ae81ff">option input &amp;#39;DROP&amp;#39;&lt;/span> &lt;span style="color:#75715e"># 关闭 wan 口输入流量&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#ae81ff">option output &amp;#39;ACCEPT&amp;#39;&lt;/span> &lt;span style="color:#75715e"># 只出不进&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#ae81ff">option forward &amp;#39;REJECT&amp;#39;&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#ae81ff">option masq &amp;#39;1&amp;#39;&lt;/span> &lt;span style="color:#75715e"># 打开 NAT 功能&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#ae81ff">option mtu_fix &amp;#39;1&amp;#39;&lt;/span> &lt;span style="color:#75715e"># 路由器直接拨号时使用&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>...
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e"># 转发规划很重要&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#ae81ff">config forwarding&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#ae81ff">option src &amp;#39;lan&amp;#39;&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#ae81ff">option dest &amp;#39;wan&amp;#39;&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>...
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e"># 允许外网IPv6协议下，任意地址的547端口的UDP包通过wan口，访问本机546端口&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#ae81ff">config rule&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#ae81ff">option name &amp;#39;Allow-DHCPv6&amp;#39;&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#ae81ff">option proto &amp;#39;udp&amp;#39;&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#ae81ff">option src &amp;#39;wan&amp;#39;&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#ae81ff">option src_port &amp;#39;547&amp;#39;&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#ae81ff">option dest_port &amp;#39;546&amp;#39;&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#ae81ff">option target &amp;#39;ACCEPT&amp;#39;&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#ae81ff">option family &amp;#39;ipv6&amp;#39;&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;/blockquote>
+&lt;ol start="4">
+&lt;li>OpenWRT DHCP 配置&lt;/li>
+&lt;/ol>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-yaml" data-lang="yaml">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e"># /etc/config/dhcp&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>...
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#ae81ff">config dhcp &amp;#39;lan&amp;#39;&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#ae81ff">option interface &amp;#39;lan&amp;#39;&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#ae81ff">option start &amp;#39;100&amp;#39;&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#ae81ff">option dhcpv4 &amp;#39;server&amp;#39;&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#ae81ff">option limit &amp;#39;200&amp;#39;&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#ae81ff">option force &amp;#39;1&amp;#39;&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#ae81ff">option leasetime &amp;#39;2h&amp;#39;&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#ae81ff">option ra &amp;#39;server&amp;#39;&lt;/span> &lt;span style="color:#75715e"># RA服务 服务器模式&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#ae81ff">option dhcpv6 &amp;#39;server&amp;#39;&lt;/span> &lt;span style="color:#75715e"># DHCPv6服务 服务器模式&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#ae81ff">list ra_flags &amp;#39;none&amp;#39;&lt;/span> &lt;span style="color:#75715e"># RA标记 无&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#ae81ff">config dhcp &amp;#39;wan&amp;#39;&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#ae81ff">option interface &amp;#39;wan&amp;#39;&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#ae81ff">option ignore &amp;#39;1&amp;#39;&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#ae81ff">list ra_flags &amp;#39;none&amp;#39;&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#ae81ff">config odhcpd &amp;#39;odhcpd&amp;#39;&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#ae81ff">option maindhcp &amp;#39;0&amp;#39;&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#ae81ff">option leasefile &amp;#39;/tmp/hosts/odhcpd&amp;#39;&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#ae81ff">option leasetrigger &amp;#39;/usr/sbin/odhcpd-update&amp;#39;&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#ae81ff">option loglevel &amp;#39;4&amp;#39;&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;ol start="5">
+&lt;li>重启OpenWRT&lt;/li>
+&lt;li>查看 Luci -&amp;gt; 网络 -&amp;gt; 接口 -&amp;gt; LAN，已拿到的IPv6地址&lt;/li>
+&lt;li>测试本机外网IPv6地址，与 LAN 的 IPv6地址一致即可&lt;/li>
+&lt;/ol>
+&lt;blockquote>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span>$ curl 6.ipw.cn
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;/blockquote>
+&lt;h2 id="参考文档">参考文档&lt;/h2>
+&lt;ul>
+&lt;li>&lt;a href="https://openwrt.org/docs/guide-user/network/ipv6/configuration">IPv6 configuration&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://vicfree.com/2023/02/ipv6-explained-and-setup-in-openwrt/">IPv6 原理及如何设置 OpenWrt&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://openwrt.org/zh-cn/doc/uci/firewall">如何配置防火墙&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://openwrt.org/docs/guide-user/network/ipv6/start">IPv6&lt;/a>&lt;/li>
+&lt;/ul></description></item><item><title>iptables 配置</title><link>https://blog.cuile.com/post/linux/iptables_manual/</link><pubDate>Tue, 08 Feb 2022 10:09:48 +0800</pubDate><guid>https://blog.cuile.com/post/linux/iptables_manual/</guid><description>&lt;p>&lt;strong>&lt;code>基于Centos 7&lt;/code>&lt;/strong>&lt;/p>
+&lt;p>&lt;strong>注意：CentOS 7默认的防火墙不是iptables,而是firewalld&lt;/strong>&lt;/p>
+&lt;h2 id="停止firewalld服务">停止firewalld服务&lt;/h2>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e"># 停止firewalld服务&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>systemctl stop firewalld
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e"># 禁用firewalld服务&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e"># systemctl mask firewalld&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e"># 删除firewalld&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>yum erase firewalld
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="安装-iptables">安装 iptables&lt;/h2>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e"># 先检查是否安装了iptables&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>systemctl status iptables
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e"># 安装iptables&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>yum install iptables iptables-services -y
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="启动-iptables">启动 iptables&lt;/h2>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e"># 注册iptables服务，相当于以前的chkconfig iptables on&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>systemctl enable iptables
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e"># 开启服务&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>systemctl start iptables
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e"># 查看状态&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>systemctl status iptables
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e"># 重启防火墙&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>systemctl restart iptables
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e"># 保存规则&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>service iptables save
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e"># 如果报“-bash: service: command not found”，则需要安装initscripts&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>yum install initscripts -y
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="关键规则">关键规则&lt;/h2>
+&lt;p>注意添加规则的先后顺序&lt;/p></description></item></channel></rss>

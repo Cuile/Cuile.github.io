@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Vnc on 瘦了就帅了</title><link>https://blog.cuile.com/tags/vnc/</link><description>Recent content in Vnc on 瘦了就帅了</description><generator>Hugo</generator><language>zh-cn</language><lastBuildDate>Thu, 26 Feb 2026 02:59:37 +0000</lastBuildDate><atom:link href="https://blog.cuile.com/tags/vnc/index.xml" rel="self" type="application/rss+xml"/><item><title>Debian 12 极简远程桌面</title><link>https://blog.cuile.com/post/linux/vnc/</link><pubDate>Tue, 12 Aug 2025 19:01:37 +0800</pubDate><guid>https://blog.cuile.com/post/linux/vnc/</guid><description>&lt;p>Debian 12 只安装VNC及i3桌面，就可以低成本的实现远程桌面环境&lt;/p>
+&lt;h2 id="安装">安装&lt;/h2>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e"># 安装通用工具&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>apt-get install -y nano net-tools bzip2 procps apt-utils iputils-ping netcat-openbsd
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e"># 安装中文字体&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>apt-get install -y locales fonts-wqy-microhei fonts-wqy-zenhei xfonts-wqy &lt;span style="color:#f92672">&amp;amp;&amp;amp;&lt;/span> &lt;span style="color:#ae81ff">\
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#ae81ff">&lt;/span> sed -i -e &lt;span style="color:#e6db74">&amp;#34;s/# zh_CN.UTF-8 UTF-8/zh_CN.UTF-8 UTF-8/&amp;#34;&lt;/span> /etc/locale.gen &lt;span style="color:#f92672">&amp;amp;&amp;amp;&lt;/span> &lt;span style="color:#ae81ff">\
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#ae81ff">&lt;/span> locale-gen zh_CN.UTF-8 &lt;span style="color:#f92672">&amp;amp;&amp;amp;&lt;/span>&lt;span style="color:#ae81ff">\
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#ae81ff">&lt;/span> update-locale LANG&lt;span style="color:#f92672">=&lt;/span>zh_CN.UTF-8 LANGUAGE&lt;span style="color:#f92672">=&lt;/span>zh_CN:zh LC_ALL&lt;span style="color:#f92672">=&lt;/span>zh_CN.UTF-8
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e"># 安装VNC&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>apt-get install -y tigervnc-standalone-server
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e"># 安装i3桌面&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>apt-get install -y i3-wm i3status i3blocks dmenu xfonts-base terminator dbus-x11 libdbus-glib-1-2 ; apt-get purge -y pm-utils *screensaver*
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>apt-get clean
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="配置i3桌面">配置i3桌面&lt;/h2>
+&lt;blockquote>
+&lt;p>~/.config/i3/config&lt;/p></description></item></channel></rss>

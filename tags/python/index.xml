@@ -1,10 +1,1366 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>python on 瘦了就帅了</title><link>https://cuile.github.io/tags/python/</link><description>Recent content in python on 瘦了就帅了</description><generator>Hugo -- gohugo.io</generator><copyright>Copyright © 2008–2018, Steve Francia and the Hugo Authors; all rights reserved.</copyright><lastBuildDate>Sun, 16 Mar 2025 11:07:37 +0800</lastBuildDate><atom:link href="https://cuile.github.io/tags/python/index.xml" rel="self" type="application/rss+xml"/><item><title>Nuitka 参数列表</title><link>https://cuile.github.io/posts/python/nuitka/</link><pubDate>Sun, 16 Mar 2025 11:07:37 +0800</pubDate><guid>https://cuile.github.io/posts/python/nuitka/</guid><description>
-Usage: python.exe -m nuitka [--mode=compilation_mode] [--run] [options] main_module.py Note: For general plugin help (they often have their own command line options too), consider the output of '--help-plugins'. Options: 选项： --help show this help message and exit --version Show version information and important details for bug reports, then exit. Defaults to off. --module Create an importable binary extension module executable instead of a program. Defaults to off. 创建</description></item><item><title>VScode 在 Docker 容器内开发</title><link>https://cuile.github.io/posts/vscode/vscode_develop_in_docker/</link><pubDate>Sat, 25 Nov 2023 00:24:10 +0800</pubDate><guid>https://cuile.github.io/posts/vscode/vscode_develop_in_docker/</guid><description>
-在 Docker 的容器内开发，相当于使用VSCode的远程开发能力，好处非常多。 开发环境统一、可维护性强 后期部署简单 1. 安装 Docker Docker 安装 2. 安装 Visual Stuido Code 这不废话嘛</description></item><item><title>VSCode 配置 Python 开发环境</title><link>https://cuile.github.io/posts/vscode/vscode_configures_python_development_environment/</link><pubDate>Sat, 25 Nov 2023 00:24:10 +0800</pubDate><guid>https://cuile.github.io/posts/vscode/vscode_configures_python_development_environment/</guid><description>
-使用 VSCode 开发 Python 是替代 PyCharm 的一个很好选择，有丰富的扩展和第三方工具可以使用，安装配置好它们，会让开发工作事半功倍。下面列举推荐安装的扩展和工具： 扩</description></item><item><title>Django crontab 使用说明</title><link>https://cuile.github.io/posts/django/django_crontab/</link><pubDate>Sun, 22 Jan 2023 16:35:36 +0800</pubDate><guid>https://cuile.github.io/posts/django/django_crontab/</guid><description>
-参考文档 kraiz/django-crontab 使用django-crontab建立定时任务 Linux crontab 命令</description></item><item><title>在 Python Shell 中重新导入模块</title><link>https://cuile.github.io/posts/python/python_shell_import_reload/</link><pubDate>Fri, 20 Jan 2023 23:44:17 +0800</pubDate><guid>https://cuile.github.io/posts/python/python_shell_import_reload/</guid><description>
-不同版本中，不同的表现形式： Python 2.x：reload() 是内置函数 Python 3.0 - 3.3：使用 imp.reload(module) Python 3.4：imp 已经被废弃，取而代之的是 importlib 1from importlib import reload 2 3reload(&amp;lt;module&amp;gt;) 参</description></item><item><title>Docker 环境 Django 开发简介</title><link>https://cuile.github.io/posts/django/django_development_introduction/</link><pubDate>Tue, 10 May 2022 16:30:13 +0800</pubDate><guid>https://cuile.github.io/posts/django/django_development_introduction/</guid><description>
-1 准备环境 开发环境还是建议使用 Docker 来搭建，方便快捷。 不过 Django 的官方镜像已经弃用了，官方建议新版本使用 Python 官方提供的镜像来构建。 1Docker 2 ┗ Python == 3.9.12-buster 3 ┗ Django ==</description></item><item><title>CentOS 7 安装 Python3.9.12</title><link>https://cuile.github.io/posts/python/python3_install/</link><pubDate>Fri, 06 May 2022 13:11:27 +0800</pubDate><guid>https://cuile.github.io/posts/python/python3_install/</guid><description>
-1、查看已安装的Python 1# 查看已安装的信息 2$ yum info python3 3# 查看python安装位置 4$ whereis python3 2、卸载已安装的Python环境 1# 卸载已安装的程序 2$ yum</description></item><item><title>urllib.parse.urlencode 使用详解</title><link>https://cuile.github.io/posts/python/urllib.parse.urlencode_manual/</link><pubDate>Mon, 17 Jan 2022 15:24:58 +0800</pubDate><guid>https://cuile.github.io/posts/python/urllib.parse.urlencode_manual/</guid><description>
-urllib.parse.urlencode(query, doseq=False, safe='', encoding=None, errors=None, quote_via=quote_plus) urllib.parse.urlencode 将对象或两元素序列转换为百分比编码的ASCII文本字符串，字符串是由'&amp;amp;'字符分隔的一系列 key=value 对，其中 key 和 value 都使用 quote_via 函数</description></item><item><title>在pypi上发布自己的Python库</title><link>https://cuile.github.io/posts/python/release_pypi_package/</link><pubDate>Fri, 11 May 2018 14:49:57 +0800</pubDate><guid>https://cuile.github.io/posts/python/release_pypi_package/</guid><description>
-Python 的 pypi.python.org 站点终于要退休了，而新的接任者 pypi.org 无论从美观、风格上都让人大大的喜欢，终于在审美一这项上及格了。 而且新的 pypi.org 能够正确的渲染 Markdown 格式的描述，实</description></item></channel></rss>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Python on 瘦了就帅了</title><link>https://blog.cuile.com/tags/python/</link><description>Recent content in Python on 瘦了就帅了</description><generator>Hugo</generator><language>zh-cn</language><lastBuildDate>Thu, 26 Feb 2026 02:59:37 +0000</lastBuildDate><atom:link href="https://blog.cuile.com/tags/python/index.xml" rel="self" type="application/rss+xml"/><item><title>Micromamba的安装与使用</title><link>https://blog.cuile.com/post/python/micromamba/</link><pubDate>Thu, 17 Jul 2025 01:18:10 +0800</pubDate><guid>https://blog.cuile.com/post/python/micromamba/</guid><description>&lt;h2 id="安装">安装&lt;/h2>
+&lt;h3 id="windows">Windows&lt;/h3>
+&lt;h4 id="1-下载">1. 下载&lt;/h4>
+&lt;p>推荐使用 PowerShell&lt;sup id="fnref:1">&lt;a href="#fn:1" class="footnote-ref" role="doc-noteref">1&lt;/a>&lt;/sup>&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-powershell" data-lang="powershell">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e"># 下载并安装 VC++ Redistributable，需要管理员模式&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>Invoke-WebRequest -Uri &lt;span style="color:#e6db74">&amp;#34;https://aka.ms/vs/17/release/vc_redist.x64.exe&amp;#34;&lt;/span> -OutFile &lt;span style="color:#e6db74">&amp;#34;&lt;/span>$env:TEMP&lt;span style="color:#e6db74">\vc_redist.x64.exe&amp;#34;&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>Start-Process -Wait -FilePath &lt;span style="color:#e6db74">&amp;#34;&lt;/span>$env:TEMP&lt;span style="color:#e6db74">\vc_redist.x64.exe&amp;#34;&lt;/span> -ArgumentList &lt;span style="color:#e6db74">&amp;#34;/install&amp;#34;&lt;/span>, &lt;span style="color:#e6db74">&amp;#34;/quiet&amp;#34;&lt;/span>, &lt;span style="color:#e6db74">&amp;#34;/norestart&amp;#34;&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e"># 下载micromamba&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>Invoke-Webrequest -URI https&lt;span style="color:#960050;background-color:#1e0010">:&lt;/span>//micro.mamba.pm/api/micromamba/win-&lt;span style="color:#ae81ff">64&lt;/span>/latest -OutFile micromamba.tar.bz2
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e"># 使用7z解压&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&amp;amp; &lt;span style="color:#e6db74">&amp;#34;C:\Program Files\7-Zip\7z.exe&amp;#34;&lt;/span> x &lt;span style="color:#e6db74">&amp;#34;micromamba.tar.bz2&amp;#34;&lt;/span> -o&lt;span style="color:#e6db74">&amp;#34;tmp&amp;#34;&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e"># 使用tar解压，系统内置不用安装&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>mkdir micromamba
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>tar -xvf .\tmp\micromamba.tar -C .\micromamba\
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>.\micromamba\Library\bin\micromamba.exe --help
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e"># 查看输出&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h4 id="2-安装">2. 安装&lt;sup id="fnref:2">&lt;a href="#fn:2" class="footnote-ref" role="doc-noteref">2&lt;/a>&lt;/sup>&lt;/h4>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-powershell" data-lang="powershell">&lt;span style="display:flex;">&lt;span>.\micromamba\Library\bin\micromamba.exe shell init -s powershell -r C:\Your\Root\Prefix
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>默认位置为 $HOME/micromamba，也就是 C:\Users\username\micromamba 。&lt;/p>
+&lt;p>同时会在 PowerShell 的 Profile 文件中（相当于 Bash 的 .bashrc）添加以下代码，保证每次启动 PowerShell 时，都会自动初始化 Micromamba 。&lt;/p>
+&lt;blockquote>
+&lt;p>$HOME/Documents/WindowsPowerShell/profile.ps1&lt;/p>&lt;/blockquote>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-powershell" data-lang="powershell">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e">#region mamba initialize&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e"># !! Contents within this block are managed by &amp;#39;mamba shell init&amp;#39; !!&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>$Env:MAMBA_ROOT_PREFIX = &lt;span style="color:#e6db74">&amp;#34;C:\Users\username\micromamba&amp;#34;&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>$Env:MAMBA_EXE = &lt;span style="color:#e6db74">&amp;#34;C:\Users\username\micromamba\Library\bin\micromamba.exe&amp;#34;&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>(&amp;amp; $Env:MAMBA_EXE &lt;span style="color:#e6db74">&amp;#39;shell&amp;#39;&lt;/span> &lt;span style="color:#e6db74">&amp;#39;hook&amp;#39;&lt;/span> -s &lt;span style="color:#e6db74">&amp;#39;powershell&amp;#39;&lt;/span> -p $Env:MAMBA_ROOT_PREFIX) | Out-String | Invoke-Expression
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e">#endregion&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>加入设置 micromamba 别名的命令。
+设置别名后，即方便使用，也可配合 VSCode 的配置，实现自动启动开发环境。&lt;/p></description></item><item><title>Nuitka 参数列表</title><link>https://blog.cuile.com/post/python/nuitka/</link><pubDate>Sun, 16 Mar 2025 11:07:37 +0800</pubDate><guid>https://blog.cuile.com/post/python/nuitka/</guid><description>&lt;p>Usage: python.exe -m nuitka [&amp;ndash;mode=compilation_mode] [&amp;ndash;run] [options] main_module.py&lt;/p>
+&lt;pre>&lt;code>Note: For general plugin help (they often have their own command line options too), consider the output of '--help-plugins'.
+&lt;/code>&lt;/pre>
+&lt;hr>
+&lt;table>
+ &lt;thead>
+ &lt;tr>
+ &lt;th>&lt;/th>
+ &lt;th>Options:&lt;/th>
+ &lt;th>选项：&lt;/th>
+ &lt;/tr>
+ &lt;/thead>
+ &lt;tbody>
+ &lt;tr>
+ &lt;td>&amp;ndash;help&lt;/td>
+ &lt;td>show this help message and exit&lt;/td>
+ &lt;td>&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>&amp;ndash;version&lt;/td>
+ &lt;td>Show version information and important details for bug reports, then exit. Defaults to off.&lt;/td>
+ &lt;td>&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>&amp;ndash;module&lt;/td>
+ &lt;td>Create an importable binary extension module executable instead of a program. Defaults to off.&lt;/td>
+ &lt;td>创建可导入的二进制扩展模块可执行文件，而不是程序。默认为关闭。&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>&amp;ndash;mode=COMPILATION_MODE&lt;/td>
+ &lt;td>Mode in which to compile. Accelerated runs in your Python installation and epends on it. Standalone creates a folder with an executable contained to run it. Onefile creates a single executable to deploy. App is onefile except on macOS where it&amp;rsquo;s not to be used. Module makes a module, and package includes also all sub-modules and sub-packages. Default is &amp;lsquo;accelerated&amp;rsquo;.&lt;/td>
+ &lt;td>编译模式。Accelerated 在 Python 安装中运行并依附于它。Standalone 会创建一个包含可执行文件的文件夹，以便运行。Onefile 创建单个可执行文件以进行部署。App 就是 onefile，在 macOS 上不使用。Module 制作一个模块，软件包也包括所有子模块和子软件包。默认为 “accelerated”。&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>&amp;ndash;standalone&lt;/td>
+ &lt;td>Enable standalone mode for output. This allows you to transfer the created binary to other machines without it using an existing Python installation. This also means it will become big. It implies these option: &amp;ldquo;&amp;ndash;follow-imports&amp;rdquo; and &amp;ldquo;&amp;ndash;python-flag=no_site&amp;rdquo;. Defaults to off.&lt;/td>
+ &lt;td>启用独立输出模式。这样就可以将创建的二进制文件传输到其他机器上，而无需使用现有的 Python 安装。这也意味着它将变得很大。这意味着需要这些选项： “follow-imports“ 和 ”&amp;ndash;python-flag=no_site&amp;quot;。默认为关闭。&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>&amp;ndash;onefile&lt;/td>
+ &lt;td>On top of standalone mode, enable onefile mode. This means not a folder, but a compressed executable is created and used. Defaults to off.&lt;/td>
+ &lt;td>在独立模式的基础上，启用单文件模式。这意味着创建和使用的不是文件夹，而是压缩后的可执行文件。默认为关闭。&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>&amp;ndash;python-flag=FLAG&lt;/td>
+ &lt;td>Python flags to use. Default is what you are using to run Nuitka, this enforces a specific mode. These are options that also exist to standard Python executable. Currently supported: &amp;ldquo;-S&amp;rdquo; (alias &amp;ldquo;no_site&amp;rdquo;), &amp;ldquo;static_hashes&amp;rdquo; (do not use hash randomization), &amp;ldquo;no_warnings&amp;rdquo; (do not give Python run time warnings), &amp;ldquo;-O&amp;rdquo; (alias &amp;ldquo;no_asserts&amp;rdquo;), &amp;ldquo;no_docstrings&amp;rdquo; (do not use doc strings), &amp;ldquo;-u&amp;rdquo; (alias &amp;ldquo;unbuffered&amp;rdquo;), &amp;ldquo;isolated&amp;rdquo; (do not load outside code) and &amp;ldquo;-m&amp;rdquo; (package mode, compile as &amp;ldquo;package.&lt;strong>main&lt;/strong>&amp;rdquo;). Default empty.&lt;/td>
+ &lt;td>要使用的 Python 标志。默认值是运行 Nuitka 时使用的值，它强制执行特定的模式。这些选项也存在于标准 Python 可执行文件中。目前支持 “-S“（别名 ”no_site“）、”static_hashes“（不使用哈希随机化）、”no_warnings“（不给出 Python 运行时警告）、”-O“（别名 ”no_asserts“）、”no_docstrings“（不使用文档字符串）、”-u“（别名 ”unbuffered“）、”isol isolated“（不加载外部代码）和”-m“（包模式，编译为 ”package.&lt;strong>main&lt;/strong>&amp;quot;）。默认为空。&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>&amp;ndash;python-debug&lt;/td>
+ &lt;td>Use debug version or not. Default uses what you are using to run Nuitka, most likely a non-debug version. Only for debugging and testing purposes.&lt;/td>
+ &lt;td>是否使用调试版本。默认使用运行 Nuitka 的版本，很可能是非调试版本。仅用于调试和测试目的。&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>&amp;ndash;python-for-scons=PATH&lt;/td>
+ &lt;td>When compiling with Python 3.4 provide the path of a Python binary to use for Scons. Otherwise Nuitka can use what you run Nuitka with, or find Python installation, e.g. from Windows registry. On Windows, a Python 3.5 or higher is needed. On non-Windows, a Python 2.6 or 2.7 will do as well.&lt;/td>
+ &lt;td>使用 Python 3.4 编译时，请提供 Scons 使用的 Python 二进制文件的路径。否则，Nuitka 可以使用您运行 Nuitka 时所使用的路径，或者从 Windows 注册表中查找 Python 的安装路径。在 Windows 上，需要 Python 3.5 或更高版本。在非 Windows 下，Python 2.6 或 2.7 也可以。&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>&amp;ndash;main=PATH&lt;/td>
+ &lt;td>If specified once, this takes the place of the positional argument, i.e. the filename to compile. When given multiple times, it enables &amp;ldquo;multidist&amp;rdquo; (see User Manual) it allows you to create binaries that depending on file name or invocation name.&lt;/td>
+ &lt;td>如果只指定一次，它将取代位置参数，即要编译的文件名。如果多次指定，则会启用 “multidist”（参见《用户手册》），允许根据文件名或调用名创建二进制文件。&lt;/td>
+ &lt;/tr>
+ &lt;/tbody>
+&lt;/table>
+&lt;hr>
+&lt;table>
+ &lt;thead>
+ &lt;tr>
+ &lt;th>&lt;/th>
+ &lt;th>Backend C compiler choice:&lt;/th>
+ &lt;th>后端 C 编译器选择：&lt;/th>
+ &lt;/tr>
+ &lt;/thead>
+ &lt;tbody>
+ &lt;tr>
+ &lt;td>&amp;ndash;clang&lt;/td>
+ &lt;td>Enforce the use of clang. On Windows this requires a working Visual Studio version to piggy back on. Defaults to off.&lt;/td>
+ &lt;td>强制使用 clang。在 Windows 环境下，这需要一个正常运行的 Visual Studio 版本作为辅助。默认为关闭。&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>&amp;ndash;mingw64&lt;/td>
+ &lt;td>Enforce the use of MinGW64 on Windows. Defaults to off unless MSYS2 with MinGW Python is used.&lt;/td>
+ &lt;td>强制在 Windows 上使用 MinGW64。默认为关闭，除非使用带有 MinGW Python 的 MSYS2。&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>&amp;ndash;msvc=MSVC_VERSION&lt;/td>
+ &lt;td>Enforce the use of specific MSVC version on Windows. Allowed values are e.g. &amp;ldquo;14.3&amp;rdquo; (MSVC 2022) and other MSVC version numbers, specify &amp;ldquo;list&amp;rdquo; for a list of installed compilers, or use &amp;ldquo;latest&amp;rdquo;. Defaults to latest MSVC being used if installed, otherwise MinGW64 is used.&lt;/td>
+ &lt;td>强制在 Windows 上使用特定的 MSVC 版本。允许的值包括 “14.3”（MSVC 2022）和其他 MSVC 版本号，指定 “list ”表示已安装的编译器列表，或使用 “latest”。 如果已安装，默认使用最新的 MSVC，否则使用 MinGW64。&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>&amp;ndash;jobs=N&lt;/td>
+ &lt;td>Specify the allowed number of parallel C compiler jobs. Negative values are system CPU minus the given value. Defaults to the full system CPU count unless low memory mode is activated, then it defaults to 1.&lt;/td>
+ &lt;td>指定允许的 C 编译器并行作业数。负值为系统 CPU 减去给定值。默认为整个系统 CPU 数量，除非激活了低内存模式，否则默认为 1。&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>&amp;ndash;lto=choice&lt;/td>
+ &lt;td>Use link time optimizations (MSVC, gcc, clang). Allowed values are &amp;ldquo;yes&amp;rdquo;, &amp;ldquo;no&amp;rdquo;, and &amp;ldquo;auto&amp;rdquo; (when it&amp;rsquo;s known to work). Defaults to &amp;ldquo;auto&amp;rdquo;.&lt;/td>
+ &lt;td>使用链接时间优化（MSVC、gcc、clang）。允许的值有 “是”、“否 ”和 “自动”（已知有效时）。默认为 “自动”。&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>&amp;ndash;static-libpython=choice&lt;/td>
+ &lt;td>Use static link library of Python. Allowed values are &amp;ldquo;yes&amp;rdquo;, &amp;ldquo;no&amp;rdquo;, and &amp;ldquo;auto&amp;rdquo; (when it&amp;rsquo;s known to work). Defaults to &amp;ldquo;auto&amp;rdquo;.&lt;/td>
+ &lt;td>使用 Python 的静态链接库。允许的值有 “yes”、“no ”和 “auto”（已知有效时）。默认为 “auto”。&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>&amp;ndash;cf-protection=PROTECTION_MODE&lt;/td>
+ &lt;td>This option is gcc specific. For the gcc compiler, select the &amp;ldquo;cf-protection&amp;rdquo; mode. Default &amp;ldquo;auto&amp;rdquo; is to use the gcc default value, but you can override it, e.g. to disable it with &amp;ldquo;none&amp;rdquo; value. Refer to gcc documentation for &amp;ldquo;-fcf-protection&amp;rdquo; for the details.&lt;/td>
+ &lt;td>该选项针对 gcc。对于 gcc 编译器，请选择 “cf-protection ”模式。默认值为 “auto”，即使用 gcc 的默认值，但也可以覆盖它，例如使用 “none ”值禁用它。详情请参阅 gcc 文档中的“-fcf-protection”。&lt;/td>
+ &lt;/tr>
+ &lt;/tbody>
+&lt;/table>
+&lt;hr>
+&lt;table>
+ &lt;thead>
+ &lt;tr>
+ &lt;th>&lt;/th>
+ &lt;th>Onefile options:&lt;/th>
+ &lt;th>Onefile 选项：&lt;/th>
+ &lt;/tr>
+ &lt;/thead>
+ &lt;tbody>
+ &lt;tr>
+ &lt;td>&amp;ndash;onefile-tempdir-spec=ONEFILE_TEMPDIR_SPEC&lt;/td>
+ &lt;td>Use this as a folder to unpack to in onefile mode. Defaults to &amp;lsquo;{TEMP}/onefile_{PID}_{TIME}&amp;rsquo;, i.e. user temporary directory and being non-static it&amp;rsquo;s removed. Use e.g. a string like &amp;lsquo;{CACHE_DIR}/{COMPANY}/{PRODUCT}/{VERSION}&amp;rsquo; which is a good static cache path, this will then not be removed.&lt;/td>
+ &lt;td>在单文件模式下，将其作为解压到的文件夹。默认为“{TEMP}/onefile_{PID}_{TIME}”，即用户临时目录，非静态时会被移除。例如，使用类似“{CACHE_DIR}/{COMPANY}/{PRODUCT}/{VERSION}”的字符串，这是一个很好的静态缓存路径，因此不会被移除。&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>&amp;ndash;onefile-child-grace-time=GRACE_TIME_MS&lt;/td>
+ &lt;td>When stopping the child, e.g. due to CTRL-C or shutdown, etc. the Python code gets a &amp;ldquo;KeyboardInterrupt&amp;rdquo;, that it may handle e.g. to flush data. This is the amount of time in ms, before the child it killed in the hard way. Unit is ms, and default 5000.&lt;/td>
+ &lt;td>当停止子进程时，例如，由于 CTRL-C 或关机等原因，Python 代码会收到一个 “KeyboardInterrupt”（键盘中断），它可以处理这个中断，例如，刷新数据。这是以毫秒为单位的时间量，在子进程被强制杀死之前。单位为 ms，默认为 5000。&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>&amp;ndash;onefile-no-compression&lt;/td>
+ &lt;td>When creating the onefile, disable compression of the payload. This is mostly for debug purposes, or to save time. Default is off.&lt;/td>
+ &lt;td>创建 onefile 时，禁用对有效载荷的压缩。这主要是为了调试或节省时间。默认为关闭。&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>&amp;ndash;onefile-as-archive&lt;/td>
+ &lt;td>When creating the onefile, use an archive format, that can be unpacked with nuitka-onefile-unpack&amp;quot; rather than a stream that only the onefile program itself unpacks. Default is off.&lt;/td>
+ &lt;td>创建 onefile 时，使用可以用 nuitka-onefile-unpack 解压的压缩包格式，而不是只能由 onefile 程序自己解压的流格式。默认为关闭。&lt;/td>
+ &lt;/tr>
+ &lt;/tbody>
+&lt;/table>
+&lt;hr>
+&lt;table>
+ &lt;thead>
+ &lt;tr>
+ &lt;th>&lt;/th>
+ &lt;th>Data files:&lt;/th>
+ &lt;th>数据文件：&lt;/th>
+ &lt;/tr>
+ &lt;/thead>
+ &lt;tbody>
+ &lt;tr>
+ &lt;td>&amp;ndash;include-package-data=PACKAGE&lt;/td>
+ &lt;td>Include data files for the given package name. DLLs and extension modules are not data files and never included like this. Can use patterns the filenames as indicated below. Data files of packages are not included by default, but package configuration can do it. This will only include non-DLL, non-extension modules, i.e. actual data files. After a &amp;ldquo;:&amp;rdquo; optionally a filename pattern can be given as well, selecting only matching files. Examples: &amp;ldquo;&amp;ndash;include-package-data=package_name&amp;rdquo; (all files) &amp;ldquo;&amp;ndash;include-package-data=package_name:*.txt&amp;rdquo; (only certain type) &amp;ldquo;&amp;ndash;include-package-data=package_name:some_filename.dat&amp;rdquo; (concrete file) Default empty.&lt;/td>
+ &lt;td>包括指定软件包名称的数据文件。动态链接库和扩展模块不是数据文件，因此不会像这样被包含。可以使用如下所示的文件名模式。默认情况下不包含软件包的数据文件，但软件包配置可以这样做。这只会包含非 DLL、非扩展模块，即实际的数据文件。在“: ”后还可选择给出文件名模式，只选择匹配的文件。例如 “&amp;ndash;include-package-data=package_name“（所有文件） ”&amp;ndash;include-package-data=package_name:*.txt“（仅特定类型） ”&amp;ndash;include-package-data=package_name:some_filename.dat&amp;quot;（具体文件） 默认为空。&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>&amp;ndash;include-data-files=DESC&lt;/td>
+ &lt;td>Include data files by filenames in the distribution. There are many allowed forms. With &amp;lsquo;&amp;ndash;include-data-files=/path/to/file/&lt;em>.txt=folder_name/some.txt&amp;rsquo; it will copy a single file and complain if it&amp;rsquo;s multiple. With &amp;lsquo;&amp;ndash;include-data-files=/path/to/files/&lt;/em>.txt=folder_name/&amp;rsquo; it will put all matching files into that folder. For recursive copy there is a form with 3 values that &amp;lsquo;&amp;ndash;include-data-files=/path/to/scan=folder_name/=**/*.txt&amp;rsquo; that will preserve directory structure. Default empty.&lt;/td>
+ &lt;td>按文件名将数据文件包含在分发文件中。允许的形式有很多种。如果使用“&amp;ndash;include-data-files=/path/to/file/&lt;em>.txt=folder_name/some.txt”，它将复制单个文件，如果是多个文件则会抱怨。如果使用“&amp;ndash;include-data-files=/path/to/files/&lt;/em>.txt=folder_name/”，则会将所有匹配文件放入该文件夹。对于递归复制，“&amp;ndash;include-data-files=/path/to/scan=folder_name/=**/*.txt ”表格包含 3 个值，将保留目录结构。默认为空。&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>&amp;ndash;include-data-dir=DIRECTORY&lt;/td>
+ &lt;td>Include data files from complete directory in the distribution. This is recursive. Check &amp;lsquo;&amp;ndash;include-data-files&amp;rsquo; with patterns if you want non-recursive inclusion. An example would be &amp;lsquo;&amp;ndash;include-data-dir=/path/some_dir=data/some_dir&amp;rsquo; for plain copy, of the whole directory. All non-code files are copied, if you want to use &amp;lsquo;&amp;ndash;noinclude-data-files&amp;rsquo; option to remove them. Default empty.&lt;/td>
+ &lt;td>包含发行版中完整目录下的数据文件。这是递归的。如果想要非递归包含，请勾选带有模式的“&amp;ndash;include-data-files”。例如，“&amp;ndash;include-data-dir=/path/some_dir=data/some_dir ”是对整个目录的纯复制。如果想使用“&amp;ndash;noinclude-data-files ”选项删除非代码文件，则会复制所有非代码文件。默认为空。&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>&amp;ndash;noinclude-data-files=PATTERN&lt;/td>
+ &lt;td>Do not include data files matching the filename pattern given. This is against the target filename, not source paths. So to ignore a file pattern from package data for &amp;lsquo;package_name&amp;rsquo; should be matched as &amp;lsquo;package_name/*.txt&amp;rsquo;. Or for the whole directory simply use &amp;lsquo;package_name&amp;rsquo;. Default empty.&lt;/td>
+ &lt;td>不包含与给定文件名模式匹配的数据文件。这针对的是目标文件名，而不是源路径。因此，要忽略 “package_name ”的软件包数据中的文件模式，应匹配为 “package_name/*.txt”。或者，对于整个目录，只需使用 “package_name ”即可。默认为空。&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>&amp;ndash;include-onefile-external-data=PATTERN&lt;/td>
+ &lt;td>Include the specified data file patterns outside of the onefile binary, rather than on the inside. Makes only sense in case of &amp;lsquo;&amp;ndash;onefile&amp;rsquo; compilation. First files have to be specified as included with other &lt;code>--include-*data*&lt;/code> options, and then this refers to target paths inside the distribution. Default empty.&lt;/td>
+ &lt;td>将指定的数据文件模式包含在 onefile 二进制文件的外部，而不是内部。只有在“&amp;ndash;onefile ”编译时才有意义。首先，必须使用其他 &lt;code>--include-*data*&lt;/code>选项指定包含的文件，然后才会引用发行版内部的目标路径。默认为空。&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>&amp;ndash;list-package-data=LIST_PACKAGE_DATA&lt;/td>
+ &lt;td>Output the data files found for a given package name.Default not done.&lt;/td>
+ &lt;td>输出为给定软件包名称找到的数据文件，默认为未完成。&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>&amp;ndash;include-raw-dir=DIRECTORY&lt;/td>
+ &lt;td>Include raw directories completely in the distribution. This is recursive. Check &amp;lsquo;&amp;ndash;include-data-dir&amp;rsquo; to use the sane option. Default empty.&lt;/td>
+ &lt;td>将原始目录完全包含在发行版中。这是递归的。选中“&amp;ndash;include-data-dir ”以使用正常选项。默认为空。&lt;/td>
+ &lt;/tr>
+ &lt;/tbody>
+&lt;/table>
+&lt;hr>
+&lt;table>
+ &lt;thead>
+ &lt;tr>
+ &lt;th>&lt;/th>
+ &lt;th>Compilation choices:&lt;/th>
+ &lt;th>编译选择：&lt;/th>
+ &lt;/tr>
+ &lt;/thead>
+ &lt;tbody>
+ &lt;tr>
+ &lt;td>&amp;ndash;user-package-configuration-file=YAML_FILENAME&lt;/td>
+ &lt;td>User provided Yaml file with package configuration. You can include DLLs, remove bloat, add hidden dependencies. Check the Nuitka Package Configuration Manual for a complete description of the format to use. Can be given multiple times. Defaults to empty.&lt;/td>
+ &lt;td>用户提供的 Yaml 文件包含软件包配置。您可以包含 DLL、删除臃肿、添加隐藏的依赖关系。有关使用格式的完整说明，请查阅《Nuitka 软件包配置手册》。可多次给出。默认为空。&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>&amp;ndash;full-compat&lt;/td>
+ &lt;td>Enforce absolute compatibility with CPython. Do not even allow minor deviations from CPython behavior, e.g. not having better tracebacks or exception messages which are not really incompatible, but only different or worse. This is intended for tests only and should &lt;em>not&lt;/em> be used.&lt;/td>
+ &lt;td>确保与 CPython 绝对兼容。甚至不允许与 CPython 行为有细微的偏差，例如，不允许有更好的跟踪回溯或异常消息，这些并不是真正的不兼容，而只是不同或更糟而已。这仅用于测试，&lt;em>不&lt;/em>应使用。&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>&amp;ndash;file-reference-choice=FILE_MODE&lt;/td>
+ &lt;td>Select what value &amp;ldquo;&lt;strong>file&lt;/strong>&amp;rdquo; is going to be. With &amp;ldquo;runtime&amp;rdquo; (default for standalone binary mode and module mode), the created binaries and modules, use the location of themselves to deduct the value of &amp;ldquo;&lt;strong>file&lt;/strong>&amp;rdquo;. Included packages pretend to be in directories below that location. This allows you to include data files in deployments. If you merely seek acceleration, it&amp;rsquo;s better for you to use the &amp;ldquo;original&amp;rdquo; value, where the source files location will be used. With &amp;ldquo;frozen&amp;rdquo; a notation &amp;ldquo;&lt;!-- raw HTML omitted -->&amp;rdquo; is used. For compatibility reasons, the &amp;ldquo;&lt;strong>file&lt;/strong>&amp;rdquo; value will always have &amp;ldquo;.py&amp;rdquo; suffix independent of what it really is.&lt;/td>
+ &lt;td>选择“&lt;strong>file&lt;/strong>”的值。如果使用 “runtime”（独立二进制文件模式和模块模式的默认值），创建的二进制文件和模块将使用自己的位置来扣除“&lt;strong>file&lt;/strong>”的值。包含的软件包会假装位于该位置下方的目录中。这样就可以在部署中包含数据文件。如果只是为了加速，最好使用&amp;quot;original&amp;quot;值，即使用源文件的位置。在使用 “frozen ”时，会使用“&lt;!-- raw HTML omitted -->”符号。出于兼容性考虑，“&lt;strong>file&lt;/strong>”值的后缀始终是“.py”，与实际内容无关。&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>&amp;ndash;module-name-choice=MODULE_NAME_MODE&lt;/td>
+ &lt;td>Select what value &amp;ldquo;&lt;strong>name&lt;/strong>&amp;rdquo; and &amp;ldquo;&lt;strong>package&lt;/strong>&amp;rdquo; are going to be. With &amp;ldquo;runtime&amp;rdquo; (default for module mode), the created module uses the parent package to deduce the value of &amp;ldquo;&lt;strong>package&lt;/strong>&amp;rdquo;, to be fully compatible. The value &amp;ldquo;original&amp;rdquo; (default for other modes) allows for more static optimization to happen, but is incompatible for modules that normally can be loaded into any package.&lt;/td>
+ &lt;td>选择“&lt;strong>name&lt;/strong>”和“&lt;strong>package&lt;/strong>”的值。如果使用 “runtime”（模块模式的默认值），创建的模块会使用父软件包来推断“&lt;strong>package&lt;/strong>”的值，以实现完全兼容。&amp;ldquo;original&amp;quot;值（其他模式的默认值）允许进行更多的静态优化，但对于通常可以加载到任何软件包的模块来说是不兼容的。&lt;/td>
+ &lt;/tr>
+ &lt;/tbody>
+&lt;/table>
+&lt;hr>
+&lt;table>
+ &lt;thead>
+ &lt;tr>
+ &lt;th>&lt;/th>
+ &lt;th>General OS controls:&lt;/th>
+ &lt;th>一般操作系统控制：&lt;/th>
+ &lt;/tr>
+ &lt;/thead>
+ &lt;tbody>
+ &lt;tr>
+ &lt;td>&amp;ndash;force-stdout-spec=FORCE_STDOUT_SPEC&lt;/td>
+ &lt;td>Force standard output of the program to go to this location. Useful for programs with disabled console and programs using the Windows Services Plugin of Nuitka commercial. Defaults to not active, use e.g. &amp;lsquo;{PROGRAM_BASE}.out.txt&amp;rsquo;, i.e. file near your program, check User Manual for full list of available values.&lt;/td>
+ &lt;td>强制程序的标准输出到此位置。对于禁用控制台的程序和使用 Nuitka 商业版 Windows 服务插件的程序非常有用。默认情况下不激活，例如使用“{PROGRAM_BASE}.out.txt”，即程序附近的文件，查看《用户手册》以获取可用值的完整列表。&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>&amp;ndash;force-stderr-spec=FORCE_STDERR_SPEC&lt;/td>
+ &lt;td>Force standard error of the program to go to this location. Useful for programs with disabled console and programs using the Windows Services Plugin of Nuitka commercial. Defaults to not active, use e.g. &amp;lsquo;{PROGRAM_BASE}.err.txt&amp;rsquo;, i.e. file near your program, check User Manual for full list of available values.&lt;/td>
+ &lt;td>强制程序的标准错误转到此位置。对于禁用控制台的程序和使用 Nuitka commercial 的 Windows 服务插件的程序非常有用。默认值为 “未激活”，例如使用“{PROGRAM_BASE}.err.txt”，即程序附近的文件，查看《用户手册》以获取可用值的完整列表。&lt;/td>
+ &lt;/tr>
+ &lt;/tbody>
+&lt;/table>
+&lt;hr>
+&lt;table>
+ &lt;thead>
+ &lt;tr>
+ &lt;th>&lt;/th>
+ &lt;th>Deployment control:&lt;/th>
+ &lt;th>发布控制：&lt;/th>
+ &lt;/tr>
+ &lt;/thead>
+ &lt;tbody>
+ &lt;tr>
+ &lt;td>&amp;ndash;deployment&lt;/td>
+ &lt;td>Disable code aimed at making finding compatibility issues easier. This will e.g. prevent execution with &amp;ldquo;-c&amp;rdquo; argument, which is often used by code that attempts run a module, and causes a program to start itself over and over potentially. Disable once you deploy to end users, for finding typical issues, this is very helpful during development. Default off.&lt;/td>
+ &lt;td>禁用旨在更容易发现兼容性问题的代码。例如，这将阻止“-c ”参数的执行，“-c ”参数通常被试图运行模块的代码所使用，并可能导致程序一次又一次地自动启动。一旦部署给最终用户，则禁用该功能，以查找典型问题，这在开发过程中非常有用。默认关闭。&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>&amp;ndash;no-deployment-flag=FLAG&lt;/td>
+ &lt;td>Keep deployment mode, but disable selectively parts of it. Errors from deployment mode will output these identifiers. Default empty.&lt;/td>
+ &lt;td>保留部署模式，但有选择地禁用部分功能。部署模式下的错误将输出这些标识符。默认为空。&lt;/td>
+ &lt;/tr>
+ &lt;/tbody>
+&lt;/table>
+&lt;hr>
+&lt;table>
+ &lt;thead>
+ &lt;tr>
+ &lt;th>&lt;/th>
+ &lt;th>Environment control:&lt;/th>
+ &lt;th>环境控制：&lt;/th>
+ &lt;/tr>
+ &lt;/thead>
+ &lt;tbody>
+ &lt;tr>
+ &lt;td>&amp;ndash;force-runtime-environment-variable=VARIABLE_SPEC&lt;/td>
+ &lt;td>Force an environment variables to a given value. Default empty.&lt;/td>
+ &lt;td>强制环境变量为给定值。默认为空。&lt;/td>
+ &lt;/tr>
+ &lt;/tbody>
+&lt;/table>
+&lt;hr>
+&lt;table>
+ &lt;thead>
+ &lt;tr>
+ &lt;th>&lt;/th>
+ &lt;th>Windows specific controls:&lt;/th>
+ &lt;th>Windows 专用控制：&lt;/th>
+ &lt;/tr>
+ &lt;/thead>
+ &lt;tbody>
+ &lt;tr>
+ &lt;td>&amp;ndash;windows-console-mode=CONSOLE_MODE&lt;/td>
+ &lt;td>Select console mode to use. Default mode is &amp;lsquo;force&amp;rsquo; and creates a console window unless the program was started from one. With &amp;lsquo;disable&amp;rsquo; it doesn&amp;rsquo;t create or use a console at all. With &amp;lsquo;attach&amp;rsquo; an existing console will be used for outputs. With &amp;lsquo;hide&amp;rsquo; a newly spawned console will be hidden and an already existing console will behave like &amp;lsquo;force&amp;rsquo;. Default is &amp;lsquo;force&amp;rsquo;.&lt;/td>
+ &lt;td>选择要使用的控制台模式。默认模式为 “force”，会创建一个控制台窗口，除非程序是从控制台窗口启动的。如果使用 “disable”模式，则根本不会创建或使用控制台。使用 “attach”时，将使用现有的控制台进行输出。如果使用 “hide”，新生成的控制台将被隐藏，而已经存在的控制台的行为与 “force ”类似。默认为 “force”。&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>&amp;ndash;windows-icon-from-ico=ICON_PATH&lt;/td>
+ &lt;td>Add executable icon. Can be given multiple times for different resolutions or files with multiple icons inside. In the later case, you may also suffix with #&lt;!-- raw HTML omitted --> where n is an integer index starting from 1, specifying a specific icon to be included, and all others to be ignored.&lt;/td>
+ &lt;td>添加可执行图标。对于不同分辨率或包含多个图标的文件，可以多次添加。在后一种情况下，还可以使用 #&lt;!-- raw HTML omitted --> 作为后缀，其中 n 是一个从 1 开始的整数索引，用于指定要包含的特定图标，而忽略其他所有图标。&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>&amp;ndash;windows-icon-from-exe=ICON_EXE_PATH&lt;/td>
+ &lt;td>Copy executable icons from this existing executable (Windows only).&lt;/td>
+ &lt;td>从现有可执行文件中复制可执行文件图标（仅限 Windows）。&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>&amp;ndash;onefile-windows-splash-screen-image=SPLASH_SCREEN_IMAGE&lt;/td>
+ &lt;td>When compiling for Windows and onefile, show this while loading the application. Defaults to off.&lt;/td>
+ &lt;td>为 Windows 和 onefile 编译时，在加载应用程序时显示此选项。默认为关闭。&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>&amp;ndash;windows-uac-admin&lt;/td>
+ &lt;td>Request Windows User Control, to grant admin rights on execution. (Windows only). Defaults to off.&lt;/td>
+ &lt;td>请求 Windows 用户控制，授予执行管理权限。（仅限 Windows）。默认为关闭。&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>&amp;ndash;windows-uac-uiaccess&lt;/td>
+ &lt;td>Request Windows User Control, to enforce running from a few folders only, remote desktop access. (Windows only). Defaults to off.&lt;/td>
+ &lt;td>请求 Windows 用户控制，以强制执行仅从少数文件夹运行的远程桌面访问。&lt;/td>
+ &lt;/tr>
+ &lt;/tbody>
+&lt;/table>
+&lt;hr>
+&lt;table>
+ &lt;thead>
+ &lt;tr>
+ &lt;th>&lt;/th>
+ &lt;th>macOS specific controls&lt;/th>
+ &lt;th>&lt;/th>
+ &lt;/tr>
+ &lt;/thead>
+ &lt;tbody>
+ &lt;tr>
+ &lt;td>&amp;ndash;macos-create-app-bundle&lt;/td>
+ &lt;td>When compiling for macOS, create a bundle rather than a plain binary application. This is the only way to unlock the disabling of console, get high DPI graphics, etc. and implies standalone mode. Defaults to off.&lt;/td>
+ &lt;td>&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>&amp;ndash;macos-target-arch=MACOS_TARGET_ARCH&lt;/td>
+ &lt;td>What architectures is this to supposed to run on. Default and limit is what the running Python allows for. Default is &amp;ldquo;native&amp;rdquo; which is the architecture the Python is run with.&lt;/td>
+ &lt;td>&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>&amp;ndash;macos-app-icon=ICON_PATH&lt;/td>
+ &lt;td>Add icon for the application bundle to use. Can be given only one time. Defaults to Python icon if available.&lt;/td>
+ &lt;td>&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>&amp;ndash;macos-signed-app-name=MACOS_SIGNED_APP_NAME&lt;/td>
+ &lt;td>Name of the application to use for macOS signing. Follow &amp;ldquo;com.YourCompany.AppName&amp;rdquo; naming results for best results, as these have to be globally unique, and will potentially grant protected API accesses.&lt;/td>
+ &lt;td>&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>&amp;ndash;macos-app-name=MACOS_APP_NAME&lt;/td>
+ &lt;td>Name of the product to use in macOS bundle information. Defaults to base filename of the binary.&lt;/td>
+ &lt;td>&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>&amp;ndash;macos-app-mode=APP_MODE&lt;/td>
+ &lt;td>Mode of application for the application bundle. When launching a Window, and appearing in Docker is desired, default value &amp;ldquo;gui&amp;rdquo; is a good fit. Without a Window ever, the application is a &amp;ldquo;background&amp;rdquo; application. For UI elements that get to display later, &amp;ldquo;ui-element&amp;rdquo; is in-between. The application will not appear in dock, but get full access to desktop when it does open a Window later.&lt;/td>
+ &lt;td>&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>&amp;ndash;macos-sign-identity=MACOS_APP_VERSION&lt;/td>
+ &lt;td>When signing on macOS, by default an ad-hoc identify will be used, but with this option your get to specify another identity to use. The signing of code is now mandatory on macOS and cannot be disabled. Use &amp;ldquo;auto&amp;rdquo; to detect your only identity installed. Default &amp;ldquo;ad-hoc&amp;rdquo; if not given.&lt;/td>
+ &lt;td>&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>&amp;ndash;macos-sign-notarization&lt;/td>
+ &lt;td>When signing for notarization, using a proper TeamID identity from Apple, use the required runtime signing option, such that it can be accepted.&lt;/td>
+ &lt;td>&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>&amp;ndash;macos-app-version=MACOS_APP_VERSION&lt;/td>
+ &lt;td>Product version to use in macOS bundle information. Defaults to &amp;ldquo;1.0&amp;rdquo; if not given.&lt;/td>
+ &lt;td>&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>&amp;ndash;macos-app-protected-resource=RESOURCE_DESC&lt;/td>
+ &lt;td>Request an entitlement for access to a macOS protected resources, e.g. &amp;ldquo;NSMicrophoneUsageDescription:Microphone access for recording audio.&amp;rdquo; requests access to the microphone and provides an informative text for the user, why that is needed. Before the colon, is an OS identifier for an access right, then the informative text. Legal values can be found on &lt;a href="https://developer.apple.com/documentation/bundleresources/information_property_list/protected_resources">https://developer.apple.com/documentation/bundleresources/information_property_list/protected_resources&lt;/a> and the option can be specified multiple times. Default empty.&lt;/td>
+ &lt;td>&lt;/td>
+ &lt;/tr>
+ &lt;/tbody>
+&lt;/table>
+&lt;hr>
+&lt;table>
+ &lt;thead>
+ &lt;tr>
+ &lt;th>&lt;/th>
+ &lt;th>Linux specific controls&lt;/th>
+ &lt;th>&lt;/th>
+ &lt;/tr>
+ &lt;/thead>
+ &lt;tbody>
+ &lt;tr>
+ &lt;td>&amp;ndash;linux-icon=ICON_PATH&lt;/td>
+ &lt;td>Add executable icon for onefile binary to use. Can be given only one time. Defaults to Python icon if available.&lt;/td>
+ &lt;td>&lt;/td>
+ &lt;/tr>
+ &lt;/tbody>
+&lt;/table>
+&lt;hr>
+&lt;table>
+ &lt;thead>
+ &lt;tr>
+ &lt;th>&lt;/th>
+ &lt;th>Control the following into imported modules:&lt;/th>
+ &lt;th>以下内容控制模块导入：&lt;/th>
+ &lt;/tr>
+ &lt;/thead>
+ &lt;tbody>
+ &lt;tr>
+ &lt;td>&amp;ndash;follow-imports&lt;/td>
+ &lt;td>Descend into all imported modules. Defaults to on in standalone mode, otherwise off.&lt;/td>
+ &lt;td>深入所有导入的模块。独立模式下默认开启，否则关闭。&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>&amp;ndash;follow-import-to=MODULE/PACKAGE&lt;/td>
+ &lt;td>Follow to that module if used, or if a package, to the whole package. Can be given multiple times. Default empty.&lt;/td>
+ &lt;td>如果使用模块，则指向该模块；如果使用软件包，则指向整个软件包。可多次给出。默认为空。&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>&amp;ndash;nofollow-import-to=MODULE/PACKAGE&lt;/td>
+ &lt;td>Do not follow to that module name even if used, or if a package name, to the whole package in any case, overrides all other options. This can also contain patterns, e.g. &amp;ldquo;*.tests&amp;rdquo;. Can be given multiple times. Default empty.&lt;/td>
+ &lt;td>即使使用了该模块名，也不要跟随；如果使用了软件包名，则无论如何都要跟随整个软件包，并优先于所有其他选项。也可以包含模式，如 “*.tests”。可多次输入。默认为空。&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>&amp;ndash;nofollow-imports&lt;/td>
+ &lt;td>Do not descend into any imported modules at all, overrides all other inclusion options and not usable for standalone mode. Defaults to off.&lt;/td>
+ &lt;td>完全不深入任何导入模块，优先于所有其他包含选项，不能用于独立模式。默认为关闭。&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>&amp;ndash;follow-stdlib&lt;/td>
+ &lt;td>Also descend into imported modules from standard library. This will increase the compilation time by a lot and is also not well tested at this time and sometimes won&amp;rsquo;t work. Defaults to off.&lt;/td>
+ &lt;td>还可以从标准库中导入模块。这将大大增加编译时间，而且目前尚未经过充分测试，有时可能无法正常工作。默认为关闭。&lt;/td>
+ &lt;/tr>
+ &lt;/tbody>
+&lt;/table>
+&lt;hr>
+&lt;table>
+ &lt;thead>
+ &lt;tr>
+ &lt;th>&lt;/th>
+ &lt;th>Control the inclusion of modules and packages in result:&lt;/th>
+ &lt;th>控制结果中模块和包的包含情况：&lt;/th>
+ &lt;/tr>
+ &lt;/thead>
+ &lt;tbody>
+ &lt;tr>
+ &lt;td>&amp;ndash;include-package=PACKAGE&lt;/td>
+ &lt;td>Include a whole package. Give as a Python namespace, e.g. &amp;ldquo;some_package.sub_package&amp;rdquo; and Nuitka will then find it and include it and all the modules found below that disk location in the binary or extension module it creates, and make it available for import by the code. To avoid unwanted sub packages, e.g. tests you can e.g. do this &amp;ldquo;&amp;ndash;nofollow-import-to=*.tests&amp;rdquo;. Default empty.&lt;/td>
+ &lt;td>包含整个包。将其作为 Python 命名空间提供，例如 “some_package.sub_package”，Nuitka 将会找到它并将其包含在生成的二进制文件或扩展模块中，同时包含该磁盘位置下所有找到的模块，并使其可供代码导入。为了避免包含不需要的子包（例如测试包），你可以使用例如 “&amp;ndash;nofollow-import-to=*.tests”。默认值为空。&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>&amp;ndash;include-module=MODULE&lt;/td>
+ &lt;td>Include a single module. Give as a Python namespace, e.g. &amp;ldquo;some_package.some_module&amp;rdquo; and Nuitka will then find it and include it in the binary or extension module it creates, and make it available for import by the code. Default empty.&lt;/td>
+ &lt;td>包含一个模块。以 Python 命名空间的形式提供，例如 “some_package.some_module”，Nuitka 将会找到该模块并将其包含在生成的二进制文件或扩展模块中，并使其可供代码导入。默认值为空。&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>&amp;ndash;include-plugin-directory=MODULE/PACKAGE&lt;/td>
+ &lt;td>Include also the code found in that directory, considering as if they are each given as a main file. Overrides all other inclusion options. You ought to prefer other inclusion options, that go by names, rather than filenames, those find things through being in &amp;ldquo;sys.path&amp;rdquo;. This option is for very special use cases only. Can be given multiple times. Default empty.&lt;/td>
+ &lt;td>还应包含该目录中的代码，视其为各自的主文件。覆盖所有其他包含选项。您应优先使用以名称而非文件名进行包含的选项，这些选项通过位于“sys.path”中来查找文件。此选项仅适用于非常特殊的用例。可多次指定。默认值为空。&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>&amp;ndash;include-plugin-files=PATTERN&lt;/td>
+ &lt;td>Include into files matching the PATTERN. Overrides all other follow options. Can be given multiple times. Default empty.&lt;/td>
+ &lt;td>将符合模式的文件包含进来。覆盖所有其他跟随选项。可以多次指定。默认值为空。&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>&amp;ndash;prefer-source-code&lt;/td>
+ &lt;td>For already compiled extension modules, where there is both a source file and an extension module, normally the extension module is used, but it should be better to compile the module from available source code for best performance. If not desired, there is &amp;ndash;no-prefer-source-code to disable warnings about it. Default off.&lt;/td>
+ &lt;td>对于已经编译的扩展模块，当同时存在源文件和扩展模块时，通常会使用扩展模块，但为了获得最佳性能，建议从可用的源代码重新编译该模块。如果不希望这样做，可以使用 &amp;ndash;no-prefer-source-code 选项来禁用相关警告。默认关闭。&lt;/td>
+ &lt;/tr>
+ &lt;/tbody>
+&lt;/table>
+&lt;hr>
+&lt;table>
+ &lt;thead>
+ &lt;tr>
+ &lt;th>&lt;/th>
+ &lt;th>Metadata support&lt;/th>
+ &lt;th>元数据支持&lt;/th>
+ &lt;/tr>
+ &lt;/thead>
+ &lt;tbody>
+ &lt;tr>
+ &lt;td>&amp;ndash;include-distribution-metadata=DISTRIBUTION&lt;/td>
+ &lt;td>Include metadata information for the given distribution name. Some packages check metadata for presence, version, entry points, etc. and without this option given, it only works when it&amp;rsquo;s recognized at compile time which is not always happening. This of course only makes sense for packages that are included in the compilation. Default empty.&lt;/td>
+ &lt;td>为给定的分发名称包含元数据信息。某些包会检查元数据以确认其存在、版本、入口点等信息。如果未指定此选项，它仅在编译时被识别时才有效，而这种情况并不总是发生。当然，这仅适用于在编译过程中包含的包。默认值为空。&lt;/td>
+ &lt;/tr>
+ &lt;/tbody>
+&lt;/table>
+&lt;hr>
+&lt;table>
+ &lt;thead>
+ &lt;tr>
+ &lt;th>&lt;/th>
+ &lt;th>DLL files&lt;/th>
+ &lt;th>&lt;/th>
+ &lt;/tr>
+ &lt;/thead>
+ &lt;tbody>
+ &lt;tr>
+ &lt;td>&amp;ndash;noinclude-dlls=PATTERN&lt;/td>
+ &lt;td>Do not include DLL files matching the filename pattern given. This is against the target filename, not source paths. So ignore a DLL &amp;lsquo;someDLL&amp;rsquo; contained in the package &amp;lsquo;package_name&amp;rsquo; it should be matched as &amp;lsquo;package_name/someDLL.*&amp;rsquo;. Default empty.&lt;/td>
+ &lt;td>&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>&amp;ndash;list-package-dlls=LIST_PACKAGE_DLLS&lt;/td>
+ &lt;td>Output the DLLs found for a given package name. Default not done.&lt;/td>
+ &lt;td>&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>&amp;ndash;list-package-exe=LIST_PACKAGE_EXE&lt;/td>
+ &lt;td>Output the EXEs found for a given package name. Default not done.&lt;/td>
+ &lt;td>&lt;/td>
+ &lt;/tr>
+ &lt;/tbody>
+&lt;/table>
+&lt;hr>
+&lt;table>
+ &lt;thead>
+ &lt;tr>
+ &lt;th>&lt;/th>
+ &lt;th>Control the warnings to be given by Nuitka&lt;/th>
+ &lt;th>&lt;/th>
+ &lt;/tr>
+ &lt;/thead>
+ &lt;tbody>
+ &lt;tr>
+ &lt;td>&amp;ndash;warn-implicit-exceptions&lt;/td>
+ &lt;td>Enable warnings for implicit exceptions detected at compile time.&lt;/td>
+ &lt;td>&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>&amp;ndash;warn-unusual-code&lt;/td>
+ &lt;td>Enable warnings for unusual code detected at compile time.&lt;/td>
+ &lt;td>&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>&amp;ndash;assume-yes-for-downloads&lt;/td>
+ &lt;td>Allow Nuitka to download external code if necessary, e.g. dependency walker, ccache, and even gcc on Windows. To disable, redirect input from nul device, e.g. &amp;ldquo;&amp;lt;/dev/null&amp;rdquo; or &amp;ldquo;&amp;lt;NUL:&amp;rdquo;. Default is to prompt.&lt;/td>
+ &lt;td>&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>&amp;ndash;nowarn-mnemonic=MNEMONIC&lt;/td>
+ &lt;td>Disable warning for a given mnemonic. These are given to make sure you are aware of certain topics, and typically point to the Nuitka website. The mnemonic is the part of the URL at the end, without the HTML suffix. Can be given multiple times and accepts shell pattern. Default empty.&lt;/td>
+ &lt;td>&lt;/td>
+ &lt;/tr>
+ &lt;/tbody>
+&lt;/table>
+&lt;hr>
+&lt;table>
+ &lt;thead>
+ &lt;tr>
+ &lt;th>&lt;/th>
+ &lt;th>Immediate execution after compilation&lt;/th>
+ &lt;th>&lt;/th>
+ &lt;/tr>
+ &lt;/thead>
+ &lt;tbody>
+ &lt;tr>
+ &lt;td>&amp;ndash;run&lt;/td>
+ &lt;td>Execute immediately the created binary (or import the compiled module). Defaults to off.&lt;/td>
+ &lt;td>&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>&amp;ndash;debugger&lt;/td>
+ &lt;td>Execute inside a debugger, e.g. &amp;ldquo;gdb&amp;rdquo; or &amp;ldquo;lldb&amp;rdquo; to automatically get a stack trace. The debugger is automatically chosen unless specified by name with the NUITKA_DEBUGGER_CHOICE environment variable. Defaults to off.&lt;/td>
+ &lt;td>&lt;/td>
+ &lt;/tr>
+ &lt;/tbody>
+&lt;/table>
+&lt;hr>
+&lt;table>
+ &lt;thead>
+ &lt;tr>
+ &lt;th>&lt;/th>
+ &lt;th>Output choices&lt;/th>
+ &lt;th>&lt;/th>
+ &lt;/tr>
+ &lt;/thead>
+ &lt;tbody>
+ &lt;tr>
+ &lt;td>&amp;ndash;output-filename=FILENAME&lt;/td>
+ &lt;td>Specify how the executable should be named. For extension modules there is no choice, also not for standalone mode and using it will be an error. This may include path information that needs to exist though. Defaults to &amp;lsquo;&amp;lt;program_name&amp;gt;.exe&amp;rsquo; on this platform.&lt;/td>
+ &lt;td>&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>&amp;ndash;output-dir=DIRECTORY&lt;/td>
+ &lt;td>Specify where intermediate and final output files should be put. The DIRECTORY will be populated with build folder, dist folder, binaries, etc. Defaults to current directory.&lt;/td>
+ &lt;td>&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>&amp;ndash;remove-output&lt;/td>
+ &lt;td>Removes the build directory after producing the module or exe file. Defaults to off.&lt;/td>
+ &lt;td>&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>&amp;ndash;no-pyi-file&lt;/td>
+ &lt;td>Do not create a &amp;lsquo;.pyi&amp;rsquo; file for extension modules created by Nuitka. This is used to detect implicit imports. Defaults to off.&lt;/td>
+ &lt;td>&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>&amp;ndash;no-pyi-stubs&lt;/td>
+ &lt;td>Do not use stubgen when creating a &amp;lsquo;.pyi&amp;rsquo; file for extension modules created by Nuitka. They expose your API, but stubgen may cause issues. Defaults to off.&lt;/td>
+ &lt;td>&lt;/td>
+ &lt;/tr>
+ &lt;/tbody>
+&lt;/table>
+&lt;hr>
+&lt;table>
+ &lt;thead>
+ &lt;tr>
+ &lt;th>&lt;/th>
+ &lt;th>Debug features&lt;/th>
+ &lt;th>&lt;/th>
+ &lt;/tr>
+ &lt;/thead>
+ &lt;tbody>
+ &lt;tr>
+ &lt;td>&amp;ndash;debug&lt;/td>
+ &lt;td>Executing all self checks possible to find errors in Nuitka, do not use for production. Defaults to off.&lt;/td>
+ &lt;td>&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>&amp;ndash;no-debug-immortal-assumptions&lt;/td>
+ &lt;td>Disable check normally done with &amp;ldquo;&amp;ndash;debug&amp;rdquo;. With Python3.12+ do not check known immortal object assumptions. Some C libraries corrupt them. Defaults to check being made if &amp;ldquo;&amp;ndash;debug&amp;rdquo; is on.&lt;/td>
+ &lt;td>&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>&amp;ndash;unstripped&lt;/td>
+ &lt;td>Keep debug info in the resulting object file for better debugger interaction. Defaults to off.&lt;/td>
+ &lt;td>&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>&amp;ndash;profile&lt;/td>
+ &lt;td>Enable vmprof based profiling of time spent. Not working currently. Defaults to off.&lt;/td>
+ &lt;td>&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>&amp;ndash;trace-execution&lt;/td>
+ &lt;td>Traced execution output, output the line of code before executing it. Defaults to off.&lt;/td>
+ &lt;td>&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>&amp;ndash;xml=XML_FILENAME&lt;/td>
+ &lt;td>Write the internal program structure, result of optimization in XML form to given filename.&lt;/td>
+ &lt;td>&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>&amp;ndash;experimental=FLAG&lt;/td>
+ &lt;td>Use features declared as &amp;rsquo;experimental&amp;rsquo;. May have no effect if no experimental features are present in the code. Uses secret tags (check source) per experimented feature.&lt;/td>
+ &lt;td>&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>&amp;ndash;low-memory&lt;/td>
+ &lt;td>Attempt to use less memory, by forking less C compilation jobs and using options that use less memory. For use on embedded machines. Use this in case of out of memory problems. Defaults to off.&lt;/td>
+ &lt;td>&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>&amp;ndash;create-environment-from-report=CREATE_ENVIRONMENT_FROM_REPORT&lt;/td>
+ &lt;td>Create a new virtualenv in that non-existing path from the report file given with e.g. &amp;lsquo;&amp;ndash;report=compilation-report.xml&amp;rsquo;. Default not done.&lt;/td>
+ &lt;td>&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>&amp;ndash;generate-c-only&lt;/td>
+ &lt;td>Generate only C source code, and do not compile it to binary or module. This is for debugging and code coverage analysis that doesn&amp;rsquo;t waste CPU. Defaults to off. Do not think you can use this directly.&lt;/td>
+ &lt;td>&lt;/td>
+ &lt;/tr>
+ &lt;/tbody>
+&lt;/table>
+&lt;hr>
+&lt;table>
+ &lt;thead>
+ &lt;tr>
+ &lt;th>&lt;/th>
+ &lt;th>Nuitka Development features&lt;/th>
+ &lt;th>&lt;/th>
+ &lt;/tr>
+ &lt;/thead>
+ &lt;tbody>
+ &lt;tr>
+ &lt;td>&amp;ndash;devel-missing-code-helpers&lt;/td>
+ &lt;td>Report warnings for code helpers for types that were attempted, but don&amp;rsquo;t exist. This helps to identify opportunities for improving optimization of generated code from type knowledge not used. Default False.&lt;/td>
+ &lt;td>&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>&amp;ndash;devel-missing-trust&lt;/td>
+ &lt;td>Report warnings for imports that could be trusted, but currently are not. This is to identify opportunities for improving handling of hard modules, where this sometimes could allow more static optimization. Default False.&lt;/td>
+ &lt;td>&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>&amp;ndash;devel-recompile-c-only&lt;/td>
+ &lt;td>This is not incremental compilation, but for Nuitka development only. Takes existing files and simply compiles them as C again after doing the Python steps. Allows compiling edited C files for manual debugging changes to the generated source. Allows us to add printing, check and print values, but it is now what users would want. Depends on compiling Python source to determine which files it should look at.&lt;/td>
+ &lt;td>&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>&amp;ndash;devel-internal-graph&lt;/td>
+ &lt;td>Create graph of optimization process internals, do not use for whole programs, but only for small test cases. Defaults to off.&lt;/td>
+ &lt;td>&lt;/td>
+ &lt;/tr>
+ &lt;/tbody>
+&lt;/table>
+&lt;hr>
+&lt;table>
+ &lt;thead>
+ &lt;tr>
+ &lt;th>&lt;/th>
+ &lt;th>Cache Control&lt;/th>
+ &lt;th>&lt;/th>
+ &lt;/tr>
+ &lt;/thead>
+ &lt;tbody>
+ &lt;tr>
+ &lt;td>&amp;ndash;disable-cache=DISABLED_CACHES&lt;/td>
+ &lt;td>Disable selected caches, specify &amp;ldquo;all&amp;rdquo; for all cached. Currently allowed values are: &amp;ldquo;all&amp;rdquo;,&amp;ldquo;ccache&amp;rdquo;,&amp;ldquo;bytecode&amp;rdquo;,&amp;ldquo;compression&amp;rdquo;,&amp;ldquo;dll-dependencies&amp;rdquo;. can be given multiple times or with comma separated values. Default none.&lt;/td>
+ &lt;td>&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>&amp;ndash;clean-cache=CLEAN_CACHES&lt;/td>
+ &lt;td>Clean the given caches before executing, specify &amp;ldquo;all&amp;rdquo; for all cached. Currently allowed values are: &amp;ldquo;all&amp;rdquo;,&amp;ldquo;ccache&amp;rdquo;,&amp;ldquo;bytecode&amp;rdquo;,&amp;ldquo;compression&amp;rdquo;,&amp;ldquo;dll-dependencies&amp;rdquo;. can be given multiple times or with comma separated values. Default none.&lt;/td>
+ &lt;td>&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>&amp;ndash;force-dll-dependency-cache-update&lt;/td>
+ &lt;td>For an update of the dependency walker cache. Will result in much longer times to create the distribution folder, but might be used in case the cache is suspect to cause errors or known to need an update.&lt;/td>
+ &lt;td>&lt;/td>
+ &lt;/tr>
+ &lt;/tbody>
+&lt;/table>
+&lt;hr>
+&lt;table>
+ &lt;thead>
+ &lt;tr>
+ &lt;th>&lt;/th>
+ &lt;th>PGO compilation choices&lt;/th>
+ &lt;th>&lt;/th>
+ &lt;/tr>
+ &lt;/thead>
+ &lt;tbody>
+ &lt;tr>
+ &lt;td>&amp;ndash;pgo-c&lt;/td>
+ &lt;td>Enables C level profile guided optimization (PGO), by executing a dedicated build first for a profiling run, and then using the result to feedback into the C compilation. Note: This is experimental and not working with standalone modes of Nuitka yet. Defaults to off.&lt;/td>
+ &lt;td>&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>&amp;ndash;pgo-args=PGO_ARGS&lt;/td>
+ &lt;td>Arguments to be passed in case of profile guided optimization. These are passed to the special built executable during the PGO profiling run. Default empty.&lt;/td>
+ &lt;td>&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>&amp;ndash;pgo-executable=PGO_EXECUTABLE&lt;/td>
+ &lt;td>Command to execute when collecting profile information. Use this only, if you need to launch it through a script that prepares it to run. Default use created program.&lt;/td>
+ &lt;td>&lt;/td>
+ &lt;/tr>
+ &lt;/tbody>
+&lt;/table>
+&lt;hr>
+&lt;table>
+ &lt;thead>
+ &lt;tr>
+ &lt;th>&lt;/th>
+ &lt;th>Tracing features&lt;/th>
+ &lt;th>&lt;/th>
+ &lt;/tr>
+ &lt;/thead>
+ &lt;tbody>
+ &lt;tr>
+ &lt;td>&amp;ndash;report=REPORT_FILENAME&lt;/td>
+ &lt;td>Report module, data files, compilation, plugin, etc. details in an XML output file. This is also super useful for issue reporting. These reports can e.g. be used to re-create the environment easily using it with &amp;lsquo;&amp;ndash;create-environment-from-report&amp;rsquo;, but contain a lot of information. Default is off.&lt;/td>
+ &lt;td>&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>&amp;ndash;report-diffable&lt;/td>
+ &lt;td>Report data in diffable form, i.e. no timing or memory usage values that vary from run to run. Default is off.&lt;/td>
+ &lt;td>&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>&amp;ndash;report-user-provided=KEY_VALUE&lt;/td>
+ &lt;td>Report data from you. This can be given multiple times and be anything in &amp;lsquo;key=value&amp;rsquo; form, where key should be an identifier, e.g. use &amp;lsquo;&amp;ndash;report-user-provided=pipenv-lock-hash=64a5e4&amp;rsquo; to track some input values. Default is empty.&lt;/td>
+ &lt;td>&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>&amp;ndash;report-template=REPORT_DESC&lt;/td>
+ &lt;td>Report via template. Provide template and output filename &amp;rsquo;template.rst.j2:output.rst&amp;rsquo;. For built-in templates, check the User Manual for what these are. Can be given multiple times. Default is empty.&lt;/td>
+ &lt;td>&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>&amp;ndash;quiet&lt;/td>
+ &lt;td>Disable all information outputs, but show warnings. Defaults to off.&lt;/td>
+ &lt;td>&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>&amp;ndash;show-scons&lt;/td>
+ &lt;td>Run the C building backend Scons with verbose information, showing the executed commands, detected compilers. Defaults to off.&lt;/td>
+ &lt;td>&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>&amp;ndash;no-progressbar&lt;/td>
+ &lt;td>Disable progress bars. Defaults to off.&lt;/td>
+ &lt;td>&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>&amp;ndash;show-progress&lt;/td>
+ &lt;td>Obsolete: Provide progress information and statistics. Disables normal progress bar. Defaults to off.&lt;/td>
+ &lt;td>&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>&amp;ndash;show-memory&lt;/td>
+ &lt;td>Provide memory information and statistics. Defaults to off.&lt;/td>
+ &lt;td>&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>&amp;ndash;show-modules&lt;/td>
+ &lt;td>Provide information for included modules and DLLs Obsolete: You should use &amp;lsquo;&amp;ndash;report&amp;rsquo; file instead. Defaults to off.&lt;/td>
+ &lt;td>&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>&amp;ndash;show-modules-output=PATH&lt;/td>
+ &lt;td>Where to output &amp;lsquo;&amp;ndash;show-modules&amp;rsquo;, should be a filename. Default is standard output.&lt;/td>
+ &lt;td>&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>&amp;ndash;verbose&lt;/td>
+ &lt;td>Output details of actions taken, esp. in optimizations. Can become a lot. Defaults to off.&lt;/td>
+ &lt;td>&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>&amp;ndash;verbose-output=PATH&lt;/td>
+ &lt;td>Where to output from &amp;lsquo;&amp;ndash;verbose&amp;rsquo;, should be a filename. Default is standard output.&lt;/td>
+ &lt;td>&lt;/td>
+ &lt;/tr>
+ &lt;/tbody>
+&lt;/table>
+&lt;hr>
+&lt;table>
+ &lt;thead>
+ &lt;tr>
+ &lt;th>&lt;/th>
+ &lt;th>Binary Version Information&lt;/th>
+ &lt;th>&lt;/th>
+ &lt;/tr>
+ &lt;/thead>
+ &lt;tbody>
+ &lt;tr>
+ &lt;td>&amp;ndash;company-name=COMPANY_NAME&lt;/td>
+ &lt;td>Name of the company to use in version information. Defaults to unused.&lt;/td>
+ &lt;td>&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>&amp;ndash;product-name=PRODUCT_NAME&lt;/td>
+ &lt;td>Name of the product to use in version information. Defaults to base filename of the binary.&lt;/td>
+ &lt;td>&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>&amp;ndash;file-version=FILE_VERSION&lt;/td>
+ &lt;td>File version to use in version information. Must be a sequence of up to 4 numbers, e.g. 1.0 or 1.0.0.0, no more digits are allowed, no strings are allowed. Defaults to unused.&lt;/td>
+ &lt;td>&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>&amp;ndash;product-version=PRODUCT_VERSION&lt;/td>
+ &lt;td>Product version to use in version information. Same rules as for file version. Defaults to unused.&lt;/td>
+ &lt;td>&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>&amp;ndash;file-description=FILE_DESCRIPTION&lt;/td>
+ &lt;td>Description of the file used in version information. Windows only at this time. Defaults to binary filename.&lt;/td>
+ &lt;td>&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>&amp;ndash;copyright=COPYRIGHT_TEXT&lt;/td>
+ &lt;td>Copyright used in version information. Windows/macOS only at this time. Defaults to not present.&lt;/td>
+ &lt;td>&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>&amp;ndash;trademarks=TRADEMARK_TEXT&lt;/td>
+ &lt;td>Trademark used in version information. Windows/macOS only at this time. Defaults to not present.&lt;/td>
+ &lt;td>&lt;/td>
+ &lt;/tr>
+ &lt;/tbody>
+&lt;/table>
+&lt;hr>
+&lt;table>
+ &lt;thead>
+ &lt;tr>
+ &lt;th>&lt;/th>
+ &lt;th>Plugin control&lt;/th>
+ &lt;th>&lt;/th>
+ &lt;/tr>
+ &lt;/thead>
+ &lt;tbody>
+ &lt;tr>
+ &lt;td>&amp;ndash;enable-plugins=PLUGIN_NAME&lt;/td>
+ &lt;td>Enabled plugins. Must be plug-in names. Use &amp;lsquo;&amp;ndash;plugin-list&amp;rsquo; to query the full list and exit. Default empty.&lt;/td>
+ &lt;td>&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>&amp;ndash;disable-plugins=PLUGIN_NAME&lt;/td>
+ &lt;td>Disabled plugins. Must be plug-in names. Use &amp;lsquo;&amp;ndash;plugin-list&amp;rsquo; to query the full list and exit. Most standard plugins are not a good idea to disable. Default empty.&lt;/td>
+ &lt;td>&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>&amp;ndash;user-plugin=PATH&lt;/td>
+ &lt;td>The file name of user plugin. Can be given multiple times. Default empty.&lt;/td>
+ &lt;td>&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>&amp;ndash;plugin-list&lt;/td>
+ &lt;td>Show list of all available plugins and exit. Defaults to off.&lt;/td>
+ &lt;td>&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>&amp;ndash;plugin-no-detection&lt;/td>
+ &lt;td>Plugins can detect if they might be used, and the you can disable the warning via &amp;ldquo;&amp;ndash;disable-plugin=plugin-that-warned&amp;rdquo;, or you can use this option to disable the mechanism entirely, which also speeds up compilation slightly of course as this detection code is run in vain once you are certain of which plugins to use. Defaults to off.&lt;/td>
+ &lt;td>&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>&amp;ndash;module-parameter=MODULE_PARAMETERS&lt;/td>
+ &lt;td>Provide a module parameter. You are asked by some packages to provide extra decisions. Format is currently &amp;ndash;module-parameter=module.name-option-name=value Default empty.&lt;/td>
+ &lt;td>&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>&amp;ndash;show-source-changes=SHOW_SOURCE_CHANGES&lt;/td>
+ &lt;td>Show source changes to original Python file content before compilation. Mostly intended for developing plugins and Nuitka package configuration. Use e.g. &amp;lsquo;&amp;ndash;show-source-changes=numpy.**&amp;rsquo; to see all changes below a given namespace or use &amp;lsquo;*&amp;rsquo; to see everything which can get a lot. Default empty.&lt;/td>
+ &lt;td>&lt;/td>
+ &lt;/tr>
+ &lt;/tbody>
+&lt;/table>
+&lt;hr>
+&lt;table>
+ &lt;thead>
+ &lt;tr>
+ &lt;th>&lt;/th>
+ &lt;th>Cross compilation&lt;/th>
+ &lt;th>&lt;/th>
+ &lt;/tr>
+ &lt;/thead>
+ &lt;tbody>
+ &lt;tr>
+ &lt;td>&amp;ndash;target=TARGET_DESC&lt;/td>
+ &lt;td>Cross compilation target. Highly experimental and in development, not supposed to work yet. We are working on &amp;lsquo;&amp;ndash;target=wasi&amp;rsquo; and nothing else yet.&lt;/td>
+ &lt;td>&lt;/td>
+ &lt;/tr>
+ &lt;/tbody>
+&lt;/table>
+&lt;hr>
+&lt;table>
+ &lt;thead>
+ &lt;tr>
+ &lt;th>&lt;/th>
+ &lt;th>Plugin options of &amp;lsquo;anti-bloat&amp;rsquo; (categories: core)&lt;/th>
+ &lt;th>&lt;/th>
+ &lt;/tr>
+ &lt;/thead>
+ &lt;tbody>
+ &lt;tr>
+ &lt;td>&amp;ndash;show-anti-bloat-changes&lt;/td>
+ &lt;td>Annotate what changes are done by the plugin.&lt;/td>
+ &lt;td>&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>&amp;ndash;noinclude-setuptools-mode=NOINCLUDE_SETUPTOOLS_MODE&lt;/td>
+ &lt;td>What to do if a &amp;lsquo;setuptools&amp;rsquo; or import is encountered. This package can be big with dependencies, and should definitely be avoided. Also handles &amp;lsquo;setuptools_scm&amp;rsquo;.&lt;/td>
+ &lt;td>&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>&amp;ndash;noinclude-pytest-mode=NOINCLUDE_PYTEST_MODE&lt;/td>
+ &lt;td>What to do if a &amp;lsquo;pytest&amp;rsquo; import is encountered. This package can be big with dependencies, and should definitely be avoided. Also handles &amp;rsquo;nose&amp;rsquo; imports.&lt;/td>
+ &lt;td>&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>&amp;ndash;noinclude-unittest-mode=NOINCLUDE_UNITTEST_MODE&lt;/td>
+ &lt;td>What to do if a unittest import is encountered. This package can be big with dependencies, and should definitely be avoided.&lt;/td>
+ &lt;td>&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>&amp;ndash;noinclude-pydoc-mode=NOINCLUDE_PYDOC_MODE&lt;/td>
+ &lt;td>What to do if a pydoc import is encountered. This package use is mark of useless code for deployments and should be avoided.&lt;/td>
+ &lt;td>&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>&amp;ndash;noinclude-IPython-mode=NOINCLUDE_IPYTHON_MODE&lt;/td>
+ &lt;td>What to do if a IPython import is encountered. This package can be big with dependencies, and should definitely be avoided.&lt;/td>
+ &lt;td>&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>&amp;ndash;noinclude-dask-mode=NOINCLUDE_DASK_MODE&lt;/td>
+ &lt;td>What to do if a &amp;lsquo;dask&amp;rsquo; import is encountered. This package can be big with dependencies, and should definitely be avoided.&lt;/td>
+ &lt;td>&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>&amp;ndash;noinclude-numba-mode=NOINCLUDE_NUMBA_MODE&lt;/td>
+ &lt;td>What to do if a &amp;rsquo;numba&amp;rsquo; import is encountered. This package can be big with dependencies, and is currently not working for standalone. This package is big with dependencies, and should definitely be avoided.&lt;/td>
+ &lt;td>&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>&amp;ndash;noinclude-default-mode=NOINCLUDE_DEFAULT_MODE&lt;/td>
+ &lt;td>This actually provides the default &amp;ldquo;warning&amp;rdquo; value for above options, and can be used to turn all of these on.&lt;/td>
+ &lt;td>&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>&amp;ndash;noinclude-custom-mode=CUSTOM_CHOICES&lt;/td>
+ &lt;td>What to do if a specific import is encountered. Format is module name, which can and should be a top level package and then one choice, &amp;ldquo;error&amp;rdquo;, &amp;ldquo;warning&amp;rdquo;, &amp;ldquo;nofollow&amp;rdquo;, e.g. PyQt5:error.&lt;/td>
+ &lt;td>&lt;/td>
+ &lt;/tr>
+ &lt;/tbody>
+&lt;/table>
+&lt;hr>
+&lt;table>
+ &lt;thead>
+ &lt;tr>
+ &lt;th>&lt;/th>
+ &lt;th>Plugin options of &amp;lsquo;playwright&amp;rsquo; (categories: package-support)&lt;/th>
+ &lt;th>“playwright”插件选项（分类：包支持）&lt;/th>
+ &lt;/tr>
+ &lt;/thead>
+ &lt;tbody>
+ &lt;tr>
+ &lt;td>&amp;ndash;playwright-include-browser=INCLUDE_BROWSERS&lt;/td>
+ &lt;td>Playwright browser to include by name. Can be specified multiple times. Use &amp;ldquo;all&amp;rdquo; to include all installed browsers or use &amp;ldquo;none&amp;rdquo; to exclude all browsers.&lt;/td>
+ &lt;td>Playwright浏览器按名称包含。可多次指定。使用“all”包含所有已安装的浏览器，或使用“none”排除所有浏览器。&lt;/td>
+ &lt;/tr>
+ &lt;/tbody>
+&lt;/table>
+&lt;hr>
+&lt;table>
+ &lt;thead>
+ &lt;tr>
+ &lt;th>&lt;/th>
+ &lt;th>Plugin options of &amp;lsquo;spacy&amp;rsquo; (categories: package-support)&lt;/th>
+ &lt;th>&amp;lsquo;spacy&amp;rsquo; 插件选项（分类：包支持）&lt;/th>
+ &lt;/tr>
+ &lt;/thead>
+ &lt;tbody>
+ &lt;tr>
+ &lt;td>&amp;ndash;spacy-language-model=INCLUDE_LANGUAGE_MODELS&lt;/td>
+ &lt;td>Spacy language models to use. Can be specified multiple times. Use &amp;lsquo;all&amp;rsquo; to include all downloaded models.&lt;/td>
+ &lt;td>可用的Spacy语言模型。可以多次指定。使用&amp;rsquo;all&amp;rsquo;以包含所有已下载的模型。&lt;/td>
+ &lt;/tr>
+ &lt;/tbody>
+&lt;/table></description></item><item><title>VScode 在 Docker 容器内开发</title><link>https://blog.cuile.com/post/vscode/vscode_develop_in_docker/</link><pubDate>Sat, 25 Nov 2023 00:24:10 +0800</pubDate><guid>https://blog.cuile.com/post/vscode/vscode_develop_in_docker/</guid><description>&lt;p>在 Docker 的容器内开发，相当于使用VSCode的远程开发能力，好处非常多。&lt;/p>
+&lt;ul>
+&lt;li>开发环境统一、可维护性强&lt;/li>
+&lt;li>后期部署简单&lt;/li>
+&lt;/ul>
+&lt;h2 id="1-安装-docker">1. 安装 Docker&lt;/h2>
+&lt;p>&lt;a href="../../docker/docker_install">Docker 安装&lt;/a>&lt;/p>
+&lt;h2 id="2-安装-visual-stuido-code">2. 安装 Visual Stuido Code&lt;/h2>
+&lt;p>这不废话嘛，同上。&lt;/p>
+&lt;h2 id="3-安装-remote-development-扩展包">3. 安装 Remote Development 扩展包&lt;/h2>
+&lt;p>官方推荐安装 Remote Development 这个扩展包，它包括三个扩展功能：&lt;/p>
+&lt;ul>
+&lt;li>Remote - SSH&lt;/li>
+&lt;li>Remote - Containers&lt;/li>
+&lt;li>Remote - WSL&lt;/li>
+&lt;/ul>
+&lt;p>如果你只使用 Docker ，可以只安装 Remote - Containers 这个扩展。&lt;/p>
+&lt;p>安装成功后，你可以在 VSCode 的左下角，看到一个“蓝底色+两个相对白箭头”的图标。&lt;/p>
+&lt;p>点击图标，可以看到 Remote - Containers 提供了许多方法进行配置。&lt;/p>
+&lt;h2 id="4-配置-remote---containers">4. 配置 Remote - Containers&lt;/h2>
+&lt;h3 id="41-使用现成的-docker-composeyml-配置">4.1. 使用现成的 docker-compose.yml 配置&lt;/h3>
+&lt;ol>
+&lt;li>点击左下角的蓝色图标&lt;/li>
+&lt;li>选择 Add Development Container Configuration Files&amp;hellip;&lt;/li>
+&lt;li>选择 Existing Docker Compose (Extend)
+&lt;ol>
+&lt;li>VSCode 会自动在项目的根目录下，生成 .devcontainer 文件夹&lt;/li>
+&lt;li>在 .devcontainer 目录内，包括两个文件：
+&lt;ol>
+&lt;li>devcontainer.json：VSCode 使用它连接开发容器&lt;/li>
+&lt;li>docker-compose.yml：示例文件，可以不用管它&lt;/li>
+&lt;/ol>
+&lt;/li>
+&lt;/ol>
+&lt;/li>
+&lt;li>打开 devcontainer.json 文件&lt;/li>
+&lt;/ol>
+&lt;blockquote>
+&lt;p>照着 docker-compose.yml 进行修改，见下面示例&lt;/p></description></item><item><title>VSCode 配置 Python 开发环境</title><link>https://blog.cuile.com/post/vscode/vscode_configures_python_development_environment/</link><pubDate>Sat, 25 Nov 2023 00:24:10 +0800</pubDate><guid>https://blog.cuile.com/post/vscode/vscode_configures_python_development_environment/</guid><description>&lt;p>使用 VSCode 开发 Python 是替代 PyCharm 的一个很好选择，有丰富的扩展和第三方工具可以使用，安装配置好它们，会让开发工作事半功倍。下面列举推荐安装的扩展和工具：&lt;/p>
+&lt;p>&lt;em>扩展&lt;/em>&lt;/p>
+&lt;ul>
+&lt;li>Material Icon There
+&lt;ul>
+&lt;li>VSCode图标，很好看&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>Python
+&lt;ul>
+&lt;li>微软官方扩展，一定要装&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>Pylance
+&lt;ul>
+&lt;li>微软官方扩展，一定要装&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>autoDocstring&lt;/li>
+&lt;li>Python Environment Manager&lt;/li>
+&lt;li>Ruff&lt;/li>
+&lt;li>Code Runner&lt;/li>
+&lt;li>Qt for Python&lt;/li>
+&lt;/ul>
+&lt;p>&lt;em>工具&lt;/em>&lt;/p>
+&lt;ul>
+&lt;li>Micromamba
+&lt;ul>
+&lt;li>使用 Micromamba 来配置 Python 开发环境有几个好处：
+&lt;ul>
+&lt;li>micromamba 是一个包管理器，可方便的同时安装几个软件，形成一个独立的开发环境，与其它项目的开发环境完全隔离。&lt;/li>
+&lt;li>micromamba 安装的软件，不会在系统留下痕迹，不会污染本地系统。&lt;/li>
+&lt;li>micromamba 只配置 python 基础环境，不影响 python 虚拟环境，同一个基础环境可提供给多个虚拟环境使用。&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ul>
+&lt;h2 id="配置-micromamba">配置 Micromamba&lt;/h2>
+&lt;p>&lt;a href="https://blog.cuile.com/post/python/micromamba/">Micromamba的安装与使用&lt;/a>&lt;/p>
+&lt;h2 id="配置-vscode">配置 VSCode&lt;sup id="fnref:1">&lt;a href="#fn:1" class="footnote-ref" role="doc-noteref">1&lt;/a>&lt;/sup>&lt;/h2>
+&lt;p>配置 Venv 路径&lt;/p>
+&lt;ol>
+&lt;li>使用 “ctrl+,” 打开设置界面，搜索 venv ，出现两个结果：&lt;/li>
+&lt;/ol>
+&lt;table>
+ &lt;thead>
+ &lt;tr>
+ &lt;th style="text-align: left">选项&lt;/th>
+ &lt;th style="text-align: left">值&lt;/th>
+ &lt;/tr>
+ &lt;/thead>
+ &lt;tbody>
+ &lt;tr>
+ &lt;td style="text-align: left">Python: Venv Folders&lt;/td>
+ &lt;td style="text-align: left">如果安装时使用默认位置，就填写 micromamba，下面的不用设置&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td style="text-align: left">Python: Venv Path&lt;/td>
+ &lt;td style="text-align: left">如果安装时没有使用默认位置，就填写安装位置，上面的不用设置&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td style="text-align: left">Python: Conda Path&lt;/td>
+ &lt;td style="text-align: left">直接输入conda 即可&lt;/td>
+ &lt;/tr>
+ &lt;/tbody>
+&lt;/table>
+&lt;ol start="2">
+&lt;li>重启VSCode，进入 Python 项目，就可以看到右下角的 Python 环境了，如果创建了多个环境，可以通过这里切换。这里需要注意 vscode 可以识别多个 Python 版本，但无法正确配置它们。所以创建不同的 Python 版本后，还要为项目选择解释器。&lt;/li>
+&lt;/ol>
+&lt;h3 id="配置-python-项目环境">配置 Python 项目环境&lt;/h3>
+&lt;ol>
+&lt;li>使用项目终端界面，创建虚拟环境。&lt;/li>
+&lt;/ol>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-powershell" data-lang="powershell">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e"># 先激活 micromamba 环境&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>PS &lt;span style="color:#e6db74">&amp;#34;Your Project Path&amp;#34;&lt;/span>&amp;gt; conda activate PyQt
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e"># 创建Python虚拟环境&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e"># --upgrade 参数是升级虚拟环境用的，新建虚拟环境时要去掉。&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e"># --system-site-packages 会降低环境隔离性，生产环境慎用。&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>(PyQt) PS &lt;span style="color:#e6db74">&amp;#34;Your Project Path&amp;#34;&lt;/span>&amp;gt; python -m venv --prompt &lt;span style="color:#e6db74">&amp;#34;&amp;lt;myproject&amp;gt;&amp;#34;&lt;/span> --upgrade-deps .venv --symlinks --upgrade --system-site-packages
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e"># 查看项目资源管理器，看到 .venv 文件夹就成功了。&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e"># 激活Python虚拟环境&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>(PyQt) PS &lt;span style="color:#e6db74">&amp;#34;Your Project Path&amp;#34;&lt;/span>&amp;gt; Activate.ps1
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e"># 成功进入虚拟环境&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>(myproject) (PyQt) PS &lt;span style="color:#e6db74">&amp;#34;Your Project Path&amp;#34;&lt;/span>&amp;gt;
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>重启 vscode 再次进入项目终端，不一定会看到项目前缀&lt;sup id="fnref:2">&lt;a href="#fn:2" class="footnote-ref" role="doc-noteref">2&lt;/a>&lt;/sup>。VsCode已经自动修你激活了Python虚拟环境，不需要再操作。
+安装包里不需要激活 micromamba 环境，否则包将被安装到 micromamba 环境中。&lt;/p></description></item><item><title>Django crontab 使用说明</title><link>https://blog.cuile.com/post/django/django_crontab/</link><pubDate>Sun, 22 Jan 2023 16:35:36 +0800</pubDate><guid>https://blog.cuile.com/post/django/django_crontab/</guid><description>&lt;h3 id="参考文档">参考文档&lt;/h3>
+&lt;ul>
+&lt;li>&lt;a href="https://github.com/kraiz/django-crontab">kraiz/django-crontab&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://segmentfault.com/a/1190000038298361">使用django-crontab建立定时任务&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://www.runoob.com/linux/linux-comm-crontab.html">Linux crontab 命令&lt;/a>&lt;/li>
+&lt;/ul></description></item><item><title>在 Python Shell 中重新导入模块</title><link>https://blog.cuile.com/post/python/python_shell_import_reload/</link><pubDate>Fri, 20 Jan 2023 23:44:17 +0800</pubDate><guid>https://blog.cuile.com/post/python/python_shell_import_reload/</guid><description>&lt;p>不同版本中，不同的表现形式：&lt;/p>
+&lt;ul>
+&lt;li>Python 2.x：reload() 是内置函数&lt;/li>
+&lt;li>Python 3.0 - 3.3：使用 imp.reload(module)&lt;/li>
+&lt;li>Python 3.4：imp 已经被废弃，取而代之的是 importlib&lt;/li>
+&lt;/ul>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-python" data-lang="python">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#f92672">from&lt;/span> importlib &lt;span style="color:#f92672">import&lt;/span> reload
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>reload(&lt;span style="color:#f92672">&amp;lt;&lt;/span>module&lt;span style="color:#f92672">&amp;gt;&lt;/span>)
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>参考文档&lt;/p>
+&lt;ul>
+&lt;li>&lt;a href="https://blog.csdn.net/lvhdbb/article/details/95230019">Python 重新加载模块 reload&lt;/a>&lt;/li>
+&lt;/ul></description></item><item><title>Docker 环境 Django 开发简介</title><link>https://blog.cuile.com/post/django/django_development_introduction/</link><pubDate>Tue, 10 May 2022 16:30:13 +0800</pubDate><guid>https://blog.cuile.com/post/django/django_development_introduction/</guid><description>&lt;h2 id="1-准备环境">1 准备环境&lt;/h2>
+&lt;p>开发环境还是建议使用 Docker 来搭建，方便快捷。
+不过 Django 的官方镜像已经弃用了，官方建议新版本使用 Python 官方提供的镜像来构建。&lt;/p>
+&lt;pre tabindex="0">&lt;code>Docker
+ ┗ Python == 3.9.12-buster
+ ┗ Django == 3.2.13 LTS
+ ┗ django-simpleui==2022.11.30
+&lt;/code>&lt;/pre>&lt;p>可以参考[https://github.com/Cuile/Docker-to-Python/tree/master/Django]，提供了 Dockerfil、yml 文件，还提供全套使用命令。&lt;/p>
+&lt;h2 id="2-创建项目">2 创建项目&lt;/h2>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e"># 创建项目&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>$ django-admin startproject mysite
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>$ cd mysite
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e"># 生成项目&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>$ python manage.py startapp websrc
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e"># 运行项目测试&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>$ python manage.py runserver 0.0.0.0:80
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>修改配置后，建议使用项目调试的方式启动，不要使用快捷命令，项目正常启动稳定运行后，再使用快捷命令。&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-python" data-lang="python">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e"># settings.py&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e"># 任意地址都可以访问 Django&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>ALLOWED_HOSTS &lt;span style="color:#f92672">=&lt;/span> [&lt;span style="color:#e6db74">&amp;#39;*&amp;#39;&lt;/span>] 
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e"># 添加 simpleui 模板，和创建的项目&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>INSTALLED_APPS &lt;span style="color:#f92672">=&lt;/span> [
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#e6db74">&amp;#39;simpleui&amp;#39;&lt;/span>,
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#e6db74">&amp;#39;websrc&amp;#39;&lt;/span>,
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#e6db74">&amp;#39;......&amp;#39;&lt;/span>,
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>]
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e"># 这个与多语种有关，在项目初始阶段不要修改，后续添加了多语种支持再修改，否则会导致无法启动。&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e"># 具体参考(http://www.i18nguy.com/unicode/language-identifiers.html)，有个傻逼教程，上来就改成 zh-CN 果然导致项目无法正常启动。&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e"># 正确的简体中文代码如下：&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>LANGUAGE_CODE &lt;span style="color:#f92672">=&lt;/span> &lt;span style="color:#e6db74">&amp;#39;zh-Hans&amp;#39;&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e"># 时区，上海就代表北京时间，这个不能写错，写错就启动不了&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e"># 具体参考(https://en.wikipedia.org/wiki/List_of_tz_database_time_zones)，这里是标准的，有个傻逼教程非给写成 Asia/Beijing 导致怎么都起不来，太TMD的二逼了。&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e"># 正解的北京时间时区如下：&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>TIME_ZONE &lt;span style="color:#f92672">=&lt;/span> &lt;span style="color:#e6db74">&amp;#39;Asia/Shanghai&amp;#39;&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e"># 启动翻译，与上面的 LANGUAGE_CODE 设置相对应&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>USE_I18N &lt;span style="color:#f92672">=&lt;/span> &lt;span style="color:#66d9ef">True&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e"># 启动格式控制&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>USE_L10N &lt;span style="color:#f92672">=&lt;/span> &lt;span style="color:#66d9ef">True&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e"># 启动时区&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>USE_TZ &lt;span style="color:#f92672">=&lt;/span> &lt;span style="color:#66d9ef">True&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="3-创建管理员账号">3 创建管理员账号&lt;/h2>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span>$ python manage.py createsuperuser
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>Username: admin
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>Email address: admin@example.com
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>Password: **********
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>Password &lt;span style="color:#f92672">(&lt;/span>again&lt;span style="color:#f92672">)&lt;/span>: *********
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>Superuser created successfully.
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>访问项目链接，比如&amp;quot;http://127.0.0.1:8000/admin/&lt;/p></description></item><item><title>CentOS 7 安装 Python3.9.12</title><link>https://blog.cuile.com/post/python/python3_install/</link><pubDate>Fri, 06 May 2022 13:11:27 +0800</pubDate><guid>https://blog.cuile.com/post/python/python3_install/</guid><description>&lt;h2 id="1查看已安装的python">1、查看已安装的Python&lt;/h2>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e"># 查看已安装的信息&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>$ yum info python3
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e"># 查看python安装位置&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>$ whereis python3
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="2卸载已安装的python环境">2、卸载已安装的Python环境&lt;/h2>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e"># 卸载已安装的程序&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>$ yum erase python3
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e"># 删除所有残余文件&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>$ whereis python3|xargs rm -frv
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e"># 查看现有的python&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>$ whereis python3
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="3yum安装依赖环境">3、yum安装依赖环境&lt;/h2>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span>$ yum -y install zlib-devel bzip2-devel openssl-devel ncurses-devel sqlite-devel readline-devel tk-devel gdbm-devel db4-devel libpcap-devel xz-devel
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="4官网下载python3912">4、官网下载Python3.9.12&lt;/h2>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span>$ yum -y install wget
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e"># 尽量使用国内镜像站点下载比较快&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>$ wget https://mirrors.huaweicloud.com/python/3.9.12/Python-3.9.12.tgz
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="5创建安装目录">5、创建安装目录&lt;/h2>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span>$ tar -zxvf Python-3.9.12.tgz -C ./
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>$ cd Python-3.9.12
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>$ mkdir /usr/local/python3 
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>$ ./configure --prefix&lt;span style="color:#f92672">=&lt;/span>/usr/local/python3.9.12
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>$ make &lt;span style="color:#f92672">&amp;amp;&amp;amp;&lt;/span> make install
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="6创建软链接">6、创建软链接&lt;/h2>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span>$ ln -s /usr/local/python3.9.12/bin/python3 /usr/bin/python3
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>$ ln -s /usr/local/python3.9.12/bin/pip3 /usr/bin/pip3
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="7测试">7、测试&lt;/h2>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span>$ python3 -V
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>Python 3.9.12
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>$ pip3 -V
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>pip 22.0.4 from /usr/local/python3.9.12/lib/python3.9/site-packages/pip &lt;span style="color:#f92672">(&lt;/span>python 3.9&lt;span style="color:#f92672">)&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="8pip升级换源">8、pip升级、换源&lt;/h2>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e"># pip升级&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>$ python3 -m pip install --upgrade pip
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e"># pip换源&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e"># 推荐使用清华的源，因为使用https协议&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>$ pip3 config set global.index-url https://pypi.tuna.tsinghua.edu.cn/simple
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div></description></item><item><title>urllib.parse.urlencode 使用详解</title><link>https://blog.cuile.com/post/python/urllib.parse.urlencode_manual/</link><pubDate>Mon, 17 Jan 2022 15:24:58 +0800</pubDate><guid>https://blog.cuile.com/post/python/urllib.parse.urlencode_manual/</guid><description>&lt;blockquote>
+&lt;p>urllib.parse.urlencode(query, doseq=False, safe=&amp;rsquo;&amp;rsquo;, encoding=None, errors=None, quote_via=quote_plus)
+urllib.parse.urlencode 将对象或两元素序列转换为百分比编码的ASCII文本字符串，字符串是由&amp;rsquo;&amp;amp;&amp;lsquo;字符分隔的一系列 key=value 对，其中 key 和 value 都使用 quote_via 函数引用。&lt;/p>&lt;/blockquote>
+&lt;h2 id="get-请求">GET 请求&lt;/h2>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-python" data-lang="python">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#f92672">import&lt;/span> urllib
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>params &lt;span style="color:#f92672">=&lt;/span> urllib&lt;span style="color:#f92672">.&lt;/span>parse&lt;span style="color:#f92672">.&lt;/span>urlencode({&lt;span style="color:#e6db74">&amp;#39;spam&amp;#39;&lt;/span>: &lt;span style="color:#ae81ff">1&lt;/span>, &lt;span style="color:#e6db74">&amp;#39;eggs&amp;#39;&lt;/span>: &lt;span style="color:#ae81ff">2&lt;/span>, &lt;span style="color:#e6db74">&amp;#39;bacon&amp;#39;&lt;/span>: &lt;span style="color:#ae81ff">0&lt;/span>})
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>url &lt;span style="color:#f92672">=&lt;/span> &lt;span style="color:#e6db74">&amp;#34;http://www.musi-cal.com/cgi-bin/query?&lt;/span>&lt;span style="color:#e6db74">%s&lt;/span>&lt;span style="color:#e6db74">&amp;#34;&lt;/span> &lt;span style="color:#f92672">%&lt;/span> params
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#66d9ef">with&lt;/span> urllib&lt;span style="color:#f92672">.&lt;/span>request&lt;span style="color:#f92672">.&lt;/span>urlopen(url) &lt;span style="color:#66d9ef">as&lt;/span> f:
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> print(f&lt;span style="color:#f92672">.&lt;/span>read()&lt;span style="color:#f92672">.&lt;/span>decode(&lt;span style="color:#e6db74">&amp;#39;utf-8&amp;#39;&lt;/span>))
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="post-请求">POST 请求&lt;/h2>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-python" data-lang="python">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#f92672">import&lt;/span> urllib.request
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#f92672">import&lt;/span> urllib.parse
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>data &lt;span style="color:#f92672">=&lt;/span> urllib&lt;span style="color:#f92672">.&lt;/span>parse&lt;span style="color:#f92672">.&lt;/span>urlencode({&lt;span style="color:#e6db74">&amp;#39;spam&amp;#39;&lt;/span>: &lt;span style="color:#ae81ff">1&lt;/span>, &lt;span style="color:#e6db74">&amp;#39;eggs&amp;#39;&lt;/span>: &lt;span style="color:#ae81ff">2&lt;/span>, &lt;span style="color:#e6db74">&amp;#39;bacon&amp;#39;&lt;/span>: &lt;span style="color:#ae81ff">0&lt;/span>})
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>data &lt;span style="color:#f92672">=&lt;/span> data&lt;span style="color:#f92672">.&lt;/span>encode(&lt;span style="color:#e6db74">&amp;#39;ascii&amp;#39;&lt;/span>)
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#66d9ef">with&lt;/span> urllib&lt;span style="color:#f92672">.&lt;/span>request&lt;span style="color:#f92672">.&lt;/span>urlopen(&lt;span style="color:#e6db74">&amp;#34;http://requestb.in/xrbl82xr&amp;#34;&lt;/span>, data) &lt;span style="color:#66d9ef">as&lt;/span> f:
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> print(f&lt;span style="color:#f92672">.&lt;/span>read()&lt;span style="color:#f92672">.&lt;/span>decode(&lt;span style="color:#e6db74">&amp;#39;utf-8&amp;#39;&lt;/span>))
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;blockquote>
+&lt;p>如果结果字符串要用作具有 urlopen() 函数的POST操作的 data，则它应该被编码为字节，否则将导致 TypeError。&lt;/p>&lt;/blockquote>
+&lt;p>默认情况下 urlencode 函数使用 quote_plus() 函数进行编码，也可以选用 quote() 函数进行编码，两者最大的不同在于对特定字符的处理。&lt;/p>
+&lt;blockquote>
+&lt;p>urllib.parse.quote_plus(string, safe=&amp;rsquo;&amp;rsquo;, encoding=None, errors=None)
+默认情况下使用 quote_plus() 函数，它将空格被编码为 &amp;lsquo;+&amp;rsquo; 字符，而“/”字符被编码为 %2F，它遵循GET请求（application/x-www-form-urlencoded）的标准。
+urllib.parse.quote(string, safe=&amp;rsquo;/&amp;rsquo;, encoding=None, errors=None)
+可以作为备用的函数是 quote()，它将空格编码为 %20，字母，数字和 &amp;lsquo;_.-&amp;lsquo;字符不被编码，而“/”字符被默认为安全字符不被编码。&lt;/p></description></item><item><title>在pypi上发布自己的Python库</title><link>https://blog.cuile.com/post/python/release_pypi_package/</link><pubDate>Fri, 11 May 2018 14:49:57 +0800</pubDate><guid>https://blog.cuile.com/post/python/release_pypi_package/</guid><description>&lt;p>Python 的 pypi.python.org 站点终于要退休了，而新的接任者 pypi.org 无论从美观、风格上都让人大大的喜欢，终于在审美一这项上及格了。&lt;/p>
+&lt;p>而且新的 pypi.org 能够正确的渲染 Markdown 格式的描述，实在是让人欣慰，终于可以和 Github 同步了，不用在麻烦的转换一次了。&lt;/p>
+&lt;p>下面就来聊聊，如何正确的把库发布到 pypi.org 上：&lt;/p>
+&lt;h2 id="1-注册-pypiorg-账号">1. 注册 pypi.org 账号&lt;/h2>
+&lt;p>嗯，这是正确的废话！&lt;/p>
+&lt;h2 id="2-编写-setuppy">2. 编写 setup.py&lt;/h2>
+&lt;p>setup.py 的内容比较重要，但其它的细节不谈，主要聊聊 long_description 部分，这部分是对库能力的详细描述。&lt;/p>
+&lt;blockquote>
+&lt;p>如果说 keywords 和 description 能提高别人搜索到项目的概率的话，那 long_description 就在很大程度上决定别人对你对项目有没有进一步的想法了。&lt;/p>&lt;/blockquote>
+&lt;p>在针对 long_description 的网上介绍中，对具体使用方法明确写出的是少之又少，所以我今天就特别举例说明一下。&lt;/p>
+&lt;h3 id="21-setuppy">2.1 setup.py&lt;/h3>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-python" data-lang="python">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e">#!/usr/bin/env python&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e"># coding: utf-8&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#f92672">from&lt;/span> setuptools &lt;span style="color:#f92672">import&lt;/span> setup
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>setup(
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>name&lt;span style="color:#f92672">=&lt;/span>&lt;span style="color:#e6db74">&amp;#39;sequence2hash&amp;#39;&lt;/span>,
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>version&lt;span style="color:#f92672">=&lt;/span>&lt;span style="color:#e6db74">&amp;#39;1.1.2&amp;#39;&lt;/span>,
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>keywords&lt;span style="color:#f92672">=&lt;/span>&lt;span style="color:#e6db74">&amp;#39;tuple dict list sequence hash key/value&amp;#39;&lt;/span>,
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>packages&lt;span style="color:#f92672">=&lt;/span>[&lt;span style="color:#e6db74">&amp;#39;sequence2hash&amp;#39;&lt;/span>],
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>url&lt;span style="color:#f92672">=&lt;/span>&lt;span style="color:#e6db74">&amp;#39;https://github.com/Cuile/sequence2hash&amp;#39;&lt;/span>,
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>description&lt;span style="color:#f92672">=&lt;/span>&lt;span style="color:#e6db74">&amp;#39;This tool converts a valid value in a sequence to a hash and contains a path to a valid value in the key field&amp;#39;&lt;/span>,
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>long_description_content_type&lt;span style="color:#f92672">=&lt;/span>&lt;span style="color:#e6db74">&amp;#39;text/markdown&amp;#39;&lt;/span>,
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>long_description&lt;span style="color:#f92672">=&lt;/span>open(&lt;span style="color:#e6db74">&amp;#39;README.md&amp;#39;&lt;/span>, encoding&lt;span style="color:#f92672">=&lt;/span>&lt;span style="color:#e6db74">&amp;#39;utf8&amp;#39;&lt;/span>)&lt;span style="color:#f92672">.&lt;/span>read(),
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>author&lt;span style="color:#f92672">=&lt;/span>&lt;span style="color:#e6db74">&amp;#39;cuile&amp;#39;&lt;/span>,
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>author_email&lt;span style="color:#f92672">=&lt;/span>&lt;span style="color:#e6db74">&amp;#39;i@cuile.com&amp;#39;&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>)
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h3 id="22-读取-readmemd-文件">2.2 读取 readme.md 文件&lt;/h3>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-python" data-lang="python">&lt;span style="display:flex;">&lt;span>long_description&lt;span style="color:#f92672">=&lt;/span>open(&lt;span style="color:#e6db74">&amp;#39;README.md&amp;#39;&lt;/span>, encoding&lt;span style="color:#f92672">=&lt;/span>&lt;span style="color:#e6db74">&amp;#39;utf8&amp;#39;&lt;/span>)&lt;span style="color:#f92672">.&lt;/span>read()
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>这句代码是较少明确说明的，可以不引用 io 库，而直接使用 open 函数读取文件内容，由于 pypi.org 支持 Markdown ，所以可以和 Github 使用同一份 README.md 文件。&lt;/p></description></item></channel></rss>

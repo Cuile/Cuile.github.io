@@ -1,2 +1,28 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Systemd on 瘦了就帅了</title><link>https://cuile.github.io/tags/systemd/</link><description>Recent content in Systemd on 瘦了就帅了</description><generator>Hugo -- gohugo.io</generator><copyright>Copyright © 2008–2018, Steve Francia and the Hugo Authors; all rights reserved.</copyright><lastBuildDate>Tue, 27 Dec 2022 17:29:08 +0800</lastBuildDate><atom:link href="https://cuile.github.io/tags/systemd/index.xml" rel="self" type="application/rss+xml"/><item><title>Systemd 系统工具命令指南</title><link>https://cuile.github.io/posts/linux/systemd/</link><pubDate>Tue, 27 Dec 2022 17:29:08 +0800</pubDate><guid>https://cuile.github.io/posts/linux/systemd/</guid><description>
-systemctl命令 1systemctl list-units ##列出当前系统服务的状态 2systemctl list-unit-files ##列出服务的开机状态 3systemctl status sshd ##查看指定服务的状态 4systemctl stop sshd ##关闭指定服务 5systemctl start sshd ##开</description></item></channel></rss>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Systemd on 瘦了就帅了</title><link>https://blog.cuile.com/tags/systemd/</link><description>Recent content in Systemd on 瘦了就帅了</description><generator>Hugo</generator><language>zh-cn</language><lastBuildDate>Thu, 26 Feb 2026 02:59:37 +0000</lastBuildDate><atom:link href="https://blog.cuile.com/tags/systemd/index.xml" rel="self" type="application/rss+xml"/><item><title>Systemd 系统工具命令指南</title><link>https://blog.cuile.com/post/linux/systemd/</link><pubDate>Tue, 27 Dec 2022 17:29:08 +0800</pubDate><guid>https://blog.cuile.com/post/linux/systemd/</guid><description>&lt;h2 id="systemctl命令">systemctl命令&lt;/h2>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span>systemctl list-units &lt;span style="color:#75715e">##列出当前系统服务的状态&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>systemctl list-unit-files &lt;span style="color:#75715e">##列出服务的开机状态&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>systemctl status sshd &lt;span style="color:#75715e">##查看指定服务的状态&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>systemctl stop sshd &lt;span style="color:#75715e">##关闭指定服务&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>systemctl start sshd &lt;span style="color:#75715e">##开启指定服务&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>systemctl restart sshd &lt;span style="color:#75715e">##从新启动服务&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>systemctl enable sshd &lt;span style="color:#75715e">##设定指定服务开机开启&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>systemctl disable sshd &lt;span style="color:#75715e">##设定指定服务开机关闭&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>systemctl reload sshd &lt;span style="color:#75715e">##使指定服务从新加载配置&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>systemctl list-dependencies sshd &lt;span style="color:#75715e">##查看指定服务的倚赖关系&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>systemctl mask sshd &lt;span style="color:#75715e">##冻结指定服务&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>systemctl unmask sshd &lt;span style="color:#75715e">##启用服务&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>systemctl set-default multi-user.target &lt;span style="color:#75715e">##开机不开启图形&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>systemctl set-default graphical.target &lt;span style="color:#75715e">##开机启动图形&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="设置主机名">设置主机名&lt;/h2>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span>$ _hostname_&lt;span style="color:#f92672">=&lt;/span>XXXX
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>$ hostnamectl --static set-hostname &lt;span style="color:#e6db74">${&lt;/span>_hostname_&lt;span style="color:#e6db74">}&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>$ hostnamectl --transient set-hostname &lt;span style="color:#e6db74">${&lt;/span>_hostname_&lt;span style="color:#e6db74">}&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>$ hostnamectl --pretty set-hostname &lt;span style="color:#e6db74">${&lt;/span>_hostname_&lt;span style="color:#e6db74">}&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;ul>
+&lt;li>&lt;a href="https://blog.csdn.net/tantexian/article/details/45958275">hostnamectl 参考&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;h2 id="修改服务器时区">修改服务器时区&lt;/h2>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span>$ timedatectl set-timezone Asia/Shanghai
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;ul>
+&lt;li>&lt;a href="https://www.jianshu.com/p/5e8e22bf135d">timedatectl 参考&lt;/a>&lt;/li>
+&lt;/ul></description></item></channel></rss>

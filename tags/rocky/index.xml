@@ -1,2 +1,128 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>rocky on 瘦了就帅了</title><link>https://cuile.github.io/tags/rocky/</link><description>Recent content in rocky on 瘦了就帅了</description><generator>Hugo -- gohugo.io</generator><copyright>Copyright © 2008–2018, Steve Francia and the Hugo Authors; all rights reserved.</copyright><lastBuildDate>Fri, 06 May 2022 11:05:23 +0800</lastBuildDate><atom:link href="https://cuile.github.io/tags/rocky/index.xml" rel="self" type="application/rss+xml"/><item><title>Docker 安装</title><link>https://cuile.github.io/posts/docker/docker_install/</link><pubDate>Fri, 06 May 2022 11:05:23 +0800</pubDate><guid>https://cuile.github.io/posts/docker/docker_install/</guid><description>
-其实网上相关的文章已经非常多了，所以这篇文章的作用只是记录和明确一条确定可行的操作路径，为以后的操作节省时间，毕竟像我一样大部分人都不是专业</description></item></channel></rss>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Rocky on 瘦了就帅了</title><link>https://blog.cuile.com/tags/rocky/</link><description>Recent content in Rocky on 瘦了就帅了</description><generator>Hugo</generator><language>zh-cn</language><lastBuildDate>Thu, 26 Feb 2026 02:59:37 +0000</lastBuildDate><atom:link href="https://blog.cuile.com/tags/rocky/index.xml" rel="self" type="application/rss+xml"/><item><title>Docker 安装</title><link>https://blog.cuile.com/post/container/docker_install/</link><pubDate>Fri, 06 May 2022 11:05:23 +0800</pubDate><guid>https://blog.cuile.com/post/container/docker_install/</guid><description>&lt;p>其实网上相关的文章已经非常多了，所以这篇文章的作用只是记录和明确一条确定可行的操作路径，为以后的操作节省时间，毕竟像我一样大部分人都不是专业的系统管理员，能够快速解决问题就可以了，并不想做过多的专业研究与探索。&lt;/p>
+&lt;p>本操作手册是官方手册与网上手册的结合版本，集两家之所长，亲自操作可用。&lt;/p>
+&lt;h2 id="debian">Debian&lt;/h2>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e"># 安装 Docker 证书&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>sudo apt-get install -y ca-certificates curl
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>sudo install -m &lt;span style="color:#ae81ff">0755&lt;/span> -d /etc/apt/keyrings
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>sudo curl -fsSL https://download.docker.com/linux/debian/gpg -o /etc/apt/keyrings/docker.asc
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>sudo chmod a+r /etc/apt/keyrings/docker.asc&lt;span style="color:#ae81ff">\
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#ae81ff">&lt;/span>sudo echo
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#e6db74">&amp;#34;deb [arch=&lt;/span>&lt;span style="color:#66d9ef">$(&lt;/span>dpkg --print-architecture&lt;span style="color:#66d9ef">)&lt;/span>&lt;span style="color:#e6db74"> signed-by=/etc/apt/keyrings/docker.asc] https://download.docker.com/linux/debian
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#e6db74"> &lt;/span>&lt;span style="color:#66d9ef">$(&lt;/span>. /etc/os-release &lt;span style="color:#f92672">&amp;amp;&amp;amp;&lt;/span> echo &lt;span style="color:#e6db74">&amp;#34;&lt;/span>$VERSION_CODENAME&lt;span style="color:#e6db74">&amp;#34;&lt;/span>&lt;span style="color:#66d9ef">)&lt;/span>&lt;span style="color:#e6db74"> stable&amp;#34;&lt;/span> |
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> sudo tee /etc/apt/sources.list.d/docker.list &amp;gt; /dev/null
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>sudo apt-get update
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e"># 安装 Docker&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>sudo apt-get install -y docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e"># 启动 Docker&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>sudo systemctl enable docker.service
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>sudo systemctl start docker.service
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e"># 测试&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>sudo docker version
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&amp;gt; Client: Docker Engine - Community
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&amp;gt; ...
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&amp;gt; Server: Docker Engine - Community
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&amp;gt; ...
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>sudo docker compose version
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&amp;gt; Docker Compose version v...
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e"># 使用非 root 用户管理 Docker&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e"># 创建 docker 用户组&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>sudo groupadd docker
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e"># 将当前用户添加到 docker 用户组&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>sudo usermod -aG docker $USER
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e"># 重启&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e"># 再次测试&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>docker version
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&amp;gt; Client: Docker Engine - Community
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&amp;gt; ...
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&amp;gt; Server: Docker Engine - Community
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&amp;gt; ...
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>docker compose version
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&amp;gt; Docker Compose version v...
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="centos--rocky">CentOS | Rocky&lt;/h2>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e"># 查看系统版本&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>cat /etc/redhat-release
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&amp;gt; CentOS Linux release 7.6.1810 &lt;span style="color:#f92672">(&lt;/span>Core&lt;span style="color:#f92672">)&lt;/span> // CentOs &lt;span style="color:#ae81ff">7&lt;/span> 以上版本
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e"># 查看系统内核版本&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>uname -r
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&amp;gt; 4.10.4-1.el7.elrepo.x86_64 // 内核版本要&amp;gt;3.10
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e"># 卸载旧版本&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>yum remove docker
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> docker-client
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> docker-client-latest
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> docker-common
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> docker-latest
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> docker-latest-logrotate
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> docker-logrotate
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> docker-selinux
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> docker-engine-selinux
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> docker-engine
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e"># 安装依赖包&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>yum install -y yum-utils lvm2
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> device-mapper-persistent-data
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e"># 添加 Docker 软件源&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e"># 如果系统已切换到阿里云镜像源地址，可跳过此步。&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e"># 阿里云镜像自带docker源&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>yum-config-manager
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> --add-repo
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> https://mirrors.ustc.edu.cn/docker-ce/linux/centos/docker-ce.repo
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e"># 使用官方源&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>yum-config-manager
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> --add-repo
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> https://download.docker.com/linux/centos/docker-ce.repo
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>yum makecache fast
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e"># CentOS 8 or Rocky 9 使用timer替换fast&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>yum makecache timer
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e"># 安装 Docker&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e"># 如果在 Rocky 9 系统上，会提示containerd.io版本过低，或下载失败，需要独立安装containerd.io&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e"># 可以重试几次&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>yum install -y docker-ce docker-ce-cli containerd.io docker-compose-plugin
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e"># 启动 Docker&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e"># 设为开机启动&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>systemctl enable docker.service
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e"># 启动服务&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>systemctl start docker.service
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e"># 测试&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>docker run hello-world
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&amp;gt; Unable to find image &lt;span style="color:#e6db74">&amp;#39;hello-world:latest&amp;#39;&lt;/span> locally
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&amp;gt; latest: Pulling from library/hello-world
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&amp;gt; 1b930d010525: Pull complete
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&amp;gt; Digest: sha256:6540fc08ee6e6b7b63468dc3317e3303aae178cb8a45ed3123180328bcc1d20f
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&amp;gt; Status: Downloaded newer image &lt;span style="color:#66d9ef">for&lt;/span> hello-world:latest
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&amp;gt; 
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&amp;gt; Hello from Docker!
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&amp;gt; This message shows that your installation appears to be working correctly.
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&amp;gt; 
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&amp;gt; To generate this message, Docker took the following steps:
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&amp;gt; 1. The Docker client contacted the Docker daemon.
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&amp;gt; 2. The Docker daemon pulled the &lt;span style="color:#e6db74">&amp;#34;hello-world&amp;#34;&lt;/span> image from the Docker Hub.
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&amp;gt; &lt;span style="color:#f92672">(&lt;/span>amd64&lt;span style="color:#f92672">)&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&amp;gt; 3. The Docker daemon created a new container from that image which runs the
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&amp;gt; executable that produces the output you are currently reading.
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&amp;gt; 4. The Docker daemon streamed that output to the Docker client, which sent it
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&amp;gt; to your terminal.
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&amp;gt; 
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&amp;gt; To try something more ambitious, you can run an Ubuntu container with:
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&amp;gt; docker run -it ubuntu bash
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&amp;gt; 
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&amp;gt; Share images, automate workflows, and more with a free Docker ID:
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&amp;gt; https://hub.docker.com/
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&amp;gt; 
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&amp;gt; For more examples and ideas, visit:
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&amp;gt; https://docs.docker.com/get-started/
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>docker compose version
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&amp;gt; Docker Compose version v...
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>若能正常输出以上信息，则说明安装成功。&lt;/p></description></item></channel></rss>

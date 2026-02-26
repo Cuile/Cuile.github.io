@@ -1,2 +1,40 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>pip on 瘦了就帅了</title><link>https://cuile.github.io/tags/pip/</link><description>Recent content in pip on 瘦了就帅了</description><generator>Hugo -- gohugo.io</generator><copyright>Copyright © 2008–2018, Steve Francia and the Hugo Authors; all rights reserved.</copyright><lastBuildDate>Fri, 06 May 2022 13:11:27 +0800</lastBuildDate><atom:link href="https://cuile.github.io/tags/pip/index.xml" rel="self" type="application/rss+xml"/><item><title>CentOS 7 安装 Python3.9.12</title><link>https://cuile.github.io/posts/python/python3_install/</link><pubDate>Fri, 06 May 2022 13:11:27 +0800</pubDate><guid>https://cuile.github.io/posts/python/python3_install/</guid><description>
-1、查看已安装的Python 1# 查看已安装的信息 2$ yum info python3 3# 查看python安装位置 4$ whereis python3 2、卸载已安装的Python环境 1# 卸载已安装的程序 2$ yum</description></item></channel></rss>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Pip on 瘦了就帅了</title><link>https://blog.cuile.com/tags/pip/</link><description>Recent content in Pip on 瘦了就帅了</description><generator>Hugo</generator><language>zh-cn</language><lastBuildDate>Thu, 26 Feb 2026 02:59:37 +0000</lastBuildDate><atom:link href="https://blog.cuile.com/tags/pip/index.xml" rel="self" type="application/rss+xml"/><item><title>CentOS 7 安装 Python3.9.12</title><link>https://blog.cuile.com/post/python/python3_install/</link><pubDate>Fri, 06 May 2022 13:11:27 +0800</pubDate><guid>https://blog.cuile.com/post/python/python3_install/</guid><description>&lt;h2 id="1查看已安装的python">1、查看已安装的Python&lt;/h2>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e"># 查看已安装的信息&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>$ yum info python3
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e"># 查看python安装位置&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>$ whereis python3
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="2卸载已安装的python环境">2、卸载已安装的Python环境&lt;/h2>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e"># 卸载已安装的程序&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>$ yum erase python3
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e"># 删除所有残余文件&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>$ whereis python3|xargs rm -frv
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e"># 查看现有的python&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>$ whereis python3
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="3yum安装依赖环境">3、yum安装依赖环境&lt;/h2>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span>$ yum -y install zlib-devel bzip2-devel openssl-devel ncurses-devel sqlite-devel readline-devel tk-devel gdbm-devel db4-devel libpcap-devel xz-devel
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="4官网下载python3912">4、官网下载Python3.9.12&lt;/h2>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span>$ yum -y install wget
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e"># 尽量使用国内镜像站点下载比较快&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>$ wget https://mirrors.huaweicloud.com/python/3.9.12/Python-3.9.12.tgz
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="5创建安装目录">5、创建安装目录&lt;/h2>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span>$ tar -zxvf Python-3.9.12.tgz -C ./
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>$ cd Python-3.9.12
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>$ mkdir /usr/local/python3 
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>$ ./configure --prefix&lt;span style="color:#f92672">=&lt;/span>/usr/local/python3.9.12
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>$ make &lt;span style="color:#f92672">&amp;amp;&amp;amp;&lt;/span> make install
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="6创建软链接">6、创建软链接&lt;/h2>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span>$ ln -s /usr/local/python3.9.12/bin/python3 /usr/bin/python3
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>$ ln -s /usr/local/python3.9.12/bin/pip3 /usr/bin/pip3
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="7测试">7、测试&lt;/h2>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span>$ python3 -V
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>Python 3.9.12
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>$ pip3 -V
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>pip 22.0.4 from /usr/local/python3.9.12/lib/python3.9/site-packages/pip &lt;span style="color:#f92672">(&lt;/span>python 3.9&lt;span style="color:#f92672">)&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="8pip升级换源">8、pip升级、换源&lt;/h2>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e"># pip升级&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>$ python3 -m pip install --upgrade pip
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e"># pip换源&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e"># 推荐使用清华的源，因为使用https协议&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>$ pip3 config set global.index-url https://pypi.tuna.tsinghua.edu.cn/simple
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div></description></item></channel></rss>

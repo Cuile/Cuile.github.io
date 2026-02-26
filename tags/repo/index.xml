@@ -1,2 +1,62 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>repo on 瘦了就帅了</title><link>https://cuile.github.io/tags/repo/</link><description>Recent content in repo on 瘦了就帅了</description><generator>Hugo -- gohugo.io</generator><copyright>Copyright © 2008–2018, Steve Francia and the Hugo Authors; all rights reserved.</copyright><lastBuildDate>Tue, 08 Feb 2022 10:28:50 +0800</lastBuildDate><atom:link href="https://cuile.github.io/tags/repo/index.xml" rel="self" type="application/rss+xml"/><item><title>软件库管理</title><link>https://cuile.github.io/posts/linux/repo_manual/</link><pubDate>Tue, 08 Feb 2022 10:28:50 +0800</pubDate><guid>https://cuile.github.io/posts/linux/repo_manual/</guid><description>
-APT Debian 全球镜像站 查找延迟最小的镜像 1sudo apt install -y netselect-apt \ 2 &amp;amp;&amp;amp; sudo netselect-apt \ 3 &amp;amp;&amp;amp; sudo apt autoremove -y netselect-apt \ 4 &amp;amp;&amp;amp; rm -f sources.list 1The fastest 10 servers seem to be: 2 3 http://mirrors.bfsu.edu.cn/debian/ 4 http://mirrors.tuna.tsinghua.edu.cn/debian/ 5 http://mirrors.neusoft.edu.cn/debian/ 6 http://mirrors.jlu.edu.cn/debian/ 7 http://ftp.cn.debian.org/debian/ 8 http://debian.cs.nycu.edu.tw/debian/ 9 http://mirror.i3d.net/debian/ 10 http://mirrors.163.com/debian/ 11 http://mirror.bizflycloud.vn/debian/ 12 http://ftp.kaist.ac.kr/debian/ 13 14Of</description></item></channel></rss>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Repo on 瘦了就帅了</title><link>https://blog.cuile.com/tags/repo/</link><description>Recent content in Repo on 瘦了就帅了</description><generator>Hugo</generator><language>zh-cn</language><lastBuildDate>Thu, 26 Feb 2026 02:59:37 +0000</lastBuildDate><atom:link href="https://blog.cuile.com/tags/repo/index.xml" rel="self" type="application/rss+xml"/><item><title>软件库管理</title><link>https://blog.cuile.com/post/linux/repo_manual/</link><pubDate>Tue, 08 Feb 2022 10:28:50 +0800</pubDate><guid>https://blog.cuile.com/post/linux/repo_manual/</guid><description>&lt;h2 id="apt">APT&lt;/h2>
+&lt;p>&lt;a href="https://www.debian.org/mirror/list#per-country">Debian 全球镜像站&lt;/a>&lt;/p>
+&lt;h3 id="查找延迟最小的镜像">查找延迟最小的镜像&lt;/h3>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span>sudo apt install -y netselect-apt &lt;span style="color:#ae81ff">\
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#ae81ff">&lt;/span> &lt;span style="color:#f92672">&amp;amp;&amp;amp;&lt;/span> sudo netselect-apt &lt;span style="color:#ae81ff">\
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#ae81ff">&lt;/span> &lt;span style="color:#f92672">&amp;amp;&amp;amp;&lt;/span> sudo apt autoremove -y netselect-apt &lt;span style="color:#ae81ff">\
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#ae81ff">&lt;/span> &lt;span style="color:#f92672">&amp;amp;&amp;amp;&lt;/span> rm -f sources.list
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span>The fastest &lt;span style="color:#ae81ff">10&lt;/span> servers seem to be:
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> http://mirrors.bfsu.edu.cn/debian/
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> http://mirrors.tuna.tsinghua.edu.cn/debian/
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> http://mirrors.neusoft.edu.cn/debian/
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> http://mirrors.jlu.edu.cn/debian/
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> http://ftp.cn.debian.org/debian/
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> http://debian.cs.nycu.edu.tw/debian/
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> http://mirror.i3d.net/debian/
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> http://mirrors.163.com/debian/
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> http://mirror.bizflycloud.vn/debian/
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> http://ftp.kaist.ac.kr/debian/
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>Of the hosts tested we choose the fastest valid &lt;span style="color:#66d9ef">for&lt;/span> http:
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> http://mirrors.bfsu.edu.cn/debian/
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>Writing sources.list.
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>Done.
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h3 id="修改仓库">修改仓库&lt;/h3>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e"># PVE QEMU debian-12-generic-amd64.qcow2&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e"># echo &amp;#39;http://mirrors.bfsu.edu.cn/debian/&amp;#39; | sudo tee /etc/apt/mirrors/debian.list&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e"># echo &amp;#39;http://mirrors.bfsu.edu.cn/debian-security/&amp;#39; | sudo tee -a /etc/apt/mirrors/debian-security.list&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>sed -i -e &lt;span style="color:#e6db74">&amp;#34;s/deb.debian.org/mirrors.bfsu.edu.cn/&amp;#34;&lt;/span> /etc/apt/mirrors/debian.list
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>sed -i -e &lt;span style="color:#e6db74">&amp;#34;s/deb.debian.org/mirrors.bfsu.edu.cn/&amp;#34;&lt;/span> /etc/apt/mirrors/debian-security.list
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e"># PVE LXC debian-12-standard_12.7-1_amd64.tar.zst&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>sed -i -e &lt;span style="color:#e6db74">&amp;#34;s/deb.debian.org/mirrors.bfsu.edu.cn/&amp;#34;&lt;/span> /etc/apt/sources.list
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>sed -i -e &lt;span style="color:#e6db74">&amp;#34;s/security.debian.org/mirrors.bfsu.edu.cn\/debian-serurity/&amp;#34;&lt;/span> /etc/apt/sources.list
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e"># Docker imaage debian:12&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>sed -i -e &lt;span style="color:#e6db74">&amp;#34;s/deb.debian.org/mirrors.bfsu.edu.cn/&amp;#34;&lt;/span> /etc/apt/sources.list.d/debian.sources
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e"># 启用非自由仓库&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>sed -i &lt;span style="color:#e6db74">&amp;#39;s/main$/main contrib non-free non-free-firmware/&amp;#39;&lt;/span> /etc/apt/sources.list
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e"># update &lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>apt update
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e"># 查询软件包版本信息、优先级和来源&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>apt policy &amp;lt;package_name&amp;gt;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>apt-cache policy &amp;lt;package_name&amp;gt;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e"># 安装指定版本的包&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>apt install &amp;lt;package_name&amp;gt;&lt;span style="color:#f92672">=&lt;/span>&amp;lt;version_number&amp;gt;
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;hr>
+&lt;h2 id="yum">YUM&lt;/h2>
+&lt;h3 id="查询仓库">查询仓库&lt;/h3>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span>yum repolist
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e"># 显示所有仓库&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>yum repolist all
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e"># 显示所有启动的仓库&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>yum repolist enabled
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e"># 显示所有禁用的仓库&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>yum repolist disabled
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h3 id="修改仓库-1">修改仓库&lt;/h3>
+&lt;p>最常用的修改操作就是启动和停用, 可以使用以下命令实现:&lt;/p></description></item></channel></rss>

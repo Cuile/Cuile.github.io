@@ -1,3 +1,144 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>ipv6 on 瘦了就帅了</title><link>https://cuile.github.io/tags/ipv6/</link><description>Recent content in ipv6 on 瘦了就帅了</description><generator>Hugo -- gohugo.io</generator><copyright>Copyright © 2008–2018, Steve Francia and the Hugo Authors; all rights reserved.</copyright><lastBuildDate>Fri, 07 Feb 2025 09:44:39 +0800</lastBuildDate><atom:link href="https://cuile.github.io/tags/ipv6/index.xml" rel="self" type="application/rss+xml"/><item><title>ProxmoxVE 配置 DHCP 网络</title><link>https://cuile.github.io/posts/proxmox/dhcp/</link><pubDate>Fri, 07 Feb 2025 09:44:39 +0800</pubDate><guid>https://cuile.github.io/posts/proxmox/dhcp/</guid><description>
-PVE 节点的网络配置，在 WebUI 里只能设置为静态地址，想设置DHCP的话需要使用以下方法。 方法一 1$ cp /etc/network/interfaces /etc/network/interfaces.new 1# /etc/network/interfaces.new 2... 3# IPv4 4iface vmbr0 inet dhcp 5 # address 192.168.1.66/24 6 # gateway 192.168.1.1 7 bridge-ports enp1s0 8 bridge-stp off</description></item><item><title>OpenWRT 配置 IPv6</title><link>https://cuile.github.io/posts/openwrt/openwrt_ipv6/</link><pubDate>Wed, 04 Oct 2023 19:48:18 +0800</pubDate><guid>https://cuile.github.io/posts/openwrt/openwrt_ipv6/</guid><description>
-OpenWRT 配置 IPv6，在网上有许多教程，但大部分都说的不清不楚。 所以我从 OpenWRT 配置文件的角度，给出一个肯定能用的配置。 相关配置原理不详述，可自行上网查</description></item></channel></rss>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Ipv6 on 瘦了就帅了</title><link>https://blog.cuile.com/tags/ipv6/</link><description>Recent content in Ipv6 on 瘦了就帅了</description><generator>Hugo</generator><language>zh-cn</language><lastBuildDate>Thu, 26 Feb 2026 02:59:37 +0000</lastBuildDate><atom:link href="https://blog.cuile.com/tags/ipv6/index.xml" rel="self" type="application/rss+xml"/><item><title>ProxmoxVE 配置 DHCP 网络</title><link>https://blog.cuile.com/post/proxmox/dhcp/</link><pubDate>Fri, 07 Feb 2025 09:44:39 +0800</pubDate><guid>https://blog.cuile.com/post/proxmox/dhcp/</guid><description>&lt;p>PVE 节点的网络配置，在 WebUI 里只能设置为静态地址，想设置DHCP的话需要使用以下方法。&lt;/p>
+&lt;h2 id="方法一">方法一&lt;/h2>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span>$ cp /etc/network/interfaces /etc/network/interfaces.new
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-ini" data-lang="ini">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e"># /etc/network/interfaces.new&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#a6e22e">...&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e"># IPv4&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#a6e22e">iface vmbr0 inet dhcp&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#75715e"># address 192.168.1.66/24&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#75715e"># gateway 192.168.1.1&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#a6e22e">bridge-ports enp1s0&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#a6e22e">bridge-stp off&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#a6e22e">bridge-fd 0&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e"># IPv6&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#a6e22e">iface vmbr0 inet6 dhcp&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#a6e22e">request_prefix 1&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>在 PVE 的 WebUI 里 “系统 &amp;gt; 网络” 处，刷新后点击“应用配置”即可生效，等待几分钟后即可获取到IPv6地址。&lt;/p>
+&lt;h2 id="方法二">方法二&lt;/h2>
+&lt;p>直接修改 /etc/network/interfaces 文件也可以，修改完获取新地址。&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span>$ systemctl restart networking
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="查看新地址">查看新地址&lt;/h2>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span>$ ip addr show vmbr0
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;ul>
+&lt;li>&lt;a href="https://blog.csdn.net/weixin_47054353/article/details/130452673">PVE设置动态获取ip地址&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://www.icn.ink/pve/57.html">Proxmox VE 使用IPv6&lt;/a>&lt;/li>
+&lt;/ul></description></item><item><title>OpenWRT 配置 IPv6</title><link>https://blog.cuile.com/post/openwrt/openwrt_ipv6/</link><pubDate>Wed, 04 Oct 2023 19:48:18 +0800</pubDate><guid>https://blog.cuile.com/post/openwrt/openwrt_ipv6/</guid><description>&lt;p>OpenWRT 配置 IPv6，在网上有许多教程，但大部分都说的不清不楚。
+所以我从 OpenWRT 配置文件的角度，给出一个肯定能用的配置。
+相关配置原理不详述，可自行上网查找。&lt;/p>
+&lt;h2 id="系统环境">系统环境&lt;/h2>
+&lt;ul>
+&lt;li>北京联通 300M 家宽 （客服说100元/月，可提供公网IPv4/IPv6地址，其实IPv6是免费给的）&lt;/li>
+&lt;li>OpenWRT（PVE虚机，非直通网卡）
+&lt;ul>
+&lt;li>目标平台：x86/64&lt;/li>
+&lt;li>固件版本：OpenWrt 21.02.0 r16279-5cc0535800 / LuCI openwrt-21.02 branch git-23.093.57360-e98243e&lt;/li>
+&lt;li>内核版本：5.4.143&lt;/li>
+&lt;li>DHCPv6 客户端 (odhcp6c)&lt;/li>
+&lt;li>RA &amp;amp; DHCPv6 服务器 (odhcpd)&lt;/li>
+&lt;li>IPv6 防火墙 (ip6tables)&lt;/li>
+&lt;li>Luci网页配置 (luci-proto-ipv6)&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ul>
+&lt;h2 id="配置流程">配置流程&lt;/h2>
+&lt;ol>
+&lt;li>光猫桥接（电话联通，远程搞定）&lt;/li>
+&lt;li>OpenWRT WAN IPv6 配置&lt;/li>
+&lt;/ol>
+&lt;blockquote>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-yaml" data-lang="yaml">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e"># /etc/config/network&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>...
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#ae81ff">config interface &amp;#39;lan&amp;#39;&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#ae81ff">option proto &amp;#39;static&amp;#39;&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#ae81ff">option ipaddr &amp;#39;192.168.10.10&amp;#39;&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#ae81ff">option netmask &amp;#39;255.255.255.0&amp;#39;&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#ae81ff">option device &amp;#39;eth0&amp;#39;&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#ae81ff">option ip6assign &amp;#39;64&amp;#39;&lt;/span> &lt;span style="color:#75715e"># IPv6分配长度。要与 wan 口一致。&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#ae81ff">config interface &amp;#39;wan&amp;#39;&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#ae81ff">option proto &amp;#39;pppoe&amp;#39;&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#ae81ff">option username &amp;#39;***********&amp;#39;&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#ae81ff">option password &amp;#39;***********&amp;#39;&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#ae81ff">option device &amp;#39;eth1&amp;#39;&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#ae81ff">option ipv6 &amp;#39;auto&amp;#39;&lt;/span> &lt;span style="color:#75715e"># 自动获取IPv6地址，使用这个选项后，会自动创建一个虚拟动态接口(WAN_6)，不用配置。&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#ae81ff">option ip6assign &amp;#39;64&amp;#39;&lt;/span> &lt;span style="color:#75715e"># IPv6分配长度。参考 WAN_6 接口 IPv6-PD 的掩码长度，一般为“60”，比它大即可，系统默认为64。&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>...
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;/blockquote>
+&lt;ol start="3">
+&lt;li>OpenWRT 防火墙配置&lt;/li>
+&lt;/ol>
+&lt;blockquote>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-yaml" data-lang="yaml">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e"># /etc/config/firewall&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>...
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#ae81ff">config zone&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#ae81ff">option name &amp;#39;lan&amp;#39;&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#ae81ff">list network &amp;#39;lan&amp;#39;&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#ae81ff">option input &amp;#39;ACCEPT&amp;#39;&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#ae81ff">option output &amp;#39;ACCEPT&amp;#39;&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#ae81ff">option forward &amp;#39;ACCEPT&amp;#39;&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#ae81ff">config zone&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#ae81ff">option name &amp;#39;wan&amp;#39;&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#ae81ff">list network &amp;#39;wan&amp;#39;&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#ae81ff">option input &amp;#39;DROP&amp;#39;&lt;/span> &lt;span style="color:#75715e"># 关闭 wan 口输入流量&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#ae81ff">option output &amp;#39;ACCEPT&amp;#39;&lt;/span> &lt;span style="color:#75715e"># 只出不进&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#ae81ff">option forward &amp;#39;REJECT&amp;#39;&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#ae81ff">option masq &amp;#39;1&amp;#39;&lt;/span> &lt;span style="color:#75715e"># 打开 NAT 功能&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#ae81ff">option mtu_fix &amp;#39;1&amp;#39;&lt;/span> &lt;span style="color:#75715e"># 路由器直接拨号时使用&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>...
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e"># 转发规划很重要&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#ae81ff">config forwarding&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#ae81ff">option src &amp;#39;lan&amp;#39;&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#ae81ff">option dest &amp;#39;wan&amp;#39;&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>...
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e"># 允许外网IPv6协议下，任意地址的547端口的UDP包通过wan口，访问本机546端口&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#ae81ff">config rule&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#ae81ff">option name &amp;#39;Allow-DHCPv6&amp;#39;&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#ae81ff">option proto &amp;#39;udp&amp;#39;&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#ae81ff">option src &amp;#39;wan&amp;#39;&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#ae81ff">option src_port &amp;#39;547&amp;#39;&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#ae81ff">option dest_port &amp;#39;546&amp;#39;&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#ae81ff">option target &amp;#39;ACCEPT&amp;#39;&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#ae81ff">option family &amp;#39;ipv6&amp;#39;&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;/blockquote>
+&lt;ol start="4">
+&lt;li>OpenWRT DHCP 配置&lt;/li>
+&lt;/ol>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-yaml" data-lang="yaml">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e"># /etc/config/dhcp&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>...
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#ae81ff">config dhcp &amp;#39;lan&amp;#39;&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#ae81ff">option interface &amp;#39;lan&amp;#39;&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#ae81ff">option start &amp;#39;100&amp;#39;&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#ae81ff">option dhcpv4 &amp;#39;server&amp;#39;&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#ae81ff">option limit &amp;#39;200&amp;#39;&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#ae81ff">option force &amp;#39;1&amp;#39;&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#ae81ff">option leasetime &amp;#39;2h&amp;#39;&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#ae81ff">option ra &amp;#39;server&amp;#39;&lt;/span> &lt;span style="color:#75715e"># RA服务 服务器模式&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#ae81ff">option dhcpv6 &amp;#39;server&amp;#39;&lt;/span> &lt;span style="color:#75715e"># DHCPv6服务 服务器模式&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#ae81ff">list ra_flags &amp;#39;none&amp;#39;&lt;/span> &lt;span style="color:#75715e"># RA标记 无&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#ae81ff">config dhcp &amp;#39;wan&amp;#39;&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#ae81ff">option interface &amp;#39;wan&amp;#39;&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#ae81ff">option ignore &amp;#39;1&amp;#39;&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#ae81ff">list ra_flags &amp;#39;none&amp;#39;&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#ae81ff">config odhcpd &amp;#39;odhcpd&amp;#39;&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#ae81ff">option maindhcp &amp;#39;0&amp;#39;&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#ae81ff">option leasefile &amp;#39;/tmp/hosts/odhcpd&amp;#39;&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#ae81ff">option leasetrigger &amp;#39;/usr/sbin/odhcpd-update&amp;#39;&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#ae81ff">option loglevel &amp;#39;4&amp;#39;&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;ol start="5">
+&lt;li>重启OpenWRT&lt;/li>
+&lt;li>查看 Luci -&amp;gt; 网络 -&amp;gt; 接口 -&amp;gt; LAN，已拿到的IPv6地址&lt;/li>
+&lt;li>测试本机外网IPv6地址，与 LAN 的 IPv6地址一致即可&lt;/li>
+&lt;/ol>
+&lt;blockquote>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span>$ curl 6.ipw.cn
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;/blockquote>
+&lt;h2 id="参考文档">参考文档&lt;/h2>
+&lt;ul>
+&lt;li>&lt;a href="https://openwrt.org/docs/guide-user/network/ipv6/configuration">IPv6 configuration&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://vicfree.com/2023/02/ipv6-explained-and-setup-in-openwrt/">IPv6 原理及如何设置 OpenWrt&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://openwrt.org/zh-cn/doc/uci/firewall">如何配置防火墙&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://openwrt.org/docs/guide-user/network/ipv6/start">IPv6&lt;/a>&lt;/li>
+&lt;/ul></description></item></channel></rss>

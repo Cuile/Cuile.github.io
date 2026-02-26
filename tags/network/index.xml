@@ -1,5 +1,296 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>network on 瘦了就帅了</title><link>https://cuile.github.io/tags/network/</link><description>Recent content in network on 瘦了就帅了</description><generator>Hugo -- gohugo.io</generator><copyright>Copyright © 2008–2018, Steve Francia and the Hugo Authors; all rights reserved.</copyright><lastBuildDate>Wed, 04 Oct 2023 19:48:18 +0800</lastBuildDate><atom:link href="https://cuile.github.io/tags/network/index.xml" rel="self" type="application/rss+xml"/><item><title>OpenWRT 配置 IPv6</title><link>https://cuile.github.io/posts/openwrt/openwrt_ipv6/</link><pubDate>Wed, 04 Oct 2023 19:48:18 +0800</pubDate><guid>https://cuile.github.io/posts/openwrt/openwrt_ipv6/</guid><description>
-OpenWRT 配置 IPv6，在网上有许多教程，但大部分都说的不清不楚。 所以我从 OpenWRT 配置文件的角度，给出一个肯定能用的配置。 相关配置原理不详述，可自行上网查</description></item><item><title>Hyper-V 网络设置</title><link>https://cuile.github.io/posts/windows/hyper-v_network/</link><pubDate>Mon, 26 Dec 2022 20:49:50 +0800</pubDate><guid>https://cuile.github.io/posts/windows/hyper-v_network/</guid><description>
-1. 网络配置的方法 1.1 Hyper-V 安装完后，将自动创建一个“默认虚拟交换机”，并同时创建一个同名的虚拟网卡。 此交换机名及虚拟网卡都无法修改，虚拟机直接填加</description></item><item><title>Alpine Linux 网络设置</title><link>https://cuile.github.io/posts/alpine_linux/network/</link><pubDate>Sun, 19 Jun 2022 15:25:18 +0800</pubDate><guid>https://cuile.github.io/posts/alpine_linux/network/</guid><description>
-网卡静态地址 1~# nano /etc/network/interfaces 1auto lo 2iface lo inet loopback 3 4auto eth0 5iface eth0 inet static 6 address 192.168.10.16/24 7 gateway 192.168.10.10 8 hostname alpine 配置 DNS 1# nano /etc/resolv.conf 2nameserver 114.114.114.114 重启网络 1~# service networking restart</description></item><item><title>使用 nmcli 配置网络</title><link>https://cuile.github.io/posts/linux/nmcli_manual/</link><pubDate>Mon, 17 Jan 2022 15:17:58 +0800</pubDate><guid>https://cuile.github.io/posts/linux/nmcli_manual/</guid><description>
-基于Centos 7 查看设备信息 1# 简单接口状态 2$ nmcli dev status 3# 详细的接口信息 4$ nmcli dev show 5# 接口的详细信息 6$ nmcli dev show &amp;lt;interface-name&amp;gt; 查看连接(connection)的信息</description></item></channel></rss>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Network on 瘦了就帅了</title><link>https://blog.cuile.com/tags/network/</link><description>Recent content in Network on 瘦了就帅了</description><generator>Hugo</generator><language>zh-cn</language><lastBuildDate>Thu, 26 Feb 2026 02:59:37 +0000</lastBuildDate><atom:link href="https://blog.cuile.com/tags/network/index.xml" rel="self" type="application/rss+xml"/><item><title>OpenWRT 配置 IPv6</title><link>https://blog.cuile.com/post/openwrt/openwrt_ipv6/</link><pubDate>Wed, 04 Oct 2023 19:48:18 +0800</pubDate><guid>https://blog.cuile.com/post/openwrt/openwrt_ipv6/</guid><description>&lt;p>OpenWRT 配置 IPv6，在网上有许多教程，但大部分都说的不清不楚。
+所以我从 OpenWRT 配置文件的角度，给出一个肯定能用的配置。
+相关配置原理不详述，可自行上网查找。&lt;/p>
+&lt;h2 id="系统环境">系统环境&lt;/h2>
+&lt;ul>
+&lt;li>北京联通 300M 家宽 （客服说100元/月，可提供公网IPv4/IPv6地址，其实IPv6是免费给的）&lt;/li>
+&lt;li>OpenWRT（PVE虚机，非直通网卡）
+&lt;ul>
+&lt;li>目标平台：x86/64&lt;/li>
+&lt;li>固件版本：OpenWrt 21.02.0 r16279-5cc0535800 / LuCI openwrt-21.02 branch git-23.093.57360-e98243e&lt;/li>
+&lt;li>内核版本：5.4.143&lt;/li>
+&lt;li>DHCPv6 客户端 (odhcp6c)&lt;/li>
+&lt;li>RA &amp;amp; DHCPv6 服务器 (odhcpd)&lt;/li>
+&lt;li>IPv6 防火墙 (ip6tables)&lt;/li>
+&lt;li>Luci网页配置 (luci-proto-ipv6)&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ul>
+&lt;h2 id="配置流程">配置流程&lt;/h2>
+&lt;ol>
+&lt;li>光猫桥接（电话联通，远程搞定）&lt;/li>
+&lt;li>OpenWRT WAN IPv6 配置&lt;/li>
+&lt;/ol>
+&lt;blockquote>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-yaml" data-lang="yaml">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e"># /etc/config/network&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>...
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#ae81ff">config interface &amp;#39;lan&amp;#39;&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#ae81ff">option proto &amp;#39;static&amp;#39;&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#ae81ff">option ipaddr &amp;#39;192.168.10.10&amp;#39;&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#ae81ff">option netmask &amp;#39;255.255.255.0&amp;#39;&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#ae81ff">option device &amp;#39;eth0&amp;#39;&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#ae81ff">option ip6assign &amp;#39;64&amp;#39;&lt;/span> &lt;span style="color:#75715e"># IPv6分配长度。要与 wan 口一致。&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#ae81ff">config interface &amp;#39;wan&amp;#39;&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#ae81ff">option proto &amp;#39;pppoe&amp;#39;&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#ae81ff">option username &amp;#39;***********&amp;#39;&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#ae81ff">option password &amp;#39;***********&amp;#39;&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#ae81ff">option device &amp;#39;eth1&amp;#39;&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#ae81ff">option ipv6 &amp;#39;auto&amp;#39;&lt;/span> &lt;span style="color:#75715e"># 自动获取IPv6地址，使用这个选项后，会自动创建一个虚拟动态接口(WAN_6)，不用配置。&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#ae81ff">option ip6assign &amp;#39;64&amp;#39;&lt;/span> &lt;span style="color:#75715e"># IPv6分配长度。参考 WAN_6 接口 IPv6-PD 的掩码长度，一般为“60”，比它大即可，系统默认为64。&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>...
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;/blockquote>
+&lt;ol start="3">
+&lt;li>OpenWRT 防火墙配置&lt;/li>
+&lt;/ol>
+&lt;blockquote>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-yaml" data-lang="yaml">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e"># /etc/config/firewall&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>...
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#ae81ff">config zone&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#ae81ff">option name &amp;#39;lan&amp;#39;&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#ae81ff">list network &amp;#39;lan&amp;#39;&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#ae81ff">option input &amp;#39;ACCEPT&amp;#39;&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#ae81ff">option output &amp;#39;ACCEPT&amp;#39;&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#ae81ff">option forward &amp;#39;ACCEPT&amp;#39;&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#ae81ff">config zone&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#ae81ff">option name &amp;#39;wan&amp;#39;&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#ae81ff">list network &amp;#39;wan&amp;#39;&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#ae81ff">option input &amp;#39;DROP&amp;#39;&lt;/span> &lt;span style="color:#75715e"># 关闭 wan 口输入流量&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#ae81ff">option output &amp;#39;ACCEPT&amp;#39;&lt;/span> &lt;span style="color:#75715e"># 只出不进&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#ae81ff">option forward &amp;#39;REJECT&amp;#39;&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#ae81ff">option masq &amp;#39;1&amp;#39;&lt;/span> &lt;span style="color:#75715e"># 打开 NAT 功能&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#ae81ff">option mtu_fix &amp;#39;1&amp;#39;&lt;/span> &lt;span style="color:#75715e"># 路由器直接拨号时使用&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>...
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e"># 转发规划很重要&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#ae81ff">config forwarding&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#ae81ff">option src &amp;#39;lan&amp;#39;&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#ae81ff">option dest &amp;#39;wan&amp;#39;&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>...
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e"># 允许外网IPv6协议下，任意地址的547端口的UDP包通过wan口，访问本机546端口&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#ae81ff">config rule&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#ae81ff">option name &amp;#39;Allow-DHCPv6&amp;#39;&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#ae81ff">option proto &amp;#39;udp&amp;#39;&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#ae81ff">option src &amp;#39;wan&amp;#39;&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#ae81ff">option src_port &amp;#39;547&amp;#39;&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#ae81ff">option dest_port &amp;#39;546&amp;#39;&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#ae81ff">option target &amp;#39;ACCEPT&amp;#39;&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#ae81ff">option family &amp;#39;ipv6&amp;#39;&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;/blockquote>
+&lt;ol start="4">
+&lt;li>OpenWRT DHCP 配置&lt;/li>
+&lt;/ol>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-yaml" data-lang="yaml">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e"># /etc/config/dhcp&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>...
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#ae81ff">config dhcp &amp;#39;lan&amp;#39;&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#ae81ff">option interface &amp;#39;lan&amp;#39;&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#ae81ff">option start &amp;#39;100&amp;#39;&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#ae81ff">option dhcpv4 &amp;#39;server&amp;#39;&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#ae81ff">option limit &amp;#39;200&amp;#39;&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#ae81ff">option force &amp;#39;1&amp;#39;&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#ae81ff">option leasetime &amp;#39;2h&amp;#39;&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#ae81ff">option ra &amp;#39;server&amp;#39;&lt;/span> &lt;span style="color:#75715e"># RA服务 服务器模式&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#ae81ff">option dhcpv6 &amp;#39;server&amp;#39;&lt;/span> &lt;span style="color:#75715e"># DHCPv6服务 服务器模式&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#ae81ff">list ra_flags &amp;#39;none&amp;#39;&lt;/span> &lt;span style="color:#75715e"># RA标记 无&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#ae81ff">config dhcp &amp;#39;wan&amp;#39;&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#ae81ff">option interface &amp;#39;wan&amp;#39;&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#ae81ff">option ignore &amp;#39;1&amp;#39;&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#ae81ff">list ra_flags &amp;#39;none&amp;#39;&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#ae81ff">config odhcpd &amp;#39;odhcpd&amp;#39;&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#ae81ff">option maindhcp &amp;#39;0&amp;#39;&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#ae81ff">option leasefile &amp;#39;/tmp/hosts/odhcpd&amp;#39;&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#ae81ff">option leasetrigger &amp;#39;/usr/sbin/odhcpd-update&amp;#39;&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#ae81ff">option loglevel &amp;#39;4&amp;#39;&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;ol start="5">
+&lt;li>重启OpenWRT&lt;/li>
+&lt;li>查看 Luci -&amp;gt; 网络 -&amp;gt; 接口 -&amp;gt; LAN，已拿到的IPv6地址&lt;/li>
+&lt;li>测试本机外网IPv6地址，与 LAN 的 IPv6地址一致即可&lt;/li>
+&lt;/ol>
+&lt;blockquote>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span>$ curl 6.ipw.cn
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;/blockquote>
+&lt;h2 id="参考文档">参考文档&lt;/h2>
+&lt;ul>
+&lt;li>&lt;a href="https://openwrt.org/docs/guide-user/network/ipv6/configuration">IPv6 configuration&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://vicfree.com/2023/02/ipv6-explained-and-setup-in-openwrt/">IPv6 原理及如何设置 OpenWrt&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://openwrt.org/zh-cn/doc/uci/firewall">如何配置防火墙&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://openwrt.org/docs/guide-user/network/ipv6/start">IPv6&lt;/a>&lt;/li>
+&lt;/ul></description></item><item><title>Hyper-V 网络设置</title><link>https://blog.cuile.com/post/windows/hyper-v_network/</link><pubDate>Mon, 26 Dec 2022 20:49:50 +0800</pubDate><guid>https://blog.cuile.com/post/windows/hyper-v_network/</guid><description>&lt;h2 id="1-网络配置的方法">1. 网络配置的方法&lt;/h2>
+&lt;ul>
+&lt;li>1.1 Hyper-V 安装完后，将自动创建一个“默认虚拟交换机”，并同时创建一个同名的虚拟网卡。
+&lt;ul>
+&lt;li>此交换机名及虚拟网卡都无法修改，虚拟机直接填加即可使用网络。&lt;/li>
+&lt;li>虚拟机之间互联，再创建一个“内部交换机”，添加到虚拟机并设置同一网段即可。&lt;/li>
+&lt;li>缺点：速度较慢&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>1.2 将宿主机物理网卡直接共享给“默认虚拟交换机”创建的虚拟网卡，是比较省事、且高效的方法，相当于在物理网卡上做了一个NAT转换。
+&lt;ul>
+&lt;li>优点：“默认虚拟交换机”创建的虚拟网卡IP地址会自动固定为192.168.137.1，所有虚拟机的网段会固定为192.168.137.0。网速较快。&lt;/li>
+&lt;li>缺点：
+&lt;ul>
+&lt;li>在多个物理网卡之间切换时非常不方便；&lt;/li>
+&lt;li>在ReviOS等第三方精简系统中，运作不稳定。&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>1.3 在宿主机使用无线网卡时，由于Hyper-V对无线网卡支持的不好，需要做以下操作：
+&lt;ul>
+&lt;li>新建“外部虚拟交换机”：
+&lt;ul>
+&lt;li>选择宿主机网卡。
+&lt;ul>
+&lt;li>勾选“允许管理操作系统共享此网络适配器”。
+&lt;ul>
+&lt;li>网速较快。&lt;/li>
+&lt;li>会在宿主机上创建一个网桥，一个虚拟网卡，且宿主机可同时上网。&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>反之，则只会添加一个网桥，且宿主机无法同时上网。
+&lt;ul>
+&lt;li>这是 Hyper-V 对无线网卡支持不够好的表现，而且网速很慢，慢到什么程度呢？慢到微信连文件都发不出去！&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>新建“内部虚拟交换机”：
+&lt;ul>
+&lt;li>会在宿主机上创建一个虚拟网卡。&lt;/li>
+&lt;li>将所有虚拟机都接入自建的“内部虚拟交换机”，可以解决IP变化的问题。&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>在宿主机上，将“外部虚拟交换机”创建的虚拟网卡，共享给“内部虚拟交换机”创建的虚拟网卡。
+&lt;ul>
+&lt;li>“内部虚拟交换机”创建的虚拟网卡IP地址会自动固定为192.168.137.1，所有虚拟机的网段会固定为192.168.137.0。&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>在ReviOS等第三方精简系统中，运作不稳定。&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ul>
+&lt;h3 id="ps">PS:&lt;/h3>
+&lt;ul>
+&lt;li>如在宿主机同时安装了“Windows沙盒”功能，则沙盒会给每个物理网卡和虚拟网卡，都自动的再创建一个对应的虚拟网卡，容易造成混乱，使用中要注意。&lt;/li>
+&lt;li>Windows 网络共享重启会失效，这个BUG一直没有解决，需要如此解决：
+&lt;ul>
+&lt;li>找到“Internet Connection Sharing”服务
+&lt;ul>
+&lt;li>启动类型：自动&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>找到注册表中“HKEY_LOCAL_MACHINE\Software\Microsoft\Windows\CurrentVersion\SharedAccess”
+&lt;ul>
+&lt;li>新建“DWORD(32位)值(D)”：EnableRebootPersistConnection&lt;/li>
+&lt;li>值（十六进制）：1&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>重启电脑&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>最好给每个虚拟机都设置外网DNS，比如1.2.4.8，因为hyper-v的DNS服务不是很稳定。&lt;/li>
+&lt;/ul>
+&lt;h2 id="2-网络拓扑">2. 网络拓扑&lt;/h2>
+&lt;p>使用以下拓扑结构来，解决多个物理网卡随时切换的问题：
+宿主机直连路由器，宿主机上创建一个虚拟路由器，和一个虚拟机，宿主机与虚拟机都通过虚拟路由器来上网。&lt;/p>
+&lt;table>
+ &lt;thead>
+ &lt;tr>
+ &lt;th>&lt;/th>
+ &lt;th>TP Route&lt;/th>
+ &lt;th>宿主机&lt;/th>
+ &lt;th>OpenWRT&lt;/th>
+ &lt;th>虚拟机&lt;/th>
+ &lt;/tr>
+ &lt;/thead>
+ &lt;tbody>
+ &lt;tr>
+ &lt;td>WLAN&lt;/td>
+ &lt;td>&amp;gt;DHCP&lt;!-- raw HTML omitted -->IP: 192.168.10.113&lt;!-- raw HTML omitted -->IP: 192.168.10.114&lt;!-- raw HTML omitted -->mac: ac-8f&lt;/td>
+ &lt;td>&amp;gt;Bridge&lt;!-- raw HTML omitted -->IP: -&lt;!-- raw HTML omitted -->mac: ac-8f&lt;/td>
+ &lt;td>-&lt;/td>
+ &lt;td>-&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>外部网络&lt;/td>
+ &lt;td>-&lt;/td>
+ &lt;td>&amp;gt;WLAN&lt;!-- raw HTML omitted -->IP: 192.168.10.113&lt;!-- raw HTML omitted -->mac: ac-8f&lt;/td>
+ &lt;td>&amp;gt;WLAN&lt;!-- raw HTML omitted -->IP: 192.168.10.114&lt;!-- raw HTML omitted -->mac: 01-36&lt;/td>
+ &lt;td>-&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>内部网络&lt;/td>
+ &lt;td>-&lt;/td>
+ &lt;td>&amp;gt;DHCP&lt;!-- raw HTML omitted -->IP: 192.168.123.100&lt;!-- raw HTML omitted -->mac: 01-28&lt;/td>
+ &lt;td>&amp;gt;Static&lt;!-- raw HTML omitted -->IP: 192.168.123.1&lt;!-- raw HTML omitted -->mac: 01-29&lt;/td>
+ &lt;td>&amp;gt;DHCP&lt;!-- raw HTML omitted -->IP: 192.168.123.102&lt;!-- raw HTML omitted -->mac: 01-2c&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>网桥&lt;/td>
+ &lt;td>-&lt;/td>
+ &lt;td>&amp;gt;Switch&lt;!-- raw HTML omitted -->IP: -&lt;!-- raw HTML omitted -->mac: ac-8f&lt;/td>
+ &lt;td>-&lt;/td>
+ &lt;td>-&lt;/td>
+ &lt;/tr>
+ &lt;/tbody>
+&lt;/table>
+&lt;p>可以尝试使用网桥功能，解决多物理网卡切换的问题&lt;/p></description></item><item><title>Alpine Linux 网络设置</title><link>https://blog.cuile.com/post/alpine_linux/network/</link><pubDate>Sun, 19 Jun 2022 15:25:18 +0800</pubDate><guid>https://blog.cuile.com/post/alpine_linux/network/</guid><description>&lt;h2 id="网卡静态地址">网卡静态地址&lt;/h2>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span>~# nano /etc/network/interfaces
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-ini" data-lang="ini">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#a6e22e">auto lo&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#a6e22e">iface lo inet loopback&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#a6e22e">auto eth0&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#a6e22e">iface eth0 inet static&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#a6e22e">address 192.168.10.16/24&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#a6e22e">gateway 192.168.10.10&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#a6e22e">hostname alpine&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="配置-dns">配置 DNS&lt;/h2>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-ini" data-lang="ini">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e"># nano /etc/resolv.conf&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#a6e22e">nameserver 114.114.114.114&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="重启网络">重启网络&lt;/h2>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span>~# service networking restart
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div></description></item><item><title>使用 nmcli 配置网络</title><link>https://blog.cuile.com/post/linux/nmcli_manual/</link><pubDate>Mon, 17 Jan 2022 15:17:58 +0800</pubDate><guid>https://blog.cuile.com/post/linux/nmcli_manual/</guid><description>&lt;p>&lt;strong>&lt;code>基于Centos 7&lt;/code>&lt;/strong>&lt;/p>
+&lt;h2 id="查看设备信息">查看设备信息&lt;/h2>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e"># 简单接口状态&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>$ nmcli dev status
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e"># 详细的接口信息&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>$ nmcli dev show
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e"># 接口的详细信息&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>$ nmcli dev show &amp;lt;interface-name&amp;gt;
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="查看连接connection的信息">查看连接(connection)的信息&lt;/h2>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e"># 简单信息&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>$ nmcli conn show
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e"># 详细的连接信息&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>$ nmcli conn show
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e"># 某个连接的详细信息&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>$ nmcli conn show &amp;lt;conn-name&amp;gt;
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="创建连接">创建连接&lt;/h2>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span>nmcli conn add type &amp;lt;ethernet&amp;gt; con-name &amp;lt;conn-name&amp;gt; ifname &amp;lt;dev-name&amp;gt; ip4 &amp;lt;192.168.100.100/24&amp;gt; &lt;span style="color:#f92672">[&lt;/span>gw4 &amp;lt;192.168.100.1&amp;gt;&lt;span style="color:#f92672">]&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="修改配置">修改配置&lt;/h2>
+&lt;h3 id="静态ip改动态ip">静态IP改动态IP&lt;/h3>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span>nmcli conn mod &amp;lt;conn-name&amp;gt; /
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> ipv4.method auto /
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> ipv4.address &lt;span style="color:#e6db74">&amp;#34;&amp;#34;&lt;/span> /
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> ipv4.gateway &lt;span style="color:#e6db74">&amp;#34;&amp;#34;&lt;/span> /
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> ipv4.dns &lt;span style="color:#e6db74">&amp;#34;&amp;#34;&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h3 id="修改dns">修改DNS&lt;/h3>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span>$ nmcli conn mod &amp;lt;conn-name&amp;gt; ipv4.dns &lt;span style="color:#e6db74">&amp;#34;1.2.4.8&amp;#34;&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h3 id="设置自动连接">设置自动连接&lt;/h3>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e"># 查询和显示所有网络连接的自动连接属性的当前值&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>$ nmcli -f name,autoconnect connection
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e"># 更改网络连接的属性值&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>$ nmcli conn mod &amp;lt;conn-name&amp;gt; connection.autoconnect yes
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h3 id="配置生效">配置生效&lt;/h3>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span>nmcli conn up &amp;lt;conn-name&amp;gt;
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="激活连接">激活连接&lt;/h2>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span>$ nmcli conn up &amp;lt;conn-name&amp;gt;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>$ nmcli conn down &amp;lt;conn-name&amp;gt;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>$ nmcli dev connect &amp;lt;dev-name&amp;gt;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>$ nmcli dev disconnect &amp;lt;dev-name&amp;gt;
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;blockquote>
+&lt;p>建议使用 nmcli dev disconnect interface-name 命令，而不是 nmcli con down connection-name 命令，因为连接断开可将该接口放到“手动”模式，这样做用户让 NetworkManager 启动某个连接前，或发生外部事件（比如载波变化、休眠或睡眠）前，不会启动任何自动连接。&lt;/p></description></item></channel></rss>

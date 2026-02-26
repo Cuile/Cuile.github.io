@@ -1,2 +1,21 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>wins on 瘦了就帅了</title><link>https://cuile.github.io/tags/wins/</link><description>Recent content in wins on 瘦了就帅了</description><generator>Hugo -- gohugo.io</generator><copyright>Copyright © 2008–2018, Steve Francia and the Hugo Authors; all rights reserved.</copyright><lastBuildDate>Wed, 23 Oct 2024 13:04:27 +0800</lastBuildDate><atom:link href="https://cuile.github.io/tags/wins/index.xml" rel="self" type="application/rss+xml"/><item><title>在 CentOS 上部署 NetBIOS</title><link>https://cuile.github.io/posts/linux/wins_netbios/</link><pubDate>Wed, 23 Oct 2024 13:04:27 +0800</pubDate><guid>https://cuile.github.io/posts/linux/wins_netbios/</guid><description>
-基于 CentOS 7 让Linux系统与Windows系统之间，支持机器名访问，需要Linux安装NetBIOS。 而安装NetBIOS，不一定必须安装Sa</description></item></channel></rss>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Wins on 瘦了就帅了</title><link>https://blog.cuile.com/tags/wins/</link><description>Recent content in Wins on 瘦了就帅了</description><generator>Hugo</generator><language>zh-cn</language><lastBuildDate>Thu, 26 Feb 2026 02:59:37 +0000</lastBuildDate><atom:link href="https://blog.cuile.com/tags/wins/index.xml" rel="self" type="application/rss+xml"/><item><title>在 CentOS 上部署 NetBIOS</title><link>https://blog.cuile.com/post/linux/wins_netbios/</link><pubDate>Wed, 23 Oct 2024 13:04:27 +0800</pubDate><guid>https://blog.cuile.com/post/linux/wins_netbios/</guid><description>&lt;p>&lt;strong>&lt;code>基于 CentOS 7&lt;/code>&lt;/strong>&lt;/p>
+&lt;p>让Linux系统与Windows系统之间，支持机器名访问，需要Linux安装NetBIOS。
+而安装NetBIOS，不一定必须安装Samba，安装过程如下:&lt;/p>
+&lt;h2 id="安装库">安装库&lt;/h2>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e"># 注意 这里并不会安装完整的samba&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>$ yum install samba-winbind
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="修改配置文件">修改配置文件&lt;/h2>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-ini" data-lang="ini">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e">; Nano /etc/nsswitch.conf&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e">; add wins&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#a6e22e">hosts: files &amp;lt;wins&amp;gt; dns myhostname&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="验证安装">验证安装&lt;/h2>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span>$ ll /etc/&amp;lt;lib|lib64&amp;gt;/libnss_winbind.so
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="配置生效">配置生效&lt;/h2>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span>$ ldconfig
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="配置服务">配置服务&lt;/h2>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span>$ systemctl start winbind
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>$ systemctl status winbind
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="参考">参考&lt;/h2>
+&lt;ul>
+&lt;li>&lt;a href="https://www.baeldung.com/linux/netbios-resolve-names">How to Resolve NetBIOS Names From Linux | Baeldung on Linux&lt;/a>&lt;/li>
+&lt;/ul></description></item></channel></rss>

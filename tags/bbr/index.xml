@@ -1,2 +1,27 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>bbr on 瘦了就帅了</title><link>https://cuile.github.io/tags/bbr/</link><description>Recent content in bbr on 瘦了就帅了</description><generator>Hugo -- gohugo.io</generator><copyright>Copyright © 2008–2018, Steve Francia and the Hugo Authors; all rights reserved.</copyright><lastBuildDate>Tue, 03 Oct 2023 13:04:09 +0800</lastBuildDate><atom:link href="https://cuile.github.io/tags/bbr/index.xml" rel="self" type="application/rss+xml"/><item><title>ProxmoxVE 配置 BBR</title><link>https://cuile.github.io/posts/proxmox/bbr/</link><pubDate>Tue, 03 Oct 2023 13:04:09 +0800</pubDate><guid>https://cuile.github.io/posts/proxmox/bbr/</guid><description>
-查看系统内核 1$ uname -r kernel 4.9 及以上已支持 tcp_bbr，看内核版本是否大于等于4.9，否则要升级内核，或者安装bbr。 bbr2 效果要好于 bbr，相当原理</description></item></channel></rss>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Bbr on 瘦了就帅了</title><link>https://blog.cuile.com/tags/bbr/</link><description>Recent content in Bbr on 瘦了就帅了</description><generator>Hugo</generator><language>zh-cn</language><lastBuildDate>Thu, 26 Feb 2026 02:59:37 +0000</lastBuildDate><atom:link href="https://blog.cuile.com/tags/bbr/index.xml" rel="self" type="application/rss+xml"/><item><title>ProxmoxVE 配置 BBR</title><link>https://blog.cuile.com/post/proxmox/bbr/</link><pubDate>Tue, 03 Oct 2023 13:04:09 +0800</pubDate><guid>https://blog.cuile.com/post/proxmox/bbr/</guid><description>&lt;h2 id="查看系统内核">查看系统内核&lt;/h2>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span>$ uname -r
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>kernel 4.9 及以上已支持 tcp_bbr，看内核版本是否大于等于4.9，否则要升级内核，或者安装bbr。&lt;/p>
+&lt;p>bbr2 效果要好于 bbr，相当原理可查看参考文档&lt;/p>
+&lt;h2 id="配置拥塞算法">配置拥塞算法&lt;/h2>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e"># 查看可用的拥塞算法&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>$ sysctl net.ipv4.tcp_available_congestion_control
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e"># 查看使用的拥塞算法&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>$ sysctl net.ipv4.tcp_congestion_control
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e"># 设置拥塞算法&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>$ sysctl -w net.core.default_qdisc&lt;span style="color:#f92672">=&lt;/span>fq
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>$ sysctl -w net.ipv4.tcp_congestion_control&lt;span style="color:#f92672">=&lt;/span>bbr
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e"># 查看设置结果&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>$ lsmod | grep bbr
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="配置持久化">配置持久化&lt;/h2>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span>$ echo &lt;span style="color:#e6db74">&amp;#34;net.core.default_qdisc=fq&amp;#34;&lt;/span> &amp;gt;&amp;gt; /etc/sysctl.conf
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>$ echo &lt;span style="color:#e6db74">&amp;#34;net.ipv4.tcp_congestion_control=bbr&amp;#34;&lt;/span> &amp;gt;&amp;gt; /etc/sysctl.conf
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>$ sysctl -p
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="参考文档">参考文档&lt;/h2>
+&lt;ul>
+&lt;li>&lt;a href="https://aws.amazon.com/cn/blogs/china/talking-about-network-optimization-from-the-flow-control-algorithm/">从流量控制算法谈网络优化 – 从 CUBIC 到 BBRv2 算法&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://www.jianshu.com/p/2dd5132b37b4">linux手动配置BBR&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://www.starduster.me/2020/03/02/linux-network-tuning-kernel-parameter/#netcoredefault_qdisc">Linux 网络调优：内核网络栈参数篇 net.core.default_qdisc&lt;/a>&lt;/li>
+&lt;/ul></description></item></channel></rss>

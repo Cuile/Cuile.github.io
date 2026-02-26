@@ -1,4 +1,155 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>vscode on 瘦了就帅了</title><link>https://cuile.github.io/tags/vscode/</link><description>Recent content in vscode on 瘦了就帅了</description><generator>Hugo -- gohugo.io</generator><copyright>Copyright © 2008–2018, Steve Francia and the Hugo Authors; all rights reserved.</copyright><lastBuildDate>Sat, 25 Nov 2023 00:24:10 +0800</lastBuildDate><atom:link href="https://cuile.github.io/tags/vscode/index.xml" rel="self" type="application/rss+xml"/><item><title>VScode 在 Docker 容器内开发</title><link>https://cuile.github.io/posts/vscode/vscode_develop_in_docker/</link><pubDate>Sat, 25 Nov 2023 00:24:10 +0800</pubDate><guid>https://cuile.github.io/posts/vscode/vscode_develop_in_docker/</guid><description>
-在 Docker 的容器内开发，相当于使用VSCode的远程开发能力，好处非常多。 开发环境统一、可维护性强 后期部署简单 1. 安装 Docker Docker 安装 2. 安装 Visual Stuido Code 这不废话嘛</description></item><item><title>VSCode 配置 Python 开发环境</title><link>https://cuile.github.io/posts/vscode/vscode_configures_python_development_environment/</link><pubDate>Sat, 25 Nov 2023 00:24:10 +0800</pubDate><guid>https://cuile.github.io/posts/vscode/vscode_configures_python_development_environment/</guid><description>
-使用 VSCode 开发 Python 是替代 PyCharm 的一个很好选择，有丰富的扩展和第三方工具可以使用，安装配置好它们，会让开发工作事半功倍。下面列举推荐安装的扩展和工具： 扩</description></item><item><title>VsCode 使用 Remote SSH 连接 Alpine Linux</title><link>https://cuile.github.io/posts/vscode/vscode_with_remote_ssh_in_alpine_linux/</link><pubDate>Tue, 03 Jan 2023 20:42:02 +0800</pubDate><guid>https://cuile.github.io/posts/vscode/vscode_with_remote_ssh_in_alpine_linux/</guid><description>
-VsCode Remote SSH 默认是不支持 Alpine Linux 的，不过，对 Alpine Linux 进行一些改动，就可以实现，比较方便。 步骤如下： 安装 安装 Bash 安装需要的包 1$ apk del dropbear 2$ apk add gcompat libstdc++6 openssh wget git Alpine 配置 1$ nano</description></item></channel></rss>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Vscode on 瘦了就帅了</title><link>https://blog.cuile.com/tags/vscode/</link><description>Recent content in Vscode on 瘦了就帅了</description><generator>Hugo</generator><language>zh-cn</language><lastBuildDate>Thu, 26 Feb 2026 02:59:37 +0000</lastBuildDate><atom:link href="https://blog.cuile.com/tags/vscode/index.xml" rel="self" type="application/rss+xml"/><item><title>VScode 在 Docker 容器内开发</title><link>https://blog.cuile.com/post/vscode/vscode_develop_in_docker/</link><pubDate>Sat, 25 Nov 2023 00:24:10 +0800</pubDate><guid>https://blog.cuile.com/post/vscode/vscode_develop_in_docker/</guid><description>&lt;p>在 Docker 的容器内开发，相当于使用VSCode的远程开发能力，好处非常多。&lt;/p>
+&lt;ul>
+&lt;li>开发环境统一、可维护性强&lt;/li>
+&lt;li>后期部署简单&lt;/li>
+&lt;/ul>
+&lt;h2 id="1-安装-docker">1. 安装 Docker&lt;/h2>
+&lt;p>&lt;a href="../../docker/docker_install">Docker 安装&lt;/a>&lt;/p>
+&lt;h2 id="2-安装-visual-stuido-code">2. 安装 Visual Stuido Code&lt;/h2>
+&lt;p>这不废话嘛，同上。&lt;/p>
+&lt;h2 id="3-安装-remote-development-扩展包">3. 安装 Remote Development 扩展包&lt;/h2>
+&lt;p>官方推荐安装 Remote Development 这个扩展包，它包括三个扩展功能：&lt;/p>
+&lt;ul>
+&lt;li>Remote - SSH&lt;/li>
+&lt;li>Remote - Containers&lt;/li>
+&lt;li>Remote - WSL&lt;/li>
+&lt;/ul>
+&lt;p>如果你只使用 Docker ，可以只安装 Remote - Containers 这个扩展。&lt;/p>
+&lt;p>安装成功后，你可以在 VSCode 的左下角，看到一个“蓝底色+两个相对白箭头”的图标。&lt;/p>
+&lt;p>点击图标，可以看到 Remote - Containers 提供了许多方法进行配置。&lt;/p>
+&lt;h2 id="4-配置-remote---containers">4. 配置 Remote - Containers&lt;/h2>
+&lt;h3 id="41-使用现成的-docker-composeyml-配置">4.1. 使用现成的 docker-compose.yml 配置&lt;/h3>
+&lt;ol>
+&lt;li>点击左下角的蓝色图标&lt;/li>
+&lt;li>选择 Add Development Container Configuration Files&amp;hellip;&lt;/li>
+&lt;li>选择 Existing Docker Compose (Extend)
+&lt;ol>
+&lt;li>VSCode 会自动在项目的根目录下，生成 .devcontainer 文件夹&lt;/li>
+&lt;li>在 .devcontainer 目录内，包括两个文件：
+&lt;ol>
+&lt;li>devcontainer.json：VSCode 使用它连接开发容器&lt;/li>
+&lt;li>docker-compose.yml：示例文件，可以不用管它&lt;/li>
+&lt;/ol>
+&lt;/li>
+&lt;/ol>
+&lt;/li>
+&lt;li>打开 devcontainer.json 文件&lt;/li>
+&lt;/ol>
+&lt;blockquote>
+&lt;p>照着 docker-compose.yml 进行修改，见下面示例&lt;/p></description></item><item><title>VSCode 配置 Python 开发环境</title><link>https://blog.cuile.com/post/vscode/vscode_configures_python_development_environment/</link><pubDate>Sat, 25 Nov 2023 00:24:10 +0800</pubDate><guid>https://blog.cuile.com/post/vscode/vscode_configures_python_development_environment/</guid><description>&lt;p>使用 VSCode 开发 Python 是替代 PyCharm 的一个很好选择，有丰富的扩展和第三方工具可以使用，安装配置好它们，会让开发工作事半功倍。下面列举推荐安装的扩展和工具：&lt;/p>
+&lt;p>&lt;em>扩展&lt;/em>&lt;/p>
+&lt;ul>
+&lt;li>Material Icon There
+&lt;ul>
+&lt;li>VSCode图标，很好看&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>Python
+&lt;ul>
+&lt;li>微软官方扩展，一定要装&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>Pylance
+&lt;ul>
+&lt;li>微软官方扩展，一定要装&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>autoDocstring&lt;/li>
+&lt;li>Python Environment Manager&lt;/li>
+&lt;li>Ruff&lt;/li>
+&lt;li>Code Runner&lt;/li>
+&lt;li>Qt for Python&lt;/li>
+&lt;/ul>
+&lt;p>&lt;em>工具&lt;/em>&lt;/p>
+&lt;ul>
+&lt;li>Micromamba
+&lt;ul>
+&lt;li>使用 Micromamba 来配置 Python 开发环境有几个好处：
+&lt;ul>
+&lt;li>micromamba 是一个包管理器，可方便的同时安装几个软件，形成一个独立的开发环境，与其它项目的开发环境完全隔离。&lt;/li>
+&lt;li>micromamba 安装的软件，不会在系统留下痕迹，不会污染本地系统。&lt;/li>
+&lt;li>micromamba 只配置 python 基础环境，不影响 python 虚拟环境，同一个基础环境可提供给多个虚拟环境使用。&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ul>
+&lt;h2 id="配置-micromamba">配置 Micromamba&lt;/h2>
+&lt;p>&lt;a href="https://blog.cuile.com/post/python/micromamba/">Micromamba的安装与使用&lt;/a>&lt;/p>
+&lt;h2 id="配置-vscode">配置 VSCode&lt;sup id="fnref:1">&lt;a href="#fn:1" class="footnote-ref" role="doc-noteref">1&lt;/a>&lt;/sup>&lt;/h2>
+&lt;p>配置 Venv 路径&lt;/p>
+&lt;ol>
+&lt;li>使用 “ctrl+,” 打开设置界面，搜索 venv ，出现两个结果：&lt;/li>
+&lt;/ol>
+&lt;table>
+ &lt;thead>
+ &lt;tr>
+ &lt;th style="text-align: left">选项&lt;/th>
+ &lt;th style="text-align: left">值&lt;/th>
+ &lt;/tr>
+ &lt;/thead>
+ &lt;tbody>
+ &lt;tr>
+ &lt;td style="text-align: left">Python: Venv Folders&lt;/td>
+ &lt;td style="text-align: left">如果安装时使用默认位置，就填写 micromamba，下面的不用设置&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td style="text-align: left">Python: Venv Path&lt;/td>
+ &lt;td style="text-align: left">如果安装时没有使用默认位置，就填写安装位置，上面的不用设置&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td style="text-align: left">Python: Conda Path&lt;/td>
+ &lt;td style="text-align: left">直接输入conda 即可&lt;/td>
+ &lt;/tr>
+ &lt;/tbody>
+&lt;/table>
+&lt;ol start="2">
+&lt;li>重启VSCode，进入 Python 项目，就可以看到右下角的 Python 环境了，如果创建了多个环境，可以通过这里切换。这里需要注意 vscode 可以识别多个 Python 版本，但无法正确配置它们。所以创建不同的 Python 版本后，还要为项目选择解释器。&lt;/li>
+&lt;/ol>
+&lt;h3 id="配置-python-项目环境">配置 Python 项目环境&lt;/h3>
+&lt;ol>
+&lt;li>使用项目终端界面，创建虚拟环境。&lt;/li>
+&lt;/ol>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-powershell" data-lang="powershell">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e"># 先激活 micromamba 环境&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>PS &lt;span style="color:#e6db74">&amp;#34;Your Project Path&amp;#34;&lt;/span>&amp;gt; conda activate PyQt
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e"># 创建Python虚拟环境&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e"># --upgrade 参数是升级虚拟环境用的，新建虚拟环境时要去掉。&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e"># --system-site-packages 会降低环境隔离性，生产环境慎用。&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>(PyQt) PS &lt;span style="color:#e6db74">&amp;#34;Your Project Path&amp;#34;&lt;/span>&amp;gt; python -m venv --prompt &lt;span style="color:#e6db74">&amp;#34;&amp;lt;myproject&amp;gt;&amp;#34;&lt;/span> --upgrade-deps .venv --symlinks --upgrade --system-site-packages
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e"># 查看项目资源管理器，看到 .venv 文件夹就成功了。&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e"># 激活Python虚拟环境&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>(PyQt) PS &lt;span style="color:#e6db74">&amp;#34;Your Project Path&amp;#34;&lt;/span>&amp;gt; Activate.ps1
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e"># 成功进入虚拟环境&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>(myproject) (PyQt) PS &lt;span style="color:#e6db74">&amp;#34;Your Project Path&amp;#34;&lt;/span>&amp;gt;
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>重启 vscode 再次进入项目终端，不一定会看到项目前缀&lt;sup id="fnref:2">&lt;a href="#fn:2" class="footnote-ref" role="doc-noteref">2&lt;/a>&lt;/sup>。VsCode已经自动修你激活了Python虚拟环境，不需要再操作。
+安装包里不需要激活 micromamba 环境，否则包将被安装到 micromamba 环境中。&lt;/p></description></item><item><title>VsCode 使用 Remote SSH 连接 Alpine Linux</title><link>https://blog.cuile.com/post/vscode/vscode_with_remote_ssh_in_alpine_linux/</link><pubDate>Tue, 03 Jan 2023 20:42:02 +0800</pubDate><guid>https://blog.cuile.com/post/vscode/vscode_with_remote_ssh_in_alpine_linux/</guid><description>&lt;p>VsCode Remote SSH 默认是不支持 Alpine Linux 的，不过，对 Alpine Linux 进行一些改动，就可以实现，比较方便。&lt;/p>
+&lt;p>步骤如下：&lt;/p>
+&lt;h2 id="安装">安装&lt;/h2>
+&lt;ol>
+&lt;li>&lt;a href="https://blog.cuile.com/posts/linux/alpine_linux_bash/">安装 Bash&lt;/a>&lt;/li>
+&lt;li>安装需要的包&lt;/li>
+&lt;/ol>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span>$ apk del dropbear
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>$ apk add gcompat libstdc++6 openssh wget git
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="alpine-配置">Alpine 配置&lt;/h2>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span>$ nano /etc/ssh/sshd-config
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;pre tabindex="0">&lt;code class="language-config" data-lang="config">AllowTcpForwarding yes
+PermitTunnel yes
+&lt;/code>&lt;/pre>&lt;h2 id="git-配置">git 配置&lt;/h2>
+&lt;ol>
+&lt;li>VsCode 连接 Alpine Linux&lt;/li>
+&lt;li>F1 &amp;gt; &amp;ldquo;Preferences: Open Remote Settings (JSON) (SSH: &lt;!-- raw HTML omitted -->)&amp;rdquo;&lt;/li>
+&lt;li>添加下面的内容：&lt;/li>
+&lt;/ol>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-json" data-lang="json">&lt;span style="display:flex;">&lt;span>{
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>	&lt;span style="color:#f92672">&amp;#34;git.path&amp;#34;&lt;/span>: &lt;span style="color:#e6db74">&amp;#34;/usr/bin/git&amp;#34;&lt;/span>,
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>}
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h3 id="参考文档">参考文档：&lt;/h3>
+&lt;ul>
+&lt;li>&lt;a href="https://johnsiu.com/blog/alpine-vscode/">Alpine Linux and VS Code Remote SSH&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://www.reddit.com/r/vscode/comments/smw8tn/working_with_remote_ssh_in_alpine/">Working with Remote SSH in Alpine&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://man7.org/linux/man-pages/man5/ssh_config.5.html">ssh_config(5) — Linux manual page&lt;/a>&lt;/li>
+&lt;/ul></description></item></channel></rss>

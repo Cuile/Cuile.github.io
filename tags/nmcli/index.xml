@@ -1,2 +1,41 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>nmcli on 瘦了就帅了</title><link>https://cuile.github.io/tags/nmcli/</link><description>Recent content in nmcli on 瘦了就帅了</description><generator>Hugo -- gohugo.io</generator><copyright>Copyright © 2008–2018, Steve Francia and the Hugo Authors; all rights reserved.</copyright><lastBuildDate>Mon, 17 Jan 2022 15:17:58 +0800</lastBuildDate><atom:link href="https://cuile.github.io/tags/nmcli/index.xml" rel="self" type="application/rss+xml"/><item><title>使用 nmcli 配置网络</title><link>https://cuile.github.io/posts/linux/nmcli_manual/</link><pubDate>Mon, 17 Jan 2022 15:17:58 +0800</pubDate><guid>https://cuile.github.io/posts/linux/nmcli_manual/</guid><description>
-基于Centos 7 查看设备信息 1# 简单接口状态 2$ nmcli dev status 3# 详细的接口信息 4$ nmcli dev show 5# 接口的详细信息 6$ nmcli dev show &amp;lt;interface-name&amp;gt; 查看连接(connection)的信息</description></item></channel></rss>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Nmcli on 瘦了就帅了</title><link>https://blog.cuile.com/tags/nmcli/</link><description>Recent content in Nmcli on 瘦了就帅了</description><generator>Hugo</generator><language>zh-cn</language><lastBuildDate>Thu, 26 Feb 2026 02:59:37 +0000</lastBuildDate><atom:link href="https://blog.cuile.com/tags/nmcli/index.xml" rel="self" type="application/rss+xml"/><item><title>使用 nmcli 配置网络</title><link>https://blog.cuile.com/post/linux/nmcli_manual/</link><pubDate>Mon, 17 Jan 2022 15:17:58 +0800</pubDate><guid>https://blog.cuile.com/post/linux/nmcli_manual/</guid><description>&lt;p>&lt;strong>&lt;code>基于Centos 7&lt;/code>&lt;/strong>&lt;/p>
+&lt;h2 id="查看设备信息">查看设备信息&lt;/h2>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e"># 简单接口状态&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>$ nmcli dev status
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e"># 详细的接口信息&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>$ nmcli dev show
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e"># 接口的详细信息&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>$ nmcli dev show &amp;lt;interface-name&amp;gt;
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="查看连接connection的信息">查看连接(connection)的信息&lt;/h2>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e"># 简单信息&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>$ nmcli conn show
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e"># 详细的连接信息&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>$ nmcli conn show
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e"># 某个连接的详细信息&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>$ nmcli conn show &amp;lt;conn-name&amp;gt;
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="创建连接">创建连接&lt;/h2>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span>nmcli conn add type &amp;lt;ethernet&amp;gt; con-name &amp;lt;conn-name&amp;gt; ifname &amp;lt;dev-name&amp;gt; ip4 &amp;lt;192.168.100.100/24&amp;gt; &lt;span style="color:#f92672">[&lt;/span>gw4 &amp;lt;192.168.100.1&amp;gt;&lt;span style="color:#f92672">]&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="修改配置">修改配置&lt;/h2>
+&lt;h3 id="静态ip改动态ip">静态IP改动态IP&lt;/h3>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span>nmcli conn mod &amp;lt;conn-name&amp;gt; /
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> ipv4.method auto /
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> ipv4.address &lt;span style="color:#e6db74">&amp;#34;&amp;#34;&lt;/span> /
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> ipv4.gateway &lt;span style="color:#e6db74">&amp;#34;&amp;#34;&lt;/span> /
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> ipv4.dns &lt;span style="color:#e6db74">&amp;#34;&amp;#34;&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h3 id="修改dns">修改DNS&lt;/h3>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span>$ nmcli conn mod &amp;lt;conn-name&amp;gt; ipv4.dns &lt;span style="color:#e6db74">&amp;#34;1.2.4.8&amp;#34;&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h3 id="设置自动连接">设置自动连接&lt;/h3>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e"># 查询和显示所有网络连接的自动连接属性的当前值&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>$ nmcli -f name,autoconnect connection
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e"># 更改网络连接的属性值&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>$ nmcli conn mod &amp;lt;conn-name&amp;gt; connection.autoconnect yes
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h3 id="配置生效">配置生效&lt;/h3>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span>nmcli conn up &amp;lt;conn-name&amp;gt;
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="激活连接">激活连接&lt;/h2>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span>$ nmcli conn up &amp;lt;conn-name&amp;gt;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>$ nmcli conn down &amp;lt;conn-name&amp;gt;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>$ nmcli dev connect &amp;lt;dev-name&amp;gt;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>$ nmcli dev disconnect &amp;lt;dev-name&amp;gt;
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;blockquote>
+&lt;p>建议使用 nmcli dev disconnect interface-name 命令，而不是 nmcli con down connection-name 命令，因为连接断开可将该接口放到“手动”模式，这样做用户让 NetworkManager 启动某个连接前，或发生外部事件（比如载波变化、休眠或睡眠）前，不会启动任何自动连接。&lt;/p></description></item></channel></rss>

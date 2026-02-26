@@ -1,2 +1,27 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>mysql on 瘦了就帅了</title><link>https://cuile.github.io/tags/mysql/</link><description>Recent content in mysql on 瘦了就帅了</description><generator>Hugo -- gohugo.io</generator><copyright>Copyright © 2008–2018, Steve Francia and the Hugo Authors; all rights reserved.</copyright><lastBuildDate>Tue, 18 Jan 2022 14:50:28 +0800</lastBuildDate><atom:link href="https://cuile.github.io/tags/mysql/index.xml" rel="self" type="application/rss+xml"/><item><title>MySQL 数据操作</title><link>https://cuile.github.io/posts/database/mysql_manual/</link><pubDate>Tue, 18 Jan 2022 14:50:28 +0800</pubDate><guid>https://cuile.github.io/posts/database/mysql_manual/</guid><description>
-1. 复制 复制表数据，表结构的3种方法 2. 导入 2.1 使用 LOAD DATA 如果是导入有中文的数据，我的mysql 设置的utf8 字符集，所以你要导入的 文件也要保存ut</description></item></channel></rss>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Mysql on 瘦了就帅了</title><link>https://blog.cuile.com/tags/mysql/</link><description>Recent content in Mysql on 瘦了就帅了</description><generator>Hugo</generator><language>zh-cn</language><lastBuildDate>Thu, 26 Feb 2026 02:59:37 +0000</lastBuildDate><atom:link href="https://blog.cuile.com/tags/mysql/index.xml" rel="self" type="application/rss+xml"/><item><title>MySQL 数据操作</title><link>https://blog.cuile.com/post/database/mysql_manual/</link><pubDate>Tue, 18 Jan 2022 14:50:28 +0800</pubDate><guid>https://blog.cuile.com/post/database/mysql_manual/</guid><description>&lt;h2 id="1-复制">1. 复制&lt;/h2>
+&lt;ul>
+&lt;li>&lt;a href="http://blog.51yip.com/mysql/1311.html">复制表数据，表结构的3种方法&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;h2 id="2-导入">2. 导入&lt;/h2>
+&lt;h3 id="21-使用-load-data">2.1 使用 LOAD DATA&lt;/h3>
+&lt;ul>
+&lt;li>
+&lt;p>如果是导入有中文的数据，我的mysql 设置的utf8 字符集，所以你要导入的 文件也要保存utf-8的字符集，数据表列的顺序必须和excel的对应，否则导入的数据会有错误,&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>文件路径名要上的 &amp;quot; \ &amp;ldquo;要变成 “ \ ”或者 &amp;quot; / &amp;ldquo;,否则会报错&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>如果mysql用户没有读取本地文件的权限，那必须添加local参数，通过mysql client来读取文件&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>&lt;a href="https://blog.csdn.net/JavaReact/article/details/78854283">通过load data infile，20秒导入100W数据&lt;/a>&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>&lt;a href="https://www.jianshu.com/p/dc94471d6778">LOAD DATA INFILE语句导入数据进入MySQL的一些注意事项&lt;/a>&lt;/p>
+&lt;/li>
+&lt;/ul>
+&lt;h2 id="3-删除">3. 删除&lt;/h2>
+&lt;ul>
+&lt;li>&lt;a href="https://blog.csdn.net/chenshun123/article/details/79676446">清空表(truncate)与删除表中数据(delete) 详解&lt;/a>&lt;/li>
+&lt;/ul></description></item></channel></rss>

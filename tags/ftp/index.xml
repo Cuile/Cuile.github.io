@@ -1,3 +1,34 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>ftp on 瘦了就帅了</title><link>https://cuile.github.io/tags/ftp/</link><description>Recent content in ftp on 瘦了就帅了</description><generator>Hugo -- gohugo.io</generator><copyright>Copyright © 2008–2018, Steve Francia and the Hugo Authors; all rights reserved.</copyright><lastBuildDate>Fri, 26 Jan 2024 11:30:57 +0800</lastBuildDate><atom:link href="https://cuile.github.io/tags/ftp/index.xml" rel="self" type="application/rss+xml"/><item><title>Ncftp 使用手册</title><link>https://cuile.github.io/posts/linux/ncftp/</link><pubDate>Fri, 26 Jan 2024 11:30:57 +0800</pubDate><guid>https://cuile.github.io/posts/linux/ncftp/</guid><description>
-NcFTP 是 Linux 上常用的 FTP客户端工具，非常好用，这里记录它的常见用法。 ncftp FTP浏览工具 1$ ncftp 2# 一定注意参数顺序 3ncftp &amp;gt; open -u &amp;lt;username&amp;gt; -p &amp;lt;password&amp;gt; &amp;lt;remote-host&amp;gt; 4# 使用被动模式传输 5ncftp &amp;gt;</description></item><item><title>OpenWRT 启用 ALG 功能</title><link>https://cuile.github.io/posts/openwrt/openwrt_ftp_alg/</link><pubDate>Mon, 07 Feb 2022 10:08:02 +0800</pubDate><guid>https://cuile.github.io/posts/openwrt/openwrt_ftp_alg/</guid><description>
-1. 安装软件包 1# opkg install kmod-nf-nathelper-extra 2# opkg install kmod-nf-ipvs-ftp 2. 添加配置 1# nano /etc/sysctl.d/11-nf-conntrack.conf 增加&amp;quot;net.netfilter.nf_conntrack_helper=1&amp;quot</description></item></channel></rss>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>FTP on 瘦了就帅了</title><link>https://blog.cuile.com/tags/ftp/</link><description>Recent content in FTP on 瘦了就帅了</description><generator>Hugo</generator><language>zh-cn</language><lastBuildDate>Thu, 26 Feb 2026 02:59:37 +0000</lastBuildDate><atom:link href="https://blog.cuile.com/tags/ftp/index.xml" rel="self" type="application/rss+xml"/><item><title>Ncftp 使用手册</title><link>https://blog.cuile.com/post/linux/ncftp/</link><pubDate>Fri, 26 Jan 2024 11:30:57 +0800</pubDate><guid>https://blog.cuile.com/post/linux/ncftp/</guid><description>&lt;p>NcFTP 是 Linux 上常用的 FTP客户端工具，非常好用，这里记录它的常见用法。&lt;/p>
+&lt;h2 id="ncftp">ncftp&lt;/h2>
+&lt;p>FTP浏览工具&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span>$ ncftp
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e"># 一定注意参数顺序&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>ncftp &amp;gt; open -u &amp;lt;username&amp;gt; -p &amp;lt;password&amp;gt; &amp;lt;remote-host&amp;gt;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e"># 使用被动模式传输&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>ncftp &amp;gt; set passive yes
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>ncftp &amp;gt; put &amp;lt;local-files&amp;gt;
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="ncftpput">ncftpput&lt;/h2>
+&lt;p>FTP上传命令行工具&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e"># 一定注意参数顺序&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e"># 使用被动模式传输&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>$ ncftpput -u &amp;lt;username&amp;gt; -p &amp;lt;password&amp;gt; -F &amp;lt;remote-host&amp;gt; &amp;lt;remote-path&amp;gt; &amp;lt;local-files&amp;gt;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e"># or&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>$ ncftpput -f ftp.cfg -F &amp;lt;remote-path&amp;gt; &amp;lt;local-files&amp;gt;
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-ini" data-lang="ini">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e">; ftp.cfg&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#a6e22e">host ftp.server.com&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#a6e22e">user myusername&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#a6e22e">pass mypasswd&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;ul>
+&lt;li>&lt;a href="https://www.ncftp.com/ncftp/">NcFTP Client&lt;/a>&lt;/li>
+&lt;/ul></description></item><item><title>OpenWRT 启用 ALG 功能</title><link>https://blog.cuile.com/post/openwrt/openwrt_ftp_alg/</link><pubDate>Mon, 07 Feb 2022 10:08:02 +0800</pubDate><guid>https://blog.cuile.com/post/openwrt/openwrt_ftp_alg/</guid><description>&lt;h2 id="1-安装软件包">1. 安装软件包&lt;/h2>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e"># opkg install kmod-nf-nathelper-extra&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e"># opkg install kmod-nf-ipvs-ftp&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="2-添加配置">2. 添加配置&lt;/h2>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e"># nano /etc/sysctl.d/11-nf-conntrack.conf&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>增加&amp;quot;net.netfilter.nf_conntrack_helper=1&amp;quot;&lt;/p>
+&lt;p>在使用FTP的主动模式时，要注意关闭网关上的ALG功能（如Windows ALG服务），同时使用可能引起失败&lt;/p>
+&lt;p>&lt;strong>参考文档&lt;/strong>&lt;/p>
+&lt;ul>
+&lt;li>&lt;a href="https://vnf.cc/2021/02/openwrt-ftp-alg/">原版OpenWRT启用FTP ALG功能&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://blog.moper.net/2210.html">防火墙设置了NAT ALG功能导致FTP数据连接故障&lt;/a>&lt;/li>
+&lt;/ul></description></item></channel></rss>

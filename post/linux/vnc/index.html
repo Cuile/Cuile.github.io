@@ -1,0 +1,298 @@
+<!doctype html><html lang=zh-cn><head><meta charset=utf-8><meta name=viewport content="width=device-width"><script type=application/javascript src=https://blog.cuile.com/js/theme-mode.js></script><link rel=stylesheet href=https://blog.cuile.com/css/frameworks.min.css><link rel=stylesheet href=https://blog.cuile.com/css/github.min.css><link rel=stylesheet href=https://blog.cuile.com/css/github-style.css><link rel=stylesheet href=https://blog.cuile.com/css/light.css><link rel=stylesheet href=https://blog.cuile.com/css/dark.css><link rel=stylesheet href=https://blog.cuile.com/css/syntax.css><title>Debian 12 极简远程桌面 - 瘦了就帅了</title><link rel=icon type=image/x-icon href=/images/avatar.jpg><meta name=theme-color content="#1e2327"><meta name=description content='Debian 12 只安装VNC及i3桌面，就可以低成本的实现远程桌面环境
+安装 # 安装通用工具 apt-get install -y nano net-tools bzip2 procps apt-utils iputils-ping netcat-openbsd # 安装中文字体 apt-get install -y locales fonts-wqy-microhei fonts-wqy-zenhei xfonts-wqy && \ sed -i -e "s/# zh_CN.UTF-8 UTF-8/zh_CN.UTF-8 UTF-8/" /etc/locale.gen && \ locale-gen zh_CN.UTF-8 &&\ update-locale LANG=zh_CN.UTF-8 LANGUAGE=zh_CN:zh LC_ALL=zh_CN.UTF-8 # 安装VNC apt-get install -y tigervnc-standalone-server # 安装i3桌面 apt-get install -y i3-wm i3status i3blocks dmenu xfonts-base terminator dbus-x11 libdbus-glib-1-2 ; apt-get purge -y pm-utils *screensaver* apt-get clean 配置i3桌面 ~/.config/i3/config
+'><meta name=keywords content><meta name=robots content="noodp"><link rel=canonical href=https://blog.cuile.com/post/linux/vnc/><meta name=twitter:card content="summary"><meta name=twitter:title content="Debian 12 极简远程桌面 - 瘦了就帅了"><meta name=twitter:description content='Debian 12 只安装VNC及i3桌面，就可以低成本的实现远程桌面环境
+安装 # 安装通用工具 apt-get install -y nano net-tools bzip2 procps apt-utils iputils-ping netcat-openbsd # 安装中文字体 apt-get install -y locales fonts-wqy-microhei fonts-wqy-zenhei xfonts-wqy && \ sed -i -e "s/# zh_CN.UTF-8 UTF-8/zh_CN.UTF-8 UTF-8/" /etc/locale.gen && \ locale-gen zh_CN.UTF-8 &&\ update-locale LANG=zh_CN.UTF-8 LANGUAGE=zh_CN:zh LC_ALL=zh_CN.UTF-8 # 安装VNC apt-get install -y tigervnc-standalone-server # 安装i3桌面 apt-get install -y i3-wm i3status i3blocks dmenu xfonts-base terminator dbus-x11 libdbus-glib-1-2 ; apt-get purge -y pm-utils *screensaver* apt-get clean 配置i3桌面 ~/.config/i3/config
+'><meta name=twitter:site content="https://blog.cuile.com/"><meta name=twitter:creator content><meta name=twitter:image content="https://blog.cuile.com/"><meta property="og:type" content="article"><meta property="og:title" content="Debian 12 极简远程桌面 - 瘦了就帅了"><meta property="og:description" content='Debian 12 只安装VNC及i3桌面，就可以低成本的实现远程桌面环境
+安装 # 安装通用工具 apt-get install -y nano net-tools bzip2 procps apt-utils iputils-ping netcat-openbsd # 安装中文字体 apt-get install -y locales fonts-wqy-microhei fonts-wqy-zenhei xfonts-wqy && \ sed -i -e "s/# zh_CN.UTF-8 UTF-8/zh_CN.UTF-8 UTF-8/" /etc/locale.gen && \ locale-gen zh_CN.UTF-8 &&\ update-locale LANG=zh_CN.UTF-8 LANGUAGE=zh_CN:zh LC_ALL=zh_CN.UTF-8 # 安装VNC apt-get install -y tigervnc-standalone-server # 安装i3桌面 apt-get install -y i3-wm i3status i3blocks dmenu xfonts-base terminator dbus-x11 libdbus-glib-1-2 ; apt-get purge -y pm-utils *screensaver* apt-get clean 配置i3桌面 ~/.config/i3/config
+'><meta property="og:url" content="https://blog.cuile.com/post/linux/vnc/"><meta property="og:site_name" content="Debian 12 极简远程桌面"><meta property="og:image" content="https://blog.cuile.com/"><meta property="og:image:width" content="2048"><meta property="og:image:height" content="1024"><meta property="article:published_time" content="2025-08-12 19:01:37 +0800 +0800"></head><body><div style=position:relative><header class="Header js-details-container Details px-3 px-md-4 px-lg-5 flex-wrap flex-md-nowrap open Details--on"><div class="Header-item mobile-none" style=margin-top:-4px;margin-bottom:-4px><a class=Header-link href=https://blog.cuile.com/><img class=octicon height=32 width=32 src=/images/avatar.jpg></a></div><div class="Header-item d-md-none"><button class="Header-link btn-link js-details-target" type=button onclick='document.querySelector("#header-search").style.display=document.querySelector("#header-search").style.display=="none"?"block":"none"'>
+<svg height="24" class="octicon octicon-three-bars" viewBox="0 0 16 16" width="24"><path fill-rule="evenodd" d="M1 2.75A.75.75.0 011.75 2h12.5a.75.75.0 110 1.5H1.75A.75.75.0 011 2.75zm0 5A.75.75.0 011.75 7h12.5a.75.75.0 110 1.5H1.75A.75.75.0 011 7.75zM1.75 12a.75.75.0 100 1.5h12.5a.75.75.0 100-1.5H1.75z"/></svg></button></div><div style=display:none id=header-search class="Header-item Header-item--full flex-column flex-md-row width-full flex-order-2 flex-md-order-none mr-0 mr-md-3 mt-3 mt-md-0 Details-content--hidden-not-important d-md-flex"><div class="Header-search header-search flex-auto js-site-search position-relative flex-self-stretch flex-md-self-auto mb-3 mb-md-0 mr-0 mr-md-3 scoped-search site-scoped-search js-jump-to"><div class=position-relative><form target=_blank id=search-form accept-charset=UTF-8 method=get autocomplete=off><label class="Header-search-label form-control input-sm header-search-wrapper p-0 js-chromeless-input-container header-search-wrapper-jump-to position-relative d-flex flex-justify-between flex-items-center"><input type=text class="Header-search-input form-control input-sm header-search-input jump-to-field js-jump-to-field js-site-search-focus js-site-search-field is-clearable" name=q placeholder=Search autocomplete=off></label></form></div></div></div><div class="Header-item Header-item--full flex-justify-center d-md-none position-relative"><a class=Header-link href=https://blog.cuile.com/><img class="octicon octicon-mark-github v-align-middle" height=32 width=32 src=/images/avatar.jpg></a></div><div class=Header-item style=margin-right:0><a href=javascript:void(0) class="Header-link no-select" onclick=switchTheme()><svg style="fill:var(--color-profile-color-modes-toggle-moon)" class="no-select" viewBox="0 0 16 16" width="16" height="16"><path fill-rule="evenodd" clip-rule="evenodd" d="M4.52208 7.71754c3.05612.0 5.53362-2.47748 5.53362-5.5336C10.0557 1.93498 10.0392 1.68986 10.0074 1.44961 9.95801 1.07727 10.3495.771159 10.6474.99992c1.4679 1.12724 2.4141 2.90007 2.4141 4.89391.0 3.40575-2.7609 6.16667-6.16665 6.16667-2.94151.0-5.40199-2.0595-6.018122-4.81523C.794841 6.87902 1.23668 6.65289 1.55321 6.85451 2.41106 7.40095 3.4296 7.71754 4.52208 7.71754z"/></svg></a></div></header></div><div id=search-result class="container-lg px-3 new-discussion-timeline" style=display:none></div><div class=application-main><div><main><div class="gisthead pagehead bg-gray-light pb-0 pt-3 mb-4"><div class=px-0><div class="mb-3 d-flex px-3 px-md-3 px-lg-5"><div class="flex-auto min-width-0 width-fit mr-3"><div class=d-flex><div class="d-none d-md-block"><a class="avatar mr-2 flex-shrink-0" href=https://blog.cuile.com/><img class=avatar-user src=/images/avatar.jpg width=32 height=32></a></div><div class="d-flex flex-column"><h1 class="break-word f3 text-normal mb-md-0 mb-1"><span class=author><a href=https://blog.cuile.com/>瘦了就帅了</a>
+</span><span class=path-divider>/</span>
+<strong class="css-truncate css-truncate-target mr-1" style=max-width:410px><a href=https://blog.cuile.com/post/linux/vnc/>Debian 12 极简远程桌面</a></strong></h1><div class="note m-0">Created <relative-time datetime="Tue, 12 Aug 2025 19:01:37 +0800" class=no-wrap>Tue, 12 Aug 2025 19:01:37 +0800</relative-time>
+<span class=file-info-divider></span>
+Modified <relative-time datetime="Thu, 26 Feb 2026 02:59:37 +0000" class=no-wrap>Thu, 26 Feb 2026 02:59:37 +0000</relative-time></div></div></div></div></div></div></div><div class="container-lg px-3 new-discussion-timeline"><div class="repository-content gist-content"><div><div class="js-gist-file-update-container js-task-list-container file-box"><div id=file-pytest class="file my-2"><div id=post-header class="file-header d-flex flex-md-items-center flex-items-start sticky-header" style=z-index:2><div class="file-info d-flex flex-md-items-center flex-items-start flex-order-1 flex-auto"><div class="text-mono f6 flex-auto pr-3 flex-order-2 flex-md-order-1 mt-2 mt-md-0"><summary id=toc-toggle onclick=clickToc() class="btn btn-octicon m-0 mr-2 p-2"><svg aria-hidden="true" viewBox="0 0 16 16" height="16" width="16" class="octicon octicon-list-unordered"><path fill-rule="evenodd" d="M2 4a1 1 0 100-2 1 1 0 000 2zm3.75-1.5a.75.75.0 000 1.5h8.5a.75.75.0 000-1.5h-8.5zm0 5a.75.75.0 000 1.5h8.5a.75.75.0 000-1.5h-8.5zm0 5a.75.75.0 000 1.5h8.5a.75.75.0 000-1.5h-8.5zM3 8A1 1 0 111 8a1 1 0 012 0zm-1 6a1 1 0 100-2 1 1 0 000 2z"/></svg></summary><details-menu class=SelectMenu id=toc-details style="display: none;"><div class="SelectMenu-modal rounded-3 mt-1" style=max-height:340px><div class="SelectMenu-list SelectMenu-list--borderless p-2" style=overscroll-behavior:contain id=toc-list></div></div></details-menu>1457 Words</div><div class="file-actions flex-order-2 pt-0"><a class="muted-link mr-3" href=/tags/linux><svg class="octicon octicon-tag" viewBox="0 0 16 16" width="16" height="16"><path fill-rule="evenodd" d="M2.5 7.775V2.75a.25.25.0 01.25-.25h5.025a.25.25.0 01.177.073l6.25 6.25a.25.25.0 010 .354l-5.025 5.025a.25.25.0 01-.354.0l-6.25-6.25A.25.25.0 012.5 7.775zm-1.5.0V2.75C1 1.784 1.784 1 2.75 1h5.025c.464.0.91.184 1.238.513l6.25 6.25a1.75 1.75.0 010 2.474l-5.026 5.026a1.75 1.75.0 01-2.474.0l-6.25-6.25A1.75 1.75.0 011 7.775zM6 5a1 1 0 100 2 1 1 0 000-2z"/></svg>
+linux
+</a><a class="muted-link mr-3" href=/tags/vnc><svg class="octicon octicon-tag" viewBox="0 0 16 16" width="16" height="16"><path fill-rule="evenodd" d="M2.5 7.775V2.75a.25.25.0 01.25-.25h5.025a.25.25.0 01.177.073l6.25 6.25a.25.25.0 010 .354l-5.025 5.025a.25.25.0 01-.354.0l-6.25-6.25A.25.25.0 012.5 7.775zm-1.5.0V2.75C1 1.784 1.784 1 2.75 1h5.025c.464.0.91.184 1.238.513l6.25 6.25a1.75 1.75.0 010 2.474l-5.026 5.026a1.75 1.75.0 01-2.474.0l-6.25-6.25A1.75 1.75.0 011 7.775zM6 5a1 1 0 100 2 1 1 0 000-2z"/></svg>
+vnc
+</a><a class="muted-link mr-3" href=/tags/tigervnc><svg class="octicon octicon-tag" viewBox="0 0 16 16" width="16" height="16"><path fill-rule="evenodd" d="M2.5 7.775V2.75a.25.25.0 01.25-.25h5.025a.25.25.0 01.177.073l6.25 6.25a.25.25.0 010 .354l-5.025 5.025a.25.25.0 01-.354.0l-6.25-6.25A.25.25.0 012.5 7.775zm-1.5.0V2.75C1 1.784 1.784 1 2.75 1h5.025c.464.0.91.184 1.238.513l6.25 6.25a1.75 1.75.0 010 2.474l-5.026 5.026a1.75 1.75.0 01-2.474.0l-6.25-6.25A1.75 1.75.0 011 7.775zM6 5a1 1 0 100 2 1 1 0 000-2z"/></svg>
+tigerVNC
+</a><a class="muted-link mr-3" href=/tags/i3><svg class="octicon octicon-tag" viewBox="0 0 16 16" width="16" height="16"><path fill-rule="evenodd" d="M2.5 7.775V2.75a.25.25.0 01.25-.25h5.025a.25.25.0 01.177.073l6.25 6.25a.25.25.0 010 .354l-5.025 5.025a.25.25.0 01-.354.0l-6.25-6.25A.25.25.0 012.5 7.775zm-1.5.0V2.75C1 1.784 1.784 1 2.75 1h5.025c.464.0.91.184 1.238.513l6.25 6.25a1.75 1.75.0 010 2.474l-5.026 5.026a1.75 1.75.0 01-2.474.0l-6.25-6.25A1.75 1.75.0 011 7.775zM6 5a1 1 0 100 2 1 1 0 000-2z"/></svg>
+i3
+</a><a class="muted-link mr-3" href=/tags/debian><svg class="octicon octicon-tag" viewBox="0 0 16 16" width="16" height="16"><path fill-rule="evenodd" d="M2.5 7.775V2.75a.25.25.0 01.25-.25h5.025a.25.25.0 01.177.073l6.25 6.25a.25.25.0 010 .354l-5.025 5.025a.25.25.0 01-.354.0l-6.25-6.25A.25.25.0 012.5 7.775zm-1.5.0V2.75C1 1.784 1.784 1 2.75 1h5.025c.464.0.91.184 1.238.513l6.25 6.25a1.75 1.75.0 010 2.474l-5.026 5.026a1.75 1.75.0 01-2.474.0l-6.25-6.25A1.75 1.75.0 011 7.775zM6 5a1 1 0 100 2 1 1 0 000-2z"/></svg>
+debian</a></div></div></div><div class="Box-body px-5 pb-5" style=z-index:1><article class="markdown-body entry-content container-lg"><p>Debian 12 只安装VNC及i3桌面，就可以低成本的实现远程桌面环境</p><h2 id=安装>安装</h2><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash><span style=display:flex><span><span style=color:#75715e># 安装通用工具</span>
+</span></span><span style=display:flex><span>apt-get install -y nano net-tools bzip2 procps apt-utils iputils-ping netcat-openbsd
+</span></span><span style=display:flex><span><span style=color:#75715e># 安装中文字体</span>
+</span></span><span style=display:flex><span>apt-get install -y locales fonts-wqy-microhei fonts-wqy-zenhei xfonts-wqy <span style=color:#f92672>&amp;&amp;</span> <span style=color:#ae81ff>\
+</span></span></span><span style=display:flex><span><span style=color:#ae81ff></span>    sed -i -e <span style=color:#e6db74>&#34;s/# zh_CN.UTF-8 UTF-8/zh_CN.UTF-8 UTF-8/&#34;</span> /etc/locale.gen <span style=color:#f92672>&amp;&amp;</span> <span style=color:#ae81ff>\
+</span></span></span><span style=display:flex><span><span style=color:#ae81ff></span>    locale-gen zh_CN.UTF-8 <span style=color:#f92672>&amp;&amp;</span><span style=color:#ae81ff>\
+</span></span></span><span style=display:flex><span><span style=color:#ae81ff></span>    update-locale LANG<span style=color:#f92672>=</span>zh_CN.UTF-8 LANGUAGE<span style=color:#f92672>=</span>zh_CN:zh LC_ALL<span style=color:#f92672>=</span>zh_CN.UTF-8
+</span></span><span style=display:flex><span><span style=color:#75715e># 安装VNC</span>
+</span></span><span style=display:flex><span>apt-get install -y tigervnc-standalone-server
+</span></span><span style=display:flex><span><span style=color:#75715e># 安装i3桌面</span>
+</span></span><span style=display:flex><span>apt-get install -y i3-wm i3status i3blocks dmenu xfonts-base terminator dbus-x11 libdbus-glib-1-2 ; apt-get purge -y pm-utils *screensaver*
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>apt-get clean
+</span></span></code></pre></div><h2 id=配置i3桌面>配置i3桌面</h2><blockquote><p>~/.config/i3/config</p></blockquote><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-ini data-lang=ini><span style=display:flex><span><span style=color:#75715e># This file has been auto-generated by i3-config-wizard(1).</span>
+</span></span><span style=display:flex><span><span style=color:#75715e># It will not be overwritten, so edit it as you like.</span>
+</span></span><span style=display:flex><span><span style=color:#75715e>#</span>
+</span></span><span style=display:flex><span><span style=color:#75715e># Should you change your keyboard layout some time, delete</span>
+</span></span><span style=display:flex><span><span style=color:#75715e># this file and re-run i3-config-wizard(1).</span>
+</span></span><span style=display:flex><span><span style=color:#75715e>#</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#75715e># i3 config file (v4)</span>
+</span></span><span style=display:flex><span><span style=color:#75715e>#</span>
+</span></span><span style=display:flex><span><span style=color:#75715e># Please see https://i3wm.org/docs/userguide.html for a complete reference!</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#a6e22e>set $mod Mod1</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#75715e># Font for window titles. Will also be used by the bar unless a different font</span>
+</span></span><span style=display:flex><span><span style=color:#75715e># is used in the bar {} block below.</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#75715e># This font is widely installed, provides lots of unicode glyphs, right-to-left</span>
+</span></span><span style=display:flex><span><span style=color:#75715e># text rendering and scalability on retina/hidpi displays (thanks to pango).</span>
+</span></span><span style=display:flex><span><span style=color:#75715e>#font pango:DejaVu Sans Mono 8</span>
+</span></span><span style=display:flex><span><span style=color:#a6e22e>font pango:monospace 8</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#75715e># Start XDG autostart .desktop files using dex. See also</span>
+</span></span><span style=display:flex><span><span style=color:#75715e># https://wiki.archlinux.org/index.php/XDG_Autostart</span>
+</span></span><span style=display:flex><span><span style=color:#75715e># exec --no-startup-id dex --autostart --environment i3</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#75715e># The combination of xss-lock, nm-applet and pactl is a popular choice, so</span>
+</span></span><span style=display:flex><span><span style=color:#75715e># they are included here as an example. Modify as you see fit.</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#75715e># xss-lock grabs a logind suspend inhibit lock and will use i3lock to lock the</span>
+</span></span><span style=display:flex><span><span style=color:#75715e># screen before suspend. Use loginctl lock-session to lock your screen.</span>
+</span></span><span style=display:flex><span><span style=color:#75715e># exec --no-startup-id xss-lock --transfer-sleep-lock -- i3lock --nofork</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#75715e># NetworkManager is the most popular way to manage wireless networks on Linux,</span>
+</span></span><span style=display:flex><span><span style=color:#75715e># and nm-applet is a desktop environment-independent system tray GUI for it.</span>
+</span></span><span style=display:flex><span><span style=color:#75715e># exec --no-startup-id nm-applet</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#75715e># Use pactl to adjust volume in PulseAudio.</span>
+</span></span><span style=display:flex><span><span style=color:#75715e># set $refresh_i3status killall -SIGUSR1 i3status</span>
+</span></span><span style=display:flex><span><span style=color:#75715e># bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ +10% &amp;&amp; $refresh_i3status</span>
+</span></span><span style=display:flex><span><span style=color:#75715e># bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ -10% &amp;&amp; $refresh_i3status</span>
+</span></span><span style=display:flex><span><span style=color:#75715e># bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute @DEFAULT_SINK@ toggle &amp;&amp; $refresh_i3status</span>
+</span></span><span style=display:flex><span><span style=color:#75715e># bindsym XF86AudioMicMute exec --no-startup-id pactl set-source-mute @DEFAULT_SOURCE@ toggle &amp;&amp; $refresh_i3status</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#75715e># Use Mouse+$mod to drag floating windows to their wanted position</span>
+</span></span><span style=display:flex><span><span style=color:#a6e22e>floating_modifier $mod</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#75715e># move tiling windows via drag &amp; drop by left-clicking into the title bar,</span>
+</span></span><span style=display:flex><span><span style=color:#75715e># or left-clicking anywhere into the window while holding the floating modifier.</span>
+</span></span><span style=display:flex><span><span style=color:#a6e22e>tiling_drag modifier titlebar</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#75715e># start a terminal</span>
+</span></span><span style=display:flex><span><span style=color:#a6e22e>bindsym $mod+Return exec i3-sensible-terminal</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#75715e># kill focused window</span>
+</span></span><span style=display:flex><span><span style=color:#a6e22e>bindsym $mod+Shift+q kill</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#75715e># start dmenu (a program launcher)</span>
+</span></span><span style=display:flex><span><span style=color:#a6e22e>bindsym $mod+d exec --no-startup-id dmenu_run</span>
+</span></span><span style=display:flex><span><span style=color:#75715e># A more modern dmenu replacement is rofi:</span>
+</span></span><span style=display:flex><span><span style=color:#75715e># bindcode $mod+40 exec &#34;rofi -modi drun,run -show drun&#34;</span>
+</span></span><span style=display:flex><span><span style=color:#75715e># There also is i3-dmenu-desktop which only displays applications shipping a</span>
+</span></span><span style=display:flex><span><span style=color:#75715e># .desktop file. It is a wrapper around dmenu, so you need that installed.</span>
+</span></span><span style=display:flex><span><span style=color:#75715e># bindcode $mod+40 exec --no-startup-id i3-dmenu-desktop</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#75715e># change focus</span>
+</span></span><span style=display:flex><span><span style=color:#a6e22e>bindsym $mod+j focus left</span>
+</span></span><span style=display:flex><span><span style=color:#a6e22e>bindsym $mod+k focus down</span>
+</span></span><span style=display:flex><span><span style=color:#a6e22e>bindsym $mod+l focus up</span>
+</span></span><span style=display:flex><span><span style=color:#a6e22e>bindsym $mod+semicolon focus right</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#75715e># alternatively, you can use the cursor keys:</span>
+</span></span><span style=display:flex><span><span style=color:#a6e22e>bindsym $mod+Left focus left</span>
+</span></span><span style=display:flex><span><span style=color:#a6e22e>bindsym $mod+Down focus down</span>
+</span></span><span style=display:flex><span><span style=color:#a6e22e>bindsym $mod+Up focus up</span>
+</span></span><span style=display:flex><span><span style=color:#a6e22e>bindsym $mod+Right focus right</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#75715e># move focused window</span>
+</span></span><span style=display:flex><span><span style=color:#a6e22e>bindsym $mod+Shift+j move left</span>
+</span></span><span style=display:flex><span><span style=color:#a6e22e>bindsym $mod+Shift+k move down</span>
+</span></span><span style=display:flex><span><span style=color:#a6e22e>bindsym $mod+Shift+l move up</span>
+</span></span><span style=display:flex><span><span style=color:#a6e22e>bindsym $mod+Shift+semicolon move right</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#75715e># alternatively, you can use the cursor keys:</span>
+</span></span><span style=display:flex><span><span style=color:#a6e22e>bindsym $mod+Shift+Left move left</span>
+</span></span><span style=display:flex><span><span style=color:#a6e22e>bindsym $mod+Shift+Down move down</span>
+</span></span><span style=display:flex><span><span style=color:#a6e22e>bindsym $mod+Shift+Up move up</span>
+</span></span><span style=display:flex><span><span style=color:#a6e22e>bindsym $mod+Shift+Right move right</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#75715e># split in horizontal orientation</span>
+</span></span><span style=display:flex><span><span style=color:#a6e22e>bindsym $mod+h split h</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#75715e># split in vertical orientation</span>
+</span></span><span style=display:flex><span><span style=color:#a6e22e>bindsym $mod+v split v</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#75715e># enter fullscreen mode for the focused container</span>
+</span></span><span style=display:flex><span><span style=color:#a6e22e>bindsym $mod+f fullscreen toggle</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#75715e># change container layout (stacked, tabbed, toggle split)</span>
+</span></span><span style=display:flex><span><span style=color:#a6e22e>bindsym $mod+s layout stacking</span>
+</span></span><span style=display:flex><span><span style=color:#a6e22e>bindsym $mod+w layout tabbed</span>
+</span></span><span style=display:flex><span><span style=color:#a6e22e>bindsym $mod+e layout toggle split</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#75715e># toggle tiling / floating</span>
+</span></span><span style=display:flex><span><span style=color:#a6e22e>bindsym $mod+Shift+space floating toggle</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#75715e># change focus between tiling / floating windows</span>
+</span></span><span style=display:flex><span><span style=color:#a6e22e>bindsym $mod+space focus mode_toggle</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#75715e># focus the parent container</span>
+</span></span><span style=display:flex><span><span style=color:#a6e22e>bindsym $mod+a focus parent</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#75715e># focus the child container</span>
+</span></span><span style=display:flex><span><span style=color:#75715e>#bindsym $mod+d focus child</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#75715e># Define names for default workspaces for which we configure key bindings later on.</span>
+</span></span><span style=display:flex><span><span style=color:#75715e># We use variables to avoid repeating the names in multiple places.</span>
+</span></span><span style=display:flex><span><span style=color:#a6e22e>set $ws1 &#34;1&#34;</span>
+</span></span><span style=display:flex><span><span style=color:#a6e22e>set $ws2 &#34;2&#34;</span>
+</span></span><span style=display:flex><span><span style=color:#a6e22e>set $ws3 &#34;3&#34;</span>
+</span></span><span style=display:flex><span><span style=color:#a6e22e>set $ws4 &#34;4&#34;</span>
+</span></span><span style=display:flex><span><span style=color:#a6e22e>set $ws5 &#34;5&#34;</span>
+</span></span><span style=display:flex><span><span style=color:#a6e22e>set $ws6 &#34;6&#34;</span>
+</span></span><span style=display:flex><span><span style=color:#a6e22e>set $ws7 &#34;7&#34;</span>
+</span></span><span style=display:flex><span><span style=color:#a6e22e>set $ws8 &#34;8&#34;</span>
+</span></span><span style=display:flex><span><span style=color:#a6e22e>set $ws9 &#34;9&#34;</span>
+</span></span><span style=display:flex><span><span style=color:#a6e22e>set $ws10 &#34;10&#34;</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#75715e># switch to workspace</span>
+</span></span><span style=display:flex><span><span style=color:#a6e22e>bindsym $mod+1 workspace number $ws1</span>
+</span></span><span style=display:flex><span><span style=color:#a6e22e>bindsym $mod+2 workspace number $ws2</span>
+</span></span><span style=display:flex><span><span style=color:#a6e22e>bindsym $mod+3 workspace number $ws3</span>
+</span></span><span style=display:flex><span><span style=color:#a6e22e>bindsym $mod+4 workspace number $ws4</span>
+</span></span><span style=display:flex><span><span style=color:#a6e22e>bindsym $mod+5 workspace number $ws5</span>
+</span></span><span style=display:flex><span><span style=color:#a6e22e>bindsym $mod+6 workspace number $ws6</span>
+</span></span><span style=display:flex><span><span style=color:#a6e22e>bindsym $mod+7 workspace number $ws7</span>
+</span></span><span style=display:flex><span><span style=color:#a6e22e>bindsym $mod+8 workspace number $ws8</span>
+</span></span><span style=display:flex><span><span style=color:#a6e22e>bindsym $mod+9 workspace number $ws9</span>
+</span></span><span style=display:flex><span><span style=color:#a6e22e>bindsym $mod+0 workspace number $ws10</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#75715e># move focused container to workspace</span>
+</span></span><span style=display:flex><span><span style=color:#a6e22e>bindsym $mod+Shift+1 move container to workspace number $ws1</span>
+</span></span><span style=display:flex><span><span style=color:#a6e22e>bindsym $mod+Shift+2 move container to workspace number $ws2</span>
+</span></span><span style=display:flex><span><span style=color:#a6e22e>bindsym $mod+Shift+3 move container to workspace number $ws3</span>
+</span></span><span style=display:flex><span><span style=color:#a6e22e>bindsym $mod+Shift+4 move container to workspace number $ws4</span>
+</span></span><span style=display:flex><span><span style=color:#a6e22e>bindsym $mod+Shift+5 move container to workspace number $ws5</span>
+</span></span><span style=display:flex><span><span style=color:#a6e22e>bindsym $mod+Shift+6 move container to workspace number $ws6</span>
+</span></span><span style=display:flex><span><span style=color:#a6e22e>bindsym $mod+Shift+7 move container to workspace number $ws7</span>
+</span></span><span style=display:flex><span><span style=color:#a6e22e>bindsym $mod+Shift+8 move container to workspace number $ws8</span>
+</span></span><span style=display:flex><span><span style=color:#a6e22e>bindsym $mod+Shift+9 move container to workspace number $ws9</span>
+</span></span><span style=display:flex><span><span style=color:#a6e22e>bindsym $mod+Shift+0 move container to workspace number $ws10</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#75715e># reload the configuration file</span>
+</span></span><span style=display:flex><span><span style=color:#a6e22e>bindsym $mod+Shift+c reload</span>
+</span></span><span style=display:flex><span><span style=color:#75715e># restart i3 inplace (preserves your layout/session, can be used to upgrade i3)</span>
+</span></span><span style=display:flex><span><span style=color:#a6e22e>bindsym $mod+Shift+r restart</span>
+</span></span><span style=display:flex><span><span style=color:#75715e># exit i3 (logs you out of your X session)</span>
+</span></span><span style=display:flex><span><span style=color:#a6e22e>bindsym $mod+Shift+e exec &#34;i3-nagbar -t warning -m &#39;You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.&#39; -B &#39;Yes, exit i3&#39; &#39;i3-msg exit&#39;&#34;</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#75715e># resize window (you can also use the mouse for that)</span>
+</span></span><span style=display:flex><span><span style=color:#a6e22e>mode &#34;resize&#34; {</span>
+</span></span><span style=display:flex><span>        <span style=color:#75715e># These bindings trigger as soon as you enter the resize mode</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>        <span style=color:#75715e># Pressing left will shrink the window’s width.</span>
+</span></span><span style=display:flex><span>        <span style=color:#75715e># Pressing right will grow the window’s width.</span>
+</span></span><span style=display:flex><span>        <span style=color:#75715e># Pressing up will shrink the window’s height.</span>
+</span></span><span style=display:flex><span>        <span style=color:#75715e># Pressing down will grow the window’s height.</span>
+</span></span><span style=display:flex><span>        <span style=color:#a6e22e>bindsym j resize shrink width 10 px or 10 ppt</span>
+</span></span><span style=display:flex><span>        <span style=color:#a6e22e>bindsym k resize grow height 10 px or 10 ppt</span>
+</span></span><span style=display:flex><span>        <span style=color:#a6e22e>bindsym l resize shrink height 10 px or 10 ppt</span>
+</span></span><span style=display:flex><span>        <span style=color:#a6e22e>bindsym semicolon resize grow width 10 px or 10 ppt</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>        <span style=color:#75715e># same bindings, but for the arrow keys</span>
+</span></span><span style=display:flex><span>        <span style=color:#a6e22e>bindsym Left resize shrink width 10 px or 10 ppt</span>
+</span></span><span style=display:flex><span>        <span style=color:#a6e22e>bindsym Down resize grow height 10 px or 10 ppt</span>
+</span></span><span style=display:flex><span>        <span style=color:#a6e22e>bindsym Up resize shrink height 10 px or 10 ppt</span>
+</span></span><span style=display:flex><span>        <span style=color:#a6e22e>bindsym Right resize grow width 10 px or 10 ppt</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>        <span style=color:#75715e># back to normal: Enter or Escape or $mod+r</span>
+</span></span><span style=display:flex><span>        <span style=color:#a6e22e>bindsym Return mode &#34;default&#34;</span>
+</span></span><span style=display:flex><span>        <span style=color:#a6e22e>bindsym Escape mode &#34;default&#34;</span>
+</span></span><span style=display:flex><span>        <span style=color:#a6e22e>bindsym $mod+r mode &#34;default&#34;</span>
+</span></span><span style=display:flex><span><span style=color:#a6e22e>}</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#a6e22e>bindsym $mod+r mode &#34;resize&#34;</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#75715e># Start i3bar to display a workspace bar (plus the system information i3status</span>
+</span></span><span style=display:flex><span><span style=color:#75715e># finds out, if available)</span>
+</span></span><span style=display:flex><span><span style=color:#a6e22e>bar {</span>
+</span></span><span style=display:flex><span>        <span style=color:#a6e22e>status_command i3status -c $HOME/.config/i3/status.conf</span>
+</span></span><span style=display:flex><span><span style=color:#a6e22e>}</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#75715e># exec_always $HOME/chrome-startup</span>
+</span></span></code></pre></div><ul><li><a href=https://zhuanlan.zhihu.com/p/640577283>i3 窗口管理器终极定制指南</a></li></ul><blockquote><p>~/.config/i3/status.conf</p></blockquote><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-ini data-lang=ini><span style=display:flex><span><span style=color:#75715e># i3status configuration file.</span>
+</span></span><span style=display:flex><span><span style=color:#75715e># see &#34;man i3status&#34; for documentation.</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#75715e># It is important that this file is edited as UTF-8.</span>
+</span></span><span style=display:flex><span><span style=color:#75715e># The following line should contain a sharp s:</span>
+</span></span><span style=display:flex><span><span style=color:#75715e># ß</span>
+</span></span><span style=display:flex><span><span style=color:#75715e># If the above line is not correctly displayed, fix your editor first!</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#a6e22e>general {</span>
+</span></span><span style=display:flex><span>        <span style=color:#a6e22e>colors</span> <span style=color:#f92672>=</span> <span style=color:#e6db74>true
+</span></span></span><span style=display:flex><span><span style=color:#e6db74>        interval = 5</span>
+</span></span><span style=display:flex><span><span style=color:#a6e22e>}</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#75715e># order += &#34;ethernet _first_&#34;</span>
+</span></span><span style=display:flex><span><span style=color:#75715e># order += &#34;ipv6&#34;</span>
+</span></span><span style=display:flex><span><span style=color:#a6e22e>order +</span><span style=color:#f92672>=</span> <span style=color:#e6db74>&#34;cpu_usage&#34;</span>
+</span></span><span style=display:flex><span><span style=color:#a6e22e>order +</span><span style=color:#f92672>=</span> <span style=color:#e6db74>&#34;memory&#34;</span>
+</span></span><span style=display:flex><span><span style=color:#a6e22e>order +</span><span style=color:#f92672>=</span> <span style=color:#e6db74>&#34;disk /&#34;</span>
+</span></span><span style=display:flex><span><span style=color:#a6e22e>order +</span><span style=color:#f92672>=</span> <span style=color:#e6db74>&#34;tztime local&#34;</span>
+</span></span><span style=display:flex><span><span style=color:#75715e># order += &#34;load&#34;</span>
+</span></span><span style=display:flex><span><span style=color:#75715e># order += &#34;wireless _first_&#34;</span>
+</span></span><span style=display:flex><span><span style=color:#75715e># order += &#34;battery all&#34;</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#75715e># ethernet _first_ {</span>
+</span></span><span style=display:flex><span><span style=color:#75715e>#         format_up = &#34;IPv4: %ip&#34;</span>
+</span></span><span style=display:flex><span><span style=color:#75715e>#         format_down = &#34;IPv4: is down&#34;</span>
+</span></span><span style=display:flex><span><span style=color:#75715e># }</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#75715e># ipv6 {</span>
+</span></span><span style=display:flex><span><span style=color:#75715e># 	format_up = &#34;IPv6: %ip&#34;</span>
+</span></span><span style=display:flex><span><span style=color:#75715e># 	format_down = &#34;IPv6: is down&#34;</span>
+</span></span><span style=display:flex><span><span style=color:#75715e># }</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#a6e22e>cpu_usage {</span>
+</span></span><span style=display:flex><span>        <span style=color:#a6e22e>format</span> <span style=color:#f92672>=</span> <span style=color:#e6db74>&#34;CPU: %usage&#34;</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#a6e22e>}</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#a6e22e>memory {</span>
+</span></span><span style=display:flex><span>        <span style=color:#a6e22e>format</span> <span style=color:#f92672>=</span> <span style=color:#e6db74>&#34;Memory: %used / %total&#34;
+</span></span></span><span style=display:flex><span><span style=color:#e6db74>        format_degraded = &#34;Memory Low: &lt; %available&#34;</span>
+</span></span><span style=display:flex><span><span style=color:#a6e22e>}</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#a6e22e>disk &#34;/&#34; {</span>
+</span></span><span style=display:flex><span>        <span style=color:#a6e22e>format</span> <span style=color:#f92672>=</span> <span style=color:#e6db74>&#34;Disk Avail: %avail&#34;</span>
+</span></span><span style=display:flex><span><span style=color:#a6e22e>}</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#a6e22e>tztime local {</span>
+</span></span><span style=display:flex><span>        <span style=color:#a6e22e>format</span> <span style=color:#f92672>=</span> <span style=color:#e6db74>&#34;%Y-%m-%d %H:%M:%S&#34;</span>
+</span></span><span style=display:flex><span><span style=color:#a6e22e>}</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#a6e22e>wireless _first_ {</span>
+</span></span><span style=display:flex><span>        <span style=color:#a6e22e>format_up</span> <span style=color:#f92672>=</span> <span style=color:#e6db74>&#34;IPv6: (%quality at %essid) %ip (%speed)&#34;
+</span></span></span><span style=display:flex><span><span style=color:#e6db74>        format_down = &#34;IPv6: down&#34;</span>
+</span></span><span style=display:flex><span><span style=color:#a6e22e>}</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#a6e22e>battery all {</span>
+</span></span><span style=display:flex><span>        <span style=color:#a6e22e>format</span> <span style=color:#f92672>=</span> <span style=color:#e6db74>&#34;%status %percentage %remaining&#34;</span>
+</span></span><span style=display:flex><span><span style=color:#a6e22e>}</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#a6e22e>load {</span>
+</span></span><span style=display:flex><span>        <span style=color:#a6e22e>format</span> <span style=color:#f92672>=</span> <span style=color:#e6db74>&#34;Load: %1min&#34;</span>
+</span></span><span style=display:flex><span><span style=color:#a6e22e>}</span>
+</span></span></code></pre></div><h2 id=配置vnc>配置VNC</h2><blockquote><p>设置VNC密码</p></blockquote><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash><span style=display:flex><span>echo <span style=color:#e6db74>&#34;password&#34;</span> | vncpasswd -f &gt;&gt; $HOME/.vnc/passwd
+</span></span><span style=display:flex><span>chomd <span style=color:#ae81ff>600</span> $HOME/.vnc/passwd
+</span></span></code></pre></div><blockquote><p>vnc桌面绑定用户
+/etc/gitervnc/vncserver.users</p></blockquote><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash><span style=display:flex><span>echo <span style=color:#e6db74>&#34;:1=&lt;user name&gt;&#34;</span> &gt;&gt; /etc/tigervnc/vncserver.users
+</span></span></code></pre></div><blockquote><p>创建启动脚本
+~/vnc_startup.sh</p></blockquote><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash><span style=display:flex><span>vncserver -kill :1 <span style=color:#f92672>||</span> rm -rfv /tmp/.X*-lock /tmp/.X11-unix
+</span></span><span style=display:flex><span>vncserver :1 -depth <span style=color:#ae81ff>24</span> -geometry 1600x900 PasswordFile<span style=color:#f92672>=</span>$HOME/.vnc/passwd
+</span></span></code></pre></div><h2 id=启动vnc>启动VNC</h2><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash><span style=display:flex><span>sh ./vnc_startup.sh
+</span></span></code></pre></div></article></div></div></div></div></div></div></main></div><script type=application/javascript src=https://blog.cuile.com/js/toc.js></script><link rel=stylesheet href=https://blog.cuile.com/css/toc.css></div><div class="footer container-xl width-full p-responsive"><div class="position-relative d-flex flex-row-reverse flex-lg-row flex-wrap flex-lg-nowrap flex-justify-center flex-lg-justify-between flex-sm-items-center pt-6 pb-2 mt-6 f6 text-gray border-top border-gray-light"><a aria-label=Homepage title=GitHub class="footer-octicon d-none d-lg-block mr-lg-4" href=https://blog.cuile.com/><svg height="24" class="octicon octicon-mark-github" viewBox="0 0 16 16" width="24"><path fill-rule="evenodd" d="M8 0C3.58.0.0 3.58.0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38.0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95.0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12.0.0.67-.21 2.2.82.64-.18 1.32-.27 2-.27s1.36.09 2 .27c1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15.0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48.0 1.07-.01 1.93-.01 2.2.0.21.15.46.55.38A8.013 8.013.0 0016 8c0-4.42-3.58-8-8-8z"/></svg></a><ul class="list-style-none d-flex flex-wrap col-12 flex-justify-center flex-lg-justify-between mb-2 mb-lg-0"><li class="mr-3 mr-lg-0">Theme by <a href=https://github.com/MeiK2333/github-style>github-style</a></li><li class="mr-3 mr-lg-0">GitHub and the Invertocat logo are trademarks of <a href=https://github.com/>GitHub, Inc.</a></li></ul></div><div class="d-flex flex-justify-center pb-6"><span class="f6 text-gray-light"></span></div></div></body><script type=application/javascript src=https://blog.cuile.com/js/github-style.js></script><script src=https://cdn.jsdelivr.net/npm/fuse.js/dist/fuse.min.js></script><script type=application/javascript src=https://blog.cuile.com/js/search.js></script></html>

@@ -1,2 +1,20 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>输入法 on 瘦了就帅了</title><link>https://cuile.github.io/tags/%E8%BE%93%E5%85%A5%E6%B3%95/</link><description>Recent content in 输入法 on 瘦了就帅了</description><generator>Hugo -- gohugo.io</generator><copyright>Copyright © 2008–2018, Steve Francia and the Hugo Authors; all rights reserved.</copyright><lastBuildDate>Mon, 08 Jan 2024 11:49:59 +0800</lastBuildDate><atom:link href="https://cuile.github.io/tags/%E8%BE%93%E5%85%A5%E6%B3%95/index.xml" rel="self" type="application/rss+xml"/><item><title>Windows配置</title><link>https://cuile.github.io/posts/windows/windows_setup/</link><pubDate>Mon, 08 Jan 2024 11:49:59 +0800</pubDate><guid>https://cuile.github.io/posts/windows/windows_setup/</guid><description>
-Windows 10 自带输入法，没有候选字栏 1&amp;gt; DISM /Online /Add-Capability /CapabilityName:Windows.Client.ShellComponents~~~~0.0.1.0 我用的win10自带输入法，最近不知道为什么没有候选字栏，只能用空格选定输入，怎么解决？</description></item></channel></rss>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>输入法 on 瘦了就帅了</title><link>https://blog.cuile.com/tags/%E8%BE%93%E5%85%A5%E6%B3%95/</link><description>Recent content in 输入法 on 瘦了就帅了</description><generator>Hugo</generator><language>zh-cn</language><lastBuildDate>Thu, 26 Feb 2026 02:59:37 +0000</lastBuildDate><atom:link href="https://blog.cuile.com/tags/%E8%BE%93%E5%85%A5%E6%B3%95/index.xml" rel="self" type="application/rss+xml"/><item><title>Windows配置</title><link>https://blog.cuile.com/post/windows/windows_setup/</link><pubDate>Mon, 08 Jan 2024 11:49:59 +0800</pubDate><guid>https://blog.cuile.com/post/windows/windows_setup/</guid><description>&lt;h2 id="windows-10-自带输入法没有候选字栏">Windows 10 自带输入法，没有候选字栏&lt;/h2>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-powershell" data-lang="powershell">&lt;span style="display:flex;">&lt;span>&amp;gt; DISM /Online /Add-Capability /CapabilityName&lt;span style="color:#960050;background-color:#1e0010">:&lt;/span>Windows.Client.ShellComponents~~~~&lt;span style="color:#ae81ff">0.0&lt;/span>.1.0
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;ul>
+&lt;li>&lt;a href="https://www.zhihu.com/question/427491064">我用的win10自带输入法，最近不知道为什么没有候选字栏，只能用空格选定输入，怎么解决？&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;h2 id="卸载预装应用">卸载预装应用&lt;/h2>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-powershell" data-lang="powershell">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e"># 查看所有预装应用&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&amp;gt; Get-AppxPackage | Select Name, PackageFullName
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e"># 移除指定应用（例如 Xbox）&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&amp;gt; Get-AppxPackage *xbox* | Remove-AppxPackage
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e"># 移除所有用户的应用（加 -AllUsers）&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&amp;gt; Get-AppxPackage -AllUsers *Microsoft.YourPhone* | Remove-AppxPackage -AllUsers
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e"># 彻底禁用自动安装（防止更新后恢复）&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&amp;gt; Set-Content -Path &lt;span style="color:#e6db74">&amp;#34;HKLM:\SOFTWARE\Policies\Microsoft\Windows\CloudContent&amp;#34;&lt;/span> -Name &lt;span style="color:#e6db74">&amp;#34;DisableWindowsConsumerFeatures&amp;#34;&lt;/span> -Value &lt;span style="color:#ae81ff">1&lt;/span> -Type DWord
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="自定义命令">自定义命令&lt;/h2>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-powershell" data-lang="powershell">&lt;span style="display:flex;">&lt;span>Set-Alias -name ll -value Get-ChildItem -Force
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div></description></item></channel></rss>

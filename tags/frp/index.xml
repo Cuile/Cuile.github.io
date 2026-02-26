@@ -1,2 +1,44 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>frp on 瘦了就帅了</title><link>https://cuile.github.io/tags/frp/</link><description>Recent content in frp on 瘦了就帅了</description><generator>Hugo -- gohugo.io</generator><copyright>Copyright © 2008–2018, Steve Francia and the Hugo Authors; all rights reserved.</copyright><lastBuildDate>Wed, 28 Dec 2022 17:15:15 +0800</lastBuildDate><atom:link href="https://cuile.github.io/tags/frp/index.xml" rel="self" type="application/rss+xml"/><item><title>frp安装配置</title><link>https://cuile.github.io/posts/linux/frp_install/</link><pubDate>Wed, 28 Dec 2022 17:15:15 +0800</pubDate><guid>https://cuile.github.io/posts/linux/frp_install/</guid><description>
-1. 使用手册 看完这3篇足以把服务建起来，非常方便 官方文档 教程1 教程2 2. 服务端安装配置 可直接使用 Docker 的配置进行 3. 客户端下载、 安装、运行 原本也想使用</description></item></channel></rss>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Frp on 瘦了就帅了</title><link>https://blog.cuile.com/tags/frp/</link><description>Recent content in Frp on 瘦了就帅了</description><generator>Hugo</generator><language>zh-cn</language><lastBuildDate>Thu, 26 Feb 2026 02:59:37 +0000</lastBuildDate><atom:link href="https://blog.cuile.com/tags/frp/index.xml" rel="self" type="application/rss+xml"/><item><title>frp安装配置</title><link>https://blog.cuile.com/post/linux/frp_install/</link><pubDate>Wed, 28 Dec 2022 17:15:15 +0800</pubDate><guid>https://blog.cuile.com/post/linux/frp_install/</guid><description>&lt;h2 id="1-使用手册">1. 使用手册&lt;/h2>
+&lt;p>看完这3篇足以把服务建起来，非常方便&lt;/p>
+&lt;ul>
+&lt;li>&lt;a href="https://github.com/fatedier/frp/blob/master/README_zh.md">官方文档&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://www.appinn.com/frp/">教程1&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://meta.appinn.net/t/frp/11319/13">教程2&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;h2 id="2-服务端安装配置">2. 服务端安装配置&lt;/h2>
+&lt;p>可直接使用 Docker 的配置进行&lt;/p>
+&lt;h2 id="3-客户端下载-安装运行">3. 客户端下载、 安装、运行&lt;/h2>
+&lt;p>原本也想使用Docker镜像，但发现kvm之间通过Docker通信好像有问题，所幸在宿主机上可以直接使用release文件。
+【&lt;em>注意：每次添加新的客户端，要同步更新服务端的端口配置&lt;/em>】&lt;/p>
+&lt;h3 id="31-下载">3.1. 下载&lt;/h3>
+&lt;p>&lt;a href="https://github.com/fatedier/frp/releases">官网下载地址&lt;/a>【&lt;em>注意：s, c两端使用的版本号要相同&lt;/em>】&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span>$ cd ~
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e"># 下载安装软件&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>$ yum install wget tar git
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e"># 下载 frp&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>$ wget -c https://github.com/fatedier/frp/releases/download/v0.34.3/frp_0.34.3_linux_amd64.tar.gz
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>$ tar -axvf frp_0.34.3_linux_amd64.tar.gz
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>$ rm -rf frp_0.34.3_linux_amd64.tar.gz
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e"># 下载 frp 配置&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>$ git clone https://github.com/Cuile/frp.git
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h3 id="32-安装">3.2. 安装&lt;/h3>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e"># 此处只能使用硬链接，使用软链接会导致无法启动服务&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e"># 安装配置文件&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>$ mkdir /etc/frp
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>$ ln -b ~/frp/conf/frpc-pve.ini /etc/frp/frpc.ini
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e"># 安装运行文件&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>$ ln -b ~/frp_0.34.3_linux_amd64/frpc /usr/bin/frpc
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e"># 安装服务&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>$ ln -b ~/frp_0.34.3_linux_amd64/systemd/frpc.service /lib/systemd/system/frpc.service
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h3 id="33-运行">3.3. 运行&lt;/h3>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span>$ systemctl enable frpc.service &lt;span style="color:#75715e">##设定指定服务开机开启&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>$ systemctl disable frpc.service &lt;span style="color:#75715e">##设定指定服务开机关闭&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>$ systemctl start frpc.service
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>$ systemctl stop frpc.service
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>$ systemctl restart frpc.service
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>$ systemctl status frpc.service
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>$ systemctl list-units | grep frpc
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h3 id="34-更新">3.4. 更新&lt;/h3>
+&lt;p>通过 git 更新 frpc 的配置后，要重新链接配置文件&lt;/p></description></item></channel></rss>

@@ -1,2 +1,25 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>DHCP on 瘦了就帅了</title><link>https://cuile.github.io/tags/dhcp/</link><description>Recent content in DHCP on 瘦了就帅了</description><generator>Hugo -- gohugo.io</generator><copyright>Copyright © 2008–2018, Steve Francia and the Hugo Authors; all rights reserved.</copyright><lastBuildDate>Fri, 07 Feb 2025 09:44:39 +0800</lastBuildDate><atom:link href="https://cuile.github.io/tags/dhcp/index.xml" rel="self" type="application/rss+xml"/><item><title>ProxmoxVE 配置 DHCP 网络</title><link>https://cuile.github.io/posts/proxmox/dhcp/</link><pubDate>Fri, 07 Feb 2025 09:44:39 +0800</pubDate><guid>https://cuile.github.io/posts/proxmox/dhcp/</guid><description>
-PVE 节点的网络配置，在 WebUI 里只能设置为静态地址，想设置DHCP的话需要使用以下方法。 方法一 1$ cp /etc/network/interfaces /etc/network/interfaces.new 1# /etc/network/interfaces.new 2... 3# IPv4 4iface vmbr0 inet dhcp 5 # address 192.168.1.66/24 6 # gateway 192.168.1.1 7 bridge-ports enp1s0 8 bridge-stp off</description></item></channel></rss>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>DHCP on 瘦了就帅了</title><link>https://blog.cuile.com/tags/dhcp/</link><description>Recent content in DHCP on 瘦了就帅了</description><generator>Hugo</generator><language>zh-cn</language><lastBuildDate>Thu, 26 Feb 2026 02:59:37 +0000</lastBuildDate><atom:link href="https://blog.cuile.com/tags/dhcp/index.xml" rel="self" type="application/rss+xml"/><item><title>ProxmoxVE 配置 DHCP 网络</title><link>https://blog.cuile.com/post/proxmox/dhcp/</link><pubDate>Fri, 07 Feb 2025 09:44:39 +0800</pubDate><guid>https://blog.cuile.com/post/proxmox/dhcp/</guid><description>&lt;p>PVE 节点的网络配置，在 WebUI 里只能设置为静态地址，想设置DHCP的话需要使用以下方法。&lt;/p>
+&lt;h2 id="方法一">方法一&lt;/h2>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span>$ cp /etc/network/interfaces /etc/network/interfaces.new
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-ini" data-lang="ini">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e"># /etc/network/interfaces.new&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#a6e22e">...&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e"># IPv4&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#a6e22e">iface vmbr0 inet dhcp&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#75715e"># address 192.168.1.66/24&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#75715e"># gateway 192.168.1.1&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#a6e22e">bridge-ports enp1s0&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#a6e22e">bridge-stp off&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#a6e22e">bridge-fd 0&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e"># IPv6&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#a6e22e">iface vmbr0 inet6 dhcp&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#a6e22e">request_prefix 1&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>在 PVE 的 WebUI 里 “系统 &amp;gt; 网络” 处，刷新后点击“应用配置”即可生效，等待几分钟后即可获取到IPv6地址。&lt;/p>
+&lt;h2 id="方法二">方法二&lt;/h2>
+&lt;p>直接修改 /etc/network/interfaces 文件也可以，修改完获取新地址。&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span>$ systemctl restart networking
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="查看新地址">查看新地址&lt;/h2>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span>$ ip addr show vmbr0
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;ul>
+&lt;li>&lt;a href="https://blog.csdn.net/weixin_47054353/article/details/130452673">PVE设置动态获取ip地址&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://www.icn.ink/pve/57.html">Proxmox VE 使用IPv6&lt;/a>&lt;/li>
+&lt;/ul></description></item></channel></rss>

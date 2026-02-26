@@ -1,7 +1,414 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>centos on 瘦了就帅了</title><link>https://cuile.github.io/tags/centos/</link><description>Recent content in centos on 瘦了就帅了</description><generator>Hugo -- gohugo.io</generator><copyright>Copyright © 2008–2018, Steve Francia and the Hugo Authors; all rights reserved.</copyright><lastBuildDate>Wed, 23 Oct 2024 13:04:27 +0800</lastBuildDate><atom:link href="https://cuile.github.io/tags/centos/index.xml" rel="self" type="application/rss+xml"/><item><title>在 CentOS 上部署 NetBIOS</title><link>https://cuile.github.io/posts/linux/wins_netbios/</link><pubDate>Wed, 23 Oct 2024 13:04:27 +0800</pubDate><guid>https://cuile.github.io/posts/linux/wins_netbios/</guid><description>
-基于 CentOS 7 让Linux系统与Windows系统之间，支持机器名访问，需要Linux安装NetBIOS。 而安装NetBIOS，不一定必须安装Sa</description></item><item><title>Centos7 安装 Postgresql</title><link>https://cuile.github.io/posts/database/postgresql_for_centos/</link><pubDate>Fri, 19 Jan 2024 13:37:15 +0800</pubDate><guid>https://cuile.github.io/posts/database/postgresql_for_centos/</guid><description>
-安装 1$ yum install https://download.postgresql.org/pub/repos/yum/10/redhat/rhel-7-x86_64/pgdg-centos10-10-2.noarch.rpm 2 3# 安装服务端包 4$ yum install postgresql10-server postgresql10 配置 1# 初始化数据库，设置自启动 2$ /usr/pgsql-10/bin/postgresql-10-setup initdb 3$ systemctl enable postgresql-10 4$ systemctl start postgresql-10 5 6# 设置防火墙规则 7$ iptables -A INPUT -p tcp -m tcp --dport 5432 -j ACCEPT #开放P</description></item><item><title>在CentOS中安装 Laravel 框架</title><link>https://cuile.github.io/posts/laravel/install_for_centos/</link><pubDate>Fri, 19 Jan 2024 13:26:15 +0800</pubDate><guid>https://cuile.github.io/posts/laravel/install_for_centos/</guid><description>
-1、安装Composer镜像 1$ docker pull composer:1.9.0 2、安装laravel 1# 启动Composer镜像 2$ docker run --rm \ 3 -it \ 4 -v ${PWD}:/app \ 5 composer:1.9.0 /bin/bash 6 7# 创建composer.</description></item><item><title>Hyper-V 环境下给 CentOS 磁盘扩容</title><link>https://cuile.github.io/posts/windows/hyper-v_centos_disk_expansion/</link><pubDate>Mon, 26 Dec 2022 21:01:32 +0800</pubDate><guid>https://cuile.github.io/posts/windows/hyper-v_centos_disk_expansion/</guid><description>
-使用Hyper-V安装CentOS虚拟机，使用起来非常方便。但遇到磁盘空间不够时，不像Windows虚拟机那样方便给磁盘空间扩容。 总体两分二</description></item><item><title>Docker 安装</title><link>https://cuile.github.io/posts/docker/docker_install/</link><pubDate>Fri, 06 May 2022 11:05:23 +0800</pubDate><guid>https://cuile.github.io/posts/docker/docker_install/</guid><description>
-其实网上相关的文章已经非常多了，所以这篇文章的作用只是记录和明确一条确定可行的操作路径，为以后的操作节省时间，毕竟像我一样大部分人都不是专业</description></item><item><title>软件库管理</title><link>https://cuile.github.io/posts/linux/repo_manual/</link><pubDate>Tue, 08 Feb 2022 10:28:50 +0800</pubDate><guid>https://cuile.github.io/posts/linux/repo_manual/</guid><description>
-APT Debian 全球镜像站 查找延迟最小的镜像 1sudo apt install -y netselect-apt \ 2 &amp;amp;&amp;amp; sudo netselect-apt \ 3 &amp;amp;&amp;amp; sudo apt autoremove -y netselect-apt \ 4 &amp;amp;&amp;amp; rm -f sources.list 1The fastest 10 servers seem to be: 2 3 http://mirrors.bfsu.edu.cn/debian/ 4 http://mirrors.tuna.tsinghua.edu.cn/debian/ 5 http://mirrors.neusoft.edu.cn/debian/ 6 http://mirrors.jlu.edu.cn/debian/ 7 http://ftp.cn.debian.org/debian/ 8 http://debian.cs.nycu.edu.tw/debian/ 9 http://mirror.i3d.net/debian/ 10 http://mirrors.163.com/debian/ 11 http://mirror.bizflycloud.vn/debian/ 12 http://ftp.kaist.ac.kr/debian/ 13 14Of</description></item></channel></rss>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>CentOS on 瘦了就帅了</title><link>https://blog.cuile.com/tags/centos/</link><description>Recent content in CentOS on 瘦了就帅了</description><generator>Hugo</generator><language>zh-cn</language><lastBuildDate>Thu, 26 Feb 2026 02:59:37 +0000</lastBuildDate><atom:link href="https://blog.cuile.com/tags/centos/index.xml" rel="self" type="application/rss+xml"/><item><title>在 CentOS 上部署 NetBIOS</title><link>https://blog.cuile.com/post/linux/wins_netbios/</link><pubDate>Wed, 23 Oct 2024 13:04:27 +0800</pubDate><guid>https://blog.cuile.com/post/linux/wins_netbios/</guid><description>&lt;p>&lt;strong>&lt;code>基于 CentOS 7&lt;/code>&lt;/strong>&lt;/p>
+&lt;p>让Linux系统与Windows系统之间，支持机器名访问，需要Linux安装NetBIOS。
+而安装NetBIOS，不一定必须安装Samba，安装过程如下:&lt;/p>
+&lt;h2 id="安装库">安装库&lt;/h2>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e"># 注意 这里并不会安装完整的samba&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>$ yum install samba-winbind
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="修改配置文件">修改配置文件&lt;/h2>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-ini" data-lang="ini">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e">; Nano /etc/nsswitch.conf&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e">; add wins&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#a6e22e">hosts: files &amp;lt;wins&amp;gt; dns myhostname&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="验证安装">验证安装&lt;/h2>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span>$ ll /etc/&amp;lt;lib|lib64&amp;gt;/libnss_winbind.so
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="配置生效">配置生效&lt;/h2>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span>$ ldconfig
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="配置服务">配置服务&lt;/h2>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span>$ systemctl start winbind
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>$ systemctl status winbind
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="参考">参考&lt;/h2>
+&lt;ul>
+&lt;li>&lt;a href="https://www.baeldung.com/linux/netbios-resolve-names">How to Resolve NetBIOS Names From Linux | Baeldung on Linux&lt;/a>&lt;/li>
+&lt;/ul></description></item><item><title>Centos7 安装 Postgresql</title><link>https://blog.cuile.com/post/database/postgresql_for_centos/</link><pubDate>Fri, 19 Jan 2024 13:37:15 +0800</pubDate><guid>https://blog.cuile.com/post/database/postgresql_for_centos/</guid><description>&lt;h2 id="安装">安装&lt;/h2>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span>$ yum install https://download.postgresql.org/pub/repos/yum/10/redhat/rhel-7-x86_64/pgdg-centos10-10-2.noarch.rpm
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e"># 安装服务端包&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>$ yum install postgresql10-server postgresql10
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="配置">配置&lt;/h2>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e"># 初始化数据库，设置自启动&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>$ /usr/pgsql-10/bin/postgresql-10-setup initdb
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>$ systemctl enable postgresql-10
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>$ systemctl start postgresql-10
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e"># 设置防火墙规则&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>$ iptables -A INPUT -p tcp -m tcp --dport &lt;span style="color:#ae81ff">5432&lt;/span> -j ACCEPT &lt;span style="color:#75715e">#开放Postgresql 5432端口&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>$ service iptables save &lt;span style="color:#75715e"># 保存防火墙规则&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="配置远程访问">配置远程访问&lt;/h2>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e"># 切换至用户&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>$ su - postgres
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-ini" data-lang="ini">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e">; ./10/data/postgres.conf&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#a6e22e">- #listen_address&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#a6e22e">+ listen_address&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e">; ./10/data/pg_hba.conf&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e">; 允许所有IPv4地址&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#a6e22e">+ host all all 0.0.0.0/0 scram-sha-256&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h3 id="登录数据库">登录数据库&lt;/h3>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span>$ psql -U postgres
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-sql" data-lang="sql">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e">-- 设置数据运行参数
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e">&lt;/span>&lt;span style="color:#66d9ef">ALTER&lt;/span> &lt;span style="color:#66d9ef">SYSTEM&lt;/span> &lt;span style="color:#66d9ef">SET&lt;/span> listen_addresses &lt;span style="color:#f92672">=&lt;/span> &lt;span style="color:#e6db74">&amp;#39;*&amp;#39;&lt;/span>;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#66d9ef">ALTER&lt;/span> &lt;span style="color:#66d9ef">SYSTEM&lt;/span> &lt;span style="color:#66d9ef">SET&lt;/span> port &lt;span style="color:#f92672">=&lt;/span> &lt;span style="color:#ae81ff">5432&lt;/span>;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#66d9ef">ALTER&lt;/span> &lt;span style="color:#66d9ef">SYSTEM&lt;/span> &lt;span style="color:#66d9ef">SET&lt;/span> password_encryption &lt;span style="color:#f92672">=&lt;/span> &lt;span style="color:#e6db74">&amp;#39;scram-sha-256&amp;#39;&lt;/span>;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e">-- 修改默认用户密码
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e">&lt;/span>&lt;span style="color:#66d9ef">ALTER&lt;/span> &lt;span style="color:#66d9ef">USER&lt;/span> postgres &lt;span style="color:#66d9ef">with&lt;/span> &lt;span style="color:#66d9ef">encrypted&lt;/span> password &lt;span style="color:#e6db74">&amp;#39;你的密码&amp;#39;&lt;/span>;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e">-- 退出数据库
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e">&lt;/span>&lt;span style="color:#960050;background-color:#1e0010">\&lt;/span>q
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e">-- 退出用户
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e">&lt;/span>exit 
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h3 id="重启服务">重启服务&lt;/h3>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span>systemctl restart postgresql-10
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div></description></item><item><title>在CentOS中安装 Laravel 框架</title><link>https://blog.cuile.com/post/laravel/install_for_centos/</link><pubDate>Fri, 19 Jan 2024 13:26:15 +0800</pubDate><guid>https://blog.cuile.com/post/laravel/install_for_centos/</guid><description>&lt;h2 id="1安装composer镜像">1、安装Composer镜像&lt;/h2>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span>$ docker pull composer:1.9.0
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="2安装laravel">2、安装laravel&lt;/h2>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e"># 启动Composer镜像&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>$ docker run --rm &lt;span style="color:#ae81ff">\
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#ae81ff">&lt;/span> -it &lt;span style="color:#ae81ff">\
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#ae81ff">&lt;/span> -v &lt;span style="color:#e6db74">${&lt;/span>PWD&lt;span style="color:#e6db74">}&lt;/span>:/app &lt;span style="color:#ae81ff">\
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#ae81ff">&lt;/span> composer:1.9.0 /bin/bash
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e"># 创建composer.json文件&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>$ composer init -n
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e"># 使用国内 Packagist镜像&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>$ composer config repo.packagist composer https://mirrors.aliyun.com/composer/
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e"># 添加laravel包&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>$ composer require -vvv &lt;span style="color:#ae81ff">\
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#ae81ff">&lt;/span> --prefer-dist &lt;span style="color:#ae81ff">\
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#ae81ff">&lt;/span> --prefer-stable &lt;span style="color:#ae81ff">\
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#ae81ff">&lt;/span> laravel/installer
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e"># 看到以下输出，说明添加成功。&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>Writing lock file
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>Generating autoload files
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e"># 在当前目录覆盖安装laravel&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>$ ./vendor/bin/laravel new
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e"># 看到以下输出，说明安装成功。&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>Package manifest generated successfully.
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>Application ready! Build something amazing.
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e"># 退出Composer镜像&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>$ exit 
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>将当前目录下的storage目录权限，设为757&lt;/p></description></item><item><title>Hyper-V 环境下给 CentOS 磁盘扩容</title><link>https://blog.cuile.com/post/windows/hyper-v_centos_disk_expansion/</link><pubDate>Mon, 26 Dec 2022 21:01:32 +0800</pubDate><guid>https://blog.cuile.com/post/windows/hyper-v_centos_disk_expansion/</guid><description>&lt;p>使用Hyper-V安装CentOS虚拟机，使用起来非常方便。但遇到磁盘空间不够时，不像Windows虚拟机那样方便给磁盘空间扩容。
+总体两分二步：&lt;/p>
+&lt;h2 id="1-vhdx扩容">1. vhdx扩容&lt;/h2>
+&lt;p>关闭虚拟机，然后给磁盘扩容，操作方便网上教程多，这里不再赘述。&lt;/p>
+&lt;h2 id="2-centos扩容">2. CentOS扩容&lt;/h2>
+&lt;h3 id="21-查看分区表">2.1 查看分区表&lt;/h3>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span>$ lsblk
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>NAME MAJ:MIN RM SIZE RO TYPE MOUNTPOINT
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>sda 8:0 &lt;span style="color:#ae81ff">0&lt;/span> 20G &lt;span style="color:#ae81ff">0&lt;/span> disk 
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>├─sda1 8:1 &lt;span style="color:#ae81ff">0&lt;/span> 200M &lt;span style="color:#ae81ff">0&lt;/span> part /boot/efi
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>├─sda2 8:2 &lt;span style="color:#ae81ff">0&lt;/span> 1G &lt;span style="color:#ae81ff">0&lt;/span> part /boot
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>└─sda3 8:3 &lt;span style="color:#ae81ff">0&lt;/span> 8.8G &lt;span style="color:#ae81ff">0&lt;/span> part 
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> ├─centos-root 253:0 &lt;span style="color:#ae81ff">0&lt;/span> 7.8G &lt;span style="color:#ae81ff">0&lt;/span> lvm /
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> └─centos-swap 253:1 &lt;span style="color:#ae81ff">0&lt;/span> 1G &lt;span style="color:#ae81ff">0&lt;/span> lvm &lt;span style="color:#f92672">[&lt;/span>SWAP&lt;span style="color:#f92672">]&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>以上内容可以看出，sda已经扩容到20G，但sda1+sda2+sda3只有10G说明vhdx扩容成功。&lt;/p>
+&lt;h3 id="22-建立新分区">2.2 建立新分区&lt;/h3>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span>$ fdisk /dev/sda
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>The device presents a logical sector size that is smaller than
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>the physical sector size. Aligning to a physical sector &lt;span style="color:#f92672">(&lt;/span>or optimal
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>I/O&lt;span style="color:#f92672">)&lt;/span> size boundary is recommended, or performance may be impacted.
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>欢迎使用 fdisk &lt;span style="color:#f92672">(&lt;/span>util-linux 2.23.2&lt;span style="color:#f92672">)&lt;/span>。
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>更改将停留在内存中，直到您决定将更改写入磁盘。
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>使用写入命令前请三思。
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>命令&lt;span style="color:#f92672">(&lt;/span>输入 m 获取帮助&lt;span style="color:#f92672">)&lt;/span>：n
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>Partition type:
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> p primary &lt;span style="color:#f92672">(&lt;/span>&lt;span style="color:#ae81ff">1&lt;/span> primary, &lt;span style="color:#ae81ff">0&lt;/span> extended, &lt;span style="color:#ae81ff">3&lt;/span> free&lt;span style="color:#f92672">)&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> e extended
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>Select &lt;span style="color:#f92672">(&lt;/span>default p&lt;span style="color:#f92672">)&lt;/span>: 
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>Using default response p
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>分区号 &lt;span style="color:#f92672">(&lt;/span>2-4，默认 2&lt;span style="color:#f92672">)&lt;/span>：
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>起始 扇区 &lt;span style="color:#f92672">(&lt;/span>20971520-41943039，默认为 20971520&lt;span style="color:#f92672">)&lt;/span>：
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>将使用默认值 &lt;span style="color:#ae81ff">20971520&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>Last 扇区, +扇区 or +size&lt;span style="color:#f92672">{&lt;/span>K,M,G&lt;span style="color:#f92672">}&lt;/span> &lt;span style="color:#f92672">(&lt;/span>20971520-41943039，默认为 41943039&lt;span style="color:#f92672">)&lt;/span>：+10G
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>值超出范围。
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>Last 扇区, +扇区 or +size&lt;span style="color:#f92672">{&lt;/span>K,M,G&lt;span style="color:#f92672">}&lt;/span> &lt;span style="color:#f92672">(&lt;/span>20971520-41943039，默认为 41943039&lt;span style="color:#f92672">)&lt;/span>：+9.9G
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>不支持的后缀：“.9G”。
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>支持：10^N: KB &lt;span style="color:#f92672">(&lt;/span>千字节&lt;span style="color:#f92672">)&lt;/span>, MB &lt;span style="color:#f92672">(&lt;/span>兆字节&lt;span style="color:#f92672">)&lt;/span>, GB &lt;span style="color:#f92672">(&lt;/span>吉字节&lt;span style="color:#f92672">)&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> 2^N: K &lt;span style="color:#f92672">(&lt;/span>约千字节&lt;span style="color:#f92672">)&lt;/span>, M &lt;span style="color:#f92672">(&lt;/span>约兆字节&lt;span style="color:#f92672">)&lt;/span>, G &lt;span style="color:#f92672">(&lt;/span>约吉字节&lt;span style="color:#f92672">)&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>Last 扇区, +扇区 or +size&lt;span style="color:#f92672">{&lt;/span>K,M,G&lt;span style="color:#f92672">}&lt;/span> &lt;span style="color:#f92672">(&lt;/span>20971520-41943039，默认为 41943039&lt;span style="color:#f92672">)&lt;/span>：+9G 
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>分区 &lt;span style="color:#ae81ff">2&lt;/span> 已设置为 Linux 类型，大小设为 &lt;span style="color:#ae81ff">9&lt;/span> GiB
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>命令&lt;span style="color:#f92672">(&lt;/span>输入 m 获取帮助&lt;span style="color:#f92672">)&lt;/span>：w
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>The partition table has been altered!
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>Calling ioctl&lt;span style="color:#f92672">()&lt;/span> to re-read partition table.
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>WARNING: Re-reading the partition table failed with error 16: 设备或资源忙.
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>The kernel still uses the old table. The new table will be used at
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>the next reboot or after you run partprobe&lt;span style="color:#f92672">(&lt;/span>8&lt;span style="color:#f92672">)&lt;/span> or kpartx&lt;span style="color:#f92672">(&lt;/span>8&lt;span style="color:#f92672">)&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>正在同步磁盘。
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h4 id="重读分区表时发生错误">重读分区表时，发生错误&lt;/h4>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span>$ partprobe
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>Error: 备份 GPT 表不像应该的那样出现在磁盘的末尾。这可能意味这其它操作系统相信磁盘小一些。通过将备份移动到末尾 &lt;span style="color:#f92672">(&lt;/span>并删除旧备份&lt;span style="color:#f92672">)&lt;/span> 来修正？
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>Warning: Not all of the space available to /dev/sda appears to be used, you can fix the GPT to use all of the space &lt;span style="color:#f92672">(&lt;/span>an extra &lt;span style="color:#ae81ff">20971520&lt;/span> blocks&lt;span style="color:#f92672">)&lt;/span> or &lt;span style="color:#66d9ef">continue&lt;/span> with the current setting? 
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h4 id="查看分区表时发现新分区未创建成功">查看分区表时，发现新分区未创建成功&lt;/h4>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span>$ lsblk
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>NAME MAJ:MIN RM SIZE RO TYPE MOUNTPOINT
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>sda 8:0 &lt;span style="color:#ae81ff">0&lt;/span> 20G &lt;span style="color:#ae81ff">0&lt;/span> disk 
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>├─sda1 8:1 &lt;span style="color:#ae81ff">0&lt;/span> 200M &lt;span style="color:#ae81ff">0&lt;/span> part /boot/efi
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>├─sda2 8:2 &lt;span style="color:#ae81ff">0&lt;/span> 1G &lt;span style="color:#ae81ff">0&lt;/span> part /boot
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>└─sda3 8:3 &lt;span style="color:#ae81ff">0&lt;/span> 8.8G &lt;span style="color:#ae81ff">0&lt;/span> part 
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> ├─centos-root 253:0 &lt;span style="color:#ae81ff">0&lt;/span> 7.8G &lt;span style="color:#ae81ff">0&lt;/span> lvm /
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> └─centos-swap 253:1 &lt;span style="color:#ae81ff">0&lt;/span> 1G &lt;span style="color:#ae81ff">0&lt;/span> lvm &lt;span style="color:#f92672">[&lt;/span>SWAP&lt;span style="color:#f92672">]&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h4 id="使用-parted-修复分区表">使用 parted 修复分区表&lt;/h4>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span>$ parted /dev/sda
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>GNU Parted 3.1
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>使用 /dev/sda
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>Welcome to GNU Parted! Type &lt;span style="color:#e6db74">&amp;#39;help&amp;#39;&lt;/span> to view a list of commands.
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#f92672">(&lt;/span>parted&lt;span style="color:#f92672">)&lt;/span> p 
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>错误: 备份 GPT 表不像应该的那样出现在磁盘的末尾。这可能意味这其它操作系统相信磁盘小一些。通过将备份移动到末尾 &lt;span style="color:#f92672">(&lt;/span>并删除旧备份&lt;span style="color:#f92672">)&lt;/span> 来修正？
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>修正/Fix/忽略/Ignore/放弃/Cancel? fix 
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>警告: Not all of the space available to /dev/sda appears to be used, you can fix the GPT to use all of the space &lt;span style="color:#f92672">(&lt;/span>an extra &lt;span style="color:#ae81ff">20971520&lt;/span> blocks&lt;span style="color:#f92672">)&lt;/span> or &lt;span style="color:#66d9ef">continue&lt;/span> with the current
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>setting? 
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>修正/Fix/忽略/Ignore? fix 
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>Model: Msft Virtual Disk &lt;span style="color:#f92672">(&lt;/span>scsi&lt;span style="color:#f92672">)&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>Disk /dev/sda: 21.5GB
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>Sector size &lt;span style="color:#f92672">(&lt;/span>logical/physical&lt;span style="color:#f92672">)&lt;/span>: 512B/4096B
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>Partition Table: gpt
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>Disk Flags: 
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>Number Start End Size File system Name 标志
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#ae81ff">1&lt;/span> 1049kB 211MB 210MB fat16 EFI System Partition 启动
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#ae81ff">2&lt;/span> 211MB 1285MB 1074MB xfs
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#ae81ff">3&lt;/span> 1285MB 10.7GB 9452MB lvm
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#f92672">(&lt;/span>parted&lt;span style="color:#f92672">)&lt;/span> p 
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>Model: Msft Virtual Disk &lt;span style="color:#f92672">(&lt;/span>scsi&lt;span style="color:#f92672">)&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>Disk /dev/sda: 21.5GB
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>Sector size &lt;span style="color:#f92672">(&lt;/span>logical/physical&lt;span style="color:#f92672">)&lt;/span>: 512B/4096B
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>Partition Table: gpt
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>Disk Flags: 
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>Number Start End Size File system Name 标志
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#ae81ff">1&lt;/span> 1049kB 211MB 210MB fat16 EFI System Partition 启动
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#ae81ff">2&lt;/span> 211MB 1285MB 1074MB xfs
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#ae81ff">3&lt;/span> 1285MB 10.7GB 9452MB lvm
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#f92672">(&lt;/span>parted&lt;span style="color:#f92672">)&lt;/span> quit 
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h4 id="再次建立新分区">再次建立新分区&lt;/h4>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span>$ fdisk /dev/sda
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>WARNING: fdisk GPT support is currently new, and therefore in an experimental phase. Use at your own discretion.
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>欢迎使用 fdisk &lt;span style="color:#f92672">(&lt;/span>util-linux 2.23.2&lt;span style="color:#f92672">)&lt;/span>。
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>更改将停留在内存中，直到您决定将更改写入磁盘。
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>使用写入命令前请三思。
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>命令&lt;span style="color:#f92672">(&lt;/span>输入 m 获取帮助&lt;span style="color:#f92672">)&lt;/span>：n
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>分区号 &lt;span style="color:#f92672">(&lt;/span>4-128，默认 4&lt;span style="color:#f92672">)&lt;/span>：
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>第一个扇区 &lt;span style="color:#f92672">(&lt;/span>34-41943006，默认 20969472&lt;span style="color:#f92672">)&lt;/span>：
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>Last sector, +sectors or +size&lt;span style="color:#f92672">{&lt;/span>K,M,G,T,P&lt;span style="color:#f92672">}&lt;/span> &lt;span style="color:#f92672">(&lt;/span>20969472-41943006，默认 41943006&lt;span style="color:#f92672">)&lt;/span>：+10G
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>已创建分区 &lt;span style="color:#ae81ff">4&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>命令&lt;span style="color:#f92672">(&lt;/span>输入 m 获取帮助&lt;span style="color:#f92672">)&lt;/span>：w
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>The partition table has been altered!
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>Calling ioctl&lt;span style="color:#f92672">()&lt;/span> to re-read partition table.
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>WARNING: Re-reading the partition table failed with error 16: 设备或资源忙.
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>The kernel still uses the old table. The new table will be used at
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>the next reboot or after you run partprobe&lt;span style="color:#f92672">(&lt;/span>8&lt;span style="color:#f92672">)&lt;/span> or kpartx&lt;span style="color:#f92672">(&lt;/span>8&lt;span style="color:#f92672">)&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>正在同步磁盘。
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h3 id="23-重读分区表">2.3 重读分区表&lt;/h3>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span>$ partprobe
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>重读分区表，正常不会有任何输出&lt;/p></description></item><item><title>Docker 安装</title><link>https://blog.cuile.com/post/container/docker_install/</link><pubDate>Fri, 06 May 2022 11:05:23 +0800</pubDate><guid>https://blog.cuile.com/post/container/docker_install/</guid><description>&lt;p>其实网上相关的文章已经非常多了，所以这篇文章的作用只是记录和明确一条确定可行的操作路径，为以后的操作节省时间，毕竟像我一样大部分人都不是专业的系统管理员，能够快速解决问题就可以了，并不想做过多的专业研究与探索。&lt;/p>
+&lt;p>本操作手册是官方手册与网上手册的结合版本，集两家之所长，亲自操作可用。&lt;/p>
+&lt;h2 id="debian">Debian&lt;/h2>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e"># 安装 Docker 证书&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>sudo apt-get install -y ca-certificates curl
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>sudo install -m &lt;span style="color:#ae81ff">0755&lt;/span> -d /etc/apt/keyrings
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>sudo curl -fsSL https://download.docker.com/linux/debian/gpg -o /etc/apt/keyrings/docker.asc
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>sudo chmod a+r /etc/apt/keyrings/docker.asc&lt;span style="color:#ae81ff">\
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#ae81ff">&lt;/span>sudo echo
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#e6db74">&amp;#34;deb [arch=&lt;/span>&lt;span style="color:#66d9ef">$(&lt;/span>dpkg --print-architecture&lt;span style="color:#66d9ef">)&lt;/span>&lt;span style="color:#e6db74"> signed-by=/etc/apt/keyrings/docker.asc] https://download.docker.com/linux/debian
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#e6db74"> &lt;/span>&lt;span style="color:#66d9ef">$(&lt;/span>. /etc/os-release &lt;span style="color:#f92672">&amp;amp;&amp;amp;&lt;/span> echo &lt;span style="color:#e6db74">&amp;#34;&lt;/span>$VERSION_CODENAME&lt;span style="color:#e6db74">&amp;#34;&lt;/span>&lt;span style="color:#66d9ef">)&lt;/span>&lt;span style="color:#e6db74"> stable&amp;#34;&lt;/span> |
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> sudo tee /etc/apt/sources.list.d/docker.list &amp;gt; /dev/null
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>sudo apt-get update
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e"># 安装 Docker&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>sudo apt-get install -y docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e"># 启动 Docker&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>sudo systemctl enable docker.service
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>sudo systemctl start docker.service
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e"># 测试&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>sudo docker version
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&amp;gt; Client: Docker Engine - Community
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&amp;gt; ...
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&amp;gt; Server: Docker Engine - Community
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&amp;gt; ...
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>sudo docker compose version
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&amp;gt; Docker Compose version v...
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e"># 使用非 root 用户管理 Docker&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e"># 创建 docker 用户组&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>sudo groupadd docker
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e"># 将当前用户添加到 docker 用户组&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>sudo usermod -aG docker $USER
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e"># 重启&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e"># 再次测试&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>docker version
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&amp;gt; Client: Docker Engine - Community
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&amp;gt; ...
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&amp;gt; Server: Docker Engine - Community
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&amp;gt; ...
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>docker compose version
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&amp;gt; Docker Compose version v...
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="centos--rocky">CentOS | Rocky&lt;/h2>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e"># 查看系统版本&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>cat /etc/redhat-release
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&amp;gt; CentOS Linux release 7.6.1810 &lt;span style="color:#f92672">(&lt;/span>Core&lt;span style="color:#f92672">)&lt;/span> // CentOs &lt;span style="color:#ae81ff">7&lt;/span> 以上版本
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e"># 查看系统内核版本&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>uname -r
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&amp;gt; 4.10.4-1.el7.elrepo.x86_64 // 内核版本要&amp;gt;3.10
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e"># 卸载旧版本&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>yum remove docker
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> docker-client
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> docker-client-latest
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> docker-common
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> docker-latest
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> docker-latest-logrotate
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> docker-logrotate
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> docker-selinux
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> docker-engine-selinux
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> docker-engine
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e"># 安装依赖包&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>yum install -y yum-utils lvm2
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> device-mapper-persistent-data
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e"># 添加 Docker 软件源&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e"># 如果系统已切换到阿里云镜像源地址，可跳过此步。&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e"># 阿里云镜像自带docker源&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>yum-config-manager
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> --add-repo
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> https://mirrors.ustc.edu.cn/docker-ce/linux/centos/docker-ce.repo
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e"># 使用官方源&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>yum-config-manager
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> --add-repo
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> https://download.docker.com/linux/centos/docker-ce.repo
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>yum makecache fast
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e"># CentOS 8 or Rocky 9 使用timer替换fast&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>yum makecache timer
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e"># 安装 Docker&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e"># 如果在 Rocky 9 系统上，会提示containerd.io版本过低，或下载失败，需要独立安装containerd.io&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e"># 可以重试几次&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>yum install -y docker-ce docker-ce-cli containerd.io docker-compose-plugin
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e"># 启动 Docker&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e"># 设为开机启动&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>systemctl enable docker.service
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e"># 启动服务&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>systemctl start docker.service
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e"># 测试&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>docker run hello-world
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&amp;gt; Unable to find image &lt;span style="color:#e6db74">&amp;#39;hello-world:latest&amp;#39;&lt;/span> locally
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&amp;gt; latest: Pulling from library/hello-world
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&amp;gt; 1b930d010525: Pull complete
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&amp;gt; Digest: sha256:6540fc08ee6e6b7b63468dc3317e3303aae178cb8a45ed3123180328bcc1d20f
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&amp;gt; Status: Downloaded newer image &lt;span style="color:#66d9ef">for&lt;/span> hello-world:latest
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&amp;gt; 
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&amp;gt; Hello from Docker!
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&amp;gt; This message shows that your installation appears to be working correctly.
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&amp;gt; 
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&amp;gt; To generate this message, Docker took the following steps:
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&amp;gt; 1. The Docker client contacted the Docker daemon.
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&amp;gt; 2. The Docker daemon pulled the &lt;span style="color:#e6db74">&amp;#34;hello-world&amp;#34;&lt;/span> image from the Docker Hub.
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&amp;gt; &lt;span style="color:#f92672">(&lt;/span>amd64&lt;span style="color:#f92672">)&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&amp;gt; 3. The Docker daemon created a new container from that image which runs the
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&amp;gt; executable that produces the output you are currently reading.
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&amp;gt; 4. The Docker daemon streamed that output to the Docker client, which sent it
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&amp;gt; to your terminal.
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&amp;gt; 
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&amp;gt; To try something more ambitious, you can run an Ubuntu container with:
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&amp;gt; docker run -it ubuntu bash
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&amp;gt; 
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&amp;gt; Share images, automate workflows, and more with a free Docker ID:
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&amp;gt; https://hub.docker.com/
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&amp;gt; 
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&amp;gt; For more examples and ideas, visit:
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&amp;gt; https://docs.docker.com/get-started/
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>docker compose version
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&amp;gt; Docker Compose version v...
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>若能正常输出以上信息，则说明安装成功。&lt;/p></description></item><item><title>软件库管理</title><link>https://blog.cuile.com/post/linux/repo_manual/</link><pubDate>Tue, 08 Feb 2022 10:28:50 +0800</pubDate><guid>https://blog.cuile.com/post/linux/repo_manual/</guid><description>&lt;h2 id="apt">APT&lt;/h2>
+&lt;p>&lt;a href="https://www.debian.org/mirror/list#per-country">Debian 全球镜像站&lt;/a>&lt;/p>
+&lt;h3 id="查找延迟最小的镜像">查找延迟最小的镜像&lt;/h3>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span>sudo apt install -y netselect-apt &lt;span style="color:#ae81ff">\
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#ae81ff">&lt;/span> &lt;span style="color:#f92672">&amp;amp;&amp;amp;&lt;/span> sudo netselect-apt &lt;span style="color:#ae81ff">\
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#ae81ff">&lt;/span> &lt;span style="color:#f92672">&amp;amp;&amp;amp;&lt;/span> sudo apt autoremove -y netselect-apt &lt;span style="color:#ae81ff">\
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#ae81ff">&lt;/span> &lt;span style="color:#f92672">&amp;amp;&amp;amp;&lt;/span> rm -f sources.list
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span>The fastest &lt;span style="color:#ae81ff">10&lt;/span> servers seem to be:
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> http://mirrors.bfsu.edu.cn/debian/
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> http://mirrors.tuna.tsinghua.edu.cn/debian/
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> http://mirrors.neusoft.edu.cn/debian/
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> http://mirrors.jlu.edu.cn/debian/
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> http://ftp.cn.debian.org/debian/
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> http://debian.cs.nycu.edu.tw/debian/
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> http://mirror.i3d.net/debian/
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> http://mirrors.163.com/debian/
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> http://mirror.bizflycloud.vn/debian/
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> http://ftp.kaist.ac.kr/debian/
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>Of the hosts tested we choose the fastest valid &lt;span style="color:#66d9ef">for&lt;/span> http:
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> http://mirrors.bfsu.edu.cn/debian/
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>Writing sources.list.
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>Done.
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h3 id="修改仓库">修改仓库&lt;/h3>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e"># PVE QEMU debian-12-generic-amd64.qcow2&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e"># echo &amp;#39;http://mirrors.bfsu.edu.cn/debian/&amp;#39; | sudo tee /etc/apt/mirrors/debian.list&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e"># echo &amp;#39;http://mirrors.bfsu.edu.cn/debian-security/&amp;#39; | sudo tee -a /etc/apt/mirrors/debian-security.list&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>sed -i -e &lt;span style="color:#e6db74">&amp;#34;s/deb.debian.org/mirrors.bfsu.edu.cn/&amp;#34;&lt;/span> /etc/apt/mirrors/debian.list
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>sed -i -e &lt;span style="color:#e6db74">&amp;#34;s/deb.debian.org/mirrors.bfsu.edu.cn/&amp;#34;&lt;/span> /etc/apt/mirrors/debian-security.list
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e"># PVE LXC debian-12-standard_12.7-1_amd64.tar.zst&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>sed -i -e &lt;span style="color:#e6db74">&amp;#34;s/deb.debian.org/mirrors.bfsu.edu.cn/&amp;#34;&lt;/span> /etc/apt/sources.list
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>sed -i -e &lt;span style="color:#e6db74">&amp;#34;s/security.debian.org/mirrors.bfsu.edu.cn\/debian-serurity/&amp;#34;&lt;/span> /etc/apt/sources.list
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e"># Docker imaage debian:12&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>sed -i -e &lt;span style="color:#e6db74">&amp;#34;s/deb.debian.org/mirrors.bfsu.edu.cn/&amp;#34;&lt;/span> /etc/apt/sources.list.d/debian.sources
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e"># 启用非自由仓库&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>sed -i &lt;span style="color:#e6db74">&amp;#39;s/main$/main contrib non-free non-free-firmware/&amp;#39;&lt;/span> /etc/apt/sources.list
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e"># update &lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>apt update
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e"># 查询软件包版本信息、优先级和来源&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>apt policy &amp;lt;package_name&amp;gt;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>apt-cache policy &amp;lt;package_name&amp;gt;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e"># 安装指定版本的包&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>apt install &amp;lt;package_name&amp;gt;&lt;span style="color:#f92672">=&lt;/span>&amp;lt;version_number&amp;gt;
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;hr>
+&lt;h2 id="yum">YUM&lt;/h2>
+&lt;h3 id="查询仓库">查询仓库&lt;/h3>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span>yum repolist
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e"># 显示所有仓库&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>yum repolist all
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e"># 显示所有启动的仓库&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>yum repolist enabled
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e"># 显示所有禁用的仓库&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>yum repolist disabled
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h3 id="修改仓库-1">修改仓库&lt;/h3>
+&lt;p>最常用的修改操作就是启动和停用, 可以使用以下命令实现:&lt;/p></description></item></channel></rss>

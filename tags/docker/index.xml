@@ -1,10 +1,385 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>docker on 瘦了就帅了</title><link>https://cuile.github.io/tags/docker/</link><description>Recent content in docker on 瘦了就帅了</description><generator>Hugo -- gohugo.io</generator><copyright>Copyright © 2008–2018, Steve Francia and the Hugo Authors; all rights reserved.</copyright><lastBuildDate>Fri, 19 Jan 2024 13:26:15 +0800</lastBuildDate><atom:link href="https://cuile.github.io/tags/docker/index.xml" rel="self" type="application/rss+xml"/><item><title>在CentOS中安装 Laravel 框架</title><link>https://cuile.github.io/posts/laravel/install_for_centos/</link><pubDate>Fri, 19 Jan 2024 13:26:15 +0800</pubDate><guid>https://cuile.github.io/posts/laravel/install_for_centos/</guid><description>
-1、安装Composer镜像 1$ docker pull composer:1.9.0 2、安装laravel 1# 启动Composer镜像 2$ docker run --rm \ 3 -it \ 4 -v ${PWD}:/app \ 5 composer:1.9.0 /bin/bash 6 7# 创建composer.</description></item><item><title>虚拟主机安装 Laravel 框架</title><link>https://cuile.github.io/posts/laravel/install_for_virtualhost/</link><pubDate>Fri, 19 Jan 2024 13:18:15 +0800</pubDate><guid>https://cuile.github.io/posts/laravel/install_for_virtualhost/</guid><description>
-因为阿里的弹性WEB托管，使用php 5.5.30版本，所以只能安装Laravel 5.2版本。 本教程使用WSL + docker环境安装，除完整的</description></item><item><title>VScode 在 Docker 容器内开发</title><link>https://cuile.github.io/posts/vscode/vscode_develop_in_docker/</link><pubDate>Sat, 25 Nov 2023 00:24:10 +0800</pubDate><guid>https://cuile.github.io/posts/vscode/vscode_develop_in_docker/</guid><description>
-在 Docker 的容器内开发，相当于使用VSCode的远程开发能力，好处非常多。 开发环境统一、可维护性强 后期部署简单 1. 安装 Docker Docker 安装 2. 安装 Visual Stuido Code 这不废话嘛</description></item><item><title>Docker Compose 指令</title><link>https://cuile.github.io/posts/docker/docker_compose_command/</link><pubDate>Tue, 19 Jul 2022 11:31:21 +0800</pubDate><guid>https://cuile.github.io/posts/docker/docker_compose_command/</guid><description>
-command 指令 1# 字符串方式2command:/bin/bash -c &amp;#34;cp /app/dtest/config.default.yml /app/config.yml &amp;amp;&amp;amp; python -u /app/dtest/tcc.py&amp;#34;3# 另一种方式4command:[&amp;#34;/bin/bash&amp;#34;,</description></item><item><title>Alpine Linux 安装 Docker</title><link>https://cuile.github.io/posts/docker/docker_install_alpine_linux/</link><pubDate>Sun, 19 Jun 2022 16:08:06 +0800</pubDate><guid>https://cuile.github.io/posts/docker/docker_install_alpine_linux/</guid><description>
-在 Alpine 上安装 Docker 真是一件让人感觉非常愉快的事情，因为过程非常简单。 修改 apk 源 1$ nano /etc/apk/repositories 因为 docker 在社区的库里，所以要打开 community 的源。 1#/media/cdrom/apks 2http://mirrors.tuna.tsinghua.edu.cn/alpine/v3.16/main 3http://mirrors.tuna.tsinghua.edu.cn/alpine/v3.16/community 4#http://mirrors.tuna.tsinghua.edu.cn/alpine/edge/main 5#http://mirrors.tuna.tsinghua.edu.cn/alpine/edge/community 6#http://mirrors.tuna.tsinghua.edu.cn/alpine/edge/testing 安装 Docker 1$ apk update 2$</description></item><item><title>使用 Snap 安装 Docker</title><link>https://cuile.github.io/posts/docker/docker_install_snap/</link><pubDate>Wed, 11 May 2022 18:41:48 +0800</pubDate><guid>https://cuile.github.io/posts/docker/docker_install_snap/</guid><description>
-尝试使用 Ubuntu 的 Snap 后，发现真的非常方便。 看过Snap的介绍以后，发现Snap的沙盒理念非常先进，在存储基本不成问题背景下，会系统环境的影响更小。</description></item><item><title>Docker 环境 Django 开发简介</title><link>https://cuile.github.io/posts/django/django_development_introduction/</link><pubDate>Tue, 10 May 2022 16:30:13 +0800</pubDate><guid>https://cuile.github.io/posts/django/django_development_introduction/</guid><description>
-1 准备环境 开发环境还是建议使用 Docker 来搭建，方便快捷。 不过 Django 的官方镜像已经弃用了，官方建议新版本使用 Python 官方提供的镜像来构建。 1Docker 2 ┗ Python == 3.9.12-buster 3 ┗ Django ==</description></item><item><title>Docker 安装</title><link>https://cuile.github.io/posts/docker/docker_install/</link><pubDate>Fri, 06 May 2022 11:05:23 +0800</pubDate><guid>https://cuile.github.io/posts/docker/docker_install/</guid><description>
-其实网上相关的文章已经非常多了，所以这篇文章的作用只是记录和明确一条确定可行的操作路径，为以后的操作节省时间，毕竟像我一样大部分人都不是专业</description></item><item><title>Docker 命令</title><link>https://cuile.github.io/posts/docker/docker_cli/</link><pubDate>Thu, 13 Jan 2022 22:20:52 +0800</pubDate><guid>https://cuile.github.io/posts/docker/docker_cli/</guid><description>
-镜像列表 1docker image ls -a 2# or 3docker images 容器列表 1docker container ls -a 2# or 3docker ps 查看输出 1docker compose -f &amp;lt;yaml_file&amp;gt; logs [-f] [service name] 2# or 3docker logs [-f] [container id] 验证配置文件 1docker compose -f &amp;lt;yaml_file&amp;gt; config 删除冗余镜像 1echo &amp;#39;y&amp;#39; | docker system prune 导入导出</description></item></channel></rss>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Docker on 瘦了就帅了</title><link>https://blog.cuile.com/tags/docker/</link><description>Recent content in Docker on 瘦了就帅了</description><generator>Hugo</generator><language>zh-cn</language><lastBuildDate>Thu, 26 Feb 2026 02:59:37 +0000</lastBuildDate><atom:link href="https://blog.cuile.com/tags/docker/index.xml" rel="self" type="application/rss+xml"/><item><title>在CentOS中安装 Laravel 框架</title><link>https://blog.cuile.com/post/laravel/install_for_centos/</link><pubDate>Fri, 19 Jan 2024 13:26:15 +0800</pubDate><guid>https://blog.cuile.com/post/laravel/install_for_centos/</guid><description>&lt;h2 id="1安装composer镜像">1、安装Composer镜像&lt;/h2>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span>$ docker pull composer:1.9.0
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="2安装laravel">2、安装laravel&lt;/h2>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e"># 启动Composer镜像&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>$ docker run --rm &lt;span style="color:#ae81ff">\
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#ae81ff">&lt;/span> -it &lt;span style="color:#ae81ff">\
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#ae81ff">&lt;/span> -v &lt;span style="color:#e6db74">${&lt;/span>PWD&lt;span style="color:#e6db74">}&lt;/span>:/app &lt;span style="color:#ae81ff">\
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#ae81ff">&lt;/span> composer:1.9.0 /bin/bash
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e"># 创建composer.json文件&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>$ composer init -n
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e"># 使用国内 Packagist镜像&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>$ composer config repo.packagist composer https://mirrors.aliyun.com/composer/
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e"># 添加laravel包&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>$ composer require -vvv &lt;span style="color:#ae81ff">\
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#ae81ff">&lt;/span> --prefer-dist &lt;span style="color:#ae81ff">\
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#ae81ff">&lt;/span> --prefer-stable &lt;span style="color:#ae81ff">\
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#ae81ff">&lt;/span> laravel/installer
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e"># 看到以下输出，说明添加成功。&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>Writing lock file
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>Generating autoload files
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e"># 在当前目录覆盖安装laravel&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>$ ./vendor/bin/laravel new
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e"># 看到以下输出，说明安装成功。&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>Package manifest generated successfully.
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>Application ready! Build something amazing.
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e"># 退出Composer镜像&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>$ exit 
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>将当前目录下的storage目录权限，设为757&lt;/p></description></item><item><title>虚拟主机安装 Laravel 框架</title><link>https://blog.cuile.com/post/laravel/install_for_virtualhost/</link><pubDate>Fri, 19 Jan 2024 13:18:15 +0800</pubDate><guid>https://blog.cuile.com/post/laravel/install_for_virtualhost/</guid><description>&lt;p>因为阿里的弹性WEB托管，使用php 5.5.30版本，所以只能安装Laravel 5.2版本。&lt;/p>
+&lt;p>本教程使用WSL + docker环境安装，除完整的laravel环境外，不会在本地留下任何痕迹。&lt;/p>
+&lt;h2 id="1本地安装composer镜像">1、本地安装Composer镜像&lt;/h2>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span>$ docker pull composer:1.9.0
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="2配置composer镜像">2、配置Composer镜像&lt;/h2>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e"># 启动Composer镜像&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>$ docker run --rm &lt;span style="color:#ae81ff">\
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#ae81ff">&lt;/span> -it &lt;span style="color:#ae81ff">\
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#ae81ff">&lt;/span> -v &lt;span style="color:#e6db74">${&lt;/span>PWD&lt;span style="color:#e6db74">}&lt;/span>:/app &lt;span style="color:#ae81ff">\
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#ae81ff">&lt;/span> composer:1.9.0 /bin/bash
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e"># 使用国内 Packagist镜像&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>$ composer config -g repo.packagist composer https://mirrors.aliyun.com/composer/
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>$ composer create-project -vvv &lt;span style="color:#ae81ff">\
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#ae81ff">&lt;/span> --prefer-dist &lt;span style="color:#ae81ff">\
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#ae81ff">&lt;/span> --no-scripts &lt;span style="color:#ae81ff">\
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#ae81ff">&lt;/span> --keep-vcs &lt;span style="color:#ae81ff">\
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#ae81ff">&lt;/span> laravel/laravel:5.2.31 &lt;span style="color:#ae81ff">\
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#ae81ff">&lt;/span> YSME
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e"># 看到以下输出，说明安装完成。&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>Writing lock file
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>Generating autoload files
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e"># 退出Composer镜像&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>$ exit 
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="4安装到虚拟主机">4、安装到虚拟主机&lt;/h2>
+&lt;p>copy YSME目录下的全部内容，到虚拟主机的目录下即可。&lt;/p>
+&lt;h2 id="5测试">5、测试&lt;/h2>
+&lt;p>访问 http://你的域名/YSME/public/
+如果显示 Laravel 5 字样，说明安装成功！&lt;/p></description></item><item><title>VScode 在 Docker 容器内开发</title><link>https://blog.cuile.com/post/vscode/vscode_develop_in_docker/</link><pubDate>Sat, 25 Nov 2023 00:24:10 +0800</pubDate><guid>https://blog.cuile.com/post/vscode/vscode_develop_in_docker/</guid><description>&lt;p>在 Docker 的容器内开发，相当于使用VSCode的远程开发能力，好处非常多。&lt;/p>
+&lt;ul>
+&lt;li>开发环境统一、可维护性强&lt;/li>
+&lt;li>后期部署简单&lt;/li>
+&lt;/ul>
+&lt;h2 id="1-安装-docker">1. 安装 Docker&lt;/h2>
+&lt;p>&lt;a href="../../docker/docker_install">Docker 安装&lt;/a>&lt;/p>
+&lt;h2 id="2-安装-visual-stuido-code">2. 安装 Visual Stuido Code&lt;/h2>
+&lt;p>这不废话嘛，同上。&lt;/p>
+&lt;h2 id="3-安装-remote-development-扩展包">3. 安装 Remote Development 扩展包&lt;/h2>
+&lt;p>官方推荐安装 Remote Development 这个扩展包，它包括三个扩展功能：&lt;/p>
+&lt;ul>
+&lt;li>Remote - SSH&lt;/li>
+&lt;li>Remote - Containers&lt;/li>
+&lt;li>Remote - WSL&lt;/li>
+&lt;/ul>
+&lt;p>如果你只使用 Docker ，可以只安装 Remote - Containers 这个扩展。&lt;/p>
+&lt;p>安装成功后，你可以在 VSCode 的左下角，看到一个“蓝底色+两个相对白箭头”的图标。&lt;/p>
+&lt;p>点击图标，可以看到 Remote - Containers 提供了许多方法进行配置。&lt;/p>
+&lt;h2 id="4-配置-remote---containers">4. 配置 Remote - Containers&lt;/h2>
+&lt;h3 id="41-使用现成的-docker-composeyml-配置">4.1. 使用现成的 docker-compose.yml 配置&lt;/h3>
+&lt;ol>
+&lt;li>点击左下角的蓝色图标&lt;/li>
+&lt;li>选择 Add Development Container Configuration Files&amp;hellip;&lt;/li>
+&lt;li>选择 Existing Docker Compose (Extend)
+&lt;ol>
+&lt;li>VSCode 会自动在项目的根目录下，生成 .devcontainer 文件夹&lt;/li>
+&lt;li>在 .devcontainer 目录内，包括两个文件：
+&lt;ol>
+&lt;li>devcontainer.json：VSCode 使用它连接开发容器&lt;/li>
+&lt;li>docker-compose.yml：示例文件，可以不用管它&lt;/li>
+&lt;/ol>
+&lt;/li>
+&lt;/ol>
+&lt;/li>
+&lt;li>打开 devcontainer.json 文件&lt;/li>
+&lt;/ol>
+&lt;blockquote>
+&lt;p>照着 docker-compose.yml 进行修改，见下面示例&lt;/p></description></item><item><title>Docker Compose 指令</title><link>https://blog.cuile.com/post/container/docker_compose_command/</link><pubDate>Tue, 19 Jul 2022 11:31:21 +0800</pubDate><guid>https://blog.cuile.com/post/container/docker_compose_command/</guid><description>&lt;h2 id="command-指令">command 指令&lt;/h2>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-yaml" data-lang="yaml">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e"># 字符串方式&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#f92672">command&lt;/span>: &lt;span style="color:#ae81ff">/bin/bash -c &amp;#34;cp /app/dtest/config.default.yml /app/config.yml &amp;amp;&amp;amp; python -u /app/dtest/tcc.py&amp;#34;&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e"># 另一种方式&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#f92672">command&lt;/span>: [&lt;span style="color:#e6db74">&amp;#34;/bin/bash&amp;#34;&lt;/span>,&lt;span style="color:#e6db74">&amp;#34;-c&amp;#34;&lt;/span>,&lt;span style="color:#e6db74">&amp;#34;while&amp;#34;&lt;/span>,&lt;span style="color:#e6db74">&amp;#34;true;&amp;#34;&lt;/span>,&lt;span style="color:#e6db74">&amp;#34;do&amp;#34;&lt;/span>,&lt;span style="color:#e6db74">&amp;#34;sleep&amp;#34;&lt;/span>,&lt;span style="color:#e6db74">&amp;#34;1;&amp;#34;&lt;/span>,&lt;span style="color:#e6db74">&amp;#34;done&amp;#34;&lt;/span>]
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e"># 配置文件方式&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>...&lt;span style="color:#ae81ff">...&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;ul>
+&lt;li>&lt;a href="https://blog.csdn.net/whatday/article/details/108863389">docker compose command 执行多条指令&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;h2 id="tty-指令">tty 指令&lt;/h2>
+&lt;p>启动后停在cli，等待登录&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-yaml" data-lang="yaml">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#f92672">stdin_open&lt;/span>: &lt;span style="color:#66d9ef">true&lt;/span> &lt;span style="color:#75715e"># 对应 docker run 中的 -i&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#f92672">tty&lt;/span>: &lt;span style="color:#66d9ef">true&lt;/span> &lt;span style="color:#75715e"># 对应 docker run 中的 -t&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div></description></item><item><title>Alpine Linux 安装 Docker</title><link>https://blog.cuile.com/post/container/docker_install_alpine_linux/</link><pubDate>Sun, 19 Jun 2022 16:08:06 +0800</pubDate><guid>https://blog.cuile.com/post/container/docker_install_alpine_linux/</guid><description>&lt;p>在 Alpine 上安装 Docker 真是一件让人感觉非常愉快的事情，因为过程非常简单。&lt;/p>
+&lt;h2 id="修改-apk-源">修改 apk 源&lt;/h2>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span>$ nano /etc/apk/repositories
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>因为 docker 在社区的库里，所以要打开 community 的源。&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-ini" data-lang="ini">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e">#/media/cdrom/apks&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#a6e22e">http://mirrors.tuna.tsinghua.edu.cn/alpine/v3.16/main&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#a6e22e">http://mirrors.tuna.tsinghua.edu.cn/alpine/v3.16/community&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e">#http://mirrors.tuna.tsinghua.edu.cn/alpine/edge/main&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e">#http://mirrors.tuna.tsinghua.edu.cn/alpine/edge/community&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e">#http://mirrors.tuna.tsinghua.edu.cn/alpine/edge/testing&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="安装-docker">安装 Docker&lt;/h2>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span>$ apk update
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>$ apk add docker docker-cli-compose
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e"># 这里要特别注意，docker compose 的包名在 Alpine 里是 docker-cli-compose，不是 docker-compose-plugin。&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e"># docker-compose 包是 compose 的独立安装包，官方已经不再支持这种安装方式。&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>...
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>$ docker -v
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>Docker version 20.10.16, build aa7e414fdcb23a66e8fabbef0a560ef1769eace5
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>$ docker compose version
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>Docker Compose version v2.12.2
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="配置-docker">配置 Docker&lt;/h2>
+&lt;p>&lt;a href="../docker_install_centos/#4-%E9%85%8D%E7%BD%AE-docker">(CentOS 7 | Rocky 9) 安装 Docker&lt;/a>&lt;/p></description></item><item><title>使用 Snap 安装 Docker</title><link>https://blog.cuile.com/post/container/docker_install_snap/</link><pubDate>Wed, 11 May 2022 18:41:48 +0800</pubDate><guid>https://blog.cuile.com/post/container/docker_install_snap/</guid><description>&lt;p>尝试使用 Ubuntu 的 Snap 后，发现真的非常方便。&lt;/p>
+&lt;p>看过Snap的介绍以后，发现Snap的沙盒理念非常先进，在存储基本不成问题背景下，会系统环境的影响更小。&lt;/p>
+&lt;p>而且docker-compose命令也会一起安装，更是方便。&lt;/p>
+&lt;h2 id="1安装">1.安装&lt;/h2>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span>$ sudo snap install docker
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="2设置">2.设置&lt;/h2>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e"># 设置开机启动&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>$ sudo snap start docker --enable
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e"># 确认服务状态&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>$ sudo snap services docker
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e"># 查看服务详情&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>$ service snap.docker.dockerd status
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>使用sudo安装后要注意以后调用时，都要使用sudo命令前缀。&lt;/p>
+&lt;h2 id="3其它">3.其它&lt;/h2>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e"># 安装目录&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>/snap/docker/current 
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e"># 服务启动配置文件&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>/etc/systemd/system/snap.docker.dockerd.service
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e"># 配套 AppArmor 配置文件&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>/var/lib/snapd/apparmor/profiles/snap.docker.docker
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>/var/lib/snapd/apparmor/profiles/snap.docker.dockerd
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e"># 默认 Unix Socket 文件路径&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>unix:///var/snap/docker/current/run/docker/libcontainerd/docker-containerd.sock
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="4参考文献">4.参考文献&lt;/h2>
+&lt;p>&lt;a href="https://www.moha.online/en/node/111#Snap%E5%AE%89%E8%A3%85">Docker 安装指南&lt;/a>&lt;/p></description></item><item><title>Docker 环境 Django 开发简介</title><link>https://blog.cuile.com/post/django/django_development_introduction/</link><pubDate>Tue, 10 May 2022 16:30:13 +0800</pubDate><guid>https://blog.cuile.com/post/django/django_development_introduction/</guid><description>&lt;h2 id="1-准备环境">1 准备环境&lt;/h2>
+&lt;p>开发环境还是建议使用 Docker 来搭建，方便快捷。
+不过 Django 的官方镜像已经弃用了，官方建议新版本使用 Python 官方提供的镜像来构建。&lt;/p>
+&lt;pre tabindex="0">&lt;code>Docker
+ ┗ Python == 3.9.12-buster
+ ┗ Django == 3.2.13 LTS
+ ┗ django-simpleui==2022.11.30
+&lt;/code>&lt;/pre>&lt;p>可以参考[https://github.com/Cuile/Docker-to-Python/tree/master/Django]，提供了 Dockerfil、yml 文件，还提供全套使用命令。&lt;/p>
+&lt;h2 id="2-创建项目">2 创建项目&lt;/h2>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e"># 创建项目&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>$ django-admin startproject mysite
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>$ cd mysite
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e"># 生成项目&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>$ python manage.py startapp websrc
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e"># 运行项目测试&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>$ python manage.py runserver 0.0.0.0:80
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>修改配置后，建议使用项目调试的方式启动，不要使用快捷命令，项目正常启动稳定运行后，再使用快捷命令。&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-python" data-lang="python">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e"># settings.py&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e"># 任意地址都可以访问 Django&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>ALLOWED_HOSTS &lt;span style="color:#f92672">=&lt;/span> [&lt;span style="color:#e6db74">&amp;#39;*&amp;#39;&lt;/span>] 
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e"># 添加 simpleui 模板，和创建的项目&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>INSTALLED_APPS &lt;span style="color:#f92672">=&lt;/span> [
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#e6db74">&amp;#39;simpleui&amp;#39;&lt;/span>,
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#e6db74">&amp;#39;websrc&amp;#39;&lt;/span>,
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#e6db74">&amp;#39;......&amp;#39;&lt;/span>,
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>]
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e"># 这个与多语种有关，在项目初始阶段不要修改，后续添加了多语种支持再修改，否则会导致无法启动。&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e"># 具体参考(http://www.i18nguy.com/unicode/language-identifiers.html)，有个傻逼教程，上来就改成 zh-CN 果然导致项目无法正常启动。&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e"># 正确的简体中文代码如下：&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>LANGUAGE_CODE &lt;span style="color:#f92672">=&lt;/span> &lt;span style="color:#e6db74">&amp;#39;zh-Hans&amp;#39;&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e"># 时区，上海就代表北京时间，这个不能写错，写错就启动不了&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e"># 具体参考(https://en.wikipedia.org/wiki/List_of_tz_database_time_zones)，这里是标准的，有个傻逼教程非给写成 Asia/Beijing 导致怎么都起不来，太TMD的二逼了。&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e"># 正解的北京时间时区如下：&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>TIME_ZONE &lt;span style="color:#f92672">=&lt;/span> &lt;span style="color:#e6db74">&amp;#39;Asia/Shanghai&amp;#39;&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e"># 启动翻译，与上面的 LANGUAGE_CODE 设置相对应&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>USE_I18N &lt;span style="color:#f92672">=&lt;/span> &lt;span style="color:#66d9ef">True&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e"># 启动格式控制&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>USE_L10N &lt;span style="color:#f92672">=&lt;/span> &lt;span style="color:#66d9ef">True&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e"># 启动时区&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>USE_TZ &lt;span style="color:#f92672">=&lt;/span> &lt;span style="color:#66d9ef">True&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="3-创建管理员账号">3 创建管理员账号&lt;/h2>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span>$ python manage.py createsuperuser
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>Username: admin
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>Email address: admin@example.com
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>Password: **********
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>Password &lt;span style="color:#f92672">(&lt;/span>again&lt;span style="color:#f92672">)&lt;/span>: *********
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>Superuser created successfully.
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>访问项目链接，比如&amp;quot;http://127.0.0.1:8000/admin/&lt;/p></description></item><item><title>Docker 安装</title><link>https://blog.cuile.com/post/container/docker_install/</link><pubDate>Fri, 06 May 2022 11:05:23 +0800</pubDate><guid>https://blog.cuile.com/post/container/docker_install/</guid><description>&lt;p>其实网上相关的文章已经非常多了，所以这篇文章的作用只是记录和明确一条确定可行的操作路径，为以后的操作节省时间，毕竟像我一样大部分人都不是专业的系统管理员，能够快速解决问题就可以了，并不想做过多的专业研究与探索。&lt;/p>
+&lt;p>本操作手册是官方手册与网上手册的结合版本，集两家之所长，亲自操作可用。&lt;/p>
+&lt;h2 id="debian">Debian&lt;/h2>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e"># 安装 Docker 证书&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>sudo apt-get install -y ca-certificates curl
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>sudo install -m &lt;span style="color:#ae81ff">0755&lt;/span> -d /etc/apt/keyrings
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>sudo curl -fsSL https://download.docker.com/linux/debian/gpg -o /etc/apt/keyrings/docker.asc
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>sudo chmod a+r /etc/apt/keyrings/docker.asc&lt;span style="color:#ae81ff">\
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#ae81ff">&lt;/span>sudo echo
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#e6db74">&amp;#34;deb [arch=&lt;/span>&lt;span style="color:#66d9ef">$(&lt;/span>dpkg --print-architecture&lt;span style="color:#66d9ef">)&lt;/span>&lt;span style="color:#e6db74"> signed-by=/etc/apt/keyrings/docker.asc] https://download.docker.com/linux/debian
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#e6db74"> &lt;/span>&lt;span style="color:#66d9ef">$(&lt;/span>. /etc/os-release &lt;span style="color:#f92672">&amp;amp;&amp;amp;&lt;/span> echo &lt;span style="color:#e6db74">&amp;#34;&lt;/span>$VERSION_CODENAME&lt;span style="color:#e6db74">&amp;#34;&lt;/span>&lt;span style="color:#66d9ef">)&lt;/span>&lt;span style="color:#e6db74"> stable&amp;#34;&lt;/span> |
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> sudo tee /etc/apt/sources.list.d/docker.list &amp;gt; /dev/null
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>sudo apt-get update
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e"># 安装 Docker&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>sudo apt-get install -y docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e"># 启动 Docker&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>sudo systemctl enable docker.service
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>sudo systemctl start docker.service
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e"># 测试&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>sudo docker version
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&amp;gt; Client: Docker Engine - Community
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&amp;gt; ...
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&amp;gt; Server: Docker Engine - Community
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&amp;gt; ...
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>sudo docker compose version
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&amp;gt; Docker Compose version v...
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e"># 使用非 root 用户管理 Docker&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e"># 创建 docker 用户组&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>sudo groupadd docker
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e"># 将当前用户添加到 docker 用户组&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>sudo usermod -aG docker $USER
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e"># 重启&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e"># 再次测试&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>docker version
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&amp;gt; Client: Docker Engine - Community
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&amp;gt; ...
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&amp;gt; Server: Docker Engine - Community
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&amp;gt; ...
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>docker compose version
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&amp;gt; Docker Compose version v...
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="centos--rocky">CentOS | Rocky&lt;/h2>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e"># 查看系统版本&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>cat /etc/redhat-release
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&amp;gt; CentOS Linux release 7.6.1810 &lt;span style="color:#f92672">(&lt;/span>Core&lt;span style="color:#f92672">)&lt;/span> // CentOs &lt;span style="color:#ae81ff">7&lt;/span> 以上版本
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e"># 查看系统内核版本&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>uname -r
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&amp;gt; 4.10.4-1.el7.elrepo.x86_64 // 内核版本要&amp;gt;3.10
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e"># 卸载旧版本&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>yum remove docker
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> docker-client
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> docker-client-latest
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> docker-common
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> docker-latest
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> docker-latest-logrotate
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> docker-logrotate
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> docker-selinux
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> docker-engine-selinux
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> docker-engine
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e"># 安装依赖包&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>yum install -y yum-utils lvm2
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> device-mapper-persistent-data
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e"># 添加 Docker 软件源&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e"># 如果系统已切换到阿里云镜像源地址，可跳过此步。&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e"># 阿里云镜像自带docker源&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>yum-config-manager
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> --add-repo
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> https://mirrors.ustc.edu.cn/docker-ce/linux/centos/docker-ce.repo
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e"># 使用官方源&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>yum-config-manager
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> --add-repo
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> https://download.docker.com/linux/centos/docker-ce.repo
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>yum makecache fast
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e"># CentOS 8 or Rocky 9 使用timer替换fast&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>yum makecache timer
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e"># 安装 Docker&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e"># 如果在 Rocky 9 系统上，会提示containerd.io版本过低，或下载失败，需要独立安装containerd.io&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e"># 可以重试几次&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>yum install -y docker-ce docker-ce-cli containerd.io docker-compose-plugin
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e"># 启动 Docker&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e"># 设为开机启动&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>systemctl enable docker.service
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e"># 启动服务&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>systemctl start docker.service
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e"># 测试&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>docker run hello-world
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&amp;gt; Unable to find image &lt;span style="color:#e6db74">&amp;#39;hello-world:latest&amp;#39;&lt;/span> locally
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&amp;gt; latest: Pulling from library/hello-world
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&amp;gt; 1b930d010525: Pull complete
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&amp;gt; Digest: sha256:6540fc08ee6e6b7b63468dc3317e3303aae178cb8a45ed3123180328bcc1d20f
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&amp;gt; Status: Downloaded newer image &lt;span style="color:#66d9ef">for&lt;/span> hello-world:latest
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&amp;gt; 
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&amp;gt; Hello from Docker!
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&amp;gt; This message shows that your installation appears to be working correctly.
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&amp;gt; 
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&amp;gt; To generate this message, Docker took the following steps:
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&amp;gt; 1. The Docker client contacted the Docker daemon.
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&amp;gt; 2. The Docker daemon pulled the &lt;span style="color:#e6db74">&amp;#34;hello-world&amp;#34;&lt;/span> image from the Docker Hub.
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&amp;gt; &lt;span style="color:#f92672">(&lt;/span>amd64&lt;span style="color:#f92672">)&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&amp;gt; 3. The Docker daemon created a new container from that image which runs the
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&amp;gt; executable that produces the output you are currently reading.
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&amp;gt; 4. The Docker daemon streamed that output to the Docker client, which sent it
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&amp;gt; to your terminal.
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&amp;gt; 
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&amp;gt; To try something more ambitious, you can run an Ubuntu container with:
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&amp;gt; docker run -it ubuntu bash
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&amp;gt; 
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&amp;gt; Share images, automate workflows, and more with a free Docker ID:
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&amp;gt; https://hub.docker.com/
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&amp;gt; 
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&amp;gt; For more examples and ideas, visit:
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&amp;gt; https://docs.docker.com/get-started/
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>docker compose version
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&amp;gt; Docker Compose version v...
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>若能正常输出以上信息，则说明安装成功。&lt;/p></description></item><item><title>docker|podman 命令</title><link>https://blog.cuile.com/post/container/docker_cli/</link><pubDate>Thu, 13 Jan 2022 22:20:52 +0800</pubDate><guid>https://blog.cuile.com/post/container/docker_cli/</guid><description>&lt;h2 id="镜像列表">镜像列表&lt;/h2>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#f92672">[&lt;/span>docker|podman&lt;span style="color:#f92672">]&lt;/span> image ls -a
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e"># or&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#f92672">[&lt;/span>docker|podman&lt;span style="color:#f92672">]&lt;/span> images
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="容器列表">容器列表&lt;/h2>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#f92672">[&lt;/span>docker|podman&lt;span style="color:#f92672">]&lt;/span> container ls -a
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e"># or&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#f92672">[&lt;/span>docker|podman&lt;span style="color:#f92672">]&lt;/span> ps
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="查看输出">查看输出&lt;/h2>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#f92672">[&lt;/span>docker|podman&lt;span style="color:#f92672">]&lt;/span> compose -f &amp;lt;yaml_file&amp;gt; logs &lt;span style="color:#f92672">[&lt;/span>-f&lt;span style="color:#f92672">]&lt;/span> &lt;span style="color:#f92672">[&lt;/span>service name&lt;span style="color:#f92672">]&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e"># or&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#f92672">[&lt;/span>docker|podman&lt;span style="color:#f92672">]&lt;/span> logs &lt;span style="color:#f92672">[&lt;/span>-f&lt;span style="color:#f92672">]&lt;/span> &lt;span style="color:#f92672">[&lt;/span>container id&lt;span style="color:#f92672">]&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="验证配置文件">验证配置文件&lt;/h2>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#f92672">[&lt;/span>docker|podman&lt;span style="color:#f92672">]&lt;/span> compose -f &amp;lt;yaml_file&amp;gt; config
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="删除冗余镜像">删除冗余镜像&lt;/h2>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span>echo &lt;span style="color:#e6db74">&amp;#39;y&amp;#39;&lt;/span> | &lt;span style="color:#f92672">[&lt;/span>docker|podman&lt;span style="color:#f92672">]&lt;/span> system prune
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="导入导出镜像">导入导出镜像&lt;/h2>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e"># 导出&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#f92672">[&lt;/span>docker|podman&lt;span style="color:#f92672">]&lt;/span> save -o &amp;lt;image&amp;gt;.tar &amp;lt;image_name:label | image_id&amp;gt;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e"># 导入&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e"># 使用image_id导出的镜像，导入时也没有名字&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#f92672">[&lt;/span>docker|podman&lt;span style="color:#f92672">]&lt;/span> load -i &amp;lt;image&amp;gt;.tar
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="不启动镜像查看镜像内的文件">不启动镜像，查看镜像内的文件&lt;/h2>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e"># 创建临时容器&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#f92672">[&lt;/span>docker|podman&lt;span style="color:#f92672">]&lt;/span> conatiner create --name &amp;lt;container_name&amp;gt; &amp;lt;image_name&amp;gt;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e"># 从容器复制文件到宿主机&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#f92672">[&lt;/span>docker|podman&lt;span style="color:#f92672">]&lt;/span> conatiner cp &amp;lt;container_name&amp;gt;:&amp;lt;file_path&amp;gt; &amp;lt;dest_path&amp;gt;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e"># 清理临时窗口&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#f92672">[&lt;/span>docker|podman&lt;span style="color:#f92672">]&lt;/span> container rm &amp;lt;container_name&amp;gt;
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="创建桥接网络">创建桥接网络&lt;/h2>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#f92672">[&lt;/span>docker|podman&lt;span style="color:#f92672">]&lt;/span> network create &lt;span style="color:#f92672">[&lt;/span>name&lt;span style="color:#f92672">]&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="dockerpodman快捷命令">[docker|podman]快捷命令&lt;/h2>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span>echo &lt;span style="color:#e6db74">&amp;#34;alias d-ll=&amp;#39;[docker|podman] image ls -a; echo; [docker|podman] container ls -a&amp;#39;&amp;#34;&lt;/span> &amp;gt;&amp;gt; ~/.bashrc &lt;span style="color:#ae81ff">\
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#ae81ff">&lt;/span> &lt;span style="color:#f92672">&amp;amp;&amp;amp;&lt;/span> echo &lt;span style="color:#e6db74">&amp;#34;alias d-ps=&amp;#39;[docker|podman] ps&amp;#39;&amp;#34;&lt;/span> &amp;gt;&amp;gt; ~/.bashrc &lt;span style="color:#ae81ff">\
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#ae81ff">&lt;/span> &lt;span style="color:#f92672">&amp;amp;&amp;amp;&lt;/span> echo &lt;span style="color:#e6db74">&amp;#34;alias d-clean=&amp;#39;[docker|podman] system prune -f&amp;#39;&amp;#34;&lt;/span> &amp;gt;&amp;gt; ~/.bashrc &lt;span style="color:#ae81ff">\
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#ae81ff">&lt;/span> &lt;span style="color:#f92672">&amp;amp;&amp;amp;&lt;/span> echo &lt;span style="color:#e6db74">&amp;#34;alias d-rm=&amp;#39;_a(){ [docker|podman] image rm &lt;/span>$1&lt;span style="color:#e6db74">; echo; [docker|podman] container rm &lt;/span>$1&lt;span style="color:#e6db74">; }; _a&amp;#39;&amp;#34;&lt;/span> &amp;gt;&amp;gt; ~/.bashrc &lt;span style="color:#ae81ff">\
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#ae81ff">&lt;/span> &lt;span style="color:#f92672">&amp;amp;&amp;amp;&lt;/span> echo &lt;span style="color:#e6db74">&amp;#34;alias d-exec=&amp;#39;_a(){ [docker|podman] exec -it &lt;/span>$1&lt;span style="color:#e6db74"> /bin/bash; }; _a&amp;#39;&amp;#34;&lt;/span> &amp;gt;&amp;gt; ~/.bashrc &lt;span style="color:#ae81ff">\
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#ae81ff">&lt;/span> &lt;span style="color:#f92672">&amp;amp;&amp;amp;&lt;/span> echo &lt;span style="color:#e6db74">&amp;#34;alias d-stop=&amp;#39;_a(){ [docker|podman] container stop &lt;/span>$1&lt;span style="color:#e6db74">; }; _a&amp;#39;&amp;#34;&lt;/span> &amp;gt;&amp;gt; ~/.bashrc &lt;span style="color:#ae81ff">\
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#ae81ff">&lt;/span> &lt;span style="color:#f92672">&amp;amp;&amp;amp;&lt;/span> echo &lt;span style="color:#e6db74">&amp;#34;alias d-kill=&amp;#39;_a(){ [docker|podman] container kill &lt;/span>$1&lt;span style="color:#e6db74">; }; _a&amp;#39;&amp;#34;&lt;/span> &amp;gt;&amp;gt; ~/.bashrc
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> 
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>source ~/.bashrc
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div></description></item></channel></rss>

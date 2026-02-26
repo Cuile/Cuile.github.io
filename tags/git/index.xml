@@ -1,3 +1,85 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>git on 瘦了就帅了</title><link>https://cuile.github.io/tags/git/</link><description>Recent content in git on 瘦了就帅了</description><generator>Hugo -- gohugo.io</generator><copyright>Copyright © 2008–2018, Steve Francia and the Hugo Authors; all rights reserved.</copyright><lastBuildDate>Tue, 21 Jun 2022 19:20:04 +0800</lastBuildDate><atom:link href="https://cuile.github.io/tags/git/index.xml" rel="self" type="application/rss+xml"/><item><title>使用 SSH 连接 Github</title><link>https://cuile.github.io/posts/git/connect_with_ssh/</link><pubDate>Tue, 21 Jun 2022 19:20:04 +0800</pubDate><guid>https://cuile.github.io/posts/git/connect_with_ssh/</guid><description>
-生成新的 SSH Key 1ssh-keygen -t rsa -b 4096 -C &amp;#34;your_email@example.com&amp;#34; 2... 3Enter a file in which to save the key (/home/you/.ssh/algorithm): &amp;lt;key_name&amp;gt; 4Enter passphrase (empty for no passphrase): [输入密码] 5Enter same passphrase again: [再次输入密码] 将新的 SSH Key 添加到 Github 将公钥文件的内容COPY</description></item><item><title>Git 命令行</title><link>https://cuile.github.io/posts/git/git_cli/</link><pubDate>Mon, 16 May 2022 14:32:27 +0800</pubDate><guid>https://cuile.github.io/posts/git/git_cli/</guid><description>
-0、基础设置 1# 查看代理 2git config --global --get http.proxy 3git config --global --get https.proxy 4# 设置代理 5git config --global http.proxy http://[username:passwrod@]ip or URL:port 6git config --global https.proxy http://[username:passwrod@]ip or URL:port 7# 取消代理 8git config --global --unset http.proxy 9git config --global --unset https.proxy 10 11# 只代理github.com</description></item></channel></rss>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Git on 瘦了就帅了</title><link>https://blog.cuile.com/tags/git/</link><description>Recent content in Git on 瘦了就帅了</description><generator>Hugo</generator><language>zh-cn</language><lastBuildDate>Thu, 26 Feb 2026 02:59:37 +0000</lastBuildDate><atom:link href="https://blog.cuile.com/tags/git/index.xml" rel="self" type="application/rss+xml"/><item><title>使用 SSH 连接 Github</title><link>https://blog.cuile.com/post/git/connect_with_ssh/</link><pubDate>Tue, 21 Jun 2022 19:20:04 +0800</pubDate><guid>https://blog.cuile.com/post/git/connect_with_ssh/</guid><description>&lt;h2 id="生成新的-ssh-key">生成新的 SSH Key&lt;/h2>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span>ssh-keygen -t rsa -b &lt;span style="color:#ae81ff">4096&lt;/span> -C &lt;span style="color:#e6db74">&amp;#34;your_email@example.com&amp;#34;&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>...
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>Enter a file in which to save the key &lt;span style="color:#f92672">(&lt;/span>/home/you/.ssh/algorithm&lt;span style="color:#f92672">)&lt;/span>: &amp;lt;key_name&amp;gt;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>Enter passphrase &lt;span style="color:#f92672">(&lt;/span>empty &lt;span style="color:#66d9ef">for&lt;/span> no passphrase&lt;span style="color:#f92672">)&lt;/span>: &lt;span style="color:#f92672">[&lt;/span>输入密码&lt;span style="color:#f92672">]&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>Enter same passphrase again: &lt;span style="color:#f92672">[&lt;/span>再次输入密码&lt;span style="color:#f92672">]&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="将新的-ssh-key-添加到-github">将新的 SSH Key 添加到 Github&lt;/h2>
+&lt;ol>
+&lt;li>将公钥文件的内容COPY出来&lt;/li>
+&lt;/ol>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span>cat ~/.ssh/&amp;lt;key_name&amp;gt;.pub
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;ol start="2">
+&lt;li>Github.com -&amp;gt; &amp;ldquo;Settings&amp;rdquo; -&amp;gt; &amp;ldquo;SSH and GPG keys&amp;rdquo; -&amp;gt; &amp;ldquo;New SSH key&amp;rdquo;&lt;/li>
+&lt;/ol>
+&lt;blockquote>
+&lt;p>Title : 为新密钥添加描述性标签
+Key : 粘贴COPY的公钥内容&lt;/p>&lt;/blockquote>
+&lt;ol start="3">
+&lt;li>&amp;ldquo;Add SSH key&amp;rdquo;&lt;/li>
+&lt;/ol>
+&lt;h2 id="使用-ssh-连接到-github">使用 SSH 连接到 Github&lt;/h2>
+&lt;ol>
+&lt;li>ssh config&lt;/li>
+&lt;/ol>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span>cd ~/.ssh
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e"># 设置访问权限&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>chmod &lt;span style="color:#ae81ff">600&lt;/span> &amp;lt;key_name&amp;gt;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e"># 生成SSH配置文件&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>cat &amp;gt; config &lt;span style="color:#e6db74">&amp;lt;&amp;lt; EOF
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#e6db74">Host github.com
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#e6db74"> Hostname ssh.github.com
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#e6db74"> Port 443
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#e6db74"> IdentityFile ~/.ssh/&amp;lt;key_name&amp;gt;
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#e6db74"> UpdateHostKeys yes
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#e6db74"> Compression yes
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#e6db74"> User git
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#e6db74">EOF&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;ul>
+&lt;li>&lt;a href="https://github.blog/2021-09-01-improving-git-protocol-security-github/#standard-git-client">Improving Git protocol security on GitHub - The GitHub Blog&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;ol start="2">
+&lt;li>连接测试&lt;/li>
+&lt;/ol>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span>ssh -T git@github.com
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>...
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>Are you sure you want to &lt;span style="color:#66d9ef">continue&lt;/span> connecting &lt;span style="color:#f92672">(&lt;/span>yes/no&lt;span style="color:#f92672">)&lt;/span>? &amp;lt;yes&amp;gt;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>...
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>Hi &amp;lt;username&amp;gt;! You&lt;span style="color:#960050;background-color:#1e0010">&amp;#39;&lt;/span>ve successfully authenticated, but GitHub does not provide shell access.
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="自动验证">自动验证&lt;/h2>
+&lt;p>如果找不到软件，&lt;a href="https://crpm.cn/keychain-2-8-5-1-el7-noarch-rpm/">直接下载安装&lt;/a> 或 更换软件源 &lt;a href="../linux/Linux_repo_Manual.md">Linux 版本库管理&lt;/a>&lt;/p></description></item><item><title>Git 命令行</title><link>https://blog.cuile.com/post/git/git_cli/</link><pubDate>Mon, 16 May 2022 14:32:27 +0800</pubDate><guid>https://blog.cuile.com/post/git/git_cli/</guid><description>&lt;h2 id="0基础设置">0、基础设置&lt;/h2>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e"># 查看代理&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>git config --global --get http.proxy
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>git config --global --get https.proxy
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e"># 设置代理&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>git config --global http.proxy http://&lt;span style="color:#f92672">[&lt;/span>username:passwrod@&lt;span style="color:#f92672">]&lt;/span>ip or URL:port 
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>git config --global https.proxy http://&lt;span style="color:#f92672">[&lt;/span>username:passwrod@&lt;span style="color:#f92672">]&lt;/span>ip or URL:port
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e"># 取消代理&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>git config --global --unset http.proxy
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>git config --global --unset https.proxy
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e"># 只代理github.com&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>git config --global --get http.https://github.com.proxy
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>git config --global --get https.https://github.com.proxy
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>git config --global http.https://github.com.proxy http://&lt;span style="color:#f92672">[&lt;/span>username:passwrod@&lt;span style="color:#f92672">]&lt;/span>ip or URL:port
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>git config --global https.https://github.com.proxy http://&lt;span style="color:#f92672">[&lt;/span>username:passwrod@&lt;span style="color:#f92672">]&lt;/span>ip or URL:port
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>git config --global --unset http.https://github.com.proxy
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>git config --global --unset https.https://github.com.proxy
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e"># push设置&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>git config --global push.default simple
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;ul>
+&lt;li>&lt;a href="https://www.jianshu.com/p/b7ba3d954eb0">【Git】git push.default 简析 - 简书&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://blog.csdn.net/ThinkWon/article/details/101447866">Git忽略文件.gitignore详解&lt;/a>&amp;mdash;&lt;/li>
+&lt;/ul>
+&lt;h2 id="1仓库">1、仓库&lt;/h2>
+&lt;h3 id="11-克隆仓库">1.1 克隆仓库&lt;/h3>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span>git clone https://xxxx@bitbucket.org/xxxx/xxxx.git
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e"># or &lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>git clone git@github.com:xxxxx/xxxxx.git
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e"># 克隆指定分支，到指定目录&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>git clone -b branch_name repo path
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>git config user.name &lt;span style="color:#e6db74">&amp;#34;Your Name&amp;#34;&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>git config user.email you@example.com
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h3 id="12-推送新内容到github">1.2 推送新内容到github&lt;/h3>
+&lt;p>先在githubh上创建好项目&lt;/p></description></item></channel></rss>

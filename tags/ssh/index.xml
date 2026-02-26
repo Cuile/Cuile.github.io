@@ -1,3 +1,81 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>ssh on 瘦了就帅了</title><link>https://cuile.github.io/tags/ssh/</link><description>Recent content in ssh on 瘦了就帅了</description><generator>Hugo -- gohugo.io</generator><copyright>Copyright © 2008–2018, Steve Francia and the Hugo Authors; all rights reserved.</copyright><lastBuildDate>Tue, 21 Jun 2022 19:20:04 +0800</lastBuildDate><atom:link href="https://cuile.github.io/tags/ssh/index.xml" rel="self" type="application/rss+xml"/><item><title>使用 SSH 连接 Github</title><link>https://cuile.github.io/posts/git/connect_with_ssh/</link><pubDate>Tue, 21 Jun 2022 19:20:04 +0800</pubDate><guid>https://cuile.github.io/posts/git/connect_with_ssh/</guid><description>
-生成新的 SSH Key 1ssh-keygen -t rsa -b 4096 -C &amp;#34;your_email@example.com&amp;#34; 2... 3Enter a file in which to save the key (/home/you/.ssh/algorithm): &amp;lt;key_name&amp;gt; 4Enter passphrase (empty for no passphrase): [输入密码] 5Enter same passphrase again: [再次输入密码] 将新的 SSH Key 添加到 Github 将公钥文件的内容COPY</description></item><item><title>Linux 系统配置</title><link>https://cuile.github.io/posts/linux/configure_manual/</link><pubDate>Mon, 17 Jan 2022 11:07:07 +0800</pubDate><guid>https://cuile.github.io/posts/linux/configure_manual/</guid><description>
-记录系统初始化应操作的一系统步骤，也可以直接下载初始化脚本。 1. 系统更新 Yum 版本库管理 2. 远程公私钥登录 1# 生成公钥、私钥 2ssh-keygen -t rsa -b 4096 -C &amp;#34;your_email@example.com&amp;#34; 3... 4Enter a file in which</description></item></channel></rss>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Ssh on 瘦了就帅了</title><link>https://blog.cuile.com/tags/ssh/</link><description>Recent content in Ssh on 瘦了就帅了</description><generator>Hugo</generator><language>zh-cn</language><lastBuildDate>Thu, 26 Feb 2026 02:59:37 +0000</lastBuildDate><atom:link href="https://blog.cuile.com/tags/ssh/index.xml" rel="self" type="application/rss+xml"/><item><title>使用 SSH 连接 Github</title><link>https://blog.cuile.com/post/git/connect_with_ssh/</link><pubDate>Tue, 21 Jun 2022 19:20:04 +0800</pubDate><guid>https://blog.cuile.com/post/git/connect_with_ssh/</guid><description>&lt;h2 id="生成新的-ssh-key">生成新的 SSH Key&lt;/h2>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span>ssh-keygen -t rsa -b &lt;span style="color:#ae81ff">4096&lt;/span> -C &lt;span style="color:#e6db74">&amp;#34;your_email@example.com&amp;#34;&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>...
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>Enter a file in which to save the key &lt;span style="color:#f92672">(&lt;/span>/home/you/.ssh/algorithm&lt;span style="color:#f92672">)&lt;/span>: &amp;lt;key_name&amp;gt;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>Enter passphrase &lt;span style="color:#f92672">(&lt;/span>empty &lt;span style="color:#66d9ef">for&lt;/span> no passphrase&lt;span style="color:#f92672">)&lt;/span>: &lt;span style="color:#f92672">[&lt;/span>输入密码&lt;span style="color:#f92672">]&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>Enter same passphrase again: &lt;span style="color:#f92672">[&lt;/span>再次输入密码&lt;span style="color:#f92672">]&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="将新的-ssh-key-添加到-github">将新的 SSH Key 添加到 Github&lt;/h2>
+&lt;ol>
+&lt;li>将公钥文件的内容COPY出来&lt;/li>
+&lt;/ol>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span>cat ~/.ssh/&amp;lt;key_name&amp;gt;.pub
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;ol start="2">
+&lt;li>Github.com -&amp;gt; &amp;ldquo;Settings&amp;rdquo; -&amp;gt; &amp;ldquo;SSH and GPG keys&amp;rdquo; -&amp;gt; &amp;ldquo;New SSH key&amp;rdquo;&lt;/li>
+&lt;/ol>
+&lt;blockquote>
+&lt;p>Title : 为新密钥添加描述性标签
+Key : 粘贴COPY的公钥内容&lt;/p>&lt;/blockquote>
+&lt;ol start="3">
+&lt;li>&amp;ldquo;Add SSH key&amp;rdquo;&lt;/li>
+&lt;/ol>
+&lt;h2 id="使用-ssh-连接到-github">使用 SSH 连接到 Github&lt;/h2>
+&lt;ol>
+&lt;li>ssh config&lt;/li>
+&lt;/ol>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span>cd ~/.ssh
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e"># 设置访问权限&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>chmod &lt;span style="color:#ae81ff">600&lt;/span> &amp;lt;key_name&amp;gt;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e"># 生成SSH配置文件&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>cat &amp;gt; config &lt;span style="color:#e6db74">&amp;lt;&amp;lt; EOF
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#e6db74">Host github.com
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#e6db74"> Hostname ssh.github.com
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#e6db74"> Port 443
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#e6db74"> IdentityFile ~/.ssh/&amp;lt;key_name&amp;gt;
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#e6db74"> UpdateHostKeys yes
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#e6db74"> Compression yes
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#e6db74"> User git
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#e6db74">EOF&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;ul>
+&lt;li>&lt;a href="https://github.blog/2021-09-01-improving-git-protocol-security-github/#standard-git-client">Improving Git protocol security on GitHub - The GitHub Blog&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;ol start="2">
+&lt;li>连接测试&lt;/li>
+&lt;/ol>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span>ssh -T git@github.com
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>...
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>Are you sure you want to &lt;span style="color:#66d9ef">continue&lt;/span> connecting &lt;span style="color:#f92672">(&lt;/span>yes/no&lt;span style="color:#f92672">)&lt;/span>? &amp;lt;yes&amp;gt;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>...
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>Hi &amp;lt;username&amp;gt;! You&lt;span style="color:#960050;background-color:#1e0010">&amp;#39;&lt;/span>ve successfully authenticated, but GitHub does not provide shell access.
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="自动验证">自动验证&lt;/h2>
+&lt;p>如果找不到软件，&lt;a href="https://crpm.cn/keychain-2-8-5-1-el7-noarch-rpm/">直接下载安装&lt;/a> 或 更换软件源 &lt;a href="../linux/Linux_repo_Manual.md">Linux 版本库管理&lt;/a>&lt;/p></description></item><item><title>Linux 系统配置</title><link>https://blog.cuile.com/post/linux/configure_manual/</link><pubDate>Mon, 17 Jan 2022 11:07:07 +0800</pubDate><guid>https://blog.cuile.com/post/linux/configure_manual/</guid><description>&lt;h2 id="初始化配置">初始化配置&lt;/h2>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e"># 配置时区&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>timedatectl set-timezone Asia/Shanghai
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e"># 关闭邮件服务&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>systemctl stop &lt;span style="color:#e6db74">&amp;#39;postfix@*&amp;#39;&lt;/span> ; systemctl disable &lt;span style="color:#e6db74">&amp;#39;postfix@\x2a&amp;#39;&lt;/span> ; apt purge postfix
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e"># 配置Shell提示符&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>echo &lt;span style="color:#e6db74">&amp;#34;PS1=&amp;#39;\[\e[36;40m\][\D{%Y-%m-%d} \A] \[\e[0m\] \[\e[35;40m\]\w\[\e[0m\]\n\[\e[33;40m\][\u@\H]\[\e[0m\] \\&lt;/span>$&lt;span style="color:#e6db74"> &amp;#39;&amp;#34;&lt;/span> &amp;gt;&amp;gt; ~/.bashrc
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e"># 打开自定义命令&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>sed -E -i.bak &lt;span style="color:#ae81ff">\
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#ae81ff">&lt;/span> -e &lt;span style="color:#e6db74">&amp;#39;/(export|eval|alias (ls|ll|l|rm|cp|mv))/s/^# //&amp;#39;&lt;/span> ~/.bashrc &lt;span style="color:#ae81ff">\
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#ae81ff">&lt;/span> &lt;span style="color:#f92672">&amp;amp;&amp;amp;&lt;/span> . ~/.bashrc
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e"># 配置 sshd&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e"># 允许root密码登录&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e"># 允许密码登录&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e"># 解决SSH自动断开问题&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>sed -E -i.bak &lt;span style="color:#ae81ff">\
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#ae81ff">&lt;/span> -e &lt;span style="color:#e6db74">&amp;#39;s/#(Port 22)/\1/&amp;#39;&lt;/span> &lt;span style="color:#ae81ff">\
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#ae81ff">&lt;/span> -e &lt;span style="color:#e6db74">&amp;#39;s/#(PermitRootLogin) prohibit-password/\1 yes/&amp;#39;&lt;/span> &lt;span style="color:#ae81ff">\
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#ae81ff">&lt;/span> -e &lt;span style="color:#e6db74">&amp;#39;s/#(PubkeyAuthentication yes)/\1/&amp;#39;&lt;/span> &lt;span style="color:#ae81ff">\
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#ae81ff">&lt;/span> -e &lt;span style="color:#e6db74">&amp;#39;s/#(PasswordAuthentication yes)/\1/&amp;#39;&lt;/span> &lt;span style="color:#ae81ff">\
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#ae81ff">&lt;/span> -e &lt;span style="color:#e6db74">&amp;#39;s/#(AllowTcpForwarding yes)/\1/&amp;#39;&lt;/span> &lt;span style="color:#ae81ff">\
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#ae81ff">&lt;/span> -e &lt;span style="color:#e6db74">&amp;#39;s/(X11Forwarding yes)/#\1/&amp;#39;&lt;/span> &lt;span style="color:#ae81ff">\
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#ae81ff">&lt;/span> -e &lt;span style="color:#e6db74">&amp;#39;s/#(Compression delayed)/\1/&amp;#39;&lt;/span> &lt;span style="color:#ae81ff">\
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#ae81ff">&lt;/span> -e &lt;span style="color:#e6db74">&amp;#39;s/#(ClientAliveInterval) 0/\1 60/&amp;#39;&lt;/span> &lt;span style="color:#ae81ff">\
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#ae81ff">&lt;/span> -e &lt;span style="color:#e6db74">&amp;#39;s/#(ClientAliveCountMax) 3/\1 3/&amp;#39;&lt;/span> &lt;span style="color:#ae81ff">\
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#ae81ff">&lt;/span> /etc/ssh/sshd_config &lt;span style="color:#ae81ff">\
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#ae81ff">&lt;/span> &lt;span style="color:#f92672">&amp;amp;&amp;amp;&lt;/span> systemctl restart sshd.service
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="软件更新">软件更新&lt;/h2>
+&lt;p>&lt;a href="https://blog.cuile.com/post/linux/repo_manual/">软件库管理&lt;/a>&lt;/p></description></item></channel></rss>
