@@ -20,7 +20,21 @@ tags:
 
 ## 2. 安装 Visual Stuido Code
 
-这不废话嘛，同上。
+### 2.1 Debian
+```bash
+# 预配置安装选项
+echo "code code/add-microsoft-repo boolean true" | sudo debconf-set-selections &&
+# 安装依赖工具
+sudo apt-get -y install wget gpg &&
+# 导入微软 GPG 密钥
+wget -qO- https://packages.microsoft.com/keys/microsoft.asc | gpg --dearmor | sudo tee /usr/share/keyrings/microsoft.gpg > /dev/null
+# 添加微软软件源
+echo "deb [arch=amd64,arm64,armhf signed-by=/usr/share/keyrings/microsoft.gpg] https://packages.microsoft.com/repos/code stable main" | sudo tee /etc/apt/sources.list.d/vscode.list
+# 更新并安装 VSCode
+sudo apt-get -y install apt-transport-https &&
+sudo apt-get update &&
+sudo apt-get install -y code
+```
 
 ## 3. 安装 Remote Development 扩展包
 

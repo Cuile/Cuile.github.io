@@ -79,6 +79,20 @@ git remote -v
 git remote set-url origin git@github.com:用户名/仓库名.git
 ```
 
+### 1.5 移动仓库路径
+```bash
+# 查看具体变化内容
+# 如果输出 old mode 100644 → new mode 100755，表示权限变化
+git diff
+# 忽略文件权限差异
+# 仅当前仓库生效
+git config core.filemode false
+# 或全局设置
+git config --global core.filemode false
+# 重置工作区
+git reset --hard HEAD
+```
+
 ## 2、分支
 
 ### 2.1 本地分支操作
