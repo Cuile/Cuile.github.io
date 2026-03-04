@@ -62,6 +62,9 @@ micromamba/micromamba --help
 # 查看输出
 ```
 #### 2. 安装[^2]
+##### 2.1 自动安装
+[Micromamba Installation — documentation](https://mamba.readthedocs.io/en/latest/installation/micromamba-installation.html#automatic-install)
+##### 2.1 手动安装
 ```bash
 ~/micromamba/micromamba shell init -s bash -r ~/micromamba
 ```
