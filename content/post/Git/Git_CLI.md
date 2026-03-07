@@ -79,7 +79,7 @@ git remote -v
 git remote set-url origin git@github.com:用户名/仓库名.git
 ```
 
-### 1.5 移动仓库路径
+### 1.5 移动本地仓库路径
 ```bash
 # 查看具体变化内容
 # 如果输出 old mode 100644 → new mode 100755，表示权限变化
