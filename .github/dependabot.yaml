@@ -4,7 +4,7 @@ updates:
   - package-ecosystem: "github-actions"
     directory: "/"  # 工作流文件在 .github/workflows 下
     schedule:
-      interval: "weekly"  # 每周检查更新
+      interval: "monthly"  # 每周检查更新
     # 可选：指定要更新的动作
     allow:
       - dependency-type: "all"
