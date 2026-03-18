@@ -54,7 +54,7 @@ killall ibus-daemon \
 curl -fsSL https://raw.githubusercontent.com/rime/plum/master/rime-install | rime_frontend=fcitx5-rime bash
 # 后续使用
 cd ~/plum/
-rime_frontend=fcitx5-rime bash rime-install
+rime_frontend=fcitx5-rime bash rime-install wubi pinyin-simp
 # 更新
 rime_frontend=fcitx5-rime bash rime-install plum
 
