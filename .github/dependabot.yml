@@ -1,0 +1,14 @@
+version: 2
+updates:
+  # 监控 GitHub Actions
+  - package-ecosystem: "github-actions"
+    directory: "/"  # 工作流文件在 .github/workflows 下
+    schedule:
+      interval: "weekly"  # 每周检查更新
+    # 可选：指定要更新的动作
+    allow:
+      - dependency-type: "all"
+    # 可选：忽略某些主要版本的更新
+    # ignore:
+    #   - dependency-name: "actions/checkout"
+    #     versions: ["5.x"]
