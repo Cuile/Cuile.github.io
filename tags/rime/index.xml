@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Rime on 瘦了就帅了</title><link>https://blog.cuile.com/tags/rime/</link><description>Recent content in Rime on 瘦了就帅了</description><generator>Hugo</generator><language>zh-cn</language><lastBuildDate>Wed, 18 Mar 2026 10:13:17 +0000</lastBuildDate><atom:link href="https://blog.cuile.com/tags/rime/index.xml" rel="self" type="application/rss+xml"/><item><title>Rime/中州韵 输入法安装设置</title><link>https://blog.cuile.com/post/rime_setup/</link><pubDate>Fri, 19 Jan 2024 13:11:15 +0800</pubDate><guid>https://blog.cuile.com/post/rime_setup/</guid><description>&lt;p>Rime/中州韵 输入法是一个跨平台的输入引擎，非常强大优秀。
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Rime on 瘦了就帅了</title><link>https://blog.cuile.com/tags/rime/</link><description>Recent content in Rime on 瘦了就帅了</description><generator>Hugo</generator><language>zh-cn</language><lastBuildDate>Fri, 20 Mar 2026 05:49:53 +0000</lastBuildDate><atom:link href="https://blog.cuile.com/tags/rime/index.xml" rel="self" type="application/rss+xml"/><item><title>Rime/中州韵 输入法安装设置</title><link>https://blog.cuile.com/post/rime_setup/</link><pubDate>Fri, 19 Jan 2024 13:11:15 +0800</pubDate><guid>https://blog.cuile.com/post/rime_setup/</guid><description>&lt;p>Rime/中州韵 输入法是一个跨平台的输入引擎，非常强大优秀。
 它在不同的平台有不同的名字：&lt;/p>
 &lt;ul>
 &lt;li>Windows: 小狼毫 Weasel&lt;/li>
@@ -43,7 +43,7 @@
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>curl -fsSL https://raw.githubusercontent.com/rime/plum/master/rime-install | rime_frontend&lt;span style="color:#f92672">=&lt;/span>fcitx5-rime bash
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e"># 后续使用&lt;/span>
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>cd ~/plum/
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>rime_frontend&lt;span style="color:#f92672">=&lt;/span>fcitx5-rime bash rime-install
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>rime_frontend&lt;span style="color:#f92672">=&lt;/span>fcitx5-rime bash rime-install wubi pinyin-simp
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e"># 更新&lt;/span>
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>rime_frontend&lt;span style="color:#f92672">=&lt;/span>fcitx5-rime bash rime-install plum
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
