@@ -45,6 +45,9 @@ git clone -b branch_name repo path
 
 git config user.name "Your Name"
 git config user.email you@example.com
+
+# 查看远程仓库地址
+git remote -v
 ```
 
 ### 1.2 推送新内容到github
@@ -131,9 +134,6 @@ git push origin new_branch_name
 # 切换分支
 git checkout branch_name
 
-# 删除分支
-git branch -d branch_name
-
 # 发布本地分支
 git push 远程主机名 本地分支名:远程分支名
 
@@ -160,9 +160,6 @@ git push
 
 ### 2.2 远程分支操作
 ```bash
-# 查看远程仓库地址
-git remote -v
-
 # 更新远程分支列表
 # 如果你的 remote branch 不是在 origin 下，把 origin 换成你的名字
 # --prune 删除远程已经删除的分支
@@ -211,9 +208,17 @@ git branch -u origin/new_branch_name
 git branch --set-upstream-to=origin/new_branch_name old_branch_name
 # 验证配置结果
 git branch -vv
-# 删除旧的远程跟踪分支
-git branch -dr origin/old_branch_name
-```---
+# 清理所有无效的运程跟踪分支
+git remote prune origin
+```
+
+### 2.6 删除分支
+```bash
+# 删除本地分支
+git branch -d branch_name
+# 删除远程分支
+git push origin --delete branch_name
+```
 
 ## 3、标签
 
@@ -226,4 +231,4 @@ git tag 1.0
 
 # 推送所有标签
 git push --tags
-```---
+```
