@@ -109,7 +109,7 @@ conda self-update
 ```
 
 ## 使用
-### 1. 创建Python环境
+### 1. 创建环境
 使用命令行
 ```bash
 conda create -f env.yml
@@ -138,5 +138,28 @@ conda create -n py3.12 --clone py3.12_new
 # 删除
 conda env remove -n py3.12
 ```
+
+### 3. 创建项目
+```powershell
+# 先激活 micromamba 环境
+PS "Your Project Path"> conda activate PyQt
+
+# 创建Python虚拟环境
+# --upgrade 参数是升级虚拟环境用的，新建虚拟环境时要去掉。
+# --system-site-packages 会降低环境隔离性，生产环境慎用。
+(PyQt) PS "Your Project Path"> python -m venv --prompt "<myproject>" --upgrade-deps .venv --symlinks --upgrade --system-site-packages
+# 查看项目资源管理器，看到 .venv 文件夹就成功了。
+
+# 激活Python虚拟环境
+(PyQt) PS "Your Project Path"> Activate.ps1
+# 成功进入虚拟环境
+(myproject) (PyQt) PS "Your Project Path">
+
+# 退出 micromamba 环境，避免污染 micromamba 环境
+(myproject) (PyQt) PS "Your Project Path"> conda deactivate
+# 成功退出 micromamba 环境
+(myproject) PS "Your Project Path">
+```
+---
 [^1]:[Micromamba Installation](https://mamba.readthedocs.io/en/latest/installation/micromamba-installation.html#operating-system-package-managers)
 [^2]:[使用 Micromamba 替换 Miniconda 更快配置 Python 环境](https://zhuanlan.zhihu.com/p/622346839?utm_id=0)
