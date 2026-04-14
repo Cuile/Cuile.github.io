@@ -6,9 +6,11 @@ tags:
 ---
 Rime/中州韵 输入法是一个跨平台的输入引擎，非常强大优秀。
 它在不同的平台有不同的名字：
-- Windows: 小狼毫 Weasel
-- MacOS: 鼠鬚管 Squirrel, 小企鹅 fcitx5-macos
-- Linux: ibus-rime, fcitx5-rime
+- Linux: 中州韵 (ibus-rime, fcitx5-rime, fcitx-rime)
+- Windows: 小狼毫 (Weasel)
+- MacOS: 鼠鬚管 (Squirrel), 小企鹅 (fcitx5-macos)
+
+东风破 (plum) 是为Rime用户设计的，用于**安装和更新**Rime开发者维护的**默认配置**和**数据包集合**。
 
 ## Windows
 ### 配置输入法
@@ -49,17 +51,17 @@ killall ibus-daemon \
 ```
 ### 安装 东风破/plum/ 配置工具
 ```bash
-# 因为fcitx5-rime是fcitx5团队带为开发的，所以要指定第三方Rime发行版本
+# 因为fcitx5-rime是fcitx5团队代为开发的，所以要指定第三方Rime发行版本
 # 注意：此命令会默认配置所有预设置项
 curl -fsSL https://raw.githubusercontent.com/rime/plum/master/rime-install | rime_frontend=fcitx5-rime bash
-# 后续使用
+# 更新 plum
+rime_frontend=fcitx5-rime bash rime-install plum
+```
+### 安装 五笔拼音混合输入法
+```bash
 cd ~/plum/
 rime_frontend=fcitx5-rime bash rime-install wubi pinyin-simp
-# 更新
-rime_frontend=fcitx5-rime bash rime-install plum
-
 # 也可以直接安装输入法，不配置预设置项
-# 这里是直接安装五笔拼音混合输入法
 curl -fsSL https://raw.githubusercontent.com/rime/plum/master/rime-install | rime_frontend=fcitx5-rime bash -s -- wubi pinyin-simp
 ```
 - [rime/plum: 東風破 /plum/: Rime configuration manager and input schema repository](https://github.com/rime/plum?tab=readme-ov-file#advanced-usage)
@@ -70,11 +72,9 @@ curl -fsSL https://raw.githubusercontent.com/rime/plum/master/rime-install | rim
 # ~/.local/share/fcitx5/rime/default.custom.yaml
 patch:
   schema_list:
-    - schema: wubi_pinyin # 添加五笔拼音混合输入法
-  switches:
-    - name: ascii_mode
-      reset: 1 # 每次初始化时，强制英文模式
-      states: [中文,西文]
+    - schema: wubi_pinyin # 只保留五笔拼音混合输入法
+  "ascii_composer/switch_key/Shift_L": noop # 关闭左右Shift切换，居然操作麻烦，但可以解决按键冲突的问题
+  "ascii_composer/switch_key/Shift_R": noop
 ```
 - [在方案選單中添加五筆、雙拼](https://github.com/rime/home/wiki/CustomizationGuide#%E5%9C%A8%E6%96%B9%E6%A1%88%E9%81%B8%E5%96%AE%E4%B8%AD%E6%B7%BB%E5%8A%A0%E4%BA%94%E7%AD%86%E9%9B%99%E6%8B%BC)
 
@@ -95,3 +95,5 @@ patch:
 - [RIME | 中州韻輸入法引擎](https://rime.im/)
 - [Rime输入法安装与配置](https://www.thisfaner.com/p/rime/)
 - [致第一次安装RIME的你](https://www.zybuluo.com/eternity/note/81763)
+- [Schema.yaml 詳解](https://github.com/LEOYoon-Tsaw/Rime_collections/blob/master/Rime_description.md)
+- [擊出中文之韻 | Just rime with it](https://github.com/rime/home/wiki)
