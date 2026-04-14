@@ -150,14 +150,17 @@ PS "Your Project Path"> conda activate PyQt
 (PyQt) PS "Your Project Path"> python -m venv --prompt "myproject" --upgrade-deps .venv --symlinks --upgrade --system-site-packages
 # 查看项目资源管理器，看到 .venv 文件夹就成功了。
 
-# 激活Python虚拟环境
-(PyQt) PS "Your Project Path"> Activate.ps1
-# 成功进入虚拟环境
-(myproject) (PyQt) PS "Your Project Path">
-
 # 退出 micromamba 环境，避免污染 micromamba 环境
-(myproject) (PyQt) PS "Your Project Path"> conda deactivate
+(PyQt) PS "Your Project Path"> conda deactivate
 # 成功退出 micromamba 环境
+PS "Your Project Path">
+
+# 激活Python虚拟环境
+PS "Your Project Path"> Activate.ps1
+# linux 环境
+. .venv/bin/activate
+
+# 成功进入虚拟环境
 (myproject) PS "Your Project Path">
 ```
 
