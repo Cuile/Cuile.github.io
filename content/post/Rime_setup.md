@@ -6,7 +6,7 @@ tags:
 ---
 Rime/中州韵 输入法是一个跨平台的输入引擎，非常强大优秀。
 它在不同的平台有不同的名字：
-- Linux: 中州韵 (ibus-rime, fcitx5-rime, fcitx-rime)
+- Linux: 中州韵 (ibus-rime, fcitx-rime, fcitx5-rime)
 - Windows: 小狼毫 (Weasel)
 - MacOS: 鼠鬚管 (Squirrel), 小企鹅 (fcitx5-macos)
 
