@@ -1,6 +1,6 @@
 ---
 title: "Windows X-Lite 版本说明"
-date: 2026-4-24T16:23:32+08:00
+date: 2026-04-24T16:23:32+08:00
 # draft: true
 
 tags:
