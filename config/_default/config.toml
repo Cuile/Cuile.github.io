@@ -32,9 +32,14 @@ href = "attachments/pdfs/_崔乐_产品.pdf"
 lastmod = ["lastmod", ":fileModTime", ":default"]
 
 [outputs]
-  home = ["html", "json"]
+home = ["html", "json"]
 
 [outputFormats.json]
-  mediaType = "application/json"
-  baseName = "index"
-  isPlainText = false
+mediaType = "application/json"
+baseName = "index"
+isPlainText = false
+
+# [markup]
+# [markup.goldmark]
+[markup.goldmark.renderer]
+unsafe = true
