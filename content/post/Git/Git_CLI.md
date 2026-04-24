@@ -142,20 +142,6 @@ git push 远程主机名 本地分支名:远程分支名
 git checkout b
 git merge a
 git push
-
-# 推送
-# 查看本地项目状态
-git status -s
-# 添加文件 | 添加目录 | 添加所有内容
-git add  file | dir | . 
-# 删除 add 的文件
-git rm [-r] --cached file | .
-# 提交已修改的文件，但不提交未跟踪的文件
-git commit -m "message" --untracked-files=no
-# 提交已删除的文件
-git commit -m "message" -a
-# 推送到远程库
-git push
 ```
 
 ### 2.2 远程分支操作
@@ -220,8 +206,8 @@ git branch -d branch_name
 git push origin --delete branch_name
 ```
 
-## 3、标签
 
+## 3、标签
 ```bash
 # 查看现有的标签
 git tag
@@ -231,4 +217,42 @@ git tag 1.0
 
 # 推送所有标签
 git push --tags
+```
+
+## 4、提交
+
+### 4.1 推送
+```bash
+# 查看本地项目状态
+git status -s
+# 添加文件 | 添加目录 | 添加所有内容
+git add  file | dir | . 
+# 删除 add 的文件
+git rm [-r] --cached file | .
+# 提交已修改的文件，但不提交未跟踪的文件
+git commit -m "message" --untracked-files=no
+# 提交已删除的文件
+git commit -m "message" -a
+# 推送到远程库
+git push
+```
+
+### 4.2 反向提交
+```bash
+# 确认要revert的提交
+# 获取hash（d1e2f3g）
+git log --oneline
+# 执行revert
+git revert <hash>
+
+# git会打开nano编辑器，编辑提交消息
+
+# 查看冲突
+git status
+# 解决完冲突继续revert
+git revert --continue
+# 中止
+git revert --abort
+# 推送
+git push
 ```
