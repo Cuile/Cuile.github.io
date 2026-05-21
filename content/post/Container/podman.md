@@ -14,11 +14,37 @@ tags:
 ## 安装
 ```bash
 apt update
-# 安装 Podman & podman-compose
-apt install -y podman podman-compose iptables # iptables必须安装，否则netavark无法运行
+# 安装 Podman
+apt install -y curl gpg gnupg2
+# 查看 Debian版本
+lsb_release -a
 
+# Debian 13
+# 添加 Kubic 项目的 Debian_Testing 软件源
+echo 'deb http://download.opensuse.org/repositories/devel:/kubic:/libcontainers:/stable/Debian_Testing/ /' | sudo tee /etc/apt/sources.list.d/kubic.list
+# 下载并添加对应的 GPG 密钥
+curl -fsSL https://download.opensuse.org/repositories/devel:kubic:libcontainers:stable/Debian_Testing/Release.key | gpg --dearmor | sudo tee /etc/apt/trusted.gpg.d/kubic.gpg > /dev/null
+
+# Debian 12
+# 添加 Kubic 项目的 Debian_Testing 软件源
+echo "deb https://download.opensuse.org/repositories/devel:/kubic:/libcontainers:/stable/Debian_12/ /" | sudo tee /etc/apt/sources.list.d/kubic.list
+# 下载并添加对应的 GPG 密钥
+curl -fsSL https://download.opensuse.org/repositories/devel:kubic:libcontainers:stable/Debian_12/Release.key | gpg --dearmor | sudo tee /etc/apt/trusted.gpg.d/kubic.gpg > /dev/null
+
+# 更新软件包列表并安装 Podman
+sudo apt update
+sudo apt install podman
 # 验证安装
-podman version ; podman-compose version
+podman version 
+
+# 安装 podman-compose
+apt install pipx
+pipx ensurepath
+pipx install podman-compose
+podman-compose version
+
+# iptables必须安装，否则netavark无法运行
+apt install iptables 
 # 防火墙一定要加这条，否则容器之间的名称解析无法工作
 iptables -A INPUT -p udp -m udp --dport 53 -j ACCEPT
 # 测试podman是否安装成功
