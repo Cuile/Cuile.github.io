@@ -25,12 +25,6 @@ echo 'deb http://download.opensuse.org/repositories/devel:/kubic:/libcontainers:
 # 下载并添加对应的 GPG 密钥
 curl -fsSL https://download.opensuse.org/repositories/devel:kubic:libcontainers:stable/Debian_Testing/Release.key | gpg --dearmor | sudo tee /etc/apt/trusted.gpg.d/kubic.gpg > /dev/null
 
-# Debian 12
-# 添加 Kubic 项目的 Debian_Testing 软件源
-echo "deb https://download.opensuse.org/repositories/devel:/kubic:/libcontainers:/stable/Debian_12/ /" | sudo tee /etc/apt/sources.list.d/kubic.list
-# 下载并添加对应的 GPG 密钥
-curl -fsSL https://download.opensuse.org/repositories/devel:kubic:libcontainers:stable/Debian_12/Release.key | gpg --dearmor | sudo tee /etc/apt/trusted.gpg.d/kubic.gpg > /dev/null
-
 # 更新软件包列表并安装 Podman
 sudo apt update
 sudo apt install podman
