@@ -6,6 +6,7 @@ date: 2025-09-20T22:26:06+08:00
 tags:
 - postgresql
 - database
+- sql
 # series:
 # categories:
 ---

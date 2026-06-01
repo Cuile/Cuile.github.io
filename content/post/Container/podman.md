@@ -26,19 +26,19 @@ echo 'deb http://download.opensuse.org/repositories/devel:/kubic:/libcontainers:
 curl -fsSL https://download.opensuse.org/repositories/devel:kubic:libcontainers:stable/Debian_Testing/Release.key | gpg --dearmor | sudo tee /etc/apt/trusted.gpg.d/kubic.gpg > /dev/null
 
 # 更新软件包列表并安装 Podman
-sudo apt update
-sudo apt install podman
+apt update
+apt install -y podman
 # 验证安装
 podman version 
 
 # 安装 podman-compose
-apt install pipx
+apt install -y pipx
 pipx ensurepath
 pipx install podman-compose
 podman-compose version
 
 # iptables必须安装，否则netavark无法运行
-apt install iptables 
+apt install -y iptables 
 # 防火墙一定要加这条，否则容器之间的名称解析无法工作
 iptables -A INPUT -p udp -m udp --dport 53 -j ACCEPT
 # 测试podman是否安装成功
