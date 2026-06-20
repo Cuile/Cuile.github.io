@@ -1,5 +1,5 @@
 ---
-title: "Linux 系统配置"
+title: "Debian 系统配置"
 date: 2022-01-17T11:07:07+08:00
 # draft: true
 tags: 
@@ -9,24 +9,143 @@ tags:
 - top
 - linux
 - setup
+- debian
+- init
 ---
 
 ## 初始化配置
+
+### 1. 配置时区
 ```bash
-# 配置时区
 timedatectl set-timezone Asia/Shanghai
+```
 
-# 关闭邮件服务
+### 2. 关闭邮件服务
+```bash
 systemctl stop 'postfix@*' ; systemctl disable 'postfix@\x2a' ; apt purge postfix
+```
 
-# 配置Shell提示符
+### 3. 配置systemd-networkd
+```bash
+apt install systemd-networkd systemd-resolved wpa_supplicant
+```
+#### 3.1 配置wpa_supplicant
+```ini
+; /etc/wpa_supplicant/wlp2s0.conf
+network={
+    ssid="<ssid>"
+    psk="<pwd>"
+}
+```
+```bash
+# 测试配置文件
+wpa_supplicant -c /etc/wpa_supplicant/wlp2s0.conf -i wlp2s0 -B
+# 重启wpa_supplicant服务
+systemctl enable wpa_supplicant
+systemctl start wpa_supplicant
+```
+```bash
+# 编辑wpa_supplicant服务
+systemctl edit wpa_supplicant
+```
+```ini
+### Editing /etc/systemd/system/wpa_supplicant.service.d/override.conf
+### Anything between here and the comment below will become the contents of the drop-in file
+
+[Service]
+ExecStart=
+ExecStart=/usr/sbin/wpa_supplicant -c /etc/wpa_supplicant/wlp2s0.conf -i wlp2s0
+Restart=on-failure
+RestartSec=5
+
+### Edits below this comment will be discarded
+......
+```
+```bash
+systemctl daemon-reload
+systemctl restart wpa_supplicant
+```
+#### 3.2 配置systemd-networkd
+此处参考/etc/network/interfaces文件里的配置
+```ini
+; /etc/systemd/network/10-lo.network
+[Match]
+Name=lo
+
+[Network]
+# 启用链路本地地址（IPv4 和 IPv6）
+LinkLocalAddressing=yes
+IPv6LinkLocalAddressGenerationMode=stable-privacy
+
+[Address]
+Address=127.0.0.1/8
+
+[Address]
+Address=::1/128
+```
+```ini
+; /etc/systemd/network/20-wireless.network
+[Match]
+Name=wlp2s0
+
+[Network]
+Address=192.168.1.94/24
+Gateway=192.168.1.1
+DNS=192.168.1.6
+```
+```bash
+# 重启systemd-networkd服务
+systemctl enable systemd-networkd
+systemctl start systemd-networkd
+```
+```bash
+# 编辑systemd-networkd服务
+systemctl edit systemd-networkd
+```
+```ini
+### Editing /etc/systemd/system/systemd-networkd.service.d/override.conf
+### Anything between here and the comment below will become the contents of the drop-in file
+
+[Unit]
+After=wpa_supplicant.service
+Wants=wpa_supplicant.service
+
+### Edits below this comment will be discarded
+......
+```
+```bash
+systemctl daemon-reload
+systemctl restart systemd-networkd
+```
+#### 3.3 配置systemd-resolved
+```bash
+systemctl enable --now systemd-resolved
+# 将系统的 DNS 配置文件链接到 systemd-resolved 管理的动态文件上，这样它就会自动更新。
+ln -sf /run/systemd/resolve/stub-resolv.conf /etc/resolv.conf
+resolvectl status
+```
+#### 3.4 关闭networking
+```bash
+systemctl stop networking
+systemctl disable networking
+apt remove ifupdown
+```
+#### 3.5 重启
+```bash
+reboot
+```
+
+### 4. 配置Shell提示符
+```bash
 echo "PS1='\[\e[36;40m\][\D{%Y-%m-%d} \A] \[\e[0m\] \[\e[35;40m\]\w\[\e[0m\]\n\[\e[33;40m\][\u@\H]\[\e[0m\] \\$ '" >> ~/.bashrc
 # 打开自定义命令
 sed -E -i.bak \
     -e '/(export|eval|alias (ls|ll|l|rm|cp|mv))/s/^# //' ~/.bashrc \
     && . ~/.bashrc
+```
 
-# 配置 sshd
+### 5. 配置 sshd
+```bash
 # 允许root密码登录
 # 允许密码登录
 # 解决SSH自动断开问题
