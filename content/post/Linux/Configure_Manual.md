@@ -106,6 +106,9 @@ Name=wlp2s0
 Address=192.168.1.94/24
 Gateway=192.168.1.1
 DNS=192.168.1.6
+; 禁用IPv6
+LinkLocalAddressing=no
+IPv6AcceptRA=no
 ```
 ```bash
 # 重启systemd-networkd服务
