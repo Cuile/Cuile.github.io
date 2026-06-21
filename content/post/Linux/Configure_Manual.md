@@ -42,6 +42,8 @@ apt install systemd-networkd systemd-resolved wpa_supplicant
 #### 3.1 配置wpa_supplicant
 ```ini
 ; /etc/wpa_supplicant/wlp2s0.conf
+p2p_disabled=1
+
 network={
     ssid="<ssid>"
     psk="<pwd>"
@@ -65,8 +67,10 @@ systemctl edit wpa_supplicant
 [Service]
 ExecStart=
 ExecStart=/usr/sbin/wpa_supplicant -c /etc/wpa_supplicant/wlp2s0.conf -i wlp2s0
+Type=simple
 Restart=on-failure
 RestartSec=5
+TimeoutStartSec=180
 
 ### Edits below this comment will be discarded
 ......
