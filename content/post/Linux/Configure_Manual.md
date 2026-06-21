@@ -15,9 +15,19 @@ tags:
 
 ## 初始化配置
 
-### 1. 配置时区
+### 1. 配置时间
 ```bash
+apt install systemd-timesyncd
+# 设置时区
 timedatectl set-timezone Asia/Shanghai
+# 启动NTP服务
+timedatectl set-ntp true
+```
+```ini
+; /etc/systemd/timesyncd.conf
+[Time]
+NTP=ntp.tuna.tsinghua.edu.cn
+FallbackNTP=0.debian.pool.ntp.org 1.debian.pool.ntp.org
 ```
 
 ### 2. 关闭邮件服务
@@ -130,7 +140,27 @@ systemctl stop networking
 systemctl disable networking
 apt remove ifupdown
 ```
-#### 3.5 重启
+#### 3.5 关闭无线网卡电源管理
+```bash
+# 创建服务
+tee /etc/systemd/system/wifi-powersave.service << 'EOF'
+[Unit]
+Description=Disable WiFi Power Saving
+After=network.target
+
+[Service]
+Type=oneshot
+ExecStart=/usr/sbin/iwconfig wlp2s0 power off
+RemainAfterExit=yes
+
+[Install]
+WantedBy=multi-user.target
+EOF
+# 启动服务
+systemctl enable wifi-powersave.service
+systemctl start wifi-powersave.service
+```
+#### 3.6 重启
 ```bash
 reboot
 ```
