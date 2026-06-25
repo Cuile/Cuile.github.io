@@ -45,28 +45,24 @@ iptables -A INPUT -p udp -m udp --dport 53 -j ACCEPT
 podman run --rm hello-world
 ```
 
-## 配置
-```bash
-# 配置国内镜像源
-sed -E -i.bak \
-    -e 's/^# (unqualified-search-registries = ).+$/\1["docker.io"]/' \
-    -e 's/^# (\[\[registry\]\])$/\1/' \
-    -e 's/^# (prefix = ).+"$/\1"docker.io"/' \
-    -e '0,\/^# (location = ).+"$/s//\1"docker.1ms.run"/' \
-    -e '0,\/^# (\[\[registry.mirror\]\])$/s//\1/' \
-    -e '0,\/^# (location = ).*"$/s//\1"registry.cn-hangzhou.aliyuncs.com"/' \
-    /etc/containers/registries.conf
-```
+## 配置国内镜像源
 ```toml
 # nano /etc/containers/registries.conf
 unqualified-search-registries = ["docker.io"]
 
 [[registry]]
 prefix = "docker.io"
-location = "docker.1ms.run"
-
+location = "docker.io"
 [[registry.mirror]]
-location = "registry.cn-hangzhou.aliyuncs.com"  # 可选备用
+location = "docker.1ms.run"
+[[registry.mirror]]
+location = "registry.cn-hangzhou.aliyuncs.com"
+
+[[registry]]
+prefix = "ghcr.io"
+location = "ghcr.io"
+[[registry.mirror]]
+location = "ghcr.nju.edu.cn"
 ```
 其实命令与Docker一致，非常方便好用。
 - [Docker / Podman 安装与换源](https://wcbing.top/linux/containers/install/)
