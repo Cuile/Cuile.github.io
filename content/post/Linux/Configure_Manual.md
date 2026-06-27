@@ -29,6 +29,10 @@ timedatectl set-ntp true
 NTP=ntp.tuna.tsinghua.edu.cn
 FallbackNTP=0.debian.pool.ntp.org 1.debian.pool.ntp.org
 ```
+```bash
+# 在LXC、Docker 或某些 VPS 环境中
+dpkg-reconfigure tzdata
+```
 
 ### 2. 关闭邮件服务
 ```bash
