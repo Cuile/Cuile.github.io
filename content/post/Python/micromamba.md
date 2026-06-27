@@ -53,23 +53,18 @@ $Env:MAMBA_EXE = "C:\Users\username\micromamba\Library\bin\micromamba.exe"
 Set-Alias -name conda -value micromamba
 ```
 ### Debian
-#### 1. 下载
-```bash
-# 下载可执行文件
-curl -Ls https://micro.mamba.pm/api/micromamba/linux-64/latest | tar -xvj bin/micromamba
-mv bin/ micromamba
-micromamba/micromamba --help
-# 查看输出
-```
-#### 2. 安装[^2]
-##### 2.1 自动安装
+#### 安装[^2]
+##### 1. 自动安装
 [Micromamba Installation — documentation](https://mamba.readthedocs.io/en/latest/installation/micromamba-installation.html#automatic-install)
-##### 2.1 手动安装
+##### 2. 手动安装
 ```bash
-~/micromamba/micromamba shell init -s bash -r ~/micromamba
+curl -Ls https://micro.mamba.pm/api/micromamba/linux-64/latest | tar -xvj bin/micromamba \
+&& mv bin/ micromamba \
+&& micromamba/micromamba --help \
+&& ~/micromamba/micromamba shell init -s bash -r ~/micromamba
 ```
-> ~/.bashrc
 ```bash
+# ~/.bashrc
 ......
 # >>> mamba initialize >>>
 # !! Contents within this block are managed by 'micromamba shell init' !!
