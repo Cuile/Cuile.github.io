@@ -13,9 +13,10 @@ tags:
 
 ## 安装
 ```bash
-apt update
 # 安装 Podman
-apt install -y curl gpg gnupg2
+apt update \
+&& apt install -y curl gpg gnupg2
+
 # 查看 Debian版本
 lsb_release -a
 
@@ -26,23 +27,21 @@ echo 'deb http://download.opensuse.org/repositories/devel:/kubic:/libcontainers:
 curl -fsSL https://download.opensuse.org/repositories/devel:kubic:libcontainers:stable/Debian_Testing/Release.key | gpg --dearmor | sudo tee /etc/apt/trusted.gpg.d/kubic.gpg > /dev/null
 
 # 更新软件包列表并安装 Podman
-apt update
-apt install -y podman
-# 验证安装
-podman version 
+apt update \
+&& apt install -y podman \
+&& podman version 
 
 # 安装 podman-compose
-apt install -y pipx
-pipx ensurepath
-pipx install podman-compose
-podman-compose version
+apt install -y pipx \
+&& pipx ensurepath \
+&& . ~/.bashrc \
+&& pipx install podman-compose \
+&& podman-compose version
 
 # iptables必须安装，否则netavark无法运行
 apt install -y iptables 
 # 防火墙一定要加这条，否则容器之间的名称解析无法工作
 iptables -A INPUT -p udp -m udp --dport 53 -j ACCEPT
-# 测试podman是否安装成功
-podman run --rm hello-world
 ```
 
 ## 配置国内镜像源
@@ -63,6 +62,11 @@ prefix = "ghcr.io"
 location = "ghcr.io"
 [[registry.mirror]]
 location = "ghcr.nju.edu.cn"
+```
+
+## 测试podman是否安装成功
+```bash
+podman run --rm hello-world
 ```
 其实命令与Docker一致，非常方便好用。
 - [Docker / Podman 安装与换源](https://wcbing.top/linux/containers/install/)
