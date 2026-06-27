@@ -18,8 +18,8 @@ tags:
 ### 查找延迟最小的镜像
 ```bash
 apt install -y netselect-apt \
-    && sudo netselect-apt \
-    && sudo apt autoremove -y netselect-apt \
+    && netselect-apt \
+    && apt autoremove -y netselect-apt \
     && rm -f sources.list
 ```
 ```bash
