@@ -17,7 +17,7 @@ tags:
 
 ### 1. 配置时间
 ```bash
-apt install systemd-timesyncd
+apt install -y systemd-timesyncd
 # 设置时区
 timedatectl set-timezone Asia/Shanghai
 # 启动NTP服务
@@ -36,14 +36,16 @@ dpkg-reconfigure tzdata
 
 ### 2. 关闭邮件服务
 ```bash
-systemctl stop 'postfix@*' ; systemctl disable 'postfix@\x2a' ; apt purge postfix
+systemctl stop 'postfix@*' ; systemctl disable 'postfix@\x2a' ; apt purge -y postfix
 ```
 
-### 3. 配置systemd-networkd
+### 3. 配置网络
+
+#### 3.1 配置无线(WiFi)
+##### 3.1.1 配置wpa_supplicant
 ```bash
-apt install systemd-networkd systemd-resolved wpa_supplicant
+apt install -y wpa_supplicant
 ```
-#### 3.1 配置wpa_supplicant
 ```ini
 ; /etc/wpa_supplicant/wlp2s0.conf
 p2p_disabled=1
@@ -83,9 +85,32 @@ TimeoutStartSec=180
 systemctl daemon-reload
 systemctl restart wpa_supplicant
 ```
+##### 3.1.2 关闭无线网卡电源管理
+```bash
+# 创建服务
+tee /etc/systemd/system/wifi-powersave.service << 'EOF'
+[Unit]
+Description=Disable WiFi Power Saving
+After=network.target
+
+[Service]
+Type=oneshot
+ExecStart=/usr/sbin/iwconfig wlp2s0 power off
+RemainAfterExit=yes
+
+[Install]
+WantedBy=multi-user.target
+EOF
+# 启动服务
+systemctl enable wifi-powersave.service
+systemctl start wifi-powersave.service
+```
 #### 3.2 配置systemd-networkd
-此处参考/etc/network/interfaces文件里的配置
+```bash
+apt install -y systemd-networkd systemd-resolved
+```
 ```ini
+; 此处参考/etc/network/interfaces文件里的配置
 ; /etc/systemd/network/10-lo.network
 [Match]
 Name=lo
@@ -151,27 +176,7 @@ systemctl stop networking
 systemctl disable networking
 apt remove ifupdown
 ```
-#### 3.5 关闭无线网卡电源管理
-```bash
-# 创建服务
-tee /etc/systemd/system/wifi-powersave.service << 'EOF'
-[Unit]
-Description=Disable WiFi Power Saving
-After=network.target
-
-[Service]
-Type=oneshot
-ExecStart=/usr/sbin/iwconfig wlp2s0 power off
-RemainAfterExit=yes
-
-[Install]
-WantedBy=multi-user.target
-EOF
-# 启动服务
-systemctl enable wifi-powersave.service
-systemctl start wifi-powersave.service
-```
-#### 3.6 重启
+#### 3.5 重启
 ```bash
 reboot
 ```
