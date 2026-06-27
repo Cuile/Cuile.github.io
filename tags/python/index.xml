@@ -1,31 +1,36 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Python on 瘦了就帅了</title><link>https://blog.cuile.com/tags/python/</link><description>Recent content in Python on 瘦了就帅了</description><generator>Hugo</generator><language>zh-cn</language><lastBuildDate>Wed, 18 Mar 2026 10:13:17 +0000</lastBuildDate><atom:link href="https://blog.cuile.com/tags/python/index.xml" rel="self" type="application/rss+xml"/><item><title>Micromamba的安装与使用</title><link>https://blog.cuile.com/post/python/micromamba/</link><pubDate>Thu, 17 Jul 2025 01:18:10 +0800</pubDate><guid>https://blog.cuile.com/post/python/micromamba/</guid><description>&lt;h2 id="安装">安装&lt;/h2>
-&lt;h3 id="windows">Windows&lt;/h3>
-&lt;h4 id="1-下载">1. 下载&lt;/h4>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Python on 瘦了就帅了</title><link>https://blog.cuile.com/tags/python/</link><description>Recent content in Python on 瘦了就帅了</description><generator>Hugo</generator><language>zh-cn</language><lastBuildDate>Sat, 27 Jun 2026 16:27:00 +0000</lastBuildDate><atom:link href="https://blog.cuile.com/tags/python/index.xml" rel="self" type="application/rss+xml"/><item><title>Micromamba的安装与使用</title><link>https://blog.cuile.com/post/python/micromamba/</link><pubDate>Thu, 17 Jul 2025 01:18:10 +0800</pubDate><guid>https://blog.cuile.com/post/python/micromamba/</guid><description>&lt;h2 id="安装">安装&lt;/h2>
+&lt;h3 id="1-自动安装">1. 自动安装&lt;/h3>
+&lt;p>&lt;a href="https://mamba.readthedocs.io/en/latest/installation/micromamba-installation.html#automatic-install">Micromamba Installation — documentation&lt;/a>&lt;/p>
+&lt;blockquote>
+&lt;p>注意要等好久，而且没有任何提示，像死机了一样。&lt;/p>&lt;/blockquote>
+&lt;h3 id="2-手动安装">2. 手动安装&lt;/h3>
+&lt;h4 id="windows">Windows&lt;/h4>
+&lt;h5 id="下载">下载&lt;/h5>
 &lt;p>推荐使用 PowerShell&lt;sup id="fnref:1">&lt;a href="#fn:1" class="footnote-ref" role="doc-noteref">1&lt;/a>&lt;/sup>&lt;/p>
-&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-powershell" data-lang="powershell">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e"># 下载并安装 VC++ Redistributable，需要管理员模式&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>Invoke-WebRequest -Uri &lt;span style="color:#e6db74">&amp;#34;https://aka.ms/vs/17/release/vc_redist.x64.exe&amp;#34;&lt;/span> -OutFile &lt;span style="color:#e6db74">&amp;#34;&lt;/span>$env:TEMP&lt;span style="color:#e6db74">\vc_redist.x64.exe&amp;#34;&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>Start-Process -Wait -FilePath &lt;span style="color:#e6db74">&amp;#34;&lt;/span>$env:TEMP&lt;span style="color:#e6db74">\vc_redist.x64.exe&amp;#34;&lt;/span> -ArgumentList &lt;span style="color:#e6db74">&amp;#34;/install&amp;#34;&lt;/span>, &lt;span style="color:#e6db74">&amp;#34;/quiet&amp;#34;&lt;/span>, &lt;span style="color:#e6db74">&amp;#34;/norestart&amp;#34;&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e"># 下载micromamba&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>Invoke-Webrequest -URI https&lt;span style="color:#960050;background-color:#1e0010">:&lt;/span>//micro.mamba.pm/api/micromamba/win-&lt;span style="color:#ae81ff">64&lt;/span>/latest -OutFile micromamba.tar.bz2
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e"># 使用7z解压&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&amp;amp; &lt;span style="color:#e6db74">&amp;#34;C:\Program Files\7-Zip\7z.exe&amp;#34;&lt;/span> x &lt;span style="color:#e6db74">&amp;#34;micromamba.tar.bz2&amp;#34;&lt;/span> -o&lt;span style="color:#e6db74">&amp;#34;tmp&amp;#34;&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e"># 使用tar解压，系统内置不用安装&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>mkdir micromamba
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>tar -xvf .\tmp\micromamba.tar -C .\micromamba\
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>.\micromamba\Library\bin\micromamba.exe --help
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e"># 查看输出&lt;/span>
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h4 id="2-安装">2. 安装&lt;sup id="fnref:2">&lt;a href="#fn:2" class="footnote-ref" role="doc-noteref">2&lt;/a>&lt;/sup>&lt;/h4>
-&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-powershell" data-lang="powershell">&lt;span style="display:flex;">&lt;span>.\micromamba\Library\bin\micromamba.exe shell init -s powershell -r C:\Your\Root\Prefix
+&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-powershell" data-lang="powershell">&lt;span class="line">&lt;span class="cl">&lt;span class="c"># 下载并安装 VC++ Redistributable，需要管理员模式&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="nb">Invoke-WebRequest&lt;/span> &lt;span class="n">-Uri&lt;/span> &lt;span class="s2">&amp;#34;https://aka.ms/vs/17/release/vc_redist.x64.exe&amp;#34;&lt;/span> &lt;span class="n">-OutFile&lt;/span> &lt;span class="s2">&amp;#34;&lt;/span>&lt;span class="nv">$env:TEMP&lt;/span>&lt;span class="s2">\vc_redist.x64.exe&amp;#34;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="nb">Start-Process&lt;/span> &lt;span class="n">-Wait&lt;/span> &lt;span class="n">-FilePath&lt;/span> &lt;span class="s2">&amp;#34;&lt;/span>&lt;span class="nv">$env:TEMP&lt;/span>&lt;span class="s2">\vc_redist.x64.exe&amp;#34;&lt;/span> &lt;span class="n">-ArgumentList&lt;/span> &lt;span class="s2">&amp;#34;/install&amp;#34;&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="s2">&amp;#34;/quiet&amp;#34;&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="s2">&amp;#34;/norestart&amp;#34;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c"># 下载micromamba&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="nb">Invoke-Webrequest&lt;/span> &lt;span class="n">-URI&lt;/span> &lt;span class="n">https&lt;/span>&lt;span class="err">:&lt;/span>&lt;span class="p">//&lt;/span>&lt;span class="n">micro&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="py">mamba&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="n">pm&lt;/span>&lt;span class="p">/&lt;/span>&lt;span class="n">api&lt;/span>&lt;span class="p">/&lt;/span>&lt;span class="n">micromamba&lt;/span>&lt;span class="p">/&lt;/span>&lt;span class="n">win&lt;/span>&lt;span class="p">-&lt;/span>&lt;span class="mf">64&lt;/span>&lt;span class="p">/&lt;/span>&lt;span class="n">latest&lt;/span> &lt;span class="n">-OutFile&lt;/span> &lt;span class="n">micromamba&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="py">tar&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="py">bz2&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c"># 使用7z解压&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="p">&amp;amp;&lt;/span> &lt;span class="s2">&amp;#34;C:\Program Files\7-Zip\7z.exe&amp;#34;&lt;/span> &lt;span class="n">x&lt;/span> &lt;span class="s2">&amp;#34;micromamba.tar.bz2&amp;#34;&lt;/span> &lt;span class="n">-o&lt;/span>&lt;span class="s2">&amp;#34;tmp&amp;#34;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c"># 使用tar解压，系统内置不用安装&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="n">mkdir&lt;/span> &lt;span class="n">micromamba&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="n">tar&lt;/span> &lt;span class="n">-xvf&lt;/span> &lt;span class="p">.\&lt;/span>&lt;span class="n">tmp&lt;/span>&lt;span class="p">\&lt;/span>&lt;span class="n">micromamba&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="py">tar&lt;/span> &lt;span class="n">-C&lt;/span> &lt;span class="p">.\&lt;/span>&lt;span class="n">micromamba&lt;/span>&lt;span class="p">\&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="p">.\&lt;/span>&lt;span class="n">micromamba&lt;/span>&lt;span class="p">\&lt;/span>&lt;span class="n">Library&lt;/span>&lt;span class="p">\&lt;/span>&lt;span class="n">bin&lt;/span>&lt;span class="p">\&lt;/span>&lt;span class="n">micromamba&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="py">exe&lt;/span> &lt;span class="p">-&lt;/span>&lt;span class="n">-help&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c"># 查看输出&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h5 id="安装-1">安装&lt;sup id="fnref:2">&lt;a href="#fn:2" class="footnote-ref" role="doc-noteref">2&lt;/a>&lt;/sup>&lt;/h5>
+&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-powershell" data-lang="powershell">&lt;span class="line">&lt;span class="cl">&lt;span class="p">.\&lt;/span>&lt;span class="n">micromamba&lt;/span>&lt;span class="p">\&lt;/span>&lt;span class="n">Library&lt;/span>&lt;span class="p">\&lt;/span>&lt;span class="n">bin&lt;/span>&lt;span class="p">\&lt;/span>&lt;span class="n">micromamba&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="py">exe&lt;/span> &lt;span class="n">shell&lt;/span> &lt;span class="n">init&lt;/span> &lt;span class="n">-s&lt;/span> &lt;span class="n">powershell&lt;/span> &lt;span class="n">-r&lt;/span> &lt;span class="n">C:&lt;/span>&lt;span class="p">\&lt;/span>&lt;span class="n">Your&lt;/span>&lt;span class="p">\&lt;/span>&lt;span class="n">Root&lt;/span>&lt;span class="p">\&lt;/span>&lt;span class="n">Prefix&lt;/span>
 &lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>默认位置为 $HOME/micromamba，也就是 C:\Users\username\micromamba 。&lt;/p>
 &lt;p>同时会在 PowerShell 的 Profile 文件中（相当于 Bash 的 .bashrc）添加以下代码，保证每次启动 PowerShell 时，都会自动初始化 Micromamba 。&lt;/p>
 &lt;blockquote>
 &lt;p>$HOME/Documents/WindowsPowerShell/profile.ps1&lt;/p>&lt;/blockquote>
-&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-powershell" data-lang="powershell">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e">#region mamba initialize&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e"># !! Contents within this block are managed by &amp;#39;mamba shell init&amp;#39; !!&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>$Env:MAMBA_ROOT_PREFIX = &lt;span style="color:#e6db74">&amp;#34;C:\Users\username\micromamba&amp;#34;&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>$Env:MAMBA_EXE = &lt;span style="color:#e6db74">&amp;#34;C:\Users\username\micromamba\Library\bin\micromamba.exe&amp;#34;&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>(&amp;amp; $Env:MAMBA_EXE &lt;span style="color:#e6db74">&amp;#39;shell&amp;#39;&lt;/span> &lt;span style="color:#e6db74">&amp;#39;hook&amp;#39;&lt;/span> -s &lt;span style="color:#e6db74">&amp;#39;powershell&amp;#39;&lt;/span> -p $Env:MAMBA_ROOT_PREFIX) | Out-String | Invoke-Expression
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e">#endregion&lt;/span>
+&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-powershell" data-lang="powershell">&lt;span class="line">&lt;span class="cl">&lt;span class="c">#region mamba initialize&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c"># !! Contents within this block are managed by &amp;#39;mamba shell init&amp;#39; !!&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="nv">$Env:MAMBA_ROOT_PREFIX&lt;/span> &lt;span class="p">=&lt;/span> &lt;span class="s2">&amp;#34;C:\Users\username\micromamba&amp;#34;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="nv">$Env:MAMBA_EXE&lt;/span> &lt;span class="p">=&lt;/span> &lt;span class="s2">&amp;#34;C:\Users\username\micromamba\Library\bin\micromamba.exe&amp;#34;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="p">(&amp;amp;&lt;/span> &lt;span class="nv">$Env:MAMBA_EXE&lt;/span> &lt;span class="s1">&amp;#39;shell&amp;#39;&lt;/span> &lt;span class="s1">&amp;#39;hook&amp;#39;&lt;/span> &lt;span class="n">-s&lt;/span> &lt;span class="s1">&amp;#39;powershell&amp;#39;&lt;/span> &lt;span class="n">-p&lt;/span> &lt;span class="nv">$Env:MAMBA_ROOT_PREFIX&lt;/span>&lt;span class="p">)&lt;/span> &lt;span class="p">|&lt;/span> &lt;span class="nb">Out-String&lt;/span> &lt;span class="p">|&lt;/span> &lt;span class="nb">Invoke-Expression&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c">#endregion&lt;/span>
 &lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>加入设置 micromamba 别名的命令。
 设置别名后，即方便使用，也可配合 VSCode 的配置，实现自动启动开发环境。&lt;/p></description></item><item><title>Nuitka 参数列表</title><link>https://blog.cuile.com/post/python/nuitka/</link><pubDate>Sun, 16 Mar 2025 11:07:37 +0800</pubDate><guid>https://blog.cuile.com/post/python/nuitka/</guid><description>&lt;p>Usage: python.exe -m nuitka [&amp;ndash;mode=compilation_mode] [&amp;ndash;run] [options] main_module.py&lt;/p>
 &lt;pre>&lt;code>Note: For general plugin help (they often have their own command line options too), consider the output of '--help-plugins'.
@@ -240,8 +245,8 @@
  &lt;/tr>
  &lt;tr>
  &lt;td>&amp;ndash;file-reference-choice=FILE_MODE&lt;/td>
- &lt;td>Select what value &amp;ldquo;&lt;strong>file&lt;/strong>&amp;rdquo; is going to be. With &amp;ldquo;runtime&amp;rdquo; (default for standalone binary mode and module mode), the created binaries and modules, use the location of themselves to deduct the value of &amp;ldquo;&lt;strong>file&lt;/strong>&amp;rdquo;. Included packages pretend to be in directories below that location. This allows you to include data files in deployments. If you merely seek acceleration, it&amp;rsquo;s better for you to use the &amp;ldquo;original&amp;rdquo; value, where the source files location will be used. With &amp;ldquo;frozen&amp;rdquo; a notation &amp;ldquo;&lt;!-- raw HTML omitted -->&amp;rdquo; is used. For compatibility reasons, the &amp;ldquo;&lt;strong>file&lt;/strong>&amp;rdquo; value will always have &amp;ldquo;.py&amp;rdquo; suffix independent of what it really is.&lt;/td>
- &lt;td>选择“&lt;strong>file&lt;/strong>”的值。如果使用 “runtime”（独立二进制文件模式和模块模式的默认值），创建的二进制文件和模块将使用自己的位置来扣除“&lt;strong>file&lt;/strong>”的值。包含的软件包会假装位于该位置下方的目录中。这样就可以在部署中包含数据文件。如果只是为了加速，最好使用&amp;quot;original&amp;quot;值，即使用源文件的位置。在使用 “frozen ”时，会使用“&lt;!-- raw HTML omitted -->”符号。出于兼容性考虑，“&lt;strong>file&lt;/strong>”值的后缀始终是“.py”，与实际内容无关。&lt;/td>
+ &lt;td>Select what value &amp;ldquo;&lt;strong>file&lt;/strong>&amp;rdquo; is going to be. With &amp;ldquo;runtime&amp;rdquo; (default for standalone binary mode and module mode), the created binaries and modules, use the location of themselves to deduct the value of &amp;ldquo;&lt;strong>file&lt;/strong>&amp;rdquo;. Included packages pretend to be in directories below that location. This allows you to include data files in deployments. If you merely seek acceleration, it&amp;rsquo;s better for you to use the &amp;ldquo;original&amp;rdquo; value, where the source files location will be used. With &amp;ldquo;frozen&amp;rdquo; a notation &amp;ldquo;&lt;frozen module_name>&amp;rdquo; is used. For compatibility reasons, the &amp;ldquo;&lt;strong>file&lt;/strong>&amp;rdquo; value will always have &amp;ldquo;.py&amp;rdquo; suffix independent of what it really is.&lt;/td>
+ &lt;td>选择“&lt;strong>file&lt;/strong>”的值。如果使用 “runtime”（独立二进制文件模式和模块模式的默认值），创建的二进制文件和模块将使用自己的位置来扣除“&lt;strong>file&lt;/strong>”的值。包含的软件包会假装位于该位置下方的目录中。这样就可以在部署中包含数据文件。如果只是为了加速，最好使用&amp;quot;original&amp;quot;值，即使用源文件的位置。在使用 “frozen ”时，会使用“&lt;frozen module_name>”符号。出于兼容性考虑，“&lt;strong>file&lt;/strong>”值的后缀始终是“.py”，与实际内容无关。&lt;/td>
  &lt;/tr>
  &lt;tr>
  &lt;td>&amp;ndash;module-name-choice=MODULE_NAME_MODE&lt;/td>
@@ -328,8 +333,8 @@
  &lt;/tr>
  &lt;tr>
  &lt;td>&amp;ndash;windows-icon-from-ico=ICON_PATH&lt;/td>
- &lt;td>Add executable icon. Can be given multiple times for different resolutions or files with multiple icons inside. In the later case, you may also suffix with #&lt;!-- raw HTML omitted --> where n is an integer index starting from 1, specifying a specific icon to be included, and all others to be ignored.&lt;/td>
- &lt;td>添加可执行图标。对于不同分辨率或包含多个图标的文件，可以多次添加。在后一种情况下，还可以使用 #&lt;!-- raw HTML omitted --> 作为后缀，其中 n 是一个从 1 开始的整数索引，用于指定要包含的特定图标，而忽略其他所有图标。&lt;/td>
+ &lt;td>Add executable icon. Can be given multiple times for different resolutions or files with multiple icons inside. In the later case, you may also suffix with #&lt;n> where n is an integer index starting from 1, specifying a specific icon to be included, and all others to be ignored.&lt;/td>
+ &lt;td>添加可执行图标。对于不同分辨率或包含多个图标的文件，可以多次添加。在后一种情况下，还可以使用 #&lt;n> 作为后缀，其中 n 是一个从 1 开始的整数索引，用于指定要包含的特定图标，而忽略其他所有图标。&lt;/td>
  &lt;/tr>
  &lt;tr>
  &lt;td>&amp;ndash;windows-icon-from-exe=ICON_EXE_PATH&lt;/td>
@@ -1081,18 +1086,18 @@
 &lt;p>&lt;a href="../../docker/docker_install">Docker 安装&lt;/a>&lt;/p>
 &lt;h2 id="2-安装-visual-stuido-code">2. 安装 Visual Stuido Code&lt;/h2>
 &lt;h3 id="21-debian">2.1 Debian&lt;/h3>
-&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e"># 预配置安装选项&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>echo &lt;span style="color:#e6db74">&amp;#34;code code/add-microsoft-repo boolean true&amp;#34;&lt;/span> | sudo debconf-set-selections &lt;span style="color:#f92672">&amp;amp;&amp;amp;&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e"># 安装依赖工具&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>sudo apt-get -y install wget gpg &lt;span style="color:#f92672">&amp;amp;&amp;amp;&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e"># 导入微软 GPG 密钥&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>wget -qO- https://packages.microsoft.com/keys/microsoft.asc | gpg --dearmor | sudo tee /usr/share/keyrings/microsoft.gpg &amp;gt; /dev/null
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e"># 添加微软软件源&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>echo &lt;span style="color:#e6db74">&amp;#34;deb [arch=amd64,arm64,armhf signed-by=/usr/share/keyrings/microsoft.gpg] https://packages.microsoft.com/repos/code stable main&amp;#34;&lt;/span> | sudo tee /etc/apt/sources.list.d/vscode.list
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e"># 更新并安装 VSCode&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>sudo apt-get -y install apt-transport-https &lt;span style="color:#f92672">&amp;amp;&amp;amp;&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>sudo apt-get update &lt;span style="color:#f92672">&amp;amp;&amp;amp;&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>sudo apt-get install -y code
+&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">&lt;span class="c1"># 预配置安装选项&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="nb">echo&lt;/span> &lt;span class="s2">&amp;#34;code code/add-microsoft-repo boolean true&amp;#34;&lt;/span> &lt;span class="p">|&lt;/span> sudo debconf-set-selections &lt;span class="o">&amp;amp;&amp;amp;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1"># 安装依赖工具&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">sudo apt-get -y install wget gpg &lt;span class="o">&amp;amp;&amp;amp;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1"># 导入微软 GPG 密钥&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">wget -qO- https://packages.microsoft.com/keys/microsoft.asc &lt;span class="p">|&lt;/span> gpg --dearmor &lt;span class="p">|&lt;/span> sudo tee /usr/share/keyrings/microsoft.gpg &amp;gt; /dev/null
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1"># 添加微软软件源&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="nb">echo&lt;/span> &lt;span class="s2">&amp;#34;deb [arch=amd64,arm64,armhf signed-by=/usr/share/keyrings/microsoft.gpg] https://packages.microsoft.com/repos/code stable main&amp;#34;&lt;/span> &lt;span class="p">|&lt;/span> sudo tee /etc/apt/sources.list.d/vscode.list
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1"># 更新并安装 VSCode&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">sudo apt-get -y install apt-transport-https &lt;span class="o">&amp;amp;&amp;amp;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">sudo apt-get update &lt;span class="o">&amp;amp;&amp;amp;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">sudo apt-get install -y code
 &lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="3-安装-remote-development-扩展包">3. 安装 Remote Development 扩展包&lt;/h2>
 &lt;p>官方推荐安装 Remote Development 这个扩展包，它包括三个扩展功能：&lt;/p></description></item><item><title>VSCode 配置 Python 开发环境</title><link>https://blog.cuile.com/post/vscode/vscode_configures_python_development_environment/</link><pubDate>Sat, 25 Nov 2023 00:24:10 +0800</pubDate><guid>https://blog.cuile.com/post/vscode/vscode_configures_python_development_environment/</guid><description>&lt;p>使用 VSCode 开发 Python 是替代 PyCharm 的一个很好选择，有丰富的扩展和第三方工具可以使用，安装配置好它们，会让开发工作事半功倍。下面列举推荐安装的扩展和工具：&lt;/p>
 &lt;p>&lt;em>扩展&lt;/em>&lt;/p>
@@ -1164,26 +1169,49 @@
 &lt;ol start="2">
 &lt;li>重启VSCode，进入 Python 项目，就可以看到右下角的 Python 环境了，如果创建了多个环境，可以通过这里切换。这里需要注意 vscode 可以识别多个 Python 版本，但无法正确配置它们。所以创建不同的 Python 版本后，还要为项目选择解释器。&lt;/li>
 &lt;/ol>
-&lt;h3 id="配置-python-项目环境">配置 Python 项目环境&lt;/h3>
+&lt;h3 id="创建-python-项目环境">创建 Python 项目环境&lt;/h3>
+&lt;ul>
+&lt;li>使用项目终端界面，&lt;a href="https://blog.cuile.com/post/python/micromamba/#3-创建项目">创建虚拟环境&lt;/a>。&lt;/li>
+&lt;li>重启 vscode 再次进入项目终端，不一定会看到项目前缀&lt;sup id="fnref:2">&lt;a href="#fn:2" class="footnote-ref" role="doc-noteref">2&lt;/a>&lt;/sup>。VsCode已经自动修你激活了Python虚拟环境，不需要再操作。&lt;/li>
+&lt;li>安装包时，不需要激活 micromamba 环境，否则包将被安装到 micromamba 环境中。&lt;/li>
+&lt;/ul>
+&lt;h2 id="其它配置">其它配置&lt;/h2>
+&lt;table>
+ &lt;thead>
+ &lt;tr>
+ &lt;th style="text-align: left">选项&lt;/th>
+ &lt;th style="text-align: left">值&lt;/th>
+ &lt;/tr>
+ &lt;/thead>
+ &lt;tbody>
+ &lt;tr>
+ &lt;td style="text-align: left">Editor: Default Formatter&lt;/td>
+ &lt;td style="text-align: left">Ruff&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td style="text-align: left">Python &amp;gt; Terminal: ACtivate Env In Current Terminal&lt;/td>
+ &lt;td style="text-align: left">勾选&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td style="text-align: left">Python &amp;gt; Terminal: Focus After Launch&lt;/td>
+ &lt;td style="text-align: left">勾选&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td style="text-align: left">Python: Language Server&lt;/td>
+ &lt;td style="text-align: left">Pylance&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td style="text-align: left">Pylthon &amp;gt; Analysis: Type Checking Mode&lt;/td>
+ &lt;td style="text-align: left">basic&lt;/td>
+ &lt;/tr>
+ &lt;/tbody>
+&lt;/table>
+&lt;hr>
+&lt;div class="footnotes" role="doc-endnotes">
+&lt;hr>
 &lt;ol>
-&lt;li>使用项目终端界面，创建虚拟环境。&lt;/li>
-&lt;/ol>
-&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-powershell" data-lang="powershell">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e"># 先激活 micromamba 环境&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>PS &lt;span style="color:#e6db74">&amp;#34;Your Project Path&amp;#34;&lt;/span>&amp;gt; conda activate PyQt
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e"># 创建Python虚拟环境&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e"># --upgrade 参数是升级虚拟环境用的，新建虚拟环境时要去掉。&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e"># --system-site-packages 会降低环境隔离性，生产环境慎用。&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>(PyQt) PS &lt;span style="color:#e6db74">&amp;#34;Your Project Path&amp;#34;&lt;/span>&amp;gt; python -m venv --prompt &lt;span style="color:#e6db74">&amp;#34;&amp;lt;myproject&amp;gt;&amp;#34;&lt;/span> --upgrade-deps .venv --symlinks --upgrade --system-site-packages
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e"># 查看项目资源管理器，看到 .venv 文件夹就成功了。&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e"># 激活Python虚拟环境&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>(PyQt) PS &lt;span style="color:#e6db74">&amp;#34;Your Project Path&amp;#34;&lt;/span>&amp;gt; Activate.ps1
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e"># 成功进入虚拟环境&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>(myproject) (PyQt) PS &lt;span style="color:#e6db74">&amp;#34;Your Project Path&amp;#34;&lt;/span>&amp;gt;
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>重启 vscode 再次进入项目终端，不一定会看到项目前缀&lt;sup id="fnref:2">&lt;a href="#fn:2" class="footnote-ref" role="doc-noteref">2&lt;/a>&lt;/sup>。VsCode已经自动修你激活了Python虚拟环境，不需要再操作。
-安装包里不需要激活 micromamba 环境，否则包将被安装到 micromamba 环境中。&lt;/p></description></item><item><title>Django crontab 使用说明</title><link>https://blog.cuile.com/post/django/django_crontab/</link><pubDate>Sun, 22 Jan 2023 16:35:36 +0800</pubDate><guid>https://blog.cuile.com/post/django/django_crontab/</guid><description>&lt;h3 id="参考文档">参考文档&lt;/h3>
+&lt;li id="fn:1">
+&lt;p>&lt;a href="https://zhuanlan.zhihu.com/p/622346839?utm_id=0">使用 Micromamba 替换 Miniconda 更快配置 Python 环境&lt;/a>&amp;#160;&lt;a href="#fnref:1" class="footnote-backref" role="doc-backlink">&amp;#x21a9;&amp;#xfe0e;&lt;/a>&lt;/p></description></item><item><title>Django crontab 使用说明</title><link>https://blog.cuile.com/post/django/django_crontab/</link><pubDate>Sun, 22 Jan 2023 16:35:36 +0800</pubDate><guid>https://blog.cuile.com/post/django/django_crontab/</guid><description>&lt;h3 id="参考文档">参考文档&lt;/h3>
 &lt;ul>
 &lt;li>&lt;a href="https://github.com/kraiz/django-crontab">kraiz/django-crontab&lt;/a>&lt;/li>
 &lt;li>&lt;a href="https://segmentfault.com/a/1190000038298361">使用django-crontab建立定时任务&lt;/a>&lt;/li>
@@ -1194,9 +1222,9 @@
 &lt;li>Python 3.0 - 3.3：使用 imp.reload(module)&lt;/li>
 &lt;li>Python 3.4：imp 已经被废弃，取而代之的是 importlib&lt;/li>
 &lt;/ul>
-&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-python" data-lang="python">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#f92672">from&lt;/span> importlib &lt;span style="color:#f92672">import&lt;/span> reload
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>reload(&lt;span style="color:#f92672">&amp;lt;&lt;/span>module&lt;span style="color:#f92672">&amp;gt;&lt;/span>)
+&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-python" data-lang="python">&lt;span class="line">&lt;span class="cl">&lt;span class="kn">from&lt;/span> &lt;span class="nn">importlib&lt;/span> &lt;span class="kn">import&lt;/span> &lt;span class="n">reload&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="n">reload&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="o">&amp;lt;&lt;/span>&lt;span class="n">module&lt;/span>&lt;span class="o">&amp;gt;&lt;/span>&lt;span class="p">)&lt;/span>
 &lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>参考文档&lt;/p>
 &lt;ul>
 &lt;li>&lt;a href="https://blog.csdn.net/lvhdbb/article/details/95230019">Python 重新加载模块 reload&lt;/a>&lt;/li>
@@ -1209,105 +1237,105 @@
  ┗ django-simpleui==2022.11.30
 &lt;/code>&lt;/pre>&lt;p>可以参考[https://github.com/Cuile/Docker-to-Python/tree/master/Django]，提供了 Dockerfil、yml 文件，还提供全套使用命令。&lt;/p>
 &lt;h2 id="2-创建项目">2 创建项目&lt;/h2>
-&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e"># 创建项目&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>$ django-admin startproject mysite
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>$ cd mysite
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e"># 生成项目&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>$ python manage.py startapp websrc
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e"># 运行项目测试&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>$ python manage.py runserver 0.0.0.0:80
+&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">&lt;span class="c1"># 创建项目&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">$ django-admin startproject mysite
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">$ &lt;span class="nb">cd&lt;/span> mysite
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1"># 生成项目&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">$ python manage.py startapp websrc
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1"># 运行项目测试&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">$ python manage.py runserver 0.0.0.0:80
 &lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>修改配置后，建议使用项目调试的方式启动，不要使用快捷命令，项目正常启动稳定运行后，再使用快捷命令。&lt;/p>
-&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-python" data-lang="python">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e"># settings.py&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e"># 任意地址都可以访问 Django&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>ALLOWED_HOSTS &lt;span style="color:#f92672">=&lt;/span> [&lt;span style="color:#e6db74">&amp;#39;*&amp;#39;&lt;/span>] 
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e"># 添加 simpleui 模板，和创建的项目&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>INSTALLED_APPS &lt;span style="color:#f92672">=&lt;/span> [
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#e6db74">&amp;#39;simpleui&amp;#39;&lt;/span>,
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#e6db74">&amp;#39;websrc&amp;#39;&lt;/span>,
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#e6db74">&amp;#39;......&amp;#39;&lt;/span>,
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>]
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e"># 这个与多语种有关，在项目初始阶段不要修改，后续添加了多语种支持再修改，否则会导致无法启动。&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e"># 具体参考(http://www.i18nguy.com/unicode/language-identifiers.html)，有个傻逼教程，上来就改成 zh-CN 果然导致项目无法正常启动。&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e"># 正确的简体中文代码如下：&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>LANGUAGE_CODE &lt;span style="color:#f92672">=&lt;/span> &lt;span style="color:#e6db74">&amp;#39;zh-Hans&amp;#39;&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e"># 时区，上海就代表北京时间，这个不能写错，写错就启动不了&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e"># 具体参考(https://en.wikipedia.org/wiki/List_of_tz_database_time_zones)，这里是标准的，有个傻逼教程非给写成 Asia/Beijing 导致怎么都起不来，太TMD的二逼了。&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e"># 正解的北京时间时区如下：&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>TIME_ZONE &lt;span style="color:#f92672">=&lt;/span> &lt;span style="color:#e6db74">&amp;#39;Asia/Shanghai&amp;#39;&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e"># 启动翻译，与上面的 LANGUAGE_CODE 设置相对应&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>USE_I18N &lt;span style="color:#f92672">=&lt;/span> &lt;span style="color:#66d9ef">True&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e"># 启动格式控制&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>USE_L10N &lt;span style="color:#f92672">=&lt;/span> &lt;span style="color:#66d9ef">True&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e"># 启动时区&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>USE_TZ &lt;span style="color:#f92672">=&lt;/span> &lt;span style="color:#66d9ef">True&lt;/span>
+&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-python" data-lang="python">&lt;span class="line">&lt;span class="cl">&lt;span class="c1"># settings.py&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1"># 任意地址都可以访问 Django&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="n">ALLOWED_HOSTS&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="p">[&lt;/span>&lt;span class="s1">&amp;#39;*&amp;#39;&lt;/span>&lt;span class="p">]&lt;/span> 
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1"># 添加 simpleui 模板，和创建的项目&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="n">INSTALLED_APPS&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="p">[&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="s1">&amp;#39;simpleui&amp;#39;&lt;/span>&lt;span class="p">,&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="s1">&amp;#39;websrc&amp;#39;&lt;/span>&lt;span class="p">,&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="s1">&amp;#39;......&amp;#39;&lt;/span>&lt;span class="p">,&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="p">]&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1"># 这个与多语种有关，在项目初始阶段不要修改，后续添加了多语种支持再修改，否则会导致无法启动。&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1"># 具体参考(http://www.i18nguy.com/unicode/language-identifiers.html)，有个傻逼教程，上来就改成 zh-CN 果然导致项目无法正常启动。&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1"># 正确的简体中文代码如下：&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="n">LANGUAGE_CODE&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="s1">&amp;#39;zh-Hans&amp;#39;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1"># 时区，上海就代表北京时间，这个不能写错，写错就启动不了&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1"># 具体参考(https://en.wikipedia.org/wiki/List_of_tz_database_time_zones)，这里是标准的，有个傻逼教程非给写成 Asia/Beijing 导致怎么都起不来，太TMD的二逼了。&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1"># 正解的北京时间时区如下：&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="n">TIME_ZONE&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="s1">&amp;#39;Asia/Shanghai&amp;#39;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1"># 启动翻译，与上面的 LANGUAGE_CODE 设置相对应&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="n">USE_I18N&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="kc">True&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1"># 启动格式控制&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="n">USE_L10N&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="kc">True&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1"># 启动时区&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="n">USE_TZ&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="kc">True&lt;/span>
 &lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="3-创建管理员账号">3 创建管理员账号&lt;/h2>
-&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span>$ python manage.py createsuperuser
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>Username: admin
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>Email address: admin@example.com
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>Password: **********
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>Password &lt;span style="color:#f92672">(&lt;/span>again&lt;span style="color:#f92672">)&lt;/span>: *********
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>Superuser created successfully.
+&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">$ python manage.py createsuperuser
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">Username: admin
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">Email address: admin@example.com
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">Password: **********
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">Password &lt;span class="o">(&lt;/span>again&lt;span class="o">)&lt;/span>: *********
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">Superuser created successfully.
 &lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>访问项目链接，比如&amp;quot;http://127.0.0.1:8000/admin/&lt;/p></description></item><item><title>CentOS 7 安装 Python3.9.12</title><link>https://blog.cuile.com/post/python/python3_install/</link><pubDate>Fri, 06 May 2022 13:11:27 +0800</pubDate><guid>https://blog.cuile.com/post/python/python3_install/</guid><description>&lt;h2 id="1查看已安装的python">1、查看已安装的Python&lt;/h2>
-&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e"># 查看已安装的信息&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>$ yum info python3
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e"># 查看python安装位置&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>$ whereis python3
+&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">&lt;span class="c1"># 查看已安装的信息&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">$ yum info python3
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1"># 查看python安装位置&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">$ whereis python3
 &lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="2卸载已安装的python环境">2、卸载已安装的Python环境&lt;/h2>
-&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e"># 卸载已安装的程序&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>$ yum erase python3
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e"># 删除所有残余文件&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>$ whereis python3|xargs rm -frv
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e"># 查看现有的python&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>$ whereis python3
+&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">&lt;span class="c1"># 卸载已安装的程序&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">$ yum erase python3
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1"># 删除所有残余文件&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">$ whereis python3&lt;span class="p">|&lt;/span>xargs rm -frv
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1"># 查看现有的python&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">$ whereis python3
 &lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="3yum安装依赖环境">3、yum安装依赖环境&lt;/h2>
-&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span>$ yum -y install zlib-devel bzip2-devel openssl-devel ncurses-devel sqlite-devel readline-devel tk-devel gdbm-devel db4-devel libpcap-devel xz-devel
+&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">$ yum -y install zlib-devel bzip2-devel openssl-devel ncurses-devel sqlite-devel readline-devel tk-devel gdbm-devel db4-devel libpcap-devel xz-devel
 &lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="4官网下载python3912">4、官网下载Python3.9.12&lt;/h2>
-&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span>$ yum -y install wget
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e"># 尽量使用国内镜像站点下载比较快&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>$ wget https://mirrors.huaweicloud.com/python/3.9.12/Python-3.9.12.tgz
+&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">$ yum -y install wget
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1"># 尽量使用国内镜像站点下载比较快&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">$ wget https://mirrors.huaweicloud.com/python/3.9.12/Python-3.9.12.tgz
 &lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="5创建安装目录">5、创建安装目录&lt;/h2>
-&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span>$ tar -zxvf Python-3.9.12.tgz -C ./
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>$ cd Python-3.9.12
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>$ mkdir /usr/local/python3 
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>$ ./configure --prefix&lt;span style="color:#f92672">=&lt;/span>/usr/local/python3.9.12
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>$ make &lt;span style="color:#f92672">&amp;amp;&amp;amp;&lt;/span> make install
+&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">$ tar -zxvf Python-3.9.12.tgz -C ./
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">$ &lt;span class="nb">cd&lt;/span> Python-3.9.12
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">$ mkdir /usr/local/python3 
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">$ ./configure --prefix&lt;span class="o">=&lt;/span>/usr/local/python3.9.12
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">$ make &lt;span class="o">&amp;amp;&amp;amp;&lt;/span> make install
 &lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="6创建软链接">6、创建软链接&lt;/h2>
-&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span>$ ln -s /usr/local/python3.9.12/bin/python3 /usr/bin/python3
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>$ ln -s /usr/local/python3.9.12/bin/pip3 /usr/bin/pip3
+&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">$ ln -s /usr/local/python3.9.12/bin/python3 /usr/bin/python3
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">$ ln -s /usr/local/python3.9.12/bin/pip3 /usr/bin/pip3
 &lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="7测试">7、测试&lt;/h2>
-&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span>$ python3 -V
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>Python 3.9.12
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>$ pip3 -V
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>pip 22.0.4 from /usr/local/python3.9.12/lib/python3.9/site-packages/pip &lt;span style="color:#f92672">(&lt;/span>python 3.9&lt;span style="color:#f92672">)&lt;/span>
+&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">$ python3 -V
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">Python 3.9.12
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">$ pip3 -V
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">pip 22.0.4 from /usr/local/python3.9.12/lib/python3.9/site-packages/pip &lt;span class="o">(&lt;/span>python 3.9&lt;span class="o">)&lt;/span>
 &lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="8pip升级换源">8、pip升级、换源&lt;/h2>
-&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e"># pip升级&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>$ python3 -m pip install --upgrade pip
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e"># pip换源&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e"># 推荐使用清华的源，因为使用https协议&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>$ pip3 config set global.index-url https://pypi.tuna.tsinghua.edu.cn/simple
+&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">&lt;span class="c1"># pip升级&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">$ python3 -m pip install --upgrade pip
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1"># pip换源&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1"># 推荐使用清华的源，因为使用https协议&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">$ pip3 config &lt;span class="nb">set&lt;/span> global.index-url https://pypi.tuna.tsinghua.edu.cn/simple
 &lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div></description></item><item><title>urllib.parse.urlencode 使用详解</title><link>https://blog.cuile.com/post/python/urllib.parse.urlencode_manual/</link><pubDate>Mon, 17 Jan 2022 15:24:58 +0800</pubDate><guid>https://blog.cuile.com/post/python/urllib.parse.urlencode_manual/</guid><description>&lt;blockquote>
 &lt;p>urllib.parse.urlencode(query, doseq=False, safe=&amp;rsquo;&amp;rsquo;, encoding=None, errors=None, quote_via=quote_plus)
 urllib.parse.urlencode 将对象或两元素序列转换为百分比编码的ASCII文本字符串，字符串是由&amp;rsquo;&amp;amp;&amp;lsquo;字符分隔的一系列 key=value 对，其中 key 和 value 都使用 quote_via 函数引用。&lt;/p>&lt;/blockquote>
 &lt;h2 id="get-请求">GET 请求&lt;/h2>
-&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-python" data-lang="python">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#f92672">import&lt;/span> urllib
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>params &lt;span style="color:#f92672">=&lt;/span> urllib&lt;span style="color:#f92672">.&lt;/span>parse&lt;span style="color:#f92672">.&lt;/span>urlencode({&lt;span style="color:#e6db74">&amp;#39;spam&amp;#39;&lt;/span>: &lt;span style="color:#ae81ff">1&lt;/span>, &lt;span style="color:#e6db74">&amp;#39;eggs&amp;#39;&lt;/span>: &lt;span style="color:#ae81ff">2&lt;/span>, &lt;span style="color:#e6db74">&amp;#39;bacon&amp;#39;&lt;/span>: &lt;span style="color:#ae81ff">0&lt;/span>})
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>url &lt;span style="color:#f92672">=&lt;/span> &lt;span style="color:#e6db74">&amp;#34;http://www.musi-cal.com/cgi-bin/query?&lt;/span>&lt;span style="color:#e6db74">%s&lt;/span>&lt;span style="color:#e6db74">&amp;#34;&lt;/span> &lt;span style="color:#f92672">%&lt;/span> params
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#66d9ef">with&lt;/span> urllib&lt;span style="color:#f92672">.&lt;/span>request&lt;span style="color:#f92672">.&lt;/span>urlopen(url) &lt;span style="color:#66d9ef">as&lt;/span> f:
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> print(f&lt;span style="color:#f92672">.&lt;/span>read()&lt;span style="color:#f92672">.&lt;/span>decode(&lt;span style="color:#e6db74">&amp;#39;utf-8&amp;#39;&lt;/span>))
+&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-python" data-lang="python">&lt;span class="line">&lt;span class="cl">&lt;span class="kn">import&lt;/span> &lt;span class="nn">urllib&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="n">params&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="n">urllib&lt;/span>&lt;span class="o">.&lt;/span>&lt;span class="n">parse&lt;/span>&lt;span class="o">.&lt;/span>&lt;span class="n">urlencode&lt;/span>&lt;span class="p">({&lt;/span>&lt;span class="s1">&amp;#39;spam&amp;#39;&lt;/span>&lt;span class="p">:&lt;/span> &lt;span class="mi">1&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="s1">&amp;#39;eggs&amp;#39;&lt;/span>&lt;span class="p">:&lt;/span> &lt;span class="mi">2&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="s1">&amp;#39;bacon&amp;#39;&lt;/span>&lt;span class="p">:&lt;/span> &lt;span class="mi">0&lt;/span>&lt;span class="p">})&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="n">url&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="s2">&amp;#34;http://www.musi-cal.com/cgi-bin/query?&lt;/span>&lt;span class="si">%s&lt;/span>&lt;span class="s2">&amp;#34;&lt;/span> &lt;span class="o">%&lt;/span> &lt;span class="n">params&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="k">with&lt;/span> &lt;span class="n">urllib&lt;/span>&lt;span class="o">.&lt;/span>&lt;span class="n">request&lt;/span>&lt;span class="o">.&lt;/span>&lt;span class="n">urlopen&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">url&lt;/span>&lt;span class="p">)&lt;/span> &lt;span class="k">as&lt;/span> &lt;span class="n">f&lt;/span>&lt;span class="p">:&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nb">print&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">f&lt;/span>&lt;span class="o">.&lt;/span>&lt;span class="n">read&lt;/span>&lt;span class="p">()&lt;/span>&lt;span class="o">.&lt;/span>&lt;span class="n">decode&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="s1">&amp;#39;utf-8&amp;#39;&lt;/span>&lt;span class="p">))&lt;/span>
 &lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="post-请求">POST 请求&lt;/h2>
-&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-python" data-lang="python">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#f92672">import&lt;/span> urllib.request
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#f92672">import&lt;/span> urllib.parse
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>data &lt;span style="color:#f92672">=&lt;/span> urllib&lt;span style="color:#f92672">.&lt;/span>parse&lt;span style="color:#f92672">.&lt;/span>urlencode({&lt;span style="color:#e6db74">&amp;#39;spam&amp;#39;&lt;/span>: &lt;span style="color:#ae81ff">1&lt;/span>, &lt;span style="color:#e6db74">&amp;#39;eggs&amp;#39;&lt;/span>: &lt;span style="color:#ae81ff">2&lt;/span>, &lt;span style="color:#e6db74">&amp;#39;bacon&amp;#39;&lt;/span>: &lt;span style="color:#ae81ff">0&lt;/span>})
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>data &lt;span style="color:#f92672">=&lt;/span> data&lt;span style="color:#f92672">.&lt;/span>encode(&lt;span style="color:#e6db74">&amp;#39;ascii&amp;#39;&lt;/span>)
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#66d9ef">with&lt;/span> urllib&lt;span style="color:#f92672">.&lt;/span>request&lt;span style="color:#f92672">.&lt;/span>urlopen(&lt;span style="color:#e6db74">&amp;#34;http://requestb.in/xrbl82xr&amp;#34;&lt;/span>, data) &lt;span style="color:#66d9ef">as&lt;/span> f:
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> print(f&lt;span style="color:#f92672">.&lt;/span>read()&lt;span style="color:#f92672">.&lt;/span>decode(&lt;span style="color:#e6db74">&amp;#39;utf-8&amp;#39;&lt;/span>))
+&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-python" data-lang="python">&lt;span class="line">&lt;span class="cl">&lt;span class="kn">import&lt;/span> &lt;span class="nn">urllib.request&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="kn">import&lt;/span> &lt;span class="nn">urllib.parse&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="n">data&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="n">urllib&lt;/span>&lt;span class="o">.&lt;/span>&lt;span class="n">parse&lt;/span>&lt;span class="o">.&lt;/span>&lt;span class="n">urlencode&lt;/span>&lt;span class="p">({&lt;/span>&lt;span class="s1">&amp;#39;spam&amp;#39;&lt;/span>&lt;span class="p">:&lt;/span> &lt;span class="mi">1&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="s1">&amp;#39;eggs&amp;#39;&lt;/span>&lt;span class="p">:&lt;/span> &lt;span class="mi">2&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="s1">&amp;#39;bacon&amp;#39;&lt;/span>&lt;span class="p">:&lt;/span> &lt;span class="mi">0&lt;/span>&lt;span class="p">})&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="n">data&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="n">data&lt;/span>&lt;span class="o">.&lt;/span>&lt;span class="n">encode&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="s1">&amp;#39;ascii&amp;#39;&lt;/span>&lt;span class="p">)&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="k">with&lt;/span> &lt;span class="n">urllib&lt;/span>&lt;span class="o">.&lt;/span>&lt;span class="n">request&lt;/span>&lt;span class="o">.&lt;/span>&lt;span class="n">urlopen&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="s2">&amp;#34;http://requestb.in/xrbl82xr&amp;#34;&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="n">data&lt;/span>&lt;span class="p">)&lt;/span> &lt;span class="k">as&lt;/span> &lt;span class="n">f&lt;/span>&lt;span class="p">:&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nb">print&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">f&lt;/span>&lt;span class="o">.&lt;/span>&lt;span class="n">read&lt;/span>&lt;span class="p">()&lt;/span>&lt;span class="o">.&lt;/span>&lt;span class="n">decode&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="s1">&amp;#39;utf-8&amp;#39;&lt;/span>&lt;span class="p">))&lt;/span>
 &lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;blockquote>
 &lt;p>如果结果字符串要用作具有 urlopen() 函数的POST操作的 data，则它应该被编码为字节，否则将导致 TypeError。&lt;/p>&lt;/blockquote>
 &lt;p>默认情况下 urlencode 函数使用 quote_plus() 函数进行编码，也可以选用 quote() 函数进行编码，两者最大的不同在于对特定字符的处理。&lt;/p>
@@ -1315,7 +1343,13 @@ urllib.parse.urlencode 将对象或两元素序列转换为百分比编码的ASC
 &lt;p>urllib.parse.quote_plus(string, safe=&amp;rsquo;&amp;rsquo;, encoding=None, errors=None)
 默认情况下使用 quote_plus() 函数，它将空格被编码为 &amp;lsquo;+&amp;rsquo; 字符，而“/”字符被编码为 %2F，它遵循GET请求（application/x-www-form-urlencoded）的标准。
 urllib.parse.quote(string, safe=&amp;rsquo;/&amp;rsquo;, encoding=None, errors=None)
-可以作为备用的函数是 quote()，它将空格编码为 %20，字母，数字和 &amp;lsquo;_.-&amp;lsquo;字符不被编码，而“/”字符被默认为安全字符不被编码。&lt;/p></description></item><item><title>在pypi上发布自己的Python库</title><link>https://blog.cuile.com/post/python/release_pypi_package/</link><pubDate>Fri, 11 May 2018 14:49:57 +0800</pubDate><guid>https://blog.cuile.com/post/python/release_pypi_package/</guid><description>&lt;p>Python 的 pypi.python.org 站点终于要退休了，而新的接任者 pypi.org 无论从美观、风格上都让人大大的喜欢，终于在审美一这项上及格了。&lt;/p>
+可以作为备用的函数是 quote()，它将空格编码为 %20，字母，数字和 &amp;lsquo;_.-&amp;lsquo;字符不被编码，而“/”字符被默认为安全字符不被编码。&lt;/p>&lt;/blockquote>
+&lt;p>编码时会对所有字符进行编码处理，这会导致一些情况下编码后的参数不能被正确的识别，所以在使用时可根据编码的需求，指定一个编码函数。&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-python" data-lang="python">&lt;span class="line">&lt;span class="cl">&lt;span class="n">urllib&lt;/span>&lt;span class="o">.&lt;/span>&lt;span class="n">parse&lt;/span>&lt;span class="o">.&lt;/span>&lt;span class="n">urlencode&lt;/span>&lt;span class="p">({&lt;/span>&lt;span class="s1">&amp;#39;spam&amp;#39;&lt;/span>&lt;span class="p">:&lt;/span> &lt;span class="mi">1&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="s1">&amp;#39;eggs&amp;#39;&lt;/span>&lt;span class="p">:&lt;/span> &lt;span class="mi">2&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="s1">&amp;#39;bacon&amp;#39;&lt;/span>&lt;span class="p">:&lt;/span> &lt;span class="mi">0&lt;/span>&lt;span class="p">},&lt;/span> &lt;span class="n">quote_via&lt;/span>&lt;span class="o">=&lt;/span>&lt;span class="n">urllib&lt;/span>&lt;span class="o">.&lt;/span>&lt;span class="n">parse&lt;/span>&lt;span class="o">.&lt;/span>&lt;span class="n">quote&lt;/span>&lt;span class="p">)&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>但即使指定函数，还会有一些特殊情况，需要保留一些特定的字符不被编码。
+比如，我们想得到下面的参数&lt;/p>
+&lt;pre tabindex="0">&lt;code class="language-url" data-lang="url">constraints[colors][0]=blue&amp;amp;amp;constraints[colors][1]=%E7%99%BD%20%E8%89%B2&amp;amp;amp;constraints[colors][2]=red&amp;amp;amp;order=newest
+&lt;/code>&lt;/pre>&lt;p>但无论使用 quote_plus() 或 quote()，“[” 和 “]” 字符一定会被编码。&lt;/p></description></item><item><title>在pypi上发布自己的Python库</title><link>https://blog.cuile.com/post/python/release_pypi_package/</link><pubDate>Fri, 11 May 2018 14:49:57 +0800</pubDate><guid>https://blog.cuile.com/post/python/release_pypi_package/</guid><description>&lt;p>Python 的 pypi.python.org 站点终于要退休了，而新的接任者 pypi.org 无论从美观、风格上都让人大大的喜欢，终于在审美一这项上及格了。&lt;/p>
 &lt;p>而且新的 pypi.org 能够正确的渲染 Markdown 格式的描述，实在是让人欣慰，终于可以和 Github 同步了，不用在麻烦的转换一次了。&lt;/p>
 &lt;p>下面就来聊聊，如何正确的把库发布到 pypi.org 上：&lt;/p>
 &lt;h2 id="1-注册-pypiorg-账号">1. 注册 pypi.org 账号&lt;/h2>
@@ -1326,25 +1360,25 @@ urllib.parse.quote(string, safe=&amp;rsquo;/&amp;rsquo;, encoding=None, errors=N
 &lt;p>如果说 keywords 和 description 能提高别人搜索到项目的概率的话，那 long_description 就在很大程度上决定别人对你对项目有没有进一步的想法了。&lt;/p>&lt;/blockquote>
 &lt;p>在针对 long_description 的网上介绍中，对具体使用方法明确写出的是少之又少，所以我今天就特别举例说明一下。&lt;/p>
 &lt;h3 id="21-setuppy">2.1 setup.py&lt;/h3>
-&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-python" data-lang="python">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e">#!/usr/bin/env python&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e"># coding: utf-8&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#f92672">from&lt;/span> setuptools &lt;span style="color:#f92672">import&lt;/span> setup
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>setup(
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>name&lt;span style="color:#f92672">=&lt;/span>&lt;span style="color:#e6db74">&amp;#39;sequence2hash&amp;#39;&lt;/span>,
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>version&lt;span style="color:#f92672">=&lt;/span>&lt;span style="color:#e6db74">&amp;#39;1.1.2&amp;#39;&lt;/span>,
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>keywords&lt;span style="color:#f92672">=&lt;/span>&lt;span style="color:#e6db74">&amp;#39;tuple dict list sequence hash key/value&amp;#39;&lt;/span>,
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>packages&lt;span style="color:#f92672">=&lt;/span>[&lt;span style="color:#e6db74">&amp;#39;sequence2hash&amp;#39;&lt;/span>],
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>url&lt;span style="color:#f92672">=&lt;/span>&lt;span style="color:#e6db74">&amp;#39;https://github.com/Cuile/sequence2hash&amp;#39;&lt;/span>,
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>description&lt;span style="color:#f92672">=&lt;/span>&lt;span style="color:#e6db74">&amp;#39;This tool converts a valid value in a sequence to a hash and contains a path to a valid value in the key field&amp;#39;&lt;/span>,
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>long_description_content_type&lt;span style="color:#f92672">=&lt;/span>&lt;span style="color:#e6db74">&amp;#39;text/markdown&amp;#39;&lt;/span>,
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>long_description&lt;span style="color:#f92672">=&lt;/span>open(&lt;span style="color:#e6db74">&amp;#39;README.md&amp;#39;&lt;/span>, encoding&lt;span style="color:#f92672">=&lt;/span>&lt;span style="color:#e6db74">&amp;#39;utf8&amp;#39;&lt;/span>)&lt;span style="color:#f92672">.&lt;/span>read(),
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>author&lt;span style="color:#f92672">=&lt;/span>&lt;span style="color:#e6db74">&amp;#39;cuile&amp;#39;&lt;/span>,
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>author_email&lt;span style="color:#f92672">=&lt;/span>&lt;span style="color:#e6db74">&amp;#39;i@cuile.com&amp;#39;&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>)
+&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-python" data-lang="python">&lt;span class="line">&lt;span class="cl">&lt;span class="ch">#!/usr/bin/env python&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1"># coding: utf-8&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="kn">from&lt;/span> &lt;span class="nn">setuptools&lt;/span> &lt;span class="kn">import&lt;/span> &lt;span class="n">setup&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="n">setup&lt;/span>&lt;span class="p">(&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="n">name&lt;/span>&lt;span class="o">=&lt;/span>&lt;span class="s1">&amp;#39;sequence2hash&amp;#39;&lt;/span>&lt;span class="p">,&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="n">version&lt;/span>&lt;span class="o">=&lt;/span>&lt;span class="s1">&amp;#39;1.1.2&amp;#39;&lt;/span>&lt;span class="p">,&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="n">keywords&lt;/span>&lt;span class="o">=&lt;/span>&lt;span class="s1">&amp;#39;tuple dict list sequence hash key/value&amp;#39;&lt;/span>&lt;span class="p">,&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="n">packages&lt;/span>&lt;span class="o">=&lt;/span>&lt;span class="p">[&lt;/span>&lt;span class="s1">&amp;#39;sequence2hash&amp;#39;&lt;/span>&lt;span class="p">],&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="n">url&lt;/span>&lt;span class="o">=&lt;/span>&lt;span class="s1">&amp;#39;https://github.com/Cuile/sequence2hash&amp;#39;&lt;/span>&lt;span class="p">,&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="n">description&lt;/span>&lt;span class="o">=&lt;/span>&lt;span class="s1">&amp;#39;This tool converts a valid value in a sequence to a hash and contains a path to a valid value in the key field&amp;#39;&lt;/span>&lt;span class="p">,&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="n">long_description_content_type&lt;/span>&lt;span class="o">=&lt;/span>&lt;span class="s1">&amp;#39;text/markdown&amp;#39;&lt;/span>&lt;span class="p">,&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="n">long_description&lt;/span>&lt;span class="o">=&lt;/span>&lt;span class="nb">open&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="s1">&amp;#39;README.md&amp;#39;&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="n">encoding&lt;/span>&lt;span class="o">=&lt;/span>&lt;span class="s1">&amp;#39;utf8&amp;#39;&lt;/span>&lt;span class="p">)&lt;/span>&lt;span class="o">.&lt;/span>&lt;span class="n">read&lt;/span>&lt;span class="p">(),&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="n">author&lt;/span>&lt;span class="o">=&lt;/span>&lt;span class="s1">&amp;#39;cuile&amp;#39;&lt;/span>&lt;span class="p">,&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="n">author_email&lt;/span>&lt;span class="o">=&lt;/span>&lt;span class="s1">&amp;#39;i@cuile.com&amp;#39;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="p">)&lt;/span>
 &lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h3 id="22-读取-readmemd-文件">2.2 读取 readme.md 文件&lt;/h3>
-&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-python" data-lang="python">&lt;span style="display:flex;">&lt;span>long_description&lt;span style="color:#f92672">=&lt;/span>open(&lt;span style="color:#e6db74">&amp;#39;README.md&amp;#39;&lt;/span>, encoding&lt;span style="color:#f92672">=&lt;/span>&lt;span style="color:#e6db74">&amp;#39;utf8&amp;#39;&lt;/span>)&lt;span style="color:#f92672">.&lt;/span>read()
+&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-python" data-lang="python">&lt;span class="line">&lt;span class="cl">&lt;span class="n">long_description&lt;/span>&lt;span class="o">=&lt;/span>&lt;span class="nb">open&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="s1">&amp;#39;README.md&amp;#39;&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="n">encoding&lt;/span>&lt;span class="o">=&lt;/span>&lt;span class="s1">&amp;#39;utf8&amp;#39;&lt;/span>&lt;span class="p">)&lt;/span>&lt;span class="o">.&lt;/span>&lt;span class="n">read&lt;/span>&lt;span class="p">()&lt;/span>
 &lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>这句代码是较少明确说明的，可以不引用 io 库，而直接使用 open 函数读取文件内容，由于 pypi.org 支持 Markdown ，所以可以和 Github 使用同一份 README.md 文件。&lt;/p></description></item></channel></rss>

@@ -1,18 +1,215 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Vnc on 瘦了就帅了</title><link>https://blog.cuile.com/tags/vnc/</link><description>Recent content in Vnc on 瘦了就帅了</description><generator>Hugo</generator><language>zh-cn</language><lastBuildDate>Wed, 18 Mar 2026 10:13:17 +0000</lastBuildDate><atom:link href="https://blog.cuile.com/tags/vnc/index.xml" rel="self" type="application/rss+xml"/><item><title>Debian 12 极简远程桌面</title><link>https://blog.cuile.com/post/linux/vnc/</link><pubDate>Tue, 12 Aug 2025 19:01:37 +0800</pubDate><guid>https://blog.cuile.com/post/linux/vnc/</guid><description>&lt;p>Debian 12 只安装VNC及i3桌面，就可以低成本的实现远程桌面环境&lt;/p>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Vnc on 瘦了就帅了</title><link>https://blog.cuile.com/tags/vnc/</link><description>Recent content in Vnc on 瘦了就帅了</description><generator>Hugo</generator><language>zh-cn</language><lastBuildDate>Sat, 27 Jun 2026 16:27:00 +0000</lastBuildDate><atom:link href="https://blog.cuile.com/tags/vnc/index.xml" rel="self" type="application/rss+xml"/><item><title>Debian 12 极简远程桌面</title><link>https://blog.cuile.com/post/linux/vnc/</link><pubDate>Tue, 12 Aug 2025 19:01:37 +0800</pubDate><guid>https://blog.cuile.com/post/linux/vnc/</guid><description>&lt;p>Debian 12 只安装VNC及i3桌面，就可以低成本的实现远程桌面环境&lt;/p>
 &lt;h2 id="安装">安装&lt;/h2>
-&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e"># 安装通用工具&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>apt-get install -y nano net-tools bzip2 procps apt-utils iputils-ping netcat-openbsd
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e"># 安装中文字体&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>apt-get install -y locales fonts-wqy-microhei fonts-wqy-zenhei xfonts-wqy &lt;span style="color:#f92672">&amp;amp;&amp;amp;&lt;/span> &lt;span style="color:#ae81ff">\
-&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#ae81ff">&lt;/span> sed -i -e &lt;span style="color:#e6db74">&amp;#34;s/# zh_CN.UTF-8 UTF-8/zh_CN.UTF-8 UTF-8/&amp;#34;&lt;/span> /etc/locale.gen &lt;span style="color:#f92672">&amp;amp;&amp;amp;&lt;/span> &lt;span style="color:#ae81ff">\
-&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#ae81ff">&lt;/span> locale-gen zh_CN.UTF-8 &lt;span style="color:#f92672">&amp;amp;&amp;amp;&lt;/span>&lt;span style="color:#ae81ff">\
-&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#ae81ff">&lt;/span> update-locale LANG&lt;span style="color:#f92672">=&lt;/span>zh_CN.UTF-8 LANGUAGE&lt;span style="color:#f92672">=&lt;/span>zh_CN:zh LC_ALL&lt;span style="color:#f92672">=&lt;/span>zh_CN.UTF-8
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e"># 安装VNC&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>apt-get install -y tigervnc-standalone-server
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e"># 安装i3桌面&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>apt-get install -y i3-wm i3status i3blocks dmenu xfonts-base terminator dbus-x11 libdbus-glib-1-2 ; apt-get purge -y pm-utils *screensaver*
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>apt-get clean
+&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">&lt;span class="c1"># 安装通用工具&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">apt-get install -y nano net-tools bzip2 procps apt-utils iputils-ping netcat-openbsd
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1"># 安装中文字体&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">apt-get install -y locales fonts-wqy-microhei fonts-wqy-zenhei xfonts-wqy &lt;span class="o">&amp;amp;&amp;amp;&lt;/span> &lt;span class="se">\
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="se">&lt;/span> sed -i -e &lt;span class="s2">&amp;#34;s/# zh_CN.UTF-8 UTF-8/zh_CN.UTF-8 UTF-8/&amp;#34;&lt;/span> /etc/locale.gen &lt;span class="o">&amp;amp;&amp;amp;&lt;/span> &lt;span class="se">\
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="se">&lt;/span> locale-gen zh_CN.UTF-8 &lt;span class="o">&amp;amp;&amp;amp;&lt;/span>&lt;span class="se">\
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="se">&lt;/span> update-locale &lt;span class="nv">LANG&lt;/span>&lt;span class="o">=&lt;/span>zh_CN.UTF-8 &lt;span class="nv">LANGUAGE&lt;/span>&lt;span class="o">=&lt;/span>zh_CN:zh &lt;span class="nv">LC_ALL&lt;/span>&lt;span class="o">=&lt;/span>zh_CN.UTF-8
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1"># 安装VNC&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">apt-get install -y tigervnc-standalone-server
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1"># 安装i3桌面&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">apt-get install -y i3-wm i3status i3blocks dmenu xfonts-base terminator dbus-x11 libdbus-glib-1-2 &lt;span class="p">;&lt;/span> apt-get purge -y pm-utils *screensaver*
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">apt-get clean
 &lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="配置i3桌面">配置i3桌面&lt;/h2>
 &lt;blockquote>
-&lt;p>~/.config/i3/config&lt;/p></description></item></channel></rss>
+&lt;p>~/.config/i3/config&lt;/p>&lt;/blockquote>
+&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-ini" data-lang="ini">&lt;span class="line">&lt;span class="cl">&lt;span class="c1"># This file has been auto-generated by i3-config-wizard(1).&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1"># It will not be overwritten, so edit it as you like.&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1">#&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1"># Should you change your keyboard layout some time, delete&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1"># this file and re-run i3-config-wizard(1).&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1">#&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1"># i3 config file (v4)&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1">#&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1"># Please see https://i3wm.org/docs/userguide.html for a complete reference!&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="na">set $mod Mod1&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1"># Font for window titles. Will also be used by the bar unless a different font&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1"># is used in the bar {} block below.&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1"># This font is widely installed, provides lots of unicode glyphs, right-to-left&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1"># text rendering and scalability on retina/hidpi displays (thanks to pango).&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1">#font pango:DejaVu Sans Mono 8&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="na">font pango:monospace 8&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1"># Start XDG autostart .desktop files using dex. See also&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1"># https://wiki.archlinux.org/index.php/XDG_Autostart&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1"># exec --no-startup-id dex --autostart --environment i3&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1"># The combination of xss-lock, nm-applet and pactl is a popular choice, so&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1"># they are included here as an example. Modify as you see fit.&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1"># xss-lock grabs a logind suspend inhibit lock and will use i3lock to lock the&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1"># screen before suspend. Use loginctl lock-session to lock your screen.&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1"># exec --no-startup-id xss-lock --transfer-sleep-lock -- i3lock --nofork&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1"># NetworkManager is the most popular way to manage wireless networks on Linux,&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1"># and nm-applet is a desktop environment-independent system tray GUI for it.&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1"># exec --no-startup-id nm-applet&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1"># Use pactl to adjust volume in PulseAudio.&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1"># set $refresh_i3status killall -SIGUSR1 i3status&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1"># bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ +10% &amp;amp;&amp;amp; $refresh_i3status&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1"># bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ -10% &amp;amp;&amp;amp; $refresh_i3status&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1"># bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute @DEFAULT_SINK@ toggle &amp;amp;&amp;amp; $refresh_i3status&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1"># bindsym XF86AudioMicMute exec --no-startup-id pactl set-source-mute @DEFAULT_SOURCE@ toggle &amp;amp;&amp;amp; $refresh_i3status&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1"># Use Mouse+$mod to drag floating windows to their wanted position&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="na">floating_modifier $mod&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1"># move tiling windows via drag &amp;amp; drop by left-clicking into the title bar,&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1"># or left-clicking anywhere into the window while holding the floating modifier.&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="na">tiling_drag modifier titlebar&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1"># start a terminal&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="na">bindsym $mod+Return exec i3-sensible-terminal&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1"># kill focused window&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="na">bindsym $mod+Shift+q kill&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1"># start dmenu (a program launcher)&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="na">bindsym $mod+d exec --no-startup-id dmenu_run&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1"># A more modern dmenu replacement is rofi:&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1"># bindcode $mod+40 exec &amp;#34;rofi -modi drun,run -show drun&amp;#34;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1"># There also is i3-dmenu-desktop which only displays applications shipping a&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1"># .desktop file. It is a wrapper around dmenu, so you need that installed.&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1"># bindcode $mod+40 exec --no-startup-id i3-dmenu-desktop&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1"># change focus&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="na">bindsym $mod+j focus left&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="na">bindsym $mod+k focus down&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="na">bindsym $mod+l focus up&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="na">bindsym $mod+semicolon focus right&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1"># alternatively, you can use the cursor keys:&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="na">bindsym $mod+Left focus left&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="na">bindsym $mod+Down focus down&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="na">bindsym $mod+Up focus up&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="na">bindsym $mod+Right focus right&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1"># move focused window&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="na">bindsym $mod+Shift+j move left&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="na">bindsym $mod+Shift+k move down&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="na">bindsym $mod+Shift+l move up&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="na">bindsym $mod+Shift+semicolon move right&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1"># alternatively, you can use the cursor keys:&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="na">bindsym $mod+Shift+Left move left&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="na">bindsym $mod+Shift+Down move down&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="na">bindsym $mod+Shift+Up move up&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="na">bindsym $mod+Shift+Right move right&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1"># split in horizontal orientation&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="na">bindsym $mod+h split h&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1"># split in vertical orientation&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="na">bindsym $mod+v split v&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1"># enter fullscreen mode for the focused container&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="na">bindsym $mod+f fullscreen toggle&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1"># change container layout (stacked, tabbed, toggle split)&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="na">bindsym $mod+s layout stacking&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="na">bindsym $mod+w layout tabbed&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="na">bindsym $mod+e layout toggle split&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1"># toggle tiling / floating&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="na">bindsym $mod+Shift+space floating toggle&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1"># change focus between tiling / floating windows&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="na">bindsym $mod+space focus mode_toggle&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1"># focus the parent container&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="na">bindsym $mod+a focus parent&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1"># focus the child container&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1">#bindsym $mod+d focus child&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1"># Define names for default workspaces for which we configure key bindings later on.&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1"># We use variables to avoid repeating the names in multiple places.&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="na">set $ws1 &amp;#34;1&amp;#34;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="na">set $ws2 &amp;#34;2&amp;#34;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="na">set $ws3 &amp;#34;3&amp;#34;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="na">set $ws4 &amp;#34;4&amp;#34;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="na">set $ws5 &amp;#34;5&amp;#34;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="na">set $ws6 &amp;#34;6&amp;#34;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="na">set $ws7 &amp;#34;7&amp;#34;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="na">set $ws8 &amp;#34;8&amp;#34;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="na">set $ws9 &amp;#34;9&amp;#34;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="na">set $ws10 &amp;#34;10&amp;#34;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1"># switch to workspace&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="na">bindsym $mod+1 workspace number $ws1&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="na">bindsym $mod+2 workspace number $ws2&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="na">bindsym $mod+3 workspace number $ws3&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="na">bindsym $mod+4 workspace number $ws4&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="na">bindsym $mod+5 workspace number $ws5&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="na">bindsym $mod+6 workspace number $ws6&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="na">bindsym $mod+7 workspace number $ws7&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="na">bindsym $mod+8 workspace number $ws8&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="na">bindsym $mod+9 workspace number $ws9&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="na">bindsym $mod+0 workspace number $ws10&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1"># move focused container to workspace&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="na">bindsym $mod+Shift+1 move container to workspace number $ws1&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="na">bindsym $mod+Shift+2 move container to workspace number $ws2&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="na">bindsym $mod+Shift+3 move container to workspace number $ws3&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="na">bindsym $mod+Shift+4 move container to workspace number $ws4&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="na">bindsym $mod+Shift+5 move container to workspace number $ws5&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="na">bindsym $mod+Shift+6 move container to workspace number $ws6&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="na">bindsym $mod+Shift+7 move container to workspace number $ws7&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="na">bindsym $mod+Shift+8 move container to workspace number $ws8&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="na">bindsym $mod+Shift+9 move container to workspace number $ws9&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="na">bindsym $mod+Shift+0 move container to workspace number $ws10&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1"># reload the configuration file&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="na">bindsym $mod+Shift+c reload&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1"># restart i3 inplace (preserves your layout/session, can be used to upgrade i3)&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="na">bindsym $mod+Shift+r restart&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1"># exit i3 (logs you out of your X session)&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="na">bindsym $mod+Shift+e exec &amp;#34;i3-nagbar -t warning -m &amp;#39;You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.&amp;#39; -B &amp;#39;Yes, exit i3&amp;#39; &amp;#39;i3-msg exit&amp;#39;&amp;#34;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1"># resize window (you can also use the mouse for that)&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="na">mode &amp;#34;resize&amp;#34; {&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="c1"># These bindings trigger as soon as you enter the resize mode&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="c1"># Pressing left will shrink the window’s width.&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="c1"># Pressing right will grow the window’s width.&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="c1"># Pressing up will shrink the window’s height.&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="c1"># Pressing down will grow the window’s height.&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="na">bindsym j resize shrink width 10 px or 10 ppt&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="na">bindsym k resize grow height 10 px or 10 ppt&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="na">bindsym l resize shrink height 10 px or 10 ppt&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="na">bindsym semicolon resize grow width 10 px or 10 ppt&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="c1"># same bindings, but for the arrow keys&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="na">bindsym Left resize shrink width 10 px or 10 ppt&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="na">bindsym Down resize grow height 10 px or 10 ppt&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="na">bindsym Up resize shrink height 10 px or 10 ppt&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="na">bindsym Right resize grow width 10 px or 10 ppt&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="c1"># back to normal: Enter or Escape or $mod+r&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="na">bindsym Return mode &amp;#34;default&amp;#34;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="na">bindsym Escape mode &amp;#34;default&amp;#34;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="na">bindsym $mod+r mode &amp;#34;default&amp;#34;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="na">}&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="na">bindsym $mod+r mode &amp;#34;resize&amp;#34;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1"># Start i3bar to display a workspace bar (plus the system information i3status&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1"># finds out, if available)&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="na">bar {&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="na">status_command i3status -c $HOME/.config/i3/status.conf&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="na">}&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1"># exec_always $HOME/chrome-startup&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;ul>
+&lt;li>&lt;a href="https://zhuanlan.zhihu.com/p/640577283">i3 窗口管理器终极定制指南&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;blockquote>
+&lt;p>~/.config/i3/status.conf&lt;/p></description></item></channel></rss>

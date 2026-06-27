@@ -1,31 +1,36 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Micromamba on 瘦了就帅了</title><link>https://blog.cuile.com/tags/micromamba/</link><description>Recent content in Micromamba on 瘦了就帅了</description><generator>Hugo</generator><language>zh-cn</language><lastBuildDate>Wed, 18 Mar 2026 10:13:17 +0000</lastBuildDate><atom:link href="https://blog.cuile.com/tags/micromamba/index.xml" rel="self" type="application/rss+xml"/><item><title>Micromamba的安装与使用</title><link>https://blog.cuile.com/post/python/micromamba/</link><pubDate>Thu, 17 Jul 2025 01:18:10 +0800</pubDate><guid>https://blog.cuile.com/post/python/micromamba/</guid><description>&lt;h2 id="安装">安装&lt;/h2>
-&lt;h3 id="windows">Windows&lt;/h3>
-&lt;h4 id="1-下载">1. 下载&lt;/h4>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Micromamba on 瘦了就帅了</title><link>https://blog.cuile.com/tags/micromamba/</link><description>Recent content in Micromamba on 瘦了就帅了</description><generator>Hugo</generator><language>zh-cn</language><lastBuildDate>Sat, 27 Jun 2026 16:27:00 +0000</lastBuildDate><atom:link href="https://blog.cuile.com/tags/micromamba/index.xml" rel="self" type="application/rss+xml"/><item><title>Micromamba的安装与使用</title><link>https://blog.cuile.com/post/python/micromamba/</link><pubDate>Thu, 17 Jul 2025 01:18:10 +0800</pubDate><guid>https://blog.cuile.com/post/python/micromamba/</guid><description>&lt;h2 id="安装">安装&lt;/h2>
+&lt;h3 id="1-自动安装">1. 自动安装&lt;/h3>
+&lt;p>&lt;a href="https://mamba.readthedocs.io/en/latest/installation/micromamba-installation.html#automatic-install">Micromamba Installation — documentation&lt;/a>&lt;/p>
+&lt;blockquote>
+&lt;p>注意要等好久，而且没有任何提示，像死机了一样。&lt;/p>&lt;/blockquote>
+&lt;h3 id="2-手动安装">2. 手动安装&lt;/h3>
+&lt;h4 id="windows">Windows&lt;/h4>
+&lt;h5 id="下载">下载&lt;/h5>
 &lt;p>推荐使用 PowerShell&lt;sup id="fnref:1">&lt;a href="#fn:1" class="footnote-ref" role="doc-noteref">1&lt;/a>&lt;/sup>&lt;/p>
-&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-powershell" data-lang="powershell">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e"># 下载并安装 VC++ Redistributable，需要管理员模式&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>Invoke-WebRequest -Uri &lt;span style="color:#e6db74">&amp;#34;https://aka.ms/vs/17/release/vc_redist.x64.exe&amp;#34;&lt;/span> -OutFile &lt;span style="color:#e6db74">&amp;#34;&lt;/span>$env:TEMP&lt;span style="color:#e6db74">\vc_redist.x64.exe&amp;#34;&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>Start-Process -Wait -FilePath &lt;span style="color:#e6db74">&amp;#34;&lt;/span>$env:TEMP&lt;span style="color:#e6db74">\vc_redist.x64.exe&amp;#34;&lt;/span> -ArgumentList &lt;span style="color:#e6db74">&amp;#34;/install&amp;#34;&lt;/span>, &lt;span style="color:#e6db74">&amp;#34;/quiet&amp;#34;&lt;/span>, &lt;span style="color:#e6db74">&amp;#34;/norestart&amp;#34;&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e"># 下载micromamba&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>Invoke-Webrequest -URI https&lt;span style="color:#960050;background-color:#1e0010">:&lt;/span>//micro.mamba.pm/api/micromamba/win-&lt;span style="color:#ae81ff">64&lt;/span>/latest -OutFile micromamba.tar.bz2
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e"># 使用7z解压&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&amp;amp; &lt;span style="color:#e6db74">&amp;#34;C:\Program Files\7-Zip\7z.exe&amp;#34;&lt;/span> x &lt;span style="color:#e6db74">&amp;#34;micromamba.tar.bz2&amp;#34;&lt;/span> -o&lt;span style="color:#e6db74">&amp;#34;tmp&amp;#34;&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e"># 使用tar解压，系统内置不用安装&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>mkdir micromamba
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>tar -xvf .\tmp\micromamba.tar -C .\micromamba\
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>.\micromamba\Library\bin\micromamba.exe --help
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e"># 查看输出&lt;/span>
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h4 id="2-安装">2. 安装&lt;sup id="fnref:2">&lt;a href="#fn:2" class="footnote-ref" role="doc-noteref">2&lt;/a>&lt;/sup>&lt;/h4>
-&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-powershell" data-lang="powershell">&lt;span style="display:flex;">&lt;span>.\micromamba\Library\bin\micromamba.exe shell init -s powershell -r C:\Your\Root\Prefix
+&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-powershell" data-lang="powershell">&lt;span class="line">&lt;span class="cl">&lt;span class="c"># 下载并安装 VC++ Redistributable，需要管理员模式&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="nb">Invoke-WebRequest&lt;/span> &lt;span class="n">-Uri&lt;/span> &lt;span class="s2">&amp;#34;https://aka.ms/vs/17/release/vc_redist.x64.exe&amp;#34;&lt;/span> &lt;span class="n">-OutFile&lt;/span> &lt;span class="s2">&amp;#34;&lt;/span>&lt;span class="nv">$env:TEMP&lt;/span>&lt;span class="s2">\vc_redist.x64.exe&amp;#34;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="nb">Start-Process&lt;/span> &lt;span class="n">-Wait&lt;/span> &lt;span class="n">-FilePath&lt;/span> &lt;span class="s2">&amp;#34;&lt;/span>&lt;span class="nv">$env:TEMP&lt;/span>&lt;span class="s2">\vc_redist.x64.exe&amp;#34;&lt;/span> &lt;span class="n">-ArgumentList&lt;/span> &lt;span class="s2">&amp;#34;/install&amp;#34;&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="s2">&amp;#34;/quiet&amp;#34;&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="s2">&amp;#34;/norestart&amp;#34;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c"># 下载micromamba&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="nb">Invoke-Webrequest&lt;/span> &lt;span class="n">-URI&lt;/span> &lt;span class="n">https&lt;/span>&lt;span class="err">:&lt;/span>&lt;span class="p">//&lt;/span>&lt;span class="n">micro&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="py">mamba&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="n">pm&lt;/span>&lt;span class="p">/&lt;/span>&lt;span class="n">api&lt;/span>&lt;span class="p">/&lt;/span>&lt;span class="n">micromamba&lt;/span>&lt;span class="p">/&lt;/span>&lt;span class="n">win&lt;/span>&lt;span class="p">-&lt;/span>&lt;span class="mf">64&lt;/span>&lt;span class="p">/&lt;/span>&lt;span class="n">latest&lt;/span> &lt;span class="n">-OutFile&lt;/span> &lt;span class="n">micromamba&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="py">tar&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="py">bz2&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c"># 使用7z解压&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="p">&amp;amp;&lt;/span> &lt;span class="s2">&amp;#34;C:\Program Files\7-Zip\7z.exe&amp;#34;&lt;/span> &lt;span class="n">x&lt;/span> &lt;span class="s2">&amp;#34;micromamba.tar.bz2&amp;#34;&lt;/span> &lt;span class="n">-o&lt;/span>&lt;span class="s2">&amp;#34;tmp&amp;#34;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c"># 使用tar解压，系统内置不用安装&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="n">mkdir&lt;/span> &lt;span class="n">micromamba&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="n">tar&lt;/span> &lt;span class="n">-xvf&lt;/span> &lt;span class="p">.\&lt;/span>&lt;span class="n">tmp&lt;/span>&lt;span class="p">\&lt;/span>&lt;span class="n">micromamba&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="py">tar&lt;/span> &lt;span class="n">-C&lt;/span> &lt;span class="p">.\&lt;/span>&lt;span class="n">micromamba&lt;/span>&lt;span class="p">\&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="p">.\&lt;/span>&lt;span class="n">micromamba&lt;/span>&lt;span class="p">\&lt;/span>&lt;span class="n">Library&lt;/span>&lt;span class="p">\&lt;/span>&lt;span class="n">bin&lt;/span>&lt;span class="p">\&lt;/span>&lt;span class="n">micromamba&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="py">exe&lt;/span> &lt;span class="p">-&lt;/span>&lt;span class="n">-help&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c"># 查看输出&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h5 id="安装-1">安装&lt;sup id="fnref:2">&lt;a href="#fn:2" class="footnote-ref" role="doc-noteref">2&lt;/a>&lt;/sup>&lt;/h5>
+&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-powershell" data-lang="powershell">&lt;span class="line">&lt;span class="cl">&lt;span class="p">.\&lt;/span>&lt;span class="n">micromamba&lt;/span>&lt;span class="p">\&lt;/span>&lt;span class="n">Library&lt;/span>&lt;span class="p">\&lt;/span>&lt;span class="n">bin&lt;/span>&lt;span class="p">\&lt;/span>&lt;span class="n">micromamba&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="py">exe&lt;/span> &lt;span class="n">shell&lt;/span> &lt;span class="n">init&lt;/span> &lt;span class="n">-s&lt;/span> &lt;span class="n">powershell&lt;/span> &lt;span class="n">-r&lt;/span> &lt;span class="n">C:&lt;/span>&lt;span class="p">\&lt;/span>&lt;span class="n">Your&lt;/span>&lt;span class="p">\&lt;/span>&lt;span class="n">Root&lt;/span>&lt;span class="p">\&lt;/span>&lt;span class="n">Prefix&lt;/span>
 &lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>默认位置为 $HOME/micromamba，也就是 C:\Users\username\micromamba 。&lt;/p>
 &lt;p>同时会在 PowerShell 的 Profile 文件中（相当于 Bash 的 .bashrc）添加以下代码，保证每次启动 PowerShell 时，都会自动初始化 Micromamba 。&lt;/p>
 &lt;blockquote>
 &lt;p>$HOME/Documents/WindowsPowerShell/profile.ps1&lt;/p>&lt;/blockquote>
-&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-powershell" data-lang="powershell">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e">#region mamba initialize&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e"># !! Contents within this block are managed by &amp;#39;mamba shell init&amp;#39; !!&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>$Env:MAMBA_ROOT_PREFIX = &lt;span style="color:#e6db74">&amp;#34;C:\Users\username\micromamba&amp;#34;&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>$Env:MAMBA_EXE = &lt;span style="color:#e6db74">&amp;#34;C:\Users\username\micromamba\Library\bin\micromamba.exe&amp;#34;&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>(&amp;amp; $Env:MAMBA_EXE &lt;span style="color:#e6db74">&amp;#39;shell&amp;#39;&lt;/span> &lt;span style="color:#e6db74">&amp;#39;hook&amp;#39;&lt;/span> -s &lt;span style="color:#e6db74">&amp;#39;powershell&amp;#39;&lt;/span> -p $Env:MAMBA_ROOT_PREFIX) | Out-String | Invoke-Expression
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e">#endregion&lt;/span>
+&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-powershell" data-lang="powershell">&lt;span class="line">&lt;span class="cl">&lt;span class="c">#region mamba initialize&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c"># !! Contents within this block are managed by &amp;#39;mamba shell init&amp;#39; !!&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="nv">$Env:MAMBA_ROOT_PREFIX&lt;/span> &lt;span class="p">=&lt;/span> &lt;span class="s2">&amp;#34;C:\Users\username\micromamba&amp;#34;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="nv">$Env:MAMBA_EXE&lt;/span> &lt;span class="p">=&lt;/span> &lt;span class="s2">&amp;#34;C:\Users\username\micromamba\Library\bin\micromamba.exe&amp;#34;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="p">(&amp;amp;&lt;/span> &lt;span class="nv">$Env:MAMBA_EXE&lt;/span> &lt;span class="s1">&amp;#39;shell&amp;#39;&lt;/span> &lt;span class="s1">&amp;#39;hook&amp;#39;&lt;/span> &lt;span class="n">-s&lt;/span> &lt;span class="s1">&amp;#39;powershell&amp;#39;&lt;/span> &lt;span class="n">-p&lt;/span> &lt;span class="nv">$Env:MAMBA_ROOT_PREFIX&lt;/span>&lt;span class="p">)&lt;/span> &lt;span class="p">|&lt;/span> &lt;span class="nb">Out-String&lt;/span> &lt;span class="p">|&lt;/span> &lt;span class="nb">Invoke-Expression&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c">#endregion&lt;/span>
 &lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>加入设置 micromamba 别名的命令。
 设置别名后，即方便使用，也可配合 VSCode 的配置，实现自动启动开发环境。&lt;/p></description></item><item><title>VSCode 配置 Python 开发环境</title><link>https://blog.cuile.com/post/vscode/vscode_configures_python_development_environment/</link><pubDate>Sat, 25 Nov 2023 00:24:10 +0800</pubDate><guid>https://blog.cuile.com/post/vscode/vscode_configures_python_development_environment/</guid><description>&lt;p>使用 VSCode 开发 Python 是替代 PyCharm 的一个很好选择，有丰富的扩展和第三方工具可以使用，安装配置好它们，会让开发工作事半功倍。下面列举推荐安装的扩展和工具：&lt;/p>
 &lt;p>&lt;em>扩展&lt;/em>&lt;/p>
@@ -97,23 +102,46 @@
 &lt;ol start="2">
 &lt;li>重启VSCode，进入 Python 项目，就可以看到右下角的 Python 环境了，如果创建了多个环境，可以通过这里切换。这里需要注意 vscode 可以识别多个 Python 版本，但无法正确配置它们。所以创建不同的 Python 版本后，还要为项目选择解释器。&lt;/li>
 &lt;/ol>
-&lt;h3 id="配置-python-项目环境">配置 Python 项目环境&lt;/h3>
+&lt;h3 id="创建-python-项目环境">创建 Python 项目环境&lt;/h3>
+&lt;ul>
+&lt;li>使用项目终端界面，&lt;a href="https://blog.cuile.com/post/python/micromamba/#3-创建项目">创建虚拟环境&lt;/a>。&lt;/li>
+&lt;li>重启 vscode 再次进入项目终端，不一定会看到项目前缀&lt;sup id="fnref:2">&lt;a href="#fn:2" class="footnote-ref" role="doc-noteref">2&lt;/a>&lt;/sup>。VsCode已经自动修你激活了Python虚拟环境，不需要再操作。&lt;/li>
+&lt;li>安装包时，不需要激活 micromamba 环境，否则包将被安装到 micromamba 环境中。&lt;/li>
+&lt;/ul>
+&lt;h2 id="其它配置">其它配置&lt;/h2>
+&lt;table>
+ &lt;thead>
+ &lt;tr>
+ &lt;th style="text-align: left">选项&lt;/th>
+ &lt;th style="text-align: left">值&lt;/th>
+ &lt;/tr>
+ &lt;/thead>
+ &lt;tbody>
+ &lt;tr>
+ &lt;td style="text-align: left">Editor: Default Formatter&lt;/td>
+ &lt;td style="text-align: left">Ruff&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td style="text-align: left">Python &amp;gt; Terminal: ACtivate Env In Current Terminal&lt;/td>
+ &lt;td style="text-align: left">勾选&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td style="text-align: left">Python &amp;gt; Terminal: Focus After Launch&lt;/td>
+ &lt;td style="text-align: left">勾选&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td style="text-align: left">Python: Language Server&lt;/td>
+ &lt;td style="text-align: left">Pylance&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td style="text-align: left">Pylthon &amp;gt; Analysis: Type Checking Mode&lt;/td>
+ &lt;td style="text-align: left">basic&lt;/td>
+ &lt;/tr>
+ &lt;/tbody>
+&lt;/table>
+&lt;hr>
+&lt;div class="footnotes" role="doc-endnotes">
+&lt;hr>
 &lt;ol>
-&lt;li>使用项目终端界面，创建虚拟环境。&lt;/li>
-&lt;/ol>
-&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-powershell" data-lang="powershell">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e"># 先激活 micromamba 环境&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>PS &lt;span style="color:#e6db74">&amp;#34;Your Project Path&amp;#34;&lt;/span>&amp;gt; conda activate PyQt
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e"># 创建Python虚拟环境&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e"># --upgrade 参数是升级虚拟环境用的，新建虚拟环境时要去掉。&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e"># --system-site-packages 会降低环境隔离性，生产环境慎用。&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>(PyQt) PS &lt;span style="color:#e6db74">&amp;#34;Your Project Path&amp;#34;&lt;/span>&amp;gt; python -m venv --prompt &lt;span style="color:#e6db74">&amp;#34;&amp;lt;myproject&amp;gt;&amp;#34;&lt;/span> --upgrade-deps .venv --symlinks --upgrade --system-site-packages
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e"># 查看项目资源管理器，看到 .venv 文件夹就成功了。&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e"># 激活Python虚拟环境&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>(PyQt) PS &lt;span style="color:#e6db74">&amp;#34;Your Project Path&amp;#34;&lt;/span>&amp;gt; Activate.ps1
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e"># 成功进入虚拟环境&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>(myproject) (PyQt) PS &lt;span style="color:#e6db74">&amp;#34;Your Project Path&amp;#34;&lt;/span>&amp;gt;
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>重启 vscode 再次进入项目终端，不一定会看到项目前缀&lt;sup id="fnref:2">&lt;a href="#fn:2" class="footnote-ref" role="doc-noteref">2&lt;/a>&lt;/sup>。VsCode已经自动修你激活了Python虚拟环境，不需要再操作。
-安装包里不需要激活 micromamba 环境，否则包将被安装到 micromamba 环境中。&lt;/p></description></item></channel></rss>
+&lt;li id="fn:1">
+&lt;p>&lt;a href="https://zhuanlan.zhihu.com/p/622346839?utm_id=0">使用 Micromamba 替换 Miniconda 更快配置 Python 环境&lt;/a>&amp;#160;&lt;a href="#fnref:1" class="footnote-backref" role="doc-backlink">&amp;#x21a9;&amp;#xfe0e;&lt;/a>&lt;/p></description></item></channel></rss>

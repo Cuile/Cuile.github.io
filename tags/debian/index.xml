@@ -1,206 +1,556 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Debian on 瘦了就帅了</title><link>https://blog.cuile.com/tags/debian/</link><description>Recent content in Debian on 瘦了就帅了</description><generator>Hugo</generator><language>zh-cn</language><lastBuildDate>Wed, 18 Mar 2026 10:13:17 +0000</lastBuildDate><atom:link href="https://blog.cuile.com/tags/debian/index.xml" rel="self" type="application/rss+xml"/><item><title>Debian 12 极简远程桌面</title><link>https://blog.cuile.com/post/linux/vnc/</link><pubDate>Tue, 12 Aug 2025 19:01:37 +0800</pubDate><guid>https://blog.cuile.com/post/linux/vnc/</guid><description>&lt;p>Debian 12 只安装VNC及i3桌面，就可以低成本的实现远程桌面环境&lt;/p>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Debian on 瘦了就帅了</title><link>https://blog.cuile.com/tags/debian/</link><description>Recent content in Debian on 瘦了就帅了</description><generator>Hugo</generator><language>zh-cn</language><lastBuildDate>Sat, 27 Jun 2026 16:27:00 +0000</lastBuildDate><atom:link href="https://blog.cuile.com/tags/debian/index.xml" rel="self" type="application/rss+xml"/><item><title>Debian 12 极简远程桌面</title><link>https://blog.cuile.com/post/linux/vnc/</link><pubDate>Tue, 12 Aug 2025 19:01:37 +0800</pubDate><guid>https://blog.cuile.com/post/linux/vnc/</guid><description>&lt;p>Debian 12 只安装VNC及i3桌面，就可以低成本的实现远程桌面环境&lt;/p>
 &lt;h2 id="安装">安装&lt;/h2>
-&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e"># 安装通用工具&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>apt-get install -y nano net-tools bzip2 procps apt-utils iputils-ping netcat-openbsd
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e"># 安装中文字体&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>apt-get install -y locales fonts-wqy-microhei fonts-wqy-zenhei xfonts-wqy &lt;span style="color:#f92672">&amp;amp;&amp;amp;&lt;/span> &lt;span style="color:#ae81ff">\
-&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#ae81ff">&lt;/span> sed -i -e &lt;span style="color:#e6db74">&amp;#34;s/# zh_CN.UTF-8 UTF-8/zh_CN.UTF-8 UTF-8/&amp;#34;&lt;/span> /etc/locale.gen &lt;span style="color:#f92672">&amp;amp;&amp;amp;&lt;/span> &lt;span style="color:#ae81ff">\
-&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#ae81ff">&lt;/span> locale-gen zh_CN.UTF-8 &lt;span style="color:#f92672">&amp;amp;&amp;amp;&lt;/span>&lt;span style="color:#ae81ff">\
-&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#ae81ff">&lt;/span> update-locale LANG&lt;span style="color:#f92672">=&lt;/span>zh_CN.UTF-8 LANGUAGE&lt;span style="color:#f92672">=&lt;/span>zh_CN:zh LC_ALL&lt;span style="color:#f92672">=&lt;/span>zh_CN.UTF-8
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e"># 安装VNC&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>apt-get install -y tigervnc-standalone-server
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e"># 安装i3桌面&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>apt-get install -y i3-wm i3status i3blocks dmenu xfonts-base terminator dbus-x11 libdbus-glib-1-2 ; apt-get purge -y pm-utils *screensaver*
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>apt-get clean
+&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">&lt;span class="c1"># 安装通用工具&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">apt-get install -y nano net-tools bzip2 procps apt-utils iputils-ping netcat-openbsd
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1"># 安装中文字体&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">apt-get install -y locales fonts-wqy-microhei fonts-wqy-zenhei xfonts-wqy &lt;span class="o">&amp;amp;&amp;amp;&lt;/span> &lt;span class="se">\
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="se">&lt;/span> sed -i -e &lt;span class="s2">&amp;#34;s/# zh_CN.UTF-8 UTF-8/zh_CN.UTF-8 UTF-8/&amp;#34;&lt;/span> /etc/locale.gen &lt;span class="o">&amp;amp;&amp;amp;&lt;/span> &lt;span class="se">\
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="se">&lt;/span> locale-gen zh_CN.UTF-8 &lt;span class="o">&amp;amp;&amp;amp;&lt;/span>&lt;span class="se">\
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="se">&lt;/span> update-locale &lt;span class="nv">LANG&lt;/span>&lt;span class="o">=&lt;/span>zh_CN.UTF-8 &lt;span class="nv">LANGUAGE&lt;/span>&lt;span class="o">=&lt;/span>zh_CN:zh &lt;span class="nv">LC_ALL&lt;/span>&lt;span class="o">=&lt;/span>zh_CN.UTF-8
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1"># 安装VNC&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">apt-get install -y tigervnc-standalone-server
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1"># 安装i3桌面&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">apt-get install -y i3-wm i3status i3blocks dmenu xfonts-base terminator dbus-x11 libdbus-glib-1-2 &lt;span class="p">;&lt;/span> apt-get purge -y pm-utils *screensaver*
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">apt-get clean
 &lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="配置i3桌面">配置i3桌面&lt;/h2>
 &lt;blockquote>
-&lt;p>~/.config/i3/config&lt;/p></description></item><item><title>Docker 安装</title><link>https://blog.cuile.com/post/container/docker_install/</link><pubDate>Fri, 06 May 2022 11:05:23 +0800</pubDate><guid>https://blog.cuile.com/post/container/docker_install/</guid><description>&lt;p>其实网上相关的文章已经非常多了，所以这篇文章的作用只是记录和明确一条确定可行的操作路径，为以后的操作节省时间，毕竟像我一样大部分人都不是专业的系统管理员，能够快速解决问题就可以了，并不想做过多的专业研究与探索。&lt;/p>
+&lt;p>~/.config/i3/config&lt;/p>&lt;/blockquote>
+&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-ini" data-lang="ini">&lt;span class="line">&lt;span class="cl">&lt;span class="c1"># This file has been auto-generated by i3-config-wizard(1).&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1"># It will not be overwritten, so edit it as you like.&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1">#&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1"># Should you change your keyboard layout some time, delete&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1"># this file and re-run i3-config-wizard(1).&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1">#&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1"># i3 config file (v4)&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1">#&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1"># Please see https://i3wm.org/docs/userguide.html for a complete reference!&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="na">set $mod Mod1&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1"># Font for window titles. Will also be used by the bar unless a different font&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1"># is used in the bar {} block below.&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1"># This font is widely installed, provides lots of unicode glyphs, right-to-left&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1"># text rendering and scalability on retina/hidpi displays (thanks to pango).&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1">#font pango:DejaVu Sans Mono 8&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="na">font pango:monospace 8&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1"># Start XDG autostart .desktop files using dex. See also&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1"># https://wiki.archlinux.org/index.php/XDG_Autostart&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1"># exec --no-startup-id dex --autostart --environment i3&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1"># The combination of xss-lock, nm-applet and pactl is a popular choice, so&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1"># they are included here as an example. Modify as you see fit.&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1"># xss-lock grabs a logind suspend inhibit lock and will use i3lock to lock the&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1"># screen before suspend. Use loginctl lock-session to lock your screen.&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1"># exec --no-startup-id xss-lock --transfer-sleep-lock -- i3lock --nofork&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1"># NetworkManager is the most popular way to manage wireless networks on Linux,&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1"># and nm-applet is a desktop environment-independent system tray GUI for it.&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1"># exec --no-startup-id nm-applet&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1"># Use pactl to adjust volume in PulseAudio.&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1"># set $refresh_i3status killall -SIGUSR1 i3status&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1"># bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ +10% &amp;amp;&amp;amp; $refresh_i3status&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1"># bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ -10% &amp;amp;&amp;amp; $refresh_i3status&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1"># bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute @DEFAULT_SINK@ toggle &amp;amp;&amp;amp; $refresh_i3status&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1"># bindsym XF86AudioMicMute exec --no-startup-id pactl set-source-mute @DEFAULT_SOURCE@ toggle &amp;amp;&amp;amp; $refresh_i3status&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1"># Use Mouse+$mod to drag floating windows to their wanted position&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="na">floating_modifier $mod&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1"># move tiling windows via drag &amp;amp; drop by left-clicking into the title bar,&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1"># or left-clicking anywhere into the window while holding the floating modifier.&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="na">tiling_drag modifier titlebar&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1"># start a terminal&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="na">bindsym $mod+Return exec i3-sensible-terminal&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1"># kill focused window&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="na">bindsym $mod+Shift+q kill&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1"># start dmenu (a program launcher)&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="na">bindsym $mod+d exec --no-startup-id dmenu_run&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1"># A more modern dmenu replacement is rofi:&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1"># bindcode $mod+40 exec &amp;#34;rofi -modi drun,run -show drun&amp;#34;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1"># There also is i3-dmenu-desktop which only displays applications shipping a&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1"># .desktop file. It is a wrapper around dmenu, so you need that installed.&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1"># bindcode $mod+40 exec --no-startup-id i3-dmenu-desktop&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1"># change focus&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="na">bindsym $mod+j focus left&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="na">bindsym $mod+k focus down&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="na">bindsym $mod+l focus up&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="na">bindsym $mod+semicolon focus right&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1"># alternatively, you can use the cursor keys:&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="na">bindsym $mod+Left focus left&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="na">bindsym $mod+Down focus down&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="na">bindsym $mod+Up focus up&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="na">bindsym $mod+Right focus right&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1"># move focused window&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="na">bindsym $mod+Shift+j move left&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="na">bindsym $mod+Shift+k move down&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="na">bindsym $mod+Shift+l move up&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="na">bindsym $mod+Shift+semicolon move right&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1"># alternatively, you can use the cursor keys:&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="na">bindsym $mod+Shift+Left move left&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="na">bindsym $mod+Shift+Down move down&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="na">bindsym $mod+Shift+Up move up&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="na">bindsym $mod+Shift+Right move right&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1"># split in horizontal orientation&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="na">bindsym $mod+h split h&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1"># split in vertical orientation&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="na">bindsym $mod+v split v&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1"># enter fullscreen mode for the focused container&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="na">bindsym $mod+f fullscreen toggle&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1"># change container layout (stacked, tabbed, toggle split)&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="na">bindsym $mod+s layout stacking&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="na">bindsym $mod+w layout tabbed&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="na">bindsym $mod+e layout toggle split&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1"># toggle tiling / floating&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="na">bindsym $mod+Shift+space floating toggle&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1"># change focus between tiling / floating windows&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="na">bindsym $mod+space focus mode_toggle&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1"># focus the parent container&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="na">bindsym $mod+a focus parent&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1"># focus the child container&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1">#bindsym $mod+d focus child&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1"># Define names for default workspaces for which we configure key bindings later on.&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1"># We use variables to avoid repeating the names in multiple places.&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="na">set $ws1 &amp;#34;1&amp;#34;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="na">set $ws2 &amp;#34;2&amp;#34;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="na">set $ws3 &amp;#34;3&amp;#34;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="na">set $ws4 &amp;#34;4&amp;#34;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="na">set $ws5 &amp;#34;5&amp;#34;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="na">set $ws6 &amp;#34;6&amp;#34;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="na">set $ws7 &amp;#34;7&amp;#34;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="na">set $ws8 &amp;#34;8&amp;#34;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="na">set $ws9 &amp;#34;9&amp;#34;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="na">set $ws10 &amp;#34;10&amp;#34;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1"># switch to workspace&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="na">bindsym $mod+1 workspace number $ws1&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="na">bindsym $mod+2 workspace number $ws2&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="na">bindsym $mod+3 workspace number $ws3&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="na">bindsym $mod+4 workspace number $ws4&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="na">bindsym $mod+5 workspace number $ws5&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="na">bindsym $mod+6 workspace number $ws6&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="na">bindsym $mod+7 workspace number $ws7&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="na">bindsym $mod+8 workspace number $ws8&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="na">bindsym $mod+9 workspace number $ws9&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="na">bindsym $mod+0 workspace number $ws10&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1"># move focused container to workspace&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="na">bindsym $mod+Shift+1 move container to workspace number $ws1&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="na">bindsym $mod+Shift+2 move container to workspace number $ws2&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="na">bindsym $mod+Shift+3 move container to workspace number $ws3&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="na">bindsym $mod+Shift+4 move container to workspace number $ws4&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="na">bindsym $mod+Shift+5 move container to workspace number $ws5&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="na">bindsym $mod+Shift+6 move container to workspace number $ws6&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="na">bindsym $mod+Shift+7 move container to workspace number $ws7&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="na">bindsym $mod+Shift+8 move container to workspace number $ws8&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="na">bindsym $mod+Shift+9 move container to workspace number $ws9&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="na">bindsym $mod+Shift+0 move container to workspace number $ws10&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1"># reload the configuration file&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="na">bindsym $mod+Shift+c reload&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1"># restart i3 inplace (preserves your layout/session, can be used to upgrade i3)&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="na">bindsym $mod+Shift+r restart&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1"># exit i3 (logs you out of your X session)&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="na">bindsym $mod+Shift+e exec &amp;#34;i3-nagbar -t warning -m &amp;#39;You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.&amp;#39; -B &amp;#39;Yes, exit i3&amp;#39; &amp;#39;i3-msg exit&amp;#39;&amp;#34;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1"># resize window (you can also use the mouse for that)&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="na">mode &amp;#34;resize&amp;#34; {&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="c1"># These bindings trigger as soon as you enter the resize mode&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="c1"># Pressing left will shrink the window’s width.&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="c1"># Pressing right will grow the window’s width.&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="c1"># Pressing up will shrink the window’s height.&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="c1"># Pressing down will grow the window’s height.&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="na">bindsym j resize shrink width 10 px or 10 ppt&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="na">bindsym k resize grow height 10 px or 10 ppt&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="na">bindsym l resize shrink height 10 px or 10 ppt&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="na">bindsym semicolon resize grow width 10 px or 10 ppt&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="c1"># same bindings, but for the arrow keys&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="na">bindsym Left resize shrink width 10 px or 10 ppt&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="na">bindsym Down resize grow height 10 px or 10 ppt&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="na">bindsym Up resize shrink height 10 px or 10 ppt&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="na">bindsym Right resize grow width 10 px or 10 ppt&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="c1"># back to normal: Enter or Escape or $mod+r&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="na">bindsym Return mode &amp;#34;default&amp;#34;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="na">bindsym Escape mode &amp;#34;default&amp;#34;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="na">bindsym $mod+r mode &amp;#34;default&amp;#34;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="na">}&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="na">bindsym $mod+r mode &amp;#34;resize&amp;#34;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1"># Start i3bar to display a workspace bar (plus the system information i3status&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1"># finds out, if available)&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="na">bar {&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="na">status_command i3status -c $HOME/.config/i3/status.conf&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="na">}&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1"># exec_always $HOME/chrome-startup&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;ul>
+&lt;li>&lt;a href="https://zhuanlan.zhihu.com/p/640577283">i3 窗口管理器终极定制指南&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;blockquote>
+&lt;p>~/.config/i3/status.conf&lt;/p></description></item><item><title>Docker 安装</title><link>https://blog.cuile.com/post/container/docker_install/</link><pubDate>Fri, 06 May 2022 11:05:23 +0800</pubDate><guid>https://blog.cuile.com/post/container/docker_install/</guid><description>&lt;p>其实网上相关的文章已经非常多了，所以这篇文章的作用只是记录和明确一条确定可行的操作路径，为以后的操作节省时间，毕竟像我一样大部分人都不是专业的系统管理员，能够快速解决问题就可以了，并不想做过多的专业研究与探索。&lt;/p>
 &lt;p>本操作手册是官方手册与网上手册的结合版本，集两家之所长，亲自操作可用。&lt;/p>
 &lt;h2 id="debian">Debian&lt;/h2>
-&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e"># 安装 Docker 证书&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>sudo apt-get install -y ca-certificates curl
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>sudo install -m &lt;span style="color:#ae81ff">0755&lt;/span> -d /etc/apt/keyrings
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>sudo curl -fsSL https://download.docker.com/linux/debian/gpg -o /etc/apt/keyrings/docker.asc
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>sudo chmod a+r /etc/apt/keyrings/docker.asc&lt;span style="color:#ae81ff">\
-&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#ae81ff">&lt;/span>sudo echo
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#e6db74">&amp;#34;deb [arch=&lt;/span>&lt;span style="color:#66d9ef">$(&lt;/span>dpkg --print-architecture&lt;span style="color:#66d9ef">)&lt;/span>&lt;span style="color:#e6db74"> signed-by=/etc/apt/keyrings/docker.asc] https://download.docker.com/linux/debian
-&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#e6db74"> &lt;/span>&lt;span style="color:#66d9ef">$(&lt;/span>. /etc/os-release &lt;span style="color:#f92672">&amp;amp;&amp;amp;&lt;/span> echo &lt;span style="color:#e6db74">&amp;#34;&lt;/span>$VERSION_CODENAME&lt;span style="color:#e6db74">&amp;#34;&lt;/span>&lt;span style="color:#66d9ef">)&lt;/span>&lt;span style="color:#e6db74"> stable&amp;#34;&lt;/span> |
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> sudo tee /etc/apt/sources.list.d/docker.list &amp;gt; /dev/null
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>sudo apt-get update
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e"># 安装 Docker&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>sudo apt-get install -y docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e"># 启动 Docker&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>sudo systemctl enable docker.service
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>sudo systemctl start docker.service
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e"># 测试&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>sudo docker version
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&amp;gt; Client: Docker Engine - Community
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&amp;gt; ...
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&amp;gt; Server: Docker Engine - Community
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&amp;gt; ...
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>sudo docker compose version
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&amp;gt; Docker Compose version v...
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e"># 使用非 root 用户管理 Docker&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e"># 创建 docker 用户组&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>sudo groupadd docker
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e"># 将当前用户添加到 docker 用户组&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>sudo usermod -aG docker $USER
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e"># 重启&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e"># 再次测试&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>docker version
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&amp;gt; Client: Docker Engine - Community
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&amp;gt; ...
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&amp;gt; Server: Docker Engine - Community
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&amp;gt; ...
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>docker compose version
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&amp;gt; Docker Compose version v...
+&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">&lt;span class="c1"># 安装 Docker 证书&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">sudo apt-get install -y ca-certificates curl
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">sudo install -m &lt;span class="m">0755&lt;/span> -d /etc/apt/keyrings
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">sudo curl -fsSL https://download.docker.com/linux/debian/gpg -o /etc/apt/keyrings/docker.asc
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">sudo chmod a+r /etc/apt/keyrings/docker.asc&lt;span class="se">\
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="se">&lt;/span>sudo &lt;span class="nb">echo&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="s2">&amp;#34;deb [arch=&lt;/span>&lt;span class="k">$(&lt;/span>dpkg --print-architecture&lt;span class="k">)&lt;/span>&lt;span class="s2"> signed-by=/etc/apt/keyrings/docker.asc] https://download.docker.com/linux/debian
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="s2"> &lt;/span>&lt;span class="k">$(&lt;/span>. /etc/os-release &lt;span class="o">&amp;amp;&amp;amp;&lt;/span> &lt;span class="nb">echo&lt;/span> &lt;span class="s2">&amp;#34;&lt;/span>&lt;span class="nv">$VERSION_CODENAME&lt;/span>&lt;span class="s2">&amp;#34;&lt;/span>&lt;span class="k">)&lt;/span>&lt;span class="s2"> stable&amp;#34;&lt;/span> &lt;span class="p">|&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> sudo tee /etc/apt/sources.list.d/docker.list &amp;gt; /dev/null
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">sudo apt-get update
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1"># 安装 Docker&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">sudo apt-get install -y docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1"># 启动 Docker&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">sudo systemctl &lt;span class="nb">enable&lt;/span> docker.service
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">sudo systemctl start docker.service
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1"># 测试&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">sudo docker version
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&amp;gt; Client: Docker Engine - Community
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&amp;gt; ...
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&amp;gt; Server: Docker Engine - Community
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&amp;gt; ...
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">sudo docker compose version
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&amp;gt; Docker Compose version v...
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1"># 使用非 root 用户管理 Docker&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1"># 创建 docker 用户组&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">sudo groupadd docker
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1"># 将当前用户添加到 docker 用户组&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">sudo usermod -aG docker &lt;span class="nv">$USER&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1"># 重启&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1"># 再次测试&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">docker version
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&amp;gt; Client: Docker Engine - Community
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&amp;gt; ...
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&amp;gt; Server: Docker Engine - Community
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&amp;gt; ...
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">docker compose version
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&amp;gt; Docker Compose version v...
 &lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="centos--rocky">CentOS | Rocky&lt;/h2>
-&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e"># 查看系统版本&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>cat /etc/redhat-release
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&amp;gt; CentOS Linux release 7.6.1810 &lt;span style="color:#f92672">(&lt;/span>Core&lt;span style="color:#f92672">)&lt;/span> // CentOs &lt;span style="color:#ae81ff">7&lt;/span> 以上版本
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e"># 查看系统内核版本&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>uname -r
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&amp;gt; 4.10.4-1.el7.elrepo.x86_64 // 内核版本要&amp;gt;3.10
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e"># 卸载旧版本&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>yum remove docker
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> docker-client
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> docker-client-latest
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> docker-common
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> docker-latest
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> docker-latest-logrotate
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> docker-logrotate
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> docker-selinux
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> docker-engine-selinux
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> docker-engine
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e"># 安装依赖包&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>yum install -y yum-utils lvm2
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> device-mapper-persistent-data
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e"># 添加 Docker 软件源&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e"># 如果系统已切换到阿里云镜像源地址，可跳过此步。&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e"># 阿里云镜像自带docker源&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>yum-config-manager
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> --add-repo
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> https://mirrors.ustc.edu.cn/docker-ce/linux/centos/docker-ce.repo
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e"># 使用官方源&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>yum-config-manager
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> --add-repo
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> https://download.docker.com/linux/centos/docker-ce.repo
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>yum makecache fast
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e"># CentOS 8 or Rocky 9 使用timer替换fast&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>yum makecache timer
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e"># 安装 Docker&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e"># 如果在 Rocky 9 系统上，会提示containerd.io版本过低，或下载失败，需要独立安装containerd.io&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e"># 可以重试几次&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>yum install -y docker-ce docker-ce-cli containerd.io docker-compose-plugin
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e"># 启动 Docker&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e"># 设为开机启动&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>systemctl enable docker.service
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e"># 启动服务&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>systemctl start docker.service
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e"># 测试&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>docker run hello-world
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&amp;gt; Unable to find image &lt;span style="color:#e6db74">&amp;#39;hello-world:latest&amp;#39;&lt;/span> locally
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&amp;gt; latest: Pulling from library/hello-world
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&amp;gt; 1b930d010525: Pull complete
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&amp;gt; Digest: sha256:6540fc08ee6e6b7b63468dc3317e3303aae178cb8a45ed3123180328bcc1d20f
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&amp;gt; Status: Downloaded newer image &lt;span style="color:#66d9ef">for&lt;/span> hello-world:latest
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&amp;gt; 
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&amp;gt; Hello from Docker!
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&amp;gt; This message shows that your installation appears to be working correctly.
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&amp;gt; 
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&amp;gt; To generate this message, Docker took the following steps:
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&amp;gt; 1. The Docker client contacted the Docker daemon.
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&amp;gt; 2. The Docker daemon pulled the &lt;span style="color:#e6db74">&amp;#34;hello-world&amp;#34;&lt;/span> image from the Docker Hub.
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&amp;gt; &lt;span style="color:#f92672">(&lt;/span>amd64&lt;span style="color:#f92672">)&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&amp;gt; 3. The Docker daemon created a new container from that image which runs the
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&amp;gt; executable that produces the output you are currently reading.
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&amp;gt; 4. The Docker daemon streamed that output to the Docker client, which sent it
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&amp;gt; to your terminal.
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&amp;gt; 
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&amp;gt; To try something more ambitious, you can run an Ubuntu container with:
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&amp;gt; docker run -it ubuntu bash
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&amp;gt; 
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&amp;gt; Share images, automate workflows, and more with a free Docker ID:
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&amp;gt; https://hub.docker.com/
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&amp;gt; 
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&amp;gt; For more examples and ideas, visit:
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&amp;gt; https://docs.docker.com/get-started/
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>docker compose version
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&amp;gt; Docker Compose version v...
+&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">&lt;span class="c1"># 查看系统版本&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">cat /etc/redhat-release
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&amp;gt; CentOS Linux release 7.6.1810 &lt;span class="o">(&lt;/span>Core&lt;span class="o">)&lt;/span> // CentOs &lt;span class="m">7&lt;/span> 以上版本
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1"># 查看系统内核版本&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">uname -r
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&amp;gt; 4.10.4-1.el7.elrepo.x86_64 // 内核版本要&amp;gt;3.10
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1"># 卸载旧版本&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">yum remove docker
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> docker-client
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> docker-client-latest
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> docker-common
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> docker-latest
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> docker-latest-logrotate
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> docker-logrotate
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> docker-selinux
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> docker-engine-selinux
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> docker-engine
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1"># 安装依赖包&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">yum install -y yum-utils lvm2
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> device-mapper-persistent-data
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1"># 添加 Docker 软件源&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1"># 如果系统已切换到阿里云镜像源地址，可跳过此步。&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1"># 阿里云镜像自带docker源&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">yum-config-manager
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> --add-repo
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> https://mirrors.ustc.edu.cn/docker-ce/linux/centos/docker-ce.repo
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1"># 使用官方源&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">yum-config-manager
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> --add-repo
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> https://download.docker.com/linux/centos/docker-ce.repo
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">yum makecache fast
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1"># CentOS 8 or Rocky 9 使用timer替换fast&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">yum makecache timer
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1"># 安装 Docker&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1"># 如果在 Rocky 9 系统上，会提示containerd.io版本过低，或下载失败，需要独立安装containerd.io&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1"># 可以重试几次&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">yum install -y docker-ce docker-ce-cli containerd.io docker-compose-plugin
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1"># 启动 Docker&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1"># 设为开机启动&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">systemctl &lt;span class="nb">enable&lt;/span> docker.service
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1"># 启动服务&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">systemctl start docker.service
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1"># 测试&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">docker run hello-world
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&amp;gt; Unable to find image &lt;span class="s1">&amp;#39;hello-world:latest&amp;#39;&lt;/span> locally
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&amp;gt; latest: Pulling from library/hello-world
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&amp;gt; 1b930d010525: Pull &lt;span class="nb">complete&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&amp;gt; Digest: sha256:6540fc08ee6e6b7b63468dc3317e3303aae178cb8a45ed3123180328bcc1d20f
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&amp;gt; Status: Downloaded newer image &lt;span class="k">for&lt;/span> hello-world:latest
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&amp;gt; 
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&amp;gt; Hello from Docker!
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&amp;gt; This message shows that your installation appears to be working correctly.
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&amp;gt; 
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&amp;gt; To generate this message, Docker took the following steps:
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&amp;gt; 1. The Docker client contacted the Docker daemon.
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&amp;gt; 2. The Docker daemon pulled the &lt;span class="s2">&amp;#34;hello-world&amp;#34;&lt;/span> image from the Docker Hub.
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&amp;gt; &lt;span class="o">(&lt;/span>amd64&lt;span class="o">)&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&amp;gt; 3. The Docker daemon created a new container from that image which runs the
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&amp;gt; executable that produces the output you are currently reading.
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&amp;gt; 4. The Docker daemon streamed that output to the Docker client, which sent it
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&amp;gt; to your terminal.
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&amp;gt; 
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&amp;gt; To try something more ambitious, you can run an Ubuntu container with:
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&amp;gt; docker run -it ubuntu bash
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&amp;gt; 
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&amp;gt; Share images, automate workflows, and more with a free Docker ID:
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&amp;gt; https://hub.docker.com/
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&amp;gt; 
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&amp;gt; For more examples and ideas, visit:
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&amp;gt; https://docs.docker.com/get-started/
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">docker compose version
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&amp;gt; Docker Compose version v...
 &lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>若能正常输出以上信息，则说明安装成功。&lt;/p></description></item><item><title>软件库管理</title><link>https://blog.cuile.com/post/linux/repo_manual/</link><pubDate>Tue, 08 Feb 2022 10:28:50 +0800</pubDate><guid>https://blog.cuile.com/post/linux/repo_manual/</guid><description>&lt;h2 id="apt">APT&lt;/h2>
 &lt;p>&lt;a href="https://www.debian.org/mirror/list#per-country">Debian 全球镜像站&lt;/a>&lt;/p>
 &lt;h3 id="查找延迟最小的镜像">查找延迟最小的镜像&lt;/h3>
-&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span>sudo apt install -y netselect-apt &lt;span style="color:#ae81ff">\
-&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#ae81ff">&lt;/span> &lt;span style="color:#f92672">&amp;amp;&amp;amp;&lt;/span> sudo netselect-apt &lt;span style="color:#ae81ff">\
-&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#ae81ff">&lt;/span> &lt;span style="color:#f92672">&amp;amp;&amp;amp;&lt;/span> sudo apt autoremove -y netselect-apt &lt;span style="color:#ae81ff">\
-&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#ae81ff">&lt;/span> &lt;span style="color:#f92672">&amp;amp;&amp;amp;&lt;/span> rm -f sources.list
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span>The fastest &lt;span style="color:#ae81ff">10&lt;/span> servers seem to be:
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> http://mirrors.bfsu.edu.cn/debian/
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> http://mirrors.tuna.tsinghua.edu.cn/debian/
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> http://mirrors.neusoft.edu.cn/debian/
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> http://mirrors.jlu.edu.cn/debian/
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> http://ftp.cn.debian.org/debian/
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> http://debian.cs.nycu.edu.tw/debian/
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> http://mirror.i3d.net/debian/
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> http://mirrors.163.com/debian/
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> http://mirror.bizflycloud.vn/debian/
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> http://ftp.kaist.ac.kr/debian/
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>Of the hosts tested we choose the fastest valid &lt;span style="color:#66d9ef">for&lt;/span> http:
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> http://mirrors.bfsu.edu.cn/debian/
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>Writing sources.list.
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>Done.
+&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">apt install -y netselect-apt &lt;span class="se">\
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="se">&lt;/span> &lt;span class="o">&amp;amp;&amp;amp;&lt;/span> netselect-apt &lt;span class="se">\
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="se">&lt;/span> &lt;span class="o">&amp;amp;&amp;amp;&lt;/span> apt autoremove -y netselect-apt &lt;span class="se">\
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="se">&lt;/span> &lt;span class="o">&amp;amp;&amp;amp;&lt;/span> rm -f sources.list
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">The fastest &lt;span class="m">10&lt;/span> servers seem to be:
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> http://mirrors.bfsu.edu.cn/debian/
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> http://mirrors.tuna.tsinghua.edu.cn/debian/
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> http://mirrors.neusoft.edu.cn/debian/
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> http://mirrors.jlu.edu.cn/debian/
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> http://ftp.cn.debian.org/debian/
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> http://debian.cs.nycu.edu.tw/debian/
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> http://mirror.i3d.net/debian/
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> http://mirrors.163.com/debian/
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> http://mirror.bizflycloud.vn/debian/
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> http://ftp.kaist.ac.kr/debian/
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">Of the hosts tested we choose the fastest valid &lt;span class="k">for&lt;/span> http:
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> http://mirrors.bfsu.edu.cn/debian/
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">Writing sources.list.
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">Done.
 &lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h3 id="修改仓库">修改仓库&lt;/h3>
-&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e"># PVE QEMU debian-12-generic-amd64.qcow2&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e"># echo &amp;#39;http://mirrors.bfsu.edu.cn/debian/&amp;#39; | sudo tee /etc/apt/mirrors/debian.list&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e"># echo &amp;#39;http://mirrors.bfsu.edu.cn/debian-security/&amp;#39; | sudo tee -a /etc/apt/mirrors/debian-security.list&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>sed -i -e &lt;span style="color:#e6db74">&amp;#34;s/deb.debian.org/mirrors.bfsu.edu.cn/&amp;#34;&lt;/span> /etc/apt/mirrors/debian.list
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>sed -i -e &lt;span style="color:#e6db74">&amp;#34;s/deb.debian.org/mirrors.bfsu.edu.cn/&amp;#34;&lt;/span> /etc/apt/mirrors/debian-security.list
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e"># PVE LXC debian-12-standard_12.7-1_amd64.tar.zst&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>sed -i -e &lt;span style="color:#e6db74">&amp;#34;s/deb.debian.org/mirrors.bfsu.edu.cn/&amp;#34;&lt;/span> /etc/apt/sources.list
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>sed -i -e &lt;span style="color:#e6db74">&amp;#34;s/security.debian.org/mirrors.bfsu.edu.cn\/debian-serurity/&amp;#34;&lt;/span> /etc/apt/sources.list
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e"># Docker imaage debian:12&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>sed -i -e &lt;span style="color:#e6db74">&amp;#34;s/deb.debian.org/mirrors.bfsu.edu.cn/&amp;#34;&lt;/span> /etc/apt/sources.list.d/debian.sources
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e"># 启用非自由仓库&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>sed -i &lt;span style="color:#e6db74">&amp;#39;s/main$/main contrib non-free non-free-firmware/&amp;#39;&lt;/span> /etc/apt/sources.list
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e"># update &lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>apt update
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e"># 查询软件包版本信息、优先级和来源&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>apt policy &amp;lt;package_name&amp;gt;
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>apt-cache policy &amp;lt;package_name&amp;gt;
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e"># 安装指定版本的包&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>apt install &amp;lt;package_name&amp;gt;&lt;span style="color:#f92672">=&lt;/span>&amp;lt;version_number&amp;gt;
+&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">&lt;span class="c1"># PVE QEMU debian-12-generic-amd64.qcow2&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1"># echo &amp;#39;http://mirrors.bfsu.edu.cn/debian/&amp;#39; | sudo tee /etc/apt/mirrors/debian.list&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1"># echo &amp;#39;http://mirrors.bfsu.edu.cn/debian-security/&amp;#39; | sudo tee -a /etc/apt/mirrors/debian-security.list&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">sed -i -e &lt;span class="s2">&amp;#34;s/deb.debian.org/mirrors.bfsu.edu.cn/&amp;#34;&lt;/span> /etc/apt/mirrors/debian.list
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">sed -i -e &lt;span class="s2">&amp;#34;s/deb.debian.org/mirrors.bfsu.edu.cn/&amp;#34;&lt;/span> /etc/apt/mirrors/debian-security.list
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1"># PVE LXC debian-12-standard_12.7-1_amd64.tar.zst&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">sed -i -e &lt;span class="s2">&amp;#34;s/deb.debian.org/mirrors.bfsu.edu.cn/&amp;#34;&lt;/span> /etc/apt/sources.list
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">sed -i -e &lt;span class="s2">&amp;#34;s/security.debian.org/mirrors.bfsu.edu.cn\/debian-security/&amp;#34;&lt;/span> /etc/apt/sources.list
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1"># Docker imaage debian:12&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">sed -i -e &lt;span class="s2">&amp;#34;s/deb.debian.org/mirrors.bfsu.edu.cn/&amp;#34;&lt;/span> /etc/apt/sources.list.d/debian.sources
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1"># 启用非自由仓库&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">sed -i &lt;span class="s1">&amp;#39;s/main$/main contrib non-free non-free-firmware/&amp;#39;&lt;/span> /etc/apt/sources.list
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1"># update &lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">apt update
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">&lt;span class="c1"># 查询软件包版本信息、优先级和来源&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">apt policy &amp;lt;package_name&amp;gt;
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">apt-cache policy &amp;lt;package_name&amp;gt;
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1"># 安装指定版本的包&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">apt install &amp;lt;package_name&amp;gt;&lt;span class="o">=&lt;/span>&amp;lt;version_number&amp;gt;
 &lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;hr>
 &lt;h2 id="yum">YUM&lt;/h2>
 &lt;h3 id="查询仓库">查询仓库&lt;/h3>
-&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span>yum repolist
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e"># 显示所有仓库&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>yum repolist all
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e"># 显示所有启动的仓库&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>yum repolist enabled
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e"># 显示所有禁用的仓库&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>yum repolist disabled
+&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">yum repolist
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1"># 显示所有仓库&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">yum repolist all
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1"># 显示所有启动的仓库&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">yum repolist enabled
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1"># 显示所有禁用的仓库&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">yum repolist disabled
 &lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h3 id="修改仓库-1">修改仓库&lt;/h3>
-&lt;p>最常用的修改操作就是启动和停用, 可以使用以下命令实现:&lt;/p></description></item></channel></rss>
+&lt;p>最常用的修改操作就是启动和停用, 可以使用以下命令实现:&lt;/p></description></item><item><title>Debian 系统配置</title><link>https://blog.cuile.com/post/linux/configure_manual/</link><pubDate>Mon, 17 Jan 2022 11:07:07 +0800</pubDate><guid>https://blog.cuile.com/post/linux/configure_manual/</guid><description>&lt;h2 id="初始化配置">初始化配置&lt;/h2>
+&lt;h3 id="1软件更新">1.软件更新&lt;/h3>
+&lt;p>&lt;a href="https://blog.cuile.com/post/linux/repo_manual/">软件库管理&lt;/a>&lt;/p>
+&lt;h3 id="2-配置时间">2. 配置时间&lt;/h3>
+&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">apt install -y systemd-timesyncd
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1"># 设置时区&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">timedatectl set-timezone Asia/Shanghai
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1"># 启动NTP服务&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">timedatectl set-ntp &lt;span class="nb">true&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-ini" data-lang="ini">&lt;span class="line">&lt;span class="cl">&lt;span class="c1">; /etc/systemd/timesyncd.conf&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="k">[Time]&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="na">NTP&lt;/span>&lt;span class="o">=&lt;/span>&lt;span class="s">ntp.tuna.tsinghua.edu.cn&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="na">FallbackNTP&lt;/span>&lt;span class="o">=&lt;/span>&lt;span class="s">0.debian.pool.ntp.org 1.debian.pool.ntp.org&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">&lt;span class="c1"># 在LXC、Docker 或某些 VPS 环境中&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">dpkg-reconfigure tzdata
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h3 id="3-关闭邮件服务">3. 关闭邮件服务&lt;/h3>
+&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">systemctl stop &lt;span class="s1">&amp;#39;postfix@*&amp;#39;&lt;/span> &lt;span class="p">;&lt;/span> systemctl disable &lt;span class="s1">&amp;#39;postfix@\x2a&amp;#39;&lt;/span> &lt;span class="p">;&lt;/span> apt purge -y postfix
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h3 id="4-配置网络">4. 配置网络&lt;/h3>
+&lt;h4 id="41-配置无线wifi">4.1 配置无线(WiFi)&lt;/h4>
+&lt;h5 id="411-配置wpa_supplicant">4.1.1 配置wpa_supplicant&lt;/h5>
+&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">apt install -y wpa_supplicant
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-ini" data-lang="ini">&lt;span class="line">&lt;span class="cl">&lt;span class="c1">; /etc/wpa_supplicant/wlp2s0.conf&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="na">p2p_disabled&lt;/span>&lt;span class="o">=&lt;/span>&lt;span class="s">1&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="na">network&lt;/span>&lt;span class="o">=&lt;/span>&lt;span class="s">{
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="s"> ssid=&amp;#34;&amp;lt;ssid&amp;gt;&amp;#34;
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="s"> psk=&amp;#34;&amp;lt;pwd&amp;gt;&amp;#34;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="na">}&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">&lt;span class="c1"># 测试配置文件&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">wpa_supplicant -c /etc/wpa_supplicant/wlp2s0.conf -i wlp2s0 -B
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1"># 重启wpa_supplicant服务&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">systemctl &lt;span class="nb">enable&lt;/span> wpa_supplicant
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">systemctl start wpa_supplicant
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">&lt;span class="c1"># 编辑wpa_supplicant服务&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">systemctl edit wpa_supplicant
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-ini" data-lang="ini">&lt;span class="line">&lt;span class="cl">&lt;span class="c1">### Editing /etc/systemd/system/wpa_supplicant.service.d/override.conf&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1">### Anything between here and the comment below will become the contents of the drop-in file&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="k">[Service]&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="na">ExecStart&lt;/span>&lt;span class="o">=&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="na">ExecStart&lt;/span>&lt;span class="o">=&lt;/span>&lt;span class="s">/usr/sbin/wpa_supplicant -c /etc/wpa_supplicant/wlp2s0.conf -i wlp2s0&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="na">Type&lt;/span>&lt;span class="o">=&lt;/span>&lt;span class="s">simple&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="na">Restart&lt;/span>&lt;span class="o">=&lt;/span>&lt;span class="s">on-failure&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="na">RestartSec&lt;/span>&lt;span class="o">=&lt;/span>&lt;span class="s">5&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="na">TimeoutStartSec&lt;/span>&lt;span class="o">=&lt;/span>&lt;span class="s">180&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1">### Edits below this comment will be discarded&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="na">......&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">systemctl daemon-reload
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">systemctl restart wpa_supplicant
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h5 id="412-关闭无线网卡电源管理">4.1.2 关闭无线网卡电源管理&lt;/h5>
+&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">&lt;span class="c1"># 创建服务&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">tee /etc/systemd/system/wifi-powersave.service &lt;span class="s">&amp;lt;&amp;lt; &amp;#39;EOF&amp;#39;
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="s">[Unit]
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="s">Description=Disable WiFi Power Saving
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="s">After=network.target
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="s">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="s">[Service]
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="s">Type=oneshot
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="s">ExecStart=/usr/sbin/iwconfig wlp2s0 power off
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="s">RemainAfterExit=yes
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="s">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="s">[Install]
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="s">WantedBy=multi-user.target
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="s">EOF&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1"># 启动服务&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">systemctl &lt;span class="nb">enable&lt;/span> wifi-powersave.service
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">systemctl start wifi-powersave.service
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h4 id="42-配置systemd-networkd">4.2 配置systemd-networkd&lt;/h4>
+&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">apt install -y systemd-networkd systemd-resolved
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-ini" data-lang="ini">&lt;span class="line">&lt;span class="cl">&lt;span class="c1">; 此处参考/etc/network/interfaces文件里的配置&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1">; /etc/systemd/network/10-lo.network&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="k">[Match]&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="na">Name&lt;/span>&lt;span class="o">=&lt;/span>&lt;span class="s">lo&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="k">[Network]&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1"># 启用链路本地地址（IPv4 和 IPv6）&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="na">LinkLocalAddressing&lt;/span>&lt;span class="o">=&lt;/span>&lt;span class="s">yes&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="na">IPv6LinkLocalAddressGenerationMode&lt;/span>&lt;span class="o">=&lt;/span>&lt;span class="s">stable-privacy&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="k">[Address]&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="na">Address&lt;/span>&lt;span class="o">=&lt;/span>&lt;span class="s">127.0.0.1/8&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="k">[Address]&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="na">Address&lt;/span>&lt;span class="o">=&lt;/span>&lt;span class="s">::1/128&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-ini" data-lang="ini">&lt;span class="line">&lt;span class="cl">&lt;span class="c1">; 此处参考/etc/network/interfaces文件里的配置&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1">; 无线网卡 &lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1">; /etc/systemd/network/20-wireless.network&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="k">[Match]&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="na">Name&lt;/span>&lt;span class="o">=&lt;/span>&lt;span class="s">wlp2s0&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="k">[Network]&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="na">Address&lt;/span>&lt;span class="o">=&lt;/span>&lt;span class="s">192.168.1.94/24&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="na">Gateway&lt;/span>&lt;span class="o">=&lt;/span>&lt;span class="s">192.168.1.1&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="na">DNS&lt;/span>&lt;span class="o">=&lt;/span>&lt;span class="s">192.168.1.6&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1">; 禁用IPv6&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="na">LinkLocalAddressing&lt;/span>&lt;span class="o">=&lt;/span>&lt;span class="s">no&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="na">IPv6AcceptRA&lt;/span>&lt;span class="o">=&lt;/span>&lt;span class="s">no&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">&lt;span class="c1"># 重启systemd-networkd服务&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">systemctl &lt;span class="nb">enable&lt;/span> systemd-networkd
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">systemctl start systemd-networkd
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">&lt;span class="c1"># 编辑systemd-networkd服务&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">systemctl edit systemd-networkd
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-ini" data-lang="ini">&lt;span class="line">&lt;span class="cl">&lt;span class="c1">### Editing /etc/systemd/system/systemd-networkd.service.d/override.conf&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1">### Anything between here and the comment below will become the contents of the drop-in file&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="k">[Unit]&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="na">After&lt;/span>&lt;span class="o">=&lt;/span>&lt;span class="s">wpa_supplicant.service&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="na">Wants&lt;/span>&lt;span class="o">=&lt;/span>&lt;span class="s">wpa_supplicant.service&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1">### Edits below this comment will be discarded&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="na">......&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">systemctl daemon-reload
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">systemctl restart systemd-networkd
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h4 id="43-配置systemd-resolved">4.3 配置systemd-resolved&lt;/h4>
+&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">systemctl &lt;span class="nb">enable&lt;/span> --now systemd-resolved
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1"># 将系统的 DNS 配置文件链接到 systemd-resolved 管理的动态文件上，这样它就会自动更新。&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">ln -sf /run/systemd/resolve/stub-resolv.conf /etc/resolv.conf
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">resolvectl status
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h4 id="44-关闭networking">4.4 关闭networking&lt;/h4>
+&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">systemctl stop networking
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">systemctl disable networking
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">apt remove ifupdown
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h4 id="45-重启">4.5 重启&lt;/h4>
+&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">reboot
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h3 id="5-配置shell">5. 配置Shell&lt;/h3>
+&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">&lt;span class="c1"># 修改命令行提示符&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="nb">echo&lt;/span> &lt;span class="s2">&amp;#34;PS1=&amp;#39;\[\e[36;40m\][\D{%Y-%m-%d} \A] \[\e[0m\] \[\e[35;40m\]\w\[\e[0m\]\n\[\e[33;40m\][\u@\H]\[\e[0m\] \\&lt;/span>$&lt;span class="s2"> &amp;#39;&amp;#34;&lt;/span> &amp;gt;&amp;gt; ~/.bashrc &lt;span class="se">\
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="se">&lt;/span> &lt;span class="o">&amp;amp;&amp;amp;&lt;/span> . ~/.bashrc
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1"># 打开自定义命令&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">sed -E -i.bak -e &lt;span class="s1">&amp;#39;/(export|eval|alias (ls|ll|l|rm|cp|mv))/s/^# //&amp;#39;&lt;/span> ~/.bashrc &lt;span class="se">\
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="se">&lt;/span> &lt;span class="o">&amp;amp;&amp;amp;&lt;/span> . ~/.bashrc
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h3 id="6-配置-sshd">6. 配置 sshd&lt;/h3>
+&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">&lt;span class="c1"># 允许root密码登录&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1"># 允许密码登录&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1"># 解决SSH自动断开问题&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">sed -E -i.bak &lt;span class="se">\
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="se">&lt;/span> -e &lt;span class="s1">&amp;#39;s/#(Port 22)/\1/&amp;#39;&lt;/span> &lt;span class="se">\
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="se">&lt;/span> -e &lt;span class="s1">&amp;#39;s/#(PermitRootLogin) prohibit-password/\1 yes/&amp;#39;&lt;/span> &lt;span class="se">\
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="se">&lt;/span> -e &lt;span class="s1">&amp;#39;s/#(PubkeyAuthentication yes)/\1/&amp;#39;&lt;/span> &lt;span class="se">\
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="se">&lt;/span> -e &lt;span class="s1">&amp;#39;s/#(PasswordAuthentication yes)/\1/&amp;#39;&lt;/span> &lt;span class="se">\
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="se">&lt;/span> -e &lt;span class="s1">&amp;#39;s/#(AllowTcpForwarding yes)/\1/&amp;#39;&lt;/span> &lt;span class="se">\
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="se">&lt;/span> -e &lt;span class="s1">&amp;#39;s/(X11Forwarding yes)/#\1/&amp;#39;&lt;/span> &lt;span class="se">\
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="se">&lt;/span> -e &lt;span class="s1">&amp;#39;s/#(Compression delayed)/\1/&amp;#39;&lt;/span> &lt;span class="se">\
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="se">&lt;/span> -e &lt;span class="s1">&amp;#39;s/#(ClientAliveInterval) 0/\1 60/&amp;#39;&lt;/span> &lt;span class="se">\
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="se">&lt;/span> -e &lt;span class="s1">&amp;#39;s/#(ClientAliveCountMax) 3/\1 3/&amp;#39;&lt;/span> &lt;span class="se">\
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="se">&lt;/span> /etc/ssh/sshd_config &lt;span class="se">\
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="se">&lt;/span> &lt;span class="o">&amp;amp;&amp;amp;&lt;/span> systemctl restart sshd.service
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;!-- 可直接下载初始化脚本使用
+- [debian bookworm](/attachments/scripts/init_setup_debian_bookworm.sh)
+- [rocky](/attachments/scripts/init_setup_rocky.sh) -->
+&lt;h2 id="配置防火墙">配置防火墙&lt;/h2>
+&lt;p>&lt;a href="https://blog.cuile.com/post/linux/iptables_manual/">iptables 配置&lt;/a>&lt;/p></description></item></channel></rss>

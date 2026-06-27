@@ -1,49 +1,171 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Bash on 瘦了就帅了</title><link>https://blog.cuile.com/tags/bash/</link><description>Recent content in Bash on 瘦了就帅了</description><generator>Hugo</generator><language>zh-cn</language><lastBuildDate>Wed, 18 Mar 2026 10:13:17 +0000</lastBuildDate><atom:link href="https://blog.cuile.com/tags/bash/index.xml" rel="self" type="application/rss+xml"/><item><title>Alpine Linux 安装 Bash</title><link>https://blog.cuile.com/post/alpine_linux/bash/</link><pubDate>Tue, 03 Jan 2023 20:08:42 +0800</pubDate><guid>https://blog.cuile.com/post/alpine_linux/bash/</guid><description>&lt;p>Alpine Linux 原始安装的是 busybox，小巧精干，但毕竟与主流的 Bash 还是有区别，特别是与其它系统联动时会比较麻烦，所以还是安装 Bash，统一 Shell 环境，方便日后使用。&lt;/p>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Bash on 瘦了就帅了</title><link>https://blog.cuile.com/tags/bash/</link><description>Recent content in Bash on 瘦了就帅了</description><generator>Hugo</generator><language>zh-cn</language><lastBuildDate>Sat, 27 Jun 2026 16:27:00 +0000</lastBuildDate><atom:link href="https://blog.cuile.com/tags/bash/index.xml" rel="self" type="application/rss+xml"/><item><title>Alpine Linux 安装 Bash</title><link>https://blog.cuile.com/post/alpine_linux/bash/</link><pubDate>Tue, 03 Jan 2023 20:08:42 +0800</pubDate><guid>https://blog.cuile.com/post/alpine_linux/bash/</guid><description>&lt;p>Alpine Linux 原始安装的是 busybox，小巧精干，但毕竟与主流的 Bash 还是有区别，特别是与其它系统联动时会比较麻烦，所以还是安装 Bash，统一 Shell 环境，方便日后使用。&lt;/p>
 &lt;p>而且基本网上的安装教程都有问题，所以这里给出正确的安装步骤。&lt;/p>
 &lt;h2 id="安装">安装&lt;/h2>
-&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span>$ apk add bash libuser
+&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">$ apk add bash libuser
 &lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="配置">配置&lt;/h2>
-&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span>$ touch /etc/login.defs
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>$ mkdir /etc/default
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>$ touch /etc/default/useradd
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>$ lchsh &amp;lt;root&amp;gt;
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>Changing shell &lt;span style="color:#66d9ef">for&lt;/span> root.
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>Password: &amp;lt;root password&amp;gt;
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>New Shell &lt;span style="color:#f92672">[&lt;/span>/bin/ash&lt;span style="color:#f92672">]&lt;/span>: /bin/bash
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>Shell changed.
+&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">$ touch /etc/login.defs
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">$ mkdir /etc/default
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">$ touch /etc/default/useradd
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">$ lchsh &amp;lt;root&amp;gt;
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">Changing shell &lt;span class="k">for&lt;/span> root.
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">Password: &amp;lt;root password&amp;gt;
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">New Shell &lt;span class="o">[&lt;/span>/bin/ash&lt;span class="o">]&lt;/span>: /bin/bash
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">Shell changed.
 &lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h3 id="参考文档">参考文档：&lt;/h3>
 &lt;ul>
 &lt;li>&lt;a href="https://www.reddit.com/r/vscode/comments/smw8tn/working_with_remote_ssh_in_alpine/">Working with Remote SSH in Alpine&lt;/a>&lt;/li>
 &lt;li>&lt;a href="https://blog.csdn.net/liaowenxiong/article/details/120494681">Linux命令之 chsh &amp;ndash; 用来更换登录系统时使用的shell&lt;/a>&lt;/li>
-&lt;/ul></description></item><item><title>Linux 系统配置</title><link>https://blog.cuile.com/post/linux/configure_manual/</link><pubDate>Mon, 17 Jan 2022 11:07:07 +0800</pubDate><guid>https://blog.cuile.com/post/linux/configure_manual/</guid><description>&lt;h2 id="初始化配置">初始化配置&lt;/h2>
-&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e"># 配置时区&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>timedatectl set-timezone Asia/Shanghai
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e"># 关闭邮件服务&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>systemctl stop &lt;span style="color:#e6db74">&amp;#39;postfix@*&amp;#39;&lt;/span> ; systemctl disable &lt;span style="color:#e6db74">&amp;#39;postfix@\x2a&amp;#39;&lt;/span> ; apt purge postfix
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e"># 配置Shell提示符&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>echo &lt;span style="color:#e6db74">&amp;#34;PS1=&amp;#39;\[\e[36;40m\][\D{%Y-%m-%d} \A] \[\e[0m\] \[\e[35;40m\]\w\[\e[0m\]\n\[\e[33;40m\][\u@\H]\[\e[0m\] \\&lt;/span>$&lt;span style="color:#e6db74"> &amp;#39;&amp;#34;&lt;/span> &amp;gt;&amp;gt; ~/.bashrc
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e"># 打开自定义命令&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>sed -E -i.bak &lt;span style="color:#ae81ff">\
-&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#ae81ff">&lt;/span> -e &lt;span style="color:#e6db74">&amp;#39;/(export|eval|alias (ls|ll|l|rm|cp|mv))/s/^# //&amp;#39;&lt;/span> ~/.bashrc &lt;span style="color:#ae81ff">\
-&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#ae81ff">&lt;/span> &lt;span style="color:#f92672">&amp;amp;&amp;amp;&lt;/span> . ~/.bashrc
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e"># 配置 sshd&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e"># 允许root密码登录&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e"># 允许密码登录&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e"># 解决SSH自动断开问题&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>sed -E -i.bak &lt;span style="color:#ae81ff">\
-&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#ae81ff">&lt;/span> -e &lt;span style="color:#e6db74">&amp;#39;s/#(Port 22)/\1/&amp;#39;&lt;/span> &lt;span style="color:#ae81ff">\
-&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#ae81ff">&lt;/span> -e &lt;span style="color:#e6db74">&amp;#39;s/#(PermitRootLogin) prohibit-password/\1 yes/&amp;#39;&lt;/span> &lt;span style="color:#ae81ff">\
-&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#ae81ff">&lt;/span> -e &lt;span style="color:#e6db74">&amp;#39;s/#(PubkeyAuthentication yes)/\1/&amp;#39;&lt;/span> &lt;span style="color:#ae81ff">\
-&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#ae81ff">&lt;/span> -e &lt;span style="color:#e6db74">&amp;#39;s/#(PasswordAuthentication yes)/\1/&amp;#39;&lt;/span> &lt;span style="color:#ae81ff">\
-&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#ae81ff">&lt;/span> -e &lt;span style="color:#e6db74">&amp;#39;s/#(AllowTcpForwarding yes)/\1/&amp;#39;&lt;/span> &lt;span style="color:#ae81ff">\
-&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#ae81ff">&lt;/span> -e &lt;span style="color:#e6db74">&amp;#39;s/(X11Forwarding yes)/#\1/&amp;#39;&lt;/span> &lt;span style="color:#ae81ff">\
-&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#ae81ff">&lt;/span> -e &lt;span style="color:#e6db74">&amp;#39;s/#(Compression delayed)/\1/&amp;#39;&lt;/span> &lt;span style="color:#ae81ff">\
-&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#ae81ff">&lt;/span> -e &lt;span style="color:#e6db74">&amp;#39;s/#(ClientAliveInterval) 0/\1 60/&amp;#39;&lt;/span> &lt;span style="color:#ae81ff">\
-&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#ae81ff">&lt;/span> -e &lt;span style="color:#e6db74">&amp;#39;s/#(ClientAliveCountMax) 3/\1 3/&amp;#39;&lt;/span> &lt;span style="color:#ae81ff">\
-&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#ae81ff">&lt;/span> /etc/ssh/sshd_config &lt;span style="color:#ae81ff">\
-&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#ae81ff">&lt;/span> &lt;span style="color:#f92672">&amp;amp;&amp;amp;&lt;/span> systemctl restart sshd.service
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="软件更新">软件更新&lt;/h2>
-&lt;p>&lt;a href="https://blog.cuile.com/post/linux/repo_manual/">软件库管理&lt;/a>&lt;/p></description></item></channel></rss>
+&lt;/ul></description></item><item><title>Debian 系统配置</title><link>https://blog.cuile.com/post/linux/configure_manual/</link><pubDate>Mon, 17 Jan 2022 11:07:07 +0800</pubDate><guid>https://blog.cuile.com/post/linux/configure_manual/</guid><description>&lt;h2 id="初始化配置">初始化配置&lt;/h2>
+&lt;h3 id="1软件更新">1.软件更新&lt;/h3>
+&lt;p>&lt;a href="https://blog.cuile.com/post/linux/repo_manual/">软件库管理&lt;/a>&lt;/p>
+&lt;h3 id="2-配置时间">2. 配置时间&lt;/h3>
+&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">apt install -y systemd-timesyncd
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1"># 设置时区&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">timedatectl set-timezone Asia/Shanghai
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1"># 启动NTP服务&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">timedatectl set-ntp &lt;span class="nb">true&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-ini" data-lang="ini">&lt;span class="line">&lt;span class="cl">&lt;span class="c1">; /etc/systemd/timesyncd.conf&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="k">[Time]&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="na">NTP&lt;/span>&lt;span class="o">=&lt;/span>&lt;span class="s">ntp.tuna.tsinghua.edu.cn&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="na">FallbackNTP&lt;/span>&lt;span class="o">=&lt;/span>&lt;span class="s">0.debian.pool.ntp.org 1.debian.pool.ntp.org&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">&lt;span class="c1"># 在LXC、Docker 或某些 VPS 环境中&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">dpkg-reconfigure tzdata
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h3 id="3-关闭邮件服务">3. 关闭邮件服务&lt;/h3>
+&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">systemctl stop &lt;span class="s1">&amp;#39;postfix@*&amp;#39;&lt;/span> &lt;span class="p">;&lt;/span> systemctl disable &lt;span class="s1">&amp;#39;postfix@\x2a&amp;#39;&lt;/span> &lt;span class="p">;&lt;/span> apt purge -y postfix
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h3 id="4-配置网络">4. 配置网络&lt;/h3>
+&lt;h4 id="41-配置无线wifi">4.1 配置无线(WiFi)&lt;/h4>
+&lt;h5 id="411-配置wpa_supplicant">4.1.1 配置wpa_supplicant&lt;/h5>
+&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">apt install -y wpa_supplicant
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-ini" data-lang="ini">&lt;span class="line">&lt;span class="cl">&lt;span class="c1">; /etc/wpa_supplicant/wlp2s0.conf&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="na">p2p_disabled&lt;/span>&lt;span class="o">=&lt;/span>&lt;span class="s">1&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="na">network&lt;/span>&lt;span class="o">=&lt;/span>&lt;span class="s">{
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="s"> ssid=&amp;#34;&amp;lt;ssid&amp;gt;&amp;#34;
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="s"> psk=&amp;#34;&amp;lt;pwd&amp;gt;&amp;#34;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="na">}&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">&lt;span class="c1"># 测试配置文件&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">wpa_supplicant -c /etc/wpa_supplicant/wlp2s0.conf -i wlp2s0 -B
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1"># 重启wpa_supplicant服务&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">systemctl &lt;span class="nb">enable&lt;/span> wpa_supplicant
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">systemctl start wpa_supplicant
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">&lt;span class="c1"># 编辑wpa_supplicant服务&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">systemctl edit wpa_supplicant
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-ini" data-lang="ini">&lt;span class="line">&lt;span class="cl">&lt;span class="c1">### Editing /etc/systemd/system/wpa_supplicant.service.d/override.conf&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1">### Anything between here and the comment below will become the contents of the drop-in file&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="k">[Service]&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="na">ExecStart&lt;/span>&lt;span class="o">=&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="na">ExecStart&lt;/span>&lt;span class="o">=&lt;/span>&lt;span class="s">/usr/sbin/wpa_supplicant -c /etc/wpa_supplicant/wlp2s0.conf -i wlp2s0&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="na">Type&lt;/span>&lt;span class="o">=&lt;/span>&lt;span class="s">simple&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="na">Restart&lt;/span>&lt;span class="o">=&lt;/span>&lt;span class="s">on-failure&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="na">RestartSec&lt;/span>&lt;span class="o">=&lt;/span>&lt;span class="s">5&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="na">TimeoutStartSec&lt;/span>&lt;span class="o">=&lt;/span>&lt;span class="s">180&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1">### Edits below this comment will be discarded&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="na">......&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">systemctl daemon-reload
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">systemctl restart wpa_supplicant
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h5 id="412-关闭无线网卡电源管理">4.1.2 关闭无线网卡电源管理&lt;/h5>
+&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">&lt;span class="c1"># 创建服务&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">tee /etc/systemd/system/wifi-powersave.service &lt;span class="s">&amp;lt;&amp;lt; &amp;#39;EOF&amp;#39;
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="s">[Unit]
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="s">Description=Disable WiFi Power Saving
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="s">After=network.target
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="s">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="s">[Service]
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="s">Type=oneshot
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="s">ExecStart=/usr/sbin/iwconfig wlp2s0 power off
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="s">RemainAfterExit=yes
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="s">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="s">[Install]
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="s">WantedBy=multi-user.target
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="s">EOF&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1"># 启动服务&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">systemctl &lt;span class="nb">enable&lt;/span> wifi-powersave.service
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">systemctl start wifi-powersave.service
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h4 id="42-配置systemd-networkd">4.2 配置systemd-networkd&lt;/h4>
+&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">apt install -y systemd-networkd systemd-resolved
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-ini" data-lang="ini">&lt;span class="line">&lt;span class="cl">&lt;span class="c1">; 此处参考/etc/network/interfaces文件里的配置&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1">; /etc/systemd/network/10-lo.network&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="k">[Match]&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="na">Name&lt;/span>&lt;span class="o">=&lt;/span>&lt;span class="s">lo&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="k">[Network]&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1"># 启用链路本地地址（IPv4 和 IPv6）&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="na">LinkLocalAddressing&lt;/span>&lt;span class="o">=&lt;/span>&lt;span class="s">yes&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="na">IPv6LinkLocalAddressGenerationMode&lt;/span>&lt;span class="o">=&lt;/span>&lt;span class="s">stable-privacy&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="k">[Address]&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="na">Address&lt;/span>&lt;span class="o">=&lt;/span>&lt;span class="s">127.0.0.1/8&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="k">[Address]&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="na">Address&lt;/span>&lt;span class="o">=&lt;/span>&lt;span class="s">::1/128&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-ini" data-lang="ini">&lt;span class="line">&lt;span class="cl">&lt;span class="c1">; 此处参考/etc/network/interfaces文件里的配置&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1">; 无线网卡 &lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1">; /etc/systemd/network/20-wireless.network&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="k">[Match]&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="na">Name&lt;/span>&lt;span class="o">=&lt;/span>&lt;span class="s">wlp2s0&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="k">[Network]&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="na">Address&lt;/span>&lt;span class="o">=&lt;/span>&lt;span class="s">192.168.1.94/24&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="na">Gateway&lt;/span>&lt;span class="o">=&lt;/span>&lt;span class="s">192.168.1.1&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="na">DNS&lt;/span>&lt;span class="o">=&lt;/span>&lt;span class="s">192.168.1.6&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1">; 禁用IPv6&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="na">LinkLocalAddressing&lt;/span>&lt;span class="o">=&lt;/span>&lt;span class="s">no&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="na">IPv6AcceptRA&lt;/span>&lt;span class="o">=&lt;/span>&lt;span class="s">no&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">&lt;span class="c1"># 重启systemd-networkd服务&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">systemctl &lt;span class="nb">enable&lt;/span> systemd-networkd
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">systemctl start systemd-networkd
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">&lt;span class="c1"># 编辑systemd-networkd服务&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">systemctl edit systemd-networkd
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-ini" data-lang="ini">&lt;span class="line">&lt;span class="cl">&lt;span class="c1">### Editing /etc/systemd/system/systemd-networkd.service.d/override.conf&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1">### Anything between here and the comment below will become the contents of the drop-in file&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="k">[Unit]&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="na">After&lt;/span>&lt;span class="o">=&lt;/span>&lt;span class="s">wpa_supplicant.service&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="na">Wants&lt;/span>&lt;span class="o">=&lt;/span>&lt;span class="s">wpa_supplicant.service&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1">### Edits below this comment will be discarded&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="na">......&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">systemctl daemon-reload
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">systemctl restart systemd-networkd
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h4 id="43-配置systemd-resolved">4.3 配置systemd-resolved&lt;/h4>
+&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">systemctl &lt;span class="nb">enable&lt;/span> --now systemd-resolved
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1"># 将系统的 DNS 配置文件链接到 systemd-resolved 管理的动态文件上，这样它就会自动更新。&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">ln -sf /run/systemd/resolve/stub-resolv.conf /etc/resolv.conf
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">resolvectl status
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h4 id="44-关闭networking">4.4 关闭networking&lt;/h4>
+&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">systemctl stop networking
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">systemctl disable networking
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">apt remove ifupdown
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h4 id="45-重启">4.5 重启&lt;/h4>
+&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">reboot
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h3 id="5-配置shell">5. 配置Shell&lt;/h3>
+&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">&lt;span class="c1"># 修改命令行提示符&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="nb">echo&lt;/span> &lt;span class="s2">&amp;#34;PS1=&amp;#39;\[\e[36;40m\][\D{%Y-%m-%d} \A] \[\e[0m\] \[\e[35;40m\]\w\[\e[0m\]\n\[\e[33;40m\][\u@\H]\[\e[0m\] \\&lt;/span>$&lt;span class="s2"> &amp;#39;&amp;#34;&lt;/span> &amp;gt;&amp;gt; ~/.bashrc &lt;span class="se">\
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="se">&lt;/span> &lt;span class="o">&amp;amp;&amp;amp;&lt;/span> . ~/.bashrc
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1"># 打开自定义命令&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">sed -E -i.bak -e &lt;span class="s1">&amp;#39;/(export|eval|alias (ls|ll|l|rm|cp|mv))/s/^# //&amp;#39;&lt;/span> ~/.bashrc &lt;span class="se">\
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="se">&lt;/span> &lt;span class="o">&amp;amp;&amp;amp;&lt;/span> . ~/.bashrc
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h3 id="6-配置-sshd">6. 配置 sshd&lt;/h3>
+&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">&lt;span class="c1"># 允许root密码登录&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1"># 允许密码登录&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1"># 解决SSH自动断开问题&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">sed -E -i.bak &lt;span class="se">\
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="se">&lt;/span> -e &lt;span class="s1">&amp;#39;s/#(Port 22)/\1/&amp;#39;&lt;/span> &lt;span class="se">\
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="se">&lt;/span> -e &lt;span class="s1">&amp;#39;s/#(PermitRootLogin) prohibit-password/\1 yes/&amp;#39;&lt;/span> &lt;span class="se">\
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="se">&lt;/span> -e &lt;span class="s1">&amp;#39;s/#(PubkeyAuthentication yes)/\1/&amp;#39;&lt;/span> &lt;span class="se">\
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="se">&lt;/span> -e &lt;span class="s1">&amp;#39;s/#(PasswordAuthentication yes)/\1/&amp;#39;&lt;/span> &lt;span class="se">\
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="se">&lt;/span> -e &lt;span class="s1">&amp;#39;s/#(AllowTcpForwarding yes)/\1/&amp;#39;&lt;/span> &lt;span class="se">\
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="se">&lt;/span> -e &lt;span class="s1">&amp;#39;s/(X11Forwarding yes)/#\1/&amp;#39;&lt;/span> &lt;span class="se">\
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="se">&lt;/span> -e &lt;span class="s1">&amp;#39;s/#(Compression delayed)/\1/&amp;#39;&lt;/span> &lt;span class="se">\
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="se">&lt;/span> -e &lt;span class="s1">&amp;#39;s/#(ClientAliveInterval) 0/\1 60/&amp;#39;&lt;/span> &lt;span class="se">\
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="se">&lt;/span> -e &lt;span class="s1">&amp;#39;s/#(ClientAliveCountMax) 3/\1 3/&amp;#39;&lt;/span> &lt;span class="se">\
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="se">&lt;/span> /etc/ssh/sshd_config &lt;span class="se">\
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="se">&lt;/span> &lt;span class="o">&amp;amp;&amp;amp;&lt;/span> systemctl restart sshd.service
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;!-- 可直接下载初始化脚本使用
+- [debian bookworm](/attachments/scripts/init_setup_debian_bookworm.sh)
+- [rocky](/attachments/scripts/init_setup_rocky.sh) -->
+&lt;h2 id="配置防火墙">配置防火墙&lt;/h2>
+&lt;p>&lt;a href="https://blog.cuile.com/post/linux/iptables_manual/">iptables 配置&lt;/a>&lt;/p></description></item></channel></rss>

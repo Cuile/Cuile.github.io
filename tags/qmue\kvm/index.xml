@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Qmue\kvm on 瘦了就帅了</title><link>https://blog.cuile.com/tags/qmue%5Ckvm/</link><description>Recent content in Qmue\kvm on 瘦了就帅了</description><generator>Hugo</generator><language>zh-cn</language><lastBuildDate>Wed, 18 Mar 2026 10:13:17 +0000</lastBuildDate><atom:link href="https://blog.cuile.com/tags/qmue%5Ckvm/index.xml" rel="self" type="application/rss+xml"/><item><title>虚拟机安装 Alpine Linux 3.16</title><link>https://blog.cuile.com/post/alpine_linux/install/</link><pubDate>Sun, 19 Jun 2022 11:46:55 +0800</pubDate><guid>https://blog.cuile.com/post/alpine_linux/install/</guid><description>&lt;p>特点：&lt;/p>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Qmue\kvm on 瘦了就帅了</title><link>https://blog.cuile.com/tags/qmue%5Ckvm/</link><description>Recent content in Qmue\kvm on 瘦了就帅了</description><generator>Hugo</generator><language>zh-cn</language><lastBuildDate>Sat, 27 Jun 2026 16:27:00 +0000</lastBuildDate><atom:link href="https://blog.cuile.com/tags/qmue%5Ckvm/index.xml" rel="self" type="application/rss+xml"/><item><title>虚拟机安装 Alpine Linux 3.16</title><link>https://blog.cuile.com/post/alpine_linux/install/</link><pubDate>Sun, 19 Jun 2022 11:46:55 +0800</pubDate><guid>https://blog.cuile.com/post/alpine_linux/install/</guid><description>&lt;p>特点：&lt;/p>
 &lt;ol>
 &lt;li>小巧：基于musl libc 和 busybox，和 busybox一样小巧，最小的Docker镜像只有5MB。&lt;/li>
 &lt;li>安全：面向安全的轻量发行版&lt;/li>
@@ -20,85 +20,85 @@
 &lt;p>Alpine 有许多版本，其中 VIRTUAL 是专门针对虚拟环境优化过的，所以主要使用这个版本来安装。&lt;/p>
 &lt;p>&lt;a href="https://www.alpinelinux.org/downloads/">https://www.alpinelinux.org/downloads/&lt;/a>&lt;/p>
 &lt;h2 id="2-登录">2. 登录&lt;/h2>
-&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span>...
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e"># 使用启动盘启动后，直接使用 root 登录系统&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>localhost login: root
+&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">...
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1"># 使用启动盘启动后，直接使用 root 登录系统&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">localhost login: root
 &lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="3-安装">3. 安装&lt;/h2>
-&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span>...
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>localhost:~# setup-alpine
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e"># 选择键盘布局&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e"># 这里两个都选 cn 或都不选&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>...
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>Select keyboard layout: &lt;span style="color:#f92672">[&lt;/span>none&lt;span style="color:#f92672">]&lt;/span> cn
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>...
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>Select variant &lt;span style="color:#f92672">(&lt;/span>or &lt;span style="color:#e6db74">&amp;#39;abort&amp;#39;&lt;/span>&lt;span style="color:#f92672">)&lt;/span>: cn
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e"># 设置主机名&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>...
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>Enter system hostname &lt;span style="color:#f92672">(&lt;/span>fully qualified form, e.g. &lt;span style="color:#e6db74">&amp;#39;foo.example.org&amp;#39;&lt;/span>&lt;span style="color:#f92672">)&lt;/span> &lt;span style="color:#f92672">[&lt;/span>localhost&lt;span style="color:#f92672">]&lt;/span> home
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e"># 设置网络&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>...
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>Which one &lt;span style="color:#66d9ef">do&lt;/span> you want to initialize? &lt;span style="color:#f92672">(&lt;/span>or &lt;span style="color:#e6db74">&amp;#39;?&amp;#39;&lt;/span> or &lt;span style="color:#e6db74">&amp;#39;done&amp;#39;&lt;/span>&lt;span style="color:#f92672">)&lt;/span> &lt;span style="color:#f92672">[&lt;/span>eth0&lt;span style="color:#f92672">]&lt;/span> eth0
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>Ip address &lt;span style="color:#66d9ef">for&lt;/span> eth0? &lt;span style="color:#f92672">(&lt;/span>or &lt;span style="color:#e6db74">&amp;#39;dhcp&amp;#39;&lt;/span>, &lt;span style="color:#e6db74">&amp;#39;none&amp;#39;&lt;/span>, &lt;span style="color:#e6db74">&amp;#39;?&amp;#39;&lt;/span>&lt;span style="color:#f92672">)&lt;/span> &lt;span style="color:#f92672">[&lt;/span>dhcp&lt;span style="color:#f92672">]&lt;/span> dhcp
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>Do you want to &lt;span style="color:#66d9ef">do&lt;/span> any manual network configuration? &lt;span style="color:#f92672">(&lt;/span>y/n&lt;span style="color:#f92672">)&lt;/span> &lt;span style="color:#f92672">[&lt;/span>n&lt;span style="color:#f92672">]&lt;/span> n
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e"># or 手动输入IP地址&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>Ip address &lt;span style="color:#66d9ef">for&lt;/span> eth0? &lt;span style="color:#f92672">(&lt;/span>or &lt;span style="color:#e6db74">&amp;#39;dhcp&amp;#39;&lt;/span>, &lt;span style="color:#e6db74">&amp;#39;none&amp;#39;&lt;/span>, &lt;span style="color:#e6db74">&amp;#39;?&amp;#39;&lt;/span>&lt;span style="color:#f92672">)&lt;/span> &lt;span style="color:#f92672">[&lt;/span>dhcp&lt;span style="color:#f92672">]&lt;/span> 192.168.10.16/24
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>Gateway? &lt;span style="color:#f92672">(&lt;/span>or &lt;span style="color:#e6db74">&amp;#39;none&amp;#39;&lt;/span>&lt;span style="color:#f92672">)&lt;/span> &lt;span style="color:#f92672">[&lt;/span>none&lt;span style="color:#f92672">]&lt;/span> 192.168.10.10
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>Do you want to &lt;span style="color:#66d9ef">do&lt;/span> any manual network configuration? &lt;span style="color:#f92672">(&lt;/span>y/n&lt;span style="color:#f92672">)&lt;/span> &lt;span style="color:#f92672">[&lt;/span>n&lt;span style="color:#f92672">]&lt;/span> n
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>DNS domain name? &lt;span style="color:#f92672">(&lt;/span>e.g &lt;span style="color:#e6db74">&amp;#39;bar.com&amp;#39;&lt;/span>&lt;span style="color:#f92672">)&lt;/span> 
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>DNS nameserver&lt;span style="color:#f92672">(&lt;/span>s&lt;span style="color:#f92672">)&lt;/span>? 114.114.114.114
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e"># 设置密码&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>...
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>New password: 
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>...
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>Retype password:
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e"># 设置时区&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e"># PRC 代理中国，也可以输入 Asia/，再输入 Shanghai&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>...
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>Which timezone are you in? &lt;span style="color:#f92672">(&lt;/span>&lt;span style="color:#e6db74">&amp;#39;?&amp;#39;&lt;/span> &lt;span style="color:#66d9ef">for&lt;/span> list&lt;span style="color:#f92672">)&lt;/span> &lt;span style="color:#f92672">[&lt;/span>UTC&lt;span style="color:#f92672">]&lt;/span> PRC
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e"># 设备代理&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>...
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>HTTP/FTP proxy URL? &lt;span style="color:#f92672">(&lt;/span>e.g. &lt;span style="color:#e6db74">&amp;#39;http://proxy:8080&amp;#39;&lt;/span>, or &lt;span style="color:#e6db74">&amp;#39;none&amp;#39;&lt;/span>&lt;span style="color:#f92672">)&lt;/span> &lt;span style="color:#f92672">[&lt;/span>none&lt;span style="color:#f92672">]&lt;/span> none
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e"># 设置更新源&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e"># f 是自动测试并选择最快的源，建议使用&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>...
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>Enter mirror number &lt;span style="color:#f92672">(&lt;/span>1-74&lt;span style="color:#f92672">)&lt;/span> or URL to add &lt;span style="color:#f92672">(&lt;/span>or r/f/e/done&lt;span style="color:#f92672">)&lt;/span> &lt;span style="color:#f92672">[&lt;/span>1&lt;span style="color:#f92672">]&lt;/span> f
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e"># &lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>Setup a user? &lt;span style="color:#f92672">(&lt;/span>enter a lower-case loginname, or &lt;span style="color:#e6db74">&amp;#39;no&amp;#39;&lt;/span>&lt;span style="color:#f92672">)&lt;/span> &lt;span style="color:#f92672">[&lt;/span>no&lt;span style="color:#f92672">]&lt;/span> no
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e"># 设置ssh服务&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>Which ssh server? &lt;span style="color:#f92672">(&lt;/span>&lt;span style="color:#e6db74">&amp;#39;openssh&amp;#39;&lt;/span>, &lt;span style="color:#e6db74">&amp;#39;dropbear&amp;#39;&lt;/span>, or &lt;span style="color:#e6db74">&amp;#39;none&amp;#39;&lt;/span>&lt;span style="color:#f92672">)&lt;/span> &lt;span style="color:#f92672">[&lt;/span>openssh&lt;span style="color:#f92672">]&lt;/span> openssh
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e"># 这里一定要输入 yes &lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e"># 许多教程都说 Alpine 默认没有远程登录，都上手动修改，其实是可以在安装时就设备好的&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>Allow root ssh login? &lt;span style="color:#f92672">(&lt;/span>&lt;span style="color:#e6db74">&amp;#39;?&amp;#39;&lt;/span> &lt;span style="color:#66d9ef">for&lt;/span> help&lt;span style="color:#f92672">)&lt;/span> &lt;span style="color:#f92672">[&lt;/span>prohibit-password&lt;span style="color:#f92672">]&lt;/span> yes
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>Enter ssh key or URL &lt;span style="color:#66d9ef">for&lt;/span> root &lt;span style="color:#f92672">(&lt;/span>or &lt;span style="color:#e6db74">&amp;#39;none&amp;#39;&lt;/span>&lt;span style="color:#f92672">)&lt;/span> &lt;span style="color:#f92672">[&lt;/span>none&lt;span style="color:#f92672">]&lt;/span> none
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e"># 设置磁盘&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>...
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>Which disk&lt;span style="color:#f92672">(&lt;/span>s&lt;span style="color:#f92672">)&lt;/span> would you like to use? &lt;span style="color:#f92672">(&lt;/span>or &lt;span style="color:#e6db74">&amp;#39;?&amp;#39;&lt;/span> &lt;span style="color:#66d9ef">for&lt;/span> help or &lt;span style="color:#e6db74">&amp;#39;none&amp;#39;&lt;/span>&lt;span style="color:#f92672">)&lt;/span> &lt;span style="color:#f92672">[&lt;/span>none&lt;span style="color:#f92672">]&lt;/span> sda
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>...
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>How would you like to use it? &lt;span style="color:#f92672">(&lt;/span>&lt;span style="color:#e6db74">&amp;#39;sys&amp;#39;&lt;/span>, &lt;span style="color:#e6db74">&amp;#39;data&amp;#39;&lt;/span>, &lt;span style="color:#e6db74">&amp;#39;crypt&amp;#39;&lt;/span>, &lt;span style="color:#e6db74">&amp;#39;lvm&amp;#39;&lt;/span> or &lt;span style="color:#e6db74">&amp;#39;?&amp;#39;&lt;/span> &lt;span style="color:#66d9ef">for&lt;/span> help&lt;span style="color:#f92672">)&lt;/span> &lt;span style="color:#f92672">[&lt;/span>?&lt;span style="color:#f92672">]&lt;/span> sys
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>...
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>WARNING: Erase the aboue disk&lt;span style="color:#f92672">(&lt;/span>s&lt;span style="color:#f92672">)&lt;/span> and &lt;span style="color:#66d9ef">continue&lt;/span>? &lt;span style="color:#f92672">(&lt;/span>y/n&lt;span style="color:#f92672">)&lt;/span> &lt;span style="color:#f92672">[&lt;/span>n&lt;span style="color:#f92672">]&lt;/span> y
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>...
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>Installation is complete. Please reboot.
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e"># 到这里安装全部完成&lt;/span>
+&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">...
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">localhost:~# setup-alpine
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1"># 选择键盘布局&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1"># 这里两个都选 cn 或都不选&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">...
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">Select keyboard layout: &lt;span class="o">[&lt;/span>none&lt;span class="o">]&lt;/span> cn
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">...
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">Select variant &lt;span class="o">(&lt;/span>or &lt;span class="s1">&amp;#39;abort&amp;#39;&lt;/span>&lt;span class="o">)&lt;/span>: cn
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1"># 设置主机名&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">...
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">Enter system hostname &lt;span class="o">(&lt;/span>fully qualified form, e.g. &lt;span class="s1">&amp;#39;foo.example.org&amp;#39;&lt;/span>&lt;span class="o">)&lt;/span> &lt;span class="o">[&lt;/span>localhost&lt;span class="o">]&lt;/span> home
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1"># 设置网络&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">...
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">Which one &lt;span class="k">do&lt;/span> you want to initialize? &lt;span class="o">(&lt;/span>or &lt;span class="s1">&amp;#39;?&amp;#39;&lt;/span> or &lt;span class="s1">&amp;#39;done&amp;#39;&lt;/span>&lt;span class="o">)&lt;/span> &lt;span class="o">[&lt;/span>eth0&lt;span class="o">]&lt;/span> eth0
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">Ip address &lt;span class="k">for&lt;/span> eth0? &lt;span class="o">(&lt;/span>or &lt;span class="s1">&amp;#39;dhcp&amp;#39;&lt;/span>, &lt;span class="s1">&amp;#39;none&amp;#39;&lt;/span>, &lt;span class="s1">&amp;#39;?&amp;#39;&lt;/span>&lt;span class="o">)&lt;/span> &lt;span class="o">[&lt;/span>dhcp&lt;span class="o">]&lt;/span> dhcp
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">Do you want to &lt;span class="k">do&lt;/span> any manual network configuration? &lt;span class="o">(&lt;/span>y/n&lt;span class="o">)&lt;/span> &lt;span class="o">[&lt;/span>n&lt;span class="o">]&lt;/span> n
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1"># or 手动输入IP地址&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">Ip address &lt;span class="k">for&lt;/span> eth0? &lt;span class="o">(&lt;/span>or &lt;span class="s1">&amp;#39;dhcp&amp;#39;&lt;/span>, &lt;span class="s1">&amp;#39;none&amp;#39;&lt;/span>, &lt;span class="s1">&amp;#39;?&amp;#39;&lt;/span>&lt;span class="o">)&lt;/span> &lt;span class="o">[&lt;/span>dhcp&lt;span class="o">]&lt;/span> 192.168.10.16/24
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">Gateway? &lt;span class="o">(&lt;/span>or &lt;span class="s1">&amp;#39;none&amp;#39;&lt;/span>&lt;span class="o">)&lt;/span> &lt;span class="o">[&lt;/span>none&lt;span class="o">]&lt;/span> 192.168.10.10
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">Do you want to &lt;span class="k">do&lt;/span> any manual network configuration? &lt;span class="o">(&lt;/span>y/n&lt;span class="o">)&lt;/span> &lt;span class="o">[&lt;/span>n&lt;span class="o">]&lt;/span> n
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">DNS domain name? &lt;span class="o">(&lt;/span>e.g &lt;span class="s1">&amp;#39;bar.com&amp;#39;&lt;/span>&lt;span class="o">)&lt;/span> 
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">DNS nameserver&lt;span class="o">(&lt;/span>s&lt;span class="o">)&lt;/span>? 114.114.114.114
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1"># 设置密码&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">...
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">New password: 
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">...
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">Retype password:
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1"># 设置时区&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1"># PRC 代理中国，也可以输入 Asia/，再输入 Shanghai&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">...
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">Which timezone are you in? &lt;span class="o">(&lt;/span>&lt;span class="s1">&amp;#39;?&amp;#39;&lt;/span> &lt;span class="k">for&lt;/span> list&lt;span class="o">)&lt;/span> &lt;span class="o">[&lt;/span>UTC&lt;span class="o">]&lt;/span> PRC
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1"># 设备代理&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">...
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">HTTP/FTP proxy URL? &lt;span class="o">(&lt;/span>e.g. &lt;span class="s1">&amp;#39;http://proxy:8080&amp;#39;&lt;/span>, or &lt;span class="s1">&amp;#39;none&amp;#39;&lt;/span>&lt;span class="o">)&lt;/span> &lt;span class="o">[&lt;/span>none&lt;span class="o">]&lt;/span> none
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1"># 设置更新源&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1"># f 是自动测试并选择最快的源，建议使用&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">...
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">Enter mirror number &lt;span class="o">(&lt;/span>1-74&lt;span class="o">)&lt;/span> or URL to add &lt;span class="o">(&lt;/span>or r/f/e/done&lt;span class="o">)&lt;/span> &lt;span class="o">[&lt;/span>1&lt;span class="o">]&lt;/span> f
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1"># &lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">Setup a user? &lt;span class="o">(&lt;/span>enter a lower-case loginname, or &lt;span class="s1">&amp;#39;no&amp;#39;&lt;/span>&lt;span class="o">)&lt;/span> &lt;span class="o">[&lt;/span>no&lt;span class="o">]&lt;/span> no
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1"># 设置ssh服务&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">Which ssh server? &lt;span class="o">(&lt;/span>&lt;span class="s1">&amp;#39;openssh&amp;#39;&lt;/span>, &lt;span class="s1">&amp;#39;dropbear&amp;#39;&lt;/span>, or &lt;span class="s1">&amp;#39;none&amp;#39;&lt;/span>&lt;span class="o">)&lt;/span> &lt;span class="o">[&lt;/span>openssh&lt;span class="o">]&lt;/span> openssh
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1"># 这里一定要输入 yes &lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1"># 许多教程都说 Alpine 默认没有远程登录，都上手动修改，其实是可以在安装时就设备好的&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">Allow root ssh login? &lt;span class="o">(&lt;/span>&lt;span class="s1">&amp;#39;?&amp;#39;&lt;/span> &lt;span class="k">for&lt;/span> &lt;span class="nb">help&lt;/span>&lt;span class="o">)&lt;/span> &lt;span class="o">[&lt;/span>prohibit-password&lt;span class="o">]&lt;/span> yes
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">Enter ssh key or URL &lt;span class="k">for&lt;/span> root &lt;span class="o">(&lt;/span>or &lt;span class="s1">&amp;#39;none&amp;#39;&lt;/span>&lt;span class="o">)&lt;/span> &lt;span class="o">[&lt;/span>none&lt;span class="o">]&lt;/span> none
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1"># 设置磁盘&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">...
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">Which disk&lt;span class="o">(&lt;/span>s&lt;span class="o">)&lt;/span> would you like to use? &lt;span class="o">(&lt;/span>or &lt;span class="s1">&amp;#39;?&amp;#39;&lt;/span> &lt;span class="k">for&lt;/span> &lt;span class="nb">help&lt;/span> or &lt;span class="s1">&amp;#39;none&amp;#39;&lt;/span>&lt;span class="o">)&lt;/span> &lt;span class="o">[&lt;/span>none&lt;span class="o">]&lt;/span> sda
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">...
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">How would you like to use it? &lt;span class="o">(&lt;/span>&lt;span class="s1">&amp;#39;sys&amp;#39;&lt;/span>, &lt;span class="s1">&amp;#39;data&amp;#39;&lt;/span>, &lt;span class="s1">&amp;#39;crypt&amp;#39;&lt;/span>, &lt;span class="s1">&amp;#39;lvm&amp;#39;&lt;/span> or &lt;span class="s1">&amp;#39;?&amp;#39;&lt;/span> &lt;span class="k">for&lt;/span> &lt;span class="nb">help&lt;/span>&lt;span class="o">)&lt;/span> &lt;span class="o">[&lt;/span>?&lt;span class="o">]&lt;/span> sys
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">...
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">WARNING: Erase the aboue disk&lt;span class="o">(&lt;/span>s&lt;span class="o">)&lt;/span> and &lt;span class="k">continue&lt;/span>? &lt;span class="o">(&lt;/span>y/n&lt;span class="o">)&lt;/span> &lt;span class="o">[&lt;/span>n&lt;span class="o">]&lt;/span> y
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">...
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">Installation is complete. Please reboot.
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1"># 到这里安装全部完成&lt;/span>
 &lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h3 id="31-自动安装">3.1. 自动安装&lt;/h3>
-&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e"># 准备应答文件&lt;/span>
+&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">&lt;span class="c1"># 准备应答文件&lt;/span>
 &lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;ul>
 &lt;li>&lt;a href="https://docs.alpinelinux.org/user-handbook/0.1a/Installing/setup_alpine.html#_answer_files">Answer Files&lt;/a>&lt;/li>
 &lt;/ul>
 &lt;h2 id="4-命令重启电脑">4. 命令重启电脑&lt;/h2>
-&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span>home:~# reboot
+&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">home:~# reboot
 &lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="5-关闭防火墙">5. 关闭防火墙&lt;/h2>
-&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span>home:~# rc-service iptables stop
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>home:~# rc-update del iptables
+&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">home:~# rc-service iptables stop
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">home:~# rc-update del iptables
 &lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div></description></item></channel></rss>

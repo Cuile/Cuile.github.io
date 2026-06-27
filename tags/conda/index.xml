@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Conda on 瘦了就帅了</title><link>https://blog.cuile.com/tags/conda/</link><description>Recent content in Conda on 瘦了就帅了</description><generator>Hugo</generator><language>zh-cn</language><lastBuildDate>Sat, 27 Jun 2026 16:27:00 +0000</lastBuildDate><atom:link href="https://blog.cuile.com/tags/conda/index.xml" rel="self" type="application/rss+xml"/><item><title>VSCode 配置 Python 开发环境</title><link>https://blog.cuile.com/post/vscode/vscode_configures_python_development_environment/</link><pubDate>Sat, 25 Nov 2023 00:24:10 +0800</pubDate><guid>https://blog.cuile.com/post/vscode/vscode_configures_python_development_environment/</guid><description>&lt;p>使用 VSCode 开发 Python 是替代 PyCharm 的一个很好选择，有丰富的扩展和第三方工具可以使用，安装配置好它们，会让开发工作事半功倍。下面列举推荐安装的扩展和工具：&lt;/p>
+&lt;p>&lt;em>扩展&lt;/em>&lt;/p>
+&lt;ul>
+&lt;li>Material Icon There
+&lt;ul>
+&lt;li>VSCode图标，很好看&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>Python
+&lt;ul>
+&lt;li>微软官方扩展，一定要装&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>Pylance
+&lt;ul>
+&lt;li>微软官方扩展，一定要装&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>autoDocstring&lt;/li>
+&lt;li>Python Environment Manager&lt;/li>
+&lt;li>Ruff&lt;/li>
+&lt;li>Code Runner&lt;/li>
+&lt;li>Qt for Python&lt;/li>
+&lt;/ul>
+&lt;p>&lt;em>工具&lt;/em>&lt;/p>
+&lt;ul>
+&lt;li>Micromamba
+&lt;ul>
+&lt;li>使用 Micromamba 来配置 Python 开发环境有几个好处：
+&lt;ul>
+&lt;li>micromamba 是一个包管理器，可方便的同时安装几个软件，形成一个独立的开发环境，与其它项目的开发环境完全隔离。&lt;/li>
+&lt;li>micromamba 安装的软件，不会在系统留下痕迹，不会污染本地系统。&lt;/li>
+&lt;li>micromamba 只配置 python 基础环境，不影响 python 虚拟环境，同一个基础环境可提供给多个虚拟环境使用。&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ul>
+&lt;h2 id="配置-micromamba">配置 Micromamba&lt;/h2>
+&lt;p>&lt;a href="https://blog.cuile.com/post/python/micromamba/">Micromamba的安装与使用&lt;/a>&lt;/p>
+&lt;h2 id="配置-vscode">配置 VSCode&lt;sup id="fnref:1">&lt;a href="#fn:1" class="footnote-ref" role="doc-noteref">1&lt;/a>&lt;/sup>&lt;/h2>
+&lt;p>配置 Venv 路径&lt;/p>
+&lt;ol>
+&lt;li>使用 “ctrl+,” 打开设置界面，搜索 venv ，出现两个结果：&lt;/li>
+&lt;/ol>
+&lt;table>
+ &lt;thead>
+ &lt;tr>
+ &lt;th style="text-align: left">选项&lt;/th>
+ &lt;th style="text-align: left">值&lt;/th>
+ &lt;/tr>
+ &lt;/thead>
+ &lt;tbody>
+ &lt;tr>
+ &lt;td style="text-align: left">Python: Venv Folders&lt;/td>
+ &lt;td style="text-align: left">如果安装时使用默认位置，就填写 micromamba，下面的不用设置&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td style="text-align: left">Python: Venv Path&lt;/td>
+ &lt;td style="text-align: left">如果安装时没有使用默认位置，就填写安装位置，上面的不用设置&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td style="text-align: left">Python: Conda Path&lt;/td>
+ &lt;td style="text-align: left">直接输入conda 即可&lt;/td>
+ &lt;/tr>
+ &lt;/tbody>
+&lt;/table>
+&lt;ol start="2">
+&lt;li>重启VSCode，进入 Python 项目，就可以看到右下角的 Python 环境了，如果创建了多个环境，可以通过这里切换。这里需要注意 vscode 可以识别多个 Python 版本，但无法正确配置它们。所以创建不同的 Python 版本后，还要为项目选择解释器。&lt;/li>
+&lt;/ol>
+&lt;h3 id="创建-python-项目环境">创建 Python 项目环境&lt;/h3>
+&lt;ul>
+&lt;li>使用项目终端界面，&lt;a href="https://blog.cuile.com/post/python/micromamba/#3-创建项目">创建虚拟环境&lt;/a>。&lt;/li>
+&lt;li>重启 vscode 再次进入项目终端，不一定会看到项目前缀&lt;sup id="fnref:2">&lt;a href="#fn:2" class="footnote-ref" role="doc-noteref">2&lt;/a>&lt;/sup>。VsCode已经自动修你激活了Python虚拟环境，不需要再操作。&lt;/li>
+&lt;li>安装包时，不需要激活 micromamba 环境，否则包将被安装到 micromamba 环境中。&lt;/li>
+&lt;/ul>
+&lt;h2 id="其它配置">其它配置&lt;/h2>
+&lt;table>
+ &lt;thead>
+ &lt;tr>
+ &lt;th style="text-align: left">选项&lt;/th>
+ &lt;th style="text-align: left">值&lt;/th>
+ &lt;/tr>
+ &lt;/thead>
+ &lt;tbody>
+ &lt;tr>
+ &lt;td style="text-align: left">Editor: Default Formatter&lt;/td>
+ &lt;td style="text-align: left">Ruff&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td style="text-align: left">Python &amp;gt; Terminal: ACtivate Env In Current Terminal&lt;/td>
+ &lt;td style="text-align: left">勾选&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td style="text-align: left">Python &amp;gt; Terminal: Focus After Launch&lt;/td>
+ &lt;td style="text-align: left">勾选&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td style="text-align: left">Python: Language Server&lt;/td>
+ &lt;td style="text-align: left">Pylance&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td style="text-align: left">Pylthon &amp;gt; Analysis: Type Checking Mode&lt;/td>
+ &lt;td style="text-align: left">basic&lt;/td>
+ &lt;/tr>
+ &lt;/tbody>
+&lt;/table>
+&lt;hr>
+&lt;div class="footnotes" role="doc-endnotes">
+&lt;hr>
+&lt;ol>
+&lt;li id="fn:1">
+&lt;p>&lt;a href="https://zhuanlan.zhihu.com/p/622346839?utm_id=0">使用 Micromamba 替换 Miniconda 更快配置 Python 环境&lt;/a>&amp;#160;&lt;a href="#fnref:1" class="footnote-backref" role="doc-backlink">&amp;#x21a9;&amp;#xfe0e;&lt;/a>&lt;/p></description></item></channel></rss>

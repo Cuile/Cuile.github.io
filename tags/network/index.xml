@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Network on 瘦了就帅了</title><link>https://blog.cuile.com/tags/network/</link><description>Recent content in Network on 瘦了就帅了</description><generator>Hugo</generator><language>zh-cn</language><lastBuildDate>Wed, 18 Mar 2026 10:13:17 +0000</lastBuildDate><atom:link href="https://blog.cuile.com/tags/network/index.xml" rel="self" type="application/rss+xml"/><item><title>OpenWRT 配置 IPv6</title><link>https://blog.cuile.com/post/openwrt/openwrt_ipv6/</link><pubDate>Wed, 04 Oct 2023 19:48:18 +0800</pubDate><guid>https://blog.cuile.com/post/openwrt/openwrt_ipv6/</guid><description>&lt;p>OpenWRT 配置 IPv6，在网上有许多教程，但大部分都说的不清不楚。
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Network on 瘦了就帅了</title><link>https://blog.cuile.com/tags/network/</link><description>Recent content in Network on 瘦了就帅了</description><generator>Hugo</generator><language>zh-cn</language><lastBuildDate>Sat, 27 Jun 2026 16:27:00 +0000</lastBuildDate><atom:link href="https://blog.cuile.com/tags/network/index.xml" rel="self" type="application/rss+xml"/><item><title>OpenWRT 配置 IPv6</title><link>https://blog.cuile.com/post/openwrt/openwrt_ipv6/</link><pubDate>Wed, 04 Oct 2023 19:48:18 +0800</pubDate><guid>https://blog.cuile.com/post/openwrt/openwrt_ipv6/</guid><description>&lt;p>OpenWRT 配置 IPv6，在网上有许多教程，但大部分都说的不清不楚。
 所以我从 OpenWRT 配置文件的角度，给出一个肯定能用的配置。
 相关配置原理不详述，可自行上网查找。&lt;/p>
 &lt;h2 id="系统环境">系统环境&lt;/h2>
@@ -22,94 +22,94 @@
 &lt;li>OpenWRT WAN IPv6 配置&lt;/li>
 &lt;/ol>
 &lt;blockquote>
-&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-yaml" data-lang="yaml">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e"># /etc/config/network&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>...
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#ae81ff">config interface &amp;#39;lan&amp;#39;&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#ae81ff">option proto &amp;#39;static&amp;#39;&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#ae81ff">option ipaddr &amp;#39;192.168.10.10&amp;#39;&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#ae81ff">option netmask &amp;#39;255.255.255.0&amp;#39;&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#ae81ff">option device &amp;#39;eth0&amp;#39;&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#ae81ff">option ip6assign &amp;#39;64&amp;#39;&lt;/span> &lt;span style="color:#75715e"># IPv6分配长度。要与 wan 口一致。&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#ae81ff">config interface &amp;#39;wan&amp;#39;&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#ae81ff">option proto &amp;#39;pppoe&amp;#39;&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#ae81ff">option username &amp;#39;***********&amp;#39;&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#ae81ff">option password &amp;#39;***********&amp;#39;&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#ae81ff">option device &amp;#39;eth1&amp;#39;&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#ae81ff">option ipv6 &amp;#39;auto&amp;#39;&lt;/span> &lt;span style="color:#75715e"># 自动获取IPv6地址，使用这个选项后，会自动创建一个虚拟动态接口(WAN_6)，不用配置。&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#ae81ff">option ip6assign &amp;#39;64&amp;#39;&lt;/span> &lt;span style="color:#75715e"># IPv6分配长度。参考 WAN_6 接口 IPv6-PD 的掩码长度，一般为“60”，比它大即可，系统默认为64。&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>...
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;/blockquote>
+&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-yaml" data-lang="yaml">&lt;span class="line">&lt;span class="cl">&lt;span class="c"># /etc/config/network&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w">&lt;/span>&lt;span class="nn">...&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w">&lt;/span>&lt;span class="l">config interface &amp;#39;lan&amp;#39;&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="l">option proto &amp;#39;static&amp;#39;&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="l">option ipaddr &amp;#39;192.168.10.10&amp;#39;&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="l">option netmask &amp;#39;255.255.255.0&amp;#39;&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="l">option device &amp;#39;eth0&amp;#39;&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="l">option ip6assign &amp;#39;64&amp;#39;&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="c"># IPv6分配长度。要与 wan 口一致。&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w">&lt;/span>&lt;span class="l">config interface &amp;#39;wan&amp;#39;&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="l">option proto &amp;#39;pppoe&amp;#39;&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="l">option username &amp;#39;***********&amp;#39;&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="l">option password &amp;#39;***********&amp;#39;&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="l">option device &amp;#39;eth1&amp;#39;&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="l">option ipv6 &amp;#39;auto&amp;#39;&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="c"># 自动获取IPv6地址，使用这个选项后，会自动创建一个虚拟动态接口(WAN_6)，不用配置。&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="l">option ip6assign &amp;#39;64&amp;#39;&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="c"># IPv6分配长度。参考 WAN_6 接口 IPv6-PD 的掩码长度，一般为“60”，比它大即可，系统默认为64。&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w">&lt;/span>&lt;span class="nn">...&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;/blockquote>
 &lt;ol start="3">
 &lt;li>OpenWRT 防火墙配置&lt;/li>
 &lt;/ol>
 &lt;blockquote>
-&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-yaml" data-lang="yaml">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e"># /etc/config/firewall&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>...
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#ae81ff">config zone&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#ae81ff">option name &amp;#39;lan&amp;#39;&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#ae81ff">list network &amp;#39;lan&amp;#39;&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#ae81ff">option input &amp;#39;ACCEPT&amp;#39;&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#ae81ff">option output &amp;#39;ACCEPT&amp;#39;&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#ae81ff">option forward &amp;#39;ACCEPT&amp;#39;&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#ae81ff">config zone&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#ae81ff">option name &amp;#39;wan&amp;#39;&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#ae81ff">list network &amp;#39;wan&amp;#39;&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#ae81ff">option input &amp;#39;DROP&amp;#39;&lt;/span> &lt;span style="color:#75715e"># 关闭 wan 口输入流量&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#ae81ff">option output &amp;#39;ACCEPT&amp;#39;&lt;/span> &lt;span style="color:#75715e"># 只出不进&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#ae81ff">option forward &amp;#39;REJECT&amp;#39;&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#ae81ff">option masq &amp;#39;1&amp;#39;&lt;/span> &lt;span style="color:#75715e"># 打开 NAT 功能&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#ae81ff">option mtu_fix &amp;#39;1&amp;#39;&lt;/span> &lt;span style="color:#75715e"># 路由器直接拨号时使用&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>...
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e"># 转发规划很重要&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#ae81ff">config forwarding&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#ae81ff">option src &amp;#39;lan&amp;#39;&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#ae81ff">option dest &amp;#39;wan&amp;#39;&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>...
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e"># 允许外网IPv6协议下，任意地址的547端口的UDP包通过wan口，访问本机546端口&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#ae81ff">config rule&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#ae81ff">option name &amp;#39;Allow-DHCPv6&amp;#39;&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#ae81ff">option proto &amp;#39;udp&amp;#39;&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#ae81ff">option src &amp;#39;wan&amp;#39;&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#ae81ff">option src_port &amp;#39;547&amp;#39;&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#ae81ff">option dest_port &amp;#39;546&amp;#39;&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#ae81ff">option target &amp;#39;ACCEPT&amp;#39;&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#ae81ff">option family &amp;#39;ipv6&amp;#39;&lt;/span>
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;/blockquote>
+&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-yaml" data-lang="yaml">&lt;span class="line">&lt;span class="cl">&lt;span class="c"># /etc/config/firewall&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w">&lt;/span>&lt;span class="nn">...&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w">&lt;/span>&lt;span class="l">config zone&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="l">option name &amp;#39;lan&amp;#39;&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="l">list network &amp;#39;lan&amp;#39;&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="l">option input &amp;#39;ACCEPT&amp;#39;&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="l">option output &amp;#39;ACCEPT&amp;#39;&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="l">option forward &amp;#39;ACCEPT&amp;#39;&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w">&lt;/span>&lt;span class="l">config zone&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="l">option name &amp;#39;wan&amp;#39;&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="l">list network &amp;#39;wan&amp;#39;&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="l">option input &amp;#39;DROP&amp;#39;&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="c"># 关闭 wan 口输入流量&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="l">option output &amp;#39;ACCEPT&amp;#39;&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="c"># 只出不进&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="l">option forward &amp;#39;REJECT&amp;#39;&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="l">option masq &amp;#39;1&amp;#39;&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="c"># 打开 NAT 功能&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="l">option mtu_fix &amp;#39;1&amp;#39;&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="c"># 路由器直接拨号时使用&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w">&lt;/span>&lt;span class="nn">...&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w">&lt;/span>&lt;span class="c"># 转发规划很重要&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w">&lt;/span>&lt;span class="l">config forwarding&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="l">option src &amp;#39;lan&amp;#39;&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="l">option dest &amp;#39;wan&amp;#39;&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w">&lt;/span>&lt;span class="nn">...&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w">&lt;/span>&lt;span class="c"># 允许外网IPv6协议下，任意地址的547端口的UDP包通过wan口，访问本机546端口&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w">&lt;/span>&lt;span class="l">config rule&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="l">option name &amp;#39;Allow-DHCPv6&amp;#39;&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="l">option proto &amp;#39;udp&amp;#39;&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="l">option src &amp;#39;wan&amp;#39;&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="l">option src_port &amp;#39;547&amp;#39;&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="l">option dest_port &amp;#39;546&amp;#39;&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="l">option target &amp;#39;ACCEPT&amp;#39;&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="l">option family &amp;#39;ipv6&amp;#39;&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;/blockquote>
 &lt;ol start="4">
 &lt;li>OpenWRT DHCP 配置&lt;/li>
 &lt;/ol>
-&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-yaml" data-lang="yaml">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e"># /etc/config/dhcp&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>...
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#ae81ff">config dhcp &amp;#39;lan&amp;#39;&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#ae81ff">option interface &amp;#39;lan&amp;#39;&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#ae81ff">option start &amp;#39;100&amp;#39;&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#ae81ff">option dhcpv4 &amp;#39;server&amp;#39;&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#ae81ff">option limit &amp;#39;200&amp;#39;&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#ae81ff">option force &amp;#39;1&amp;#39;&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#ae81ff">option leasetime &amp;#39;2h&amp;#39;&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#ae81ff">option ra &amp;#39;server&amp;#39;&lt;/span> &lt;span style="color:#75715e"># RA服务 服务器模式&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#ae81ff">option dhcpv6 &amp;#39;server&amp;#39;&lt;/span> &lt;span style="color:#75715e"># DHCPv6服务 服务器模式&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#ae81ff">list ra_flags &amp;#39;none&amp;#39;&lt;/span> &lt;span style="color:#75715e"># RA标记 无&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#ae81ff">config dhcp &amp;#39;wan&amp;#39;&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#ae81ff">option interface &amp;#39;wan&amp;#39;&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#ae81ff">option ignore &amp;#39;1&amp;#39;&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#ae81ff">list ra_flags &amp;#39;none&amp;#39;&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#ae81ff">config odhcpd &amp;#39;odhcpd&amp;#39;&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#ae81ff">option maindhcp &amp;#39;0&amp;#39;&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#ae81ff">option leasefile &amp;#39;/tmp/hosts/odhcpd&amp;#39;&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#ae81ff">option leasetrigger &amp;#39;/usr/sbin/odhcpd-update&amp;#39;&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#ae81ff">option loglevel &amp;#39;4&amp;#39;&lt;/span>
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;ol start="5">
+&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-yaml" data-lang="yaml">&lt;span class="line">&lt;span class="cl">&lt;span class="c"># /etc/config/dhcp&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w">&lt;/span>&lt;span class="nn">...&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w">&lt;/span>&lt;span class="l">config dhcp &amp;#39;lan&amp;#39;&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="l">option interface &amp;#39;lan&amp;#39;&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="l">option start &amp;#39;100&amp;#39;&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="l">option dhcpv4 &amp;#39;server&amp;#39;&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="l">option limit &amp;#39;200&amp;#39;&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="l">option force &amp;#39;1&amp;#39;&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="l">option leasetime &amp;#39;2h&amp;#39;&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="l">option ra &amp;#39;server&amp;#39;&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="c"># RA服务 服务器模式&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="l">option dhcpv6 &amp;#39;server&amp;#39;&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="c"># DHCPv6服务 服务器模式&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="l">list ra_flags &amp;#39;none&amp;#39;&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="c"># RA标记 无&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w">&lt;/span>&lt;span class="l">config dhcp &amp;#39;wan&amp;#39;&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="l">option interface &amp;#39;wan&amp;#39;&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="l">option ignore &amp;#39;1&amp;#39;&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="l">list ra_flags &amp;#39;none&amp;#39;&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w">&lt;/span>&lt;span class="l">config odhcpd &amp;#39;odhcpd&amp;#39;&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="l">option maindhcp &amp;#39;0&amp;#39;&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="l">option leasefile &amp;#39;/tmp/hosts/odhcpd&amp;#39;&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="l">option leasetrigger &amp;#39;/usr/sbin/odhcpd-update&amp;#39;&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="l">option loglevel &amp;#39;4&amp;#39;&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;ol start="5">
 &lt;li>重启OpenWRT&lt;/li>
 &lt;li>查看 Luci -&amp;gt; 网络 -&amp;gt; 接口 -&amp;gt; LAN，已拿到的IPv6地址&lt;/li>
 &lt;li>测试本机外网IPv6地址，与 LAN 的 IPv6地址一致即可&lt;/li>
 &lt;/ol>
 &lt;blockquote>
-&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span>$ curl 6.ipw.cn
+&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">$ curl 6.ipw.cn
 &lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;/blockquote>
 &lt;h2 id="参考文档">参考文档&lt;/h2>
 &lt;ul>
@@ -210,87 +210,87 @@
  &lt;tbody>
  &lt;tr>
  &lt;td>WLAN&lt;/td>
- &lt;td>&amp;gt;DHCP&lt;!-- raw HTML omitted -->IP: 192.168.10.113&lt;!-- raw HTML omitted -->IP: 192.168.10.114&lt;!-- raw HTML omitted -->mac: ac-8f&lt;/td>
- &lt;td>&amp;gt;Bridge&lt;!-- raw HTML omitted -->IP: -&lt;!-- raw HTML omitted -->mac: ac-8f&lt;/td>
+ &lt;td>&amp;gt;DHCP&lt;br>IP: 192.168.10.113&lt;br>IP: 192.168.10.114&lt;br>mac: ac-8f&lt;/td>
+ &lt;td>&amp;gt;Bridge&lt;br>IP: -&lt;br>mac: ac-8f&lt;/td>
  &lt;td>-&lt;/td>
  &lt;td>-&lt;/td>
  &lt;/tr>
  &lt;tr>
  &lt;td>外部网络&lt;/td>
  &lt;td>-&lt;/td>
- &lt;td>&amp;gt;WLAN&lt;!-- raw HTML omitted -->IP: 192.168.10.113&lt;!-- raw HTML omitted -->mac: ac-8f&lt;/td>
- &lt;td>&amp;gt;WLAN&lt;!-- raw HTML omitted -->IP: 192.168.10.114&lt;!-- raw HTML omitted -->mac: 01-36&lt;/td>
+ &lt;td>&amp;gt;WLAN&lt;br>IP: 192.168.10.113&lt;br>mac: ac-8f&lt;/td>
+ &lt;td>&amp;gt;WLAN&lt;br>IP: 192.168.10.114&lt;br>mac: 01-36&lt;/td>
  &lt;td>-&lt;/td>
  &lt;/tr>
  &lt;tr>
  &lt;td>内部网络&lt;/td>
  &lt;td>-&lt;/td>
- &lt;td>&amp;gt;DHCP&lt;!-- raw HTML omitted -->IP: 192.168.123.100&lt;!-- raw HTML omitted -->mac: 01-28&lt;/td>
- &lt;td>&amp;gt;Static&lt;!-- raw HTML omitted -->IP: 192.168.123.1&lt;!-- raw HTML omitted -->mac: 01-29&lt;/td>
- &lt;td>&amp;gt;DHCP&lt;!-- raw HTML omitted -->IP: 192.168.123.102&lt;!-- raw HTML omitted -->mac: 01-2c&lt;/td>
+ &lt;td>&amp;gt;DHCP&lt;br>IP: 192.168.123.100&lt;br>mac: 01-28&lt;/td>
+ &lt;td>&amp;gt;Static&lt;br>IP: 192.168.123.1&lt;br>mac: 01-29&lt;/td>
+ &lt;td>&amp;gt;DHCP&lt;br>IP: 192.168.123.102&lt;br>mac: 01-2c&lt;/td>
  &lt;/tr>
  &lt;tr>
  &lt;td>网桥&lt;/td>
  &lt;td>-&lt;/td>
- &lt;td>&amp;gt;Switch&lt;!-- raw HTML omitted -->IP: -&lt;!-- raw HTML omitted -->mac: ac-8f&lt;/td>
+ &lt;td>&amp;gt;Switch&lt;br>IP: -&lt;br>mac: ac-8f&lt;/td>
  &lt;td>-&lt;/td>
  &lt;td>-&lt;/td>
  &lt;/tr>
  &lt;/tbody>
 &lt;/table>
 &lt;p>可以尝试使用网桥功能，解决多物理网卡切换的问题&lt;/p></description></item><item><title>Alpine Linux 网络设置</title><link>https://blog.cuile.com/post/alpine_linux/network/</link><pubDate>Sun, 19 Jun 2022 15:25:18 +0800</pubDate><guid>https://blog.cuile.com/post/alpine_linux/network/</guid><description>&lt;h2 id="网卡静态地址">网卡静态地址&lt;/h2>
-&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span>~# nano /etc/network/interfaces
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-ini" data-lang="ini">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#a6e22e">auto lo&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#a6e22e">iface lo inet loopback&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#a6e22e">auto eth0&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#a6e22e">iface eth0 inet static&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#a6e22e">address 192.168.10.16/24&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#a6e22e">gateway 192.168.10.10&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#a6e22e">hostname alpine&lt;/span>
+&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">~# nano /etc/network/interfaces
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-ini" data-lang="ini">&lt;span class="line">&lt;span class="cl">&lt;span class="na">auto lo&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="na">iface lo inet loopback&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="na">auto eth0&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="na">iface eth0 inet static&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="na">address 192.168.10.16/24&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="na">gateway 192.168.10.10&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="na">hostname alpine&lt;/span>
 &lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="配置-dns">配置 DNS&lt;/h2>
-&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-ini" data-lang="ini">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e"># nano /etc/resolv.conf&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#a6e22e">nameserver 114.114.114.114&lt;/span>
+&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-ini" data-lang="ini">&lt;span class="line">&lt;span class="cl">&lt;span class="c1"># nano /etc/resolv.conf&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="na">nameserver 114.114.114.114&lt;/span>
 &lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="重启网络">重启网络&lt;/h2>
-&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span>~# service networking restart
+&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">~# service networking restart
 &lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div></description></item><item><title>使用 nmcli 配置网络</title><link>https://blog.cuile.com/post/linux/nmcli_manual/</link><pubDate>Mon, 17 Jan 2022 15:17:58 +0800</pubDate><guid>https://blog.cuile.com/post/linux/nmcli_manual/</guid><description>&lt;p>&lt;strong>&lt;code>基于Centos 7&lt;/code>&lt;/strong>&lt;/p>
 &lt;h2 id="查看设备信息">查看设备信息&lt;/h2>
-&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e"># 简单接口状态&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>$ nmcli dev status
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e"># 详细的接口信息&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>$ nmcli dev show
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e"># 接口的详细信息&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>$ nmcli dev show &amp;lt;interface-name&amp;gt;
+&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">&lt;span class="c1"># 简单接口状态&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">$ nmcli dev status
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1"># 详细的接口信息&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">$ nmcli dev show
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1"># 接口的详细信息&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">$ nmcli dev show &amp;lt;interface-name&amp;gt;
 &lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="查看连接connection的信息">查看连接(connection)的信息&lt;/h2>
-&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e"># 简单信息&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>$ nmcli conn show
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e"># 详细的连接信息&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>$ nmcli conn show
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e"># 某个连接的详细信息&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>$ nmcli conn show &amp;lt;conn-name&amp;gt;
+&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">&lt;span class="c1"># 简单信息&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">$ nmcli conn show
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1"># 详细的连接信息&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">$ nmcli conn show
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1"># 某个连接的详细信息&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">$ nmcli conn show &amp;lt;conn-name&amp;gt;
 &lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="创建连接">创建连接&lt;/h2>
-&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span>nmcli conn add type &amp;lt;ethernet&amp;gt; con-name &amp;lt;conn-name&amp;gt; ifname &amp;lt;dev-name&amp;gt; ip4 &amp;lt;192.168.100.100/24&amp;gt; &lt;span style="color:#f92672">[&lt;/span>gw4 &amp;lt;192.168.100.1&amp;gt;&lt;span style="color:#f92672">]&lt;/span>
+&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">nmcli conn add &lt;span class="nb">type&lt;/span> &amp;lt;ethernet&amp;gt; con-name &amp;lt;conn-name&amp;gt; ifname &amp;lt;dev-name&amp;gt; ip4 &amp;lt;192.168.100.100/24&amp;gt; &lt;span class="o">[&lt;/span>gw4 &amp;lt;192.168.100.1&amp;gt;&lt;span class="o">]&lt;/span>
 &lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="修改配置">修改配置&lt;/h2>
 &lt;h3 id="静态ip改动态ip">静态IP改动态IP&lt;/h3>
-&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span>nmcli conn mod &amp;lt;conn-name&amp;gt; /
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> ipv4.method auto /
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> ipv4.address &lt;span style="color:#e6db74">&amp;#34;&amp;#34;&lt;/span> /
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> ipv4.gateway &lt;span style="color:#e6db74">&amp;#34;&amp;#34;&lt;/span> /
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> ipv4.dns &lt;span style="color:#e6db74">&amp;#34;&amp;#34;&lt;/span>
+&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">nmcli conn mod &amp;lt;conn-name&amp;gt; /
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> ipv4.method auto /
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> ipv4.address &lt;span class="s2">&amp;#34;&amp;#34;&lt;/span> /
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> ipv4.gateway &lt;span class="s2">&amp;#34;&amp;#34;&lt;/span> /
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> ipv4.dns &lt;span class="s2">&amp;#34;&amp;#34;&lt;/span>
 &lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h3 id="修改dns">修改DNS&lt;/h3>
-&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span>$ nmcli conn mod &amp;lt;conn-name&amp;gt; ipv4.dns &lt;span style="color:#e6db74">&amp;#34;1.2.4.8&amp;#34;&lt;/span>
+&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">$ nmcli conn mod &amp;lt;conn-name&amp;gt; ipv4.dns &lt;span class="s2">&amp;#34;1.2.4.8&amp;#34;&lt;/span>
 &lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h3 id="设置自动连接">设置自动连接&lt;/h3>
-&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e"># 查询和显示所有网络连接的自动连接属性的当前值&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>$ nmcli -f name,autoconnect connection
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e"># 更改网络连接的属性值&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>$ nmcli conn mod &amp;lt;conn-name&amp;gt; connection.autoconnect yes
+&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">&lt;span class="c1"># 查询和显示所有网络连接的自动连接属性的当前值&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">$ nmcli -f name,autoconnect connection
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1"># 更改网络连接的属性值&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">$ nmcli conn mod &amp;lt;conn-name&amp;gt; connection.autoconnect yes
 &lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h3 id="配置生效">配置生效&lt;/h3>
-&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span>nmcli conn up &amp;lt;conn-name&amp;gt;
+&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">nmcli conn up &amp;lt;conn-name&amp;gt;
 &lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="激活连接">激活连接&lt;/h2>
-&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span>$ nmcli conn up &amp;lt;conn-name&amp;gt;
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>$ nmcli conn down &amp;lt;conn-name&amp;gt;
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>$ nmcli dev connect &amp;lt;dev-name&amp;gt;
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>$ nmcli dev disconnect &amp;lt;dev-name&amp;gt;
+&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">$ nmcli conn up &amp;lt;conn-name&amp;gt;
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">$ nmcli conn down &amp;lt;conn-name&amp;gt;
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">$ nmcli dev connect &amp;lt;dev-name&amp;gt;
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">$ nmcli dev disconnect &amp;lt;dev-name&amp;gt;
 &lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;blockquote>
 &lt;p>建议使用 nmcli dev disconnect interface-name 命令，而不是 nmcli con down connection-name 命令，因为连接断开可将该接口放到“手动”模式，这样做用户让 NetworkManager 启动某个连接前，或发生外部事件（比如载波变化、休眠或睡眠）前，不会启动任何自动连接。&lt;/p></description></item></channel></rss>

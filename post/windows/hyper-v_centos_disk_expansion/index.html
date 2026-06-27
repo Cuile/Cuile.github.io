@@ -15,246 +15,246 @@
 </span><span class=path-divider>/</span>
 <strong class="css-truncate css-truncate-target mr-1" style=max-width:410px><a href=https://blog.cuile.com/post/windows/hyper-v_centos_disk_expansion/>Hyper-V 环境下给 CentOS 磁盘扩容</a></strong></h1><div class="note m-0">Created <relative-time datetime="Mon, 26 Dec 2022 21:01:32 +0800" class=no-wrap>Mon, 26 Dec 2022 21:01:32 +0800</relative-time>
 <span class=file-info-divider></span>
-Modified <relative-time datetime="Wed, 18 Mar 2026 10:13:17 +0000" class=no-wrap>Wed, 18 Mar 2026 10:13:17 +0000</relative-time></div></div></div></div></div></div></div><div class="container-lg px-3 new-discussion-timeline"><div class="repository-content gist-content"><div><div class="js-gist-file-update-container js-task-list-container file-box"><div id=file-pytest class="file my-2"><div id=post-header class="file-header d-flex flex-md-items-center flex-items-start sticky-header" style=z-index:2><div class="file-info d-flex flex-md-items-center flex-items-start flex-order-1 flex-auto"><div class="text-mono f6 flex-auto pr-3 flex-order-2 flex-md-order-1 mt-2 mt-md-0"><summary id=toc-toggle onclick=clickToc() class="btn btn-octicon m-0 mr-2 p-2"><svg aria-hidden="true" viewBox="0 0 16 16" height="16" width="16" class="octicon octicon-list-unordered"><path fill-rule="evenodd" d="M2 4a1 1 0 100-2 1 1 0 000 2zm3.75-1.5a.75.75.0 000 1.5h8.5a.75.75.0 000-1.5h-8.5zm0 5a.75.75.0 000 1.5h8.5a.75.75.0 000-1.5h-8.5zm0 5a.75.75.0 000 1.5h8.5a.75.75.0 000-1.5h-8.5zM3 8A1 1 0 111 8a1 1 0 012 0zm-1 6a1 1 0 100-2 1 1 0 000 2z"/></svg></summary><details-menu class=SelectMenu id=toc-details style="display: none;"><div class="SelectMenu-modal rounded-3 mt-1" style=max-height:340px><div class="SelectMenu-list SelectMenu-list--borderless p-2" style=overscroll-behavior:contain id=toc-list></div></div></details-menu>2217 Words</div><div class="file-actions flex-order-2 pt-0"><a class="muted-link mr-3" href=/tags/centos><svg class="octicon octicon-tag" viewBox="0 0 16 16" width="16" height="16"><path fill-rule="evenodd" d="M2.5 7.775V2.75a.25.25.0 01.25-.25h5.025a.25.25.0 01.177.073l6.25 6.25a.25.25.0 010 .354l-5.025 5.025a.25.25.0 01-.354.0l-6.25-6.25A.25.25.0 012.5 7.775zm-1.5.0V2.75C1 1.784 1.784 1 2.75 1h5.025c.464.0.91.184 1.238.513l6.25 6.25a1.75 1.75.0 010 2.474l-5.026 5.026a1.75 1.75.0 01-2.474.0l-6.25-6.25A1.75 1.75.0 011 7.775zM6 5a1 1 0 100 2 1 1 0 000-2z"/></svg>
+Modified <relative-time datetime="Sat, 27 Jun 2026 16:27:00 +0000" class=no-wrap>Sat, 27 Jun 2026 16:27:00 +0000</relative-time></div></div></div></div></div></div></div><div class="container-lg px-3 new-discussion-timeline"><div class="repository-content gist-content"><div><div class="js-gist-file-update-container js-task-list-container file-box"><div id=file-pytest class="file my-2"><div id=post-header class="file-header d-flex flex-md-items-center flex-items-start sticky-header" style=z-index:2><div class="file-info d-flex flex-md-items-center flex-items-start flex-order-1 flex-auto"><div class="text-mono f6 flex-auto pr-3 flex-order-2 flex-md-order-1 mt-2 mt-md-0"><summary id=toc-toggle onclick=clickToc() class="btn btn-octicon m-0 mr-2 p-2"><svg aria-hidden="true" viewBox="0 0 16 16" height="16" width="16" class="octicon octicon-list-unordered"><path fill-rule="evenodd" d="M2 4a1 1 0 100-2 1 1 0 000 2zm3.75-1.5a.75.75.0 000 1.5h8.5a.75.75.0 000-1.5h-8.5zm0 5a.75.75.0 000 1.5h8.5a.75.75.0 000-1.5h-8.5zm0 5a.75.75.0 000 1.5h8.5a.75.75.0 000-1.5h-8.5zM3 8A1 1 0 111 8a1 1 0 012 0zm-1 6a1 1 0 100-2 1 1 0 000 2z"/></svg></summary><details-menu class=SelectMenu id=toc-details style="display: none;"><div class="SelectMenu-modal rounded-3 mt-1" style=max-height:340px><div class="SelectMenu-list SelectMenu-list--borderless p-2" style=overscroll-behavior:contain id=toc-list></div></div></details-menu>2217 Words</div><div class="file-actions flex-order-2 pt-0"><a class="muted-link mr-3" href=/tags/centos><svg class="octicon octicon-tag" viewBox="0 0 16 16" width="16" height="16"><path fill-rule="evenodd" d="M2.5 7.775V2.75a.25.25.0 01.25-.25h5.025a.25.25.0 01.177.073l6.25 6.25a.25.25.0 010 .354l-5.025 5.025a.25.25.0 01-.354.0l-6.25-6.25A.25.25.0 012.5 7.775zm-1.5.0V2.75C1 1.784 1.784 1 2.75 1h5.025c.464.0.91.184 1.238.513l6.25 6.25a1.75 1.75.0 010 2.474l-5.026 5.026a1.75 1.75.0 01-2.474.0l-6.25-6.25A1.75 1.75.0 011 7.775zM6 5a1 1 0 100 2 1 1 0 000-2z"/></svg>
 CentOS
 </a><a class="muted-link mr-3" href=/tags/hyper-v><svg class="octicon octicon-tag" viewBox="0 0 16 16" width="16" height="16"><path fill-rule="evenodd" d="M2.5 7.775V2.75a.25.25.0 01.25-.25h5.025a.25.25.0 01.177.073l6.25 6.25a.25.25.0 010 .354l-5.025 5.025a.25.25.0 01-.354.0l-6.25-6.25A.25.25.0 012.5 7.775zm-1.5.0V2.75C1 1.784 1.784 1 2.75 1h5.025c.464.0.91.184 1.238.513l6.25 6.25a1.75 1.75.0 010 2.474l-5.026 5.026a1.75 1.75.0 01-2.474.0l-6.25-6.25A1.75 1.75.0 011 7.775zM6 5a1 1 0 100 2 1 1 0 000-2z"/></svg>
 Hyper-V
 </a><a class="muted-link mr-3" href=/tags/windows><svg class="octicon octicon-tag" viewBox="0 0 16 16" width="16" height="16"><path fill-rule="evenodd" d="M2.5 7.775V2.75a.25.25.0 01.25-.25h5.025a.25.25.0 01.177.073l6.25 6.25a.25.25.0 010 .354l-5.025 5.025a.25.25.0 01-.354.0l-6.25-6.25A.25.25.0 012.5 7.775zm-1.5.0V2.75C1 1.784 1.784 1 2.75 1h5.025c.464.0.91.184 1.238.513l6.25 6.25a1.75 1.75.0 010 2.474l-5.026 5.026a1.75 1.75.0 01-2.474.0l-6.25-6.25A1.75 1.75.0 011 7.775zM6 5a1 1 0 100 2 1 1 0 000-2z"/></svg>
 windows</a></div></div></div><div class="Box-body px-5 pb-5" style=z-index:1><article class="markdown-body entry-content container-lg"><p>使用Hyper-V安装CentOS虚拟机，使用起来非常方便。但遇到磁盘空间不够时，不像Windows虚拟机那样方便给磁盘空间扩容。
-总体两分二步：</p><h2 id=1-vhdx扩容>1. vhdx扩容</h2><p>关闭虚拟机，然后给磁盘扩容，操作方便网上教程多，这里不再赘述。</p><h2 id=2-centos扩容>2. CentOS扩容</h2><h3 id=21-查看分区表>2.1 查看分区表</h3><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash><span style=display:flex><span>$ lsblk
-</span></span><span style=display:flex><span>NAME            MAJ:MIN RM  SIZE RO TYPE MOUNTPOINT
-</span></span><span style=display:flex><span>sda               8:0    <span style=color:#ae81ff>0</span>   20G  <span style=color:#ae81ff>0</span> disk 
-</span></span><span style=display:flex><span>├─sda1            8:1    <span style=color:#ae81ff>0</span>  200M  <span style=color:#ae81ff>0</span> part /boot/efi
-</span></span><span style=display:flex><span>├─sda2            8:2    <span style=color:#ae81ff>0</span>    1G  <span style=color:#ae81ff>0</span> part /boot
-</span></span><span style=display:flex><span>└─sda3            8:3    <span style=color:#ae81ff>0</span>  8.8G  <span style=color:#ae81ff>0</span> part 
-</span></span><span style=display:flex><span>  ├─centos-root 253:0    <span style=color:#ae81ff>0</span>  7.8G  <span style=color:#ae81ff>0</span> lvm  /
-</span></span><span style=display:flex><span>  └─centos-swap 253:1    <span style=color:#ae81ff>0</span>    1G  <span style=color:#ae81ff>0</span> lvm  <span style=color:#f92672>[</span>SWAP<span style=color:#f92672>]</span>
-</span></span></code></pre></div><p>以上内容可以看出，sda已经扩容到20G，但sda1+sda2+sda3只有10G说明vhdx扩容成功。</p><h3 id=22-建立新分区>2.2 建立新分区</h3><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash><span style=display:flex><span>$ fdisk /dev/sda
-</span></span><span style=display:flex><span>
-</span></span><span style=display:flex><span>The device presents a logical sector size that is smaller than
-</span></span><span style=display:flex><span>the physical sector size. Aligning to a physical sector <span style=color:#f92672>(</span>or optimal
-</span></span><span style=display:flex><span>I/O<span style=color:#f92672>)</span> size boundary is recommended, or performance may be impacted.
-</span></span><span style=display:flex><span>欢迎使用 fdisk <span style=color:#f92672>(</span>util-linux 2.23.2<span style=color:#f92672>)</span>。
-</span></span><span style=display:flex><span>
-</span></span><span style=display:flex><span>更改将停留在内存中，直到您决定将更改写入磁盘。
-</span></span><span style=display:flex><span>使用写入命令前请三思。
-</span></span><span style=display:flex><span>
-</span></span><span style=display:flex><span>
-</span></span><span style=display:flex><span>命令<span style=color:#f92672>(</span>输入 m 获取帮助<span style=color:#f92672>)</span>：n
-</span></span><span style=display:flex><span>Partition type:
-</span></span><span style=display:flex><span>   p   primary <span style=color:#f92672>(</span><span style=color:#ae81ff>1</span> primary, <span style=color:#ae81ff>0</span> extended, <span style=color:#ae81ff>3</span> free<span style=color:#f92672>)</span>
-</span></span><span style=display:flex><span>   e   extended
-</span></span><span style=display:flex><span>Select <span style=color:#f92672>(</span>default p<span style=color:#f92672>)</span>: 
-</span></span><span style=display:flex><span>Using default response p
-</span></span><span style=display:flex><span>分区号 <span style=color:#f92672>(</span>2-4，默认 2<span style=color:#f92672>)</span>：
-</span></span><span style=display:flex><span>起始 扇区 <span style=color:#f92672>(</span>20971520-41943039，默认为 20971520<span style=color:#f92672>)</span>：
-</span></span><span style=display:flex><span>将使用默认值 <span style=color:#ae81ff>20971520</span>
-</span></span><span style=display:flex><span>Last 扇区, +扇区 or +size<span style=color:#f92672>{</span>K,M,G<span style=color:#f92672>}</span> <span style=color:#f92672>(</span>20971520-41943039，默认为 41943039<span style=color:#f92672>)</span>：+10G
-</span></span><span style=display:flex><span>值超出范围。
-</span></span><span style=display:flex><span>Last 扇区, +扇区 or +size<span style=color:#f92672>{</span>K,M,G<span style=color:#f92672>}</span> <span style=color:#f92672>(</span>20971520-41943039，默认为 41943039<span style=color:#f92672>)</span>：+9.9G
-</span></span><span style=display:flex><span>不支持的后缀：“.9G”。
-</span></span><span style=display:flex><span>支持：10^N: KB <span style=color:#f92672>(</span>千字节<span style=color:#f92672>)</span>, MB <span style=color:#f92672>(</span>兆字节<span style=color:#f92672>)</span>, GB <span style=color:#f92672>(</span>吉字节<span style=color:#f92672>)</span>
-</span></span><span style=display:flex><span>            2^N: K  <span style=color:#f92672>(</span>约千字节<span style=color:#f92672>)</span>, M  <span style=color:#f92672>(</span>约兆字节<span style=color:#f92672>)</span>, G  <span style=color:#f92672>(</span>约吉字节<span style=color:#f92672>)</span>
-</span></span><span style=display:flex><span>Last 扇区, +扇区 or +size<span style=color:#f92672>{</span>K,M,G<span style=color:#f92672>}</span> <span style=color:#f92672>(</span>20971520-41943039，默认为 41943039<span style=color:#f92672>)</span>：+9G 
-</span></span><span style=display:flex><span>分区 <span style=color:#ae81ff>2</span> 已设置为 Linux 类型，大小设为 <span style=color:#ae81ff>9</span> GiB
-</span></span><span style=display:flex><span>
-</span></span><span style=display:flex><span>命令<span style=color:#f92672>(</span>输入 m 获取帮助<span style=color:#f92672>)</span>：w
-</span></span><span style=display:flex><span>The partition table has been altered!
-</span></span><span style=display:flex><span>
-</span></span><span style=display:flex><span>Calling ioctl<span style=color:#f92672>()</span> to re-read partition table.
-</span></span><span style=display:flex><span>
-</span></span><span style=display:flex><span>WARNING: Re-reading the partition table failed with error 16: 设备或资源忙.
-</span></span><span style=display:flex><span>The kernel still uses the old table. The new table will be used at
-</span></span><span style=display:flex><span>the next reboot or after you run partprobe<span style=color:#f92672>(</span>8<span style=color:#f92672>)</span> or kpartx<span style=color:#f92672>(</span>8<span style=color:#f92672>)</span>
-</span></span><span style=display:flex><span>正在同步磁盘。
-</span></span></code></pre></div><h4 id=重读分区表时发生错误>重读分区表时，发生错误</h4><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash><span style=display:flex><span>$ partprobe
-</span></span><span style=display:flex><span>Error: 备份 GPT 表不像应该的那样出现在磁盘的末尾。这可能意味这其它操作系统相信磁盘小一些。通过将备份移动到末尾 <span style=color:#f92672>(</span>并删除旧备份<span style=color:#f92672>)</span> 来修正？
-</span></span><span style=display:flex><span>Warning: Not all of the space available to /dev/sda appears to be used, you can fix the GPT to use all of the space <span style=color:#f92672>(</span>an extra <span style=color:#ae81ff>20971520</span> blocks<span style=color:#f92672>)</span> or <span style=color:#66d9ef>continue</span> with the current setting? 
-</span></span></code></pre></div><h4 id=查看分区表时发现新分区未创建成功>查看分区表时，发现新分区未创建成功</h4><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash><span style=display:flex><span>$ lsblk
-</span></span><span style=display:flex><span>NAME            MAJ:MIN RM  SIZE RO TYPE MOUNTPOINT
-</span></span><span style=display:flex><span>sda               8:0    <span style=color:#ae81ff>0</span>   20G  <span style=color:#ae81ff>0</span> disk 
-</span></span><span style=display:flex><span>├─sda1            8:1    <span style=color:#ae81ff>0</span>  200M  <span style=color:#ae81ff>0</span> part /boot/efi
-</span></span><span style=display:flex><span>├─sda2            8:2    <span style=color:#ae81ff>0</span>    1G  <span style=color:#ae81ff>0</span> part /boot
-</span></span><span style=display:flex><span>└─sda3            8:3    <span style=color:#ae81ff>0</span>  8.8G  <span style=color:#ae81ff>0</span> part 
-</span></span><span style=display:flex><span>  ├─centos-root 253:0    <span style=color:#ae81ff>0</span>  7.8G  <span style=color:#ae81ff>0</span> lvm  /
-</span></span><span style=display:flex><span>  └─centos-swap 253:1    <span style=color:#ae81ff>0</span>    1G  <span style=color:#ae81ff>0</span> lvm  <span style=color:#f92672>[</span>SWAP<span style=color:#f92672>]</span>
-</span></span></code></pre></div><h4 id=使用-parted-修复分区表>使用 parted 修复分区表</h4><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash><span style=display:flex><span>$ parted /dev/sda
-</span></span><span style=display:flex><span>GNU Parted 3.1
-</span></span><span style=display:flex><span>使用 /dev/sda
-</span></span><span style=display:flex><span>Welcome to GNU Parted! Type <span style=color:#e6db74>&#39;help&#39;</span> to view a list of commands.
-</span></span><span style=display:flex><span><span style=color:#f92672>(</span>parted<span style=color:#f92672>)</span> p                                                                
-</span></span><span style=display:flex><span>错误: 备份 GPT 表不像应该的那样出现在磁盘的末尾。这可能意味这其它操作系统相信磁盘小一些。通过将备份移动到末尾 <span style=color:#f92672>(</span>并删除旧备份<span style=color:#f92672>)</span> 来修正？
-</span></span><span style=display:flex><span>修正/Fix/忽略/Ignore/放弃/Cancel? fix                                     
-</span></span><span style=display:flex><span>警告: Not all of the space available to /dev/sda appears to be used, you can fix the GPT to use all of the space <span style=color:#f92672>(</span>an extra <span style=color:#ae81ff>20971520</span> blocks<span style=color:#f92672>)</span> or <span style=color:#66d9ef>continue</span> with the current
-</span></span><span style=display:flex><span>setting? 
-</span></span><span style=display:flex><span>修正/Fix/忽略/Ignore? fix                                                 
-</span></span><span style=display:flex><span>Model: Msft Virtual Disk <span style=color:#f92672>(</span>scsi<span style=color:#f92672>)</span>
-</span></span><span style=display:flex><span>Disk /dev/sda: 21.5GB
-</span></span><span style=display:flex><span>Sector size <span style=color:#f92672>(</span>logical/physical<span style=color:#f92672>)</span>: 512B/4096B
-</span></span><span style=display:flex><span>Partition Table: gpt
-</span></span><span style=display:flex><span>Disk Flags: 
-</span></span><span style=display:flex><span>
-</span></span><span style=display:flex><span>Number  Start   End     Size    File system  Name                  标志
-</span></span><span style=display:flex><span> <span style=color:#ae81ff>1</span>      1049kB  211MB   210MB   fat16        EFI System Partition  启动
-</span></span><span style=display:flex><span> <span style=color:#ae81ff>2</span>      211MB   1285MB  1074MB  xfs
-</span></span><span style=display:flex><span> <span style=color:#ae81ff>3</span>      1285MB  10.7GB  9452MB                                     lvm
-</span></span><span style=display:flex><span>
-</span></span><span style=display:flex><span><span style=color:#f92672>(</span>parted<span style=color:#f92672>)</span> p                                                                
-</span></span><span style=display:flex><span>Model: Msft Virtual Disk <span style=color:#f92672>(</span>scsi<span style=color:#f92672>)</span>
-</span></span><span style=display:flex><span>Disk /dev/sda: 21.5GB
-</span></span><span style=display:flex><span>Sector size <span style=color:#f92672>(</span>logical/physical<span style=color:#f92672>)</span>: 512B/4096B
-</span></span><span style=display:flex><span>Partition Table: gpt
-</span></span><span style=display:flex><span>Disk Flags: 
-</span></span><span style=display:flex><span>
-</span></span><span style=display:flex><span>Number  Start   End     Size    File system  Name                  标志
-</span></span><span style=display:flex><span> <span style=color:#ae81ff>1</span>      1049kB  211MB   210MB   fat16        EFI System Partition  启动
-</span></span><span style=display:flex><span> <span style=color:#ae81ff>2</span>      211MB   1285MB  1074MB  xfs
-</span></span><span style=display:flex><span> <span style=color:#ae81ff>3</span>      1285MB  10.7GB  9452MB                                     lvm
-</span></span><span style=display:flex><span>
-</span></span><span style=display:flex><span><span style=color:#f92672>(</span>parted<span style=color:#f92672>)</span> quit                                                             
-</span></span></code></pre></div><h4 id=再次建立新分区>再次建立新分区</h4><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash><span style=display:flex><span>$ fdisk /dev/sda
-</span></span><span style=display:flex><span>WARNING: fdisk GPT support is currently new, and therefore in an experimental phase. Use at your own discretion.
-</span></span><span style=display:flex><span>欢迎使用 fdisk <span style=color:#f92672>(</span>util-linux 2.23.2<span style=color:#f92672>)</span>。
-</span></span><span style=display:flex><span>
-</span></span><span style=display:flex><span>更改将停留在内存中，直到您决定将更改写入磁盘。
-</span></span><span style=display:flex><span>使用写入命令前请三思。
-</span></span><span style=display:flex><span>
-</span></span><span style=display:flex><span>
-</span></span><span style=display:flex><span>命令<span style=color:#f92672>(</span>输入 m 获取帮助<span style=color:#f92672>)</span>：n
-</span></span><span style=display:flex><span>分区号 <span style=color:#f92672>(</span>4-128，默认 4<span style=color:#f92672>)</span>：
-</span></span><span style=display:flex><span>第一个扇区 <span style=color:#f92672>(</span>34-41943006，默认 20969472<span style=color:#f92672>)</span>：
-</span></span><span style=display:flex><span>Last sector, +sectors or +size<span style=color:#f92672>{</span>K,M,G,T,P<span style=color:#f92672>}</span> <span style=color:#f92672>(</span>20969472-41943006，默认 41943006<span style=color:#f92672>)</span>：+10G
-</span></span><span style=display:flex><span>已创建分区 <span style=color:#ae81ff>4</span>
-</span></span><span style=display:flex><span>
-</span></span><span style=display:flex><span>
-</span></span><span style=display:flex><span>命令<span style=color:#f92672>(</span>输入 m 获取帮助<span style=color:#f92672>)</span>：w
-</span></span><span style=display:flex><span>The partition table has been altered!
-</span></span><span style=display:flex><span>
-</span></span><span style=display:flex><span>Calling ioctl<span style=color:#f92672>()</span> to re-read partition table.
-</span></span><span style=display:flex><span>
-</span></span><span style=display:flex><span>WARNING: Re-reading the partition table failed with error 16: 设备或资源忙.
-</span></span><span style=display:flex><span>The kernel still uses the old table. The new table will be used at
-</span></span><span style=display:flex><span>the next reboot or after you run partprobe<span style=color:#f92672>(</span>8<span style=color:#f92672>)</span> or kpartx<span style=color:#f92672>(</span>8<span style=color:#f92672>)</span>
-</span></span><span style=display:flex><span>正在同步磁盘。
-</span></span></code></pre></div><h3 id=23-重读分区表>2.3 重读分区表</h3><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash><span style=display:flex><span>$ partprobe
-</span></span></code></pre></div><p>重读分区表，正常不会有任何输出</p><h4 id=再次查看分区表可以看到-sda4-分区已经创建好了>再次查看分区表，可以看到 sda4 分区已经创建好了</h4><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash><span style=display:flex><span>$ lsblk
-</span></span><span style=display:flex><span>NAME            MAJ:MIN RM  SIZE RO TYPE MOUNTPOINT
-</span></span><span style=display:flex><span>sda               8:0    <span style=color:#ae81ff>0</span>   20G  <span style=color:#ae81ff>0</span> disk 
-</span></span><span style=display:flex><span>├─sda1            8:1    <span style=color:#ae81ff>0</span>  200M  <span style=color:#ae81ff>0</span> part /boot/efi
-</span></span><span style=display:flex><span>├─sda2            8:2    <span style=color:#ae81ff>0</span>    1G  <span style=color:#ae81ff>0</span> part /boot
-</span></span><span style=display:flex><span>├─sda3            8:3    <span style=color:#ae81ff>0</span>  8.8G  <span style=color:#ae81ff>0</span> part 
-</span></span><span style=display:flex><span>│ ├─centos-root 253:0    <span style=color:#ae81ff>0</span>  7.8G  <span style=color:#ae81ff>0</span> lvm  /
-</span></span><span style=display:flex><span>│ └─centos-swap 253:1    <span style=color:#ae81ff>0</span>    1G  <span style=color:#ae81ff>0</span> lvm  <span style=color:#f92672>[</span>SWAP<span style=color:#f92672>]</span>
-</span></span><span style=display:flex><span>└─sda4            8:4    <span style=color:#ae81ff>0</span>   10G  <span style=color:#ae81ff>0</span> part 
-</span></span></code></pre></div><h3 id=24-将-sda4-分区加入-centos-root-分区>2.4 将 sda4 分区加入 centos-root 分区</h3><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash><span style=display:flex><span>$ lvm
-</span></span><span style=display:flex><span>lvm&gt; pvcreate /dev/sda4
-</span></span><span style=display:flex><span>  Physical volume <span style=color:#e6db74>&#34;/dev/sda4&#34;</span> successfully created.
-</span></span><span style=display:flex><span>lvm&gt; pvdisplay
-</span></span><span style=display:flex><span>  --- Physical volume ---
-</span></span><span style=display:flex><span>  PV Name               /dev/sda3
-</span></span><span style=display:flex><span>  VG Name               centos
-</span></span><span style=display:flex><span>  PV Size               8.80 GiB / not usable 2.00 MiB
-</span></span><span style=display:flex><span>  Allocatable           yes <span style=color:#f92672>(</span>but full<span style=color:#f92672>)</span>
-</span></span><span style=display:flex><span>  PE Size               4.00 MiB
-</span></span><span style=display:flex><span>  Total PE              <span style=color:#ae81ff>2253</span>
-</span></span><span style=display:flex><span>  Free PE               <span style=color:#ae81ff>0</span>
-</span></span><span style=display:flex><span>  Allocated PE          <span style=color:#ae81ff>2253</span>
-</span></span><span style=display:flex><span>  PV UUID               D5K7Ds-a0I8-67Kt-LE1J-HKi7-aaKX-CLaJTg
-</span></span><span style=display:flex><span>   
-</span></span><span style=display:flex><span>  <span style=color:#e6db74>&#34;/dev/sda4&#34;</span> is a new physical volume of <span style=color:#e6db74>&#34;10.00 GiB&#34;</span>
-</span></span><span style=display:flex><span>  --- NEW Physical volume ---
-</span></span><span style=display:flex><span>  PV Name               /dev/sda4
-</span></span><span style=display:flex><span>  VG Name               
-</span></span><span style=display:flex><span>  PV Size               10.00 GiB
-</span></span><span style=display:flex><span>  Allocatable           NO
-</span></span><span style=display:flex><span>  PE Size               <span style=color:#ae81ff>0</span>   
-</span></span><span style=display:flex><span>  Total PE              <span style=color:#ae81ff>0</span>
-</span></span><span style=display:flex><span>  Free PE               <span style=color:#ae81ff>0</span>
-</span></span><span style=display:flex><span>  Allocated PE          <span style=color:#ae81ff>0</span>
-</span></span><span style=display:flex><span>  PV UUID               digjnH-8XFC-kMQT-nOEL-y9FJ-ImaB-t8FB7d
-</span></span><span style=display:flex><span>   
-</span></span><span style=display:flex><span>lvm&gt; vgdisplay
-</span></span><span style=display:flex><span>  --- Volume group ---
-</span></span><span style=display:flex><span>  VG Name               centos
-</span></span><span style=display:flex><span>  System ID             
-</span></span><span style=display:flex><span>  Format                lvm2
-</span></span><span style=display:flex><span>  Metadata Areas        <span style=color:#ae81ff>1</span>
-</span></span><span style=display:flex><span>  Metadata Sequence No  <span style=color:#ae81ff>3</span>
-</span></span><span style=display:flex><span>  VG Access             read/write
-</span></span><span style=display:flex><span>  VG Status             resizable
-</span></span><span style=display:flex><span>  MAX LV                <span style=color:#ae81ff>0</span>
-</span></span><span style=display:flex><span>  Cur LV                <span style=color:#ae81ff>2</span>
-</span></span><span style=display:flex><span>  Open LV               <span style=color:#ae81ff>2</span>
-</span></span><span style=display:flex><span>  Max PV                <span style=color:#ae81ff>0</span>
-</span></span><span style=display:flex><span>  Cur PV                <span style=color:#ae81ff>1</span>
-</span></span><span style=display:flex><span>  Act PV                <span style=color:#ae81ff>1</span>
-</span></span><span style=display:flex><span>  VG Size               8.80 GiB
-</span></span><span style=display:flex><span>  PE Size               4.00 MiB
-</span></span><span style=display:flex><span>  Total PE              <span style=color:#ae81ff>2253</span>
-</span></span><span style=display:flex><span>  Alloc PE / Size       <span style=color:#ae81ff>2253</span> / 8.80 GiB
-</span></span><span style=display:flex><span>  Free  PE / Size       <span style=color:#ae81ff>0</span> / <span style=color:#ae81ff>0</span>   
-</span></span><span style=display:flex><span>  VG UUID               f77tkP-7xzc-qcyf-t0JN-OYOQ-ZfLL-PJPD8w
-</span></span><span style=display:flex><span>   
-</span></span><span style=display:flex><span>lvm&gt; vgextend centos /dev/sda4
-</span></span><span style=display:flex><span>  Volume group <span style=color:#e6db74>&#34;centos&#34;</span> successfully extended
-</span></span><span style=display:flex><span>lvm&gt; vgdisplay
-</span></span><span style=display:flex><span>  --- Volume group ---
-</span></span><span style=display:flex><span>  VG Name               centos
-</span></span><span style=display:flex><span>  System ID             
-</span></span><span style=display:flex><span>  Format                lvm2
-</span></span><span style=display:flex><span>  Metadata Areas        <span style=color:#ae81ff>2</span>
-</span></span><span style=display:flex><span>  Metadata Sequence No  <span style=color:#ae81ff>4</span>
-</span></span><span style=display:flex><span>  VG Access             read/write
-</span></span><span style=display:flex><span>  VG Status             resizable
-</span></span><span style=display:flex><span>  MAX LV                <span style=color:#ae81ff>0</span>
-</span></span><span style=display:flex><span>  Cur LV                <span style=color:#ae81ff>2</span>
-</span></span><span style=display:flex><span>  Open LV               <span style=color:#ae81ff>2</span>
-</span></span><span style=display:flex><span>  Max PV                <span style=color:#ae81ff>0</span>
-</span></span><span style=display:flex><span>  Cur PV                <span style=color:#ae81ff>2</span>
-</span></span><span style=display:flex><span>  Act PV                <span style=color:#ae81ff>2</span>
-</span></span><span style=display:flex><span>  VG Size               &lt;18.80 GiB
-</span></span><span style=display:flex><span>  PE Size               4.00 MiB
-</span></span><span style=display:flex><span>  Total PE              <span style=color:#ae81ff>4812</span>
-</span></span><span style=display:flex><span>  Alloc PE / Size       <span style=color:#ae81ff>2253</span> / 8.80 GiB
-</span></span><span style=display:flex><span>  Free  PE / Size       <span style=color:#ae81ff>2559</span> / &lt;10.00 GiB
-</span></span><span style=display:flex><span>  VG UUID               f77tkP-7xzc-qcyf-t0JN-OYOQ-ZfLL-PJPD8w
-</span></span><span style=display:flex><span>   
-</span></span><span style=display:flex><span>lvm&gt; lvextend -l +100%FREE /dev/centos/root
-</span></span><span style=display:flex><span>  Size of logical volume centos/root changed from 7.80 GiB <span style=color:#f92672>(</span><span style=color:#ae81ff>1997</span> extents<span style=color:#f92672>)</span> to &lt;17.80 GiB <span style=color:#f92672>(</span><span style=color:#ae81ff>4556</span> extents<span style=color:#f92672>)</span>.
-</span></span><span style=display:flex><span>  Logical volume centos/root successfully resized.
-</span></span><span style=display:flex><span>lvm&gt; exit
-</span></span><span style=display:flex><span>  Exiting.
-</span></span><span style=display:flex><span>
-</span></span><span style=display:flex><span>$ xfs_growfs /dev/centos/root
-</span></span><span style=display:flex><span>meta-data<span style=color:#f92672>=</span>/dev/mapper/centos-root isize<span style=color:#f92672>=</span><span style=color:#ae81ff>512</span>    agcount<span style=color:#f92672>=</span>4, agsize<span style=color:#f92672>=</span><span style=color:#ae81ff>511232</span> blks
-</span></span><span style=display:flex><span>         <span style=color:#f92672>=</span>                       sectsz<span style=color:#f92672>=</span><span style=color:#ae81ff>4096</span>  attr<span style=color:#f92672>=</span>2, projid32bit<span style=color:#f92672>=</span>1
-</span></span><span style=display:flex><span>         <span style=color:#f92672>=</span>                       crc<span style=color:#f92672>=</span><span style=color:#ae81ff>1</span>        finobt<span style=color:#f92672>=</span><span style=color:#ae81ff>0</span> spinodes<span style=color:#f92672>=</span><span style=color:#ae81ff>0</span>
-</span></span><span style=display:flex><span>data     <span style=color:#f92672>=</span>                       bsize<span style=color:#f92672>=</span><span style=color:#ae81ff>4096</span>   blocks<span style=color:#f92672>=</span>2044928, imaxpct<span style=color:#f92672>=</span>25
-</span></span><span style=display:flex><span>         <span style=color:#f92672>=</span>                       sunit<span style=color:#f92672>=</span><span style=color:#ae81ff>0</span>      swidth<span style=color:#f92672>=</span><span style=color:#ae81ff>0</span> blks
-</span></span><span style=display:flex><span>naming   <span style=color:#f92672>=</span>version <span style=color:#ae81ff>2</span>              bsize<span style=color:#f92672>=</span><span style=color:#ae81ff>4096</span>   ascii-ci<span style=color:#f92672>=</span><span style=color:#ae81ff>0</span> ftype<span style=color:#f92672>=</span><span style=color:#ae81ff>1</span>
-</span></span><span style=display:flex><span>log      <span style=color:#f92672>=</span>internal               bsize<span style=color:#f92672>=</span><span style=color:#ae81ff>4096</span>   blocks<span style=color:#f92672>=</span>2560, version<span style=color:#f92672>=</span>2
-</span></span><span style=display:flex><span>         <span style=color:#f92672>=</span>                       sectsz<span style=color:#f92672>=</span><span style=color:#ae81ff>4096</span>  sunit<span style=color:#f92672>=</span><span style=color:#ae81ff>1</span> blks, lazy-count<span style=color:#f92672>=</span><span style=color:#ae81ff>1</span>
-</span></span><span style=display:flex><span>realtime <span style=color:#f92672>=</span>none                   extsz<span style=color:#f92672>=</span><span style=color:#ae81ff>4096</span>   blocks<span style=color:#f92672>=</span>0, rtextents<span style=color:#f92672>=</span><span style=color:#ae81ff>0</span>
-</span></span><span style=display:flex><span>data blocks changed from <span style=color:#ae81ff>2044928</span> to <span style=color:#ae81ff>4665344</span>
-</span></span></code></pre></div><h4 id=再次查看磁盘容量与分区表centos-root分区空间已经扩容为178g>再次查看磁盘容量与分区表，centos-root分区空间已经扩容为17.8G</h4><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash><span style=display:flex><span>$ df -h
-</span></span><span style=display:flex><span>文件系统                 容量  已用  可用 已用% 挂载点
-</span></span><span style=display:flex><span>devtmpfs                 876M     <span style=color:#ae81ff>0</span>  876M    0% /dev
-</span></span><span style=display:flex><span>tmpfs                    887M     <span style=color:#ae81ff>0</span>  887M    0% /dev/shm
-</span></span><span style=display:flex><span>tmpfs                    887M  8.4M  879M    1% /run
-</span></span><span style=display:flex><span>tmpfs                    887M     <span style=color:#ae81ff>0</span>  887M    0% /sys/fs/cgroup
-</span></span><span style=display:flex><span>/dev/mapper/centos-root   18G  7.3G   11G   41% /
-</span></span><span style=display:flex><span>/dev/sda2               1014M  215M  800M   22% /boot
-</span></span><span style=display:flex><span>/dev/sda1                200M   12M  189M    6% /boot/efi
-</span></span><span style=display:flex><span>tmpfs                    178M     <span style=color:#ae81ff>0</span>  178M    0% /run/user/0
-</span></span><span style=display:flex><span>
-</span></span><span style=display:flex><span>$ lsblk
-</span></span><span style=display:flex><span>NAME            MAJ:MIN RM  SIZE RO TYPE MOUNTPOINT
-</span></span><span style=display:flex><span>sda               8:0    <span style=color:#ae81ff>0</span>   20G  <span style=color:#ae81ff>0</span> disk 
-</span></span><span style=display:flex><span>├─sda1            8:1    <span style=color:#ae81ff>0</span>  200M  <span style=color:#ae81ff>0</span> part /boot/efi
-</span></span><span style=display:flex><span>├─sda2            8:2    <span style=color:#ae81ff>0</span>    1G  <span style=color:#ae81ff>0</span> part /boot
-</span></span><span style=display:flex><span>├─sda3            8:3    <span style=color:#ae81ff>0</span>  8.8G  <span style=color:#ae81ff>0</span> part 
-</span></span><span style=display:flex><span>│ ├─centos-root 253:0    <span style=color:#ae81ff>0</span> 17.8G  <span style=color:#ae81ff>0</span> lvm  /
-</span></span><span style=display:flex><span>│ └─centos-swap 253:1    <span style=color:#ae81ff>0</span>    1G  <span style=color:#ae81ff>0</span> lvm  <span style=color:#f92672>[</span>SWAP<span style=color:#f92672>]</span>
-</span></span><span style=display:flex><span>└─sda4            8:4    <span style=color:#ae81ff>0</span>   10G  <span style=color:#ae81ff>0</span> part 
-</span></span><span style=display:flex><span>  └─centos-root 253:0    <span style=color:#ae81ff>0</span> 17.8G  <span style=color:#ae81ff>0</span> lvm  /
+总体两分二步：</p><h2 id=1-vhdx扩容>1. vhdx扩容</h2><p>关闭虚拟机，然后给磁盘扩容，操作方便网上教程多，这里不再赘述。</p><h2 id=2-centos扩容>2. CentOS扩容</h2><h3 id=21-查看分区表>2.1 查看分区表</h3><div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl>$ lsblk
+</span></span><span class=line><span class=cl>NAME            MAJ:MIN RM  SIZE RO TYPE MOUNTPOINT
+</span></span><span class=line><span class=cl>sda               8:0    <span class=m>0</span>   20G  <span class=m>0</span> disk 
+</span></span><span class=line><span class=cl>├─sda1            8:1    <span class=m>0</span>  200M  <span class=m>0</span> part /boot/efi
+</span></span><span class=line><span class=cl>├─sda2            8:2    <span class=m>0</span>    1G  <span class=m>0</span> part /boot
+</span></span><span class=line><span class=cl>└─sda3            8:3    <span class=m>0</span>  8.8G  <span class=m>0</span> part 
+</span></span><span class=line><span class=cl>  ├─centos-root 253:0    <span class=m>0</span>  7.8G  <span class=m>0</span> lvm  /
+</span></span><span class=line><span class=cl>  └─centos-swap 253:1    <span class=m>0</span>    1G  <span class=m>0</span> lvm  <span class=o>[</span>SWAP<span class=o>]</span>
+</span></span></code></pre></div><p>以上内容可以看出，sda已经扩容到20G，但sda1+sda2+sda3只有10G说明vhdx扩容成功。</p><h3 id=22-建立新分区>2.2 建立新分区</h3><div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl>$ fdisk /dev/sda
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>The device presents a logical sector size that is smaller than
+</span></span><span class=line><span class=cl>the physical sector size. Aligning to a physical sector <span class=o>(</span>or optimal
+</span></span><span class=line><span class=cl>I/O<span class=o>)</span> size boundary is recommended, or performance may be impacted.
+</span></span><span class=line><span class=cl>欢迎使用 fdisk <span class=o>(</span>util-linux 2.23.2<span class=o>)</span>。
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>更改将停留在内存中，直到您决定将更改写入磁盘。
+</span></span><span class=line><span class=cl>使用写入命令前请三思。
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>命令<span class=o>(</span>输入 m 获取帮助<span class=o>)</span>：n
+</span></span><span class=line><span class=cl>Partition type:
+</span></span><span class=line><span class=cl>   p   primary <span class=o>(</span><span class=m>1</span> primary, <span class=m>0</span> extended, <span class=m>3</span> free<span class=o>)</span>
+</span></span><span class=line><span class=cl>   e   extended
+</span></span><span class=line><span class=cl>Select <span class=o>(</span>default p<span class=o>)</span>: 
+</span></span><span class=line><span class=cl>Using default response p
+</span></span><span class=line><span class=cl>分区号 <span class=o>(</span>2-4，默认 2<span class=o>)</span>：
+</span></span><span class=line><span class=cl>起始 扇区 <span class=o>(</span>20971520-41943039，默认为 20971520<span class=o>)</span>：
+</span></span><span class=line><span class=cl>将使用默认值 <span class=m>20971520</span>
+</span></span><span class=line><span class=cl>Last 扇区, +扇区 or +size<span class=o>{</span>K,M,G<span class=o>}</span> <span class=o>(</span>20971520-41943039，默认为 41943039<span class=o>)</span>：+10G
+</span></span><span class=line><span class=cl>值超出范围。
+</span></span><span class=line><span class=cl>Last 扇区, +扇区 or +size<span class=o>{</span>K,M,G<span class=o>}</span> <span class=o>(</span>20971520-41943039，默认为 41943039<span class=o>)</span>：+9.9G
+</span></span><span class=line><span class=cl>不支持的后缀：“.9G”。
+</span></span><span class=line><span class=cl>支持：10^N: KB <span class=o>(</span>千字节<span class=o>)</span>, MB <span class=o>(</span>兆字节<span class=o>)</span>, GB <span class=o>(</span>吉字节<span class=o>)</span>
+</span></span><span class=line><span class=cl>            2^N: K  <span class=o>(</span>约千字节<span class=o>)</span>, M  <span class=o>(</span>约兆字节<span class=o>)</span>, G  <span class=o>(</span>约吉字节<span class=o>)</span>
+</span></span><span class=line><span class=cl>Last 扇区, +扇区 or +size<span class=o>{</span>K,M,G<span class=o>}</span> <span class=o>(</span>20971520-41943039，默认为 41943039<span class=o>)</span>：+9G 
+</span></span><span class=line><span class=cl>分区 <span class=m>2</span> 已设置为 Linux 类型，大小设为 <span class=m>9</span> GiB
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>命令<span class=o>(</span>输入 m 获取帮助<span class=o>)</span>：w
+</span></span><span class=line><span class=cl>The partition table has been altered!
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>Calling ioctl<span class=o>()</span> to re-read partition table.
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>WARNING: Re-reading the partition table failed with error 16: 设备或资源忙.
+</span></span><span class=line><span class=cl>The kernel still uses the old table. The new table will be used at
+</span></span><span class=line><span class=cl>the next reboot or after you run partprobe<span class=o>(</span>8<span class=o>)</span> or kpartx<span class=o>(</span>8<span class=o>)</span>
+</span></span><span class=line><span class=cl>正在同步磁盘。
+</span></span></code></pre></div><h4 id=重读分区表时发生错误>重读分区表时，发生错误</h4><div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl>$ partprobe
+</span></span><span class=line><span class=cl>Error: 备份 GPT 表不像应该的那样出现在磁盘的末尾。这可能意味这其它操作系统相信磁盘小一些。通过将备份移动到末尾 <span class=o>(</span>并删除旧备份<span class=o>)</span> 来修正？
+</span></span><span class=line><span class=cl>Warning: Not all of the space available to /dev/sda appears to be used, you can fix the GPT to use all of the space <span class=o>(</span>an extra <span class=m>20971520</span> blocks<span class=o>)</span> or <span class=k>continue</span> with the current setting? 
+</span></span></code></pre></div><h4 id=查看分区表时发现新分区未创建成功>查看分区表时，发现新分区未创建成功</h4><div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl>$ lsblk
+</span></span><span class=line><span class=cl>NAME            MAJ:MIN RM  SIZE RO TYPE MOUNTPOINT
+</span></span><span class=line><span class=cl>sda               8:0    <span class=m>0</span>   20G  <span class=m>0</span> disk 
+</span></span><span class=line><span class=cl>├─sda1            8:1    <span class=m>0</span>  200M  <span class=m>0</span> part /boot/efi
+</span></span><span class=line><span class=cl>├─sda2            8:2    <span class=m>0</span>    1G  <span class=m>0</span> part /boot
+</span></span><span class=line><span class=cl>└─sda3            8:3    <span class=m>0</span>  8.8G  <span class=m>0</span> part 
+</span></span><span class=line><span class=cl>  ├─centos-root 253:0    <span class=m>0</span>  7.8G  <span class=m>0</span> lvm  /
+</span></span><span class=line><span class=cl>  └─centos-swap 253:1    <span class=m>0</span>    1G  <span class=m>0</span> lvm  <span class=o>[</span>SWAP<span class=o>]</span>
+</span></span></code></pre></div><h4 id=使用-parted-修复分区表>使用 parted 修复分区表</h4><div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl>$ parted /dev/sda
+</span></span><span class=line><span class=cl>GNU Parted 3.1
+</span></span><span class=line><span class=cl>使用 /dev/sda
+</span></span><span class=line><span class=cl>Welcome to GNU Parted! Type <span class=s1>&#39;help&#39;</span> to view a list of commands.
+</span></span><span class=line><span class=cl><span class=o>(</span>parted<span class=o>)</span> p                                                                
+</span></span><span class=line><span class=cl>错误: 备份 GPT 表不像应该的那样出现在磁盘的末尾。这可能意味这其它操作系统相信磁盘小一些。通过将备份移动到末尾 <span class=o>(</span>并删除旧备份<span class=o>)</span> 来修正？
+</span></span><span class=line><span class=cl>修正/Fix/忽略/Ignore/放弃/Cancel? fix                                     
+</span></span><span class=line><span class=cl>警告: Not all of the space available to /dev/sda appears to be used, you can fix the GPT to use all of the space <span class=o>(</span>an extra <span class=m>20971520</span> blocks<span class=o>)</span> or <span class=k>continue</span> with the current
+</span></span><span class=line><span class=cl>setting? 
+</span></span><span class=line><span class=cl>修正/Fix/忽略/Ignore? fix                                                 
+</span></span><span class=line><span class=cl>Model: Msft Virtual Disk <span class=o>(</span>scsi<span class=o>)</span>
+</span></span><span class=line><span class=cl>Disk /dev/sda: 21.5GB
+</span></span><span class=line><span class=cl>Sector size <span class=o>(</span>logical/physical<span class=o>)</span>: 512B/4096B
+</span></span><span class=line><span class=cl>Partition Table: gpt
+</span></span><span class=line><span class=cl>Disk Flags: 
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>Number  Start   End     Size    File system  Name                  标志
+</span></span><span class=line><span class=cl> <span class=m>1</span>      1049kB  211MB   210MB   fat16        EFI System Partition  启动
+</span></span><span class=line><span class=cl> <span class=m>2</span>      211MB   1285MB  1074MB  xfs
+</span></span><span class=line><span class=cl> <span class=m>3</span>      1285MB  10.7GB  9452MB                                     lvm
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=o>(</span>parted<span class=o>)</span> p                                                                
+</span></span><span class=line><span class=cl>Model: Msft Virtual Disk <span class=o>(</span>scsi<span class=o>)</span>
+</span></span><span class=line><span class=cl>Disk /dev/sda: 21.5GB
+</span></span><span class=line><span class=cl>Sector size <span class=o>(</span>logical/physical<span class=o>)</span>: 512B/4096B
+</span></span><span class=line><span class=cl>Partition Table: gpt
+</span></span><span class=line><span class=cl>Disk Flags: 
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>Number  Start   End     Size    File system  Name                  标志
+</span></span><span class=line><span class=cl> <span class=m>1</span>      1049kB  211MB   210MB   fat16        EFI System Partition  启动
+</span></span><span class=line><span class=cl> <span class=m>2</span>      211MB   1285MB  1074MB  xfs
+</span></span><span class=line><span class=cl> <span class=m>3</span>      1285MB  10.7GB  9452MB                                     lvm
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=o>(</span>parted<span class=o>)</span> quit                                                             
+</span></span></code></pre></div><h4 id=再次建立新分区>再次建立新分区</h4><div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl>$ fdisk /dev/sda
+</span></span><span class=line><span class=cl>WARNING: fdisk GPT support is currently new, and therefore in an experimental phase. Use at your own discretion.
+</span></span><span class=line><span class=cl>欢迎使用 fdisk <span class=o>(</span>util-linux 2.23.2<span class=o>)</span>。
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>更改将停留在内存中，直到您决定将更改写入磁盘。
+</span></span><span class=line><span class=cl>使用写入命令前请三思。
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>命令<span class=o>(</span>输入 m 获取帮助<span class=o>)</span>：n
+</span></span><span class=line><span class=cl>分区号 <span class=o>(</span>4-128，默认 4<span class=o>)</span>：
+</span></span><span class=line><span class=cl>第一个扇区 <span class=o>(</span>34-41943006，默认 20969472<span class=o>)</span>：
+</span></span><span class=line><span class=cl>Last sector, +sectors or +size<span class=o>{</span>K,M,G,T,P<span class=o>}</span> <span class=o>(</span>20969472-41943006，默认 41943006<span class=o>)</span>：+10G
+</span></span><span class=line><span class=cl>已创建分区 <span class=m>4</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>命令<span class=o>(</span>输入 m 获取帮助<span class=o>)</span>：w
+</span></span><span class=line><span class=cl>The partition table has been altered!
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>Calling ioctl<span class=o>()</span> to re-read partition table.
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>WARNING: Re-reading the partition table failed with error 16: 设备或资源忙.
+</span></span><span class=line><span class=cl>The kernel still uses the old table. The new table will be used at
+</span></span><span class=line><span class=cl>the next reboot or after you run partprobe<span class=o>(</span>8<span class=o>)</span> or kpartx<span class=o>(</span>8<span class=o>)</span>
+</span></span><span class=line><span class=cl>正在同步磁盘。
+</span></span></code></pre></div><h3 id=23-重读分区表>2.3 重读分区表</h3><div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl>$ partprobe
+</span></span></code></pre></div><p>重读分区表，正常不会有任何输出</p><h4 id=再次查看分区表可以看到-sda4-分区已经创建好了>再次查看分区表，可以看到 sda4 分区已经创建好了</h4><div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl>$ lsblk
+</span></span><span class=line><span class=cl>NAME            MAJ:MIN RM  SIZE RO TYPE MOUNTPOINT
+</span></span><span class=line><span class=cl>sda               8:0    <span class=m>0</span>   20G  <span class=m>0</span> disk 
+</span></span><span class=line><span class=cl>├─sda1            8:1    <span class=m>0</span>  200M  <span class=m>0</span> part /boot/efi
+</span></span><span class=line><span class=cl>├─sda2            8:2    <span class=m>0</span>    1G  <span class=m>0</span> part /boot
+</span></span><span class=line><span class=cl>├─sda3            8:3    <span class=m>0</span>  8.8G  <span class=m>0</span> part 
+</span></span><span class=line><span class=cl>│ ├─centos-root 253:0    <span class=m>0</span>  7.8G  <span class=m>0</span> lvm  /
+</span></span><span class=line><span class=cl>│ └─centos-swap 253:1    <span class=m>0</span>    1G  <span class=m>0</span> lvm  <span class=o>[</span>SWAP<span class=o>]</span>
+</span></span><span class=line><span class=cl>└─sda4            8:4    <span class=m>0</span>   10G  <span class=m>0</span> part 
+</span></span></code></pre></div><h3 id=24-将-sda4-分区加入-centos-root-分区>2.4 将 sda4 分区加入 centos-root 分区</h3><div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl>$ lvm
+</span></span><span class=line><span class=cl>lvm&gt; pvcreate /dev/sda4
+</span></span><span class=line><span class=cl>  Physical volume <span class=s2>&#34;/dev/sda4&#34;</span> successfully created.
+</span></span><span class=line><span class=cl>lvm&gt; pvdisplay
+</span></span><span class=line><span class=cl>  --- Physical volume ---
+</span></span><span class=line><span class=cl>  PV Name               /dev/sda3
+</span></span><span class=line><span class=cl>  VG Name               centos
+</span></span><span class=line><span class=cl>  PV Size               8.80 GiB / not usable 2.00 MiB
+</span></span><span class=line><span class=cl>  Allocatable           yes <span class=o>(</span>but full<span class=o>)</span>
+</span></span><span class=line><span class=cl>  PE Size               4.00 MiB
+</span></span><span class=line><span class=cl>  Total PE              <span class=m>2253</span>
+</span></span><span class=line><span class=cl>  Free PE               <span class=m>0</span>
+</span></span><span class=line><span class=cl>  Allocated PE          <span class=m>2253</span>
+</span></span><span class=line><span class=cl>  PV UUID               D5K7Ds-a0I8-67Kt-LE1J-HKi7-aaKX-CLaJTg
+</span></span><span class=line><span class=cl>   
+</span></span><span class=line><span class=cl>  <span class=s2>&#34;/dev/sda4&#34;</span> is a new physical volume of <span class=s2>&#34;10.00 GiB&#34;</span>
+</span></span><span class=line><span class=cl>  --- NEW Physical volume ---
+</span></span><span class=line><span class=cl>  PV Name               /dev/sda4
+</span></span><span class=line><span class=cl>  VG Name               
+</span></span><span class=line><span class=cl>  PV Size               10.00 GiB
+</span></span><span class=line><span class=cl>  Allocatable           NO
+</span></span><span class=line><span class=cl>  PE Size               <span class=m>0</span>   
+</span></span><span class=line><span class=cl>  Total PE              <span class=m>0</span>
+</span></span><span class=line><span class=cl>  Free PE               <span class=m>0</span>
+</span></span><span class=line><span class=cl>  Allocated PE          <span class=m>0</span>
+</span></span><span class=line><span class=cl>  PV UUID               digjnH-8XFC-kMQT-nOEL-y9FJ-ImaB-t8FB7d
+</span></span><span class=line><span class=cl>   
+</span></span><span class=line><span class=cl>lvm&gt; vgdisplay
+</span></span><span class=line><span class=cl>  --- Volume group ---
+</span></span><span class=line><span class=cl>  VG Name               centos
+</span></span><span class=line><span class=cl>  System ID             
+</span></span><span class=line><span class=cl>  Format                lvm2
+</span></span><span class=line><span class=cl>  Metadata Areas        <span class=m>1</span>
+</span></span><span class=line><span class=cl>  Metadata Sequence No  <span class=m>3</span>
+</span></span><span class=line><span class=cl>  VG Access             read/write
+</span></span><span class=line><span class=cl>  VG Status             resizable
+</span></span><span class=line><span class=cl>  MAX LV                <span class=m>0</span>
+</span></span><span class=line><span class=cl>  Cur LV                <span class=m>2</span>
+</span></span><span class=line><span class=cl>  Open LV               <span class=m>2</span>
+</span></span><span class=line><span class=cl>  Max PV                <span class=m>0</span>
+</span></span><span class=line><span class=cl>  Cur PV                <span class=m>1</span>
+</span></span><span class=line><span class=cl>  Act PV                <span class=m>1</span>
+</span></span><span class=line><span class=cl>  VG Size               8.80 GiB
+</span></span><span class=line><span class=cl>  PE Size               4.00 MiB
+</span></span><span class=line><span class=cl>  Total PE              <span class=m>2253</span>
+</span></span><span class=line><span class=cl>  Alloc PE / Size       <span class=m>2253</span> / 8.80 GiB
+</span></span><span class=line><span class=cl>  Free  PE / Size       <span class=m>0</span> / <span class=m>0</span>   
+</span></span><span class=line><span class=cl>  VG UUID               f77tkP-7xzc-qcyf-t0JN-OYOQ-ZfLL-PJPD8w
+</span></span><span class=line><span class=cl>   
+</span></span><span class=line><span class=cl>lvm&gt; vgextend centos /dev/sda4
+</span></span><span class=line><span class=cl>  Volume group <span class=s2>&#34;centos&#34;</span> successfully extended
+</span></span><span class=line><span class=cl>lvm&gt; vgdisplay
+</span></span><span class=line><span class=cl>  --- Volume group ---
+</span></span><span class=line><span class=cl>  VG Name               centos
+</span></span><span class=line><span class=cl>  System ID             
+</span></span><span class=line><span class=cl>  Format                lvm2
+</span></span><span class=line><span class=cl>  Metadata Areas        <span class=m>2</span>
+</span></span><span class=line><span class=cl>  Metadata Sequence No  <span class=m>4</span>
+</span></span><span class=line><span class=cl>  VG Access             read/write
+</span></span><span class=line><span class=cl>  VG Status             resizable
+</span></span><span class=line><span class=cl>  MAX LV                <span class=m>0</span>
+</span></span><span class=line><span class=cl>  Cur LV                <span class=m>2</span>
+</span></span><span class=line><span class=cl>  Open LV               <span class=m>2</span>
+</span></span><span class=line><span class=cl>  Max PV                <span class=m>0</span>
+</span></span><span class=line><span class=cl>  Cur PV                <span class=m>2</span>
+</span></span><span class=line><span class=cl>  Act PV                <span class=m>2</span>
+</span></span><span class=line><span class=cl>  VG Size               &lt;18.80 GiB
+</span></span><span class=line><span class=cl>  PE Size               4.00 MiB
+</span></span><span class=line><span class=cl>  Total PE              <span class=m>4812</span>
+</span></span><span class=line><span class=cl>  Alloc PE / Size       <span class=m>2253</span> / 8.80 GiB
+</span></span><span class=line><span class=cl>  Free  PE / Size       <span class=m>2559</span> / &lt;10.00 GiB
+</span></span><span class=line><span class=cl>  VG UUID               f77tkP-7xzc-qcyf-t0JN-OYOQ-ZfLL-PJPD8w
+</span></span><span class=line><span class=cl>   
+</span></span><span class=line><span class=cl>lvm&gt; lvextend -l +100%FREE /dev/centos/root
+</span></span><span class=line><span class=cl>  Size of logical volume centos/root changed from 7.80 GiB <span class=o>(</span><span class=m>1997</span> extents<span class=o>)</span> to &lt;17.80 GiB <span class=o>(</span><span class=m>4556</span> extents<span class=o>)</span>.
+</span></span><span class=line><span class=cl>  Logical volume centos/root successfully resized.
+</span></span><span class=line><span class=cl>lvm&gt; <span class=nb>exit</span>
+</span></span><span class=line><span class=cl>  Exiting.
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>$ xfs_growfs /dev/centos/root
+</span></span><span class=line><span class=cl>meta-data<span class=o>=</span>/dev/mapper/centos-root <span class=nv>isize</span><span class=o>=</span><span class=m>512</span>    <span class=nv>agcount</span><span class=o>=</span>4, <span class=nv>agsize</span><span class=o>=</span><span class=m>511232</span> <span class=nv>blks</span>
+</span></span><span class=line><span class=cl>         <span class=o>=</span>                       <span class=nv>sectsz</span><span class=o>=</span><span class=m>4096</span>  <span class=nv>attr</span><span class=o>=</span>2, <span class=nv>projid32bit</span><span class=o>=</span><span class=nv>1</span>
+</span></span><span class=line><span class=cl>         <span class=o>=</span>                       <span class=nv>crc</span><span class=o>=</span><span class=m>1</span>        <span class=nv>finobt</span><span class=o>=</span><span class=m>0</span> <span class=nv>spinodes</span><span class=o>=</span><span class=m>0</span>
+</span></span><span class=line><span class=cl><span class=nv>data</span>     <span class=o>=</span>                       <span class=nv>bsize</span><span class=o>=</span><span class=m>4096</span>   <span class=nv>blocks</span><span class=o>=</span>2044928, <span class=nv>imaxpct</span><span class=o>=</span><span class=nv>25</span>
+</span></span><span class=line><span class=cl>         <span class=o>=</span>                       <span class=nv>sunit</span><span class=o>=</span><span class=m>0</span>      <span class=nv>swidth</span><span class=o>=</span><span class=m>0</span> blks
+</span></span><span class=line><span class=cl><span class=nv>naming</span>   <span class=o>=</span>version <span class=m>2</span>              <span class=nv>bsize</span><span class=o>=</span><span class=m>4096</span>   ascii-ci<span class=o>=</span><span class=m>0</span> <span class=nv>ftype</span><span class=o>=</span><span class=m>1</span>
+</span></span><span class=line><span class=cl><span class=nv>log</span>      <span class=o>=</span>internal               <span class=nv>bsize</span><span class=o>=</span><span class=m>4096</span>   <span class=nv>blocks</span><span class=o>=</span>2560, <span class=nv>version</span><span class=o>=</span><span class=nv>2</span>
+</span></span><span class=line><span class=cl>         <span class=o>=</span>                       <span class=nv>sectsz</span><span class=o>=</span><span class=m>4096</span>  <span class=nv>sunit</span><span class=o>=</span><span class=m>1</span> blks, lazy-count<span class=o>=</span><span class=m>1</span>
+</span></span><span class=line><span class=cl><span class=nv>realtime</span> <span class=o>=</span>none                   <span class=nv>extsz</span><span class=o>=</span><span class=m>4096</span>   <span class=nv>blocks</span><span class=o>=</span>0, <span class=nv>rtextents</span><span class=o>=</span><span class=m>0</span>
+</span></span><span class=line><span class=cl>data blocks changed from <span class=m>2044928</span> to <span class=m>4665344</span>
+</span></span></code></pre></div><h4 id=再次查看磁盘容量与分区表centos-root分区空间已经扩容为178g>再次查看磁盘容量与分区表，centos-root分区空间已经扩容为17.8G</h4><div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl>$ df -h
+</span></span><span class=line><span class=cl>文件系统                 容量  已用  可用 已用% 挂载点
+</span></span><span class=line><span class=cl>devtmpfs                 876M     <span class=m>0</span>  876M    0% /dev
+</span></span><span class=line><span class=cl>tmpfs                    887M     <span class=m>0</span>  887M    0% /dev/shm
+</span></span><span class=line><span class=cl>tmpfs                    887M  8.4M  879M    1% /run
+</span></span><span class=line><span class=cl>tmpfs                    887M     <span class=m>0</span>  887M    0% /sys/fs/cgroup
+</span></span><span class=line><span class=cl>/dev/mapper/centos-root   18G  7.3G   11G   41% /
+</span></span><span class=line><span class=cl>/dev/sda2               1014M  215M  800M   22% /boot
+</span></span><span class=line><span class=cl>/dev/sda1                200M   12M  189M    6% /boot/efi
+</span></span><span class=line><span class=cl>tmpfs                    178M     <span class=m>0</span>  178M    0% /run/user/0
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>$ lsblk
+</span></span><span class=line><span class=cl>NAME            MAJ:MIN RM  SIZE RO TYPE MOUNTPOINT
+</span></span><span class=line><span class=cl>sda               8:0    <span class=m>0</span>   20G  <span class=m>0</span> disk 
+</span></span><span class=line><span class=cl>├─sda1            8:1    <span class=m>0</span>  200M  <span class=m>0</span> part /boot/efi
+</span></span><span class=line><span class=cl>├─sda2            8:2    <span class=m>0</span>    1G  <span class=m>0</span> part /boot
+</span></span><span class=line><span class=cl>├─sda3            8:3    <span class=m>0</span>  8.8G  <span class=m>0</span> part 
+</span></span><span class=line><span class=cl>│ ├─centos-root 253:0    <span class=m>0</span> 17.8G  <span class=m>0</span> lvm  /
+</span></span><span class=line><span class=cl>│ └─centos-swap 253:1    <span class=m>0</span>    1G  <span class=m>0</span> lvm  <span class=o>[</span>SWAP<span class=o>]</span>
+</span></span><span class=line><span class=cl>└─sda4            8:4    <span class=m>0</span>   10G  <span class=m>0</span> part 
+</span></span><span class=line><span class=cl>  └─centos-root 253:0    <span class=m>0</span> 17.8G  <span class=m>0</span> lvm  /
 </span></span></code></pre></div><h2 id=参考文档>参考文档</h2><ul><li><a href=https://www.jianshu.com/p/44c3f86b1d36>Hyper-v下Centos实现扩容硬盘磁盘空间大小</a></li></ul></article></div></div></div></div></div></div></main></div><script type=application/javascript src=https://blog.cuile.com/js/toc.js></script><link rel=stylesheet href=https://blog.cuile.com/css/toc.css></div><div class="footer container-xl width-full p-responsive"><div class="position-relative d-flex flex-row-reverse flex-lg-row flex-wrap flex-lg-nowrap flex-justify-center flex-lg-justify-between flex-sm-items-center pt-6 pb-2 mt-6 f6 text-gray border-top border-gray-light"><a aria-label=Homepage title=GitHub class="footer-octicon d-none d-lg-block mr-lg-4" href=https://blog.cuile.com/><svg height="24" class="octicon octicon-mark-github" viewBox="0 0 16 16" width="24"><path fill-rule="evenodd" d="M8 0C3.58.0.0 3.58.0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38.0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95.0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12.0.0.67-.21 2.2.82.64-.18 1.32-.27 2-.27s1.36.09 2 .27c1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15.0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48.0 1.07-.01 1.93-.01 2.2.0.21.15.46.55.38A8.013 8.013.0 0016 8c0-4.42-3.58-8-8-8z"/></svg></a><ul class="list-style-none d-flex flex-wrap col-12 flex-justify-center flex-lg-justify-between mb-2 mb-lg-0"><li class="mr-3 mr-lg-0">Theme by <a href=https://github.com/MeiK2333/github-style>github-style</a></li><li class="mr-3 mr-lg-0">GitHub and the Invertocat logo are trademarks of <a href=https://github.com/>GitHub, Inc.</a></li></ul></div><div class="d-flex flex-justify-center pb-6"><span class="f6 text-gray-light"></span></div></div></body><script type=application/javascript src=https://blog.cuile.com/js/github-style.js></script><script src=https://cdn.jsdelivr.net/npm/fuse.js/dist/fuse.min.js></script><script type=application/javascript src=https://blog.cuile.com/js/search.js></script></html>

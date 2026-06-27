@@ -1,18 +1,18 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Screen on 瘦了就帅了</title><link>https://blog.cuile.com/tags/screen/</link><description>Recent content in Screen on 瘦了就帅了</description><generator>Hugo</generator><language>zh-cn</language><lastBuildDate>Wed, 18 Mar 2026 10:13:17 +0000</lastBuildDate><atom:link href="https://blog.cuile.com/tags/screen/index.xml" rel="self" type="application/rss+xml"/><item><title>screen 命令</title><link>https://blog.cuile.com/post/linux/screen_manual/</link><pubDate>Wed, 28 Dec 2022 14:24:08 +0800</pubDate><guid>https://blog.cuile.com/post/linux/screen_manual/</guid><description>&lt;p>&lt;em>&lt;strong>已弃用，转到 &lt;a href="https://blog.cuile.com/post/linux/tmux/">Tmux 命令&lt;/a>&lt;/strong>&lt;/em>&lt;/p>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Screen on 瘦了就帅了</title><link>https://blog.cuile.com/tags/screen/</link><description>Recent content in Screen on 瘦了就帅了</description><generator>Hugo</generator><language>zh-cn</language><lastBuildDate>Sat, 27 Jun 2026 16:27:00 +0000</lastBuildDate><atom:link href="https://blog.cuile.com/tags/screen/index.xml" rel="self" type="application/rss+xml"/><item><title>screen 命令</title><link>https://blog.cuile.com/post/linux/screen_manual/</link><pubDate>Wed, 28 Dec 2022 14:24:08 +0800</pubDate><guid>https://blog.cuile.com/post/linux/screen_manual/</guid><description>&lt;p>&lt;em>&lt;strong>已弃用，转到 &lt;a href="https://blog.cuile.com/post/linux/tmux/">Tmux 命令&lt;/a>&lt;/strong>&lt;/em>&lt;/p>
 &lt;h2 id="创建屏幕">创建屏幕&lt;/h2>
-&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e"># 离线方式创建屏幕，一般用在启动脚本&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>$ screen -S &amp;lt;screen_name&amp;gt; -d -m
+&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">&lt;span class="c1"># 离线方式创建屏幕，一般用在启动脚本&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">$ screen -S &amp;lt;screen_name&amp;gt; -d -m
 &lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="查年屏幕">查年屏幕&lt;/h2>
-&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span>$ screen -ls
+&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">$ screen -ls
 &lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="执行命令">执行命令&lt;/h2>
-&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e"># 在指定屏幕内输入cmd，注意\n代表回车&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>$ screen -S &amp;lt;screen_name&amp;gt; -X stuff &lt;span style="color:#e6db74">&amp;#34;&amp;lt;cmd&amp;gt;\n&amp;#34;&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e"># 在当前窗口内，通过另一个过滤进程控制窗口的输入或输出。&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e"># 非常复杂，还没有搞明白有什么用&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e"># 官方建议：小心使用！&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>$ screen -S &amp;lt;screen_name&amp;gt; -X |&amp;lt;cmd&amp;gt;
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>$ screen -S &amp;lt;screen_name&amp;gt; -X !..|&amp;lt;cmd&amp;gt;
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>$ screen -S &amp;lt;screen_name&amp;gt; -X exec&amp;lt;cmd&amp;gt;
+&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">&lt;span class="c1"># 在指定屏幕内输入cmd，注意\n代表回车&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">$ screen -S &amp;lt;screen_name&amp;gt; -X stuff &lt;span class="s2">&amp;#34;&amp;lt;cmd&amp;gt;\n&amp;#34;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1"># 在当前窗口内，通过另一个过滤进程控制窗口的输入或输出。&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1"># 非常复杂，还没有搞明白有什么用&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1"># 官方建议：小心使用！&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">$ screen -S &amp;lt;screen_name&amp;gt; -X &lt;span class="p">|&lt;/span>&amp;lt;cmd&amp;gt;
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">$ screen -S &amp;lt;screen_name&amp;gt; -X !..&lt;span class="p">|&lt;/span>&amp;lt;cmd&amp;gt;
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">$ screen -S &amp;lt;screen_name&amp;gt; -X exec&amp;lt;cmd&amp;gt;
 &lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>参考文档&lt;/p>
 &lt;ul>
 &lt;li>&lt;a href="https://www.gnu.org/software/screen/manual/screen.html#index-stuff">screen stuff&lt;/a>&lt;/li>
@@ -21,9 +21,9 @@
 &lt;h2 id="离开屏幕">离开屏幕&lt;/h2>
 &lt;p>在 screen 终端下，按 Ctrl+a d 键&lt;/p>
 &lt;h2 id="退出屏幕">退出屏幕&lt;/h2>
-&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e"># 进入指定屏幕，再退出&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>$ screen -r &amp;lt;screen_name|pid&amp;gt;
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>$ exit
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e"># 指定屏幕，直接退出&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>$ screen -S &amp;lt;screen_name&amp;gt; -X quit
+&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">&lt;span class="c1"># 进入指定屏幕，再退出&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">$ screen -r &amp;lt;screen_name&lt;span class="p">|&lt;/span>pid&amp;gt;
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">$ &lt;span class="nb">exit&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1"># 指定屏幕，直接退出&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">$ screen -S &amp;lt;screen_name&amp;gt; -X quit
 &lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div></description></item></channel></rss>

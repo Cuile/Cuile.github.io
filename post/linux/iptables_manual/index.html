@@ -12,100 +12,100 @@
 </span><span class=path-divider>/</span>
 <strong class="css-truncate css-truncate-target mr-1" style=max-width:410px><a href=https://blog.cuile.com/post/linux/iptables_manual/>iptables 配置</a></strong></h1><div class="note m-0">Created <relative-time datetime="Tue, 08 Feb 2022 10:09:48 +0800" class=no-wrap>Tue, 08 Feb 2022 10:09:48 +0800</relative-time>
 <span class=file-info-divider></span>
-Modified <relative-time datetime="Wed, 18 Mar 2026 10:13:17 +0000" class=no-wrap>Wed, 18 Mar 2026 10:13:17 +0000</relative-time></div></div></div></div></div></div></div><div class="container-lg px-3 new-discussion-timeline"><div class="repository-content gist-content"><div><div class="js-gist-file-update-container js-task-list-container file-box"><div id=file-pytest class="file my-2"><div id=post-header class="file-header d-flex flex-md-items-center flex-items-start sticky-header" style=z-index:2><div class="file-info d-flex flex-md-items-center flex-items-start flex-order-1 flex-auto"><div class="text-mono f6 flex-auto pr-3 flex-order-2 flex-md-order-1 mt-2 mt-md-0"><summary id=toc-toggle onclick=clickToc() class="btn btn-octicon m-0 mr-2 p-2"><svg aria-hidden="true" viewBox="0 0 16 16" height="16" width="16" class="octicon octicon-list-unordered"><path fill-rule="evenodd" d="M2 4a1 1 0 100-2 1 1 0 000 2zm3.75-1.5a.75.75.0 000 1.5h8.5a.75.75.0 000-1.5h-8.5zm0 5a.75.75.0 000 1.5h8.5a.75.75.0 000-1.5h-8.5zm0 5a.75.75.0 000 1.5h8.5a.75.75.0 000-1.5h-8.5zM3 8A1 1 0 111 8a1 1 0 012 0zm-1 6a1 1 0 100-2 1 1 0 000 2z"/></svg></summary><details-menu class=SelectMenu id=toc-details style="display: none;"><div class="SelectMenu-modal rounded-3 mt-1" style=max-height:340px><div class="SelectMenu-list SelectMenu-list--borderless p-2" style=overscroll-behavior:contain id=toc-list></div></div></details-menu>964 Words</div><div class="file-actions flex-order-2 pt-0"><a class="muted-link mr-3" href=/tags/iptables><svg class="octicon octicon-tag" viewBox="0 0 16 16" width="16" height="16"><path fill-rule="evenodd" d="M2.5 7.775V2.75a.25.25.0 01.25-.25h5.025a.25.25.0 01.177.073l6.25 6.25a.25.25.0 010 .354l-5.025 5.025a.25.25.0 01-.354.0l-6.25-6.25A.25.25.0 012.5 7.775zm-1.5.0V2.75C1 1.784 1.784 1 2.75 1h5.025c.464.0.91.184 1.238.513l6.25 6.25a1.75 1.75.0 010 2.474l-5.026 5.026a1.75 1.75.0 01-2.474.0l-6.25-6.25A1.75 1.75.0 011 7.775zM6 5a1 1 0 100 2 1 1 0 000-2z"/></svg>
+Modified <relative-time datetime="Sat, 27 Jun 2026 16:27:00 +0000" class=no-wrap>Sat, 27 Jun 2026 16:27:00 +0000</relative-time></div></div></div></div></div></div></div><div class="container-lg px-3 new-discussion-timeline"><div class="repository-content gist-content"><div><div class="js-gist-file-update-container js-task-list-container file-box"><div id=file-pytest class="file my-2"><div id=post-header class="file-header d-flex flex-md-items-center flex-items-start sticky-header" style=z-index:2><div class="file-info d-flex flex-md-items-center flex-items-start flex-order-1 flex-auto"><div class="text-mono f6 flex-auto pr-3 flex-order-2 flex-md-order-1 mt-2 mt-md-0"><summary id=toc-toggle onclick=clickToc() class="btn btn-octicon m-0 mr-2 p-2"><svg aria-hidden="true" viewBox="0 0 16 16" height="16" width="16" class="octicon octicon-list-unordered"><path fill-rule="evenodd" d="M2 4a1 1 0 100-2 1 1 0 000 2zm3.75-1.5a.75.75.0 000 1.5h8.5a.75.75.0 000-1.5h-8.5zm0 5a.75.75.0 000 1.5h8.5a.75.75.0 000-1.5h-8.5zm0 5a.75.75.0 000 1.5h8.5a.75.75.0 000-1.5h-8.5zM3 8A1 1 0 111 8a1 1 0 012 0zm-1 6a1 1 0 100-2 1 1 0 000 2z"/></svg></summary><details-menu class=SelectMenu id=toc-details style="display: none;"><div class="SelectMenu-modal rounded-3 mt-1" style=max-height:340px><div class="SelectMenu-list SelectMenu-list--borderless p-2" style=overscroll-behavior:contain id=toc-list></div></div></details-menu>964 Words</div><div class="file-actions flex-order-2 pt-0"><a class="muted-link mr-3" href=/tags/iptables><svg class="octicon octicon-tag" viewBox="0 0 16 16" width="16" height="16"><path fill-rule="evenodd" d="M2.5 7.775V2.75a.25.25.0 01.25-.25h5.025a.25.25.0 01.177.073l6.25 6.25a.25.25.0 010 .354l-5.025 5.025a.25.25.0 01-.354.0l-6.25-6.25A.25.25.0 012.5 7.775zm-1.5.0V2.75C1 1.784 1.784 1 2.75 1h5.025c.464.0.91.184 1.238.513l6.25 6.25a1.75 1.75.0 010 2.474l-5.026 5.026a1.75 1.75.0 01-2.474.0l-6.25-6.25A1.75 1.75.0 011 7.775zM6 5a1 1 0 100 2 1 1 0 000-2z"/></svg>
 iptables
 </a><a class="muted-link mr-3" href=/tags/firewall><svg class="octicon octicon-tag" viewBox="0 0 16 16" width="16" height="16"><path fill-rule="evenodd" d="M2.5 7.775V2.75a.25.25.0 01.25-.25h5.025a.25.25.0 01.177.073l6.25 6.25a.25.25.0 010 .354l-5.025 5.025a.25.25.0 01-.354.0l-6.25-6.25A.25.25.0 012.5 7.775zm-1.5.0V2.75C1 1.784 1.784 1 2.75 1h5.025c.464.0.91.184 1.238.513l6.25 6.25a1.75 1.75.0 010 2.474l-5.026 5.026a1.75 1.75.0 01-2.474.0l-6.25-6.25A1.75 1.75.0 011 7.775zM6 5a1 1 0 100 2 1 1 0 000-2z"/></svg>
 Firewall
 </a><a class="muted-link mr-3" href=/tags/linux><svg class="octicon octicon-tag" viewBox="0 0 16 16" width="16" height="16"><path fill-rule="evenodd" d="M2.5 7.775V2.75a.25.25.0 01.25-.25h5.025a.25.25.0 01.177.073l6.25 6.25a.25.25.0 010 .354l-5.025 5.025a.25.25.0 01-.354.0l-6.25-6.25A.25.25.0 012.5 7.775zm-1.5.0V2.75C1 1.784 1.784 1 2.75 1h5.025c.464.0.91.184 1.238.513l6.25 6.25a1.75 1.75.0 010 2.474l-5.026 5.026a1.75 1.75.0 01-2.474.0l-6.25-6.25A1.75 1.75.0 011 7.775zM6 5a1 1 0 100 2 1 1 0 000-2z"/></svg>
-linux</a></div></div></div><div class="Box-body px-5 pb-5" style=z-index:1><article class="markdown-body entry-content container-lg"><p><strong><code>基于Centos 7</code></strong></p><p><strong>注意：CentOS 7默认的防火墙不是iptables,而是firewalld</strong></p><h2 id=停止firewalld服务>停止firewalld服务</h2><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash><span style=display:flex><span><span style=color:#75715e># 停止firewalld服务</span>
-</span></span><span style=display:flex><span>systemctl stop firewalld
-</span></span><span style=display:flex><span><span style=color:#75715e># 禁用firewalld服务</span>
-</span></span><span style=display:flex><span><span style=color:#75715e># systemctl mask firewalld</span>
-</span></span><span style=display:flex><span><span style=color:#75715e># 删除firewalld</span>
-</span></span><span style=display:flex><span>yum erase firewalld
-</span></span></code></pre></div><h2 id=安装-iptables>安装 iptables</h2><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash><span style=display:flex><span><span style=color:#75715e># 先检查是否安装了iptables</span>
-</span></span><span style=display:flex><span>systemctl status iptables
-</span></span><span style=display:flex><span><span style=color:#75715e># 安装iptables</span>
-</span></span><span style=display:flex><span>yum install iptables iptables-services -y
-</span></span></code></pre></div><h2 id=启动-iptables>启动 iptables</h2><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash><span style=display:flex><span><span style=color:#75715e># 注册iptables服务，相当于以前的chkconfig iptables on</span>
-</span></span><span style=display:flex><span>systemctl enable iptables
-</span></span><span style=display:flex><span><span style=color:#75715e># 开启服务</span>
-</span></span><span style=display:flex><span>systemctl start iptables
-</span></span><span style=display:flex><span><span style=color:#75715e># 查看状态</span>
-</span></span><span style=display:flex><span>systemctl status iptables
-</span></span><span style=display:flex><span><span style=color:#75715e># 重启防火墙</span>
-</span></span><span style=display:flex><span>systemctl restart iptables
-</span></span><span style=display:flex><span><span style=color:#75715e># 保存规则</span>
-</span></span><span style=display:flex><span>service iptables save
-</span></span><span style=display:flex><span><span style=color:#75715e># 如果报“-bash: service: command not found”，则需要安装initscripts</span>
-</span></span><span style=display:flex><span>yum install initscripts -y
-</span></span></code></pre></div><h2 id=关键规则>关键规则</h2><p>注意添加规则的先后顺序</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash><span style=display:flex><span><span style=color:#75715e># 允许已建立的或相关连的通行</span>
-</span></span><span style=display:flex><span>iptables -A INPUT -m state --state ESTABLISHED,RELATED -j ACCEPT
-</span></span><span style=display:flex><span><span style=color:#75715e># 添加SSH访问端口</span>
-</span></span><span style=display:flex><span>iptables -A INPUT -p tcp -m tcp --dport <span style=color:#ae81ff>28124</span> -j ACCEPT
-</span></span><span style=display:flex><span><span style=color:#75715e># 允许本地回环接口(即运行本机访问本机)</span>
-</span></span><span style=display:flex><span>iptables -A INPUT -i lo -j ACCEPT
-</span></span><span style=display:flex><span><span style=color:#75715e># 允许ping</span>
-</span></span><span style=display:flex><span>iptables -A INPUT -p icmp -m icmp --icmp-type <span style=color:#ae81ff>8</span> -j ACCEPT
-</span></span><span style=display:flex><span><span style=color:#75715e># 禁止所有本机入站访问</span>
-</span></span><span style=display:flex><span>iptables -P INPUT DROP      // 默认入站规则为拒绝
-</span></span><span style=display:flex><span><span style=color:#75715e># 允许所有本机出站访问</span>
-</span></span><span style=display:flex><span>iptables -P OUTPUT ACCEPT
-</span></span><span style=display:flex><span><span style=color:#75715e># 允许所有本机转发访问</span>
-</span></span><span style=display:flex><span>iptables -P FORWARD ACCEPT  <span style=color:#75715e># 禁止的话podman桥接网络不无正常工作，或者要配置相应的podman规则</span>
-</span></span></code></pre></div><h2 id=其它规则>其它规则</h2><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash><span style=display:flex><span><span style=color:#75715e># 允许访问指定端口</span>
-</span></span><span style=display:flex><span>iptables -A INPUT -p tcp -m tcp --dport <span style=color:#ae81ff>6443</span> -j ACCEPT
-</span></span><span style=display:flex><span><span style=color:#75715e># 允许访问连续端口</span>
-</span></span><span style=display:flex><span>iptables -A INPUT -p tcp -m tcp --dport 21:25 -j ACCEPT
-</span></span><span style=display:flex><span><span style=color:#75715e># 允许访问不连续端口</span>
-</span></span><span style=display:flex><span>iptables -A INPUT -p tcp -m multiport --dport 21:25,135:139 -j ACCEPT
-</span></span><span style=display:flex><span>
-</span></span><span style=display:flex><span><span style=color:#75715e># 转发数据包</span>
-</span></span><span style=display:flex><span><span style=color:#75715e># 将&lt;本地端口&gt;接收到的TCP数据包，直接转发到&lt;目标IP&gt;的&lt;目标端口&gt;</span>
-</span></span><span style=display:flex><span>iptables -t nat -A PREROUTING -p tcp --dport &lt;本地端口&gt; -j DNAT --to-destination &lt;目标IP&gt;:&lt;目标端口&gt;
-</span></span><span style=display:flex><span><span style=color:#75715e># 将&lt;目标IP&gt;的&lt;目标端口&gt;发来的TCP数据包，IP地址修改为&lt;本地IP&gt;后，原路转发回去</span>
-</span></span><span style=display:flex><span>iptables -t nat -A POSTROUTING -p tcp -d &lt;目标IP&gt; --dport &lt;目标端口&gt; -j SNAT --to &lt;本地IP&gt;
-</span></span><span style=display:flex><span><span style=color:#75715e># 如果要添加内网ip信任（接受其所有TCP请求）</span>
-</span></span><span style=display:flex><span>iptables -A INPUT -p tcp -s 45.96.174.68 -j ACCEPT
-</span></span><span style=display:flex><span><span style=color:#75715e># 封停一个IP</span>
-</span></span><span style=display:flex><span>iptables -I INPUT -s ***.***.***.*** -j DROP
-</span></span><span style=display:flex><span><span style=color:#75715e># 删除规则</span>
-</span></span><span style=display:flex><span>iptables -D INPUT <span style=color:#75715e>#rulenum#</span>
-</span></span><span style=display:flex><span><span style=color:#75715e># or 使用建立规则时条件，删除指定规则，这个方法比如适合代码使用</span>
-</span></span><span style=display:flex><span>iptables -D INPUT -p tcp -m tcp --dport <span style=color:#ae81ff>6443</span> -j ACCEPT
-</span></span><span style=display:flex><span><span style=color:#75715e># 解封一个IP</span>
-</span></span><span style=display:flex><span>iptables -D INPUT -s ***.***.***.*** -j DROP
-</span></span></code></pre></div><h2 id=查看规则>查看规则</h2><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash><span style=display:flex><span>iptables -L -n --line-numbers
-</span></span></code></pre></div><h2 id=重置规则>重置规则</h2><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash><span style=display:flex><span><span style=color:#75715e># 使用这些命令刷新和重置 iptables 到默认状态</span>
-</span></span><span style=display:flex><span>
-</span></span><span style=display:flex><span><span style=color:#75715e># 清除已有iptables规则</span>
-</span></span><span style=display:flex><span>iptables -F
-</span></span><span style=display:flex><span>
-</span></span><span style=display:flex><span>iptables -X
-</span></span><span style=display:flex><span>
-</span></span><span style=display:flex><span>iptables -t nat -F
-</span></span><span style=display:flex><span>
-</span></span><span style=display:flex><span>iptables -t nat -X
-</span></span><span style=display:flex><span>
-</span></span><span style=display:flex><span>iptables -t mangle -F
-</span></span><span style=display:flex><span>
-</span></span><span style=display:flex><span>iptables -t mangle -X
-</span></span><span style=display:flex><span>
-</span></span><span style=display:flex><span>iptables -t raw -F
-</span></span><span style=display:flex><span>
-</span></span><span style=display:flex><span>iptables -t raw -X
-</span></span><span style=display:flex><span>
-</span></span><span style=display:flex><span>iptables -t security -F
-</span></span><span style=display:flex><span>
-</span></span><span style=display:flex><span>iptables -t security -X
-</span></span><span style=display:flex><span>
-</span></span><span style=display:flex><span>iptables -P INPUT ACCEPT
-</span></span><span style=display:flex><span>
-</span></span><span style=display:flex><span>iptables -P FORWARD ACCEPT
-</span></span><span style=display:flex><span>
-</span></span><span style=display:flex><span>iptables -P OUTPUT ACCEPT
-</span></span></code></pre></div><h2 id=备份恢复>备份恢复</h2><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash><span style=display:flex><span><span style=color:#75715e># 备份</span>
-</span></span><span style=display:flex><span>iptables-save &gt; ~/iptables.rules
-</span></span><span style=display:flex><span><span style=color:#75715e># 恢复</span>
-</span></span><span style=display:flex><span>iptables-restore &lt; ~/iptables.rules
+linux</a></div></div></div><div class="Box-body px-5 pb-5" style=z-index:1><article class="markdown-body entry-content container-lg"><p><strong><code>基于Centos 7</code></strong></p><p><strong>注意：CentOS 7默认的防火墙不是iptables,而是firewalld</strong></p><h2 id=停止firewalld服务>停止firewalld服务</h2><div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl><span class=c1># 停止firewalld服务</span>
+</span></span><span class=line><span class=cl>systemctl stop firewalld
+</span></span><span class=line><span class=cl><span class=c1># 禁用firewalld服务</span>
+</span></span><span class=line><span class=cl><span class=c1># systemctl mask firewalld</span>
+</span></span><span class=line><span class=cl><span class=c1># 删除firewalld</span>
+</span></span><span class=line><span class=cl>yum erase firewalld
+</span></span></code></pre></div><h2 id=安装-iptables>安装 iptables</h2><div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl><span class=c1># 先检查是否安装了iptables</span>
+</span></span><span class=line><span class=cl>systemctl status iptables
+</span></span><span class=line><span class=cl><span class=c1># 安装iptables</span>
+</span></span><span class=line><span class=cl>yum install iptables iptables-services -y
+</span></span></code></pre></div><h2 id=启动-iptables>启动 iptables</h2><div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl><span class=c1># 注册iptables服务，相当于以前的chkconfig iptables on</span>
+</span></span><span class=line><span class=cl>systemctl <span class=nb>enable</span> iptables
+</span></span><span class=line><span class=cl><span class=c1># 开启服务</span>
+</span></span><span class=line><span class=cl>systemctl start iptables
+</span></span><span class=line><span class=cl><span class=c1># 查看状态</span>
+</span></span><span class=line><span class=cl>systemctl status iptables
+</span></span><span class=line><span class=cl><span class=c1># 重启防火墙</span>
+</span></span><span class=line><span class=cl>systemctl restart iptables
+</span></span><span class=line><span class=cl><span class=c1># 保存规则</span>
+</span></span><span class=line><span class=cl>service iptables save
+</span></span><span class=line><span class=cl><span class=c1># 如果报“-bash: service: command not found”，则需要安装initscripts</span>
+</span></span><span class=line><span class=cl>yum install initscripts -y
+</span></span></code></pre></div><h2 id=关键规则>关键规则</h2><p>注意添加规则的先后顺序</p><div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl><span class=c1># 允许已建立的或相关连的通行</span>
+</span></span><span class=line><span class=cl>iptables -A INPUT -m state --state ESTABLISHED,RELATED -j ACCEPT
+</span></span><span class=line><span class=cl><span class=c1># 添加SSH访问端口</span>
+</span></span><span class=line><span class=cl>iptables -A INPUT -p tcp -m tcp --dport <span class=m>28124</span> -j ACCEPT
+</span></span><span class=line><span class=cl><span class=c1># 允许本地回环接口(即运行本机访问本机)</span>
+</span></span><span class=line><span class=cl>iptables -A INPUT -i lo -j ACCEPT
+</span></span><span class=line><span class=cl><span class=c1># 允许ping</span>
+</span></span><span class=line><span class=cl>iptables -A INPUT -p icmp -m icmp --icmp-type <span class=m>8</span> -j ACCEPT
+</span></span><span class=line><span class=cl><span class=c1># 禁止所有本机入站访问</span>
+</span></span><span class=line><span class=cl>iptables -P INPUT DROP      // 默认入站规则为拒绝
+</span></span><span class=line><span class=cl><span class=c1># 允许所有本机出站访问</span>
+</span></span><span class=line><span class=cl>iptables -P OUTPUT ACCEPT
+</span></span><span class=line><span class=cl><span class=c1># 允许所有本机转发访问</span>
+</span></span><span class=line><span class=cl>iptables -P FORWARD ACCEPT  <span class=c1># 禁止的话podman桥接网络不无正常工作，或者要配置相应的podman规则</span>
+</span></span></code></pre></div><h2 id=其它规则>其它规则</h2><div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl><span class=c1># 允许访问指定端口</span>
+</span></span><span class=line><span class=cl>iptables -A INPUT -p tcp -m tcp --dport <span class=m>6443</span> -j ACCEPT
+</span></span><span class=line><span class=cl><span class=c1># 允许访问连续端口</span>
+</span></span><span class=line><span class=cl>iptables -A INPUT -p tcp -m tcp --dport 21:25 -j ACCEPT
+</span></span><span class=line><span class=cl><span class=c1># 允许访问不连续端口</span>
+</span></span><span class=line><span class=cl>iptables -A INPUT -p tcp -m multiport --dport 21:25,135:139 -j ACCEPT
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=c1># 转发数据包</span>
+</span></span><span class=line><span class=cl><span class=c1># 将&lt;本地端口&gt;接收到的TCP数据包，直接转发到&lt;目标IP&gt;的&lt;目标端口&gt;</span>
+</span></span><span class=line><span class=cl>iptables -t nat -A PREROUTING -p tcp --dport &lt;本地端口&gt; -j DNAT --to-destination &lt;目标IP&gt;:&lt;目标端口&gt;
+</span></span><span class=line><span class=cl><span class=c1># 将&lt;目标IP&gt;的&lt;目标端口&gt;发来的TCP数据包，IP地址修改为&lt;本地IP&gt;后，原路转发回去</span>
+</span></span><span class=line><span class=cl>iptables -t nat -A POSTROUTING -p tcp -d &lt;目标IP&gt; --dport &lt;目标端口&gt; -j SNAT --to &lt;本地IP&gt;
+</span></span><span class=line><span class=cl><span class=c1># 如果要添加内网ip信任（接受其所有TCP请求）</span>
+</span></span><span class=line><span class=cl>iptables -A INPUT -p tcp -s 45.96.174.68 -j ACCEPT
+</span></span><span class=line><span class=cl><span class=c1># 封停一个IP</span>
+</span></span><span class=line><span class=cl>iptables -I INPUT -s ***.***.***.*** -j DROP
+</span></span><span class=line><span class=cl><span class=c1># 删除规则</span>
+</span></span><span class=line><span class=cl>iptables -D INPUT <span class=c1>#rulenum#</span>
+</span></span><span class=line><span class=cl><span class=c1># or 使用建立规则时条件，删除指定规则，这个方法比如适合代码使用</span>
+</span></span><span class=line><span class=cl>iptables -D INPUT -p tcp -m tcp --dport <span class=m>6443</span> -j ACCEPT
+</span></span><span class=line><span class=cl><span class=c1># 解封一个IP</span>
+</span></span><span class=line><span class=cl>iptables -D INPUT -s ***.***.***.*** -j DROP
+</span></span></code></pre></div><h2 id=查看规则>查看规则</h2><div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl>iptables -L -n --line-numbers
+</span></span></code></pre></div><h2 id=重置规则>重置规则</h2><div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl><span class=c1># 使用这些命令刷新和重置 iptables 到默认状态</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=c1># 清除已有iptables规则</span>
+</span></span><span class=line><span class=cl>iptables -F
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>iptables -X
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>iptables -t nat -F
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>iptables -t nat -X
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>iptables -t mangle -F
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>iptables -t mangle -X
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>iptables -t raw -F
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>iptables -t raw -X
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>iptables -t security -F
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>iptables -t security -X
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>iptables -P INPUT ACCEPT
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>iptables -P FORWARD ACCEPT
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>iptables -P OUTPUT ACCEPT
+</span></span></code></pre></div><h2 id=备份恢复>备份恢复</h2><div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl><span class=c1># 备份</span>
+</span></span><span class=line><span class=cl>iptables-save &gt; ~/iptables.rules
+</span></span><span class=line><span class=cl><span class=c1># 恢复</span>
+</span></span><span class=line><span class=cl>iptables-restore &lt; ~/iptables.rules
 </span></span></code></pre></div></article></div></div></div></div></div></div></main></div><script type=application/javascript src=https://blog.cuile.com/js/toc.js></script><link rel=stylesheet href=https://blog.cuile.com/css/toc.css></div><div class="footer container-xl width-full p-responsive"><div class="position-relative d-flex flex-row-reverse flex-lg-row flex-wrap flex-lg-nowrap flex-justify-center flex-lg-justify-between flex-sm-items-center pt-6 pb-2 mt-6 f6 text-gray border-top border-gray-light"><a aria-label=Homepage title=GitHub class="footer-octicon d-none d-lg-block mr-lg-4" href=https://blog.cuile.com/><svg height="24" class="octicon octicon-mark-github" viewBox="0 0 16 16" width="24"><path fill-rule="evenodd" d="M8 0C3.58.0.0 3.58.0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38.0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95.0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12.0.0.67-.21 2.2.82.64-.18 1.32-.27 2-.27s1.36.09 2 .27c1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15.0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48.0 1.07-.01 1.93-.01 2.2.0.21.15.46.55.38A8.013 8.013.0 0016 8c0-4.42-3.58-8-8-8z"/></svg></a><ul class="list-style-none d-flex flex-wrap col-12 flex-justify-center flex-lg-justify-between mb-2 mb-lg-0"><li class="mr-3 mr-lg-0">Theme by <a href=https://github.com/MeiK2333/github-style>github-style</a></li><li class="mr-3 mr-lg-0">GitHub and the Invertocat logo are trademarks of <a href=https://github.com/>GitHub, Inc.</a></li></ul></div><div class="d-flex flex-justify-center pb-6"><span class="f6 text-gray-light"></span></div></div></body><script type=application/javascript src=https://blog.cuile.com/js/github-style.js></script><script src=https://cdn.jsdelivr.net/npm/fuse.js/dist/fuse.min.js></script><script type=application/javascript src=https://blog.cuile.com/js/search.js></script></html>

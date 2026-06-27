@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Nuitka on 瘦了就帅了</title><link>https://blog.cuile.com/tags/nuitka/</link><description>Recent content in Nuitka on 瘦了就帅了</description><generator>Hugo</generator><language>zh-cn</language><lastBuildDate>Wed, 18 Mar 2026 10:13:17 +0000</lastBuildDate><atom:link href="https://blog.cuile.com/tags/nuitka/index.xml" rel="self" type="application/rss+xml"/><item><title>Nuitka 参数列表</title><link>https://blog.cuile.com/post/python/nuitka/</link><pubDate>Sun, 16 Mar 2025 11:07:37 +0800</pubDate><guid>https://blog.cuile.com/post/python/nuitka/</guid><description>&lt;p>Usage: python.exe -m nuitka [&amp;ndash;mode=compilation_mode] [&amp;ndash;run] [options] main_module.py&lt;/p>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Nuitka on 瘦了就帅了</title><link>https://blog.cuile.com/tags/nuitka/</link><description>Recent content in Nuitka on 瘦了就帅了</description><generator>Hugo</generator><language>zh-cn</language><lastBuildDate>Sat, 27 Jun 2026 16:27:00 +0000</lastBuildDate><atom:link href="https://blog.cuile.com/tags/nuitka/index.xml" rel="self" type="application/rss+xml"/><item><title>Nuitka 参数列表</title><link>https://blog.cuile.com/post/python/nuitka/</link><pubDate>Sun, 16 Mar 2025 11:07:37 +0800</pubDate><guid>https://blog.cuile.com/post/python/nuitka/</guid><description>&lt;p>Usage: python.exe -m nuitka [&amp;ndash;mode=compilation_mode] [&amp;ndash;run] [options] main_module.py&lt;/p>
 &lt;pre>&lt;code>Note: For general plugin help (they often have their own command line options too), consider the output of '--help-plugins'.
 &lt;/code>&lt;/pre>
 &lt;hr>
@@ -211,8 +211,8 @@
  &lt;/tr>
  &lt;tr>
  &lt;td>&amp;ndash;file-reference-choice=FILE_MODE&lt;/td>
- &lt;td>Select what value &amp;ldquo;&lt;strong>file&lt;/strong>&amp;rdquo; is going to be. With &amp;ldquo;runtime&amp;rdquo; (default for standalone binary mode and module mode), the created binaries and modules, use the location of themselves to deduct the value of &amp;ldquo;&lt;strong>file&lt;/strong>&amp;rdquo;. Included packages pretend to be in directories below that location. This allows you to include data files in deployments. If you merely seek acceleration, it&amp;rsquo;s better for you to use the &amp;ldquo;original&amp;rdquo; value, where the source files location will be used. With &amp;ldquo;frozen&amp;rdquo; a notation &amp;ldquo;&lt;!-- raw HTML omitted -->&amp;rdquo; is used. For compatibility reasons, the &amp;ldquo;&lt;strong>file&lt;/strong>&amp;rdquo; value will always have &amp;ldquo;.py&amp;rdquo; suffix independent of what it really is.&lt;/td>
- &lt;td>选择“&lt;strong>file&lt;/strong>”的值。如果使用 “runtime”（独立二进制文件模式和模块模式的默认值），创建的二进制文件和模块将使用自己的位置来扣除“&lt;strong>file&lt;/strong>”的值。包含的软件包会假装位于该位置下方的目录中。这样就可以在部署中包含数据文件。如果只是为了加速，最好使用&amp;quot;original&amp;quot;值，即使用源文件的位置。在使用 “frozen ”时，会使用“&lt;!-- raw HTML omitted -->”符号。出于兼容性考虑，“&lt;strong>file&lt;/strong>”值的后缀始终是“.py”，与实际内容无关。&lt;/td>
+ &lt;td>Select what value &amp;ldquo;&lt;strong>file&lt;/strong>&amp;rdquo; is going to be. With &amp;ldquo;runtime&amp;rdquo; (default for standalone binary mode and module mode), the created binaries and modules, use the location of themselves to deduct the value of &amp;ldquo;&lt;strong>file&lt;/strong>&amp;rdquo;. Included packages pretend to be in directories below that location. This allows you to include data files in deployments. If you merely seek acceleration, it&amp;rsquo;s better for you to use the &amp;ldquo;original&amp;rdquo; value, where the source files location will be used. With &amp;ldquo;frozen&amp;rdquo; a notation &amp;ldquo;&lt;frozen module_name>&amp;rdquo; is used. For compatibility reasons, the &amp;ldquo;&lt;strong>file&lt;/strong>&amp;rdquo; value will always have &amp;ldquo;.py&amp;rdquo; suffix independent of what it really is.&lt;/td>
+ &lt;td>选择“&lt;strong>file&lt;/strong>”的值。如果使用 “runtime”（独立二进制文件模式和模块模式的默认值），创建的二进制文件和模块将使用自己的位置来扣除“&lt;strong>file&lt;/strong>”的值。包含的软件包会假装位于该位置下方的目录中。这样就可以在部署中包含数据文件。如果只是为了加速，最好使用&amp;quot;original&amp;quot;值，即使用源文件的位置。在使用 “frozen ”时，会使用“&lt;frozen module_name>”符号。出于兼容性考虑，“&lt;strong>file&lt;/strong>”值的后缀始终是“.py”，与实际内容无关。&lt;/td>
  &lt;/tr>
  &lt;tr>
  &lt;td>&amp;ndash;module-name-choice=MODULE_NAME_MODE&lt;/td>
@@ -299,8 +299,8 @@
  &lt;/tr>
  &lt;tr>
  &lt;td>&amp;ndash;windows-icon-from-ico=ICON_PATH&lt;/td>
- &lt;td>Add executable icon. Can be given multiple times for different resolutions or files with multiple icons inside. In the later case, you may also suffix with #&lt;!-- raw HTML omitted --> where n is an integer index starting from 1, specifying a specific icon to be included, and all others to be ignored.&lt;/td>
- &lt;td>添加可执行图标。对于不同分辨率或包含多个图标的文件，可以多次添加。在后一种情况下，还可以使用 #&lt;!-- raw HTML omitted --> 作为后缀，其中 n 是一个从 1 开始的整数索引，用于指定要包含的特定图标，而忽略其他所有图标。&lt;/td>
+ &lt;td>Add executable icon. Can be given multiple times for different resolutions or files with multiple icons inside. In the later case, you may also suffix with #&lt;n> where n is an integer index starting from 1, specifying a specific icon to be included, and all others to be ignored.&lt;/td>
+ &lt;td>添加可执行图标。对于不同分辨率或包含多个图标的文件，可以多次添加。在后一种情况下，还可以使用 #&lt;n> 作为后缀，其中 n 是一个从 1 开始的整数索引，用于指定要包含的特定图标，而忽略其他所有图标。&lt;/td>
  &lt;/tr>
  &lt;tr>
  &lt;td>&amp;ndash;windows-icon-from-exe=ICON_EXE_PATH&lt;/td>
