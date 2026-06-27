@@ -15,7 +15,10 @@ tags:
 
 ## 初始化配置
 
-### 1. 配置时间
+### 1.软件更新
+[软件库管理]({{< ref "repo_Manual.md">}})
+
+### 2. 配置时间
 ```bash
 apt install -y systemd-timesyncd
 # 设置时区
@@ -34,15 +37,15 @@ FallbackNTP=0.debian.pool.ntp.org 1.debian.pool.ntp.org
 dpkg-reconfigure tzdata
 ```
 
-### 2. 关闭邮件服务
+### 3. 关闭邮件服务
 ```bash
 systemctl stop 'postfix@*' ; systemctl disable 'postfix@\x2a' ; apt purge -y postfix
 ```
 
-### 3. 配置网络
+### 4. 配置网络
 
-#### 3.1 配置无线(WiFi)
-##### 3.1.1 配置wpa_supplicant
+#### 4.1 配置无线(WiFi)
+##### 4.1.1 配置wpa_supplicant
 ```bash
 apt install -y wpa_supplicant
 ```
@@ -85,7 +88,7 @@ TimeoutStartSec=180
 systemctl daemon-reload
 systemctl restart wpa_supplicant
 ```
-##### 3.1.2 关闭无线网卡电源管理
+##### 4.1.2 关闭无线网卡电源管理
 ```bash
 # 创建服务
 tee /etc/systemd/system/wifi-powersave.service << 'EOF'
@@ -105,7 +108,7 @@ EOF
 systemctl enable wifi-powersave.service
 systemctl start wifi-powersave.service
 ```
-#### 3.2 配置systemd-networkd
+#### 4.2 配置systemd-networkd
 ```bash
 apt install -y systemd-networkd systemd-resolved
 ```
@@ -127,6 +130,8 @@ Address=127.0.0.1/8
 Address=::1/128
 ```
 ```ini
+; 此处参考/etc/network/interfaces文件里的配置
+; 无线网卡 
 ; /etc/systemd/network/20-wireless.network
 [Match]
 Name=wlp2s0
@@ -163,34 +168,36 @@ Wants=wpa_supplicant.service
 systemctl daemon-reload
 systemctl restart systemd-networkd
 ```
-#### 3.3 配置systemd-resolved
+#### 4.3 配置systemd-resolved
 ```bash
 systemctl enable --now systemd-resolved
 # 将系统的 DNS 配置文件链接到 systemd-resolved 管理的动态文件上，这样它就会自动更新。
 ln -sf /run/systemd/resolve/stub-resolv.conf /etc/resolv.conf
 resolvectl status
 ```
-#### 3.4 关闭networking
+#### 4.4 关闭networking
 ```bash
 systemctl stop networking
 systemctl disable networking
 apt remove ifupdown
 ```
-#### 3.5 重启
+#### 4.5 重启
 ```bash
 reboot
 ```
 
-### 4. 配置Shell提示符
+### 5. 配置Shell
 ```bash
-echo "PS1='\[\e[36;40m\][\D{%Y-%m-%d} \A] \[\e[0m\] \[\e[35;40m\]\w\[\e[0m\]\n\[\e[33;40m\][\u@\H]\[\e[0m\] \\$ '" >> ~/.bashrc
+# 修改命令行提示符
+echo "PS1='\[\e[36;40m\][\D{%Y-%m-%d} \A] \[\e[0m\] \[\e[35;40m\]\w\[\e[0m\]\n\[\e[33;40m\][\u@\H]\[\e[0m\] \\$ '" >> ~/.bashrc \
+    && . ~/.bashrc
+
 # 打开自定义命令
-sed -E -i.bak \
-    -e '/(export|eval|alias (ls|ll|l|rm|cp|mv))/s/^# //' ~/.bashrc \
+sed -E -i.bak -e '/(export|eval|alias (ls|ll|l|rm|cp|mv))/s/^# //' ~/.bashrc \
     && . ~/.bashrc
 ```
 
-### 5. 配置 sshd
+### 6. 配置 sshd
 ```bash
 # 允许root密码登录
 # 允许密码登录
@@ -211,9 +218,6 @@ sed -E -i.bak \
 <!-- 可直接下载初始化脚本使用
 - [debian bookworm](/attachments/scripts/init_setup_debian_bookworm.sh)
 - [rocky](/attachments/scripts/init_setup_rocky.sh) -->
-
-## 软件更新
-[软件库管理]({{< ref "repo_Manual.md">}})
 
 ## 配置防火墙
 [iptables 配置]({{< ref "iptables_Manual.md">}})
