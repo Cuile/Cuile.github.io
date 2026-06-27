@@ -12,8 +12,14 @@ tags:
 ---
 
 ## 安装
-### Windows
-#### 1. 下载
+### 1. 自动安装
+[Micromamba Installation — documentation](https://mamba.readthedocs.io/en/latest/installation/micromamba-installation.html#automatic-install)
+> 注意要等好久，而且没有任何提示，像死机了一样。
+
+### 2. 手动安装
+
+#### Windows
+##### 下载
 推荐使用 PowerShell[^1]
 ```powershell
 # 下载并安装 VC++ Redistributable，需要管理员模式
@@ -29,7 +35,7 @@ tar -xvf .\tmp\micromamba.tar -C .\micromamba\
 .\micromamba\Library\bin\micromamba.exe --help
 # 查看输出
 ```
-#### 2. 安装[^2]
+##### 安装[^2]
 ```powershell
 .\micromamba\Library\bin\micromamba.exe shell init -s powershell -r C:\Your\Root\Prefix
 ```
@@ -53,11 +59,8 @@ $Env:MAMBA_EXE = "C:\Users\username\micromamba\Library\bin\micromamba.exe"
 Set-Alias -name conda -value micromamba
 ```
 ---
-### Debian
-#### 安装[^2]
-##### 1. 自动安装
-[Micromamba Installation — documentation](https://mamba.readthedocs.io/en/latest/installation/micromamba-installation.html#automatic-install)
-##### 2. 手动安装
+#### Debian
+##### 下载安装[^2]
 ```bash
 curl -Ls https://micro.mamba.pm/api/micromamba/linux-64/latest | tar -xvj bin/micromamba \
 && mv bin/ micromamba \
@@ -78,8 +81,11 @@ else
     alias micromamba="$MAMBA_EXE"  # Fallback on help from micromamba activate
 fi
 unset __mamba_setup
-alias conda='micromamba'
 # <<< mamba initialize <<<
+```
+```bash
+echo 'alias conda="micromamba"' >> ~/.bashrc \
+&& . ~/.bashrc
 ```
 ---
 ## 配置
