@@ -52,6 +52,7 @@ $Env:MAMBA_EXE = "C:\Users\username\micromamba\Library\bin\micromamba.exe"
 ```powershell
 Set-Alias -name conda -value micromamba
 ```
+---
 ### Debian
 #### 安装[^2]
 ##### 1. 自动安装
@@ -80,7 +81,7 @@ unset __mamba_setup
 alias conda='micromamba'
 # <<< mamba initialize <<<
 ```
-
+---
 ## 配置
 重新启动命令行环境
 ```shell
@@ -102,7 +103,7 @@ conda env update -n base
 # 升级
 conda self-update
 ```
-
+---
 ## 使用
 ### 1. 创建环境
 使用命令行
