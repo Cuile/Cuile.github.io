@@ -53,7 +53,7 @@ sed -i -e "s/deb.debian.org/mirrors.bfsu.edu.cn/" /etc/apt/mirrors/debian-securi
 
 # PVE LXC debian-12-standard_12.7-1_amd64.tar.zst
 sed -i -e "s/deb.debian.org/mirrors.bfsu.edu.cn/" /etc/apt/sources.list
-sed -i -e "s/security.debian.org/mirrors.bfsu.edu.cn\/debian-serurity/" /etc/apt/sources.list
+sed -i -e "s/security.debian.org/mirrors.bfsu.edu.cn\/debian-security/" /etc/apt/sources.list
 
 # Docker imaage debian:12
 sed -i -e "s/deb.debian.org/mirrors.bfsu.edu.cn/" /etc/apt/sources.list.d/debian.sources
