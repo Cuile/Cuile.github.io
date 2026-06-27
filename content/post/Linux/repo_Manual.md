@@ -17,7 +17,7 @@ tags:
 
 ### 查找延迟最小的镜像
 ```bash
-sudo apt install -y netselect-apt \
+apt install -y netselect-apt \
     && sudo netselect-apt \
     && sudo apt autoremove -y netselect-apt \
     && rm -f sources.list
