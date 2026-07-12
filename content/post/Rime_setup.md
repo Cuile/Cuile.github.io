@@ -73,13 +73,16 @@ curl -fsSL https://raw.githubusercontent.com/rime/plum/master/rime-install | rim
 patch:
   schema_list:
     - schema: wubi_pinyin # 只保留五笔拼音混合输入法
-  ascii_composer/switch_key: # 将左右shift切换中英文输入，改为左右ctrl
-    Shift_L: noop
-    Shift_R: noop
-    Control_L: commit_text
-    Control_R: commit_text
+  ascii_composer: # 使用大写锁定键来切换中英文输入，放弃大写锁定功能
+    good_old_caps_lock: false
+    switch_key: 
+      Caps_Lock: commit_code
+      Shift_L: noop
+      Shift_R: noop
+      Control_L: noop
+      Control_R: noop
   menu:
-    page_size: 6 # 每页的待选字改为6个
+    page_size: 6
   key_binder/bindings:
     - { when: always, accept: "Control+Shift+2", toggle: noop} # 关闭ctrl+shift+2切换中英文输入，因为与vscode里的添加函数文档快捷键冲突
 ```
