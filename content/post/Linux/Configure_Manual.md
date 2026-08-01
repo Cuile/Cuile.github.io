@@ -29,8 +29,8 @@ timedatectl set-ntp true
 ```ini
 ; /etc/systemd/timesyncd.conf
 [Time]
-NTP=ntp.tuna.tsinghua.edu.cn
-FallbackNTP=0.debian.pool.ntp.org 1.debian.pool.ntp.org
+NTP=ntp.ntsc.ac.cn
+FallbackNTP=ntp.aliyun.com ntp.tencent.com 0.cn.pool.ntp.org
 ```
 ```bash
 # 在LXC、Docker 或某些 VPS 环境中
