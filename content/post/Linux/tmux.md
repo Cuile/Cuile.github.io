@@ -14,7 +14,6 @@ tags:
 ; ~/.tmux.conf
 # 启动鼠标支持
 set -g mouse on
-set -g mode-keys vi
 
 # WindTerm需在 会话 --> 首选项 --> 设置 --> 终端 --> 鼠标追踪 --> 追踪事件
 # 取消勾选：
@@ -26,23 +25,29 @@ set -g mode-keys vi
 # 禁用 WindTerm 的默认鼠标行为（防止冲突）
 set -g terminal-overrides 'xterm*:smcup@:rmcup@'
 # 1. 禁用左键释放自动复制（改为仅选择）
-bind -T copy-mode-vi MouseDragEnd1Pane send-keys -X copy-selection-and-cancel
-# 2. 右键复制已选文本（需先左键选择）
-bind -T copy-mode-vi MouseDown3Pane send-keys -X copy-pipe-and-cancel \
+# bind -T copy-mode-vi MouseDragEnd1Pane send-keys -X copy-selection-and-cancel
+# 2. 右键复制到系统剪贴板（需先左键选择）
+# bind -T copy-mode-vi MouseDown3Pane send-keys -X copy-pipe-and-cancel \
+#   "xclip -i -selection clipboard 2>/dev/null || pbpaste 2>/dev/null || win32yank.exe -i 2>/dev/null"
+# 3. 右键直接粘贴系统剪贴板内容（跨系统支持）
+bind -n MouseDown3Pane run-shell \
+  "tmux set-buffer -- \"$(xclip -o -selection clipboard 2>/dev/null || pbpaste 2>/dev/null || win32yank.exe -o 2>/dev/null)\"; tmux paste-buffer"
+
+# 启动emacs键位支持
+set -g mode-keys emacs
+# Ctrl+c复制到系统剪贴板
+bind -T copy-mode-emacs C-c send-keys -X copy-pipe-and-cancel \
   "xclip -i -selection clipboard 2>/dev/null || \
    pbpaste 2>/dev/null || \
    win32yank.exe -i 2>/dev/null"
-# 3. 右键直接粘贴系统剪贴板内容（跨系统支持）
-bind -n MouseDown3Pane run-shell \
-  "tmux set-buffer -- \"$(xclip -o -selection clipboard 2>/dev/null || \
-                          pbpaste 2>/dev/null || \
-                          win32yank.exe -o 2>/dev/null)\"; \
-   tmux paste-buffer"
+
+# 启动vi键位支持
+# set -g mode-keys vi
 
 # 解除默认的鼠标调整绑定（可选）
-unbind-key -T root MouseDrag1Border
+# unbind-key -T root MouseDrag1Border
 # 重新绑定鼠标拖动调整大小
-bind -n MouseDrag1Border resize-pane -M
+# bind -n MouseDrag1Border resize-pane -M
 
 # status line
 set -g status-justify centre
@@ -78,24 +83,24 @@ Prefix = Ctrl + b
 
 ### 会话操作
 
-|操作         |快捷键           |命令                                                          | 
-|:---         |:---            |:---                                                          | 
-|启动，会话    |                |```tmux new -s <session_name>```                              |
-|进入，会话    |                |```tmux <attach \| a> -t <session_name \| session_index>```   |
-|展示，会话列表|                |```list-session```                                            |
-|跳转，会话    |```Prefix + s```|```switch -t <session_name \| session_index>```               |     
-|修改，会话标题|```Prefix + $```|```rename-session -t <old_name \| session_index> <new_name>```|     
-|翻屏模式[^1]  |```Prefix + [```|                                                              | 
-|**命令模式** |```Prefix + :```|                                                              | 
-|退出，会话    |```Prefix + d```|```detach```                                                  |     
-|关闭，会话    |                |```tmux kill-session -t <session_name \| session_index>```    |
+|操作                |快捷键           |命令                                                          | 
+|:---               |:---            |:---                                                          | 
+|启动，会话           |                |```tmux new -s <session_name>```                              |
+|进入，会话           |                |```tmux <attach \| a> -t <session_name \| session_index>```   |
+|展示，会话列表        |                |```list-session```                                            |
+|跳转，会话           |```Prefix + s```|```switch -t <session_name \| session_index>```               |     
+|修改，会话标题        |```Prefix + $```|```rename-session -t <old_name \| session_index> <new_name>```|     
+ 
+|**命令模式**         |```Prefix + :```|                                                              | 
+|退出，会话           |```Prefix + d```|```detach```                                                  |     
+|关闭，会话           |                |```tmux kill-session -t <session_name \| session_index>```    |
 
-[^1]: PgUp, PgDn 实现上下翻页（mac可以用 fn + ↑ ↓实现上下翻页），q 退出翻屏模式。
+
 
 ### 窗口操作
 
 |操作                |快捷键                    |命令                                                               |
-|:---                |:---                     |:---                                                               |
+|:---               |:---                     |:---                                                               |
 |展示，窗口列表       |                         |```list-window [-t <session_name>]```                              |
 |修改，窗口标题       |```Prefix + ,```         |```rename-window <newp_name>```                                    |
 |添加，当前会话       |```Prefix + c```         |                                                                   |
@@ -108,30 +113,32 @@ Prefix = Ctrl + b
 |关闭，当前会话所有窗口|```Prefix + !```         |                                                                   |
 
 ### 面板操作
-|操作                       |快捷键                                   |命令                                                                          |
-|:---                       |:---                                    |:---                                                                          |
-|展示，面板列表              |                                        |```list-panes -t <session_name \| session_index>:<window-index>```            |
-|展示，面板编号              |```Prefix + q```                        |                                                                              |
-|修改，面板标题              |                                        |```select-pane -T "new-title" -t <session-name>:<window-index>.<pane-index>```|
+|操作                     |快捷键                                   |命令                                                                          |
+|:---                     |:---                                    |:---                                                                          |
+|展示，面板列表             |                                        |```list-panes -t <session_name \| session_index>:<window-index>```            |
+|展示，面板编号             |```Prefix + q```                        |                                                                              |
+|修改，面板标题             |                                        |```select-pane -T "new-title" -t <session-name>:<window-index>.<pane-index>```|
 |拆分，将当前面板分成左右两份 |```Prefix + %```                        |                                                                              |
 |拆分，将当前面板分成上下两份 |```Prefix + "```                        |                                                                              |
-|移动，面板到窗口            |                                        |```move-pane -t <session-name>:<window-index>```                              |
+|移动，面板到窗口           |                                        |```move-pane -t <session-name>:<window-index>```                              |
 |移动，所有面板位置顺时针移动 |```Prefix + Ctrl + o```                 |                                                                              |
 |移动，所有面板位置逆时针移动 |```Prefix + Alt + o```                  |                                                                              |
 |交换，当前面板与左侧/上方面板|```Prefix + {```                        |                                                                              |
 |交换，当前面板与右侧/下方面板|```Prefix + }```                        |                                                                              |
-|交换，指定面板              |                                        |```swap-pane -s <source-pane-index> -t <target-pane-index>```                 |
+|交换，指定面板             |                                        |```swap-pane -s <source-pane-index> -t <target-pane-index>```                 |
 |布局，切换当前面板的布局方向 |```Prefix + Space```                    |                                                                              | 
 |布局，循环切换5种预设布局    |```Prefix + Alt + [1~5]```              |                                                                              | 
-|布局，所有面板水平排列       |                                        |```select-layout even-horizontal ```                                          |
-|布局，所有面板垂直排列       |                                        |```select-layout even-verticalc```                                            |
+|布局，所有面板水平排列      |                                        |```select-layout even-horizontal ```                                          |
+|布局，所有面板垂直排列      |                                        |```select-layout even-verticalc```                                            |
 |选中，当前窗口中的不同面板   |```Prefix + < ↑ \| ↓ \| ← \| → >```     |                                                                              |
-|调节，光标所在面板的大小     |```按住 Prefix + < ↑ \| ↓ \| ← \| → >```|                                                                              |
-|关闭，当前面板              |```Prefix + x```                        |                                                                              |
+|调节，光标所在面板的大小    |```按住 Prefix + < ↑ \| ↓ \| ← \| → >``` |                                                                              |
+|关闭，当前面板             |```Prefix + x```                        |                                                                              |
+|复制模式[^1](翻屏模式)     |```Prefix + [```                        |                                                                               |
+
+[^1]: Emacs风格：PgUp, PgDn 实现上下翻页（mac可以用 fn + ↑ ↓实现上下翻页），q 退出复制模式，```Prefix + ]``` 粘贴。
 
 ## 脚本操作
-
-### Tmux格式
+### Tmux参数
 ```bash
 tmux new-session -s "${MY_SESSION}" -d \; \
     split-window -v \; \
@@ -152,7 +159,7 @@ tmux new-session -s "${MY_SESSION}" -d \; \
     attach-session -t "${MY_SESSION}"
 ```
 
-### Shell格式
+### 命令行
 ```bash
 # 在后台创建新的会话
 tmux new-session -s "${MY_SESSION}" -d
