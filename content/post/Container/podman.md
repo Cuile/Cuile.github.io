@@ -55,8 +55,6 @@ location = "docker.io"
 [[registry.mirror]]
 location = "docker.1ms.run"
 [[registry.mirror]]
-location = "registry.cn-hangzhou.aliyuncs.com"
-[[registry.mirror]]
 location = "hub.rat.dev"
 [[registry.mirror]]
 location = "docker.xuanyuan.me"
