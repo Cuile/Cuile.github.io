@@ -310,6 +310,8 @@ mv /mnt/raid1-2disk-500G /mnt/raid1-250G-2disk
 nano /etc/fstab
 # 重装挂载
 mount -av /dev/md127 /mnt/raid1-250G-2disk
+# 查看当前路径下的磁盘占用情况
+du -sh * 2>/dev/null | sort -hr
 ```
 - [查询并筛选 磁盘空间 统计 排序](https://blog.csdn.net/u013030100/article/details/79564378)
 
