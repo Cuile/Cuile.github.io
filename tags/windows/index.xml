@@ -1,126 +1,229 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Windows on 瘦了就帅了</title><link>https://blog.cuile.com/tags/windows/</link><description>Recent content in Windows on 瘦了就帅了</description><generator>Hugo</generator><language>zh-cn</language><lastBuildDate>Wed, 18 Mar 2026 10:13:17 +0000</lastBuildDate><atom:link href="https://blog.cuile.com/tags/windows/index.xml" rel="self" type="application/rss+xml"/><item><title>OpenSSH的安装与使用</title><link>https://blog.cuile.com/post/windows/openssh/</link><pubDate>Thu, 17 Jul 2025 02:06:38 +0800</pubDate><guid>https://blog.cuile.com/post/windows/openssh/</guid><description>&lt;ol>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Windows on 瘦了就帅了</title><link>https://blog.cuile.com/tags/windows/</link><description>Recent content in Windows on 瘦了就帅了</description><generator>Hugo</generator><language>zh-cn</language><lastBuildDate>Fri, 04 Sep 2026 04:23:08 +0000</lastBuildDate><atom:link href="https://blog.cuile.com/tags/windows/index.xml" rel="self" type="application/rss+xml"/><item><title>Windows X-Lite 版本说明</title><link>https://blog.cuile.com/post/windows/x-lite/</link><pubDate>Fri, 24 Apr 2026 16:23:32 +0800</pubDate><guid>https://blog.cuile.com/post/windows/x-lite/</guid><description>&lt;p>Windows X-Lite 优化的 Windows 版本旨在提升性能、隐私性、稳定性和可控制性，同时降低资源占用、提高响应速度，并且几乎能在任何 PC 上运行——无论新旧强弱。
+但官网上各版本与镜像的展示逻辑，是交叉且毫无条理的，容易给人看懵，特在些说明如下：&lt;/p>
+&lt;h2 id="可下载的内容分11个部分">可下载的内容分11个部分&lt;/h2>
+&lt;ol>
+&lt;li>&lt;a href="https://windowsxlite.com/win10">Windows 10 Builds&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://windowsxlite.com/win11">Windows 11 Builds&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://windowsxlite.com/SE">Special Edition Builds&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://windowsxlite.com/ultralight">Ultralight&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://windowsxlite.com/Atomic">Barebone Builds&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://windowsxlite.com/Micro10-22H2">x86 Builds&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://windowsxlite.com/updatepacks">Windows Update Packs&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://windowsxlite.com/software">Software&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://windowsxlite.com/tweaks">Registry Tweaks&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://windowsxlite.com/WSA">Windows Subsystem For Android&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://windowsxlite.com/wallpaper">Wallpaper&lt;/a>&lt;/li>
+&lt;/ol>
+&lt;h2 id="各版本之间的差异">各版本之间的差异&lt;/h2>
+&lt;table>
+ &lt;thead>
+ &lt;tr>
+ &lt;th style="text-align: center">版本&lt;/th>
+ &lt;th style="text-align: left">&lt;center>Ultralight 超精简版&lt;/center>&lt;/th>
+ &lt;/tr>
+ &lt;/thead>
+ &lt;tbody>
+ &lt;tr>
+ &lt;td style="text-align: center">概述&lt;/td>
+ &lt;td style="text-align: left">超精简版保留了运行大多数第三方应用和游戏所需的核心组件&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td style="text-align: center">不支持&lt;/td>
+ &lt;td style="text-align: left">&lt;ul>&lt;li>Windows Mail、Windows Calendar（邮件/日历）&lt;/li>&lt;li>BitLocker、Smart Card（加密/智能卡）&lt;/li>&lt;li>OneDrive、Defender（云存储/杀毒）&lt;/li>&lt;li>备份与还原、语音、诊断、疑难解答&lt;/li>&lt;li>Windows 更新、可选功能（如 Hyper‑V、WSA、WSL2）&lt;/li>&lt;li>此外，安装额外语言时可能遇到问题。&lt;/li>&lt;/ul>&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td style="text-align: center">支持&lt;/td>
+ &lt;td style="text-align: left">&lt;ul>&lt;li>台式机、笔记本、平板电脑&lt;/li>&lt;li>WLAN、蓝牙&lt;/li>&lt;li>微软商店、UWP 应用&lt;/li>&lt;li>Xbox Game Pass、Xbox 手柄&lt;/li>&lt;li>打印功能&lt;/li>&lt;li>以及绝大多数第三方应用和游戏。&lt;/li>&lt;/ul>&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td style="text-align: center">包含镜像&lt;/td>
+ &lt;td style="text-align: left">&lt;ul>&lt;li>&lt;a href="#micro-10">&amp;lsquo;Micro 10&amp;rsquo;&lt;/a>&lt;/li>&lt;li>&amp;lsquo;Neon Gamer&amp;rsquo;&lt;/li>&lt;li>&amp;lsquo;Micro 11 24H2&amp;rsquo;&lt;/li>&lt;li>&amp;lsquo;Micro 11 23H2&amp;rsquo;&lt;/li>&lt;li>&amp;lsquo;Micro 11 22H2&amp;rsquo; SE&lt;/li>&lt;li>&amp;lsquo;Micro 11 22H2&amp;rsquo;&lt;/li>&lt;li>&amp;lsquo;Atomic 11&amp;rsquo;&lt;/li>&lt;/ul>&lt;/td>
+ &lt;/tr>
+ &lt;/tbody>
+&lt;/table>
+&lt;h2 id="版本内部镜像差异">版本内部镜像差异&lt;/h2>
+&lt;h3 id="micro-10">Micro 10&lt;/h3>
+&lt;table>
+ &lt;thead>
+ &lt;tr>
+ &lt;th style="text-align: center">镜像&lt;/th>
+ &lt;th style="text-align: left">&lt;center>&lt;a href="https://windowsxlite.com/Micro10">&amp;lsquo;Micro 10&amp;rsquo;&lt;/a>&lt;/center>&lt;/th>
+ &lt;th style="text-align: left">&lt;center>&lt;a href="https://windowsxlite.com/Micro10_x86_SE">&amp;lsquo;Micro 10&amp;rsquo; SE [x86]&lt;/a>&lt;/center>&lt;/th>
+ &lt;th style="text-align: left">&lt;center>&lt;a href="https://windowsxlite.com/Micro10_x64_SE">&amp;lsquo;Micro 10&amp;rsquo; SE [x64]&lt;/a>&lt;/center>&lt;/th>
+ &lt;/tr>
+ &lt;/thead>
+ &lt;tbody>
+ &lt;tr>
+ &lt;td style="text-align: center">基础版本&lt;/td>
+ &lt;td style="text-align: left">&lt;center>Windows 10 22H2 Pro (Build 19045.3324) AMD64&lt;/center>&lt;/td>
+ &lt;td style="text-align: left">&lt;center>Windows 10 22H2 Pro (Build 19045.3757) x86&lt;/center>&lt;/td>
+ &lt;td style="text-align: left">&lt;center>Windows 10 22H2 Pro (Build 19045.3757) x64&lt;/center>&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td style="text-align: center">版本说明&lt;/td>
+ &lt;td style="text-align: left">&lt;ul>&lt;li>这是我们首个基于 Windows 10 22H2 的超精简版！&lt;/li>&lt;li>极致性能之选！ 此版本基于 Windows 10 22H2，精简至核心，但仍保留了大多数用户需要的功能。它在隐私、性能、操控性、稳定性和外观风格方面为 Windows 带来了革新。&lt;/li>&lt;li>默认启用按流量计费的连接。 我们强烈建议保持此设置开启。这意味着 Windows 不会自动为你的电脑下载驱动程序，因此，我们建议你直接从电脑制造商的官网下载驱动程序。&lt;/li>&lt;li>Windows 更新服务和 Windows 防火墙默认均为禁用状态，但你可以在“开始菜单” - “X-Lite 工具”文件夹中轻松启用它们。你需要启用 Windows 更新服务才能使用 Microsoft Store 和安装额外的语言包。&lt;/li>&lt;/ul>&lt;/td>
+ &lt;td style="text-align: left">&lt;ul>&lt;li>我们的首个 Windows 10 22H2 x86 版本！&lt;/li>&lt;li>极致性能之选！基于 Windows 10 22H2，此版本精简至核心，但仍保留了大多数用户需要的功能！并在隐私、性能、操控性、稳定性和风格方面为 Windows 带来革新。&lt;/li>&lt;li>此版本基于原始的 Micro 10 版本，因此我们依赖 Micro 10 的原始演示视频来让你了解此版本的能力和所提供的体验。它之所以是一个特别版，是因为在主题、鼠标指针和壁纸方面进行了令人兴奋的全新改动，呈现出焕然一新的外观，如本页底部的截图所示。&lt;/li>&lt;li>Windows 更新服务和 Windows 防火墙默认禁用，但可以通过开始菜单 - X-Lite 工具文件夹轻松启用。你需要启用 Windows 更新服务才能使用 Microsoft Store 和安装额外的语言包。&lt;/li>&lt;li>要在添加额外语言时获得完整的 Windows 设置翻译支持，请先开启 Windows 更新服务，确保按流量计费的连接已关闭，然后安装你需要的语言包，最后重启电脑以完成更改！&lt;/li>&lt;li>此版本未预装 .NET Framework 3.5，且无法添加。它完全支持 .NET 4.8，并完全支持安装 .NET 桌面运行时 5、6、7、8 等。&lt;/li>&lt;/ul>&lt;/td>
+ &lt;td style="text-align: left">&lt;ul>&lt;li>极致性能之选！基于 Windows 10 22H2，此版本精简至核心，但仍保留了大多数用户需要的功能！并在隐私、性能、操控性、稳定性和风格方面为 Windows 带来革新。&lt;/li>&lt;li>此版本基于原始的 Micro 10 版本，因此我们依赖 Micro 10 的原始演示视频来让你了解此版本的能力和所提供的体验。它之所以是一个特别版，是因为在主题、鼠标指针和壁纸方面进行了令人兴奋的全新改动，呈现出焕然一新的外观，如本页底部的截图所示。&lt;/li>&lt;li>Windows 更新服务和 Windows 防火墙默认禁用，但可以通过开始菜单 - X-Lite 工具文件夹轻松启用。你需要启用 Windows 更新服务才能使用 Microsoft Store 和安装额外的语言包。&lt;/li>&lt;li>要在添加额外语言时获得完整的 Windows 设置翻译支持，请先开启 Windows 更新服务，确保按流量计费的连接已关闭，然后安装你需要的语言包，最后重启电脑以完成更改！&lt;/li>&lt;li>此版本未预装 .NET Framework 3.5，且无法添加。它完全支持 .NET 4.8，并完全支持安装 .NET 桌面运行时 5、6、7、8 等。&lt;/li>&lt;/ul>&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td style="text-align: center">亮点速览&lt;/td>
+ &lt;td style="text-align: left">&lt;ul>&lt;li>1.3GB ISO！&lt;/li>&lt;li>2.5GB 安装后大小！&lt;/li>&lt;li>虚拟内存默认启用！&lt;/li>&lt;li>稳定性和性能提升！&lt;/li>&lt;li>包含可选系统透明效果！&lt;/li>&lt;li>为您的应用和游戏带来极致性能！&lt;/li>&lt;li>已将 Intel RST 和 Serial IO 驱动集成到 Windows 安装程序中！&lt;/li>&lt;li>完全支持 UWP 应用、Xbox、Microsoft Store 等！&lt;/li>&lt;li>更新了框架、运行时库和桌面应用安装器！&lt;/li>&lt;li>包含自定义主题、图标、壁纸等！&lt;/li>&lt;li>包含 HEVC 解码器！（非 Windows 10 原生）&lt;/li>&lt;li>额外的改进和优化！&lt;/li>&lt;li>无预装 UWP 应用！&lt;/li>&lt;li>包含 Microsoft Store 安装器！&lt;/li>&lt;li>完全支持旧式 PC&lt;/li>&lt;li>完全支持台式机、笔记本电脑和平板电脑&lt;/li>&lt;li>完全支持额外语言包&lt;/li>&lt;li>旨在为您的电脑注入新活力&lt;/li>&lt;/ul>💥 旨在适用于所有电脑，无论新旧强弱，台式机还是笔记本电脑。&lt;/td>
+ &lt;td style="text-align: left">&lt;ul>&lt;li>869 MB ISO！&lt;/li>&lt;li>1.5 GB 安装后大小！&lt;/li>&lt;li>虚拟内存默认启用！&lt;/li>&lt;li>稳定性和性能提升！&lt;/li>&lt;li>包含可选系统透明效果！&lt;/li>&lt;li>为您的应用和游戏带来极致性能！&lt;/li>&lt;li>完全支持 UWP 应用、Microsoft Store 等！&lt;/li>&lt;li>包含自定义主题、图标、壁纸、鼠标指针等！&lt;/li>&lt;li>额外的改进和优化！&lt;/li>&lt;li>包含 Microsoft Store 和截图工具！&lt;/li>&lt;li>完全支持台式机、笔记本电脑和平板电脑&lt;/li>&lt;li>完全支持额外语言包&lt;/li>&lt;li>旨在为您的电脑注入新活力&lt;/li>&lt;/ul>💥 旨在适用于所有电脑，无论新旧强弱，台式机还是笔记本电脑。&lt;/td>
+ &lt;td style="text-align: left">&lt;ul>&lt;li>1.2 GB ISO！&lt;/li>&lt;li>2 GB 安装后大小！&lt;/li>&lt;li>虚拟内存默认启用！&lt;/li>&lt;li>稳定性和性能提升！&lt;/li>&lt;li>包含可选系统透明效果！&lt;/li>&lt;li>为您的应用和游戏带来极致性能！&lt;/li>&lt;li>完全支持 UWP 应用、Microsoft Store 等！&lt;/li>&lt;li>包含自定义主题、图标、壁纸、鼠标指针等！&lt;/li>&lt;li>额外的改进和优化！&lt;/li>&lt;li>包含 Microsoft Store 和截图工具！&lt;/li>&lt;li>完全支持台式机、笔记本电脑和平板电脑&lt;/li>&lt;li>完全支持额外语言包&lt;/li>&lt;li>旨在为您的电脑注入新活力&lt;/li>&lt;/ul>💥 旨在适用于所有电脑，无论新旧强弱，台式机还是笔记本电脑。&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td style="text-align: center">已移除&lt;/td>
+ &lt;td style="text-align: left">Cortana（小娜）、Smart Screen（智能屏幕筛选）、Edge 浏览器、UWP 应用、BitLocker（磁盘加密）、Hyper‑V、WSL2（Linux 子系统）、OneDrive、智能卡、Windows Defender、Windows 邮件、备份与还原、遥测、诊断、疑难解答、地图、可选功能支持（WSL2、Hyper‑V、沙盒等）、更新支持、组件存储、语音功能、语音唤醒、部分字体。&lt;/td>
+ &lt;td style="text-align: left">Cortana、Smart Screen、Edge、UWP 应用、BitLocker、Hyper-V、WSL2、One Drive、智能卡、Windows Defender、Windows 邮件、备份和还原、遥测、诊断、疑难解答、地图、可选功能支持（WSL2、Hyper-V、沙盒等）、更新支持、组件存储、语音、语音唤醒、部分字体。&lt;/td>
+ &lt;td style="text-align: left">Cortana、Smart Screen、Edge、UWP 应用、BitLocker、Hyper-V、WSL2、One Drive、智能卡、Windows Defender、Windows 邮件、备份和还原、遥测、诊断、疑难解答、地图、可选功能支持（WSL2、Hyper-V、沙盒等）、更新支持、组件存储、语音、语音唤醒、部分字体。&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td style="text-align: center">已禁用&lt;/td>
+ &lt;td style="text-align: left">错误报告、索引、UAC、广告、休眠、电源节流。&lt;/td>
+ &lt;td style="text-align: left">错误报告、索引、UAC、广告、休眠、电源节流。&lt;/td>
+ &lt;td style="text-align: left">错误报告、索引、UAC、广告、休眠、电源节流。&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td style="text-align: center">已启用&lt;/td>
+ &lt;td style="text-align: left">DirectPlay、.NET Framework 3.5、SMB1。&lt;/td>
+ &lt;td style="text-align: left">DirectPlay、SMB1。&lt;/td>
+ &lt;td style="text-align: left">DirectPlay、SMB1。&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td style="text-align: center">性能优先&lt;/td>
+ &lt;td style="text-align: left">——此版本旨在最大化性能、响应速度和资源节省。&lt;/td>
+ &lt;td style="text-align: left">此版本旨在最大化性能、响应速度和资源节省。&lt;/td>
+ &lt;td style="text-align: left">此版本旨在最大化性能、响应速度和资源节省。&lt;/td>
+ &lt;/tr>
+ &lt;/tbody>
+&lt;/table></description></item><item><title>OpenSSH的安装与使用</title><link>https://blog.cuile.com/post/windows/openssh/</link><pubDate>Thu, 17 Jul 2025 02:06:38 +0800</pubDate><guid>https://blog.cuile.com/post/windows/openssh/</guid><description>&lt;ol>
 &lt;li>安装 OpenSSH 客户端&lt;/li>
 &lt;/ol>
-&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-powershell" data-lang="powershell">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e"># 检查是否已安装 OpenSSH 客户端&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&amp;gt; Get-WindowsCapability -Online | Where-Object Name &lt;span style="color:#f92672">-like&lt;/span> &lt;span style="color:#e6db74">&amp;#39;OpenSSH.Client*&amp;#39;&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e"># 安装 OpenSSH 客户端&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&amp;gt; Add-WindowsCapability -Online -Name OpenSSH.Client~~~~&lt;span style="color:#ae81ff">0.0&lt;/span>.1.0
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e"># 验证安装&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&amp;gt; ssh -V
+&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-powershell" data-lang="powershell">&lt;span class="line">&lt;span class="cl">&lt;span class="c"># 检查是否已安装 OpenSSH 客户端&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="p">&amp;gt;&lt;/span> &lt;span class="nb">Get-WindowsCapability&lt;/span> &lt;span class="n">-Online&lt;/span> &lt;span class="p">|&lt;/span> &lt;span class="nb">Where-Object&lt;/span> &lt;span class="n">Name&lt;/span> &lt;span class="o">-like&lt;/span> &lt;span class="s1">&amp;#39;OpenSSH.Client*&amp;#39;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c"># 安装 OpenSSH 客户端&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="p">&amp;gt;&lt;/span> &lt;span class="nb">Add-WindowsCapability&lt;/span> &lt;span class="n">-Online&lt;/span> &lt;span class="n">-Name&lt;/span> &lt;span class="n">OpenSSH&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="n">Client&lt;/span>&lt;span class="p">~~~~&lt;/span>&lt;span class="mf">0.0&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="py">1&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="py">0&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c"># 验证安装&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="p">&amp;gt;&lt;/span> &lt;span class="n">ssh&lt;/span> &lt;span class="n">-V&lt;/span>
 &lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;ol start="2">
 &lt;li>安装 OpenSSH 服务器&lt;/li>
 &lt;/ol>
-&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-powershell" data-lang="powershell">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e"># 检查是否已安装 OpenSSH 服务器&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&amp;gt; Get-WindowsCapability -Online | Where-Object Name &lt;span style="color:#f92672">-like&lt;/span> &lt;span style="color:#e6db74">&amp;#39;OpenSSH.Server*&amp;#39;&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e"># 安装 OpenSSH 服务器&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&amp;gt; Add-WindowsCapability -Online -Name OpenSSH.Server~~~~&lt;span style="color:#ae81ff">0.0&lt;/span>.1.0
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e"># 启动 SSH 服务并设置为自动启动&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&amp;gt; Start-Service sshd
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&amp;gt; Set-Service -Name sshd -StartupType Automatic
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e"># 检查服务状态&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&amp;gt; Get-Service sshd
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e"># 重启服务&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&amp;gt; Restart-Service sshd
+&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-powershell" data-lang="powershell">&lt;span class="line">&lt;span class="cl">&lt;span class="c"># 检查是否已安装 OpenSSH 服务器&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="p">&amp;gt;&lt;/span> &lt;span class="nb">Get-WindowsCapability&lt;/span> &lt;span class="n">-Online&lt;/span> &lt;span class="p">|&lt;/span> &lt;span class="nb">Where-Object&lt;/span> &lt;span class="n">Name&lt;/span> &lt;span class="o">-like&lt;/span> &lt;span class="s1">&amp;#39;OpenSSH.Server*&amp;#39;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c"># 安装 OpenSSH 服务器&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="p">&amp;gt;&lt;/span> &lt;span class="nb">Add-WindowsCapability&lt;/span> &lt;span class="n">-Online&lt;/span> &lt;span class="n">-Name&lt;/span> &lt;span class="n">OpenSSH&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="n">Server&lt;/span>&lt;span class="p">~~~~&lt;/span>&lt;span class="mf">0.0&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="py">1&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="py">0&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c"># 启动 SSH 服务并设置为自动启动&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="p">&amp;gt;&lt;/span> &lt;span class="nb">Start-Service&lt;/span> &lt;span class="n">sshd&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="p">&amp;gt;&lt;/span> &lt;span class="nb">Set-Service&lt;/span> &lt;span class="n">-Name&lt;/span> &lt;span class="n">sshd&lt;/span> &lt;span class="n">-StartupType&lt;/span> &lt;span class="n">Automatic&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c"># 检查服务状态&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="p">&amp;gt;&lt;/span> &lt;span class="nb">Get-Service&lt;/span> &lt;span class="n">sshd&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c"># 重启服务&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="p">&amp;gt;&lt;/span> &lt;span class="nb">Restart-Service&lt;/span> &lt;span class="n">sshd&lt;/span>
 &lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;ol start="3">
 &lt;li>配置防火墙（允许 SSH 端口 22）&lt;/li>
 &lt;/ol>
-&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-powershell" data-lang="powershell">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e"># 允许入站 SSH 连接&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&amp;gt; New-NetFirewallRule -Name &lt;span style="color:#e6db74">&amp;#34;OpenSSH-Server&amp;#34;&lt;/span> -DisplayName &lt;span style="color:#e6db74">&amp;#34;OpenSSH Server (sshd)&amp;#34;&lt;/span> -Enabled True -Direction Inbound -Protocol TCP -Action Allow -LocalPort &lt;span style="color:#ae81ff">22&lt;/span>
+&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-powershell" data-lang="powershell">&lt;span class="line">&lt;span class="cl">&lt;span class="c"># 允许入站 SSH 连接&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="p">&amp;gt;&lt;/span> &lt;span class="nb">New-NetFirewallRule&lt;/span> &lt;span class="n">-Name&lt;/span> &lt;span class="s2">&amp;#34;OpenSSH-Server&amp;#34;&lt;/span> &lt;span class="n">-DisplayName&lt;/span> &lt;span class="s2">&amp;#34;OpenSSH Server (sshd)&amp;#34;&lt;/span> &lt;span class="n">-Enabled&lt;/span> &lt;span class="n">True&lt;/span> &lt;span class="n">-Direction&lt;/span> &lt;span class="n">Inbound&lt;/span> &lt;span class="n">-Protocol&lt;/span> &lt;span class="n">TCP&lt;/span> &lt;span class="n">-Action&lt;/span> &lt;span class="n">Allow&lt;/span> &lt;span class="n">-LocalPort&lt;/span> &lt;span class="mf">22&lt;/span>
 &lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div></description></item><item><title>Micromamba的安装与使用</title><link>https://blog.cuile.com/post/python/micromamba/</link><pubDate>Thu, 17 Jul 2025 01:18:10 +0800</pubDate><guid>https://blog.cuile.com/post/python/micromamba/</guid><description>&lt;h2 id="安装">安装&lt;/h2>
-&lt;h3 id="windows">Windows&lt;/h3>
-&lt;h4 id="1-下载">1. 下载&lt;/h4>
+&lt;h3 id="1-自动安装">1. 自动安装&lt;/h3>
+&lt;p>&lt;a href="https://mamba.readthedocs.io/en/latest/installation/micromamba-installation.html#automatic-install">Micromamba Installation — documentation&lt;/a>&lt;/p>
+&lt;blockquote>
+&lt;p>注意要等好久，而且没有任何提示，像死机了一样。&lt;/p>&lt;/blockquote>
+&lt;h3 id="2-手动安装">2. 手动安装&lt;/h3>
+&lt;h4 id="windows">Windows&lt;/h4>
+&lt;h5 id="下载">下载&lt;/h5>
 &lt;p>推荐使用 PowerShell&lt;sup id="fnref:1">&lt;a href="#fn:1" class="footnote-ref" role="doc-noteref">1&lt;/a>&lt;/sup>&lt;/p>
-&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-powershell" data-lang="powershell">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e"># 下载并安装 VC++ Redistributable，需要管理员模式&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>Invoke-WebRequest -Uri &lt;span style="color:#e6db74">&amp;#34;https://aka.ms/vs/17/release/vc_redist.x64.exe&amp;#34;&lt;/span> -OutFile &lt;span style="color:#e6db74">&amp;#34;&lt;/span>$env:TEMP&lt;span style="color:#e6db74">\vc_redist.x64.exe&amp;#34;&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>Start-Process -Wait -FilePath &lt;span style="color:#e6db74">&amp;#34;&lt;/span>$env:TEMP&lt;span style="color:#e6db74">\vc_redist.x64.exe&amp;#34;&lt;/span> -ArgumentList &lt;span style="color:#e6db74">&amp;#34;/install&amp;#34;&lt;/span>, &lt;span style="color:#e6db74">&amp;#34;/quiet&amp;#34;&lt;/span>, &lt;span style="color:#e6db74">&amp;#34;/norestart&amp;#34;&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e"># 下载micromamba&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>Invoke-Webrequest -URI https&lt;span style="color:#960050;background-color:#1e0010">:&lt;/span>//micro.mamba.pm/api/micromamba/win-&lt;span style="color:#ae81ff">64&lt;/span>/latest -OutFile micromamba.tar.bz2
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e"># 使用7z解压&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&amp;amp; &lt;span style="color:#e6db74">&amp;#34;C:\Program Files\7-Zip\7z.exe&amp;#34;&lt;/span> x &lt;span style="color:#e6db74">&amp;#34;micromamba.tar.bz2&amp;#34;&lt;/span> -o&lt;span style="color:#e6db74">&amp;#34;tmp&amp;#34;&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e"># 使用tar解压，系统内置不用安装&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>mkdir micromamba
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>tar -xvf .\tmp\micromamba.tar -C .\micromamba\
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>.\micromamba\Library\bin\micromamba.exe --help
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e"># 查看输出&lt;/span>
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h4 id="2-安装">2. 安装&lt;sup id="fnref:2">&lt;a href="#fn:2" class="footnote-ref" role="doc-noteref">2&lt;/a>&lt;/sup>&lt;/h4>
-&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-powershell" data-lang="powershell">&lt;span style="display:flex;">&lt;span>.\micromamba\Library\bin\micromamba.exe shell init -s powershell -r C:\Your\Root\Prefix
+&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-powershell" data-lang="powershell">&lt;span class="line">&lt;span class="cl">&lt;span class="c"># 下载并安装 VC++ Redistributable，需要管理员模式&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="nb">Invoke-WebRequest&lt;/span> &lt;span class="n">-Uri&lt;/span> &lt;span class="s2">&amp;#34;https://aka.ms/vs/17/release/vc_redist.x64.exe&amp;#34;&lt;/span> &lt;span class="n">-OutFile&lt;/span> &lt;span class="s2">&amp;#34;&lt;/span>&lt;span class="nv">$env:TEMP&lt;/span>&lt;span class="s2">\vc_redist.x64.exe&amp;#34;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="nb">Start-Process&lt;/span> &lt;span class="n">-Wait&lt;/span> &lt;span class="n">-FilePath&lt;/span> &lt;span class="s2">&amp;#34;&lt;/span>&lt;span class="nv">$env:TEMP&lt;/span>&lt;span class="s2">\vc_redist.x64.exe&amp;#34;&lt;/span> &lt;span class="n">-ArgumentList&lt;/span> &lt;span class="s2">&amp;#34;/install&amp;#34;&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="s2">&amp;#34;/quiet&amp;#34;&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="s2">&amp;#34;/norestart&amp;#34;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c"># 下载micromamba&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="nb">Invoke-Webrequest&lt;/span> &lt;span class="n">-URI&lt;/span> &lt;span class="n">https&lt;/span>&lt;span class="err">:&lt;/span>&lt;span class="p">//&lt;/span>&lt;span class="n">micro&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="py">mamba&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="n">pm&lt;/span>&lt;span class="p">/&lt;/span>&lt;span class="n">api&lt;/span>&lt;span class="p">/&lt;/span>&lt;span class="n">micromamba&lt;/span>&lt;span class="p">/&lt;/span>&lt;span class="n">win&lt;/span>&lt;span class="p">-&lt;/span>&lt;span class="mf">64&lt;/span>&lt;span class="p">/&lt;/span>&lt;span class="n">latest&lt;/span> &lt;span class="n">-OutFile&lt;/span> &lt;span class="n">micromamba&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="py">tar&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="py">bz2&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c"># 使用7z解压&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="p">&amp;amp;&lt;/span> &lt;span class="s2">&amp;#34;C:\Program Files\7-Zip\7z.exe&amp;#34;&lt;/span> &lt;span class="n">x&lt;/span> &lt;span class="s2">&amp;#34;micromamba.tar.bz2&amp;#34;&lt;/span> &lt;span class="n">-o&lt;/span>&lt;span class="s2">&amp;#34;tmp&amp;#34;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c"># 使用tar解压，系统内置不用安装&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="n">mkdir&lt;/span> &lt;span class="n">micromamba&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="n">tar&lt;/span> &lt;span class="n">-xvf&lt;/span> &lt;span class="p">.\&lt;/span>&lt;span class="n">tmp&lt;/span>&lt;span class="p">\&lt;/span>&lt;span class="n">micromamba&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="py">tar&lt;/span> &lt;span class="n">-C&lt;/span> &lt;span class="p">.\&lt;/span>&lt;span class="n">micromamba&lt;/span>&lt;span class="p">\&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="p">.\&lt;/span>&lt;span class="n">micromamba&lt;/span>&lt;span class="p">\&lt;/span>&lt;span class="n">Library&lt;/span>&lt;span class="p">\&lt;/span>&lt;span class="n">bin&lt;/span>&lt;span class="p">\&lt;/span>&lt;span class="n">micromamba&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="py">exe&lt;/span> &lt;span class="p">-&lt;/span>&lt;span class="n">-help&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c"># 查看输出&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h5 id="安装-1">安装&lt;sup id="fnref:2">&lt;a href="#fn:2" class="footnote-ref" role="doc-noteref">2&lt;/a>&lt;/sup>&lt;/h5>
+&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-powershell" data-lang="powershell">&lt;span class="line">&lt;span class="cl">&lt;span class="p">.\&lt;/span>&lt;span class="n">micromamba&lt;/span>&lt;span class="p">\&lt;/span>&lt;span class="n">Library&lt;/span>&lt;span class="p">\&lt;/span>&lt;span class="n">bin&lt;/span>&lt;span class="p">\&lt;/span>&lt;span class="n">micromamba&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="py">exe&lt;/span> &lt;span class="n">shell&lt;/span> &lt;span class="n">init&lt;/span> &lt;span class="n">-s&lt;/span> &lt;span class="n">powershell&lt;/span> &lt;span class="n">-r&lt;/span> &lt;span class="n">C:&lt;/span>&lt;span class="p">\&lt;/span>&lt;span class="n">Your&lt;/span>&lt;span class="p">\&lt;/span>&lt;span class="n">Root&lt;/span>&lt;span class="p">\&lt;/span>&lt;span class="n">Prefix&lt;/span>
 &lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>默认位置为 $HOME/micromamba，也就是 C:\Users\username\micromamba 。&lt;/p>
 &lt;p>同时会在 PowerShell 的 Profile 文件中（相当于 Bash 的 .bashrc）添加以下代码，保证每次启动 PowerShell 时，都会自动初始化 Micromamba 。&lt;/p>
 &lt;blockquote>
 &lt;p>$HOME/Documents/WindowsPowerShell/profile.ps1&lt;/p>&lt;/blockquote>
-&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-powershell" data-lang="powershell">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e">#region mamba initialize&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e"># !! Contents within this block are managed by &amp;#39;mamba shell init&amp;#39; !!&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>$Env:MAMBA_ROOT_PREFIX = &lt;span style="color:#e6db74">&amp;#34;C:\Users\username\micromamba&amp;#34;&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>$Env:MAMBA_EXE = &lt;span style="color:#e6db74">&amp;#34;C:\Users\username\micromamba\Library\bin\micromamba.exe&amp;#34;&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>(&amp;amp; $Env:MAMBA_EXE &lt;span style="color:#e6db74">&amp;#39;shell&amp;#39;&lt;/span> &lt;span style="color:#e6db74">&amp;#39;hook&amp;#39;&lt;/span> -s &lt;span style="color:#e6db74">&amp;#39;powershell&amp;#39;&lt;/span> -p $Env:MAMBA_ROOT_PREFIX) | Out-String | Invoke-Expression
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e">#endregion&lt;/span>
+&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-powershell" data-lang="powershell">&lt;span class="line">&lt;span class="cl">&lt;span class="c">#region mamba initialize&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c"># !! Contents within this block are managed by &amp;#39;mamba shell init&amp;#39; !!&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="nv">$Env:MAMBA_ROOT_PREFIX&lt;/span> &lt;span class="p">=&lt;/span> &lt;span class="s2">&amp;#34;C:\Users\username\micromamba&amp;#34;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="nv">$Env:MAMBA_EXE&lt;/span> &lt;span class="p">=&lt;/span> &lt;span class="s2">&amp;#34;C:\Users\username\micromamba\Library\bin\micromamba.exe&amp;#34;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="p">(&amp;amp;&lt;/span> &lt;span class="nv">$Env:MAMBA_EXE&lt;/span> &lt;span class="s1">&amp;#39;shell&amp;#39;&lt;/span> &lt;span class="s1">&amp;#39;hook&amp;#39;&lt;/span> &lt;span class="n">-s&lt;/span> &lt;span class="s1">&amp;#39;powershell&amp;#39;&lt;/span> &lt;span class="n">-p&lt;/span> &lt;span class="nv">$Env:MAMBA_ROOT_PREFIX&lt;/span>&lt;span class="p">)&lt;/span> &lt;span class="p">|&lt;/span> &lt;span class="nb">Out-String&lt;/span> &lt;span class="p">|&lt;/span> &lt;span class="nb">Invoke-Expression&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c">#endregion&lt;/span>
 &lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>加入设置 micromamba 别名的命令。
 设置别名后，即方便使用，也可配合 VSCode 的配置，实现自动启动开发环境。&lt;/p></description></item><item><title>Scoop的安装与使用</title><link>https://blog.cuile.com/post/windows/scoop/</link><pubDate>Wed, 16 Jul 2025 18:10:23 +0800</pubDate><guid>https://blog.cuile.com/post/windows/scoop/</guid><description>&lt;h2 id="安装">安装&lt;/h2>
 &lt;h3 id="1-环境准备">1. 环境准备&lt;/h3>
-&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-powershell" data-lang="powershell">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e"># PowerShell 版本：≥5.0&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&amp;gt; $PSVersionTable.PSVersion
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e"># .NET Framework：≥4.5&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&amp;gt; $PSVersionTable.CLRVersion
+&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-powershell" data-lang="powershell">&lt;span class="line">&lt;span class="cl">&lt;span class="c"># PowerShell 版本：≥5.0&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="p">&amp;gt;&lt;/span> &lt;span class="nv">$PSVersionTable&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="py">PSVersion&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c"># .NET Framework：≥4.5&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="p">&amp;gt;&lt;/span> &lt;span class="nv">$PSVersionTable&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="py">CLRVersion&lt;/span>
 &lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;ul>
 &lt;li>&lt;a href="https://dotnet.microsoft.com/zh-cn/download/dotnet-framework">下载 .NET Framework&lt;/a> &lt;em>注意下载“脱机安装程序”和“语言包”&lt;/em>&lt;/li>
 &lt;li>&lt;a href="https://learn.microsoft.com/zh-cn/dotnet/core/install/windows">在 Windows 上安装 .NET&lt;/a>&lt;/li>
 &lt;/ul>
 &lt;h3 id="2-安装">2. 安装&lt;/h3>
-&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-powershell" data-lang="powershell">&lt;span style="display:flex;">&lt;span>&amp;gt; Set-ExecutionPolicy -ExecutionPolicy RemoteSigned -Scope CurrentUser
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e"># 普通用户安装&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&amp;gt; Invoke-RestMethod -Uri https&lt;span style="color:#960050;background-color:#1e0010">:&lt;/span>//blog.cuile.com/attachments/scripts/scoop_install.ps1 | Invoke-Expression
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e"># 管理员用户安装&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&amp;gt; irm blog.cuile.com/attachments/scripts/scoop_install.ps1 -outfile &lt;span style="color:#e6db74">&amp;#39;install.ps1&amp;#39;&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&amp;gt; .\install.ps1 -RunAsAdmin
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e"># 默认安装到 C:\Users\&amp;lt;user&amp;gt;\scoop&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e"># 验证安装&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&amp;gt; scoop help
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e"># 安装aria2，提升下载速度&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&amp;gt; scoop install aria2
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e"># 安装7zip，提升解压成功率&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&amp;gt; scoop install 7zip
+&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-powershell" data-lang="powershell">&lt;span class="line">&lt;span class="cl">&lt;span class="p">&amp;gt;&lt;/span> &lt;span class="nb">Set-ExecutionPolicy&lt;/span> &lt;span class="n">-ExecutionPolicy&lt;/span> &lt;span class="n">RemoteSigned&lt;/span> &lt;span class="n">-Scope&lt;/span> &lt;span class="n">CurrentUser&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c"># 普通用户安装&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="p">&amp;gt;&lt;/span> &lt;span class="nb">Invoke-RestMethod&lt;/span> &lt;span class="n">-Uri&lt;/span> &lt;span class="n">https&lt;/span>&lt;span class="err">:&lt;/span>&lt;span class="p">//&lt;/span>&lt;span class="n">blog&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="py">cuile&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="n">com&lt;/span>&lt;span class="p">/&lt;/span>&lt;span class="n">attachments&lt;/span>&lt;span class="p">/&lt;/span>&lt;span class="n">scripts&lt;/span>&lt;span class="p">/&lt;/span>&lt;span class="n">scoop_install&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="py">ps1&lt;/span> &lt;span class="p">|&lt;/span> &lt;span class="nb">Invoke-Expression&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c"># 管理员用户安装&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="p">&amp;gt;&lt;/span> &lt;span class="nb">irm &lt;/span>&lt;span class="n">blog&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="py">cuile&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="n">com&lt;/span>&lt;span class="p">/&lt;/span>&lt;span class="n">attachments&lt;/span>&lt;span class="p">/&lt;/span>&lt;span class="n">scripts&lt;/span>&lt;span class="p">/&lt;/span>&lt;span class="n">scoop_install&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="py">ps1&lt;/span> &lt;span class="n">-outfile&lt;/span> &lt;span class="s1">&amp;#39;install.ps1&amp;#39;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="p">&amp;gt;&lt;/span> &lt;span class="p">.\&lt;/span>&lt;span class="n">install&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="py">ps1&lt;/span> &lt;span class="n">-RunAsAdmin&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c"># 默认安装到 C:\Users\&amp;lt;user&amp;gt;\scoop&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c"># 验证安装&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="p">&amp;gt;&lt;/span> &lt;span class="n">scoop&lt;/span> &lt;span class="n">help&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c"># 安装aria2，提升下载速度&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="p">&amp;gt;&lt;/span> &lt;span class="n">scoop&lt;/span> &lt;span class="n">install&lt;/span> &lt;span class="n">aria2&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c"># 安装7zip，提升解压成功率&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="p">&amp;gt;&lt;/span> &lt;span class="n">scoop&lt;/span> &lt;span class="n">install&lt;/span> &lt;span class="n">7zip&lt;/span>
 &lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>强制使用7zip解压&lt;/p>
-&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-json" data-lang="json">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e">// ~\.config\scoop\config.json
-&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e">&lt;/span>{
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#f92672">&amp;#34;7ZIPEXTRACT_USE_EXTERNAL&amp;#34;&lt;/span>: &lt;span style="color:#66d9ef">true&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>}
+&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-json" data-lang="json">&lt;span class="line">&lt;span class="cl">&lt;span class="c1">// ~\.config\scoop\config.json
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1">&lt;/span>&lt;span class="p">{&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nt">&amp;#34;7ZIPEXTRACT_USE_EXTERNAL&amp;#34;&lt;/span>&lt;span class="p">:&lt;/span> &lt;span class="kc">true&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="p">}&lt;/span>
 &lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h3 id="3-使用">3. 使用&lt;/h3>
-&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-powershell" data-lang="powershell">&lt;/code>&lt;/pre>&lt;/div></description></item><item><title>Windows防火墙配置</title><link>https://blog.cuile.com/post/windows/windows_firewall/</link><pubDate>Wed, 23 Oct 2024 16:49:42 +0800</pubDate><guid>https://blog.cuile.com/post/windows/windows_firewall/</guid><description>&lt;h2 id="参考">参考&lt;/h2>
+&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-powershell" data-lang="powershell">&lt;/code>&lt;/pre>&lt;/div></description></item><item><title>Windows防火墙配置</title><link>https://blog.cuile.com/post/windows/windows_firewall/</link><pubDate>Wed, 23 Oct 2024 16:49:42 +0800</pubDate><guid>https://blog.cuile.com/post/windows/windows_firewall/</guid><description>&lt;h2 id="参考">参考&lt;/h2>
 &lt;ul>
 &lt;li>&lt;a href="https://blog.csdn.net/mageriletu2012/article/details/143108382">Windows通过netsh控制安全中心防火墙和网络保护策略&lt;/a>&lt;/li>
 &lt;li>&lt;a href="https://learn.microsoft.com/zh-cn/windows/security/operating-system-security/network-security/windows-firewall/configure-with-command-line?tabs=cmd">使用命令行管理 Windows 防火墙&lt;/a>&lt;/li>
 &lt;/ul></description></item><item><title>Windows配置</title><link>https://blog.cuile.com/post/windows/windows_setup/</link><pubDate>Mon, 08 Jan 2024 11:49:59 +0800</pubDate><guid>https://blog.cuile.com/post/windows/windows_setup/</guid><description>&lt;h2 id="windows-10-自带输入法没有候选字栏">Windows 10 自带输入法，没有候选字栏&lt;/h2>
-&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-powershell" data-lang="powershell">&lt;span style="display:flex;">&lt;span>&amp;gt; DISM /Online /Add-Capability /CapabilityName&lt;span style="color:#960050;background-color:#1e0010">:&lt;/span>Windows.Client.ShellComponents~~~~&lt;span style="color:#ae81ff">0.0&lt;/span>.1.0
+&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-powershell" data-lang="powershell">&lt;span class="line">&lt;span class="cl">&lt;span class="p">&amp;gt;&lt;/span> &lt;span class="n">DISM&lt;/span> &lt;span class="p">/&lt;/span>&lt;span class="n">Online&lt;/span> &lt;span class="p">/&lt;/span>&lt;span class="nb">Add-Capability&lt;/span> &lt;span class="p">/&lt;/span>&lt;span class="n">CapabilityName&lt;/span>&lt;span class="err">:&lt;/span>&lt;span class="n">Windows&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="py">Client&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="n">ShellComponents&lt;/span>&lt;span class="p">~~~~&lt;/span>&lt;span class="mf">0.0&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="py">1&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="py">0&lt;/span>
 &lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;ul>
 &lt;li>&lt;a href="https://www.zhihu.com/question/427491064">我用的win10自带输入法，最近不知道为什么没有候选字栏，只能用空格选定输入，怎么解决？&lt;/a>&lt;/li>
 &lt;/ul>
 &lt;h2 id="卸载预装应用">卸载预装应用&lt;/h2>
-&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-powershell" data-lang="powershell">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e"># 查看所有预装应用&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&amp;gt; Get-AppxPackage | Select Name, PackageFullName
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e"># 移除指定应用（例如 Xbox）&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&amp;gt; Get-AppxPackage *xbox* | Remove-AppxPackage
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e"># 移除所有用户的应用（加 -AllUsers）&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&amp;gt; Get-AppxPackage -AllUsers *Microsoft.YourPhone* | Remove-AppxPackage -AllUsers
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e"># 彻底禁用自动安装（防止更新后恢复）&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&amp;gt; Set-Content -Path &lt;span style="color:#e6db74">&amp;#34;HKLM:\SOFTWARE\Policies\Microsoft\Windows\CloudContent&amp;#34;&lt;/span> -Name &lt;span style="color:#e6db74">&amp;#34;DisableWindowsConsumerFeatures&amp;#34;&lt;/span> -Value &lt;span style="color:#ae81ff">1&lt;/span> -Type DWord
+&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-powershell" data-lang="powershell">&lt;span class="line">&lt;span class="cl">&lt;span class="c"># 查看所有预装应用&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="p">&amp;gt;&lt;/span> &lt;span class="nb">Get-AppxPackage&lt;/span> &lt;span class="p">|&lt;/span> &lt;span class="nb">Select &lt;/span>&lt;span class="n">Name&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="n">PackageFullName&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c"># 移除指定应用（例如 Xbox）&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="p">&amp;gt;&lt;/span> &lt;span class="nb">Get-AppxPackage&lt;/span> &lt;span class="p">*&lt;/span>&lt;span class="n">xbox&lt;/span>&lt;span class="p">*&lt;/span> &lt;span class="p">|&lt;/span> &lt;span class="nb">Remove-AppxPackage&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c"># 移除所有用户的应用（加 -AllUsers）&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="p">&amp;gt;&lt;/span> &lt;span class="nb">Get-AppxPackage&lt;/span> &lt;span class="n">-AllUsers&lt;/span> &lt;span class="p">*&lt;/span>&lt;span class="n">Microsoft&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="n">YourPhone&lt;/span>&lt;span class="p">*&lt;/span> &lt;span class="p">|&lt;/span> &lt;span class="nb">Remove-AppxPackage&lt;/span> &lt;span class="n">-AllUsers&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c"># 彻底禁用自动安装（防止更新后恢复）&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="p">&amp;gt;&lt;/span> &lt;span class="nb">Set-Content&lt;/span> &lt;span class="n">-Path&lt;/span> &lt;span class="s2">&amp;#34;HKLM:\SOFTWARE\Policies\Microsoft\Windows\CloudContent&amp;#34;&lt;/span> &lt;span class="n">-Name&lt;/span> &lt;span class="s2">&amp;#34;DisableWindowsConsumerFeatures&amp;#34;&lt;/span> &lt;span class="n">-Value&lt;/span> &lt;span class="mf">1&lt;/span> &lt;span class="n">-Type&lt;/span> &lt;span class="n">DWord&lt;/span>
 &lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="自定义命令">自定义命令&lt;/h2>
-&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-powershell" data-lang="powershell">&lt;span style="display:flex;">&lt;span>Set-Alias -name ll -value Get-ChildItem -Force
+&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-powershell" data-lang="powershell">&lt;span class="line">&lt;span class="cl">&lt;span class="nb">Set-Alias&lt;/span> &lt;span class="n">-name&lt;/span> &lt;span class="n">ll&lt;/span> &lt;span class="n">-value&lt;/span> &lt;span class="nb">Get-ChildItem&lt;/span> &lt;span class="n">-Force&lt;/span>
 &lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div></description></item><item><title>Hyper-V 下设置 Deepin 分辨率</title><link>https://blog.cuile.com/post/windows/hyper-v_deepin_resolution/</link><pubDate>Sat, 06 May 2023 20:20:12 +0800</pubDate><guid>https://blog.cuile.com/post/windows/hyper-v_deepin_resolution/</guid><description>&lt;h2 id="在hyper-v虚拟机下调节分辨率">在hyper-v虚拟机下调节分辨率&lt;/h2>
-&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span>$ sudo nano /etc/default/grub
+&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">$ sudo nano /etc/default/grub
 &lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>修改配置项&lt;/p>
-&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-ini" data-lang="ini">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#a6e22e">GRUB_CMDLINE_LINUX_DEFAULT&lt;/span>&lt;span style="color:#f92672">=&lt;/span>&lt;span style="color:#e6db74">&amp;#34;quiet splash video=hyperv_fb:1366x768&amp;#34;&lt;/span>
+&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-ini" data-lang="ini">&lt;span class="line">&lt;span class="cl">&lt;span class="na">GRUB_CMDLINE_LINUX_DEFAULT&lt;/span>&lt;span class="o">=&lt;/span>&lt;span class="s">&amp;#34;quiet splash video=hyperv_fb:1366x768&amp;#34;&lt;/span>
 &lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>更新 grub&lt;/p>
-&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span>$ sudo /usr/lib/deepin-api/adjust-grub-theme
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>$ sudo update-grub
+&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">$ sudo /usr/lib/deepin-api/adjust-grub-theme
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">$ sudo update-grub
 &lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>&lt;em>注意：这种方法最高只能支持 1920×1080 的分辨率，对于大显示器，高 DPI 的童鞋，可以考虑用 RDP，VNC 等方式来用上更高的分辨率。&lt;/em>&lt;/p>
 &lt;h3 id="参考文档">参考文档&lt;/h3>
 &lt;ul>
@@ -131,141 +234,141 @@
 &lt;p>关闭虚拟机，然后给磁盘扩容，操作方便网上教程多，这里不再赘述。&lt;/p>
 &lt;h2 id="2-centos扩容">2. CentOS扩容&lt;/h2>
 &lt;h3 id="21-查看分区表">2.1 查看分区表&lt;/h3>
-&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span>$ lsblk
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>NAME MAJ:MIN RM SIZE RO TYPE MOUNTPOINT
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>sda 8:0 &lt;span style="color:#ae81ff">0&lt;/span> 20G &lt;span style="color:#ae81ff">0&lt;/span> disk 
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>├─sda1 8:1 &lt;span style="color:#ae81ff">0&lt;/span> 200M &lt;span style="color:#ae81ff">0&lt;/span> part /boot/efi
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>├─sda2 8:2 &lt;span style="color:#ae81ff">0&lt;/span> 1G &lt;span style="color:#ae81ff">0&lt;/span> part /boot
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>└─sda3 8:3 &lt;span style="color:#ae81ff">0&lt;/span> 8.8G &lt;span style="color:#ae81ff">0&lt;/span> part 
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> ├─centos-root 253:0 &lt;span style="color:#ae81ff">0&lt;/span> 7.8G &lt;span style="color:#ae81ff">0&lt;/span> lvm /
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> └─centos-swap 253:1 &lt;span style="color:#ae81ff">0&lt;/span> 1G &lt;span style="color:#ae81ff">0&lt;/span> lvm &lt;span style="color:#f92672">[&lt;/span>SWAP&lt;span style="color:#f92672">]&lt;/span>
+&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">$ lsblk
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">NAME MAJ:MIN RM SIZE RO TYPE MOUNTPOINT
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">sda 8:0 &lt;span class="m">0&lt;/span> 20G &lt;span class="m">0&lt;/span> disk 
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">├─sda1 8:1 &lt;span class="m">0&lt;/span> 200M &lt;span class="m">0&lt;/span> part /boot/efi
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">├─sda2 8:2 &lt;span class="m">0&lt;/span> 1G &lt;span class="m">0&lt;/span> part /boot
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">└─sda3 8:3 &lt;span class="m">0&lt;/span> 8.8G &lt;span class="m">0&lt;/span> part 
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> ├─centos-root 253:0 &lt;span class="m">0&lt;/span> 7.8G &lt;span class="m">0&lt;/span> lvm /
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> └─centos-swap 253:1 &lt;span class="m">0&lt;/span> 1G &lt;span class="m">0&lt;/span> lvm &lt;span class="o">[&lt;/span>SWAP&lt;span class="o">]&lt;/span>
 &lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>以上内容可以看出，sda已经扩容到20G，但sda1+sda2+sda3只有10G说明vhdx扩容成功。&lt;/p>
 &lt;h3 id="22-建立新分区">2.2 建立新分区&lt;/h3>
-&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span>$ fdisk /dev/sda
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>The device presents a logical sector size that is smaller than
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>the physical sector size. Aligning to a physical sector &lt;span style="color:#f92672">(&lt;/span>or optimal
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>I/O&lt;span style="color:#f92672">)&lt;/span> size boundary is recommended, or performance may be impacted.
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>欢迎使用 fdisk &lt;span style="color:#f92672">(&lt;/span>util-linux 2.23.2&lt;span style="color:#f92672">)&lt;/span>。
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>更改将停留在内存中，直到您决定将更改写入磁盘。
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>使用写入命令前请三思。
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>命令&lt;span style="color:#f92672">(&lt;/span>输入 m 获取帮助&lt;span style="color:#f92672">)&lt;/span>：n
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>Partition type:
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> p primary &lt;span style="color:#f92672">(&lt;/span>&lt;span style="color:#ae81ff">1&lt;/span> primary, &lt;span style="color:#ae81ff">0&lt;/span> extended, &lt;span style="color:#ae81ff">3&lt;/span> free&lt;span style="color:#f92672">)&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> e extended
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>Select &lt;span style="color:#f92672">(&lt;/span>default p&lt;span style="color:#f92672">)&lt;/span>: 
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>Using default response p
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>分区号 &lt;span style="color:#f92672">(&lt;/span>2-4，默认 2&lt;span style="color:#f92672">)&lt;/span>：
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>起始 扇区 &lt;span style="color:#f92672">(&lt;/span>20971520-41943039，默认为 20971520&lt;span style="color:#f92672">)&lt;/span>：
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>将使用默认值 &lt;span style="color:#ae81ff">20971520&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>Last 扇区, +扇区 or +size&lt;span style="color:#f92672">{&lt;/span>K,M,G&lt;span style="color:#f92672">}&lt;/span> &lt;span style="color:#f92672">(&lt;/span>20971520-41943039，默认为 41943039&lt;span style="color:#f92672">)&lt;/span>：+10G
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>值超出范围。
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>Last 扇区, +扇区 or +size&lt;span style="color:#f92672">{&lt;/span>K,M,G&lt;span style="color:#f92672">}&lt;/span> &lt;span style="color:#f92672">(&lt;/span>20971520-41943039，默认为 41943039&lt;span style="color:#f92672">)&lt;/span>：+9.9G
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>不支持的后缀：“.9G”。
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>支持：10^N: KB &lt;span style="color:#f92672">(&lt;/span>千字节&lt;span style="color:#f92672">)&lt;/span>, MB &lt;span style="color:#f92672">(&lt;/span>兆字节&lt;span style="color:#f92672">)&lt;/span>, GB &lt;span style="color:#f92672">(&lt;/span>吉字节&lt;span style="color:#f92672">)&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> 2^N: K &lt;span style="color:#f92672">(&lt;/span>约千字节&lt;span style="color:#f92672">)&lt;/span>, M &lt;span style="color:#f92672">(&lt;/span>约兆字节&lt;span style="color:#f92672">)&lt;/span>, G &lt;span style="color:#f92672">(&lt;/span>约吉字节&lt;span style="color:#f92672">)&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>Last 扇区, +扇区 or +size&lt;span style="color:#f92672">{&lt;/span>K,M,G&lt;span style="color:#f92672">}&lt;/span> &lt;span style="color:#f92672">(&lt;/span>20971520-41943039，默认为 41943039&lt;span style="color:#f92672">)&lt;/span>：+9G 
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>分区 &lt;span style="color:#ae81ff">2&lt;/span> 已设置为 Linux 类型，大小设为 &lt;span style="color:#ae81ff">9&lt;/span> GiB
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>命令&lt;span style="color:#f92672">(&lt;/span>输入 m 获取帮助&lt;span style="color:#f92672">)&lt;/span>：w
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>The partition table has been altered!
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>Calling ioctl&lt;span style="color:#f92672">()&lt;/span> to re-read partition table.
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>WARNING: Re-reading the partition table failed with error 16: 设备或资源忙.
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>The kernel still uses the old table. The new table will be used at
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>the next reboot or after you run partprobe&lt;span style="color:#f92672">(&lt;/span>8&lt;span style="color:#f92672">)&lt;/span> or kpartx&lt;span style="color:#f92672">(&lt;/span>8&lt;span style="color:#f92672">)&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>正在同步磁盘。
+&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">$ fdisk /dev/sda
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">The device presents a logical sector size that is smaller than
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">the physical sector size. Aligning to a physical sector &lt;span class="o">(&lt;/span>or optimal
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">I/O&lt;span class="o">)&lt;/span> size boundary is recommended, or performance may be impacted.
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">欢迎使用 fdisk &lt;span class="o">(&lt;/span>util-linux 2.23.2&lt;span class="o">)&lt;/span>。
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">更改将停留在内存中，直到您决定将更改写入磁盘。
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">使用写入命令前请三思。
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">命令&lt;span class="o">(&lt;/span>输入 m 获取帮助&lt;span class="o">)&lt;/span>：n
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">Partition type:
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> p primary &lt;span class="o">(&lt;/span>&lt;span class="m">1&lt;/span> primary, &lt;span class="m">0&lt;/span> extended, &lt;span class="m">3&lt;/span> free&lt;span class="o">)&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> e extended
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">Select &lt;span class="o">(&lt;/span>default p&lt;span class="o">)&lt;/span>: 
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">Using default response p
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">分区号 &lt;span class="o">(&lt;/span>2-4，默认 2&lt;span class="o">)&lt;/span>：
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">起始 扇区 &lt;span class="o">(&lt;/span>20971520-41943039，默认为 20971520&lt;span class="o">)&lt;/span>：
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">将使用默认值 &lt;span class="m">20971520&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">Last 扇区, +扇区 or +size&lt;span class="o">{&lt;/span>K,M,G&lt;span class="o">}&lt;/span> &lt;span class="o">(&lt;/span>20971520-41943039，默认为 41943039&lt;span class="o">)&lt;/span>：+10G
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">值超出范围。
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">Last 扇区, +扇区 or +size&lt;span class="o">{&lt;/span>K,M,G&lt;span class="o">}&lt;/span> &lt;span class="o">(&lt;/span>20971520-41943039，默认为 41943039&lt;span class="o">)&lt;/span>：+9.9G
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">不支持的后缀：“.9G”。
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">支持：10^N: KB &lt;span class="o">(&lt;/span>千字节&lt;span class="o">)&lt;/span>, MB &lt;span class="o">(&lt;/span>兆字节&lt;span class="o">)&lt;/span>, GB &lt;span class="o">(&lt;/span>吉字节&lt;span class="o">)&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> 2^N: K &lt;span class="o">(&lt;/span>约千字节&lt;span class="o">)&lt;/span>, M &lt;span class="o">(&lt;/span>约兆字节&lt;span class="o">)&lt;/span>, G &lt;span class="o">(&lt;/span>约吉字节&lt;span class="o">)&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">Last 扇区, +扇区 or +size&lt;span class="o">{&lt;/span>K,M,G&lt;span class="o">}&lt;/span> &lt;span class="o">(&lt;/span>20971520-41943039，默认为 41943039&lt;span class="o">)&lt;/span>：+9G 
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">分区 &lt;span class="m">2&lt;/span> 已设置为 Linux 类型，大小设为 &lt;span class="m">9&lt;/span> GiB
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">命令&lt;span class="o">(&lt;/span>输入 m 获取帮助&lt;span class="o">)&lt;/span>：w
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">The partition table has been altered!
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">Calling ioctl&lt;span class="o">()&lt;/span> to re-read partition table.
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">WARNING: Re-reading the partition table failed with error 16: 设备或资源忙.
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">The kernel still uses the old table. The new table will be used at
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">the next reboot or after you run partprobe&lt;span class="o">(&lt;/span>8&lt;span class="o">)&lt;/span> or kpartx&lt;span class="o">(&lt;/span>8&lt;span class="o">)&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">正在同步磁盘。
 &lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h4 id="重读分区表时发生错误">重读分区表时，发生错误&lt;/h4>
-&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span>$ partprobe
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>Error: 备份 GPT 表不像应该的那样出现在磁盘的末尾。这可能意味这其它操作系统相信磁盘小一些。通过将备份移动到末尾 &lt;span style="color:#f92672">(&lt;/span>并删除旧备份&lt;span style="color:#f92672">)&lt;/span> 来修正？
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>Warning: Not all of the space available to /dev/sda appears to be used, you can fix the GPT to use all of the space &lt;span style="color:#f92672">(&lt;/span>an extra &lt;span style="color:#ae81ff">20971520&lt;/span> blocks&lt;span style="color:#f92672">)&lt;/span> or &lt;span style="color:#66d9ef">continue&lt;/span> with the current setting? 
+&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">$ partprobe
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">Error: 备份 GPT 表不像应该的那样出现在磁盘的末尾。这可能意味这其它操作系统相信磁盘小一些。通过将备份移动到末尾 &lt;span class="o">(&lt;/span>并删除旧备份&lt;span class="o">)&lt;/span> 来修正？
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">Warning: Not all of the space available to /dev/sda appears to be used, you can fix the GPT to use all of the space &lt;span class="o">(&lt;/span>an extra &lt;span class="m">20971520&lt;/span> blocks&lt;span class="o">)&lt;/span> or &lt;span class="k">continue&lt;/span> with the current setting? 
 &lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h4 id="查看分区表时发现新分区未创建成功">查看分区表时，发现新分区未创建成功&lt;/h4>
-&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span>$ lsblk
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>NAME MAJ:MIN RM SIZE RO TYPE MOUNTPOINT
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>sda 8:0 &lt;span style="color:#ae81ff">0&lt;/span> 20G &lt;span style="color:#ae81ff">0&lt;/span> disk 
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>├─sda1 8:1 &lt;span style="color:#ae81ff">0&lt;/span> 200M &lt;span style="color:#ae81ff">0&lt;/span> part /boot/efi
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>├─sda2 8:2 &lt;span style="color:#ae81ff">0&lt;/span> 1G &lt;span style="color:#ae81ff">0&lt;/span> part /boot
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>└─sda3 8:3 &lt;span style="color:#ae81ff">0&lt;/span> 8.8G &lt;span style="color:#ae81ff">0&lt;/span> part 
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> ├─centos-root 253:0 &lt;span style="color:#ae81ff">0&lt;/span> 7.8G &lt;span style="color:#ae81ff">0&lt;/span> lvm /
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> └─centos-swap 253:1 &lt;span style="color:#ae81ff">0&lt;/span> 1G &lt;span style="color:#ae81ff">0&lt;/span> lvm &lt;span style="color:#f92672">[&lt;/span>SWAP&lt;span style="color:#f92672">]&lt;/span>
+&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">$ lsblk
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">NAME MAJ:MIN RM SIZE RO TYPE MOUNTPOINT
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">sda 8:0 &lt;span class="m">0&lt;/span> 20G &lt;span class="m">0&lt;/span> disk 
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">├─sda1 8:1 &lt;span class="m">0&lt;/span> 200M &lt;span class="m">0&lt;/span> part /boot/efi
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">├─sda2 8:2 &lt;span class="m">0&lt;/span> 1G &lt;span class="m">0&lt;/span> part /boot
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">└─sda3 8:3 &lt;span class="m">0&lt;/span> 8.8G &lt;span class="m">0&lt;/span> part 
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> ├─centos-root 253:0 &lt;span class="m">0&lt;/span> 7.8G &lt;span class="m">0&lt;/span> lvm /
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> └─centos-swap 253:1 &lt;span class="m">0&lt;/span> 1G &lt;span class="m">0&lt;/span> lvm &lt;span class="o">[&lt;/span>SWAP&lt;span class="o">]&lt;/span>
 &lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h4 id="使用-parted-修复分区表">使用 parted 修复分区表&lt;/h4>
-&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span>$ parted /dev/sda
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>GNU Parted 3.1
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>使用 /dev/sda
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>Welcome to GNU Parted! Type &lt;span style="color:#e6db74">&amp;#39;help&amp;#39;&lt;/span> to view a list of commands.
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#f92672">(&lt;/span>parted&lt;span style="color:#f92672">)&lt;/span> p 
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>错误: 备份 GPT 表不像应该的那样出现在磁盘的末尾。这可能意味这其它操作系统相信磁盘小一些。通过将备份移动到末尾 &lt;span style="color:#f92672">(&lt;/span>并删除旧备份&lt;span style="color:#f92672">)&lt;/span> 来修正？
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>修正/Fix/忽略/Ignore/放弃/Cancel? fix 
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>警告: Not all of the space available to /dev/sda appears to be used, you can fix the GPT to use all of the space &lt;span style="color:#f92672">(&lt;/span>an extra &lt;span style="color:#ae81ff">20971520&lt;/span> blocks&lt;span style="color:#f92672">)&lt;/span> or &lt;span style="color:#66d9ef">continue&lt;/span> with the current
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>setting? 
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>修正/Fix/忽略/Ignore? fix 
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>Model: Msft Virtual Disk &lt;span style="color:#f92672">(&lt;/span>scsi&lt;span style="color:#f92672">)&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>Disk /dev/sda: 21.5GB
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>Sector size &lt;span style="color:#f92672">(&lt;/span>logical/physical&lt;span style="color:#f92672">)&lt;/span>: 512B/4096B
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>Partition Table: gpt
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>Disk Flags: 
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>Number Start End Size File system Name 标志
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#ae81ff">1&lt;/span> 1049kB 211MB 210MB fat16 EFI System Partition 启动
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#ae81ff">2&lt;/span> 211MB 1285MB 1074MB xfs
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#ae81ff">3&lt;/span> 1285MB 10.7GB 9452MB lvm
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#f92672">(&lt;/span>parted&lt;span style="color:#f92672">)&lt;/span> p 
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>Model: Msft Virtual Disk &lt;span style="color:#f92672">(&lt;/span>scsi&lt;span style="color:#f92672">)&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>Disk /dev/sda: 21.5GB
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>Sector size &lt;span style="color:#f92672">(&lt;/span>logical/physical&lt;span style="color:#f92672">)&lt;/span>: 512B/4096B
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>Partition Table: gpt
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>Disk Flags: 
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>Number Start End Size File system Name 标志
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#ae81ff">1&lt;/span> 1049kB 211MB 210MB fat16 EFI System Partition 启动
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#ae81ff">2&lt;/span> 211MB 1285MB 1074MB xfs
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#ae81ff">3&lt;/span> 1285MB 10.7GB 9452MB lvm
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#f92672">(&lt;/span>parted&lt;span style="color:#f92672">)&lt;/span> quit 
+&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">$ parted /dev/sda
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">GNU Parted 3.1
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">使用 /dev/sda
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">Welcome to GNU Parted! Type &lt;span class="s1">&amp;#39;help&amp;#39;&lt;/span> to view a list of commands.
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="o">(&lt;/span>parted&lt;span class="o">)&lt;/span> p 
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">错误: 备份 GPT 表不像应该的那样出现在磁盘的末尾。这可能意味这其它操作系统相信磁盘小一些。通过将备份移动到末尾 &lt;span class="o">(&lt;/span>并删除旧备份&lt;span class="o">)&lt;/span> 来修正？
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">修正/Fix/忽略/Ignore/放弃/Cancel? fix 
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">警告: Not all of the space available to /dev/sda appears to be used, you can fix the GPT to use all of the space &lt;span class="o">(&lt;/span>an extra &lt;span class="m">20971520&lt;/span> blocks&lt;span class="o">)&lt;/span> or &lt;span class="k">continue&lt;/span> with the current
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">setting? 
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">修正/Fix/忽略/Ignore? fix 
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">Model: Msft Virtual Disk &lt;span class="o">(&lt;/span>scsi&lt;span class="o">)&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">Disk /dev/sda: 21.5GB
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">Sector size &lt;span class="o">(&lt;/span>logical/physical&lt;span class="o">)&lt;/span>: 512B/4096B
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">Partition Table: gpt
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">Disk Flags: 
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">Number Start End Size File system Name 标志
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="m">1&lt;/span> 1049kB 211MB 210MB fat16 EFI System Partition 启动
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="m">2&lt;/span> 211MB 1285MB 1074MB xfs
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="m">3&lt;/span> 1285MB 10.7GB 9452MB lvm
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="o">(&lt;/span>parted&lt;span class="o">)&lt;/span> p 
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">Model: Msft Virtual Disk &lt;span class="o">(&lt;/span>scsi&lt;span class="o">)&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">Disk /dev/sda: 21.5GB
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">Sector size &lt;span class="o">(&lt;/span>logical/physical&lt;span class="o">)&lt;/span>: 512B/4096B
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">Partition Table: gpt
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">Disk Flags: 
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">Number Start End Size File system Name 标志
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="m">1&lt;/span> 1049kB 211MB 210MB fat16 EFI System Partition 启动
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="m">2&lt;/span> 211MB 1285MB 1074MB xfs
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="m">3&lt;/span> 1285MB 10.7GB 9452MB lvm
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="o">(&lt;/span>parted&lt;span class="o">)&lt;/span> quit 
 &lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h4 id="再次建立新分区">再次建立新分区&lt;/h4>
-&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span>$ fdisk /dev/sda
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>WARNING: fdisk GPT support is currently new, and therefore in an experimental phase. Use at your own discretion.
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>欢迎使用 fdisk &lt;span style="color:#f92672">(&lt;/span>util-linux 2.23.2&lt;span style="color:#f92672">)&lt;/span>。
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>更改将停留在内存中，直到您决定将更改写入磁盘。
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>使用写入命令前请三思。
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>命令&lt;span style="color:#f92672">(&lt;/span>输入 m 获取帮助&lt;span style="color:#f92672">)&lt;/span>：n
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>分区号 &lt;span style="color:#f92672">(&lt;/span>4-128，默认 4&lt;span style="color:#f92672">)&lt;/span>：
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>第一个扇区 &lt;span style="color:#f92672">(&lt;/span>34-41943006，默认 20969472&lt;span style="color:#f92672">)&lt;/span>：
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>Last sector, +sectors or +size&lt;span style="color:#f92672">{&lt;/span>K,M,G,T,P&lt;span style="color:#f92672">}&lt;/span> &lt;span style="color:#f92672">(&lt;/span>20969472-41943006，默认 41943006&lt;span style="color:#f92672">)&lt;/span>：+10G
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>已创建分区 &lt;span style="color:#ae81ff">4&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>命令&lt;span style="color:#f92672">(&lt;/span>输入 m 获取帮助&lt;span style="color:#f92672">)&lt;/span>：w
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>The partition table has been altered!
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>Calling ioctl&lt;span style="color:#f92672">()&lt;/span> to re-read partition table.
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>WARNING: Re-reading the partition table failed with error 16: 设备或资源忙.
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>The kernel still uses the old table. The new table will be used at
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>the next reboot or after you run partprobe&lt;span style="color:#f92672">(&lt;/span>8&lt;span style="color:#f92672">)&lt;/span> or kpartx&lt;span style="color:#f92672">(&lt;/span>8&lt;span style="color:#f92672">)&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>正在同步磁盘。
+&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">$ fdisk /dev/sda
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">WARNING: fdisk GPT support is currently new, and therefore in an experimental phase. Use at your own discretion.
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">欢迎使用 fdisk &lt;span class="o">(&lt;/span>util-linux 2.23.2&lt;span class="o">)&lt;/span>。
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">更改将停留在内存中，直到您决定将更改写入磁盘。
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">使用写入命令前请三思。
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">命令&lt;span class="o">(&lt;/span>输入 m 获取帮助&lt;span class="o">)&lt;/span>：n
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">分区号 &lt;span class="o">(&lt;/span>4-128，默认 4&lt;span class="o">)&lt;/span>：
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">第一个扇区 &lt;span class="o">(&lt;/span>34-41943006，默认 20969472&lt;span class="o">)&lt;/span>：
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">Last sector, +sectors or +size&lt;span class="o">{&lt;/span>K,M,G,T,P&lt;span class="o">}&lt;/span> &lt;span class="o">(&lt;/span>20969472-41943006，默认 41943006&lt;span class="o">)&lt;/span>：+10G
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">已创建分区 &lt;span class="m">4&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">命令&lt;span class="o">(&lt;/span>输入 m 获取帮助&lt;span class="o">)&lt;/span>：w
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">The partition table has been altered!
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">Calling ioctl&lt;span class="o">()&lt;/span> to re-read partition table.
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">WARNING: Re-reading the partition table failed with error 16: 设备或资源忙.
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">The kernel still uses the old table. The new table will be used at
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">the next reboot or after you run partprobe&lt;span class="o">(&lt;/span>8&lt;span class="o">)&lt;/span> or kpartx&lt;span class="o">(&lt;/span>8&lt;span class="o">)&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">正在同步磁盘。
 &lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h3 id="23-重读分区表">2.3 重读分区表&lt;/h3>
-&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span>$ partprobe
+&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">$ partprobe
 &lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>重读分区表，正常不会有任何输出&lt;/p></description></item><item><title>Hyper-V 下设置 Ubuntu 分辨率</title><link>https://blog.cuile.com/post/windows/hyper-v_ubuntu_resolution/</link><pubDate>Mon, 26 Dec 2022 20:58:50 +0800</pubDate><guid>https://blog.cuile.com/post/windows/hyper-v_ubuntu_resolution/</guid><description>&lt;p>Hyper-V 环境下安装 Linux 是无法调节分辨率的，但可以通过设置指定分辨率，不过最大只能支持1920x1080&lt;/p>
 &lt;h2 id="1-修改配置文件">1. 修改配置文件&lt;/h2>
-&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span>$ sudo nano /etc/default/grub
+&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">$ sudo nano /etc/default/grub
 &lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>将配置&lt;/p>
-&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-ini" data-lang="ini">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#a6e22e">GRUB_CMDLINE_LINUX_DEFAULT&lt;/span>&lt;span style="color:#f92672">=&lt;/span>&lt;span style="color:#e6db74">&amp;#34;quiet splash &amp;#34;&lt;/span>
+&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-ini" data-lang="ini">&lt;span class="line">&lt;span class="cl">&lt;span class="na">GRUB_CMDLINE_LINUX_DEFAULT&lt;/span>&lt;span class="o">=&lt;/span>&lt;span class="s">&amp;#34;quiet splash &amp;#34;&lt;/span>
 &lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>修改为&lt;/p>
-&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-ini" data-lang="ini">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#a6e22e">GRUB_CMDLINE_LINUX_DEFAULT&lt;/span>&lt;span style="color:#f92672">=&lt;/span>&lt;span style="color:#e6db74">&amp;#34;quiet splash video=hyperv_fb:1920x1080&amp;#34;&lt;/span>
+&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-ini" data-lang="ini">&lt;span class="line">&lt;span class="cl">&lt;span class="na">GRUB_CMDLINE_LINUX_DEFAULT&lt;/span>&lt;span class="o">=&lt;/span>&lt;span class="s">&amp;#34;quiet splash video=hyperv_fb:1920x1080&amp;#34;&lt;/span>
 &lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>这里要注意屏幕的实际分辨率，在15寸的笔记本上，适合的分辨率为1600x900&lt;/p>
 &lt;h2 id="2-更新-grub">2. 更新 Grub&lt;/h2>
-&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span>$ sudo update-grub
+&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">$ sudo update-grub
 &lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="3-重启">3. 重启&lt;/h2>
-&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span>$ reboot
+&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">$ reboot
 &lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="参考文档">参考文档&lt;/h2>
 &lt;p>&lt;a href="https://www.pcoic.com/system/743.html">Hyper-V 下 Ubuntu/Deepin 如何设置分辨率&lt;/a>&lt;/p></description></item><item><title>Windows 10 家庭版安装 Hyper-V</title><link>https://blog.cuile.com/post/windows/hyper-v_windows10/</link><pubDate>Mon, 26 Dec 2022 20:55:50 +0800</pubDate><guid>https://blog.cuile.com/post/windows/hyper-v_windows10/</guid><description>&lt;p>一般新电脑买来都默认安排家庭版，相比专业版一个主要的区别就是没有Hpyer-V 功能。
 Hpyer-V 功能支持虚拟机，Windows原生的虚拟机在资源占用方便很有优势，不只是对开发人员有用，对日常办公也非常方便。&lt;/p>
@@ -276,15 +379,15 @@ Hpyer-V 功能支持虚拟机，Windows原生的虚拟机在资源占用方便�
 &lt;li>可随时通过还原点，还原系统&lt;/li>
 &lt;/ul>
 &lt;h2 id="1-安装脚本">1. 安装脚本&lt;/h2>
-&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span>pushd &lt;span style="color:#e6db74">&amp;#34;%~dp0&amp;#34;&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> 
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>dir /b %SystemRoot%&lt;span style="color:#ae81ff">\s&lt;/span>ervicing&lt;span style="color:#ae81ff">\P&lt;/span>ackages&lt;span style="color:#ae81ff">\*&lt;/span>Hyper-V*.mum &amp;gt;hyper-v.txt
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> 
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#66d9ef">for&lt;/span> /f %%i in &lt;span style="color:#f92672">(&lt;/span>&lt;span style="color:#e6db74">&amp;#39;findstr /i . hyper-v.txt 2^&amp;gt;nul&amp;#39;&lt;/span>&lt;span style="color:#f92672">)&lt;/span> &lt;span style="color:#66d9ef">do&lt;/span> dism /online /norestart /add-package:&lt;span style="color:#e6db74">&amp;#34;%SystemRoot%\servicing\Packages\%%i&amp;#34;&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> 
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>del hyper-v.txt
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> 
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>Dism /online /enable-feature /featurename:Microsoft-Hyper-V-All /LimitAccess /ALL
+&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">&lt;span class="nb">pushd&lt;/span> &lt;span class="s2">&amp;#34;%~dp0&amp;#34;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> 
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">dir /b %SystemRoot%&lt;span class="se">\s&lt;/span>ervicing&lt;span class="se">\P&lt;/span>ackages&lt;span class="se">\*&lt;/span>Hyper-V*.mum &amp;gt;hyper-v.txt
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> 
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="k">for&lt;/span> /f %%i in &lt;span class="o">(&lt;/span>&lt;span class="s1">&amp;#39;findstr /i . hyper-v.txt 2^&amp;gt;nul&amp;#39;&lt;/span>&lt;span class="o">)&lt;/span> &lt;span class="k">do&lt;/span> dism /online /norestart /add-package:&lt;span class="s2">&amp;#34;%SystemRoot%\servicing\Packages\%%i&amp;#34;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> 
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">del hyper-v.txt
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> 
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">Dism /online /enable-feature /featurename:Microsoft-Hyper-V-All /LimitAccess /ALL
 &lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>保存为Hyper-V.cmd&lt;/p>
 &lt;h2 id="2-运行脚本">2. 运行脚本&lt;/h2>
 &lt;p>将脚本放到桌面，右键“以管理员身份运行”，等待安装结束后，就可以使用 Hyper-V 功能了。&lt;/p>
@@ -384,29 +487,29 @@ Hpyer-V 功能支持虚拟机，Windows原生的虚拟机在资源占用方便�
  &lt;tbody>
  &lt;tr>
  &lt;td>WLAN&lt;/td>
- &lt;td>&amp;gt;DHCP&lt;!-- raw HTML omitted -->IP: 192.168.10.113&lt;!-- raw HTML omitted -->IP: 192.168.10.114&lt;!-- raw HTML omitted -->mac: ac-8f&lt;/td>
- &lt;td>&amp;gt;Bridge&lt;!-- raw HTML omitted -->IP: -&lt;!-- raw HTML omitted -->mac: ac-8f&lt;/td>
+ &lt;td>&amp;gt;DHCP&lt;br>IP: 192.168.10.113&lt;br>IP: 192.168.10.114&lt;br>mac: ac-8f&lt;/td>
+ &lt;td>&amp;gt;Bridge&lt;br>IP: -&lt;br>mac: ac-8f&lt;/td>
  &lt;td>-&lt;/td>
  &lt;td>-&lt;/td>
  &lt;/tr>
  &lt;tr>
  &lt;td>外部网络&lt;/td>
  &lt;td>-&lt;/td>
- &lt;td>&amp;gt;WLAN&lt;!-- raw HTML omitted -->IP: 192.168.10.113&lt;!-- raw HTML omitted -->mac: ac-8f&lt;/td>
- &lt;td>&amp;gt;WLAN&lt;!-- raw HTML omitted -->IP: 192.168.10.114&lt;!-- raw HTML omitted -->mac: 01-36&lt;/td>
+ &lt;td>&amp;gt;WLAN&lt;br>IP: 192.168.10.113&lt;br>mac: ac-8f&lt;/td>
+ &lt;td>&amp;gt;WLAN&lt;br>IP: 192.168.10.114&lt;br>mac: 01-36&lt;/td>
  &lt;td>-&lt;/td>
  &lt;/tr>
  &lt;tr>
  &lt;td>内部网络&lt;/td>
  &lt;td>-&lt;/td>
- &lt;td>&amp;gt;DHCP&lt;!-- raw HTML omitted -->IP: 192.168.123.100&lt;!-- raw HTML omitted -->mac: 01-28&lt;/td>
- &lt;td>&amp;gt;Static&lt;!-- raw HTML omitted -->IP: 192.168.123.1&lt;!-- raw HTML omitted -->mac: 01-29&lt;/td>
- &lt;td>&amp;gt;DHCP&lt;!-- raw HTML omitted -->IP: 192.168.123.102&lt;!-- raw HTML omitted -->mac: 01-2c&lt;/td>
+ &lt;td>&amp;gt;DHCP&lt;br>IP: 192.168.123.100&lt;br>mac: 01-28&lt;/td>
+ &lt;td>&amp;gt;Static&lt;br>IP: 192.168.123.1&lt;br>mac: 01-29&lt;/td>
+ &lt;td>&amp;gt;DHCP&lt;br>IP: 192.168.123.102&lt;br>mac: 01-2c&lt;/td>
  &lt;/tr>
  &lt;tr>
  &lt;td>网桥&lt;/td>
  &lt;td>-&lt;/td>
- &lt;td>&amp;gt;Switch&lt;!-- raw HTML omitted -->IP: -&lt;!-- raw HTML omitted -->mac: ac-8f&lt;/td>
+ &lt;td>&amp;gt;Switch&lt;br>IP: -&lt;br>mac: ac-8f&lt;/td>
  &lt;td>-&lt;/td>
  &lt;td>-&lt;/td>
  &lt;/tr>
