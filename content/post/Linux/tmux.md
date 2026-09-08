@@ -90,7 +90,6 @@ Prefix = Ctrl + b
 |展示，会话列表        |                |```list-session```                                            |
 |跳转，会话           |```Prefix + s```|```switch -t <session_name \| session_index>```               |     
 |修改，会话标题        |```Prefix + $```|```rename-session -t <old_name \| session_index> <new_name>```|     
- 
 |**命令模式**         |```Prefix + :```|                                                              | 
 |退出，会话           |```Prefix + d```|```detach```                                                  |     
 |关闭，会话           |                |```tmux kill-session -t <session_name \| session_index>```    |
