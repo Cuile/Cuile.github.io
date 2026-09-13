@@ -224,10 +224,9 @@ locale -a
 返回的内容包含"C.utf8"
 ```bash
 # 在 ~/.bashrc 文件添加
-export LANG=C.utf8
-export LC_CTYPE=C.utf8
-# 使用配置生效
-. ~/.bashrc
+echo "export LANG=C.utf8" >> ~/.bashrc \
+    && echo "export LC_CTYPE=C.utf8" >> ~/.bashrc \
+    && . ~/.bashrc
 ```
 
 
