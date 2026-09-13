@@ -215,9 +215,21 @@ sed -E -i.bak \
     /etc/ssh/sshd_config \
     && systemctl restart sshd.service
 ```
-<!-- 可直接下载初始化脚本使用
-- [debian bookworm](/attachments/scripts/init_setup_debian_bookworm.sh)
-- [rocky](/attachments/scripts/init_setup_rocky.sh) -->
+
+### 7. 配置编码
+```bash
+# 查看系统可用locale
+locale -a
+```
+返回的内容包含"C.utf8"
+```bash
+# 在 ~/.bashrc 文件添加
+export LANG=C.utf8
+export LC_CTYPE=C.utf8
+# 使用配置生效
+. ~/.bashrc
+```
+
 
 ## 配置防火墙
 [iptables 配置]({{< ref "iptables_Manual.md">}})
