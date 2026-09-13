@@ -221,7 +221,7 @@ sed -E -i.bak \
 # 查看系统可用locale
 locale -a
 ```
-返回的内容包含"C.utf8"
+如果返回的内容包含"C.utf8"
 ```bash
 # 在 ~/.bashrc 文件添加
 echo "export LANG=C.utf8" >> ~/.bashrc \
