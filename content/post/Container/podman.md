@@ -87,3 +87,13 @@ nano /etc/pve/lxc/<CTID>.conf
 > **CT虚拟机必须是特权容器，但创建CT虚拟机时，默认为非特权容器，要特别注意！！！**
 
 > **CT虚拟机必须打开嵌套，要特别注意！！！**
+
+## 配置日志
+```toml
+# /etc/containers/containers.conf
+[containers]
+# 将默认日志驱动从 journald 改为文件驱动
+log_driver = "k8s-file"
+# 设置日志文件大小上限 99 MB（例如 10 MiB = 10485760 字节）
+log_size_max = 103809024
+```
