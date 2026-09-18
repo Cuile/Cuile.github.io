@@ -1,5 +1,5 @@
 ---
-title: "Debian 系统配置"
+title: "Linux系统配置"
 date: 2022-01-17T11:07:07+08:00
 # draft: true
 tags: 
@@ -10,42 +10,58 @@ tags:
 - linux
 - setup
 - debian
+- almalinux
 - init
 ---
 
 ## 初始化配置
 
 ### 1.软件更新
+
 [软件库管理]({{< ref "repo_Manual.md">}})
 
 ### 2. 配置时间
 ```bash
+# debian
 apt install -y systemd-timesyncd
+# almalinux
+# systemd 是默认安装且无法卸载的核心基础包
+
 # 设置时区
 timedatectl set-timezone Asia/Shanghai
 # 启动NTP服务
 timedatectl set-ntp true
 ```
 ```ini
+; debian
 ; /etc/systemd/timesyncd.conf
 [Time]
 NTP=ntp.ntsc.ac.cn
 FallbackNTP=ntp.aliyun.com ntp.tencent.com 0.cn.pool.ntp.org
 ```
 ```bash
+# debian
 # 在LXC、Docker 或某些 VPS 环境中
 dpkg-reconfigure tzdata
 ```
 
 ### 3. 关闭邮件服务
 ```bash
-systemctl stop 'postfix@*' ; systemctl disable 'postfix@\x2a' ; apt purge -y postfix
+systemctl stop 'postfix@*' ; systemctl disable 'postfix@\x2a' ; 
+# debian
+apt purge -y postfix
+# almalinux
+dnf remove -y postfix
 ```
 
 ### 4. 配置网络
+#### 4.1 配置有线
+##### AlmaLinux
+[NetworkManager 配置网络]({{< ref "nmcli_Manual.md">}})
 
-#### 4.1 配置无线(WiFi)
-##### 4.1.1 配置wpa_supplicant
+#### 4.2 配置无线(WiFi)
+##### Debian
+###### 配置wpa_supplicant
 ```bash
 apt install -y wpa_supplicant
 ```
@@ -88,7 +104,7 @@ TimeoutStartSec=180
 systemctl daemon-reload
 systemctl restart wpa_supplicant
 ```
-##### 4.1.2 关闭无线网卡电源管理
+###### 关闭无线网卡电源管理
 ```bash
 # 创建服务
 tee /etc/systemd/system/wifi-powersave.service << 'EOF'
@@ -107,9 +123,7 @@ EOF
 # 启动服务
 systemctl enable wifi-powersave.service
 systemctl start wifi-powersave.service
-```
-#### 4.2 配置systemd-networkd
-```bash
+# 配置systemd-networkd
 apt install -y systemd-networkd systemd-resolved
 ```
 ```ini
@@ -148,8 +162,6 @@ IPv6AcceptRA=no
 # 重启systemd-networkd服务
 systemctl enable systemd-networkd
 systemctl start systemd-networkd
-```
-```bash
 # 编辑systemd-networkd服务
 systemctl edit systemd-networkd
 ```
@@ -167,22 +179,16 @@ Wants=wpa_supplicant.service
 ```bash
 systemctl daemon-reload
 systemctl restart systemd-networkd
-```
-#### 4.3 配置systemd-resolved
-```bash
+# 配置systemd-resolved
 systemctl enable --now systemd-resolved
 # 将系统的 DNS 配置文件链接到 systemd-resolved 管理的动态文件上，这样它就会自动更新。
 ln -sf /run/systemd/resolve/stub-resolv.conf /etc/resolv.conf
 resolvectl status
-```
-#### 4.4 关闭networking
-```bash
+# 关闭networking
 systemctl stop networking
 systemctl disable networking
 apt remove ifupdown
-```
-#### 4.5 重启
-```bash
+# 重启
 reboot
 ```
 
@@ -193,12 +199,20 @@ echo "PS1='\[\e[36;40m\][\D{%Y-%m-%d} \A] \[\e[0m\] \[\e[35;40m\]\w\[\e[0m\]\n\[
     && . ~/.bashrc
 
 # 打开自定义命令
+# debian
 sed -E -i.bak -e '/(export|eval|alias (ls|ll|l|rm|cp|mv))/s/^# //' ~/.bashrc \
     && . ~/.bashrc
+
+# almalinux
+# 默认开启
 ```
 
 ### 6. 配置SSH 
 ```bash
+# almalinux
+dnf install -y openssh-server \
+    && systemctl enable --now sshd \
+    && systemctl status sshd
 # 允许root密码登录
 # 允许密码登录
 # 解决SSH自动断开问题

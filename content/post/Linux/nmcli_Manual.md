@@ -1,12 +1,12 @@
 ---
-title: "使用 nmcli 配置网络"
+title: "使用 NetworkManager 配置网络"
 date: 2022-01-17T15:17:58+08:00
 # draft: true
 tags:
-- CLI
 - nmcli
-- network
+- NetworkManager
 - Linux
+- almalinux
 ---
 
 **`基于Centos 7`**
