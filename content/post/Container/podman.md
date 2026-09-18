@@ -75,20 +75,30 @@ podman run --rm hello-world
 - [Docker / Podman 安装与换源](https://wcbing.top/linux/containers/install/)
 - [国内 Docker 服务状态 & 镜像加速监控](https://status.1panel.top/status/docker)
 
-## 在CT虚拟机下安装
+## 在LXC容器下安装
 
 ### 修改特权容器
+> **LXC容器必须是特权容器，但创建CT时，默认为非特权容器，要特别注意！！！**
 ```bash
 nano /etc/pve/lxc/<CTID>.conf
 ```
 - 删除或注释掉 unprivileged: 1 这一行。
 - 确保没有 lxc.idmap 相关的UID/GID映射配置（如有则删除）。
 
-> **CT虚拟机必须是特权容器，但创建CT虚拟机时，默认为非特权容器，要特别注意！！！**
 
-> **CT虚拟机必须打开嵌套，要特别注意！！！**
+> **LXC容器必须打开嵌套，要特别注意！！！**
 
 ## 配置日志
+### Rootfull模式下使用
+```toml
+# /etc/systemd/journald.conf
+[Journal]
+RuntimeMaxUse=32M
+```
+```bash
+systemctl restart systemd-journald
+```
+### Rootless模式下使用
 ```toml
 # /etc/containers/containers.conf
 [containers]

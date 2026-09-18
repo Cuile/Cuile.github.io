@@ -197,7 +197,7 @@ sed -E -i.bak -e '/(export|eval|alias (ls|ll|l|rm|cp|mv))/s/^# //' ~/.bashrc \
     && . ~/.bashrc
 ```
 
-### 6. 配置 sshd
+### 6. 配置SSH 
 ```bash
 # 允许root密码登录
 # 允许密码登录
@@ -227,6 +227,12 @@ locale -a
 echo "export LANG=C.utf8" >> ~/.bashrc \
     && echo "export LC_CTYPE=C.utf8" >> ~/.bashrc \
     && . ~/.bashrc
+```
+
+### 8. 配置journald日志
+```bash
+echo "RuntimeMaxUse=32M" >> /etc/systemd/journald.conf \
+    && systemctl restart systemd-journald
 ```
 
 
