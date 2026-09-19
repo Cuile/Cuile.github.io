@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Pve on 瘦了就帅了</title><link>https://blog.cuile.com/tags/pve/</link><description>Recent content in Pve on 瘦了就帅了</description><generator>Hugo</generator><language>zh-cn</language><lastBuildDate>Sat, 19 Sep 2026 15:41:48 +0000</lastBuildDate><atom:link href="https://blog.cuile.com/tags/pve/index.xml" rel="self" type="application/rss+xml"/><item><title>ProxmoxVE 命令</title><link>https://blog.cuile.com/post/proxmox/cli/</link><pubDate>Tue, 27 Dec 2022 16:51:54 +0800</pubDate><guid>https://blog.cuile.com/post/proxmox/cli/</guid><description>&lt;p>&lt;a href="https://pve.proxmox.com/pve-docs/index.html">遇事不决，多读文档！&lt;/a>&lt;/p>
+&lt;h2 id="qemukvm虚拟机">QEMU/KVM虚拟机&lt;/h2>
+&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">&lt;span class="c1"># 增加硬盘空间&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1"># 建议从模板创建虚拟机后，再增加虚拟机硬盘的空间，这样可以保持模板的大小&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">qm disk resize &amp;lt;VM_ID&amp;gt; scsi0 +30G
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1"># 关闭&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">qm stop &amp;lt;vmid&amp;gt;
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1"># 如果关闭失败&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">qm list
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1"># 找到 vm 对应的 pid&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="nb">kill&lt;/span> &amp;lt;pid&amp;gt;
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1"># 删除&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">qm destroy &amp;lt;vmid&amp;gt; --destroy-unreferenced-disks &lt;span class="m">1&lt;/span> --purge &lt;span class="m">1&lt;/span> --skiplock &lt;span class="m">1&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1"># 强制删除&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">rm -f /etc/pve/nodes/*/*/&amp;lt;vm_id&amp;gt;.conf
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;ul>
+&lt;li>&lt;a href="https://blog.pulipuli.info/2014/08/proxmox-ve-fix-proxmox-ve-destroy.html#postcataproxmox-ve-fix-proxmox-ve-destroy.html0_anchor2">修復Proxmox VE：無法刪除虛擬機器&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;hr>
+&lt;h2 id="lxc容器">LXC容器&lt;/h2>
+&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">&lt;span class="c1"># 扩大硬盘&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1"># 将容器的 rootfs 增加到绝对大小&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">pct resize &amp;lt;lxc_id&amp;gt; rootfs &amp;lt;size&amp;gt;G
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1"># 将容器的 rootfs 增加相对大小&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">pct resize &amp;lt;lxc_id&amp;gt; rootfs +&amp;lt;size&amp;gt;G
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1"># 缩小硬盘&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1"># 备份lxc&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">vzdump &amp;lt;lxc_id&amp;gt; --mode stop --compress zstd --storage &amp;lt;storage_name&amp;gt;
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1"># 删除lxc&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">pct shutdown &amp;lt;lxc_id&amp;gt; 
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">pct destroy &amp;lt;lxc_id&amp;gt;
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1"># 恢复到指定大小，size默认单位是G&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">pct restore &amp;lt;lxc_id&amp;gt; /var/lib/vz/dump/&amp;lt;backup_name&amp;gt; --rootfs &amp;lt;storage_name&amp;gt;:&amp;lt;size&amp;gt;
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1"># 关闭&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">pct list
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">pct stop &amp;lt;vmid&amp;gt;
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;hr>
+&lt;h2 id="存储">存储&lt;/h2>
+&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">&lt;span class="c1"># 查看存储空间使用情况&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">pvesm status
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1"># 查看存储内的文件&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">pvesm list &amp;lt;storage_name&amp;gt;
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1"># 查看存储配置&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">cat /etc/pve/storage.cfg
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1"># 给local存储添加存储类型&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">pvesm &lt;span class="nb">set&lt;/span> &lt;span class="nb">local&lt;/span> --content snippets,rootdir,import,images,backup,vztmpl,iso
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1"># 注意！！！片段文件只能放在 /var/lib/vz/snippets/ 目录下，不支持子目录&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1"># 将local-lvm(LVM-Thin)合并到local&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1"># 移动虚拟机硬盘到local&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">qm disk move &amp;lt;vm_id&amp;gt; &amp;lt;disk&amp;gt; &amp;lt;storage_name&amp;gt; --format qcow2 --delete &lt;span class="m">1&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1"># 移动容器卷到local&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">pct move-volume &amp;lt;vm_id&amp;gt; &amp;lt;volume&amp;gt; &amp;lt;storage_name&amp;gt; --delete &lt;span class="m">1&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1"># 删除local-lvm存储&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">lvremove pve/data
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1"># 空间合并到local&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">lvextend -l +100%FREE -r pve/root
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1"># 在WebUI的“数据中心”-&amp;#34;存储&amp;#34;里，手动移除local-lvm&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div></description></item></channel></rss>
