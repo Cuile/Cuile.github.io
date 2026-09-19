@@ -4,18 +4,15 @@ date: 2022-12-27T16:51:54+08:00
 # draft: true
 
 tags:
-- CLI
 - ProxmoxVE
+- lxc
+- kvm
+- pve
 ---
 
 [遇事不决，多读文档！](https://pve.proxmox.com/pve-docs/index.html)
 
-## 虚拟机
-
-### 创建
-使用命令行创建 VM 非常方便，而且还可以使用各发行版的云镜像，快速创建速度又快，占用空间又小，非常方便。
-<script src="https://gist.github.com/Cuile/6e42bea498355d5cafaacfa66981daf9.js"></script>
-
+## QEMU/KVM虚拟机
 ```bash
 # 增加硬盘空间
 # 建议从模板创建虚拟机后，再增加虚拟机硬盘的空间，这样可以保持模板的大小
@@ -33,25 +30,38 @@ qm destroy <vmid> --destroy-unreferenced-disks 1 --purge 1 --skiplock 1
 
 # 强制删除
 rm -f /etc/pve/nodes/*/*/<vm_id>.conf
-# [修復Proxmox VE：無法刪除虛擬機器](https://blog.pulipuli.info/2014/08/proxmox-ve-fix-proxmox-ve-destroy.html#postcataproxmox-ve-fix-proxmox-ve-destroy.html0_anchor2)
 ```
+- [修復Proxmox VE：無法刪除虛擬機器](https://blog.pulipuli.info/2014/08/proxmox-ve-fix-proxmox-ve-destroy.html#postcataproxmox-ve-fix-proxmox-ve-destroy.html0_anchor2)
 ---
 ## LXC容器
-
 ```bash
+# 扩大硬盘
+# 将容器的 rootfs 增加到绝对大小
+pct resize <lxc_id> rootfs <size>G
+# 将容器的 rootfs 增加相对大小
+pct resize <lxc_id> rootfs +<size>G
+
+# 缩小硬盘
+# 备份lxc
+vzdump <lxc_id> --mode stop --compress zstd --storage <storage_name>
+# 删除lxc
+pct shutdown <lxc_id> 
+pct destroy <lxc_id>
+# 恢复到指定大小，size默认单位是G
+pct restore <lxc_id> /var/lib/vz/dump/<backup_name> --rootfs <storage_name>:<size>
+
 # 关闭
-pct stop <vmid>
 pct list
+pct stop <vmid>
 ```
 ---
 ## 存储
-
 ```bash
 # 查看存储空间使用情况
 pvesm status
 
 # 查看存储内的文件
-pvesm list <storage>
+pvesm list <storage_name>
 
 # 查看存储配置
 cat /etc/pve/storage.cfg
@@ -62,9 +72,9 @@ pvesm set local --content snippets,rootdir,import,images,backup,vztmpl,iso
 
 # 将local-lvm(LVM-Thin)合并到local
 # 移动虚拟机硬盘到local
-qm disk move <vmid> <disk> <storage> --format qcow2 --delete 1
+qm disk move <vm_id> <disk> <storage_name> --format qcow2 --delete 1
 # 移动容器卷到local
-pct move-volume <vmid> <volume> <storage> --delete 1
+pct move-volume <vm_id> <volume> <storage_name> --delete 1
 # 删除local-lvm存储
 lvremove pve/data
 # 空间合并到local
