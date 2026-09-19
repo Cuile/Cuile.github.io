@@ -63,7 +63,9 @@ dnf install -y podman python3 python3-pip \
     && podman --version ; podman info \
     && python3 -m pip install --upgrade pip \
     && python3 -m pip install podman-compose \
-    && podman-compose -v
+    && podman-compose -v \
+    && systemctl enable podman-restart.service \
+    && systemctl start podman-restart.service
 ```
 
 ## 3. 配置国内镜像源
@@ -97,7 +99,7 @@ podman run --rm hello-world
 - [国内 Docker 服务状态 & 镜像加速监控](https://status.1panel.top/status/docker)
 
 ## 5. 配置日志
-### Rootfull模式下使用
+### Rootful模式下使用
 ```toml
 # /etc/systemd/journald.conf
 [Journal]
