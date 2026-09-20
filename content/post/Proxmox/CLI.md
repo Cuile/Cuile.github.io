@@ -81,3 +81,38 @@ lvremove pve/data
 lvextend -l +100%FREE -r pve/root
 # 在WebUI的“数据中心”-"存储"里，手动移除local-lvm
 ```
+
+## 宿主机
+```bash
+# 修改主机名
+hostnamectl set-hostname <new_name>
+# 编辑/etc/hosts文件
+nano /etc/hosts
+```
+```text
+127.0.0.1       localhost.localdomain localhost
+192.168.x.xxx   <new_name>.<domain> <new_name>
+...
+```
+```bash
+# 重启 PVE 相关服务
+# 更新 SSL 证书
+systemctl restart pve-cluster \
+    && pvecm updatecerts --force \
+    && systemctl restart pveproxy pvedaemon
+
+# 修改监控数据目录
+systemctl stop rrdcached
+mv /var/lib/rrdcached/db/pve2-node/<old_name> /var/lib/rrdcached/db/pve2-node/<new_name>
+mv /var/lib/rrdcached/db/pve2-storage/<old_name> /var/lib/rrdcached/db/pve2-storage/<new_name>
+systemctl start rrdcached && systemctl restart pvedaemon pvestatd pveproxy
+# 迁移 LXC 配置
+mv /etc/pve/nodes/<old_name>/lxc/* /etc/pve/nodes/<new_name>/lxc/ 2>/dev/null
+# 迁移 QEMU 配置
+mv /etc/pve/nodes/<old_name>/qemu-server/* /etc/pve/nodes/<new_name>/qemu-server/ 2>/dev/null
+# 删除旧节点目录
+rm -rf /etc/pve/nodes/<old_name>
+
+# 重启
+reboot
+```
