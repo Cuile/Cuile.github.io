@@ -90,15 +90,7 @@ location = "ghcr.io"
 location = "ghcr.nju.edu.cn"
 ```
 
-## 4. 测试podman是否安装成功
-```bash
-podman run --rm hello-world
-```
-其实命令与Docker一致，非常方便好用。
-- [Docker / Podman 安装与换源](https://wcbing.top/linux/containers/install/)
-- [国内 Docker 服务状态 & 镜像加速监控](https://status.1panel.top/status/docker)
-
-## 5. 配置日志
+## 4. 配置日志
 ### Rootful模式下使用
 ```toml
 # /etc/systemd/journald.conf
@@ -117,3 +109,17 @@ log_driver = "k8s-file"
 # 设置日志文件大小上限 99 MB（例如 10 MiB = 10485760 字节）
 log_size_max = 103809024
 ```
+
+## 5. 修改 ping_group_range 行为
+```bash
+[containers]
+default_sysctls = []
+```
+
+## 6. 测试podman是否安装成功
+```bash
+podman run --rm hello-world
+```
+其实命令与Docker一致，非常方便好用。
+- [Docker / Podman 安装与换源](https://wcbing.top/linux/containers/install/)
+- [国内 Docker 服务状态 & 镜像加速监控](https://status.1panel.top/status/docker)
