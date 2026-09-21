@@ -249,12 +249,15 @@ echo "RuntimeMaxUse=32M" >> /etc/systemd/journald.conf \
     && systemctl restart systemd-journald
 ```
 
+### 9. 关闭IPv6
 
-## 配置防火墙
-[iptables 配置]({{< ref "iptables_Manual.md">}})
-- [Ubuntu 22 环境初始化](https://blog.hellowood.dev/posts/ubuntu-22-%E7%8E%AF%E5%A2%83%E5%88%9D%E5%A7%8B%E5%8C%96/#%E4%BF%AE%E6%94%B9-apt-%E6%BA%90)
+#### AlmaLinux
+```bash
+nmcli connection modify '<conn_name>' ipv6.method disabled \
+    && nmcli connection down '<conn_name>' && nmcli connection up '<conn_name>'
+```
 
-## 关闭IPv6
+#### Debian
 ```ini
 # /etc/sysctl.conf
 
@@ -276,6 +279,11 @@ sysctl -p
 ```bash
 reboot
 ```
+
+## 配置防火墙
+[iptables 配置]({{< ref "iptables_Manual.md">}})
+- [Ubuntu 22 环境初始化](https://blog.hellowood.dev/posts/ubuntu-22-%E7%8E%AF%E5%A2%83%E5%88%9D%E5%A7%8B%E5%8C%96/#%E4%BF%AE%E6%94%B9-apt-%E6%BA%90)
+
 
 ## 远程公私钥登录
 ```bash
