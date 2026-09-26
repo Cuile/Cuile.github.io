@@ -92,13 +92,33 @@ location = "ghcr.nju.edu.cn"
 
 ## 4. 配置日志
 ### Rootful模式下使用
-```toml
-# /etc/systemd/journald.conf
-[Journal]
+```bash
+cat >> /etc/systemd/journald.conf << 'EOF'
+# 限制磁盘上日志总大小（最关键的参数）
+SystemMaxUse=200M
+# 限制单个日志文件大小
+SystemMaxFileSize=50M
+# 限制保留的日志文件数量
+SystemMaxFiles=5
+# 运行时（内存中）日志大小，你已设置
 RuntimeMaxUse=32M
+EOF
 ```
 ```bash
 systemctl restart systemd-journald
+```
+```bash
+# 当 messages 超过 100M 时轮转，保留 3 个备份，并压缩旧文件。copytruncate 确保不需要重启 rsyslog
+cat > /etc/logrotate.d/messages << 'EOF'
+/var/log/messages {
+    size 100M
+    rotate 3
+    compress
+    missingok
+    notifempty
+    copytruncate
+}
+EOF
 ```
 ### Rootless模式下使用
 ```toml
