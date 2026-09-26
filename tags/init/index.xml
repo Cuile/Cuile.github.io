@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Init on 瘦了就帅了</title><link>https://blog.cuile.com/tags/init/</link><description>Recent content in Init on 瘦了就帅了</description><generator>Hugo</generator><language>zh-cn</language><lastBuildDate>Sat, 26 Sep 2026 16:52:53 +0000</lastBuildDate><atom:link href="https://blog.cuile.com/tags/init/index.xml" rel="self" type="application/rss+xml"/><item><title>Linux系统配置</title><link>https://blog.cuile.com/post/linux/configure_manual/</link><pubDate>Mon, 17 Jan 2022 11:07:07 +0800</pubDate><guid>https://blog.cuile.com/post/linux/configure_manual/</guid><description>&lt;h2 id="初始化配置">初始化配置&lt;/h2>
+&lt;h3 id="1软件更新">1.软件更新&lt;/h3>
+&lt;p>&lt;a href="https://blog.cuile.com/post/linux/repo_manual/">软件库管理&lt;/a>&lt;/p>
+&lt;h3 id="2-配置时间">2. 配置时间&lt;/h3>
+&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">&lt;span class="c1"># debian&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">apt install -y systemd-timesyncd
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1"># almalinux&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1"># systemd 是默认安装且无法卸载的核心基础包&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1"># 设置时区&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">timedatectl set-timezone Asia/Shanghai
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1"># 启动NTP服务&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">timedatectl set-ntp &lt;span class="nb">true&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-ini" data-lang="ini">&lt;span class="line">&lt;span class="cl">&lt;span class="c1">; debian&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1">; /etc/systemd/timesyncd.conf&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="k">[Time]&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="na">NTP&lt;/span>&lt;span class="o">=&lt;/span>&lt;span class="s">ntp.ntsc.ac.cn&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="na">FallbackNTP&lt;/span>&lt;span class="o">=&lt;/span>&lt;span class="s">ntp.aliyun.com ntp.tencent.com 0.cn.pool.ntp.org&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">&lt;span class="c1"># debian&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1"># 在LXC、Docker 或某些 VPS 环境中&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">dpkg-reconfigure tzdata
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h3 id="3-关闭邮件服务">3. 关闭邮件服务&lt;/h3>
+&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">systemctl stop &lt;span class="s1">&amp;#39;postfix@*&amp;#39;&lt;/span> &lt;span class="p">;&lt;/span> systemctl disable &lt;span class="s1">&amp;#39;postfix@\x2a&amp;#39;&lt;/span> &lt;span class="p">;&lt;/span> 
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1"># debian&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">apt purge -y postfix
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1"># almalinux&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">dnf remove -y postfix
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h3 id="4-配置网络">4. 配置网络&lt;/h3>
+&lt;h4 id="41-配置有线">4.1 配置有线&lt;/h4>
+&lt;h5 id="almalinux">AlmaLinux&lt;/h5>
+&lt;p>&lt;a href="https://blog.cuile.com/post/linux/nmcli_manual/">NetworkManager 配置网络&lt;/a>&lt;/p></description></item></channel></rss>

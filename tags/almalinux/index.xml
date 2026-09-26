@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Almalinux on 瘦了就帅了</title><link>https://blog.cuile.com/tags/almalinux/</link><description>Recent content in Almalinux on 瘦了就帅了</description><generator>Hugo</generator><language>zh-cn</language><lastBuildDate>Sat, 26 Sep 2026 16:52:53 +0000</lastBuildDate><atom:link href="https://blog.cuile.com/tags/almalinux/index.xml" rel="self" type="application/rss+xml"/><item><title>使用 NetworkManager 配置网络</title><link>https://blog.cuile.com/post/linux/nmcli_manual/</link><pubDate>Mon, 17 Jan 2022 15:17:58 +0800</pubDate><guid>https://blog.cuile.com/post/linux/nmcli_manual/</guid><description>&lt;p>&lt;strong>&lt;code>基于Centos 7&lt;/code>&lt;/strong>&lt;/p>
+&lt;h2 id="查看设备信息">查看设备信息&lt;/h2>
+&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">&lt;span class="c1"># 简单接口状态&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">$ nmcli dev status
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1"># 详细的接口信息&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">$ nmcli dev show
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1"># 接口的详细信息&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">$ nmcli dev show &amp;lt;interface-name&amp;gt;
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="查看连接connection的信息">查看连接(connection)的信息&lt;/h2>
+&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">&lt;span class="c1"># 简单信息&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">$ nmcli conn show
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1"># 详细的连接信息&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">$ nmcli conn show
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1"># 某个连接的详细信息&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">$ nmcli conn show &amp;lt;conn-name&amp;gt;
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="创建连接">创建连接&lt;/h2>
+&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">nmcli conn add &lt;span class="nb">type&lt;/span> &amp;lt;ethernet&amp;gt; con-name &amp;lt;conn-name&amp;gt; ifname &amp;lt;dev-name&amp;gt; ip4 &amp;lt;192.168.100.100/24&amp;gt; &lt;span class="o">[&lt;/span>gw4 &amp;lt;192.168.100.1&amp;gt;&lt;span class="o">]&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="修改配置">修改配置&lt;/h2>
+&lt;h3 id="静态ip改动态ip">静态IP改动态IP&lt;/h3>
+&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">nmcli conn mod &amp;lt;conn-name&amp;gt; /
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> ipv4.method auto /
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> ipv4.address &lt;span class="s2">&amp;#34;&amp;#34;&lt;/span> /
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> ipv4.gateway &lt;span class="s2">&amp;#34;&amp;#34;&lt;/span> /
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> ipv4.dns &lt;span class="s2">&amp;#34;&amp;#34;&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h3 id="修改dns">修改DNS&lt;/h3>
+&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">$ nmcli conn mod &amp;lt;conn-name&amp;gt; ipv4.dns &lt;span class="s2">&amp;#34;1.2.4.8&amp;#34;&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h3 id="设置自动连接">设置自动连接&lt;/h3>
+&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">&lt;span class="c1"># 查询和显示所有网络连接的自动连接属性的当前值&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">$ nmcli -f name,autoconnect connection
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1"># 更改网络连接的属性值&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">$ nmcli conn mod &amp;lt;conn-name&amp;gt; connection.autoconnect yes
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h3 id="配置生效">配置生效&lt;/h3>
+&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">nmcli conn up &amp;lt;conn-name&amp;gt;
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="激活连接">激活连接&lt;/h2>
+&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">$ nmcli conn up &amp;lt;conn-name&amp;gt;
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">$ nmcli conn down &amp;lt;conn-name&amp;gt;
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">$ nmcli dev connect &amp;lt;dev-name&amp;gt;
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">$ nmcli dev disconnect &amp;lt;dev-name&amp;gt;
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;blockquote>
+&lt;p>建议使用 nmcli dev disconnect interface-name 命令，而不是 nmcli con down connection-name 命令，因为连接断开可将该接口放到“手动”模式，这样做用户让 NetworkManager 启动某个连接前，或发生外部事件（比如载波变化、休眠或睡眠）前，不会启动任何自动连接。&lt;/p></description></item><item><title>Linux系统配置</title><link>https://blog.cuile.com/post/linux/configure_manual/</link><pubDate>Mon, 17 Jan 2022 11:07:07 +0800</pubDate><guid>https://blog.cuile.com/post/linux/configure_manual/</guid><description>&lt;h2 id="初始化配置">初始化配置&lt;/h2>
+&lt;h3 id="1软件更新">1.软件更新&lt;/h3>
+&lt;p>&lt;a href="https://blog.cuile.com/post/linux/repo_manual/">软件库管理&lt;/a>&lt;/p>
+&lt;h3 id="2-配置时间">2. 配置时间&lt;/h3>
+&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">&lt;span class="c1"># debian&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">apt install -y systemd-timesyncd
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1"># almalinux&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1"># systemd 是默认安装且无法卸载的核心基础包&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1"># 设置时区&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">timedatectl set-timezone Asia/Shanghai
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1"># 启动NTP服务&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">timedatectl set-ntp &lt;span class="nb">true&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-ini" data-lang="ini">&lt;span class="line">&lt;span class="cl">&lt;span class="c1">; debian&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1">; /etc/systemd/timesyncd.conf&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="k">[Time]&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="na">NTP&lt;/span>&lt;span class="o">=&lt;/span>&lt;span class="s">ntp.ntsc.ac.cn&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="na">FallbackNTP&lt;/span>&lt;span class="o">=&lt;/span>&lt;span class="s">ntp.aliyun.com ntp.tencent.com 0.cn.pool.ntp.org&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">&lt;span class="c1"># debian&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1"># 在LXC、Docker 或某些 VPS 环境中&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">dpkg-reconfigure tzdata
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h3 id="3-关闭邮件服务">3. 关闭邮件服务&lt;/h3>
+&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">systemctl stop &lt;span class="s1">&amp;#39;postfix@*&amp;#39;&lt;/span> &lt;span class="p">;&lt;/span> systemctl disable &lt;span class="s1">&amp;#39;postfix@\x2a&amp;#39;&lt;/span> &lt;span class="p">;&lt;/span> 
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1"># debian&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">apt purge -y postfix
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1"># almalinux&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">dnf remove -y postfix
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h3 id="4-配置网络">4. 配置网络&lt;/h3>
+&lt;h4 id="41-配置有线">4.1 配置有线&lt;/h4>
+&lt;h5 id="almalinux">AlmaLinux&lt;/h5>
+&lt;p>&lt;a href="https://blog.cuile.com/post/linux/nmcli_manual/">NetworkManager 配置网络&lt;/a>&lt;/p></description></item></channel></rss>
