@@ -103,8 +103,7 @@ SystemMaxFiles=5
 # 运行时（内存中）日志大小，你已设置
 RuntimeMaxUse=32M
 EOF
-```
-```bash
+
 systemctl restart systemd-journald
 ```
 ```bash
