@@ -1,5 +1,5 @@
 ---
-title: "Docker Compose 指令"
+title: "Compose 指令"
 date: 2022-07-19T11:31:21+08:00
 # draft: true
 

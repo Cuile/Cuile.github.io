@@ -68,7 +68,9 @@ dnf install -y podman python3 python3-pip \
     && systemctl start podman-restart.service
 ```
 
-## 3. 配置国内镜像源
+## 3. 加速
+国内镜像源与代理二选一，但考虑到未来的日常使用，还是换源简单一些。
+### 3.1 国内镜像源
 ```toml
 # nano /etc/containers/registries.conf
 unqualified-search-registries = ["docker.io"]
@@ -89,11 +91,32 @@ location = "ghcr.io"
 [[registry.mirror]]
 location = "ghcr.nju.edu.cn"
 ```
+### 3.2 代理
+```bash
+# 全局设置后，容器内外都会自动使用代理
+# host.containers.internal是宿主机专用主机名
+tee -a /etc/containers/containers.conf > /dev/null << 'EOF'
+[engine]
+env = [
+    "HTTP_PROXY=http://127.0.0.1:5432",
+    "HTTPS_PROXY=http://127.0.0.1:5432",
+    "NO_PROXY=localhost,127.0.0.1"
+]
+[containers]
+http_proxy = false
+env = [
+    "http_proxy=http://host.containers.internal:5432",
+    "https_proxy=http://host.containers.internal:5432",
+    "no_proxy=localhost,127.0.0.1"
+]
+EOF
+```
 
 ## 4. 配置日志
-### Rootful模式下使用
+### 4.1 Rootful模式
+#### 4.1.1 使用Journald
 ```bash
-cat >> /etc/systemd/journald.conf << 'EOF'
+tee -a /etc/systemd/journald.conf > /dev/null << 'EOF'
 # 限制磁盘上日志总大小（最关键的参数）
 SystemMaxUse=200M
 # 限制单个日志文件大小
@@ -104,11 +127,8 @@ SystemMaxFiles=5
 RuntimeMaxUse=32M
 EOF
 
-systemctl restart systemd-journald
-```
-```bash
 # 当 messages 超过 100M 时轮转，保留 3 个备份，并压缩旧文件。copytruncate 确保不需要重启 rsyslog
-cat > /etc/logrotate.d/messages << 'EOF'
+tee -a /etc/logrotate.d/messages > /dev/null << 'EOF'
 /var/log/messages {
     size 100M
     rotate 3
@@ -118,8 +138,10 @@ cat > /etc/logrotate.d/messages << 'EOF'
     copytruncate
 }
 EOF
+
+systemctl restart systemd-journald
 ```
-### Rootless模式下使用
+#### 4.1.2 使用自定义
 ```toml
 # /etc/containers/containers.conf
 [containers]
@@ -128,6 +150,10 @@ log_driver = "k8s-file"
 # 设置日志文件大小上限 99 MB（例如 10 MiB = 10485760 字节）
 log_size_max = 103809024
 ```
+
+### 4.2 Rootless模式
+> 在Compose文件中设置
+
 
 ## 5. 修改 ping_group_range 行为
 ```bash
