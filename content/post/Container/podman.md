@@ -105,9 +105,9 @@ env = [
 [containers]
 http_proxy = false
 env = [
-    "http_proxy=http://host.containers.internal:5432",
-    "https_proxy=http://host.containers.internal:5432",
-    "no_proxy=localhost,127.0.0.1"
+    "HTTP_PROXY=http://host.containers.internal:5432",
+    "HTTPS_PROXY=http://host.containers.internal:5432",
+    "NO_PROXY=localhost,127.0.0.1"
 ]
 EOF
 ```
