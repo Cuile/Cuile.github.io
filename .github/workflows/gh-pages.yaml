@@ -1,38 +1,29 @@
-name: Deploy Github Pages
+name: Deploy GitHub Pages
 
 on:
-  # 当推送到默认分支（master）时触发
   push:
     branches:
-      - master  # Set a branch to deploy
-  
-  # 允许从 GitHub Actions 页面手动触发
+      - master
   workflow_dispatch:
 
-# 设置默认 shell 为 bash
-defaults:
-  run:
-    shell: bash
+permissions:
+  contents: read
+  pages: write
+  id-token: write
 
-# 并发控制
-# 同一时间只允许一个部署任务运行
-# 如果有新的部署请求，会排队等待当前任务完成
-# 不会取消正在进行的部署，确保生产环境部署的完整性
 concurrency:
-  group: "pages"
-  cancel-in-progress: false
+  group: pages
+  cancel-in-progress: true
 
 jobs:
-  deploy:
+  build:
     runs-on: ubuntu-24.04
-    env:
-      FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: true
     steps:
       - name: Checkout
-        uses: actions/checkout@v6
+        uses: actions/checkout@v4
         with:
-          submodules: true  # Fetch Hugo themes (true OR recursive)
-          fetch-depth: 0    # Fetch all history for .GitInfo and .Lastmod
+          submodules: true
+          fetch-depth: 0
 
       - name: Setup Hugo
         uses: peaceiris/actions-hugo@v3
@@ -40,12 +31,25 @@ jobs:
           hugo-version: '0.147.9'
           extended: true
 
+      - name: Setup Pages
+        id: pages
+        uses: actions/configure-pages@v5
+
       - name: Build Web
         run: hugo --minify --gc
-        
-      - name: Deploy Web
-        uses: peaceiris/actions-gh-pages@v4
+
+      - name: Upload Pages artifact
+        uses: actions/upload-pages-artifact@v3
         with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ./public
-          publish_branch: gh-pages
+          path: ./public
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-24.04
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
