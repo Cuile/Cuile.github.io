@@ -1,55 +1,14 @@
-name: Deploy GitHub Pages
+name: GitHub Pages (manual)
+
+# This repository intentionally relies on GitHub's built-in Pages deployment.
+# The official workflow `pages/build-deployment` is the only auto-deploy path.
+# Keep this workflow manual-only so it does not interfere with the default Pages pipeline.
 
 on:
-  push:
-    branches:
-      - master
   workflow_dispatch:
 
-permissions:
-  contents: read
-  pages: write
-  id-token: write
-
-concurrency:
-  group: pages
-  cancel-in-progress: true
-
 jobs:
-  build:
+  noop:
     runs-on: ubuntu-24.04
     steps:
-      - name: Checkout
-        uses: actions/checkout@v4
-        with:
-          submodules: true
-          fetch-depth: 0
-
-      - name: Setup Hugo
-        uses: peaceiris/actions-hugo@v3
-        with:
-          hugo-version: '0.147.9'
-          extended: true
-
-      - name: Setup Pages
-        id: pages
-        uses: actions/configure-pages@v5
-
-      - name: Build Web
-        run: hugo --minify --gc
-
-      - name: Upload Pages artifact
-        uses: actions/upload-pages-artifact@v3
-        with:
-          path: ./public
-
-  deploy:
-    needs: build
-    runs-on: ubuntu-24.04
-    environment:
-      name: github-pages
-      url: ${{ steps.deployment.outputs.page_url }}
-    steps:
-      - name: Deploy to GitHub Pages
-        id: deployment
-        uses: actions/deploy-pages@v4
+      - run: echo "GitHub Pages is managed by the official GitHub Pages workflow."
