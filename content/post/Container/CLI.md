@@ -9,25 +9,30 @@ tags:
 - container
 ---
 
-## Image 列表
+## 查看 Image 列表
 ```bash
 [docker | podman] image ls -a
 # or
 [docker | podman] images
 ```
 
-## Container 列表
+## 查看 Container 列表
 ```bash
 [docker | podman] container ls -a
 # or
 [docker | podman] ps
 ```
 
-## 查看输出
+## 查看 Container 日志
 ```bash
 [docker | podman] compose -f <yaml_file> logs [-f] [service name]
 # or
 [docker | podman] logs [-f] [container id]
+```
+
+## 查看运行日志
+```bash
+podman --log-level=debug <command> [options] IMAGE [COMMAND [ARG...]]
 ```
 
 ## 验证配置文件

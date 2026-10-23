@@ -100,14 +100,20 @@ tee -a /etc/containers/containers.conf > /dev/null << 'EOF'
 env = [
     "HTTP_PROXY=http://127.0.0.1:5432",
     "HTTPS_PROXY=http://127.0.0.1:5432",
-    "NO_PROXY=localhost,127.0.0.1"
+    "NO_PROXY=localhost,127.0.0.1",
+    "http_proxy=http://127.0.0.1:5432",
+    "https_proxy=http://127.0.0.1:5432",
+    "no_proxy=localhost,127.0.0.1"
 ]
 [containers]
 http_proxy = false
 env = [
     "HTTP_PROXY=http://host.containers.internal:5432",
     "HTTPS_PROXY=http://host.containers.internal:5432",
-    "NO_PROXY=localhost,127.0.0.1"
+    "NO_PROXY=localhost,127.0.0.1",
+    "http_proxy=http://host.containers.internal:5432",
+    "https_proxy=http://host.containers.internal:5432",
+    "no_proxy=localhost,127.0.0.1",
 ]
 EOF
 ```
