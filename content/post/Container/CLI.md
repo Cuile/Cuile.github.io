@@ -23,16 +23,9 @@ tags:
 [docker | podman] ps
 ```
 
-## 查看 Container 日志
+## 删除冗余 Image 
 ```bash
-[docker | podman] compose -f <yaml_file> logs [-f] [service name]
-# or
-[docker | podman] logs [-f] [container id]
-```
-
-## 查看运行日志
-```bash
-podman --log-level=debug <command> [options] IMAGE [COMMAND [ARG...]]
+echo 'y'  |  [docker | podman] system prune
 ```
 
 ## 验证配置文件
@@ -40,9 +33,16 @@ podman --log-level=debug <command> [options] IMAGE [COMMAND [ARG...]]
 [docker | podman] compose -f <yaml_file> config
 ```
 
-## 删除冗余 Image 
+## 查看 Container 日志
 ```bash
-echo 'y'  |  [docker | podman] system prune
+[docker | podman] compose -f <yaml_file> logs [-f] [service name]
+# or
+[docker | podman] logs [-f] [container id]
+```
+
+## 查看详细运行日志
+```bash
+podman --log-level=debug <command> [options] IMAGE [COMMAND [ARG...]]
 ```
 
 ## 导入/导出 Image

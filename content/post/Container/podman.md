@@ -94,7 +94,6 @@ location = "ghcr.nju.edu.cn"
 ### 3.2 代理
 ```bash
 # 全局设置后，容器内外都会自动使用代理
-# host.containers.internal是宿主机专用主机名
 tee -a /etc/containers/containers.conf > /dev/null << 'EOF'
 [engine]
 env = [
@@ -106,15 +105,18 @@ env = [
     "no_proxy=localhost,127.0.0.1"
 ]
 [containers]
+# 容器内不使用上面的代理设置，设为true则自动继承
 http_proxy = false
-env = [
-    "HTTP_PROXY=http://host.containers.internal:5432",
-    "HTTPS_PROXY=http://host.containers.internal:5432",
-    "NO_PROXY=localhost,127.0.0.1",
-    "http_proxy=http://host.containers.internal:5432",
-    "https_proxy=http://host.containers.internal:5432",
-    "no_proxy=localhost,127.0.0.1",
-]
+# host.containers.internal是宿主机专用主机名
+# 注释代理信息是因为会影响到容器运行的网络
+# env = [
+#     "HTTP_PROXY=http://host.containers.internal:5432",
+#     "HTTPS_PROXY=http://host.containers.internal:5432",
+#     "NO_PROXY=localhost,127.0.0.1",
+#     "http_proxy=http://host.containers.internal:5432",
+#     "https_proxy=http://host.containers.internal:5432",
+#     "no_proxy=localhost,127.0.0.1",
+# ]
 EOF
 ```
 
